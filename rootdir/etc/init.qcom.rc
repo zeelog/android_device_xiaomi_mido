@@ -503,7 +503,7 @@ service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
 service charger /sbin/chargeonlymode
     class charger
     group system graphics
-    seclabel u:r:charger:s0
+    seclabel u:r:healthd:s0
 
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core
