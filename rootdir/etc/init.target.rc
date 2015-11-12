@@ -104,7 +104,7 @@ service adsprpcd /system/vendor/bin/adsprpcd
    group media
 
 service wcnss-service /system/vendor/bin/wcnss_service
-    class main
+    class late_start
     user system
     group system wifi radio
     oneshot
