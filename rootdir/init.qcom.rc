@@ -487,6 +487,8 @@ on property:bluetooth.hciattach=false
 
 service netmgrd /system/vendor/bin/netmgrd
     class main
+    user root
+    group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
 service ipacm-diag /system/vendor/bin/ipacm-diag
