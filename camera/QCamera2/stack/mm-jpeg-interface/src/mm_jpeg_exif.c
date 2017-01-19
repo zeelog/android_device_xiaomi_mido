@@ -566,6 +566,12 @@ int process_meta_data(metadata_buffer_t *p_meta, QOMX_EXIF_INFO *exif_info,
       }
     } else {
       /* HAL V3 */
+      IF_META_AVAILABLE(cam_3a_params_t, l_3a_params, CAM_INTF_META_AEC_INFO,
+          p_meta) {
+        p_3a_params = *l_3a_params;
+        is_3a_meta_valid = true;
+      }
+
       IF_META_AVAILABLE(int32_t, iso, CAM_INTF_META_SENSOR_SENSITIVITY, p_meta) {
         p_3a_params.iso_value= *iso;
       } else {
