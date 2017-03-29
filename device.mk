@@ -248,6 +248,10 @@ PRODUCT_PACKAGES += \
     libhwbinder \
     libhwbinder.vendor
 
+# Folio
+PRODUCT_PACKAGES += \
+    folio_daemon
+
 # IMS
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay \

@@ -196,3 +196,15 @@ service vendor.sensors.qti /vendor/bin/sensors.qti
     user system
     group system
     disabled
+
+service vendor.folio_daemon /vendor/bin/folio_daemon
+    class late_start
+    user system
+    group system uhid
+    disabled
+
+on property:init.svc.zygote=running
+    start vendor.folio_daemon
+
+on property:init.svc.zygote=stopped
+    stop vendor.folio_daemon

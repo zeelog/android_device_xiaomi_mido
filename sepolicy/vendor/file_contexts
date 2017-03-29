@@ -68,3 +68,6 @@
 
 # Vibrator
 /sys/module/qti_haptics/parameters/vmax_mv_override          u:object_r:sysfs_vibrator:s0
+
+# Folio daemon
+/vendor/bin/folio_daemon                                                                                                    u:object_r:folio_daemon_exec:s0
