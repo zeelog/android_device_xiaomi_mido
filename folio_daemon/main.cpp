@@ -15,6 +15,7 @@
  */
 
 #include <fcntl.h>
+#include <time.h>
 #include <unistd.h>
 #include <linux/input.h>
 #include <linux/uinput.h>
@@ -24,6 +25,9 @@
 
 // Hall-effect sensor type
 #define SENSOR_TYPE 33171016
+
+// Warn if the polling loop yields zero events at most once every five seconds.
+#define WARN_PERIOD (time_t)5
 
 /*
  * This simple daemon listens for events from the Hall-effect sensor and writes
@@ -38,6 +42,7 @@ int main(void) {
     ASensorRef hallSensor;
     ALooper *looper;
     ASensorEventQueue *eventQueue = nullptr;
+    time_t lastWarn = 0;
 
     ALOGI("Started");
 
@@ -103,6 +108,7 @@ int main(void) {
 
     // Polling loop
     while (ALooper_pollAll(-1, NULL, NULL, NULL) == 0) {
+        int eventCount = 0;
         ASensorEvent sensorEvent;
         while (ASensorEventQueue_getEvents(eventQueue, &sensorEvent, 1) > 0) {
             // 1 means closed; 0 means open
@@ -129,6 +135,18 @@ int main(void) {
             }
 
             ALOGI("Sent lid %s event", isClosed ? "closed" : "open");
+            eventCount++;
+        }
+
+        /*
+         * Bug 37402669: If ALooper_pollAll() returns when there are no sensor
+         * events, make a note of this in the log for debugging. Since this can
+         * cause the loop to be infinitely busy, throttle the warnings to once
+         * every five seconds to prevent log spam.
+         */
+        if (eventCount == 0 && time(NULL) >= lastWarn + WARN_PERIOD) {
+            ALOGW("Poll returned with zero events: %s", strerror(errno));
+            lastWarn = time(NULL);
         }
     }
 
