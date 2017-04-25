@@ -15,7 +15,6 @@
  */
 
 #include <fcntl.h>
-#include <time.h>
 #include <unistd.h>
 #include <linux/input.h>
 #include <linux/uinput.h>
@@ -138,15 +137,9 @@ int main(void) {
             eventCount++;
         }
 
-        /*
-         * Bug 37402669: If ALooper_pollAll() returns when there are no sensor
-         * events, make a note of this in the log for debugging. Since this can
-         * cause the loop to be infinitely busy, throttle the warnings to once
-         * every five seconds to prevent log spam.
-         */
-        if (eventCount == 0 && time(NULL) >= lastWarn + WARN_PERIOD) {
-            ALOGW("Poll returned with zero events: %s", strerror(errno));
-            lastWarn = time(NULL);
+        if (eventCount == 0) {
+            ALOGE("Poll returned with zero events: %s", strerror(errno));
+            break;
         }
     }
 
