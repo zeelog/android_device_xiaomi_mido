@@ -15,6 +15,7 @@
  */
 
 #include <fcntl.h>
+#include <time.h>
 #include <unistd.h>
 #include <linux/input.h>
 #include <linux/uinput.h>
@@ -25,8 +26,9 @@
 // Hall-effect sensor type
 #define SENSOR_TYPE 33171016
 
-// Warn if the polling loop yields zero events at most once every five seconds.
-#define WARN_PERIOD (time_t)5
+#define RETRY_LIMIT     120
+#define RETRY_PERIOD    30          // 30 seconds
+#define WARN_PERIOD     (time_t)300 // 5 minutes
 
 /*
  * This simple daemon listens for events from the Hall-effect sensor and writes
@@ -42,6 +44,7 @@ int main(void) {
     ALooper *looper;
     ASensorEventQueue *eventQueue = nullptr;
     time_t lastWarn = 0;
+    int attemptCount = 0;
 
     ALOGI("Started");
 
@@ -82,10 +85,29 @@ int main(void) {
 
     // Get Hall-effect sensor events from the NDK
     sensorManager = ASensorManager_getInstanceForPackage(nullptr);
-    hallSensor = ASensorManager_getDefaultSensor(sensorManager, SENSOR_TYPE);
-    if (hallSensor == nullptr) {
-        ALOGE("Unable to get Hall-effect sensor");
-        goto out;
+    /*
+     * As long as we are unable to get the sensor handle, periodically retry
+     * and emit an error message at a low frequency to prevent high CPU usage
+     * and log spam. If we simply exited with an error here, we would be
+     * immediately restarted and fail in the same way indefinitely.
+     */
+    while (true) {
+        time_t now = time(NULL);
+        hallSensor = ASensorManager_getDefaultSensor(sensorManager,
+                                                     SENSOR_TYPE);
+        if (hallSensor != nullptr) {
+            break;
+        }
+
+        if (++attemptCount >= RETRY_LIMIT) {
+            ALOGE("Retries exhausted; exiting");
+            goto out;
+        } else if (now > lastWarn + WARN_PERIOD) {
+            ALOGE("Unable to get Hall-effect sensor");
+            lastWarn = now;
+        }
+
+        sleep(RETRY_PERIOD);
     }
 
     looper = ALooper_forThread();
