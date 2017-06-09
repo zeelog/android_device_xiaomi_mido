@@ -4175,11 +4175,27 @@ no_error:
                 meta.find(ANDROID_COLOR_CORRECTION_ABERRATION_MODE).data.u8[0];
     }
     pendingRequest.fwkCacMode = mCacMode;
-
     PendingBuffersInRequest bufsForCurRequest;
     bufsForCurRequest.frame_number = frameNumber;
     // Mark current timestamp for the new request
-    bufsForCurRequest.timestamp = systemTime(CLOCK_MONOTONIC);
+    List<PendingBuffersInRequest>::iterator bufsForPrevRequest;
+    if ( mPendingBuffersMap.mPendingBuffersInRequest.size() > 0 ) {
+        bufsForPrevRequest = mPendingBuffersMap.mPendingBuffersInRequest.end();
+        bufsForPrevRequest --;
+        if ( systemTime(CLOCK_MONOTONIC) > bufsForPrevRequest->timestamp ) {
+           bufsForCurRequest.timestamp = systemTime(CLOCK_MONOTONIC);
+        } else {
+           bufsForCurRequest.timestamp = bufsForPrevRequest->timestamp;
+        }
+     } else {
+        bufsForCurRequest.timestamp = systemTime(CLOCK_MONOTONIC);
+    }
+
+    if (meta.exists(ANDROID_SENSOR_EXPOSURE_TIME)) {
+        int64_t sensorExpTime =
+               meta.find(ANDROID_SENSOR_EXPOSURE_TIME).data.i64[0];
+        bufsForCurRequest.timestamp += sensorExpTime;
+    }
 
     for (size_t i = 0; i < request->num_output_buffers; i++) {
         RequestedBufferInfo requestedBuf;
@@ -4349,6 +4365,7 @@ no_error:
       // Make timeout as 5 sec for request to be honored
       ts.tv_sec += 5;
     }
+      ts.tv_sec += ((bufsForCurRequest.timestamp - systemTime(CLOCK_MONOTONIC))/1000000000);
     //Block on conditional variable
     while ((mPendingLiveRequest >= mMinInFlightRequests) && !pInputBuffer &&
             (mState != ERROR) && (mState != DEINIT)) {
