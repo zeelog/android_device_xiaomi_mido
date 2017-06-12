@@ -31,10 +31,10 @@
 #define __QCAMERA3HARDWAREINTERFACE_H__
 
 // System dependencies
+#include <CameraMetadata.h>
 #include <pthread.h>
 #include <utils/KeyedVector.h>
 #include <utils/List.h>
-#include "CameraMetadata.h"
 
 // Camera dependencies
 #include "hardware/camera3.h"
@@ -50,12 +50,11 @@ extern "C" {
 #include "mm_jpeg_interface.h"
 }
 
+using ::android::hardware::camera::common::V1_0::helper::CameraMetadata;
 using namespace android;
 
 
 namespace qcamera {
-
-using ::android::hardware::camera::common::V1_0::helper::CameraMetadata;
 
 #ifndef TRUE
 #define TRUE 1
