@@ -226,14 +226,14 @@ on boot
     write /dev/cpuset/system-background/uclamp.boosted 0
     write /dev/cpuset/system-background/uclamp.latency_sensitive 0
 
-service vendor.folio_daemon /vendor/bin/folio_daemon
+service folio_daemon /system/bin/folio_daemon
     class late_start
     user system
     group system uhid
     disabled
 
 on property:init.svc.zygote=running
-    start vendor.folio_daemon
+    start folio_daemon
 
 on property:init.svc.zygote=stopped
-    stop vendor.folio_daemon
+    stop folio_daemon
