@@ -13,6 +13,7 @@ persist.vendor.audio.fluence.speaker=true \
 persist.vendor.audio.fluence.voicecall=true \
 persist.vendor.audio.fluence.voicerec=true \
 persist.vendor.bt.enable.splita2dp=false \
+ro.config.media_vol_steps=25 \
 ro.vendor.audio.sdk.fluencetype=fluence \
 ro.vendor.audio.sdk.ssr=false \
 vendor.audio.flac.sw.decoder.24bit=true \
