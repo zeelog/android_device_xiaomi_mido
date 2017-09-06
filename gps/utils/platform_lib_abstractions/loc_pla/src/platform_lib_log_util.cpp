@@ -26,6 +26,7 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #include <cstdio>
+#include <sys/time.h>
 
 #include "platform_lib_log_util.h"
 #include "platform_lib_macros.h"
