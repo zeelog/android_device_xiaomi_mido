@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
+#include <errno.h>
 #include <fcntl.h>
+#include <string.h>
 #include <time.h>
 #include <unistd.h>
 #include <linux/input.h>
