@@ -140,6 +140,10 @@ persist.rild.nitz_short_ons_1="" \
 persist.rild.nitz_short_ons_2="" \
 persist.rild.nitz_short_ons_3=""
 
+# Property to enable display default color mode
+PRODUCT_PROPERTY_OVERRIDES += \
+vendor.display.enable_default_color_mode=1
+
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
 DEVICE_PROVISIONED=1 \
