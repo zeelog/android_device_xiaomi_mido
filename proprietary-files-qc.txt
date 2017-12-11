@@ -145,6 +145,14 @@ vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 
+# FM - from OnePlus3 Oreo beta - OPR6.170623.013
+-lib/vendor.qti.hardware.fm@1.0.so|52917e3833a79a220928659e2a1045516fd65de0
+-lib64/vendor.qti.hardware.fm@1.0.so|733726f15ab93a2c621bc3a0bc15442fd4a00dd0
+vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so|9967a5f410e0ee86a38b25a5cbdf293485851668
+vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so|f6ef56c5505866408bad1b2fe0a01cf58d6d129c
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|25b5f6f12fd97105ce8a550449809f84bc5d2be6
+vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so|e445debb25a2dc96a28229533f85545a5bef3343
+
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8953.so
 vendor/lib64/hw/gatekeeper.msm8953.so
