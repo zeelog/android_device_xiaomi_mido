@@ -393,11 +393,12 @@ void* ipa_driver_msg_notifier(void *param)
 			}
 			memcpy(event_ex, buffer + sizeof(struct ipa_msg_meta), length);
 			data_ex = (ipacm_event_data_wlan_ex *)malloc(sizeof(ipacm_event_data_wlan_ex) + event_ex_o.num_of_attribs * sizeof(ipa_wlan_hdr_attrib_val));
-		    if (data_ex == NULL)
-		    {
+			if (data_ex == NULL)
+			{
 				IPACMERR("unable to allocate memory for event data\n");
-		    	return NULL;
-		    }
+				free(event_ex);
+				return NULL;
+			}
 			data_ex->num_of_attribs = event_ex->num_of_attribs;
 
 			memcpy(data_ex->attribs,
