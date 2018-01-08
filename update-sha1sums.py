@@ -18,10 +18,10 @@
 
 from hashlib import sha1
 
-device='mido'
+device='msm8953-common'
 vendor='xiaomi'
 
-lines = [ line for line in open('proprietary-files.txt', 'r') ]
+lines = [ line for line in open('proprietary-files-qc.txt', 'r') ]
 vendorPath = '../../../vendor/' + vendor + '/' + device + '/proprietary'
 needSHA1 = False
 
@@ -41,16 +41,17 @@ for index, line in enumerate(lines):
     if needSHA1:
         # Remove existing SHA1 hash
         line = line.split('|')[0]
+        filePath = line.split(':')[1] if len(line.split(':')) == 2 else line
 
-        if line[0] == '-':
-            file = open('%s/%s' % (vendorPath, line[1:]), 'rb').read()
+        if filePath[0] == '-':
+            file = open('%s/%s' % (vendorPath, filePath[1:]), 'rb').read()
         else:
-            file = open('%s/%s' % (vendorPath, line), 'rb').read()
+            file = open('%s/%s' % (vendorPath, filePath), 'rb').read()
 
         hash = sha1(file).hexdigest()
         lines[index] = '%s|%s\n' % (line, hash)
 
-with open('proprietary-files.txt', 'w') as file:
+with open('proprietary-files-qc.txt', 'w') as file:
     for line in lines:
         file.write(line)
 
