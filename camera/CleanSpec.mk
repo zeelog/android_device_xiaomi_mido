@@ -44,4 +44,4 @@
 #$(call add-clean-step, find $(OUT_DIR) -type f -name "IGTalkSession*" -print0 | xargs -0 rm -f)
 #$(call add-clean-step, rm -rf $(PRODUCT_OUT)/data/*)
 
-$(call add-clean-step, find $(OUT_DIR) -name "camera.msm8960*" -print0 | xargs -0 rm -rf)
+$(call add-clean-step, find $(OUT_DIR) -name "camera.msm8953*" -print0 | xargs -0 rm -rf)
