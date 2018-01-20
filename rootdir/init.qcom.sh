@@ -354,21 +354,14 @@ fi
 
 cur_version_info=`cat /firmware/verinfo/ver_info.txt`
 if [ ! -f /firmware/verinfo/ver_info.txt -o "$prev_version_info" != "$cur_version_info" ]; then
-    rm -rf /data/vendor/radio/modem_config
-    mkdir /data/vendor/radio/modem_config
-    chmod 770 /data/vendor/radio/modem_config
-    cp -r /firmware/image/modem_pr/mcfg/configs/* /data/vendor/radio/modem_config
-    chown -hR radio.radio /data/vendor/radio/modem_config
-    cp /firmware/verinfo/ver_info.txt /data/vendor/radio/ver_info.txt
-    chown radio.radio /data/vendor/radio/ver_info.txt
+    rm -rf /data/vendor/modem_config/*
+    # preserve the read only mode for all subdir and files
+    cp --preserve=m -dr /firmware/image/modem_pr/mcfg/configs/* /data/vendor/modem_config
+    cp --preserve=m -d /firmware/verinfo/ver_info.txt /data/vendor/modem_config/
+    cp --preserve=m -d /firmware/image/modem_pr/mbn_ota.txt /data/vendor/modem_config/
+    chown -hR radio.radio /data/vendor/modem_config/*
 fi
-cp /firmware/image/modem_pr/mbn_ota.txt /data/vendor/radio/modem_config
-chown radio.radio /data/vendor/radio/modem_config/mbn_ota.txt
-cp /firmware/image/modem_pr/mbn_oin.txt /data/misc/radio/modem_config
-chown radio.radio /data/misc/radio/modem_config/mbn_oin.txt
-cp /firmware/image/modem_pr/mbn_ogl.txt /data/misc/radio/modem_config
-chown radio.radio /data/misc/radio/modem_config/mbn_ogl.txt
-echo 1 > /data/vendor/radio/copy_complete
+setprop ro.runtime.mbn_copy_completed 1
 
 #check build variant for printk logging
 #current default minimum boot-time-default
