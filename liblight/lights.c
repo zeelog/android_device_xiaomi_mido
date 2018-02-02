@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014, 2017 The  Linux Foundation. All rights reserved.
+ * Copyright (C) 2014, 2017-2018 The  Linux Foundation. All rights reserved.
  * Not a contribution
  * Copyright (C) 2008 The Android Open Source Project
  *
@@ -49,15 +49,6 @@ static int g_last_backlight_mode = BRIGHTNESS_MODE_USER;
 static int g_attention = 0;
 static int g_brightness_max = 0;
 
-char const*const RED_LED_FILE
-        = "/sys/class/leds/red/brightness";
-
-char const*const GREEN_LED_FILE
-        = "/sys/class/leds/green/brightness";
-
-char const*const BLUE_LED_FILE
-        = "/sys/class/leds/blue/brightness";
-
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
@@ -67,18 +58,20 @@ char const*const LCD_FILE2
 char const*const BUTTON_FILE
         = "/sys/class/leds/button-backlight/brightness";
 
-char const*const RED_BLINK_FILE
-        = "/sys/class/leds/red/blink";
-
-char const*const GREEN_BLINK_FILE
-        = "/sys/class/leds/green/blink";
-
-char const*const BLUE_BLINK_FILE
-        = "/sys/class/leds/blue/blink";
-
 char const*const PERSISTENCE_FILE
         = "/sys/class/graphics/fb0/msm_fb_persist_mode";
 
+enum rgb_led {
+    LED_RED = 0,
+    LED_GREEN,
+    LED_BLUE,
+};
+
+char *led_names[] = {
+    "red",
+    "green",
+    "blue",
+};
 /**
  * device methods
  */
@@ -89,8 +82,7 @@ void init_globals(void)
     pthread_mutex_init(&g_lock, NULL);
 }
 
-static int
-write_int(char const* path, int value)
+static int write_int(char *path, int value)
 {
     int fd;
     static int already_warned = 0;
@@ -104,11 +96,44 @@ write_int(char const* path, int value)
         return amt == -1 ? -errno : 0;
     } else {
         if (already_warned == 0) {
-            ALOGE("write_int failed to open %s\n", path);
+            ALOGE("write_int failed to open %s, errno = %d\n", path, errno);
             already_warned = 1;
         }
         return -errno;
     }
+}
+
+static int write_string(char *path, char const* str)
+{
+    int fd;
+    static int already_warned = 0;
+
+    fd = open(path, O_RDWR);
+    if (fd >= 0) {
+        ssize_t amt = write(fd, str, strlen(str));
+        close(fd);
+        return amt == -1 ? -errno : 0;
+    } else {
+        if (already_warned == 0) {
+            ALOGE("write_string failed to open %s, errno=%d\n", path, errno);
+            already_warned = 1;
+        }
+        return -errno;
+    }
+}
+
+static bool file_exists(const char *file)
+{
+    int fd;
+
+    fd = open(file, O_RDWR);
+    if (fd < 0) {
+        ALOGE("failed to open %s, errno=%d\n", file, errno);
+        return false;
+    }
+
+    close(fd);
+    return true;
 }
 
 static int
@@ -187,29 +212,57 @@ set_light_backlight_ext(struct light_device_t* dev,
     return err;
 }
 
-static int
+static int set_rgb_led_brightness(enum rgb_led led, int brightness)
+{
+    char *file[48];
+
+    snprintf(file, sizeof(file), "/sys/class/leds/%s/brightness", led_names[led]);
+    return write_int(file, brightness);
+}
+
+static int set_rgb_led_timer_trigger(enum rgb_led led, int onMS, int offMS)
+{
+    char *file[48];
+    int rc;
+
+    snprintf(file, sizeof(file), "/sys/class/leds/%s/delay_off", led_names[led]);
+    rc = write_int(file, offMS);
+    if (rc < 0)
+        goto out;
+
+    snprintf(file, sizeof(file), "/sys/class/leds/%s/delay_on", led_names[led]);
+    rc = write_int(file, onMS);
+    if (rc < 0)
+        goto out;
+
+    return 0;
+out:
+    ALOGD("%s doesn't support timer trigger\n", led_names[led]);
+    return rc;
+}
+
+static int set_rgb_led_hw_blink(enum rgb_led led, int blink)
+{
+    char *file[48];
+
+    snprintf(file, sizeof(file), "/sys/class/leds/%s/breath", led_names[led]);
+    if (!file_exists(file))
+        snprintf(file, sizeof(file), "/sys/class/leds/%s/blink", led_names[led]);
+
+    return write_int(file, blink);
+}
+
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int red, green, blue;
-    int blink;
     int onMS, offMS;
     unsigned int colorRGB;
+    int blink = 0;
+    int rc = 0;
 
     if(!dev) {
         return -1;
-    }
-
-    switch (state->flashMode) {
-        case LIGHT_FLASH_TIMED:
-            onMS = state->flashOnMS;
-            offMS = state->flashOffMS;
-            break;
-        case LIGHT_FLASH_NONE:
-        default:
-            onMS = 0;
-            offMS = 0;
-            break;
     }
 
     colorRGB = state->color;
@@ -221,50 +274,49 @@ set_speaker_light_locked(struct light_device_t* dev,
       colorRGB  = state->color;
 #endif
 
-#if 0
-    ALOGD("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
-            state->flashMode, colorRGB, onMS, offMS);
-#endif
-
     red = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
     blue = colorRGB & 0xFF;
 
-    if (onMS > 0 && offMS > 0) {
-        /*
-         * if ON time == OFF time
-         *   use blink mode 2
-         * else
-         *   use blink mode 1
-         */
-        if (onMS == offMS)
-            blink = 2;
-        else
-            blink = 1;
-    } else {
-        blink = 0;
+    onMS = state->flashOnMS;
+    offMS = state->flashOffMS;
+
+    if (onMS != 0 && offMS != 0)
+        blink = 1;
+
+    switch (state->flashMode) {
+        case LIGHT_FLASH_HARDWARE:
+            if (!!red)
+                rc = set_rgb_led_hw_blink(LED_RED, blink);
+            if (!!green)
+                rc |= set_rgb_led_hw_blink(LED_GREEN, blink);
+            if (!!blue)
+                rc |= set_rgb_led_hw_blink(LED_BLUE, blink);
+            /* fallback to timed blinking if breath is not supported */
+            if (rc == 0)
+                break;
+        case LIGHT_FLASH_TIMED:
+            if (!!red)
+                rc = set_rgb_led_timer_trigger(LED_RED, onMS, offMS);
+            if (!!green)
+                rc |= set_rgb_led_timer_trigger(LED_GREEN, onMS, offMS);
+            if (!!blue)
+                rc |= set_rgb_led_timer_trigger(LED_BLUE, onMS, offMS);
+            /* fallback to constant on if timed blinking is not supported */
+            if (rc == 0)
+                break;
+        case LIGHT_FLASH_NONE:
+        default:
+            rc = set_rgb_led_brightness(LED_RED, red);
+            rc |= set_rgb_led_brightness(LED_GREEN, green);
+            rc |= set_rgb_led_brightness(LED_BLUE, blue);
+            break;
     }
 
-    if (blink) {
-        if (red) {
-            if (write_int(RED_BLINK_FILE, blink))
-                write_int(RED_LED_FILE, 0);
-    }
-        if (green) {
-            if (write_int(GREEN_BLINK_FILE, blink))
-                write_int(GREEN_LED_FILE, 0);
-    }
-        if (blue) {
-            if (write_int(BLUE_BLINK_FILE, blink))
-                write_int(BLUE_LED_FILE, 0);
-    }
-    } else {
-        write_int(RED_LED_FILE, red);
-        write_int(GREEN_LED_FILE, green);
-        write_int(BLUE_LED_FILE, blue);
-    }
+    ALOGD("set_speaker_light_locked mode=%d, colorRGB=%08X, onMS=%d, offMS=%d, rc=%d\n",
+            state->flashMode, colorRGB, onMS, offMS, rc);
 
-    return 0;
+    return rc;
 }
 
 static void
