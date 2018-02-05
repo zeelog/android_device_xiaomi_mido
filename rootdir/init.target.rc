@@ -54,8 +54,6 @@ on post-fs-data
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
     mkdir /persist/qti_fp 0700 system system
-    mkdir /data/misc/seemp 0700 system system
-    mkdir /data/misc/audio_pp 0771 media audio
 
 #Create folder for mm-qcamera-daemon
 mkdir /data/vendor/camera 0770 camera camera
