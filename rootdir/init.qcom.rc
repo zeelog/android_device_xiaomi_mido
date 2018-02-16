@@ -394,6 +394,8 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/wcd_cpe0/fw_name
 
 on property:vold.decrypt=trigger_restart_framework
+    stop camera-provider-2-4
+    start camera-provider-2-4
     start config_bt_addr
     start wcnss-service
 
