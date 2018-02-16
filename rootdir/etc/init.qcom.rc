@@ -354,6 +354,8 @@ on property:vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
 on property:vold.decrypt=trigger_restart_framework
+    stop vendor.camera-provider-2-4
+    start vendor.camera-provider-2-4
     start wcnss-service
 
 on property:persist.env.fastdorm.enabled=true
