@@ -154,6 +154,8 @@ on charger
     start thermal-engine
 
 on boot
+    chown system system /sys/kernel/hbtp/display_pwr
+
 # Flashlight
     chown root system /sys/class/leds/led:torch_1/max_brightness
     chmod 0660 /sys/class/leds/led:torch_1/max_brightness
