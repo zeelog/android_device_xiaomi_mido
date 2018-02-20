@@ -195,6 +195,7 @@ on boot
 	chown system system /dev/cpuset/camera-daemon
 	chown system system /dev/cpuset/camera-daemon/tasks
 	chmod 0664 /dev/cpuset/camera-daemon/tasks
+    chown system system /sys/kernel/hbtp/display_pwr
 
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
