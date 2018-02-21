@@ -555,6 +555,7 @@ service qcom-sh /vendor/bin/init.qcom.sh
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
     user root
+    group root system wakelock
     disabled
     oneshot
 
