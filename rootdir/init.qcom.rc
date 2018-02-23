@@ -555,6 +555,7 @@ service loc_launcher /system/vendor/bin/loc_launcher
 service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
+    group root system radio
     oneshot
 
 service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
