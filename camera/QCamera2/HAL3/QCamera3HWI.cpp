@@ -8573,7 +8573,7 @@ camera_metadata_t* QCamera3HardwareInterface::translateCapabilityToMetadata(int 
     /* CDS default */
     char prop[PROPERTY_VALUE_MAX];
     memset(prop, 0, sizeof(prop));
-    property_get("persist.camera.CDS", prop, "Auto");
+    property_get("persist.camera.CDS", prop, "Off");
     cam_cds_mode_type_t cds_mode = CAM_CDS_MODE_AUTO;
     cds_mode = lookupProp(CDS_MAP, METADATA_MAP_SIZE(CDS_MAP), prop);
     if (CAM_CDS_MODE_MAX == cds_mode) {
