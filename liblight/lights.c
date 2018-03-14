@@ -33,7 +33,6 @@
 #include <sys/types.h>
 
 #include <hardware/lights.h>
-#include "lights_prv.h"
 
 #ifndef DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS
 #define DEFAULT_LOW_PERSISTENCE_MODE_BRIGHTNESS 0x80
@@ -47,7 +46,6 @@ static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 static int g_last_backlight_mode = BRIGHTNESS_MODE_USER;
 static int g_attention = 0;
-static int g_brightness_max = 0;
 
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
@@ -168,28 +166,6 @@ set_light_backlight(struct light_device_t* dev,
     }
 
     pthread_mutex_unlock(&g_lock);
-    return err;
-}
-
-static int
-set_light_backlight_ext(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    int err = 0;
-
-    if(!dev) {
-        return -1;
-    }
-
-    int brightness = state->color & 0x00ffffff;
-    pthread_mutex_lock(&g_lock);
-
-    if (brightness >= 0 && brightness <= g_brightness_max) {
-        set_brightness_ext_level(brightness);
-    }
-
-    pthread_mutex_unlock(&g_lock);
-
     return err;
 }
 
@@ -387,17 +363,7 @@ static int open_lights(const struct hw_module_t* module, char const* name,
             struct light_state_t const* state);
 
     if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
-        char property[PROPERTY_VALUE_MAX];
-        property_get("persist.extend.brightness", property, "0");
-
-        if(!(strncmp(property, "1", PROPERTY_VALUE_MAX)) ||
-           !(strncmp(property, "true", PROPERTY_VALUE_MAX))) {
-            property_get("persist.display.max_brightness", property, "255");
-            g_brightness_max = atoi(property);
-            set_brightness_ext_init();
-            set_light = set_light_backlight_ext;
-        } else
-            set_light = set_light_backlight;
+        set_light = set_light_backlight;
     } else if (0 == strcmp(LIGHT_ID_BATTERY, name))
         set_light = set_light_battery;
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
