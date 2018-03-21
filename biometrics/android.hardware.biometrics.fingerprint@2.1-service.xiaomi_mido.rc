@@ -5,4 +5,5 @@ service fps_hal /vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-servi
     class late_start
     user system
     group system input
+    writepid /dev/cpuset/system-background/tasks
     disabled
