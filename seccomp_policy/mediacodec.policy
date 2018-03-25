@@ -1,0 +1,7 @@
+# device specific syscalls
+pselect6: 1
+eventfd2: 1
+sendto: 1
+recvfrom: 1
+sysinfo: 1
+getcwd: 1
