@@ -1,0 +1,19 @@
+allow hal_fingerprint_default gx_fpd:binder { transfer call };
+allow hal_fingerprint_default { fingerprint_service gx_fpd_service }:service_manager find;
+allow hal_fingerprint_default fpc_sysfs:file rw_file_perms;
+allow hal_fingerprint_default { fpc_data_file fpc_sysfs }:dir rw_dir_perms;
+allow hal_fingerprint_default { tee_device uhid_device }:chr_file rw_file_perms;
+allow hal_fingerprint_default fpc_data_file:sock_file create_file_perms;
+allow hal_fingerprint_default keystore:keystore_key add_auth;
+allow hal_fingerprint_default storage_file:dir search;
+allow hal_fingerprint_default media_rw_data_file:dir { open read search };
+allow hal_fingerprint_default mnt_user_file:dir search;
+allow hal_fingerprint_default mnt_user_file:lnk_file read;
+allow hal_fingerprint_default sdcardfs:dir search;
+allow hal_fingerprint_default storage_file:dir search;
+allow hal_fingerprint_default storage_file:lnk_file read;
+add_service(hal_fingerprint_default, fingerprintd_custom_service);
+set_prop(hal_fingerprint_default, system_prop)
+r_dir_file(hal_fingerprint_default, firmware_file)
+binder_use(hal_fingerprint_default)
+use_keystore(hal_fingerprint_default)

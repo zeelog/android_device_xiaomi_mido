@@ -1,0 +1,1 @@
+allow hal_light_default sysfs:file { open read write };

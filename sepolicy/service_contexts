@@ -1,1 +1,2 @@
 goodix.fp                        u:object_r:gx_fpd_service:s0
+android.hardware.fingerprint.IFingerprintCustomDaemon u:object_r:fingerprintd_custom_service:s0

@@ -1,0 +1,3 @@
+allow servicemanager hal_fingerprint_default:dir search;
+allow servicemanager hal_fingerprint_default:file { open read };
+allow servicemanager hal_fingerprint_default:process getattr;

@@ -1,6 +1,6 @@
 type fpc_data_file, file_type, data_file_type;
 type fpce_socket, file_type;
 type fpc_sysfs, fs_type, sysfs_type;
-type proc_touchpanel, fs_type, sysfs_type;
-type netmgrd_data_file, file_type;
+type proc_touchpanel, fs_type;
 type gx_fpd_data_file, file_type, data_file_type;
+type debugfs_rmt, debugfs_type, fs_type;

@@ -1,0 +1,2 @@
+allow mm-qcamerad camera_data_file:sock_file { create unlink };
+allow mm-qcamerad sysfs_graphics:file { open read };
