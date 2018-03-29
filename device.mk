@@ -157,7 +157,8 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdMetaData.system \
     libgenlock \
-    libtinyxml
+    libtinyxml \
+    vendor.lineage.livedisplay@1.0-service-sdm
 
 # DRM
 PRODUCT_PACKAGES += \
