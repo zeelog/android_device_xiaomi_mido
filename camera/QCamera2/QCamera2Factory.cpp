@@ -36,7 +36,7 @@
 
 // Camera dependencies
 #ifdef QCAMERA_HAL1_SUPPORT
-#include "camera.h"
+#include "hardware/camera.h"
 #include "HAL/QCamera2HWI.h"
 #include "QCameraMuxer.h"
 #endif

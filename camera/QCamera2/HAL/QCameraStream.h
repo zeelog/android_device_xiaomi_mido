@@ -31,7 +31,7 @@
 #define __QCAMERA_STREAM_H__
 
 // Camera dependencies
-#include "camera.h"
+#include "hardware/camera.h"
 #include "QCameraCmdThread.h"
 #include "QCameraMem.h"
 #include "QCameraAllocator.h"

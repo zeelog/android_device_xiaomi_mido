@@ -34,7 +34,7 @@
 #include <utils/Errors.h>
 #define MMAN_H <SYSTEM_HEADER_PREFIX/mman.h>
 #include MMAN_H
-#include "gralloc.h"
+#include "hardware/gralloc.h"
 #include "gralloc_priv.h"
 
 // Camera dependencies

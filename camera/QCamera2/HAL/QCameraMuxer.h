@@ -29,7 +29,7 @@
 #ifndef __QCAMERAMUXER_H__
 #define __QCAMERAMUXER_H__
 
-#include "camera.h"
+#include "hardware/camera.h"
 #include "QCamera2HWI.h"
 #include "QCamera3HWI.h"
 

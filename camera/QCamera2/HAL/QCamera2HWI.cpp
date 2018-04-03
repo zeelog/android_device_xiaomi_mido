@@ -38,7 +38,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "gralloc_priv.h"
-#include "native_handle.h"
+#include "cutils/native_handle.h"
 
 // Camera definitions
 #include "android/QCamera2External.h"
