@@ -1,4 +1,4 @@
-/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015-2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -29,34 +29,74 @@
 
 #ifndef __QCAMERADISPLAY_H__
 #define __QCAMERADISPLAY_H__
-
-#include <gui/DisplayEventReceiver.h>
+#ifdef USE_DISPLAY_SERVICE
+#ifdef LIKELY
+#undef LIKELY
+#undef UNLIKELY
+#endif //LIKELY
+#include <android/frameworks/displayservice/1.0/IDisplayService.h>
+#include <android/frameworks/displayservice/1.0/IEventCallback.h>
+#include <android/frameworks/displayservice/1.0/IDisplayEventReceiver.h>
 #include <android/looper.h>
 #include <utils/Looper.h>
+
+using ::android::frameworks::displayservice::V1_0::IDisplayEventReceiver;
+using ::android::frameworks::displayservice::V1_0::IDisplayService;
+using ::android::frameworks::displayservice::V1_0::IEventCallback;
+using ::android::frameworks::displayservice::V1_0::Status;
+using ::android::hardware::Return;
+using ::android::hardware::Void;
+using ::android::sp;
+#else //USE_DISPLAY_SERVICE
+#include <utils/Timers.h>
+#include <gui/DisplayEventReceiver.h>
+#endif //USE_DISPLAY_SERVICE
 
 namespace qcamera {
 
 #define CAMERA_NUM_VSYNC_INTERVAL_HISTORY  8
 #define NSEC_PER_MSEC 1000000LLU
 
+#ifdef USE_DISPLAY_SERVICE
+class QCameraDisplay : public IEventCallback {
+#else //USE_DISPLAY_SERVICE
 class QCameraDisplay {
+#endif //USE_DISPLAY_SERVICE
+
 public:
     QCameraDisplay();
     ~QCameraDisplay();
+
+#ifdef USE_DISPLAY_SERVICE
+    void        init();
+    bool        isInited() { return m_bInitDone; }
+    bool        isSyncing() {return m_bSyncing; }
+
+    bool        startVsync(bool start);
+
+    Return<void> onVsync(uint64_t timestamp, uint32_t count) override {
+        ALOGV("onVsync: timestamp=%llu count=%d", timestamp, count);
+        computeAverageVsyncInterval(timestamp);
+        return Void();
+    }
+    Return<void> onHotplug(uint64_t timestamp, bool connected) override {
+        ALOGV("onHotplug: timestamp=%llu connected=%s", timestamp, connected ? "true" : "false");
+        return Void();
+    }
+
+#else //USE_DISPLAY_SERVICE
     static int   vsyncEventReceiverCamera(int fd, int events, void* data);
     static void* vsyncThreadCamera(void * data);
-    void         computeAverageVsyncInterval(nsecs_t currentVsyncTimeStamp);
-    nsecs_t      computePresentationTimeStamp(nsecs_t frameTimeStamp);
-
+#endif //USE_DISPLAY_SERVICE
+    void        computeAverageVsyncInterval(nsecs_t currentVsyncTimeStamp);
+    nsecs_t     computePresentationTimeStamp(nsecs_t frameTimeStamp);
 private:
-    pthread_t mVsyncThreadCameraHandle;
     nsecs_t   mVsyncTimeStamp;
     nsecs_t   mAvgVsyncInterval;
     nsecs_t   mOldTimeStamp;
     nsecs_t   mVsyncIntervalHistory[CAMERA_NUM_VSYNC_INTERVAL_HISTORY];
     nsecs_t   mVsyncHistoryIndex;
     nsecs_t   mAdditionalVsyncOffsetForWiggle;
-    uint32_t  mThreadExit;
     // Tunable property. Increasing this will increase the frame delay and will loose
     // the real time display.
     uint32_t  mNum_vsync_from_vfe_isr_to_presentation_timestamp;
@@ -68,8 +108,17 @@ private:
     // 30.2 fps vs display running at 60 fps.
     nsecs_t  mVfe_and_mdp_freq_wiggle_filter_max_ns;
     nsecs_t  mVfe_and_mdp_freq_wiggle_filter_min_ns;
-
+#ifdef USE_DISPLAY_SERVICE
+    bool     m_bInitDone;
+    bool     m_bSyncing;
+    sp<IDisplayEventReceiver> mDisplayEventReceiver;
+    sp<IDisplayService> mDisplayService;
+#else //USE_DISPLAY_SERVICE
+    pthread_t mVsyncThreadCameraHandle;
+    uint32_t  mThreadExit;
     android::DisplayEventReceiver  mDisplayEventReceiver;
+#endif //USE_DISPLAY_SERVICE
+
 };
 
 }; // namespace qcamera
