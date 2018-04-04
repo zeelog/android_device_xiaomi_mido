@@ -140,6 +140,10 @@ persist.rild.nitz_short_ons_1="" \
 persist.rild.nitz_short_ons_2="" \
 persist.rild.nitz_short_ons_3=""
 
+# Priv-app permissions whitelist
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.control_privapp_permissions=enforce
+
 # Property to enable display default color mode
 PRODUCT_PROPERTY_OVERRIDES += \
 vendor.display.enable_default_color_mode=1
