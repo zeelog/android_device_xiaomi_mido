@@ -441,19 +441,10 @@ on property:wc_transport.start_hci=false
 service start_hci_filter /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth oem_2901 system
-    seclabel u:r:bluetooth:s0
+    group bluetooth diag system wakelock
     disabled
-
-service hciattach /vendor/bin/hci_qcomm_init -e
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
 
 on property:bluetooth.hciattach=true
-    start hciattach
     setprop bluetooth.status on
 
 on property:bluetooth.hciattach=false
