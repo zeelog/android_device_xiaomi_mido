@@ -1,6 +1,3 @@
-# Bluetooth
-/(vendor|system/vendor)/bin/hci_qcomm_init	u:object_r:bluetooth_loader_exec:s0
-
 # Fpc Fingerprint
 /data/fpc(/.*)?					u:object_r:fpc_data_file:s0
 /dev/socket/fpce(/.*)?				u:object_r:fpce_socket:s0

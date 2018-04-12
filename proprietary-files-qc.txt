@@ -47,11 +47,24 @@ vendor/lib64/soundfx/libqcbassboost.so
 vendor/lib64/soundfx/libqcreverb.so
 vendor/lib64/soundfx/libqcvirt.so
 
+# ANT+
+lib64/com.qualcomm.qti.ant@1.0.so
+-lib64/libantradio.so
+lib/com.qualcomm.qti.ant@1.0.so
+-lib/libantradio.so
+vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
+vendor/lib64/com.qualcomm.qti.ant@1.0_vendor.so
+
 # Bluetooth
-vendor/bin/hci_qcomm_init
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/wcnss_filter
-vendor/lib/libbtnv.so
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
+vendor/lib64/libbt-hidlclient.so
+
+# Bluetooth (shared dependencies)
+vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_8_0.fw

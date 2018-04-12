@@ -474,15 +474,7 @@ service start_hci_filter /system/vendor/bin/wcnss_filter
     seclabel u:r:bluetooth:s0
     disabled
 
-service hciattach /system//vendor/bin/hci_qcomm_init -e
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
 on property:bluetooth.hciattach=true
-    start hciattach
     setprop bluetooth.status on
 
 on property:bluetooth.hciattach=false
