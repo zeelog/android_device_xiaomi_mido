@@ -27,6 +27,7 @@
 #
 #
 on early-init
+    write /proc/sys/kernel/sched_boost 1
     symlink /data/tombstones /tombstones
 
 on fs
