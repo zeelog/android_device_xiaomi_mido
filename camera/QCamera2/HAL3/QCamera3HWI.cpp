@@ -245,14 +245,14 @@ const QCamera3HardwareInterface::QCameraMap<
     { ANDROID_LENS_STATE_MOVING,        CAM_AF_LENS_STATE_MOVING}
 };
 
-const int32_t available_thumbnail_sizes[] = {0, 0,
-                                             176, 144,
+const int32_t available_thumbnail_sizes[] = {176, 144,
                                              240, 144,
                                              256, 144,
                                              240, 160,
                                              256, 154,
                                              240, 240,
-                                             320, 240};
+                                             320, 240,
+                                               0, 0  };
 
 const QCamera3HardwareInterface::QCameraMap<
         camera_metadata_enum_android_sensor_test_pattern_mode_t,
