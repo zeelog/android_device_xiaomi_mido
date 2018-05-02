@@ -485,6 +485,12 @@ on property:bluetooth.hciattach=true
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
 
+service atfwd /vendor/bin/ATFWD-daemon
+    class late_start
+    user system
+    group system radio
+    writepid /dev/cpuset/system-background/tasks
+
 service netmgrd /system/vendor/bin/netmgrd
     class main
     writepid /dev/cpuset/system-background/tasks
