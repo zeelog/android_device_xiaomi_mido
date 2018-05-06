@@ -598,8 +598,8 @@ service time_daemon /system/vendor/bin/time_daemon
 
 service gx_fpd /system/vendor/bin/gx_fpd
      class core
-     user root
-     group system system
+     user system
+     group system drmrpc
      writepid /dev/cpuset/system-background/tasks
 
 on property:sys.fp.vendor=switchf

@@ -1,0 +1,2 @@
+type gx_fpd_service, service_manager_type;
+type hal_fingerprint_mido_service, service_manager_type;
