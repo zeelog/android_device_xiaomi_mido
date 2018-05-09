@@ -103,25 +103,6 @@ static int write_int(char *path, int value)
     }
 }
 
-static int write_string(char *path, char const* str)
-{
-    int fd;
-    static int already_warned = 0;
-
-    fd = open(path, O_RDWR);
-    if (fd >= 0) {
-        ssize_t amt = write(fd, str, strlen(str));
-        close(fd);
-        return amt == -1 ? -errno : 0;
-    } else {
-        if (already_warned == 0) {
-            ALOGE("write_string failed to open %s, errno=%d\n", path, errno);
-            already_warned = 1;
-        }
-        return -errno;
-    }
-}
-
 static bool file_exists(const char *file)
 {
     int fd;
@@ -214,7 +195,7 @@ set_light_backlight_ext(struct light_device_t* dev,
 
 static int set_rgb_led_brightness(enum rgb_led led, int brightness)
 {
-    char *file[48];
+    char file[48];
 
     snprintf(file, sizeof(file), "/sys/class/leds/%s/brightness", led_names[led]);
     return write_int(file, brightness);
@@ -222,7 +203,7 @@ static int set_rgb_led_brightness(enum rgb_led led, int brightness)
 
 static int set_rgb_led_timer_trigger(enum rgb_led led, int onMS, int offMS)
 {
-    char *file[48];
+    char file[48];
     int rc;
 
     snprintf(file, sizeof(file), "/sys/class/leds/%s/delay_off", led_names[led]);
@@ -243,7 +224,7 @@ out:
 
 static int set_rgb_led_hw_blink(enum rgb_led led, int blink)
 {
-    char *file[48];
+    char file[48];
 
     snprintf(file, sizeof(file), "/sys/class/leds/%s/breath", led_names[led]);
     if (!file_exists(file))
@@ -252,6 +233,7 @@ static int set_rgb_led_hw_blink(enum rgb_led led, int blink)
     return write_int(file, blink);
 }
 
+static int
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
