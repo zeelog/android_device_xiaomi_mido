@@ -1,0 +1,4 @@
+type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket1";
+type_transition mm-qcamerad camera_data_file:sock_file camera_socket "cam_socket2";
+allow mm-qcamerad camera_socket:sock_file { create unlink write };
+allow mm-qcamerad sysfs_graphics:file r_file_perms;

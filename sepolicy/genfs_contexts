@@ -1,1 +1,5 @@
-genfscon proc /touchpanel    u:object_r:proc_touchpanel:s0
+# Rmt
+genfscon debugfs /rmt_storage	u:object_r:debugfs_rmt:s0
+
+# Touchscreen
+genfscon proc /touchpanel	u:object_r:proc_touchpanel:s0

@@ -1,0 +1,2 @@
+allow hal_bluetooth_default bluetooth_data_file:dir search;
+allow hal_bluetooth_default bluetooth_data_file:file r_file_perms;
