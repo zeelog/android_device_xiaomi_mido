@@ -62,10 +62,10 @@ on boot
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
     write /sys/class/android_usb/android0/f_ffs/aliases adb
 
-service qcom-usb-sh /system/vendor/bin/sh /vendor/bin/init.qcom.usb.sh
-    class core
-    user root
-    oneshot
+    write /sys/class/android_usb/f_mass_storage/lun/nofua 1
+    write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports BAM2BAM_IPA
+    write /sys/module/g_android/parameters/mtp_tx_req_len 131072 
+    write /sys/module/g_android/parameters/mtp_rx_req_len 131072
 
 # Following are the parameters required for usb functionality. They provide configurable options like
 # product_id/vendor id and allows specifying required functions:
