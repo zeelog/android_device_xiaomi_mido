@@ -1,0 +1,3 @@
+# input files
+r_dir_file(system_server, idc_file)
+r_dir_file(system_server, keylayout_file)

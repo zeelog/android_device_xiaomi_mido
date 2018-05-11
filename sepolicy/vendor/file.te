@@ -1,0 +1,2 @@
+type idc_file, file_type, vendor_file_type;
+type keylayout_file, file_type, vendor_file_type;

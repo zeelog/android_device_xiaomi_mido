@@ -1,6 +1,4 @@
 allow qti_init_shell proc_touchpanel:dir { rw_dir_perms setattr };
+allow qti_init_shell proc_touchpanel:file { getattr setattr };
+allow qti_init_shell bluetooth_data_file:file r_file_perms;
 allow qti_init_shell hci_attach_dev:chr_file rw_file_perms;
-allow qti_init_shell sysfs:dir write;
-allow qti_init_shell sysfs:file write;
-allow qti_init_shell sysfs_devices_system_cpu:dir write;
-allow qti_init_shell shell_exec:file r_file_perms;

@@ -1,0 +1,19 @@
+# Block devices
+/dev/block/mmcblk0p26				u:object_r:persist_block_device:s0
+
+# Glove Mode
+/sys/class/tp_glove/tp_glove/glove_enable	u:object_r:proc_touchpanel:s0
+
+# Goodix Fingerprint
+/(vendor|system/vendor)/bin/gx_fpd		u:object_r:gx_fpd_exec:s0
+
+# Input files
+/(vendor|system/vendor)/usr/idc(/.*)?		u:object_r:idc_file:s0
+/(vendor|system/vendor)/usr/keylayout(/.*)?	u:object_r:keylayout_file:s0
+
+# Ir
+/dev/lirc[0-9]*					u:object_r:lirc_device:s0
+
+# HALs
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\.xiaomi_mido		u:object_r:hal_fingerprint_mido_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi_mido					u:object_r:hal_ir_default_exec:s0
