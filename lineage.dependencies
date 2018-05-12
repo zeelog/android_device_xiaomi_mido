@@ -1,7 +1,7 @@
 [
  {
-   "repository": "android_device_qcom_common",
-   "target_path": "device/qcom/common"
+   "repository": "android_packages_resources_devicesettings",
+   "target_path": "packages/resources/devicesettings"
  },
  {
    "repository": "android_kernel_xiaomi_msm8953",
