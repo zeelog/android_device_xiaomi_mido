@@ -32,3 +32,10 @@ allow hal_fingerprint_mido keystore_service:service_manager find;
 # For permissions checking
 binder_call(hal_fingerprint_mido, system_server);
 allow hal_fingerprint_mido permission_service:service_manager find;
+
+allow hal_fingerprint_mido storage_file:dir search;
+allow hal_fingerprint_mido media_rw_data_file:dir { open read search };
+allow hal_fingerprint_mido mnt_user_file:dir search;
+allow hal_fingerprint_mido mnt_user_file:lnk_file read;
+allow hal_fingerprint_mido sdcardfs:dir search;
+allow hal_fingerprint_mido storage_file:lnk_file read;
