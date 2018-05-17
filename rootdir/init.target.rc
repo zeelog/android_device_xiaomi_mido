@@ -197,6 +197,15 @@ on boot
 	chmod 0664 /dev/cpuset/camera-daemon/tasks
     chown system system /sys/kernel/hbtp/display_pwr
 
+#USB controller configuration
+    write /sys/module/g_android/parameters/mtp_tx_req_len 131072
+    write /sys/module/g_android/parameters/mtp_rx_req_len 131072
+    write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports BAM2BAM_IPA
+    setprop sys.usb.rndis.func.name "rndis_bam"
+    setprop sys.usb.rmnet.func.name "rmnet_bam"
+    setprop sys.usb.rmnet.inst.name "rmnet"
+    setprop sys.usb.dpl.inst.name "dpl"
+
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
     user system
