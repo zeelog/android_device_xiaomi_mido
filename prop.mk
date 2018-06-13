@@ -189,6 +189,10 @@ net.tcp.2g_init_rwnd=10
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.sys.usb.config.extra=none
 
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.lineage.build.vendor_security_patch=2018-02-01
+
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
 wifi.interface=wlan0
