@@ -570,7 +570,7 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 on property:sys.boot_completed=1
     start qcom-post-boot
 
-on property:ro.runtime.mbn_copy_completed=1
+on property:ro.vendor.ril.mbn_copy_completed=1
     write /data/vendor/radio/copy_complete 1
 
 on property:ro.data.large_tcp_window_size=true
