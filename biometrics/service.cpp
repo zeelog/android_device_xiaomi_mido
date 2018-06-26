@@ -37,16 +37,19 @@ using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 using android::sp;
 
+bool is_goodix = false;
+
 int main() {
     char vend[PROPERTY_VALUE_MAX];
     property_get("ro.hardware.fingerprint", vend, "none");
 
     if (!strcmp(vend, "none")) {
     	ALOGE("ro.hardware.fingerprint not set! Killing " LOG_TAG " binder service!");
-        return -1;
+        return 1;
     }
 
     if (!strcmp(vend, "goodix")) {
+        is_goodix = true;
         ALOGI("Start fingerprintd");
         android::sp<android::IServiceManager> serviceManager = android::defaultServiceManager();
         android::sp<android::FingerprintDaemonProxy> proxy =
@@ -61,8 +64,8 @@ int main() {
     ALOGI("Start biometrics");
     android::sp<IBiometricsFingerprint> bio = BiometricsFingerprint::getInstance();
 
-    if (!strcmp(vend, "goodix")) {
-        /* process Binder transaction as a double-threaded program. */
+    /* process Binder transaction as a single-threaded program. */
+    if (is_goodix) {
         configureRpcThreadpool(1, false /* callerWillJoin */);
     } else {
         /* process Binder transaction as a single-threaded program. */
@@ -78,7 +81,7 @@ int main() {
         ALOGE("Can't create instance of BiometricsFingerprint, nullptr");
     }
 
-    if (!strcmp(vend, "goodix")) {
+    if (is_goodix) {
         android::IPCThreadState::self()->joinThreadPool();   // run binder service fingerprintd part
     } else {
         joinRpcThreadpool();

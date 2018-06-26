@@ -20,12 +20,9 @@
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
 #include "BiometricsFingerprint.h"
-#include <cutils/properties.h>
 
 #include <inttypes.h>
 #include <unistd.h>
-
-fingerprint_device_t* getWrapperService(fingerprint_notify_t);
 
 namespace android {
 namespace hardware {
@@ -35,7 +32,6 @@ namespace V2_1 {
 namespace implementation {
 
 // Supported fingerprint HAL version
-static bool is_goodix = false;
 
 using RequestStatus =
         android::hardware::biometrics::fingerprint::V2_1::RequestStatus;
@@ -44,14 +40,9 @@ BiometricsFingerprint *BiometricsFingerprint::sInstance = nullptr;
 
 BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevice(nullptr) {
     sInstance = this; // keep track of the most recent instance
-    char vend[PROPERTY_VALUE_MAX];
-    property_get("ro.hardware.fingerprint", vend, NULL);
-
-    if (!strcmp(vend, "goodix")) {
-        is_goodix = true;
+    if (is_goodix) {
         mDevice = getWrapperService(BiometricsFingerprint::notify);
-     else {
-        is_goodix = false;
+    } else {
         mDevice = openHal();
     }
 
