@@ -1,0 +1,8 @@
+import /init.recovery.qcom.usb.rc
+
+on fs
+    wait /dev/block/platform/soc/7824900.sdhci
+    symlink /dev/block/platform/soc/7824900.sdhci /dev/block/bootdevice
+
+    # Advertise system_as_root
+    setprop ro.build.system_root_image true
