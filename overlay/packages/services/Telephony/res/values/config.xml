@@ -30,9 +30,6 @@
     <!-- DEPRECATED: Use CarrierConfigManager#KEY_CSP_ENABLED_BOOL -->
     <bool name="csp_enabled">true</bool>
 
-    <!-- Show Preferred Network Type options in No SIM case -->
-    <bool name="config_no_sim_display_network_modes">true</bool>
-
     <!-- After a CDMA conference call is merged, the swap button should be displayed. -->
     <bool name="support_swap_after_merge" translatable="false">false</bool>
 </resources>
