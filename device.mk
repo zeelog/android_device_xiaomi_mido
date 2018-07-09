@@ -171,8 +171,6 @@ PRODUCT_PACKAGES += \
 
 # Ebtables
 PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes \
     libebtc
 
 # Fingerprint
@@ -192,7 +190,6 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl-qti \
-    libcurl \
     libgnss \
     libgnsspps
 
@@ -288,10 +285,6 @@ PRODUCT_COPY_FILES += \
 # Properties
 -include device/xiaomi/mido/prop.mk
 
-# QMI
-PRODUCT_PACKAGES += \
-    libjson
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -312,8 +305,6 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     librmnetctl \
-    libcnefeatureconfig \
-    libxml2 \
     telephony-ext
 
 PRODUCT_BOOT_JARS += \
