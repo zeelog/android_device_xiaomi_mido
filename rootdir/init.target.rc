@@ -60,7 +60,7 @@ mkdir /data/vendor/camera 0770 camera camera
 mkdir /data/misc/camera 0770 camera camera
 
 #start camera server as daemon
-service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
@@ -93,7 +93,7 @@ service qseecomd /vendor/bin/qseecomd
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service thermal-engine /system/vendor/bin/thermal-engine
+service thermal-engine /vendor/bin/thermal-engine
    class main
    user root
    socket thermal-send-client stream 0666 system system
@@ -103,25 +103,25 @@ service thermal-engine /system/vendor/bin/thermal-engine
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service adsprpcd /system/vendor/bin/adsprpcd
+service adsprpcd /vendor/bin/adsprpcd
    class main
    user media
    group media
 
-service wcnss-service /system/vendor/bin/wcnss_service
+service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
     group system wifi radio
     oneshot
 
-service imsqmidaemon /system/vendor/bin/imsqmidaemon
+service imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
     writepid /dev/cpuset/system-background/tasks
 
-service imsdatadaemon /system/vendor/bin/imsdatadaemon
+service imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
@@ -132,14 +132,14 @@ service imsdatadaemon /system/vendor/bin/imsdatadaemon
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
 
-service ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
+service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
    user system
    group radio diag inet log
    writepid /dev/cpuset/system-background/tasks
    disabled
 
-service imsrcsservice /system/vendor/bin/imsrcsd
+service imsrcsservice /vendor/bin/imsrcsd
    class main
    user system
    group radio diag inet log
@@ -168,13 +168,13 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-service energy-awareness /system/vendor/bin/energy-awareness
+service energy-awareness /vendor/bin/energy-awareness
     class main
     user root
     group system
     oneshot
 
-service hvdcp_opti /system/vendor/bin/hvdcp_opti
+service hvdcp_opti /vendor/bin/hvdcp_opti
     class main
     user root
     group system wakelock

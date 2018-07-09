@@ -380,14 +380,6 @@ on post-fs-data
 on property:hw.fm.init=*
     write /sys/module/radio_iris_transport/parameters/fmsmd_set ${hw.fm.init}
 
-service iop /system/vendor/bin/iop
-    class main
-    user root
-    group root
-    disabled
-    socket iop seqpacket 0666 root system
-    writepid /dev/cpuset/system-background/tasks
-
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
 
@@ -408,13 +400,13 @@ on property:vold.decrypt=trigger_restart_framework
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service cnd /system/vendor/bin/cnd
+service cnd /vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
     writepid /dev/cpuset/system-background/tasks
 
-service dpmQmiMgr /system/vendor/bin/dpmQmiMgr
+service dpmQmiMgr /vendor/bin/dpmQmiMgr
     class main
     user system
     group system
@@ -443,14 +435,14 @@ on property:wc_transport.start_hci=true
 on property:wc_transport.start_hci=false
     stop start_hci_filter
 
-service start_hci_filter /system/vendor/bin/wcnss_filter
+service start_hci_filter /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth diag system wakelock
     seclabel u:r:bluetooth:s0
     disabled
 
-service hciattach /system/vendor/bin/hci_qcomm_init -e
+service hciattach /vendor/bin/hci_qcomm_init -e
     class late_start
     user bluetooth
     group bluetooth net_bt_admin
@@ -470,26 +462,20 @@ service atfwd /vendor/bin/ATFWD-daemon
     group system radio
     writepid /dev/cpuset/system-background/tasks
 
-service netmgrd /system/vendor/bin/netmgrd
+service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
     writepid /dev/cpuset/system-background/tasks
 
-service ipacm-diag /system/vendor/bin/ipacm-diag
+service ipacm-diag /vendor/bin/ipacm-diag
     class main
     user radio
     socket ipacm_log_file dgram 660 radio radio
     group radio diag
     writepid /dev/cpuset/system-background/tasks
 
-service ipacm /system/vendor/bin/ipacm
-    class main
-    user radio
-    group radio inet
-    writepid /dev/cpuset/system-background/tasks
-
-service qti /system/vendor/bin/qti
+service qti /vendor/bin/qti
     class main
     user radio
     group radio diag usb net_admin
@@ -529,7 +515,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     disabled
     oneshot
 
-service loc_launcher /system/vendor/bin/loc_launcher
+service loc_launcher /vendor/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
     group gps inet diag wifi
@@ -577,13 +563,13 @@ on charger
     load_system_props
     start qcom-post-boot
 
-service time_daemon /system/vendor/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
     class main
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service gx_fpd /system/vendor/bin/gx_fpd
+service gx_fpd /vendor/bin/gx_fpd
      class core
      user system
      group system drmrpc
