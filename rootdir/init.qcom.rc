@@ -575,6 +575,9 @@ service gx_fpd /vendor/bin/gx_fpd
      group system drmrpc
      writepid /dev/cpuset/system-background/tasks
 
+on property:dev.bootcomplete=1
+    setprop sys.io.scheduler "bfq"
+
 on property:sys.fp.vendor=switchf
     stop gx_fpd
     setprop sys.fp.vendor searchf
