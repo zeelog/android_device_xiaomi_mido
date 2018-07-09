@@ -622,3 +622,6 @@ on property:sys.fp.onstart=1
    setprop ro.boot.fpsensor gdx
    setprop ro.hardware.fingerprint goodix
    start fps_hal
+
+on property:dev.bootcomplete=1
+    setprop sys.io.scheduler "bfq"
