@@ -29,16 +29,6 @@
 
 target=`getprop ro.board.platform`
 
-function configure_zram_parameters() {
-    # Zram disk - 512MB size
-    zram_enable=`getprop ro.vendor.qti.config.zram`
-    if [ "$zram_enable" == "true" ]; then
-        echo 536870912 > /sys/block/zram0/disksize
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
-    fi
-}
-
 function configure_memory_parameters() {
     # Set Memory paremeters.
     #
@@ -62,7 +52,6 @@ if [ "$ProductName" == "msm8996" ]; then
       echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
       echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 
-      configure_zram_parameters
 else
     arch_type=`uname -m`
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
@@ -108,8 +97,6 @@ else
         echo "15360,19200,23040,26880,34415,43737" > /sys/module/lowmemorykiller/parameters/minfree
         echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
     fi
-
-    configure_zram_parameters
 
     SWAP_ENABLE_THRESHOLD=1048576
     swap_enable=`getprop ro.vendor.qti.config.swap`
