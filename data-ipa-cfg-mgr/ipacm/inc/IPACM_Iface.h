@@ -97,7 +97,7 @@ public:
 	bool softwarerouting_act;
 
 	/* IPACM number of default route rules for ipv6*/
-	int num_dft_rt_v6;
+	uint32_t num_dft_rt_v6;
 
 	uint32_t dft_v4fl_rule_hdl[IPV4_DEFAULT_FILTERTING_RULES];
 	uint32_t dft_v6fl_rule_hdl[IPV6_DEFAULT_FILTERTING_RULES + IPV6_DEFAULT_LAN_FILTERTING_RULES];

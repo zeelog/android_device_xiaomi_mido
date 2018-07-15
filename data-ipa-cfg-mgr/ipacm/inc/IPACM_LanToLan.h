@@ -160,7 +160,7 @@ public:
 	void increment_ref_cnt_peer_l2_hdr_type(ipa_hdr_l2_type peer_l2_type);
 
 	void decrement_ref_cnt_peer_l2_hdr_type(ipa_hdr_l2_type peer_l2_type);
-
+#ifdef FEATURE_L2TP
 	void switch_to_l2tp_iface();
 
 	bool set_l2tp_iface(char *vlan_iface_name);
@@ -170,7 +170,7 @@ public:
 	void handle_l2tp_enable();
 
 	void handle_l2tp_disable();
-
+#endif
 private:
 
 	IPACM_Lan *m_p_iface;
@@ -223,7 +223,9 @@ public:
 
 	static IPACM_LanToLan* p_instance;
 	static IPACM_LanToLan* get_instance();
+#ifdef FEATURE_L2TP
 	bool has_l2tp_iface();
+#endif
 
 private:
 
@@ -251,6 +253,7 @@ private:
 
 	void handle_wlan_scc_mcc_switch(ipacm_event_eth_bridge *data);
 
+#ifdef FEATURE_L2TP
 	void handle_add_vlan_iface(ipa_ioc_vlan_iface_info *data);
 
 	void handle_del_vlan_iface(ipa_ioc_vlan_iface_info *data);
@@ -262,6 +265,7 @@ private:
 	void handle_vlan_client_info(ipacm_event_data_all *data);
 
 	void handle_vlan_iface_info(ipacm_event_data_all *data);
+#endif
 
 	void handle_new_iface_up(IPACM_LanToLan_Iface *new_iface, IPACM_LanToLan_Iface *exist_iface);
 

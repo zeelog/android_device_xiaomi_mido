@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2017, The Linux Foundation. All rights reserved.
+Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -59,6 +59,8 @@ IPACM_OffloadManager::IPACM_OffloadManager()
 	upstream_v6_up = false;
 	memset(event_cache, 0, MAX_EVENT_CACHE*sizeof(framework_event_cache));
 	latest_cache_index = 0;
+	elrInstance = NULL;
+	touInstance = NULL;
 	return ;
 }
 
@@ -133,7 +135,7 @@ RET IPACM_OffloadManager::provideFd(int fd, unsigned int groups)
 	/* check socket name */
 	memset(&local, 0, sizeof(struct sockaddr_nl));
 	addr_len = sizeof(local);
-	getsockname(fd, (struct sockaddr *)&local, &addr_len);
+	getsockname(fd, (struct sockaddr *)&local, (socklen_t *)&addr_len);
 	IPACMDBG_H(" FD %d, nl_pad %d nl_pid %u\n", fd, local.nl_pad, local.nl_pid);
 
 	/* add the check if getting FDs already or not */
@@ -194,6 +196,7 @@ RET IPACM_OffloadManager::addDownstream(const char * downstream_name, const Pref
 	int index;
 	ipacm_cmd_q_data evt;
 	ipacm_event_ipahal_stream *evt_data;
+	bool cache_need = false;
 
 	IPACMDBG_H("addDownstream name(%s), ip-family(%d) \n", downstream_name, prefix.fam);
 
@@ -212,9 +215,21 @@ RET IPACM_OffloadManager::addDownstream(const char * downstream_name, const Pref
 		IPACMERR("fail to get iface index.\n");
 		return FAIL_INPUT_CHECK;
 	}
+	/* Iface is valid, add to list if not present */
+	if (std::find(valid_ifaces.begin(), valid_ifaces.end(), std::string(downstream_name)) == valid_ifaces.end())
+	{
+		/* Iface is new, add it to the list */
+		valid_ifaces.push_back(downstream_name);
+		IPACMDBG_H("add iface(%s) to list\n", downstream_name);
+	}
 
-	/* check if downstream netdev driver finished its configuration on IPA-HW */
-	if (IPACM_Iface::ipacmcfg->CheckNatIfaces(downstream_name))
+	/* check if upstream netdev driver finished its configuration on IPA-HW for ipv4 and ipv6 */
+	if (prefix.fam == V4 && IPACM_Iface::ipacmcfg->CheckNatIfaces(downstream_name, IPA_IP_v4))
+		cache_need = true;
+	if (prefix.fam == V6 && IPACM_Iface::ipacmcfg->CheckNatIfaces(downstream_name, IPA_IP_v6))
+		cache_need = true;
+
+	if (cache_need)
 	{
 		IPACMDBG_H("addDownstream name(%s) currently not support in ipa \n", downstream_name);
 		/* copy to the cache */
@@ -263,13 +278,6 @@ RET IPACM_OffloadManager::addDownstream(const char * downstream_name, const Pref
 		return SUCCESS;
 	}
 
-	/* Iface is valid, add to list if not present */
-	if (std::find(valid_ifaces.begin(), valid_ifaces.end(), downstream_name) == valid_ifaces.end())
-	{
-		/* Iface is new, add it to the list */
-		valid_ifaces.push_back(downstream_name);
-	}
-
 	evt_data = (ipacm_event_ipahal_stream*)malloc(sizeof(ipacm_event_ipahal_stream));
 	if(evt_data == NULL)
 	{
@@ -303,7 +311,7 @@ RET IPACM_OffloadManager::removeDownstream(const char * downstream_name, const P
 		IPACMERR("iface length is 0.\n");
 		return FAIL_HARDWARE;
 	}
-	if (std::find(valid_ifaces.begin(), valid_ifaces.end(), downstream_name) == valid_ifaces.end())
+	if (std::find(valid_ifaces.begin(), valid_ifaces.end(), std::string(downstream_name)) == valid_ifaces.end())
 	{
 		IPACMERR("iface is not present in list.\n");
 		return FAIL_HARDWARE;
@@ -311,8 +319,8 @@ RET IPACM_OffloadManager::removeDownstream(const char * downstream_name, const P
 
 	if(ipa_get_if_index(downstream_name, &index))
 	{
-		IPACMERR("fail to get iface index.\n");
-		return FAIL_HARDWARE;
+		IPACMERR("netdev(%s) already removed, ignored\n", downstream_name);
+		return SUCCESS;
 	}
 
 	evt_data = (ipacm_event_ipahal_stream*)malloc(sizeof(ipacm_event_ipahal_stream));
@@ -339,13 +347,18 @@ RET IPACM_OffloadManager::removeDownstream(const char * downstream_name, const P
 RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& gw_addr_v4 , const Prefix& gw_addr_v6)
 {
 	int index;
-	ipacm_cmd_q_data evt;
-	ipacm_event_data_addr *evt_data_addr;
 	RET result = SUCCESS;
+	bool cache_need = false;
 
 	/* if interface name is NULL, default route is removed */
-	IPACMDBG_H("setUpstream upstream_name(%s), ipv4-fam(%d) ipv6-fam(%d)\n", upstream_name, gw_addr_v4.fam, gw_addr_v6.fam);
-
+	if(upstream_name != NULL)
+	{
+		IPACMDBG_H("setUpstream upstream_name(%s), ipv4-fam(%d) ipv6-fam(%d)\n", upstream_name, gw_addr_v4.fam, gw_addr_v6.fam);
+	}
+	else
+	{
+		IPACMDBG_H("setUpstream clean upstream_name for ipv4-fam(%d) ipv6-fam(%d)\n", gw_addr_v4.fam, gw_addr_v6.fam);
+	}
 	if(upstream_name == NULL)
 	{
 		if (default_gw_index == INVALID_IFACE) {
@@ -353,12 +366,12 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 			return FAIL_INPUT_CHECK;
 		}
 		if (gw_addr_v4.fam == V4 && upstream_v4_up == true) {
-			IPACMDBG_H("clean upstream(%s) for ipv4-fam(%d) upstream_v4_up(%d)\n", upstream_name, gw_addr_v4.fam, upstream_v4_up);
+			IPACMDBG_H("clean upstream for ipv4-fam(%d) upstream_v4_up(%d)\n", gw_addr_v4.fam, upstream_v4_up);
 			post_route_evt(IPA_IP_v4, default_gw_index, IPA_WAN_UPSTREAM_ROUTE_DEL_EVENT, gw_addr_v4);
 			upstream_v4_up = false;
 		}
 		if (gw_addr_v6.fam == V6 && upstream_v6_up == true) {
-			IPACMDBG_H("clean upstream(%s) for ipv6-fam(%d) upstream_v6_up(%d)\n", upstream_name, gw_addr_v6.fam, upstream_v6_up);
+			IPACMDBG_H("clean upstream for ipv6-fam(%d) upstream_v6_up(%d)\n", gw_addr_v6.fam, upstream_v6_up);
 			post_route_evt(IPA_IP_v6, default_gw_index, IPA_WAN_UPSTREAM_ROUTE_DEL_EVENT, gw_addr_v6);
 			upstream_v6_up = false;
 		}
@@ -373,8 +386,13 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 			return FAIL_INPUT_CHECK;
 		}
 
-		/* check if downstream netdev driver finished its configuration on IPA-HW */
-		if (IPACM_Iface::ipacmcfg->CheckNatIfaces(upstream_name))
+		/* check if upstream netdev driver finished its configuration on IPA-HW for ipv4 and ipv6 */
+		if (gw_addr_v4.fam == V4 && IPACM_Iface::ipacmcfg->CheckNatIfaces(upstream_name, IPA_IP_v4))
+			cache_need = true;
+		if (gw_addr_v6.fam == V6 && IPACM_Iface::ipacmcfg->CheckNatIfaces(upstream_name, IPA_IP_v6))
+			cache_need = true;
+
+		if (cache_need)
 		{
 			IPACMDBG_H("setUpstream name(%s) currently not support in ipa \n", upstream_name);
 			/* copy to the cache */
@@ -389,7 +407,7 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 					memcpy(&event_cache[latest_cache_index].prefix_cache, &gw_addr_v4, sizeof(event_cache[latest_cache_index].prefix_cache));
 					memcpy(&event_cache[latest_cache_index].prefix_cache_v6, &gw_addr_v6, sizeof(event_cache[latest_cache_index].prefix_cache_v6));
 					if (gw_addr_v4.fam == V4) {
-						IPACMDBG_H("cache event(%d) ipv4 fateway: (%x) dev(%s) on entry (%d)\n",
+						IPACMDBG_H("cache event(%d) ipv4 gateway: (%x) dev(%s) on entry (%d)\n",
 							event_cache[latest_cache_index].event,
 							event_cache[latest_cache_index].prefix_cache.v4Addr,
 							event_cache[latest_cache_index].dev_name,
@@ -423,6 +441,17 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 		/* reset the stats when switch from LTE->STA */
 		if (index != default_gw_index) {
 			IPACMDBG_H(" interface switched to %s\n", upstream_name);
+			if (upstream_v4_up == true) {
+				IPACMDBG_H("clean upstream for ipv4-fam(%d) upstream_v4_up(%d)\n", gw_addr_v4.fam, upstream_v4_up);
+				post_route_evt(IPA_IP_v4, default_gw_index, IPA_WAN_UPSTREAM_ROUTE_DEL_EVENT, gw_addr_v4);
+				upstream_v4_up = false;
+			}
+			if (upstream_v6_up == true) {
+				IPACMDBG_H("clean upstream for ipv6-fam(%d) upstream_v6_up(%d)\n", gw_addr_v6.fam, upstream_v6_up);
+				post_route_evt(IPA_IP_v6, default_gw_index, IPA_WAN_UPSTREAM_ROUTE_DEL_EVENT, gw_addr_v6);
+				upstream_v6_up = false;
+			}
+			default_gw_index = INVALID_IFACE;
 			if(memcmp(upstream_name, "wlan0", sizeof("wlan0")) == 0)
 			{
 				IPACMDBG_H("switch to STA mode, need reset wlan-fw stats\n");
@@ -444,8 +473,14 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 			if (upstream_v6_up == false) {
 				IPACMDBG_H("IPV6 gateway: %08x:%08x:%08x:%08x \n",
 						gw_addr_v6.v6Addr[0], gw_addr_v6.v6Addr[1], gw_addr_v6.v6Addr[2], gw_addr_v6.v6Addr[3]);
-				post_route_evt(IPA_IP_v6, index, IPA_WAN_UPSTREAM_ROUTE_ADD_EVENT, gw_addr_v6);
-				upstream_v6_up = true;
+				/* check v6-address valid or not */
+				if((gw_addr_v6.v6Addr[0] == 0) && (gw_addr_v6.v6Addr[1] ==0) && (gw_addr_v6.v6Addr[2] == 0) && (gw_addr_v6.v6Addr[3] == 0))
+				{
+					IPACMDBG_H("Invliad ipv6-address, ignored v6-setupstream\n");
+				} else {
+					post_route_evt(IPA_IP_v6, index, IPA_WAN_UPSTREAM_ROUTE_ADD_EVENT, gw_addr_v6);
+					upstream_v6_up = true;
+				}
 			} else {
 				IPACMDBG_H("already setupstream iface(%s) ipv6 previously\n", upstream_name);
 			}
@@ -479,8 +514,14 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 			if (upstream_v6_up == false) {
 				IPACMDBG_H("IPV6 gateway: %08x:%08x:%08x:%08x \n",
 						gw_addr_v6.v6Addr[0], gw_addr_v6.v6Addr[1], gw_addr_v6.v6Addr[2], gw_addr_v6.v6Addr[3]);
-				post_route_evt(IPA_IP_v6, index, IPA_WAN_UPSTREAM_ROUTE_ADD_EVENT, gw_addr_v6);
-				upstream_v6_up = true;
+				/* check v6-address valid or not */
+				if((gw_addr_v6.v6Addr[0] == 0) && (gw_addr_v6.v6Addr[1] ==0) && (gw_addr_v6.v6Addr[2] == 0) && (gw_addr_v6.v6Addr[3] == 0))
+				{
+					IPACMDBG_H("Invliad ipv6-address, ignored v6-setupstream\n");
+				} else {
+					post_route_evt(IPA_IP_v6, index, IPA_WAN_UPSTREAM_ROUTE_ADD_EVENT, gw_addr_v6);
+					upstream_v6_up = true;
+				}
 			} else {
 				IPACMDBG_H("already setupstream iface(%s) ipv6 previously\n", upstream_name);
 				result = SUCCESS_DUPLICATE_CONFIG;
@@ -510,13 +551,14 @@ RET IPACM_OffloadManager::stopAllOffload()
 	upstream_v6_up = false;
 	memset(event_cache, 0, MAX_EVENT_CACHE*sizeof(framework_event_cache));
 	latest_cache_index = 0;
+	valid_ifaces.clear();
 	return result;
 }
 
 RET IPACM_OffloadManager::setQuota(const char * upstream_name /* upstream */, uint64_t mb/* limit */)
 {
 	wan_ioctl_set_data_quota quota;
-	int fd = -1;
+	int fd = -1,rc = 0;
 
 	if ((fd = open(DEVICE_NAME, O_RDWR)) < 0)
 	{
@@ -534,14 +576,22 @@ RET IPACM_OffloadManager::setQuota(const char * upstream_name /* upstream */, ui
 		return FAIL_INPUT_CHECK;
 	}
 
-	IPACMDBG_H("SET_DATA_QUOTA %s %lld", quota.interface_name, mb);
+	IPACMDBG_H("SET_DATA_QUOTA %s %llu", quota.interface_name, (long long)mb);
 
-	if (ioctl(fd, WAN_IOC_SET_DATA_QUOTA, &quota) < 0) {
-        IPACMERR("IOCTL WAN_IOCTL_SET_DATA_QUOTA call failed: %s", strerror(errno));
+	rc = ioctl(fd, WAN_IOC_SET_DATA_QUOTA, &quota);
+
+	if(rc != 0)
+	{
 		close(fd);
-		return FAIL_TRY_AGAIN;
+        	IPACMERR("IOCTL WAN_IOCTL_SET_DATA_QUOTA call failed: %s rc: %d\n", strerror(errno),rc);
+		if (errno == ENODEV) {
+			IPACMDBG_H("Invalid argument.\n");
+			return FAIL_UNSUPPORTED;
+		}
+		else {
+			return FAIL_TRY_AGAIN;
+		}
 	}
-
 	close(fd);
 	return SUCCESS;
 }
@@ -575,7 +625,7 @@ RET IPACM_OffloadManager::getStats(const char * upstream_name /* upstream */,
 	offload_stats.tx = stats.tx_bytes;
 	offload_stats.rx = stats.rx_bytes;
 
-	IPACMDBG_H("send getStats tx:%lld rx:%lld \n", offload_stats.tx, offload_stats.rx);
+	IPACMDBG_H("send getStats tx:%llu rx:%llu \n", (long long)offload_stats.tx, (long long)offload_stats.rx);
 	close(fd);
 	return SUCCESS;
 }
@@ -597,6 +647,9 @@ int IPACM_OffloadManager::post_route_evt(enum ipa_ip_type iptype, int index, ipa
 	evt_data_route->if_index_tether = 0;
 	evt_data_route->iptype = iptype;
 
+	IPACMDBG_H("gw_addr.v4Addr: %d, gw_addr.v6Addr: %08x:%08x:%08x:%08x \n",
+			gw_addr.v4Addr,gw_addr.v6Addr[0],gw_addr.v6Addr[1],gw_addr.v6Addr[2],gw_addr.v6Addr[3]);
+
 #ifdef IPA_WAN_MSG_IPv6_ADDR_GW_LEN
 	evt_data_route->ipv4_addr_gw = gw_addr.v4Addr;
 	evt_data_route->ipv6_addr_gw[0] = gw_addr.v6Addr[0];
@@ -607,9 +660,16 @@ int IPACM_OffloadManager::post_route_evt(enum ipa_ip_type iptype, int index, ipa
 	IPACMDBG_H("IPV6 gateway: %08x:%08x:%08x:%08x \n",
 					evt_data_route->ipv6_addr_gw[0], evt_data_route->ipv6_addr_gw[1], evt_data_route->ipv6_addr_gw[2], evt_data_route->ipv6_addr_gw[3]);
 #endif
-	IPACMDBG_H("Received WAN_UPSTREAM_ROUTE_ADD: fid(%d) tether_fid(%d) ip-type(%d)\n", evt_data_route->if_index,
+	if (event == WAN_UPSTREAM_ROUTE_ADD)
+	{
+		IPACMDBG_H("Received WAN_UPSTREAM_ROUTE_ADD: fid(%d) tether_fid(%d) ip-type(%d)\n", evt_data_route->if_index,
 			evt_data_route->if_index_tether, evt_data_route->iptype);
-
+	}
+	else if (event == WAN_UPSTREAM_ROUTE_DEL)
+	{
+		IPACMDBG_H("Received WAN_UPSTREAM_ROUTE_DEL: fid(%d) tether_fid(%d) ip-type(%d)\n", evt_data_route->if_index,
+			evt_data_route->if_index_tether, evt_data_route->iptype);
+	}
 	memset(&evt, 0, sizeof(evt));
 	evt.evt_data = (void*)evt_data_route;
 	evt.event = event;
@@ -631,13 +691,13 @@ int IPACM_OffloadManager::ipa_get_if_index(const char * if_name, int * if_index)
 	}
 
 	if(strnlen(if_name, sizeof(if_name)) >= sizeof(ifr.ifr_name)) {
-		IPACMERR("interface name overflows: len %d\n", strnlen(if_name, sizeof(if_name)));
+		IPACMERR("interface name overflows: len %zu\n", strnlen(if_name, sizeof(if_name)));
 		close(fd);
 		return IPACM_FAILURE;
 	}
 
 	memset(&ifr, 0, sizeof(struct ifreq));
-	(void)strncpy(ifr.ifr_name, if_name, sizeof(ifr.ifr_name));
+	(void)strlcpy(ifr.ifr_name, if_name, sizeof(ifr.ifr_name));
 	IPACMDBG_H("interface name (%s)\n", if_name);
 
 	if(ioctl(fd,SIOCGIFINDEX , &ifr) < 0)
@@ -659,27 +719,25 @@ int IPACM_OffloadManager::resetTetherStats(const char * upstream_name /* upstrea
 	wan_ioctl_reset_tether_stats stats;
 
 	if ((fd = open(DEVICE_NAME, O_RDWR)) < 0) {
-        IPACMERR("Failed opening %s.\n", DEVICE_NAME);
-        return FAIL_HARDWARE;
-    }
-
-    memset(stats.upstreamIface, 0, IFNAMSIZ);
-    if (strlcpy(stats.upstreamIface, upstream_name, IFNAMSIZ) >= IFNAMSIZ) {
+		IPACMERR("Failed opening %s.\n", DEVICE_NAME);
+		return FAIL_HARDWARE;
+	}
+	memset(stats.upstreamIface, 0, IFNAMSIZ);
+	if (strlcpy(stats.upstreamIface, upstream_name, IFNAMSIZ) >= IFNAMSIZ) {
 		IPACMERR("String truncation occurred on upstream\n");
 		close(fd);
 		return FAIL_INPUT_CHECK;
 	}
 	stats.reset_stats = true;
-
 	if (ioctl(fd, WAN_IOC_RESET_TETHER_STATS, &stats) < 0) {
-        IPACMERR("IOCTL WAN_IOC_RESET_TETHER_STATS call failed: %s", strerror(errno));
+		IPACMERR("IOCTL WAN_IOC_RESET_TETHER_STATS call failed: %s", strerror(errno));
 		close(fd);
 		return FAIL_HARDWARE;
 	}
 	IPACMDBG_H("Reset Interface %s stats\n", upstream_name);
 	close(fd);
 	return IPACM_SUCCESS;
-}
+	}
 
 IPACM_OffloadManager* IPACM_OffloadManager::GetInstance()
 {

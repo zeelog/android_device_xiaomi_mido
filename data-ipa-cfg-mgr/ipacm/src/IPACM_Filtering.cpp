@@ -116,14 +116,14 @@ bool IPACM_Filtering::AddFilteringRule(struct ipa_ioc_add_flt_rule const *ruleTa
 
 bool IPACM_Filtering::AddFilteringRuleAfter(struct ipa_ioc_add_flt_rule_after const *ruleTable)
 {
-#ifdef FEATURE_IPA_V3
-	int retval = 0;
-
 	IPACMDBG("Printing filter add attributes\n");
 	IPACMDBG("ip type: %d\n", ruleTable->ip);
 	IPACMDBG("Number of rules: %d\n", ruleTable->num_rules);
 	IPACMDBG("End point: %d\n", ruleTable->ep);
 	IPACMDBG("commit value: %d\n", ruleTable->commit);
+
+#ifdef FEATURE_IPA_V3
+	int retval = 0;
 
 	retval = ioctl(fd, IPA_IOC_ADD_FLT_RULE_AFTER, ruleTable);
 
@@ -264,6 +264,7 @@ bool IPACM_Filtering::AddWanDLFilteringRule(struct ipa_ioc_add_flt_rule const *r
 	ipa_install_fltr_rule_req_ex_msg_v01 qmi_rule_ex_msg;
 #endif
 
+	memset(&qmi_rule_msg, 0, sizeof(qmi_rule_msg));
 	int fd_wwan_ioctl = open(WWAN_QMI_IOCTL_DEVICE_NAME, O_RDWR);
 	if(fd_wwan_ioctl < 0)
 	{
@@ -292,8 +293,6 @@ bool IPACM_Filtering::AddWanDLFilteringRule(struct ipa_ioc_add_flt_rule const *r
 	}
 	else
 	{
-		memset(&qmi_rule_msg, 0, sizeof(qmi_rule_msg));
-
 		if (num_rules > 0)
 		{
 			qmi_rule_msg.filter_spec_list_valid = true;

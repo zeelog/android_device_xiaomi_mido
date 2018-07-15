@@ -34,6 +34,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <glib.h>
 #define strlcpy g_strlcpy
 #else
+#ifndef FEATURE_IPA_ANDROID
 static size_t strlcpy(char * dst, const char * src, size_t size) {
 	if (size < 1)
 		return 0;
@@ -42,6 +43,8 @@ static size_t strlcpy(char * dst, const char * src, size_t size) {
 	return strlen(dst);
 }
 #endif
+#endif
+
 
 struct ipa_nat_cache ipv4_nat_cache;
 pthread_mutex_t nat_mutex    = PTHREAD_MUTEX_INITIALIZER;
@@ -762,9 +765,9 @@ int ipa_nati_alloc_table(uint16_t number_of_entries,
 
 	/* Calclate the memory size for both table and index table entries */
 	mem->size = (IPA_NAT_TABLE_ENTRY_SIZE * total_entries);
-	IPADBG("Nat Table size: %d\n", mem->size);
+	IPADBG("Nat Table size: %zu\n", mem->size);
 	mem->size += (IPA_NAT_INDEX_TABLE_ENTRY_SIZE * total_entries);
-	IPADBG("Nat Base and Index Table size: %d\n", mem->size);
+	IPADBG("Nat Base and Index Table size: %zu\n", mem->size);
 
 	if (!ipv4_nat_cache.ipa_fd) {
 		fd = open(IPA_DEV_NAME, O_RDONLY);

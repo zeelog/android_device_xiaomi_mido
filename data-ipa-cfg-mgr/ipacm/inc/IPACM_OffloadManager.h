@@ -96,7 +96,7 @@ public:
 
 private:
 
-	std::list<const char *> valid_ifaces;
+	std::list<std::string> valid_ifaces;
 
 	bool upstream_v4_up;
 

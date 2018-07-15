@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013, The Linux Foundation. All rights reserved.
+Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -237,8 +237,6 @@ fail:
 int IPACM_Iface::handle_software_routing_disable(void)
 {
 	int res = IPACM_SUCCESS;
-	ipa_ip_type ip;
-	uint32_t flt_hdl;
 
 	if (rx_prop == NULL)
 	{
@@ -624,13 +622,6 @@ int IPACM_Iface::query_iface_property(void)
 		}
 	}
 
-	/* Add Natting iface to IPACM_Config if there is  Rx/Tx property */
-	if (rx_prop != NULL || tx_prop != NULL)
-	{
-		IPACMDBG_H(" Has rx/tx properties registered for iface %s, add for NATTING \n", dev_name);
-        IPACM_Iface::ipacmcfg->AddNatIfaces(dev_name);
-	}
-
 	close(fd);
 	return res;
 }
@@ -939,6 +930,12 @@ int IPACM_Iface::init_fl_rule(ipa_ip_type iptype)
 		}
 	}
 
+	/* Add Natting iface to IPACM_Config if there is  Rx/Tx property */
+	if (rx_prop != NULL || tx_prop != NULL)
+	{
+		IPACMDBG_H(" Has rx/tx properties registered for iface %s, add for NATTING for ip-family %d \n", dev_name, iptype);
+		IPACM_Iface::ipacmcfg->AddNatIfaces(dev_name, iptype);
+	}
 
 fail:
 	free(m_pFilteringTable);
@@ -964,7 +961,7 @@ int IPACM_Iface::ipa_get_if_index
 
 	if(strlen(if_name) >= sizeof(ifr.ifr_name))
 	{
-		IPACMERR("interface name overflows: len %d\n", strlen(if_name));
+		IPACMERR("interface name overflows: len %zu\n", strlen(if_name));
 		close(fd);
 		return IPACM_FAILURE;
 	}

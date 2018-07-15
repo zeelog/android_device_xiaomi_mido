@@ -1,5 +1,7 @@
-BOARD_PLATFORM_LIST := test
-ifeq ($(call is-board-platform-in-list,$(BOARD_PLATFORM_LIST)),true)
+BOARD_PLATFORM_LIST := msm8909
+BOARD_PLATFORM_LIST += msm8916
+BOARD_PLATFORM_LIST += msm8917
+ifneq ($(call is-board-platform-in-list,$(BOARD_PLATFORM_LIST)),true)
 ifneq (,$(filter $(QCOM_BOARD_PLATFORMS),$(TARGET_BOARD_PLATFORM)))
 ifneq (, $(filter aarch64 arm arm64, $(TARGET_ARCH)))
 
@@ -17,7 +19,8 @@ LOCAL_SRC_FILES := ipa_nat_drv.c \
 
 
 LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR)/lib64
-LOCAL_CFLAGS := -DDEBUG
+LOCAL_CFLAGS := -DDEBUG -Wall -Werror
+LOCAL_CFLAGS += -DFEATURE_IPA_ANDROID
 LOCAL_MODULE := libipanat
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRELINK_MODULE := false

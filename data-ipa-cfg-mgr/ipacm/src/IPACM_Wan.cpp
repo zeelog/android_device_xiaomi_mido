@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013, The Linux Foundation. All rights reserved.
+Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -79,8 +79,8 @@ bool IPACM_Wan::backhaul_is_wan_bridge = false;
 uint32_t IPACM_Wan::backhaul_ipv6_prefix[2];
 
 #ifdef FEATURE_IPA_ANDROID
-int	IPACM_Wan::ipa_if_num_tether_v4_total = 0;
-int	IPACM_Wan::ipa_if_num_tether_v6_total = 0;
+uint32_t	IPACM_Wan::ipa_if_num_tether_v4_total = 0;
+uint32_t	IPACM_Wan::ipa_if_num_tether_v6_total = 0;
 
 int	IPACM_Wan::ipa_if_num_tether_v4[IPA_MAX_IFACE_ENTRIES];
 int	IPACM_Wan::ipa_if_num_tether_v6[IPA_MAX_IFACE_ENTRIES];
@@ -96,6 +96,7 @@ IPACM_Wan::IPACM_Wan(int iface_index,
 	wan_route_rule_v6_hdl = NULL;
 	wan_route_rule_v6_hdl_a5 = NULL;
 	wan_client = NULL;
+	mac_addr = NULL;
 
 	if(iface_query != NULL)
 	{
@@ -196,7 +197,7 @@ IPACM_Wan::~IPACM_Wan()
 /* handle new_address event */
 int IPACM_Wan::handle_addr_evt(ipacm_event_data_addr *data)
 {
-	struct ipa_ioc_add_rt_rule *rt_rule;
+	struct ipa_ioc_add_rt_rule *rt_rule = NULL;
 	struct ipa_rt_rule_add *rt_rule_entry;
 	struct ipa_ioc_add_flt_rule *flt_rule;
 	struct ipa_flt_rule_add flt_rule_entry;
@@ -508,12 +509,12 @@ int IPACM_Wan::handle_addr_evt(ipacm_event_data_addr *data)
 	}
 
 #ifdef FEATURE_IPACM_HAL
-	/* check if having pending add_downstream cache*/
+	/* check if having pending set_upstream cache*/
 	OffloadMng = IPACM_OffloadManager::GetInstance();
 	if (OffloadMng == NULL) {
 		IPACMERR("failed to get IPACM_OffloadManager instance !\n");
 	} else {
-		IPACMDBG_H(" check iface %s if having add_downstream cache events\n", dev_name);
+		IPACMDBG_H(" check iface %s if having set_upstream cache events\n", dev_name);
 		OffloadMng->search_framwork_cache(dev_name);
 	}
 #endif
@@ -560,7 +561,7 @@ void IPACM_Wan::event_callback(ipa_cm_event_id event, void *param)
 			if ((ipa_interface_index == ipa_if_num) && (m_is_sta_mode == Q6_WAN))
 			{
 				is_xlat = true;
-				IPACMDBG_H("WAN-LTE (%s) link up, iface: %d is_xlat: \n",
+				IPACMDBG_H("WAN-LTE (%s) link up, iface: %d is_xlat: %d\n",
 						IPACM_Iface::ipacmcfg->iface_table[ipa_interface_index].iface_name,data->if_index, is_xlat);
 			}
 			break;
@@ -755,7 +756,10 @@ void IPACM_Wan::event_callback(ipa_cm_event_id event, void *param)
 #else
 						IPACMDBG_H("adding routing table(upstream), dev (%s) ip-type(%d)\n", dev_name,data->iptype);
 #endif
-						handle_route_add_evt(data->iptype); //sky
+						if (active_v4 == false)
+						{
+							handle_route_add_evt(data->iptype); //sky
+						}
 					}
 #ifdef FEATURE_IPA_ANDROID
 #ifdef FEATURE_IPACM_HAL
@@ -788,7 +792,10 @@ void IPACM_Wan::event_callback(ipa_cm_event_id event, void *param)
 						/* Check & construct STA header */
 						handle_sta_header_add_evt();
 #endif
-						handle_route_add_evt(data->iptype);
+						if (active_v6 == false)
+						{
+							handle_route_add_evt(data->iptype);
+						}
 					}
 #ifdef FEATURE_IPA_ANDROID
 #ifdef FEATURE_IPACM_HAL
@@ -1093,7 +1100,7 @@ void IPACM_Wan::event_callback(ipa_cm_event_id event, void *param)
 					}
 					else if (data->iptype == IPA_IP_v6)
 					{
-						for (int num_ipv6_addr = 0; num_ipv6_addr < num_dft_rt_v6; num_ipv6_addr++)
+						for (uint32_t num_ipv6_addr = 0; num_ipv6_addr < num_dft_rt_v6; num_ipv6_addr++)
 						{
 							if ((ipv6_addr[num_ipv6_addr][0] == data->ipv6_addr[0]) &&
 								(ipv6_addr[num_ipv6_addr][1] == data->ipv6_addr[1]) &&
@@ -1253,7 +1260,16 @@ void IPACM_Wan::event_callback(ipa_cm_event_id event, void *param)
 				}
 			}
 			break;
-
+#ifdef FEATURE_IPACM_HAL
+		/* WA for WLAN to clean up NAT instance during SSR */
+		case IPA_SSR_NOTICE: //sky
+			IPACMDBG_H("Received IPA_SSR_NOTICE event.\n");
+			if(m_is_sta_mode == WLAN_WAN)
+			{
+				IPACM_Iface::ipacmcfg->DelNatIfaces(dev_name); // delete NAT-iface
+			}
+		break;
+#endif
 	default:
 		break;
 	}
@@ -1268,11 +1284,9 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 	/* add default WAN route */
 	struct ipa_ioc_add_rt_rule *rt_rule = NULL;
 	struct ipa_rt_rule_add *rt_rule_entry;
-	struct ipa_ioc_get_hdr sRetHeader;
-	uint32_t cnt, tx_index = 0;
+	uint32_t tx_index = 0;
 	const int NUM = 1;
 	ipacm_cmd_q_data evt_data;
-	struct ipa_ioc_copy_hdr sCopyHeader; /* checking if partial header*/
 	struct ipa_ioc_get_hdr hdr;
 
 	IPACMDBG_H("ip-type:%d\n", iptype);
@@ -1362,7 +1376,7 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 	    IPACMDBG_H("header length: %d, paritial: %d\n", sCopyHeader.hdr_len, sCopyHeader.is_partial);
 	    if(sCopyHeader.is_partial)
 	    {
- 	        IPACMDBG_H("Not setup default WAN routing rules cuz the header is not complete\n");
+ 	    	IPACMDBG_H("Not setup default WAN routing rules cuz the header is not complete\n");
             if(iptype==IPA_IP_v4)
 			{
 				header_partial_default_wan_v4 = true;
@@ -1598,7 +1612,7 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 			IPACM_Wan::xlat_mux_id = ext_prop->ext[0].mux_id;
 			wanup_data->xlat_mux_id = IPACM_Wan::xlat_mux_id;
 			IPACMDBG_H("Set xlat configuraiton with below information:\n");
-			IPACMDBG_H("xlat_enabled:  xlat_mux_id: %d \n",
+			IPACMDBG_H("xlat_enabled: %d xlat_mux_id: %d \n",
 					is_xlat, xlat_mux_id);
 		}
 		else
@@ -3159,10 +3173,6 @@ int IPACM_Wan::init_fl_rule_ex(ipa_ip_type iptype)
 {
 	int res = IPACM_SUCCESS;
 
-	char *dev_wlan0="wlan0";
-	char *dev_wlan1="wlan1";
-	char *dev_ecm0="ecm0";
-
 	/* ADD corresponding ipa_rm_resource_name of RX-endpoint before adding all IPV4V6 FT-rules */
 	IPACMDBG_H(" dun add producer dependency from %s with registered rx-prop\n", dev_name);
 
@@ -3192,6 +3202,12 @@ int IPACM_Wan::init_fl_rule_ex(ipa_ip_type iptype)
 	}
 	install_wan_filtering_rule(false);
 
+	/* Add Natting iface to IPACM_Config if there is  Rx/Tx property */
+	if (rx_prop != NULL || tx_prop != NULL)
+	{
+		IPACMDBG_H(" Has rx/tx properties registered for iface %s, add for NATTING \n", dev_name);
+		IPACM_Iface::ipacmcfg->AddNatIfaces(dev_name, iptype);
+	}
 fail:
 	return res;
 }
@@ -3395,7 +3411,8 @@ fail:
 
 int IPACM_Wan::query_ext_prop()
 {
-	int fd, ret = IPACM_SUCCESS, cnt;
+	int fd, ret = IPACM_SUCCESS;
+	uint32_t cnt;
 
 	if (iface_query->num_ext_props > 0)
 	{
@@ -4346,7 +4363,11 @@ int IPACM_Wan::config_dft_embms_rules(ipa_ioc_add_flt_rule *pFilteringTable_v4, 
 int IPACM_Wan::handle_down_evt()
 {
 	int res = IPACM_SUCCESS;
-	int i;
+	uint32_t i, tether_total;
+	int ipa_if_num_tether_tmp[IPA_MAX_IFACE_ENTRIES];
+
+	tether_total = 0;
+	memset(ipa_if_num_tether_tmp, 0, IPA_MAX_IFACE_ENTRIES);
 
 	IPACMDBG_H(" wan handle_down_evt \n");
 
@@ -4367,22 +4388,61 @@ int IPACM_Wan::handle_down_evt()
 	/* make sure default routing rules and firewall rules are deleted*/
 	if (active_v4)
 	{
-	   	if (rx_prop != NULL)
-	    {
+		if (rx_prop != NULL)
+		{
 			del_dft_firewall_rules(IPA_IP_v4);
 		}
 		handle_route_del_evt(IPA_IP_v4);
 		IPACMDBG_H("Delete default v4 routing rules\n");
+
+#ifdef FEATURE_IPA_ANDROID
+		/* posting wan_down_tether for lan clients */
+#ifdef FEATURE_IPACM_HAL
+		IPACMDBG_H("Posting IPA_WAN_DOWN_TETHER_EVENT for IPV4\n");
+		post_wan_down_tether_evt(IPA_IP_v4, 0);
+#else
+		for (i=0; i < IPACM_Wan::ipa_if_num_tether_v4_total; i++)
+		{
+			ipa_if_num_tether_tmp[i] = IPACM_Wan::ipa_if_num_tether_v4[i];
+		}
+		tether_total = IPACM_Wan::ipa_if_num_tether_v4_total;
+		for (i=0; i < tether_total; i++)
+		{
+			post_wan_down_tether_evt(IPA_IP_v4, ipa_if_num_tether_tmp[i]);
+			IPACMDBG_H("post_wan_down_tether_v4 iface(%d: %s)\n",
+				i, IPACM_Iface::ipacmcfg->iface_table[ipa_if_num_tether_tmp[i]].iface_name);
+		}
+#endif
+#endif
 	}
 
 	if (active_v6)
 	{
-	   	if (rx_prop != NULL)
-	    {
+		if (rx_prop != NULL)
+		{
 			del_dft_firewall_rules(IPA_IP_v6);
 		}
 		handle_route_del_evt(IPA_IP_v6);
 		IPACMDBG_H("Delete default v6 routing rules\n");
+#ifdef FEATURE_IPA_ANDROID
+		/* posting wan_down_tether for lan clients */
+#ifdef FEATURE_IPACM_HAL
+		IPACMDBG_H("Posting IPA_WAN_DOWN_TETHER_EVENT for IPV6\n");
+		post_wan_down_tether_evt(IPA_IP_v6, 0);
+#else
+		for (i=0; i < IPACM_Wan::ipa_if_num_tether_v6_total; i++)
+		{
+			ipa_if_num_tether_tmp[i] = IPACM_Wan::ipa_if_num_tether_v6[i];
+		}
+		tether_total = IPACM_Wan::ipa_if_num_tether_v6_total;
+		for (i=0; i < tether_total; i++)
+		{
+			post_wan_down_tether_evt(IPA_IP_v6, ipa_if_num_tether_tmp[i]);
+			IPACMDBG_H("post_wan_down_tether_v6 iface(%d: %s)\n",
+				i, IPACM_Iface::ipacmcfg->iface_table[ipa_if_num_tether_tmp[i]].iface_name);
+		}
+#endif
+#endif
 	}
 
 	/* Delete default v4 RT rule */
@@ -4391,7 +4451,7 @@ int IPACM_Wan::handle_down_evt()
 		IPACMDBG_H("Delete default v4 routing rules\n");
 		if (m_routing.DeleteRoutingHdl(dft_rt_rule_hdl[0], IPA_IP_v4) == false)
 		{
-		   IPACMERR("Routing rule deletion failed!\n");
+			IPACMERR("Routing rule deletion failed!\n");
 			res = IPACM_FAILURE;
 			goto fail;
 		}
@@ -4574,7 +4634,7 @@ fail:
 int IPACM_Wan::handle_down_evt_ex()
 {
 	int res = IPACM_SUCCESS;
-	int i, tether_total;
+	uint32_t i, tether_total;
 	int ipa_if_num_tether_tmp[IPA_MAX_IFACE_ENTRIES];
 
 	IPACMDBG_H(" wan handle_down_evt \n");
@@ -4726,6 +4786,10 @@ int IPACM_Wan::handle_down_evt_ex()
 			handle_route_del_evt_ex(IPA_IP_v4);
 #ifdef FEATURE_IPA_ANDROID
 			/* posting wan_down_tether for all lan clients */
+#ifdef FEATURE_IPACM_HAL
+			IPACMDBG_H("Posting IPA_WAN_DOWN_TETHER_EVENT for IPV4\n");
+			post_wan_down_tether_evt(IPA_IP_v4, 0);
+#else
 			for (i=0; i < IPACM_Wan::ipa_if_num_tether_v4_total; i++)
 			{
 				ipa_if_num_tether_tmp[i] = IPACM_Wan::ipa_if_num_tether_v4[i];
@@ -4738,11 +4802,16 @@ int IPACM_Wan::handle_down_evt_ex()
 					i, IPACM_Iface::ipacmcfg->iface_table[ipa_if_num_tether_tmp[i]].iface_name);
 			}
 #endif
+#endif
 			IPACM_Wan::wan_up_v6 = false;
 			del_wan_firewall_rule(IPA_IP_v6);
 			handle_route_del_evt_ex(IPA_IP_v6);
 #ifdef FEATURE_IPA_ANDROID
 			/* posting wan_down_tether for all lan clients */
+#ifdef FEATURE_IPACM_HAL
+                        IPACMDBG_H("Posting IPA_WAN_DOWN_TETHER_EVENT for IPV6\n");
+                        post_wan_down_tether_evt(IPA_IP_v6, 0);
+#else
 			for (i=0; i < IPACM_Wan::ipa_if_num_tether_v6_total; i++)
 			{
 				ipa_if_num_tether_tmp[i] = IPACM_Wan::ipa_if_num_tether_v6[i];
@@ -4754,6 +4823,7 @@ int IPACM_Wan::handle_down_evt_ex()
 				IPACMDBG_H("post_wan_down_tether_v6 iface(%d: %s)\n",
 					i, IPACM_Iface::ipacmcfg->iface_table[ipa_if_num_tether_tmp[i]].iface_name);
 			}
+#endif
 #endif
 			memset(IPACM_Wan::wan_up_dev_name, 0, sizeof(IPACM_Wan::wan_up_dev_name));
 
@@ -5277,7 +5347,7 @@ int IPACM_Wan::handle_wan_hdr_init(uint8_t *mac_addr)
 								pHeaderDescriptor->hdr[0].name[IPA_RESOURCE_NAME_MAX-1] = '\0';
 								if (strlcat(pHeaderDescriptor->hdr[0].name, IPA_WAN_PARTIAL_HDR_NAME_v4, sizeof(pHeaderDescriptor->hdr[0].name)) > IPA_RESOURCE_NAME_MAX)
 								{
-									IPACMERR(" header name construction failed exceed length (%d)\n", strlen(pHeaderDescriptor->hdr[0].name));
+									IPACMERR(" header name construction failed exceed length (%zu)\n", strlen(pHeaderDescriptor->hdr[0].name));
 									res = IPACM_FAILURE;
 									goto fail;
 								}
@@ -5285,7 +5355,7 @@ int IPACM_Wan::handle_wan_hdr_init(uint8_t *mac_addr)
 								snprintf(index,sizeof(index), "%d", header_name_count);
 								if (strlcat(pHeaderDescriptor->hdr[0].name, index, sizeof(pHeaderDescriptor->hdr[0].name)) > IPA_RESOURCE_NAME_MAX)
 								{
-									IPACMERR(" header name construction failed exceed length (%d)\n", strlen(pHeaderDescriptor->hdr[0].name));
+									IPACMERR(" header name construction failed exceed length (%zu)\n", strlen(pHeaderDescriptor->hdr[0].name));
 									res = IPACM_FAILURE;
 									goto fail;
 								}
@@ -5374,14 +5444,14 @@ int IPACM_Wan::handle_wan_hdr_init(uint8_t *mac_addr)
 				pHeaderDescriptor->hdr[0].name[IPA_RESOURCE_NAME_MAX-1] = '\0';
 				if (strlcat(pHeaderDescriptor->hdr[0].name, IPA_WAN_PARTIAL_HDR_NAME_v6, sizeof(pHeaderDescriptor->hdr[0].name)) > IPA_RESOURCE_NAME_MAX)
 				{
-					IPACMERR(" header name construction failed exceed length (%d)\n", strlen(pHeaderDescriptor->hdr[0].name));
+					IPACMERR(" header name construction failed exceed length (%zu)\n", strlen(pHeaderDescriptor->hdr[0].name));
 					res = IPACM_FAILURE;
 					goto fail;
 				}
 				snprintf(index,sizeof(index), "%d", header_name_count);
 				if (strlcat(pHeaderDescriptor->hdr[0].name, index, sizeof(pHeaderDescriptor->hdr[0].name)) > IPA_RESOURCE_NAME_MAX)
 				{
-					IPACMERR(" header name construction failed exceed length (%d)\n", strlen(pHeaderDescriptor->hdr[0].name));
+					IPACMERR(" header name construction failed exceed length (%zu)\n", strlen(pHeaderDescriptor->hdr[0].name));
 					res = IPACM_FAILURE;
 					goto fail;
 				}
@@ -5497,7 +5567,7 @@ int IPACM_Wan::handle_wan_client_ipaddr(ipacm_event_data_all *data)
 	else
 	{
 		if ((data->ipv6_addr[0] != 0) || (data->ipv6_addr[1] != 0) ||
-				(data->ipv6_addr[2] != 0) || (data->ipv6_addr[3] || 0)) /* check if all 0 not valid ipv6 address */
+				(data->ipv6_addr[2] != 0) || (data->ipv6_addr[3] != 0)) /* check if all 0 not valid ipv6 address */
 		{
 		   IPACMDBG_H("ipv6 address: 0x%x:%x:%x:%x\n", data->ipv6_addr[0], data->ipv6_addr[1], data->ipv6_addr[2], data->ipv6_addr[3]);
                    if(get_client_memptr(wan_client, clnt_indx)->ipv6_set < IPV6_NUM_ADDR)
@@ -5527,6 +5597,11 @@ int IPACM_Wan::handle_wan_client_ipaddr(ipacm_event_data_all *data)
 		         IPACMDBG_H("Already got 3 ipv6 addr for client:%d\n", clnt_indx);
 			 return IPACM_FAILURE; /* not setup the RT rules*/
 		    }
+		}
+		else
+		{
+			IPACMDBG_H("Invalid IPV6 address\n");
+			return IPACM_FAILURE;
 		}
 	}
 
@@ -5872,7 +5947,7 @@ void IPACM_Wan::handle_wan_client_SCC_MCC_switch(bool isSCCMode, ipa_ip_type ipt
 	int size = sizeof(struct ipa_ioc_mdfy_rt_rule) +
 		NUM_RULES * sizeof(struct ipa_rt_rule_mdfy);
 
-	IPACMDBG("\n");
+	IPACMDBG("isSCCMode: %d\n",isSCCMode);
 
 	if (tx_prop == NULL || is_default_gateway == false)
 	{
@@ -6049,16 +6124,16 @@ int IPACM_Wan::handle_network_stats_update(ipa_get_apn_data_stats_resp_msg_v01 *
 {
 	FILE *fp = NULL;
 
-	for (int apn_index =0; apn_index < data->apn_data_stats_list_len; apn_index++)
+	for (uint32_t apn_index =0; apn_index < data->apn_data_stats_list_len; apn_index++)
 	{
 		if(data->apn_data_stats_list[apn_index].mux_id == ext_prop->ext[0].mux_id)
 		{
-			IPACMDBG_H("Received IPA_TETHERING_STATS_UPDATE_NETWORK_STATS, MUX ID %d TX (P%lu/B%lu) RX (P%lu/B%lu)\n",
+			IPACMDBG_H("Received IPA_TETHERING_STATS_UPDATE_NETWORK_STATS, MUX ID %d TX (P%llu/B%llu) RX (P%llu/B%llu)\n",
 				data->apn_data_stats_list[apn_index].mux_id,
-					data->apn_data_stats_list[apn_index].num_ul_packets,
-						data->apn_data_stats_list[apn_index].num_ul_bytes,
-							data->apn_data_stats_list[apn_index].num_dl_packets,
-								data->apn_data_stats_list[apn_index].num_dl_bytes);
+					(long long)data->apn_data_stats_list[apn_index].num_ul_packets,
+						(long long)data->apn_data_stats_list[apn_index].num_ul_bytes,
+							(long long)data->apn_data_stats_list[apn_index].num_dl_packets,
+								(long long)data->apn_data_stats_list[apn_index].num_dl_bytes);
 			fp = fopen(IPA_NETWORK_STATS_FILE_NAME, "w");
 			if ( fp == NULL )
 			{
@@ -6069,10 +6144,10 @@ int IPACM_Wan::handle_network_stats_update(ipa_get_apn_data_stats_resp_msg_v01 *
 
 			fprintf(fp, NETWORK_STATS,
 				dev_name,
-					data->apn_data_stats_list[apn_index].num_ul_packets,
-						data->apn_data_stats_list[apn_index].num_ul_bytes,
-							data->apn_data_stats_list[apn_index].num_dl_packets,
-								data->apn_data_stats_list[apn_index].num_dl_bytes);
+					(long long)data->apn_data_stats_list[apn_index].num_ul_packets,
+						(long long)data->apn_data_stats_list[apn_index].num_ul_bytes,
+							(long long)data->apn_data_stats_list[apn_index].num_dl_packets,
+								(long long)data->apn_data_stats_list[apn_index].num_dl_bytes);
 			fclose(fp);
 			break;
 		};
@@ -6168,7 +6243,7 @@ int IPACM_Wan::add_dummy_rx_hdr()
 
 	if (strlcat(ipv6_hdr->name, IPA_DUMMY_ETH_HDR_NAME_v6, sizeof(ipv6_hdr->name)) > IPA_RESOURCE_NAME_MAX)
 	{
-		IPACMERR(" header name construction failed exceed length (%d)\n", strlen(ipv6_hdr->name));
+		IPACMERR(" header name construction failed exceed length (%zu)\n", strlen(ipv6_hdr->name));
 		return IPACM_FAILURE;
 	}
 

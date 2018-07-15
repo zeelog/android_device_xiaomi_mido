@@ -72,7 +72,9 @@ void IPACM_IfaceManager::event_callback(ipa_cm_event_id event, void *param)
 	ipacm_event_data_fid *evt_data = (ipacm_event_data_fid *)param;
 	ipacm_event_data_mac *StaData = (ipacm_event_data_mac *)param;
 	ipacm_event_data_all *data_all = (ipacm_event_data_all *)param;
-	ipacm_ifacemgr_data ifmgr_data = {0};
+	ipacm_ifacemgr_data ifmgr_data;
+
+	memset(&ifmgr_data,0,sizeof(ifmgr_data));
 
 	switch(event)
 	{
@@ -381,6 +383,7 @@ int IPACM_IfaceManager::create_iface_instance(ipacm_ifacemgr_data *param)
 #ifdef FEATURE_IPACM_HAL
 				IPACM_EvtDispatcher::registr(IPA_DOWNSTREAM_ADD, wl);
 				IPACM_EvtDispatcher::registr(IPA_DOWNSTREAM_DEL, wl);
+				IPACM_EvtDispatcher::registr(IPA_SSR_NOTICE, wl);
 #endif
 #else
 				IPACM_EvtDispatcher::registr(IPA_HANDLE_WAN_UP, wl);
@@ -447,6 +450,9 @@ int IPACM_IfaceManager::create_iface_instance(ipacm_ifacemgr_data *param)
 #ifndef FEATURE_IPA_ANDROID
 						IPACM_EvtDispatcher::registr(IPA_WLAN_SWITCH_TO_SCC, w);
 						IPACM_EvtDispatcher::registr(IPA_WLAN_SWITCH_TO_MCC, w);
+#ifdef FEATURE_IPACM_HAL
+						IPACM_EvtDispatcher::registr(IPA_SSR_NOTICE, w);
+#endif
 #endif
 					}
 					else

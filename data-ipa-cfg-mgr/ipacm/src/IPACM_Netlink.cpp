@@ -607,7 +607,7 @@ static int ipa_nl_decode_nlmsg
 	 )
 {
 	char dev_name[IF_NAME_LEN]={0};
-	int ret_val, mask_value, mask_index, mask_value_v6;
+	int ret_val, mask_index, mask_value_v6;
 	struct nlmsghdr *nlh = (struct nlmsghdr *)buffer;
 
 	uint32_t if_ipv4_addr =0, if_ipipv4_addr_mask =0, temp =0, if_ipv4_addr_gw =0;
@@ -849,9 +849,7 @@ static int ipa_nl_decode_nlmsg
 
 				evt_data.event = IPA_ADDR_ADD_EVENT;
 				data_addr->if_index = msg_ptr->nl_addr_info.metainfo.ifa_index;
-#ifdef FEATURE_L2TP
 				strlcpy(data_addr->iface_name, dev_name, sizeof(data_addr->iface_name));
-#endif
 				if(AF_INET6 == msg_ptr->nl_addr_info.attr_info.prefix_addr.ss_family)
 				{
 				    IPACMDBG("Posting IPA_ADDR_ADD_EVENT with if index:%d, ipv6 addr:0x%x:%x:%x:%x\n",
@@ -1424,9 +1422,7 @@ static int ipa_nl_decode_nlmsg
 		    			 msg_ptr->nl_neigh_info.attr_info.lladdr_hwaddr.sa_data,
 		    			 sizeof(data_all->mac_addr));
 			data_all->if_index = msg_ptr->nl_neigh_info.metainfo.ndm_ifindex;
-#ifdef FEATURE_L2TP
 			strlcpy(data_all->iface_name, dev_name, sizeof(data_all->iface_name));
-#endif
 			/* Add support to replace src-mac as bridge0 mac */
 			if((msg_ptr->nl_neigh_info.metainfo.ndm_family == AF_BRIDGE) &&
 				(msg_ptr->nl_neigh_info.metainfo.ndm_state == NUD_PERMANENT))
@@ -1625,7 +1621,7 @@ int ipa_get_if_name
 		return IPACM_FAILURE;
 	}
 
-	(void)strncpy(if_name, ifr.ifr_name, sizeof(ifr.ifr_name));
+	(void)strlcpy(if_name, ifr.ifr_name, sizeof(ifr.ifr_name));
 	IPACMDBG("interface name %s\n", ifr.ifr_name);
 	close(fd);
 

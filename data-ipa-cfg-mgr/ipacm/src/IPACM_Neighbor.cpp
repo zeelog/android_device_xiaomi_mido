@@ -127,16 +127,15 @@ void IPACM_Neighbor::event_callback(ipa_cm_event_id event, void *param)
 								IPACMERR("Unable to allocate memory\n");
 								return;
 							}
+							memset(data_all,0,sizeof(ipacm_event_data_all));
 							data_all->iptype = IPA_IP_v4;
 							data_all->if_index = neighbor_client[i].iface_index;
 							data_all->ipv4_addr = neighbor_client[i].v4_addr; //use previous ipv4 address
 							memcpy(data_all->mac_addr,
 									neighbor_client[i].mac_addr,
 												sizeof(data_all->mac_addr));
-#ifdef FEATURE_L2TP
 							memcpy(data_all->iface_name, neighbor_client[i].iface_name,
 								sizeof(data_all->iface_name));
-#endif
 							evt_data.evt_data = (void *)data_all;
 							IPACM_EvtDispatcher::PostEvt(&evt_data);
 							/* ask for replaced iface name*/

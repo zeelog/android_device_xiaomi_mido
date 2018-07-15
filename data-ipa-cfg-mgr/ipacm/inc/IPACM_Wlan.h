@@ -101,7 +101,7 @@ private:
 	ipa_wlan_client *wlan_client;
 
 	int header_name_count;
-	int num_wifi_client;
+	uint32_t num_wifi_client;
 
 	int wlan_ap_index;
 
