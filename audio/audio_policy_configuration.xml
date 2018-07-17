@@ -271,7 +271,7 @@
                 <route type="mix" sink="Telephony Tx"
                        sources="voice_tx"/>
                 <route type="mix" sink="primary input"
-                       sources="Built-In Mic,Wired Headset Mic,BT SCO Headset Mic,FM Tuner,Telephony Rx"/>
+                       sources="Wired Headset Mic,BT SCO Headset Mic,FM Tuner,Telephony Rx"/>
                 <route type="mix" sink="surround_sound"
                        sources="Built-In Mic,Built-In Back Mic"/>
                 <route type="mix" sink="record_24"
