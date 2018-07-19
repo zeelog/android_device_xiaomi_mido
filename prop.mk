@@ -51,7 +51,6 @@ ro.qualcomm.bt.hci_transport=smd
 PRODUCT_PROPERTY_OVERRIDES += \
 camera.display.lmax=1280x720 \
 camera.display.umax=1920x1080 \
-camera.hal1.packagelist=com.skype.raider,com.google.android.talk \
 camera.lowpower.record.enable=1 \
 media.camera.ts.monotonic=1 \
 persist.camera.gyro.disable=0 \
