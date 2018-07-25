@@ -180,7 +180,7 @@ telephony.lteOnCdmaDevice=1
 
 # Security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.vendor.build.security_patch=2018-01-01
+ro.vendor.build.security_patch=2018-07-01
 
 # Time Services
 PRODUCT_PROPERTY_OVERRIDES += \
