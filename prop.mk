@@ -193,7 +193,7 @@ persist.sys.usb.config.extra=none
 
 # Vendor security patch level
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.lineage.build.vendor_security_patch=2018-02-01
+ro.lineage.build.vendor_security_patch=2018-07-01
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
