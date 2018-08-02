@@ -441,7 +441,7 @@ on property:wc_transport.start_hci=false
 service start_hci_filter /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth diag system wakelock
+    group bluetooth oem_2901 system
     seclabel u:r:bluetooth:s0
     disabled
 
@@ -481,7 +481,7 @@ service ipacm-diag /vendor/bin/ipacm-diag
 service qti /vendor/bin/qti
     class main
     user radio
-    group radio oem_2901 diag usb net_admin
+    group radio oem_2901 diag usb
     writepid /dev/cpuset/system-background/tasks
 
 service sensors /vendor/bin/sensors.qcom
