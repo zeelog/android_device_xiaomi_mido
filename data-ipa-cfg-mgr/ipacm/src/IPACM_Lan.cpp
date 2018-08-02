@@ -525,7 +525,8 @@ void IPACM_Lan::event_callback(ipa_cm_event_id event, void *param)
 					if (data_wan_tether->is_sta == false)
 					{
 							ext_prop = IPACM_Iface::ipacmcfg->GetExtProp(IPA_IP_v4);
-							handle_wan_up_ex(ext_prop, IPA_IP_v4, 0);
+							handle_wan_up_ex(ext_prop, IPA_IP_v4,
+								IPACM_Wan::getXlat_Mux_Id());
 					} else {
 							handle_wan_up(IPA_IP_v4);
 					}
@@ -707,7 +708,14 @@ void IPACM_Lan::event_callback(ipa_cm_event_id event, void *param)
 						if (IPACM_Wan::backhaul_is_sta_mode == false) /* LTE */
 						{
 							ext_prop = IPACM_Iface::ipacmcfg->GetExtProp(data->prefix.iptype);
-							handle_wan_up_ex(ext_prop, data->prefix.iptype, 0);
+							if (data->prefix.iptype == IPA_IP_v4)
+							{
+								handle_wan_up_ex(ext_prop, data->prefix.iptype,
+									IPACM_Wan::getXlat_Mux_Id());
+							}
+							else {
+								handle_wan_up_ex(ext_prop, data->prefix.iptype, 0);
+							}
 						} else {
 							handle_wan_up(data->prefix.iptype); /* STA */
 						}

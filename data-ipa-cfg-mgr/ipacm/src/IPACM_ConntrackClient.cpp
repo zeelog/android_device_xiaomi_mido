@@ -187,12 +187,6 @@ int IPACM_ConntrackClient::IPA_Conntrack_Filters_Ignore_Bridge_Addrs
 	(void)strlcpy(ifr.ifr_name, IPACM_Iface::ipacmcfg->ipa_virtual_iface_name, sizeof(ifr.ifr_name));
 	IPACMDBG("bridge interface name (%s)\n", ifr.ifr_name);
 
-	/* retrieve bridge interface ipv4 address */
-	memset(&ifr, 0, sizeof(struct ifreq));
-	ifr.ifr_addr.sa_family = AF_INET;
-	(void)strlcpy(ifr.ifr_name, IPACM_Iface::ipacmcfg->ipa_virtual_iface_name, sizeof(ifr.ifr_name));
-	IPACMDBG("bridge interface name (%s)\n", ifr.ifr_name);
-
 	ret = ioctl(fd, SIOCGIFADDR, &ifr);
 	if (ret < 0)
 	{
