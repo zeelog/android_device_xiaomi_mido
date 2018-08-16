@@ -21,8 +21,7 @@
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
 #include <hardware/hw_auth_token.h>
-#include <keystore/IKeystoreService.h>
-#include <keystore/keystore.h> // for error codes
+#include <android/security/IKeystoreService.h>
 #include <utils/Log.h>
 
 #include "FingerprintDaemonProxy.h"
@@ -94,12 +93,14 @@ void FingerprintDaemonProxy::notifyKeystore(const uint8_t *auth_token, const siz
         // TODO: cache service?
         sp < IServiceManager > sm = defaultServiceManager();
         sp < IBinder > binder = sm->getService(String16("android.security.keystore"));
-        sp < IKeystoreService > service = interface_cast < IKeystoreService > (binder);
+        sp < security::IKeystoreService > service = interface_cast < security::IKeystoreService > (binder);
         if (service != NULL) {
-            status_t ret = service->addAuthToken(auth_token, auth_token_length);
-            if (ret != (int)ResponseCode::NO_ERROR) {
-                ALOGE("Falure sending auth token to KeyStore: %d", ret);
-            }
+            int result =0;
+            std::vector<uint8_t> auth_token_vector(*auth_token, (*auth_token) + auth_token_length);
+            auto binder_result = service->addAuthToken(auth_token_vector, &result);
+             if (!binder_result.isOk() || !keystore::KeyStoreServiceReturnCode(result).isOk()) {
+                ALOGE("Falure sending auth token to KeyStore");
+             }
         } else {
             ALOGE("Unable to communicate with KeyStore");
         }
