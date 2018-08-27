@@ -29,7 +29,7 @@ LOCAL_MODULE_SUFFIX := -timestamp
 
 include $(BUILD_SYSTEM)/base_rules.mk
 
-$(LOCAL_BUILT_MODULE): ACTUAL_INI_FILE := /data/misc/wifi/WCNSS_qcom_cfg.ini
+$(LOCAL_BUILT_MODULE): ACTUAL_INI_FILE := /data/vendor/wifi/WCNSS_qcom_cfg.ini
 $(LOCAL_BUILT_MODULE): WCNSS_INI_SYMLINK := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 
 $(LOCAL_BUILT_MODULE): ACTUAL_BIN_FILE := /persist/WCNSS_qcom_wlan_nv.bin
