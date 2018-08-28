@@ -415,7 +415,7 @@ on property:sys.sysctl.tcp_adv_win_scale=*
 service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     user radio
-    group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
+    group radio cache inet misc audio sdcard_r sdcard_rw diag log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service charger /sbin/chargeonlymode
