@@ -279,6 +279,10 @@ QCamera3Stream::QCamera3Stream(uint32_t camHandle,
  *==========================================================================*/
 QCamera3Stream::~QCamera3Stream()
 {
+    if (mBatchSize) {
+        flushFreeBatchBufQ();
+    }
+
     if (mStreamInfoBuf != NULL) {
         int rc = mCamOps->unmap_stream_buf(mCamHandle,
                     mChannelHandle, mHandle, CAM_MAPPING_BUF_TYPE_STREAM_INFO, 0, -1);
