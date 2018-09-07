@@ -7058,6 +7058,22 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
     static const uint8_t hotPixelMapMode = ANDROID_STATISTICS_HOT_PIXEL_MAP_MODE_OFF;
     staticInfo.update(ANDROID_STATISTICS_HOT_PIXEL_MAP_MODE, &hotPixelMapMode, 1);
 
+#if 1
+    const int64_t kRequiredMinDur = 33333333;
+    for (size_t i = 0; i < MIN(MAX_SIZES_CNT,
+            gCamCapability[cameraId]->picture_sizes_tbl_cnt); i++) {
+        if (gCamCapability[cameraId]->picture_min_duration[i] > kRequiredMinDur) {
+            LOGW("Detected unsupported picture min dur %" PRId64 " for size %" PRId32 " x %" PRId32 "!!"
+                    "Sending hardcoded %" PRId64 " to avoid runtime crashes",
+                    gCamCapability[cameraId]->picture_min_duration[i],
+                    gCamCapability[cameraId]->picture_sizes_tbl[i].width,
+                    gCamCapability[cameraId]->picture_sizes_tbl[i].height,
+                    kRequiredMinDur);
+            gCamCapability[cameraId]->picture_min_duration[i] = kRequiredMinDur;
+        }
+    }
+#endif
+
     /* android.scaler.availableMinFrameDurations */
     Vector<int64_t> available_min_durations;
     for (size_t j = 0; j < scalar_formats_count; j++) {
