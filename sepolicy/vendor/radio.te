@@ -1,0 +1,1 @@
+allow radio vendor_file:file read;
