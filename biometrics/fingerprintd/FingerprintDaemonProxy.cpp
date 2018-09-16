@@ -16,12 +16,11 @@
 #define LOG_NDEBUG 0
 #define LOG_TAG "FingerprintDaemonProxy"
 
-#include <cutils/properties.h>
 #include <binder/IServiceManager.h>
 #include <hardware/hardware.h>
 #include <hardware/fingerprint.h>
 #include <hardware/hw_auth_token.h>
-#include <utils/Log.h>
+#include <log/log.h>
 
 #include "FingerprintDaemonProxy.h"
 
