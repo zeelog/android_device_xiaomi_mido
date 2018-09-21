@@ -235,3 +235,4 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/mido/BoardConfigVendor.mk
+-include vendor/xiaomi/msm8953-common/BoardConfigVendor.mk
