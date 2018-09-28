@@ -1,5 +1,5 @@
 type folio_daemon, domain, coredomain;
-type folio_daemon_exec, exec_type, file_type;
+type folio_daemon_exec, system_file_type, exec_type, file_type;
 
 init_daemon_domain(folio_daemon)
 
