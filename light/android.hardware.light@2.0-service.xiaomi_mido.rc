@@ -12,3 +12,4 @@ service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.x
     user system
     group system
     shutdown critical
+    writepid /dev/cpuset/system-background/tasks
