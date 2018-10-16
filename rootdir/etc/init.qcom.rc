@@ -573,7 +573,7 @@ service goodix_script /vendor/bin/init.goodix.sh
     user system
     oneshot
 
-service power_off_alarm /vendor/bin/power_off_alarm
+service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system
     disabled
