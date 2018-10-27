@@ -39,9 +39,6 @@ on fs
     mkdir /persist/bms 0700 root system
     restorecon_recursive /persist
 
-    wait /dev/block/bootdevice/by-name/oem
-    mount ext4 /dev/block/bootdevice/by-name/oem /oem ro nosuid nodev barrier=1
-
 on init
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
 
