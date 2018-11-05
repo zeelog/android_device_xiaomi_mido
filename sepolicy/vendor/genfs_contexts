@@ -1,3 +1,7 @@
+# Healthd
+genfscon sysfs /devices/soc/soc:qcom,bcl/power_supply      u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /devices/soc/msm-bcl-20/power_supply        u:object_r:sysfs_batteryinfo:s0
+
 # Rmt
 genfscon debugfs /rmt_storage	u:object_r:debugfs_rmt:s0
 
