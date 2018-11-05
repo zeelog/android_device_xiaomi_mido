@@ -1,3 +1,6 @@
+# Audio
+/data/vendor/misc/audio(/.*)?                   u:object_r:vendor_audio_data_file:s0
+
 # Block devices
 /dev/block/mmcblk0p26				u:object_r:persist_block_device:s0
 
