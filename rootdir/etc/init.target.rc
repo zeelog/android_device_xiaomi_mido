@@ -135,8 +135,8 @@ on property:vendor.ims.QMI_DAEMON_STATUS=1
 
 service vendor.ims_rtp_daemon /vendor/bin/ims_rtp_daemon
    class main
-   user system
-   group radio diag inet log
+   user radio
+   group radio vendor_qti_diag inet log
    writepid /dev/cpuset/system-background/tasks
 
 service vendor.imsrcsservice /vendor/bin/imsrcsd
