@@ -137,6 +137,10 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_ROOT_EXTRA_SYMLINKS := \
+    /vendor/dsp:/dsp \
+    /vendor/firmware_mnt:/firmware \
+    /vendor/bt_firmware:/bt_firmware
 TARGET_COPY_OUT_VENDOR := vendor
 
 # FM
