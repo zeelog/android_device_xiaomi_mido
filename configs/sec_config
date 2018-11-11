@@ -270,6 +270,8 @@
 511:4294967295:1000:1006:1013:1021:1047
 /* Allow RCS service to aquire net_raw permission */
 18:4294967295:1001:3004
+/* Allow RCS service to communicate to IMS QMI Priv Svc*/
+77:4294967295:1001:3003
 /* Allow QMID service to aquire net_raw permission */
 3:4294967295:1001:1021:3004
 2:4294967295:1000:1001:3004
