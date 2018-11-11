@@ -51,6 +51,7 @@ on init
     chmod 0771 /mnt/vendor/persist
     mkdir /mnt/vendor/persist/bms 0700 root system
     mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/display 0770 system graphics
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
     restorecon_recursive /mnt/vendor/persist
 
@@ -205,9 +206,6 @@ on boot
 
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
-
-    # Create directory used for display
-    mkdir /persist/display 0770 system graphics
 
 # msm specific files that need to be created on /data
 on post-fs-data
