@@ -264,8 +264,8 @@ on post-fs-data
     chmod 0770 /data/vendor/ipa
 
     # Create the directories used by CnE subsystem
-    mkdir /data/connectivity 0771 system system
-    chown system system /data/connectivity
+    mkdir /data/vendor/connectivity 0771 radio radio
+    chown radio radio /data/vendor/connectivity
 
     # Create the directories used by DPM subsystem
     mkdir /data/dpm 0771 system system
