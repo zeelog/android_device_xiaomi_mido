@@ -51,6 +51,7 @@ on init
     chmod 0771 /mnt/vendor/persist
     mkdir /mnt/vendor/persist/bms 0700 root system
     mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
     restorecon_recursive /mnt/vendor/persist
 
 on post-fs
