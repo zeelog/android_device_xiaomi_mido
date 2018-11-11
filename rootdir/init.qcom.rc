@@ -240,9 +240,6 @@ on post-fs-data
     # Create directory for voiceprint
     mkdir /data/misc/qvop 0771 system system
 
-    mkdir /data/media 0770 media_rw media_rw
-    chown media_rw media_rw /data/media
-
     #Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
 
