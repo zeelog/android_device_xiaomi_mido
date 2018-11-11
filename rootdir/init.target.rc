@@ -148,11 +148,9 @@ service vendor.imsrcsservice /system/vendor/bin/imsrcsd
    user system
    group radio diag inet log
    writepid /dev/cpuset/system-background/tasks
-   disabled
 
 on property:vendor.ims.DATA_DAEMON_STATUS=1
    start vendor.ims_rtp_daemon
-   start vendor.imsrcsservice
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
