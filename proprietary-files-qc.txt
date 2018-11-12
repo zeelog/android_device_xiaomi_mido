@@ -175,10 +175,6 @@ vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 
-# DRM ClearKey - from marlin - PPR2.181005.003
-vendor/bin/hw/android.hardware.drm@1.1-service.clearkey|50821791fc935a98ae6e41a7ee529c8fe9bd47c2
-vendor/etc/init/android.hardware.drm@1.1-service.clearkey.rc|acf0c3c835d4cf105b8832b9fd16046042aad629
-
 # DRM Widevine - from marlin - PPR2.181005.003
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine|2c2455a218eb8d5368f1ccd39bea51be8364a0f3
 vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc|5a01d337c1d375ee24a6c8992ba91f54afb7637e
