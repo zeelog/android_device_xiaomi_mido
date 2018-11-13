@@ -10,7 +10,8 @@ LOCAL_SRC_FILES := src/CtUpdateAmbassador.cpp \
                 src/PrefixParser.cpp
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/inc
 LOCAL_MODULE := liboffloadhal
-LOCAL_CPP_FLAGS := -Wall -Werror
+
+#LOCAL_CPP_FLAGS := -Wall -Werror
 LOCAL_SHARED_LIBRARIES := libhwbinder \
                         libhidlbase \
                         libhidltransport \
@@ -23,6 +24,7 @@ LOCAL_SHARED_LIBRARIES := libhwbinder \
                         libhardware \
                         android.hardware.tetheroffload.config@1.0 \
                         android.hardware.tetheroffload.control@1.0
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/inc
 LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_PATH_32 := $(TARGET_OUT_VENDOR)/lib
 LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR)/lib64

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -94,6 +94,8 @@ public:
 
 	bool search_framwork_cache(char * interface_name);
 
+	bool push_framework_event(const char * if_name, _ipacm_offload_prefix prefix);
+
 private:
 
 	std::list<std::string> valid_ifaces;
@@ -109,6 +111,10 @@ private:
 	int ipa_get_if_index(const char *if_name, int *if_index);
 
 	int resetTetherStats(const char *upstream_name);
+
+#ifdef FEATURE_IPACM_RESTART
+	int push_iface_up(const char *if_name, bool upstream);
+#endif
 
 	static const char *DEVICE_NAME;
 

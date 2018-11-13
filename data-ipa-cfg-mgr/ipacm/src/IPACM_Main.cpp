@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013-2017, The Linux Foundation. All rights reserved.
+Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -108,6 +108,12 @@ int ipa_get_if_index(char *if_name, int *if_index);
 
 IPACM_Neighbor *neigh;
 IPACM_IfaceManager *ifacemgr;
+
+#ifdef FEATURE_IPACM_RESTART
+int ipa_reset();
+/* support ipacm restart */
+int ipa_query_wlan_client();
+#endif
 
 #ifdef FEATURE_IPACM_HAL
 	IPACM_OffloadManager* OffloadMng;
@@ -233,7 +239,9 @@ void* ipa_driver_msg_notifier(void *param)
 	struct ipa_wlan_msg_ex *event_ex= NULL;
 	struct ipa_get_data_stats_resp_msg_v01 event_data_stats;
 	struct ipa_get_apn_data_stats_resp_msg_v01 event_network_stats;
+#ifdef FEATURE_IPACM_HAL
 	IPACM_OffloadManager* OffloadMng;
+#endif
 
 	ipacm_cmd_q_data evt_data;
 	ipacm_event_data_mac *data = NULL;
@@ -726,6 +734,13 @@ void* ipa_driver_msg_notifier(void *param)
 				OffloadMng->elrInstance->onOffloadSupportAvailable();
 			}
 			continue;
+#ifdef IPA_WLAN_FW_SSR_EVENT_MAX
+		case WLAN_FWR_SSR_BEFORE_SHUTDOWN:
+                        IPACMDBG_H("Received WLAN_FWR_SSR_BEFORE_SHUTDOWN\n");
+                        evt_data.event = IPA_WLAN_FWR_SSR_BEFORE_SHUTDOWN_NOTICE;
+                        evt_data.evt_data = NULL;
+                        break;
+#endif
 #endif
 #ifdef FEATURE_L2TP
 		case ADD_VLAN_IFACE:
@@ -844,9 +859,13 @@ int main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 
+#ifdef FEATURE_IPACM_RESTART
+	IPACMDBG_H("RESET IPA-HW rules\n");
+	ipa_reset();
+#endif
+
 	neigh = new IPACM_Neighbor();
 	ifacemgr = new IPACM_IfaceManager();
-
 #ifdef FEATURE_IPACM_HAL
 	OffloadMng = IPACM_OffloadManager::GetInstance();
 	hal = HAL::makeIPAHAL(1, OffloadMng);
@@ -1048,3 +1067,25 @@ int ipa_get_if_index
 	close(fd);
 	return IPACM_SUCCESS;
 }
+
+#ifdef FEATURE_IPACM_RESTART
+int ipa_reset()
+{
+	int fd = -1;
+
+	if ((fd = open(IPA_DEVICE_NAME, O_RDWR)) < 0) {
+		IPACMERR("Failed opening %s.\n", IPA_DEVICE_NAME);
+		return IPACM_FAILURE;
+	}
+
+	if (ioctl(fd, IPA_IOC_CLEANUP) < 0) {
+		IPACMERR("IOCTL IPA_IOC_CLEANUP call failed: %s \n", strerror(errno));
+		close(fd);
+		return IPACM_FAILURE;
+	}
+
+	IPACMDBG_H("send IPA_IOC_CLEANUP \n");
+	close(fd);
+	return IPACM_SUCCESS;
+}
+#endif

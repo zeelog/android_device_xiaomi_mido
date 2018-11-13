@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013-2016, The Linux Foundation. All rights reserved.
+Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -257,6 +257,12 @@ int IPACM_IfaceManager::create_iface_instance(ipacm_ifacemgr_data *param)
 			{
 				IPACMDBG_H("Creating Lan interface\n");
 				IPACM_Lan *lan = new IPACM_Lan(ipa_interface_index);
+				if (lan->rx_prop == NULL && lan->tx_prop == NULL)
+				{
+					/* close the netdev instance if IPA not support*/
+					lan->delete_iface();
+					return IPACM_FAILURE;
+				}
 				IPACM_EvtDispatcher::registr(IPA_ADDR_ADD_EVENT, lan);
 				//IPACM_EvtDispatcher::registr(IPA_ROUTE_ADD_EVENT, lan);
 				//IPACM_EvtDispatcher::registr(IPA_ROUTE_DEL_EVENT, lan);
@@ -365,6 +371,14 @@ int IPACM_IfaceManager::create_iface_instance(ipacm_ifacemgr_data *param)
 			{
 				IPACMDBG_H("Creating WLan interface\n");
 				IPACM_Wlan *wl = new IPACM_Wlan(ipa_interface_index);
+				if (wl->rx_prop == NULL && wl->tx_prop == NULL)
+				{
+					/* reset the AP-iface category to unknown */
+					IPACM_Iface::ipacmcfg->iface_table[ipa_interface_index].if_cat = UNKNOWN_IF;
+					/* close the netdev instance if IPA not support*/
+					wl->delete_iface();
+					return IPACM_FAILURE;
+				}
 				IPACM_EvtDispatcher::registr(IPA_ADDR_ADD_EVENT, wl);
 				IPACM_EvtDispatcher::registr(IPA_ROUTE_DEL_EVENT, wl);
 				IPACM_EvtDispatcher::registr(IPA_WLAN_CLIENT_ADD_EVENT, wl);
@@ -403,6 +417,9 @@ int IPACM_IfaceManager::create_iface_instance(ipacm_ifacemgr_data *param)
 #else
 				IPACM_EvtDispatcher::registr(IPA_TETHERING_STATS_UPDATE_EVENT, wl);
 #endif
+#ifdef FEATURE_IPACM_HAL
+				IPACM_EvtDispatcher::registr(IPA_WLAN_FWR_SSR_BEFORE_SHUTDOWN_NOTICE, wl);
+#endif
 				/* IPA_LAN_DELETE_SELF should be always last */
 				IPACM_EvtDispatcher::registr(IPA_LAN_DELETE_SELF, wl);
 				IPACMDBG_H("ipa_WLAN (%s):ipa_index (%d) instance open/registr ok\n", wl->dev_name, wl->ipa_if_num);
@@ -421,6 +438,14 @@ int IPACM_IfaceManager::create_iface_instance(ipacm_ifacemgr_data *param)
 					if(is_sta_mode == WLAN_WAN)
 					{
 						w = new IPACM_Wan(ipa_interface_index, is_sta_mode, param->mac_addr);
+						if (w->rx_prop == NULL && w->tx_prop == NULL)
+						{
+							/* reset the AP-iface category to unknown */
+							IPACM_Iface::ipacmcfg->iface_table[ipa_interface_index].if_cat = UNKNOWN_IF;
+							/* close the netdev instance if IPA not support*/
+							w->delete_iface();
+							return IPACM_FAILURE;
+						}
 					}
 					else
 					{
@@ -452,6 +477,7 @@ int IPACM_IfaceManager::create_iface_instance(ipacm_ifacemgr_data *param)
 						IPACM_EvtDispatcher::registr(IPA_WLAN_SWITCH_TO_MCC, w);
 #ifdef FEATURE_IPACM_HAL
 						IPACM_EvtDispatcher::registr(IPA_SSR_NOTICE, w);
+						IPACM_EvtDispatcher::registr(IPA_WLAN_FWR_SSR_BEFORE_SHUTDOWN_NOTICE, w);
 #endif
 #endif
 					}

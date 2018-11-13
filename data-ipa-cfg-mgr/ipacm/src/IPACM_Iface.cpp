@@ -646,26 +646,29 @@ int IPACM_Iface::init_fl_rule(ipa_ip_type iptype)
 	}
 	else
 	{
-		if(rx_prop != NULL)
+		if(IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_None && IPACM_Iface::ipacmcfg->GetIPAVer() < IPA_HW_v4_0)
 		{
-			IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-			IPACMDBG_H("depend Got pipe %d rm index : %d \n", rx_prop->rx[0].src_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[rx_prop->rx[0].src_pipe]);
-			IPACM_Iface::ipacmcfg->AddRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[rx_prop->rx[0].src_pipe],false);
-		}
-		else
-		{
-			/* only wlan may take software-path, not register Rx-property*/
-			if(strcmp(dev_name,dev_wlan0) == 0 || strcmp(dev_name,dev_wlan1) == 0)
+			if(rx_prop != NULL)
 			{
 				IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-				IPACMDBG_H("depend Got piperm index : %d \n", IPA_RM_RESOURCE_HSIC_PROD);
-				IPACM_Iface::ipacmcfg->AddRmDepend(IPA_RM_RESOURCE_HSIC_PROD,true);
+				IPACMDBG_H("depend Got pipe %d rm index : %d \n", rx_prop->rx[0].src_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[rx_prop->rx[0].src_pipe]);
+				IPACM_Iface::ipacmcfg->AddRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[rx_prop->rx[0].src_pipe],false);
 			}
-			if(strcmp(dev_name,dev_ecm0) == 0)
+			else
 			{
-				IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-				IPACMDBG_H("depend Got piperm index : %d \n", IPA_RM_RESOURCE_USB_PROD);
-				IPACM_Iface::ipacmcfg->AddRmDepend(IPA_RM_RESOURCE_USB_PROD,true);
+				/* only wlan may take software-path, not register Rx-property*/
+				if(strcmp(dev_name,dev_wlan0) == 0 || strcmp(dev_name,dev_wlan1) == 0)
+				{
+					IPACMDBG_H("dev %s add producer dependency\n", dev_name);
+					IPACMDBG_H("depend Got piperm index : %d \n", IPA_RM_RESOURCE_HSIC_PROD);
+					IPACM_Iface::ipacmcfg->AddRmDepend(IPA_RM_RESOURCE_HSIC_PROD,true);
+				}
+				if(strcmp(dev_name,dev_ecm0) == 0)
+				{
+					IPACMDBG_H("dev %s add producer dependency\n", dev_name);
+					IPACMDBG_H("depend Got piperm index : %d \n", IPA_RM_RESOURCE_USB_PROD);
+					IPACM_Iface::ipacmcfg->AddRmDepend(IPA_RM_RESOURCE_USB_PROD,true);
+				}
 			}
 		}
 	}
@@ -850,6 +853,20 @@ int IPACM_Iface::init_fl_rule(ipa_ip_type iptype)
 		memcpy(&(m_pFilteringTable->rules[3]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
 
 #ifdef FEATURE_IPA_ANDROID
+		/* Add the ipv6 tcp fragment filtering rule. */
+
+		IPACMDBG_H("Adding IPv6 TCP fragment filter rule\n");
+
+		flt_rule_entry.rule.attrib.attrib_mask &= ~((uint32_t)IPA_FLT_DST_ADDR);
+
+		flt_rule_entry.rule.attrib.attrib_mask |= IPA_FLT_NEXT_HDR;
+		flt_rule_entry.rule.attrib.u.v6.next_hdr = IPACM_FIREWALL_IPPROTO_TCP;
+
+		flt_rule_entry.rule.attrib.attrib_mask |= IPA_FLT_FRAGMENT;
+
+		memcpy(&(m_pFilteringTable->rules[4]), &flt_rule_entry,
+			sizeof(struct ipa_flt_rule_add));
+
 		IPACMDBG_H("Add TCP ctrl rules: total num %d\n", IPV6_DEFAULT_FILTERTING_RULES);
 		memset(&flt_rule_entry, 0, sizeof(struct ipa_flt_rule_add));
 
@@ -891,17 +908,18 @@ int IPACM_Iface::init_fl_rule(ipa_ip_type iptype)
 		/* add TCP FIN rule*/
 		flt_rule_entry.rule.eq_attrib.ihl_offset_meq_32[0].value = (((uint32_t)1)<<TCP_FIN_SHIFT);
 		flt_rule_entry.rule.eq_attrib.ihl_offset_meq_32[0].mask = (((uint32_t)1)<<TCP_FIN_SHIFT);
-		memcpy(&(m_pFilteringTable->rules[4]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
+		memcpy(&(m_pFilteringTable->rules[5]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
 
 		/* add TCP SYN rule*/
 		flt_rule_entry.rule.eq_attrib.ihl_offset_meq_32[0].value = (((uint32_t)1)<<TCP_SYN_SHIFT);
 		flt_rule_entry.rule.eq_attrib.ihl_offset_meq_32[0].mask = (((uint32_t)1)<<TCP_SYN_SHIFT);
-		memcpy(&(m_pFilteringTable->rules[5]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
+		memcpy(&(m_pFilteringTable->rules[6]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
 
 		/* add TCP RST rule*/
 		flt_rule_entry.rule.eq_attrib.ihl_offset_meq_32[0].value = (((uint32_t)1)<<TCP_RST_SHIFT);
 		flt_rule_entry.rule.eq_attrib.ihl_offset_meq_32[0].mask = (((uint32_t)1)<<TCP_RST_SHIFT);
-		memcpy(&(m_pFilteringTable->rules[6]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
+		memcpy(&(m_pFilteringTable->rules[7]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
+
 #endif
 		if (m_filtering.AddFilteringRule(m_pFilteringTable) == false)
 		{
@@ -1025,4 +1043,11 @@ void IPACM_Iface::config_ip_type(ipa_ip_type iptype)
 	}
 
 	return;
+}
+
+void IPACM_Iface::delete_iface(void)
+{
+	IPACMDBG_H("netdev (%s):ipa_index (%d) instance close \n",
+			IPACM_Iface::ipacmcfg->iface_table[ipa_if_num].iface_name, ipa_if_num);
+	delete this;
 }

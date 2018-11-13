@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013-2016, The Linux Foundation. All rights reserved.
+Copyright (c) 2013-2017, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -102,11 +102,12 @@ private:
 	bool isAlgPort(uint8_t, uint16_t);
 	void Reset();
 	bool isPwrSaveIf(uint32_t);
+	uint32_t GenerateMetdata(uint8_t mux_id);
 
 public:
 	static NatApp* GetInstance();
 
-	int AddTable(uint32_t);
+	int AddTable(uint32_t, uint8_t mux_id);
 	uint32_t GetTableHdl(uint32_t);
 	int DeleteTable(uint32_t);
 

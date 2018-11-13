@@ -215,6 +215,7 @@ RET IPACM_OffloadManager::addDownstream(const char * downstream_name, const Pref
 		IPACMERR("fail to get iface index.\n");
 		return FAIL_INPUT_CHECK;
 	}
+
 	/* Iface is valid, add to list if not present */
 	if (std::find(valid_ifaces.begin(), valid_ifaces.end(), std::string(downstream_name)) == valid_ifaces.end())
 	{
@@ -232,6 +233,7 @@ RET IPACM_OffloadManager::addDownstream(const char * downstream_name, const Pref
 	if (cache_need)
 	{
 		IPACMDBG_H("addDownstream name(%s) currently not support in ipa \n", downstream_name);
+
 		/* copy to the cache */
 		for(int i = 0; i < MAX_EVENT_CACHE ;i++)
 		{
@@ -362,8 +364,16 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 	if(upstream_name == NULL)
 	{
 		if (default_gw_index == INVALID_IFACE) {
+			result = FAIL_INPUT_CHECK;
+			for (index = 0; index < MAX_EVENT_CACHE; index++) {
+				if (event_cache[index].valid == true &&
+					event_cache[index ].event == IPA_WAN_UPSTREAM_ROUTE_ADD_EVENT) {
+					event_cache[index].valid = false;
+					result = SUCCESS;
+				}
+			}
 			IPACMERR("no previous upstream set before\n");
-			return FAIL_INPUT_CHECK;
+			return result;
 		}
 		if (gw_addr_v4.fam == V4 && upstream_v4_up == true) {
 			IPACMDBG_H("clean upstream for ipv4-fam(%d) upstream_v4_up(%d)\n", gw_addr_v4.fam, upstream_v4_up);
@@ -395,6 +405,10 @@ RET IPACM_OffloadManager::setUpstream(const char *upstream_name, const Prefix& g
 		if (cache_need)
 		{
 			IPACMDBG_H("setUpstream name(%s) currently not support in ipa \n", upstream_name);
+#ifdef FEATURE_IPACM_RESTART
+			/* add ipacm restart support */
+			push_iface_up(upstream_name, true);
+#endif
 			/* copy to the cache */
 			for(int i = 0; i < MAX_EVENT_CACHE ;i++)
 			{
@@ -558,7 +572,7 @@ RET IPACM_OffloadManager::stopAllOffload()
 RET IPACM_OffloadManager::setQuota(const char * upstream_name /* upstream */, uint64_t mb/* limit */)
 {
 	wan_ioctl_set_data_quota quota;
-	int fd = -1,rc = 0;
+	int fd = -1, rc = 0, err_type = 0;
 
 	if ((fd = open(DEVICE_NAME, O_RDWR)) < 0)
 	{
@@ -582,9 +596,10 @@ RET IPACM_OffloadManager::setQuota(const char * upstream_name /* upstream */, ui
 
 	if(rc != 0)
 	{
+		err_type = errno;
 		close(fd);
-        	IPACMERR("IOCTL WAN_IOCTL_SET_DATA_QUOTA call failed: %s rc: %d\n", strerror(errno),rc);
-		if (errno == ENODEV) {
+		IPACMERR("IOCTL WAN_IOCTL_SET_DATA_QUOTA call failed: %s err_type: %d\n", strerror(err_type), err_type);
+		if (err_type == ENODEV) {
 			IPACMDBG_H("Invalid argument.\n");
 			return FAIL_UNSUPPORTED;
 		}
@@ -660,15 +675,14 @@ int IPACM_OffloadManager::post_route_evt(enum ipa_ip_type iptype, int index, ipa
 	IPACMDBG_H("IPV6 gateway: %08x:%08x:%08x:%08x \n",
 					evt_data_route->ipv6_addr_gw[0], evt_data_route->ipv6_addr_gw[1], evt_data_route->ipv6_addr_gw[2], evt_data_route->ipv6_addr_gw[3]);
 #endif
-	if (event == WAN_UPSTREAM_ROUTE_ADD)
-	{
+	if (event == IPA_WAN_UPSTREAM_ROUTE_ADD_EVENT) {
 		IPACMDBG_H("Received WAN_UPSTREAM_ROUTE_ADD: fid(%d) tether_fid(%d) ip-type(%d)\n", evt_data_route->if_index,
 			evt_data_route->if_index_tether, evt_data_route->iptype);
 	}
-	else if (event == WAN_UPSTREAM_ROUTE_DEL)
-	{
-		IPACMDBG_H("Received WAN_UPSTREAM_ROUTE_DEL: fid(%d) tether_fid(%d) ip-type(%d)\n", evt_data_route->if_index,
-			evt_data_route->if_index_tether, evt_data_route->iptype);
+	else if (event == IPA_WAN_UPSTREAM_ROUTE_DEL_EVENT) {
+		IPACMDBG_H("Received WAN_UPSTREAM_ROUTE_DEL: fid(%d) tether_fid(%d) ip-type(%d)\n",
+				evt_data_route->if_index,
+				evt_data_route->if_index_tether, evt_data_route->iptype);
 	}
 	memset(&evt, 0, sizeof(evt));
 	evt.evt_data = (void*)evt_data_route;
@@ -719,11 +733,12 @@ int IPACM_OffloadManager::resetTetherStats(const char * upstream_name /* upstrea
 	wan_ioctl_reset_tether_stats stats;
 
 	if ((fd = open(DEVICE_NAME, O_RDWR)) < 0) {
-		IPACMERR("Failed opening %s.\n", DEVICE_NAME);
-		return FAIL_HARDWARE;
-	}
-	memset(stats.upstreamIface, 0, IFNAMSIZ);
-	if (strlcpy(stats.upstreamIface, upstream_name, IFNAMSIZ) >= IFNAMSIZ) {
+        IPACMERR("Failed opening %s.\n", DEVICE_NAME);
+        return FAIL_HARDWARE;
+    }
+
+    memset(stats.upstreamIface, 0, IFNAMSIZ);
+    if (strlcpy(stats.upstreamIface, upstream_name, IFNAMSIZ) >= IFNAMSIZ) {
 		IPACMERR("String truncation occurred on upstream\n");
 		close(fd);
 		return FAIL_INPUT_CHECK;
@@ -737,7 +752,7 @@ int IPACM_OffloadManager::resetTetherStats(const char * upstream_name /* upstrea
 	IPACMDBG_H("Reset Interface %s stats\n", upstream_name);
 	close(fd);
 	return IPACM_SUCCESS;
-	}
+}
 
 IPACM_OffloadManager* IPACM_OffloadManager::GetInstance()
 {
@@ -778,4 +793,143 @@ bool IPACM_OffloadManager::search_framwork_cache(char * interface_name)
 	}
 	IPACMDBG_H(" not found netdev (%s) has cached event\n", interface_name);
 	return rel;
+}
+
+#ifdef FEATURE_IPACM_RESTART
+int IPACM_OffloadManager::push_iface_up(const char * if_name, bool upstream)
+{
+	ipacm_cmd_q_data evt_data;
+	ipacm_event_data_fid *data_fid = NULL;
+	ipacm_event_data_mac *data = NULL;
+	int index;
+
+	IPACMDBG_H("name %s, upstream %d\n",
+							 if_name, upstream);
+
+	if(ipa_get_if_index(if_name, &index))
+	{
+		IPACMERR("netdev(%s) not registered ignored\n", if_name);
+		return SUCCESS;
+	}
+
+	if(strncmp(if_name, "rmnet_data", 10) == 0 && upstream)
+	{
+		data_fid = (ipacm_event_data_fid *)malloc(sizeof(ipacm_event_data_fid));
+		if(data_fid == NULL)
+		{
+			IPACMERR("unable to allocate memory for event data_fid\n");
+			return FAIL_HARDWARE;
+		}
+		data_fid->if_index = index;
+		evt_data.event = IPA_LINK_UP_EVENT;
+		evt_data.evt_data = data_fid;
+		IPACMDBG_H("Posting IPA_LINK_UP_EVENT with if index: %d\n",
+							 data_fid->if_index);
+		IPACM_EvtDispatcher::PostEvt(&evt_data);
+	}
+
+	if(strncmp(if_name, "rndis", 5) == 0 && !upstream)
+	{
+		data_fid = (ipacm_event_data_fid *)malloc(sizeof(ipacm_event_data_fid));
+		if(data_fid == NULL)
+		{
+			IPACMERR("unable to allocate memory for event data_fid\n");
+			return FAIL_HARDWARE;
+		}
+		data_fid->if_index = index;
+		evt_data.event = IPA_USB_LINK_UP_EVENT;
+		evt_data.evt_data = data_fid;
+		IPACMDBG_H("Posting usb IPA_LINK_UP_EVENT with if index: %d\n",
+				data_fid->if_index);
+		IPACM_EvtDispatcher::PostEvt(&evt_data);
+	}
+
+	if((strncmp(if_name, "softap", 6) == 0 || strncmp(if_name, "wlan", 4) == 0 ) && !upstream)
+	{
+		data_fid = (ipacm_event_data_fid *)malloc(sizeof(ipacm_event_data_fid));
+		if(data_fid == NULL)
+		{
+			IPACMERR("unable to allocate memory for event data_fid\n");
+			return FAIL_HARDWARE;
+		}
+		data_fid->if_index = index;
+		evt_data.event = IPA_WLAN_AP_LINK_UP_EVENT;
+		evt_data.evt_data = data_fid;
+		IPACMDBG_H("Posting IPA_WLAN_AP_LINK_UP_EVENT with if index: %d\n",
+			data_fid->if_index);
+		IPACM_EvtDispatcher::PostEvt(&evt_data);
+	}
+
+	if(strncmp(if_name, "wlan", 4) == 0 && upstream)
+	{
+		data = (ipacm_event_data_mac *)malloc(sizeof(ipacm_event_data_mac));
+		if(data == NULL)
+		{
+			IPACMERR("unable to allocate memory for event_wlan data\n");
+			return FAIL_HARDWARE;
+		}
+		data->if_index = index;
+		evt_data.event = IPA_WLAN_STA_LINK_UP_EVENT;
+		evt_data.evt_data = data;
+		IPACMDBG_H("Posting IPA_WLAN_STA_LINK_UP_EVENT with if index: %d\n",
+			data->if_index);
+		IPACM_EvtDispatcher::PostEvt(&evt_data);
+	}
+
+	return IPACM_SUCCESS;
+}
+#endif
+
+
+bool IPACM_OffloadManager::push_framework_event(const char * if_name, _ipacm_offload_prefix prefix)
+{
+	bool ret =  false;
+
+	for(int i = 0; i < MAX_EVENT_CACHE ;i++)
+	{
+		if((latest_cache_index >= 0) && (latest_cache_index < MAX_EVENT_CACHE) &&
+			(event_cache[latest_cache_index].valid == false))
+		{
+			//do the copy
+			event_cache[latest_cache_index].valid = true;
+			event_cache[latest_cache_index].event = IPA_DOWNSTREAM_ADD;
+			memcpy(event_cache[latest_cache_index].dev_name, if_name,
+				sizeof(event_cache[latest_cache_index].dev_name));
+			memcpy(&event_cache[latest_cache_index].prefix_cache, &prefix,
+				sizeof(event_cache[latest_cache_index].prefix_cache));
+
+			if (prefix.iptype == IPA_IP_v4) {
+				IPACMDBG_H("cache event(%d) subnet info v4Addr (%x) v4Mask (%x) dev(%s) on entry (%d)\n",
+						event_cache[latest_cache_index].event,
+						event_cache[latest_cache_index].prefix_cache.v4Addr,
+						event_cache[latest_cache_index].prefix_cache.v4Mask,
+						event_cache[latest_cache_index].dev_name,
+						latest_cache_index);
+			} else {
+				IPACMDBG_H("cache event (%d) v6Addr: %08x:%08x:%08x:%08x \n",
+						event_cache[latest_cache_index].event,
+						event_cache[latest_cache_index].prefix_cache.v6Addr[0],
+						event_cache[latest_cache_index].prefix_cache.v6Addr[1],
+						event_cache[latest_cache_index].prefix_cache.v6Addr[2],
+						event_cache[latest_cache_index].prefix_cache.v6Addr[3]);
+				IPACMDBG_H("subnet v6Mask: %08x:%08x:%08x:%08x dev(%s) on entry(%d),\n",
+						event_cache[latest_cache_index].prefix_cache.v6Mask[0],
+						event_cache[latest_cache_index].prefix_cache.v6Mask[1],
+						event_cache[latest_cache_index].prefix_cache.v6Mask[2],
+						event_cache[latest_cache_index].prefix_cache.v6Mask[3],
+						event_cache[latest_cache_index].dev_name,
+						latest_cache_index);
+			}
+			latest_cache_index = (latest_cache_index + 1)% MAX_EVENT_CACHE;
+			ret = true;
+			break;
+		}
+		latest_cache_index = (latest_cache_index + 1)% MAX_EVENT_CACHE;
+		if(i == MAX_EVENT_CACHE - 1)
+		{
+			IPACMDBG_H(" run out of event cache (%d)\n", i);
+			ret = false;
+		}
+	}
+	return ret;
 }

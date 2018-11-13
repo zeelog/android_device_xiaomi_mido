@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
+Copyright (c) 2013, 2018 The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -61,6 +61,8 @@ uint8_t IPACM_Wan::xlat_mux_id = 0;
 uint32_t IPACM_Wan::curr_wan_ip = 0;
 int IPACM_Wan::num_v4_flt_rule = 0;
 int IPACM_Wan::num_v6_flt_rule = 0;
+
+int IPACM_Wan::ipa_pm_q6_check = 0;
 
 struct ipa_flt_rule_add IPACM_Wan::flt_rule_v4[IPA_MAX_FLT_RULE];
 struct ipa_flt_rule_add IPACM_Wan::flt_rule_v6[IPA_MAX_FLT_RULE];
@@ -172,12 +174,15 @@ IPACM_Wan::IPACM_Wan(int iface_index,
 		IPACMDBG(" IPACM->IPACM_Wan_eMBMS(%d)\n", ipa_if_num);
 		embms_is_on = true;
 		install_wan_filtering_rule(false);
-		/* Add corresponding ipa_rm_resource_name of TX-endpoint up before IPV6 RT-rule set */
-		if(tx_prop != NULL)
+		if(IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_None && IPACM_Iface::ipacmcfg->GetIPAVer() < IPA_HW_v4_0)
 		{
-			IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-			IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-        	IPACM_Iface::ipacmcfg->AddRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe],false);
+			/* Add corresponding ipa_rm_resource_name of TX-endpoint up before IPV6 RT-rule set */
+			if(tx_prop != NULL)
+			{
+				IPACMDBG_H("dev %s add producer dependency\n", dev_name);
+				IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+				IPACM_Iface::ipacmcfg->AddRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe],false);
+			}
 		}
 	}
 	else
@@ -1263,6 +1268,7 @@ void IPACM_Wan::event_callback(ipa_cm_event_id event, void *param)
 #ifdef FEATURE_IPACM_HAL
 		/* WA for WLAN to clean up NAT instance during SSR */
 		case IPA_SSR_NOTICE: //sky
+		case IPA_WLAN_FWR_SSR_BEFORE_SHUTDOWN_NOTICE:
 			IPACMDBG_H("Received IPA_SSR_NOTICE event.\n");
 			if(m_is_sta_mode == WLAN_WAN)
 			{
@@ -1288,7 +1294,11 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 	const int NUM = 1;
 	ipacm_cmd_q_data evt_data;
 	struct ipa_ioc_get_hdr hdr;
-
+#ifdef	WAN_IOC_NOTIFY_WAN_STATE //resolve compile issue on 4.9 kernel
+	struct wan_ioctl_notify_wan_state wan_state;
+	int fd_wwan_ioctl;
+	memset(&wan_state, 0, sizeof(wan_state));
+#endif
 	IPACMDBG_H("ip-type:%d\n", iptype);
 
 	/* copy header from tx-property, see if partial or not */
@@ -1619,7 +1629,11 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 		{
 			IPACM_Wan::xlat_mux_id = 0;
 			wanup_data->xlat_mux_id = 0;
-			IPACMDBG_H("No xlat configuratio:\n");
+			if(m_is_sta_mode == Q6_WAN)
+				wanup_data->mux_id = ext_prop->ext[0].mux_id;
+			else
+				wanup_data->mux_id = 0;
+			IPACMDBG_H("No xlat configuration\n");
 		}
 		evt_data.event = IPA_HANDLE_WAN_UP;
 		evt_data.evt_data = (void *)wanup_data;
@@ -1664,12 +1678,37 @@ int IPACM_Wan::handle_route_add_evt(ipa_ip_type iptype)
 		evt_data.evt_data = (void *)wanup_data;
 		IPACM_EvtDispatcher::PostEvt(&evt_data);
 	}
+		if(IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_None && IPACM_Iface::ipacmcfg->GetIPAVer() < IPA_HW_v4_0)
+		{
+			/* Add corresponding ipa_rm_resource_name of TX-endpoint up before IPV6 RT-rule set */
+			IPACMDBG_H("dev %s add producer dependency\n", dev_name);
+			IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+			IPACM_Iface::ipacmcfg->AddRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe],false);
+#ifdef WAN_IOC_NOTIFY_WAN_STATE
+			} else {
+			if (m_is_sta_mode == Q6_WAN && ipa_pm_q6_check == 0)
+			{
+				fd_wwan_ioctl = open(WWAN_QMI_IOCTL_DEVICE_NAME, O_RDWR);
+				if(fd_wwan_ioctl < 0)
+				{
+					IPACMERR("Failed to open %s.\n",WWAN_QMI_IOCTL_DEVICE_NAME);
+					return false;
+				}
+				IPACMDBG_H("send WAN_IOC_NOTIFY_WAN_STATE up to IPA_PM\n");
+				wan_state.up = true;
+				if(ioctl(fd_wwan_ioctl, WAN_IOC_NOTIFY_WAN_STATE, &wan_state))
+				{
+					IPACMERR("Failed to send WAN_IOC_NOTIFY_WAN_STATE as up %d\n ", wan_state.up);
+				}
+				close(fd_wwan_ioctl);
+			}
+			ipa_pm_q6_check++;
+			IPACMDBG_H("update ipa_pm_q6_check to %d\n", ipa_pm_q6_check);
 
-	/* Add corresponding ipa_rm_resource_name of TX-endpoint up before IPV6 RT-rule set */
-	IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-	IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-	IPACM_Iface::ipacmcfg->AddRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe],false);
-
+		}
+#else
+}
+#endif
 	if(rt_rule != NULL)
 	{
 		free(rt_rule);
@@ -1709,6 +1748,7 @@ int IPACM_Wan::post_wan_up_tether_evt(ipa_ip_type iptype, int ipa_if_num_tether)
 	if (iptype == IPA_IP_v4)
 	{
 		evt_data.event = IPA_HANDLE_WAN_UP_TETHER;
+#ifndef FEATURE_IPACM_HAL
 		/* Add support tether ifaces to its array*/
 		IPACM_Wan::ipa_if_num_tether_v4[IPACM_Wan::ipa_if_num_tether_v4_total] = ipa_if_num_tether;
 		IPACMDBG_H("adding tether iface(%s) ipa_if_num_tether_v4_total(%d) on wan_iface(%s)\n",
@@ -1716,11 +1756,13 @@ int IPACM_Wan::post_wan_up_tether_evt(ipa_ip_type iptype, int ipa_if_num_tether)
 			IPACM_Wan::ipa_if_num_tether_v4_total,
 			IPACM_Iface::ipacmcfg->iface_table[ipa_if_num].iface_name);
 		IPACM_Wan::ipa_if_num_tether_v4_total++;
+#endif
 	}
 	else
 	{
 		evt_data.event = IPA_HANDLE_WAN_UP_V6_TETHER;
 		memcpy(wanup_data->ipv6_prefix, ipv6_prefix, sizeof(wanup_data->ipv6_prefix));
+#ifndef FEATURE_IPACM_HAL
 		/* Add support tether ifaces to its array*/
 		IPACM_Wan::ipa_if_num_tether_v6[IPACM_Wan::ipa_if_num_tether_v6_total] = ipa_if_num_tether;
 		IPACMDBG_H("adding tether iface(%s) ipa_if_num_tether_v6_total(%d) on wan_iface(%s)\n",
@@ -1728,6 +1770,7 @@ int IPACM_Wan::post_wan_up_tether_evt(ipa_ip_type iptype, int ipa_if_num_tether)
 			IPACM_Wan::ipa_if_num_tether_v6_total,
 			IPACM_Iface::ipacmcfg->iface_table[ipa_if_num].iface_name);
 		IPACM_Wan::ipa_if_num_tether_v6_total++;
+#endif
 	}
 		evt_data.evt_data = (void *)wanup_data;
 		IPACM_EvtDispatcher::PostEvt(&evt_data);
@@ -1766,22 +1809,26 @@ int IPACM_Wan::post_wan_down_tether_evt(ipa_ip_type iptype, int ipa_if_num_tethe
 
 	if (iptype == IPA_IP_v4)
 	{
+#ifndef FEATURE_IPACM_HAL
 		if(delete_tether_iface(iptype, ipa_if_num_tether))
 		{
 			IPACMDBG_H("Not finding the tethered client on ipv4.\n");
 			free(wandown_data);
 			return IPACM_SUCCESS;
 		}
+#endif
 		evt_data.event = IPA_HANDLE_WAN_DOWN_TETHER;
 	}
 	else
 	{
+#ifndef FEATURE_IPACM_HAL
 		if(delete_tether_iface(iptype, ipa_if_num_tether))
 		{
 			IPACMDBG_H("Not finding the tethered client on ipv6.\n");
 			free(wandown_data);
 			return IPACM_SUCCESS;
 		}
+#endif
 		evt_data.event = IPA_HANDLE_WAN_DOWN_V6_TETHER;
 	}
 		evt_data.evt_data = (void *)wandown_data;
@@ -3208,6 +3255,7 @@ int IPACM_Wan::init_fl_rule_ex(ipa_ip_type iptype)
 		IPACMDBG_H(" Has rx/tx properties registered for iface %s, add for NATTING \n", dev_name);
 		IPACM_Iface::ipacmcfg->AddNatIfaces(dev_name, iptype);
 	}
+
 fail:
 	return res;
 }
@@ -3751,8 +3799,39 @@ int IPACM_Wan::add_dft_filtering_rule(struct ipa_flt_rule_add *rules, int rule_o
 
 		memcpy(&(rules[rule_offset + 2]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
 
+		/* Configuring fragment Filtering Rule */
+		flt_rule_entry.rule.attrib.attrib_mask &= ~((uint32_t)IPA_FLT_DST_ADDR);
+		flt_rule_entry.rule.attrib.attrib_mask |= IPA_FLT_FRAGMENT;
+		flt_rule_entry.rule.attrib.attrib_mask |= IPA_FLT_NEXT_HDR;
+		flt_rule_entry.rule.attrib.u.v6.next_hdr = IPACM_FIREWALL_IPPROTO_TCP;
+
+		memset(&flt_eq, 0, sizeof(flt_eq));
+		memcpy(&flt_eq.attrib, &flt_rule_entry.rule.attrib, sizeof(flt_eq.attrib));
+		flt_eq.ip = iptype;
+		if(0 != ioctl(m_fd_ipa, IPA_IOC_GENERATE_FLT_EQ, &flt_eq))
+		{
+			IPACMERR("Failed to get eq_attrib\n");
+			res = IPACM_FAILURE;
+			goto fail;
+		}
+
+		memcpy(&flt_rule_entry.rule.eq_attrib,
+					 &flt_eq.eq_attrib,
+					 sizeof(flt_rule_entry.rule.eq_attrib));
+
+		memcpy(&(rules[rule_offset + 3]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
+
+#ifdef FEATURE_IPA_ANDROID
 		IPACM_Wan::num_v6_flt_rule += IPA_V2_NUM_MULTICAST_WAN_FILTER_RULE_IPV6;
 		IPACMDBG_H("Constructed %d default filtering rules for ip type %d\n", IPA_V2_NUM_MULTICAST_WAN_FILTER_RULE_IPV6, iptype);
+#else
+		IPACM_Wan::num_v6_flt_rule += IPA_V2_NUM_DEFAULT_WAN_FILTER_RULE_IPV6;
+		IPACMDBG_H("Constructed %d default filtering rules for ip type %d\n",
+				IPA_V2_NUM_DEFAULT_WAN_FILTER_RULE_IPV6, iptype);
+#endif
+		IPACM_Wan::num_v6_flt_rule += IPA_V2_NUM_FRAG_WAN_FILTER_RULE_IPV6;
+		IPACMDBG_H("Constructed %d default filtering rules for ip type %d\n",
+				IPA_V2_NUM_FRAG_WAN_FILTER_RULE_IPV6, iptype);
 	}
 
 fail:
@@ -3801,8 +3880,9 @@ int IPACM_Wan::add_tcpv6_filtering_rule(struct ipa_flt_rule_add *rules, int rule
 		flt_rule_entry.rule.action = IPA_PASS_TO_ROUTING;
 		flt_rule_entry.rule.rt_tbl_idx = rt_tbl_idx.idx;
 
+#ifdef FEATURE_IPA_ANDROID
 		IPACMDBG_H("Add TCP ctrl rules: total num %d\n", IPA_V2_NUM_TCP_WAN_FILTER_RULE_IPV6);
-
+#endif
 		memcpy(&flt_rule_entry.rule.attrib,
 					 &rx_prop->rx[0].attrib,
 					 sizeof(flt_rule_entry.rule.attrib));
@@ -3847,8 +3927,10 @@ int IPACM_Wan::add_tcpv6_filtering_rule(struct ipa_flt_rule_add *rules, int rule
 		flt_rule_entry.rule.eq_attrib.ihl_offset_meq_32[0].mask = (((uint32_t)1)<<TCP_RST_SHIFT);
 		memcpy(&(rules[rule_offset + 2]), &flt_rule_entry, sizeof(struct ipa_flt_rule_add));
 
+#ifdef FEATURE_IPA_ANDROID
 		IPACM_Wan::num_v6_flt_rule += IPA_V2_NUM_TCP_WAN_FILTER_RULE_IPV6;
 		IPACMDBG_H("Constructed %d ICMP filtering rules for ip type %d\n", IPA_V2_NUM_TCP_WAN_FILTER_RULE_IPV6, IPA_IP_v6);
+#endif
 
 fail:
 	return res;
@@ -3995,12 +4077,13 @@ int IPACM_Wan::handle_route_del_evt(ipa_ip_type iptype)
 	if (((iptype == IPA_IP_v4) && (active_v4 == true)) ||
 			((iptype == IPA_IP_v6) && (active_v6 == true)))
 	{
-
-		/* Delete corresponding ipa_rm_resource_name of TX-endpoint after delete IPV4/V6 RT-rule */
-		IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-		IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-		IPACM_Iface::ipacmcfg->DelRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-
+		if(IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_None && IPACM_Iface::ipacmcfg->GetIPAVer() < IPA_HW_v4_0)
+		{
+			/* Delete corresponding ipa_rm_resource_name of TX-endpoint after delete IPV4/V6 RT-rule */
+			IPACMDBG_H("dev %s delete producer dependency\n", dev_name);
+			IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+			IPACM_Iface::ipacmcfg->DelRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+		}
 		for (tx_index = 0; tx_index < iface_query->num_tx_props; tx_index++)
 		{
 		    if(iptype != tx_prop->tx[tx_index].ip)
@@ -4124,6 +4207,11 @@ int IPACM_Wan::handle_route_del_evt(ipa_ip_type iptype)
 int IPACM_Wan::handle_route_del_evt_ex(ipa_ip_type iptype)
 {
 	ipacm_cmd_q_data evt_data;
+#ifdef WAN_IOC_NOTIFY_WAN_STATE
+	struct wan_ioctl_notify_wan_state wan_state;
+	int fd_wwan_ioctl;
+	memset(&wan_state, 0, sizeof(wan_state));
+#endif
 
 	IPACMDBG_H("got handle_route_del_evt_ex with ip-family:%d \n", iptype);
 
@@ -4139,12 +4227,38 @@ int IPACM_Wan::handle_route_del_evt_ex(ipa_ip_type iptype)
 	if (((iptype == IPA_IP_v4) && (active_v4 == true)) ||
 		((iptype == IPA_IP_v6) && (active_v6 == true)))
 	{
-
-		/* Delete corresponding ipa_rm_resource_name of TX-endpoint after delete IPV4/V6 RT-rule */
-		IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-		IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-		IPACM_Iface::ipacmcfg->DelRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-
+		if(IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_None && IPACM_Iface::ipacmcfg->GetIPAVer() < IPA_HW_v4_0)
+		{
+			/* Delete corresponding ipa_rm_resource_name of TX-endpoint after delete IPV4/V6 RT-rule */
+			IPACMDBG_H("dev %s delete producer dependency\n", dev_name);
+			IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+			IPACM_Iface::ipacmcfg->DelRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+#ifdef WAN_IOC_NOTIFY_WAN_STATE
+		} else {
+			IPACMDBG_H("ipa_pm_q6_check to %d\n", ipa_pm_q6_check);
+			if(ipa_pm_q6_check == 1)
+			{
+				fd_wwan_ioctl = open(WWAN_QMI_IOCTL_DEVICE_NAME, O_RDWR);
+				if(fd_wwan_ioctl < 0)
+				{
+					IPACMERR("Failed to open %s.\n",WWAN_QMI_IOCTL_DEVICE_NAME);
+					return false;
+				}
+				IPACMDBG_H("send WAN_IOC_NOTIFY_WAN_STATE down to IPA_PM\n");
+				if(ioctl(fd_wwan_ioctl, WAN_IOC_NOTIFY_WAN_STATE, &wan_state))
+				{
+					IPACMERR("Failed to send WAN_IOC_NOTIFY_WAN_STATE as up %d\n ", wan_state.up);
+				}
+				close(fd_wwan_ioctl);
+			}
+			if (ipa_pm_q6_check > 0)
+				ipa_pm_q6_check--;
+			else
+				IPACMERR(" ipa_pm_q6_check becomes negative !!!\n");
+		}
+#else
+}
+#endif
 		/* Delete the default route*/
 		if (iptype == IPA_IP_v6)
 		{
@@ -4370,15 +4484,16 @@ int IPACM_Wan::handle_down_evt()
 	memset(ipa_if_num_tether_tmp, 0, IPA_MAX_IFACE_ENTRIES);
 
 	IPACMDBG_H(" wan handle_down_evt \n");
-
-	/* Delete corresponding ipa_rm_resource_name of TX-endpoint after delete IPV4/V6 RT-rule */
-	IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-	if (tx_prop != NULL)
+	if(IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_None && IPACM_Iface::ipacmcfg->GetIPAVer() < IPA_HW_v4_0)
 	{
-		IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-		IPACM_Iface::ipacmcfg->DelRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+		/* Delete corresponding ipa_rm_resource_name of TX-endpoint after delete IPV4/V6 RT-rule */
+		IPACMDBG_H("dev %s delete producer dependency\n", dev_name);
+		if (tx_prop != NULL)
+		{
+			IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+			IPACM_Iface::ipacmcfg->DelRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+		}
 	}
-
 	/* no iface address up, directly close iface*/
 	if (ip_type == IPACM_IP_NULL)
 	{
@@ -4634,8 +4749,11 @@ fail:
 int IPACM_Wan::handle_down_evt_ex()
 {
 	int res = IPACM_SUCCESS;
-	uint32_t i, tether_total;
+	uint32_t i;
+#ifndef FEATURE_IPACM_HAL
+	uint32_t tether_total;
 	int ipa_if_num_tether_tmp[IPA_MAX_IFACE_ENTRIES];
+#endif
 
 	IPACMDBG_H(" wan handle_down_evt \n");
 
@@ -4643,14 +4761,16 @@ int IPACM_Wan::handle_down_evt_ex()
 	if(IPACM_Iface::ipacmcfg->iface_table[ipa_if_num].if_cat == EMBMS_IF)
 	{
 		embms_is_on = false;
-		/* Delete corresponding ipa_rm_resource_name of TX-endpoint after delete IPV4/V6 RT-rule */
-		IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-		if (tx_prop != NULL)
+		if(IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_None && IPACM_Iface::ipacmcfg->GetIPAVer() < IPA_HW_v4_0)
 		{
-			IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-			IPACM_Iface::ipacmcfg->DelRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+			/* Delete corresponding ipa_rm_resource_name of TX-endpoint after delete IPV4/V6 RT-rule */
+			IPACMDBG_H("dev %s delete producer dependency\n", dev_name);
+			if (tx_prop != NULL)
+			{
+				IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+				IPACM_Iface::ipacmcfg->DelRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+			}
 		}
-
 		if (rx_prop != NULL)
 		{
 			install_wan_filtering_rule(false);
@@ -4678,6 +4798,9 @@ int IPACM_Wan::handle_down_evt_ex()
 			handle_route_del_evt_ex(IPA_IP_v4);
 #ifdef FEATURE_IPA_ANDROID
 			/* posting wan_down_tether for all lan clients */
+#ifdef FEATURE_IPACM_HAL
+			post_wan_down_tether_evt(IPA_IP_v4, 0);
+#else
 			for (i=0; i < IPACM_Wan::ipa_if_num_tether_v4_total; i++)
 			{
 				ipa_if_num_tether_tmp[i] = IPACM_Wan::ipa_if_num_tether_v4[i];
@@ -4689,6 +4812,7 @@ int IPACM_Wan::handle_down_evt_ex()
 				IPACMDBG_H("post_wan_down_tether_v4 iface(%d: %s)\n",
 					i, IPACM_Iface::ipacmcfg->iface_table[ipa_if_num_tether_tmp[i]].iface_name);
 			}
+#endif
 #endif
 			if(IPACM_Wan::wan_up_v6)
 			{
@@ -4730,6 +4854,9 @@ int IPACM_Wan::handle_down_evt_ex()
 			handle_route_del_evt_ex(IPA_IP_v6);
 #ifdef FEATURE_IPA_ANDROID
 			/* posting wan_down_tether for all lan clients */
+#ifdef FEATURE_IPACM_HAL
+			post_wan_down_tether_evt(IPA_IP_v6, 0);
+#else
 			for (i=0; i < IPACM_Wan::ipa_if_num_tether_v6_total; i++)
 			{
 				ipa_if_num_tether_tmp[i] = IPACM_Wan::ipa_if_num_tether_v6[i];
@@ -4741,6 +4868,7 @@ int IPACM_Wan::handle_down_evt_ex()
 				IPACMDBG_H("post_wan_down_tether_v6 iface(%d: %s)\n",
 					i, IPACM_Iface::ipacmcfg->iface_table[ipa_if_num_tether_tmp[i]].iface_name);
 			}
+#endif
 #endif
 			if(IPACM_Wan::wan_up)
 			{
@@ -5652,12 +5780,13 @@ int IPACM_Wan::handle_wan_client_route_rule(uint8_t *mac_addr, ipa_ip_type iptyp
 				&& get_client_memptr(wan_client, wan_index)->route_rule_set_v6 < get_client_memptr(wan_client, wan_index)->ipv6_set
 			   ))
 	{
-
-		/* Add corresponding ipa_rm_resource_name of TX-endpoint up before IPV6 RT-rule set */
-		IPACMDBG_H("dev %s add producer dependency\n", dev_name);
-		IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
-		IPACM_Iface::ipacmcfg->AddRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe],false);
-
+		if(IPACM_Iface::ipacmcfg->GetIPAVer() >= IPA_HW_None && IPACM_Iface::ipacmcfg->GetIPAVer() < IPA_HW_v4_0)
+		{
+			/* Add corresponding ipa_rm_resource_name of TX-endpoint up before IPV6 RT-rule set */
+			IPACMDBG_H("dev %s add producer dependency\n", dev_name);
+			IPACMDBG_H("depend Got pipe %d rm index : %d \n", tx_prop->tx[0].dst_pipe, IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe]);
+			IPACM_Iface::ipacmcfg->AddRmDepend(IPACM_Iface::ipacmcfg->ipa_client_rm_map_tbl[tx_prop->tx[0].dst_pipe],false);
+		}
 		rt_rule = (struct ipa_ioc_add_rt_rule *)
 			calloc(1, sizeof(struct ipa_ioc_add_rt_rule) +
 					NUM * sizeof(struct ipa_rt_rule_add));

@@ -686,7 +686,8 @@ static int ipa_nl_decode_nlmsg
 					evt_data.evt_data = data_fid;
 					IPACM_EvtDispatcher::PostEvt(&evt_data);
 				}
-
+				/* Andorid platform will use events from usb-driver directly */
+#ifndef FEATURE_IPA_ANDROID
 				/* Add IPACM support for ECM plug-in/plug_out */
 				/*--------------------------------------------------------------------------
                    Check if the interface is running.If its a RTM_NEWLINK and the interface
@@ -710,14 +711,20 @@ static int ipa_nl_decode_nlmsg
 						IPACMERR("Error while getting interface name\n");
 						return IPACM_FAILURE;
 					}
-					IPACMDBG("Got a usb link_up event (Interface %s, %d) \n", dev_name, msg_ptr->nl_link_info.metainfo.ifi_index);
+					IPACMDBG_H("Got a usb link_up event (Interface %s, %d) \n", dev_name, msg_ptr->nl_link_info.metainfo.ifi_index);
+					/* We don't expect change in iff_flags for rmnet_data interfaces. */
+					if (!strncmp(dev_name,"rmnet_data",strlen("rmnet_data")))
+					{
+						IPACMERR("Don't expect iff_flags change for rmnet_data interface. IGNORE\n");
+						return IPACM_FAILURE;
+					}
 
                     /*--------------------------------------------------------------------------
                        Post LAN iface (ECM) link up event
                      ---------------------------------------------------------------------------*/
                     evt_data.event = IPA_USB_LINK_UP_EVENT;
 					evt_data.evt_data = data_fid;
-					IPACMDBG_H("Posting usb IPA_LINK_UP_EVENT with if index: %d\n",
+					IPACMDBG_H("Posting usb IPA_USB_LINK_UP_EVENT with if index: %d\n",
 										 data_fid->if_index);
 					IPACM_EvtDispatcher::PostEvt(&evt_data);
                 }
@@ -748,6 +755,7 @@ static int ipa_nl_decode_nlmsg
 										 data_fid->if_index);
 					IPACM_EvtDispatcher::PostEvt(&evt_data);
 				}
+#endif /* not defined(FEATURE_IPA_ANDROID)*/
 			}
 			break;
 

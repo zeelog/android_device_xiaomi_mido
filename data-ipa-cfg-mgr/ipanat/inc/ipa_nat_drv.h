@@ -26,6 +26,8 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
+#ifndef IPA_NAT_DRV_H
+#define IPA_NAT_DRV_H
 
 #include "string.h"  /* memset */
 #include "stdlib.h"  /* free, malloc */
@@ -142,3 +144,4 @@ int ipa_nat_query_timestamp(uint32_t  table_handle,
 int ipa_nat_modify_pdn(uint32_t  tbl_hdl,
 	uint8_t pdn_index,
 	ipa_nat_pdn_entry *pdn_info);
+#endif /* IPA_NAT_DRV_H */

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2013-2017, The Linux Foundation. All rights reserved.
+Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -241,6 +241,12 @@ protected:
 	/* handle tethering client */
 	int handle_tethering_client(bool reset, ipacm_client_enum ipa_client);
 
+	/* add tcp syn flt rule */
+	int add_tcp_syn_flt_rule(ipa_ip_type iptype);
+
+	/* add tcp syn flt rule for l2tp interface*/
+	int add_tcp_syn_flt_rule_l2tp(ipa_ip_type inner_ip_type);
+
 	/* store ipv4 UL filter rule handlers from Q6*/
 	uint32_t wan_ul_fl_rule_hdl_v4[MAX_WAN_UL_FILTER_RULES];
 
@@ -271,6 +277,8 @@ protected:
 	bool is_upstream_set[IPA_IP_MAX];
 	bool is_downstream_set[IPA_IP_MAX];
 	_ipacm_offload_prefix prefix[IPA_IP_MAX];
+
+	uint32_t tcp_syn_flt_rule_hdl[IPA_IP_MAX];
 
 private:
 
