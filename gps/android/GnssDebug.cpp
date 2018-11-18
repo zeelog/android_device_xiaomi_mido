@@ -30,8 +30,14 @@ namespace implementation {
 
 using ::android::hardware::hidl_vec;
 
-#define GNSS_DEBUG_UNKNOWN_UTC_TIME     (1483228800000ULL) // 1/1/2017 00:00 GMT
-#define GNSS_DEBUG_UNKNOWN_UTC_TIME_UNC (1.57783680E17) // 5 years in ns
+#define GNSS_DEBUG_UNKNOWN_HORIZONTAL_ACCURACY_METERS (20000000)
+#define GNSS_DEBUG_UNKNOWN_VERTICAL_ACCURACY_METERS   (20000)
+#define GNSS_DEBUG_UNKNOWN_SPEED_ACCURACY_PER_SEC     (500)
+#define GNSS_DEBUG_UNKNOWN_BEARING_ACCURACY_DEG       (180)
+
+#define GNSS_DEBUG_UNKNOWN_UTC_TIME            (1483228800000LL) // 1/1/2017 00:00 GMT
+#define GNSS_DEBUG_UNKNOWN_UTC_TIME_UNC        (1.57783680E17) // 5 years in ns
+#define GNSS_DEBUG_UNKNOWN_FREQ_UNC_NS_PER_SEC (2.0e5)  // ppm
 
 GnssDebug::GnssDebug(Gnss* gnss) : mGnss(gnss)
 {
@@ -91,6 +97,40 @@ Return<void> GnssDebug::getDebugData(getDebugData_cb _hidl_cb)
         data.position.valid = false;
     }
 
+    if (data.position.horizontalAccuracyMeters <= 0 ||
+        data.position.horizontalAccuracyMeters > GNSS_DEBUG_UNKNOWN_HORIZONTAL_ACCURACY_METERS) {
+        data.position.horizontalAccuracyMeters = GNSS_DEBUG_UNKNOWN_HORIZONTAL_ACCURACY_METERS;
+    }
+    if (data.position.verticalAccuracyMeters <= 0 ||
+        data.position.verticalAccuracyMeters > GNSS_DEBUG_UNKNOWN_VERTICAL_ACCURACY_METERS) {
+        data.position.verticalAccuracyMeters = GNSS_DEBUG_UNKNOWN_VERTICAL_ACCURACY_METERS;
+    }
+    if (data.position.speedAccuracyMetersPerSecond <= 0 ||
+        data.position.speedAccuracyMetersPerSecond > GNSS_DEBUG_UNKNOWN_SPEED_ACCURACY_PER_SEC) {
+        data.position.speedAccuracyMetersPerSecond = GNSS_DEBUG_UNKNOWN_SPEED_ACCURACY_PER_SEC;
+    }
+    if (data.position.bearingAccuracyDegrees <= 0 ||
+        data.position.bearingAccuracyDegrees > GNSS_DEBUG_UNKNOWN_BEARING_ACCURACY_DEG) {
+        data.position.bearingAccuracyDegrees = GNSS_DEBUG_UNKNOWN_BEARING_ACCURACY_DEG;
+    }
+
+    if (data.position.horizontalAccuracyMeters <= 0 ||
+        data.position.horizontalAccuracyMeters > GNSS_DEBUG_UNKNOWN_HORIZONTAL_ACCURACY_METERS) {
+        data.position.horizontalAccuracyMeters = GNSS_DEBUG_UNKNOWN_HORIZONTAL_ACCURACY_METERS;
+    }
+    if (data.position.verticalAccuracyMeters <= 0 ||
+        data.position.verticalAccuracyMeters > GNSS_DEBUG_UNKNOWN_VERTICAL_ACCURACY_METERS) {
+        data.position.verticalAccuracyMeters = GNSS_DEBUG_UNKNOWN_VERTICAL_ACCURACY_METERS;
+    }
+    if (data.position.speedAccuracyMetersPerSecond <= 0 ||
+        data.position.speedAccuracyMetersPerSecond > GNSS_DEBUG_UNKNOWN_SPEED_ACCURACY_PER_SEC) {
+        data.position.speedAccuracyMetersPerSecond = GNSS_DEBUG_UNKNOWN_SPEED_ACCURACY_PER_SEC;
+    }
+    if (data.position.bearingAccuracyDegrees <= 0 ||
+        data.position.bearingAccuracyDegrees > GNSS_DEBUG_UNKNOWN_BEARING_ACCURACY_DEG) {
+        data.position.bearingAccuracyDegrees = GNSS_DEBUG_UNKNOWN_BEARING_ACCURACY_DEG;
+    }
+
     // time block
     if (reports.mTime.mValid) {
         data.time.timeEstimate = reports.mTime.timeEstimate;
@@ -98,10 +138,17 @@ Return<void> GnssDebug::getDebugData(getDebugData_cb _hidl_cb)
         data.time.frequencyUncertaintyNsPerSec =
             reports.mTime.frequencyUncertaintyNsPerSec;
     }
-    else {
+
+    if (data.time.timeEstimate < GNSS_DEBUG_UNKNOWN_UTC_TIME) {
         data.time.timeEstimate = GNSS_DEBUG_UNKNOWN_UTC_TIME;
-        data.time.timeUncertaintyNs = (float)(GNSS_DEBUG_UNKNOWN_UTC_TIME_UNC);
-        data.time.frequencyUncertaintyNsPerSec = 0;
+    }
+    if (data.time.timeUncertaintyNs <= 0 ||
+        data.time.timeUncertaintyNs > (float)GNSS_DEBUG_UNKNOWN_UTC_TIME_UNC) {
+        data.time.timeUncertaintyNs = (float)GNSS_DEBUG_UNKNOWN_UTC_TIME_UNC;
+    }
+    if (data.time.frequencyUncertaintyNsPerSec <= 0 ||
+        data.time.frequencyUncertaintyNsPerSec > (float)GNSS_DEBUG_UNKNOWN_FREQ_UNC_NS_PER_SEC) {
+        data.time.frequencyUncertaintyNsPerSec = (float)GNSS_DEBUG_UNKNOWN_FREQ_UNC_NS_PER_SEC;
     }
 
     // satellite data block

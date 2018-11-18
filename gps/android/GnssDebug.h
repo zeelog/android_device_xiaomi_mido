@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_HARDWARE_GNSS_V1_1_GNSSDEBUG_H
-#define ANDROID_HARDWARE_GNSS_V1_1_GNSSDEBUG_H
+#ifndef ANDROID_HARDWARE_GNSS_V1_0_GNSSDEBUG_H
+#define ANDROID_HARDWARE_GNSS_V1_0_GNSSDEBUG_H
 
 
 #include <android/hardware/gnss/1.0/IGnssDebug.h>
@@ -56,4 +56,4 @@ private:
 }  // namespace hardware
 }  // namespace android
 
-#endif  // ANDROID_HARDWARE_GNSS_V1_1_GNSSDEBUG_H
+#endif  // ANDROID_HARDWARE_GNSS_V1_0_GNSSDEBUG_H

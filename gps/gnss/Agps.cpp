@@ -30,7 +30,7 @@
 #define LOG_TAG "LocSvc_Agps"
 
 #include <Agps.h>
-#include <platform_lib_includes.h>
+#include <loc_pla.h>
 #include <ContextBase.h>
 #include <loc_timer.h>
 

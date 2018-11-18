@@ -1,4 +1,4 @@
-/* Copyright (c) 2017, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -40,8 +40,9 @@ namespace gnss {
 namespace V1_0 {
 namespace implementation {
 
-void convertGnssLocation(Location& in, GnssLocation& out);
-void convertGnssConstellationType(GnssSvType& in, GnssConstellationType& out);
+void convertGnssLocation(Location& in, V1_0::GnssLocation& out);
+void convertGnssLocation(const V1_0::GnssLocation& in, Location& out);
+void convertGnssConstellationType(GnssSvType& in, V1_0::GnssConstellationType& out);
 void convertGnssEphemerisType(GnssEphemerisType& in, GnssDebug::SatelliteEphemerisType& out);
 void convertGnssEphemerisSource(GnssEphemerisSource& in, GnssDebug::SatelliteEphemerisSource& out);
 void convertGnssEphemerisHealth(GnssEphemerisHealth& in, GnssDebug::SatelliteEphemerisHealth& out);

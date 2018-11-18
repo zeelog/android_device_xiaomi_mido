@@ -70,6 +70,24 @@ public:
      */
     virtual void turnOff (DataItemId dit) = 0;
 
+#ifdef USE_GLIB
+    /**
+     * @brief Setup WWAN backhaul
+     * @details  Setup WWAN backhaul
+     *
+     * @param None
+     */
+    virtual bool connectBackhaul() = 0;
+
+    /**
+     * @brief Disconnects the WWANbackhaul
+     * @details Disconnects the WWANbackhaul, only if it was setup by us
+     *
+     * @param None
+     */
+    virtual bool disconnectBackhaul() = 0;
+#endif
+
     /**
      * @brief Destructor
      * @details Destructor

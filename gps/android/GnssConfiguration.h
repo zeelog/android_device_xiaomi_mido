@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
  * Not a Contribution
  */
 
@@ -19,8 +19,8 @@
  */
 
 
-#ifndef ANDROID_HARDWARE_GNSS_V1_1_GNSSCONFIGURATION_H
-#define ANDROID_HARDWARE_GNSS_V1_1_GNSSCONFIGURATION_H
+#ifndef ANDROID_HARDWARE_GNSS_V1_0_GNSSCONFIGURATION_H
+#define ANDROID_HARDWARE_GNSS_V1_0_GNSSCONFIGURATION_H
 
 #include <android/hardware/gnss/1.0/IGnssConfiguration.h>
 #include <hidl/Status.h>
@@ -68,4 +68,4 @@ struct GnssConfiguration : public IGnssConfiguration {
 }  // namespace hardware
 }  // namespace android
 
-#endif  // ANDROID_HARDWARE_GNSS_V1_1_GNSSCONFIGURATION_H
+#endif  // ANDROID_HARDWARE_GNSS_V1_0_GNSSCONFIGURATION_H

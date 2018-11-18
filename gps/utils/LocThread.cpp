@@ -29,7 +29,7 @@
 #include <LocThread.h>
 #include <string.h>
 #include <pthread.h>
-#include <platform_lib_macros.h>
+#include <loc_pla.h>
 
 class LocThreadDelegate {
     LocRunnable* mRunnable;

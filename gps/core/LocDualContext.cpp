@@ -33,7 +33,7 @@
 #include <unistd.h>
 #include <LocDualContext.h>
 #include <msg_q.h>
-#include <platform_lib_log_util.h>
+#include <log_util.h>
 #include <loc_log.h>
 
 namespace loc_core {

@@ -1,4 +1,4 @@
-/* Copyright (c) 2017, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -42,10 +42,13 @@ namespace gnss {
 namespace V1_0 {
 namespace implementation {
 
+using ::android::hardware::gnss::V1_0::IGnssMeasurement;
+using ::android::hardware::gnss::V1_0::IGnssMeasurementCallback;
+
 static void convertGnssData(GnssMeasurementsNotification& in,
-        IGnssMeasurementCallback::GnssData& out);
+        V1_0::IGnssMeasurementCallback::GnssData& out);
 static void convertGnssMeasurement(GnssMeasurementsData& in,
-        IGnssMeasurementCallback::GnssMeasurement& out);
+        V1_0::IGnssMeasurementCallback::GnssMeasurement& out);
 static void convertGnssClock(GnssMeasurementsClock& in, IGnssMeasurementCallback::GnssClock& out);
 
 MeasurementAPIClient::MeasurementAPIClient() :
@@ -62,7 +65,7 @@ MeasurementAPIClient::~MeasurementAPIClient()
 
 // for GpsInterface
 Return<IGnssMeasurement::GnssMeasurementStatus>
-MeasurementAPIClient::measurementSetCallback(const sp<IGnssMeasurementCallback>& callback)
+MeasurementAPIClient::measurementSetCallback(const sp<V1_0::IGnssMeasurementCallback>& callback)
 {
     LOC_LOGD("%s]: (%p)", __FUNCTION__, &callback);
 
@@ -70,6 +73,12 @@ MeasurementAPIClient::measurementSetCallback(const sp<IGnssMeasurementCallback>&
     mGnssMeasurementCbIface = callback;
     mMutex.unlock();
 
+    return startTracking();
+}
+
+Return<IGnssMeasurement::GnssMeasurementStatus>
+MeasurementAPIClient::startTracking()
+{
     LocationCallbacks locationCallbacks;
     memset(&locationCallbacks, 0, sizeof(LocationCallbacks));
     locationCallbacks.size = sizeof(LocationCallbacks);
@@ -115,15 +124,18 @@ void MeasurementAPIClient::measurementClose() {
 void MeasurementAPIClient::onGnssMeasurementsCb(
         GnssMeasurementsNotification gnssMeasurementsNotification)
 {
-    LOC_LOGD("%s]: (count: %zu active: %zu)",
+    LOC_LOGD("%s]: (count: %zu active: %d)",
             __FUNCTION__, gnssMeasurementsNotification.count, mTracking);
     if (mTracking) {
         mMutex.lock();
-        auto gnssMeasurementCbIface(mGnssMeasurementCbIface);
+        sp<V1_0::IGnssMeasurementCallback> gnssMeasurementCbIface = nullptr;
+        if (mGnssMeasurementCbIface != nullptr) {
+            gnssMeasurementCbIface = mGnssMeasurementCbIface;
+        }
         mMutex.unlock();
 
         if (gnssMeasurementCbIface != nullptr) {
-            IGnssMeasurementCallback::GnssData gnssData;
+            V1_0::IGnssMeasurementCallback::GnssData gnssData;
             convertGnssData(gnssMeasurementsNotification, gnssData);
             auto r = gnssMeasurementCbIface->GnssMeasurementCb(gnssData);
             if (!r.isOk()) {
@@ -135,7 +147,7 @@ void MeasurementAPIClient::onGnssMeasurementsCb(
 }
 
 static void convertGnssMeasurement(GnssMeasurementsData& in,
-        IGnssMeasurementCallback::GnssMeasurement& out)
+        V1_0::IGnssMeasurementCallback::GnssMeasurement& out)
 {
     memset(&out, 0, sizeof(IGnssMeasurementCallback::GnssMeasurement));
     if (in.flags & GNSS_MEASUREMENTS_DATA_SIGNAL_TO_NOISE_RATIO_BIT)
@@ -242,13 +254,13 @@ static void convertGnssClock(GnssMeasurementsClock& in, IGnssMeasurementCallback
 }
 
 static void convertGnssData(GnssMeasurementsNotification& in,
-        IGnssMeasurementCallback::GnssData& out)
+        V1_0::IGnssMeasurementCallback::GnssData& out)
 {
     out.measurementCount = in.count;
-    if (out.measurementCount > static_cast<uint32_t>(GnssMax::SVS_COUNT)) {
-        LOC_LOGW("%s]: Too many measurement %zd. Clamps to %d.",
-                __FUNCTION__,  out.measurementCount, GnssMax::SVS_COUNT);
-        out.measurementCount = static_cast<uint32_t>(GnssMax::SVS_COUNT);
+    if (out.measurementCount > static_cast<uint32_t>(V1_0::GnssMax::SVS_COUNT)) {
+        LOC_LOGW("%s]: Too many measurement %u. Clamps to %d.",
+                __FUNCTION__,  out.measurementCount, V1_0::GnssMax::SVS_COUNT);
+        out.measurementCount = static_cast<uint32_t>(V1_0::GnssMax::SVS_COUNT);
     }
     for (size_t i = 0; i < out.measurementCount; i++) {
         convertGnssMeasurement(in.measurements[i], out.measurements[i]);

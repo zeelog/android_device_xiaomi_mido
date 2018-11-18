@@ -115,7 +115,9 @@ enum loc_registration_mask_status {
 typedef enum {
     LOC_SUPPORTED_FEATURE_ODCPI_2_V02 = 0, /**<  Support ODCPI version 2 feature  */
     LOC_SUPPORTED_FEATURE_WIFI_AP_DATA_INJECT_2_V02, /**<  Support Wifi AP data inject version 2 feature  */
-    LOC_SUPPORTED_FEATURE_DEBUG_NMEA_V02 /**< Support debug NMEA feature */
+    LOC_SUPPORTED_FEATURE_DEBUG_NMEA_V02, /**< Support debug NMEA feature */
+    LOC_SUPPORTED_FEATURE_GNSS_ONLY_POSITION_REPORT, /**< Support GNSS Only position reports */
+    LOC_SUPPORTED_FEATURE_FDCL /**< Support FDCL */
 } loc_supported_feature_enum;
 
 typedef struct {
@@ -308,6 +310,10 @@ typedef uint32_t GpsLocationExtendedFlags;
 #define GPS_LOCATION_EXTENDED_HAS_POS_DYNAMICS_DATA   0x10000
 /** GpsLocationExtended has GPS Time */
 #define GPS_LOCATION_EXTENDED_HAS_GPS_TIME   0x20000
+/** GpsLocationExtended has Extended Dilution of Precision */
+#define GPS_LOCATION_EXTENDED_HAS_EXT_DOP   0x40000
+/** GpsLocationExtended has Elapsed Time */
+#define GPS_LOCATION_EXTENDED_HAS_ELAPSED_TIME   0x80000
 
 typedef uint32_t LocNavSolutionMask;
 /* Bitmask to specify whether SBAS ionospheric correction is used  */
@@ -393,6 +399,29 @@ typedef struct {
    float           pitch;
 }LocPositionDynamics;
 
+typedef struct {
+
+  /**  Position dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float PDOP;
+
+  /**  Horizontal dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float HDOP;
+
+  /**  Vertical dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float VDOP;
+
+  /**  geometric  dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float GDOP;
+
+  /**  time dilution of precision.
+       Range: 1 (highest accuracy) to 50 (lowest accuracy) */
+  float TDOP;
+}LocExtDOP;
+
 /* GPS Time structure */
 typedef struct {
 
@@ -451,6 +480,10 @@ typedef struct {
     LocPositionDynamics bodyFrameData;
     /** GPS Time */
     GPSTimeStruct gpsTime;
+    /** Elapsed Time */
+    int64_t  elapsedTime;
+    /** Dilution of precision associated with this position*/
+    LocExtDOP extDOP;
 } GpsLocationExtended;
 
 enum loc_sess_status {
@@ -559,7 +592,8 @@ enum loc_api_adapter_event_index {
     LOC_API_ADAPTER_REPORT_GENFENCE_DWELL_REPORT,      // Geofence dwell report
     LOC_API_ADAPTER_REQUEST_SRN_DATA,                  // request srn data from AP
     LOC_API_ADAPTER_REQUEST_POSITION_INJECTION,        // Position injection request
-    LOC_API_ADAPTER_BATCH_STATUS,                       // batch status
+    LOC_API_ADAPTER_BATCH_STATUS,                      // batch status
+    LOC_API_ADAPTER_FDCL_SERVICE_REQ,                  // FDCL service request
     LOC_API_ADAPTER_EVENT_MAX
 };
 
@@ -595,9 +629,10 @@ enum loc_api_adapter_event_index {
 #define LOC_API_ADAPTER_BIT_REQUEST_SRN_DATA                 (1<<LOC_API_ADAPTER_REQUEST_SRN_DATA)
 #define LOC_API_ADAPTER_BIT_POSITION_INJECTION_REQUEST       (1<<LOC_API_ADAPTER_REQUEST_POSITION_INJECTION)
 #define LOC_API_ADAPTER_BIT_BATCH_STATUS                     (1<<LOC_API_ADAPTER_BATCH_STATUS)
+#define LOC_API_ADAPTER_BIT_FDCL_SERVICE_REQ                 (1ULL<<LOC_API_ADAPTER_FDCL_SERVICE_REQ)
 
 
-typedef unsigned int LOC_API_ADAPTER_EVENT_MASK_T;
+typedef uint64_t LOC_API_ADAPTER_EVENT_MASK_T;
 
 typedef enum loc_api_adapter_msg_to_check_supported {
     LOC_API_ADAPTER_MESSAGE_LOCATION_BATCHING,               // Batching 1.0
@@ -1262,6 +1297,20 @@ struct AGnssExtStatusIpV6 {
     uint8_t ipV6Addr[16];
 };
 
+/* ODCPI Request Info */
+enum OdcpiRequestType {
+    ODCPI_REQUEST_TYPE_START,
+    ODCPI_REQUEST_TYPE_STOP
+};
+struct OdcpiRequestInfo {
+    size_t size;
+    OdcpiRequestType type;
+    uint32_t tbfMillis;
+    bool isEmergencyMode;
+};
+/* Callback to send ODCPI request to framework */
+typedef std::function<void(const OdcpiRequestInfo& request)> OdcpiRequestCallback;
+
 /*
  * Callback with AGNSS(IpV4) status information.
  *
@@ -1282,6 +1331,9 @@ typedef void (*LocAgpsOpenResultCb)(bool isSuccess, AGpsExtType agpsType, const 
 
 typedef void (*LocAgpsCloseResultCb)(bool isSuccess, AGpsExtType agpsType, void* userDataPtr);
 
+/* Shared resources of LocIpc */
+#define LOC_IPC_HAL "/dev/socket/location/socket_hal"
+#define LOC_IPC_XTRA "/dev/socket/location/xtra/socket_xtra"
 
 #ifdef __cplusplus
 }

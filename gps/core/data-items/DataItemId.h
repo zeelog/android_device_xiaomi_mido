@@ -67,7 +67,13 @@ typedef enum e_DataItemId {
     BTLE_SCAN_DATA_ITEM_ID,
     BT_SCAN_DATA_ITEM_ID,
     OEM_GTP_UPLOAD_TRIGGER_READY_ITEM_ID,
-    MAX_DATA_ITEM_ID
+
+    MAX_DATA_ITEM_ID,
+
+    // 26 -
+    BATTERY_LEVEL_DATA_ITEM_ID,
+
+    MAX_DATA_ITEM_ID_1_1,
 } DataItemId;
 
 #endif // #ifndef __DATAITEMID_H__

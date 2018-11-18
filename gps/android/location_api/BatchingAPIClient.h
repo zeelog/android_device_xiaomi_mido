@@ -1,4 +1,4 @@
-/* Copyright (c) 2017, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2018, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -45,11 +45,11 @@ namespace implementation {
 class BatchingAPIClient : public LocationAPIClientBase
 {
 public:
-    BatchingAPIClient(const sp<IGnssBatchingCallback>& callback);
+    BatchingAPIClient(const sp<V1_0::IGnssBatchingCallback>& callback);
     ~BatchingAPIClient();
     int getBatchSize();
-    int startSession(const IGnssBatching::Options& options);
-    int updateSessionOptions(const IGnssBatching::Options& options);
+    int startSession(const V1_0::IGnssBatching::Options& options);
+    int updateSessionOptions(const V1_0::IGnssBatching::Options& options);
     int stopSession();
     void getBatchedLocation(int last_n_locations);
     void flushBatchedLocations();
@@ -61,9 +61,8 @@ public:
     void onBatchingCb(size_t count, Location* location, BatchingOptions batchOptions) final;
 
 private:
-    sp<IGnssBatchingCallback> mGnssBatchingCbIface;
+    sp<V1_0::IGnssBatchingCallback> mGnssBatchingCbIface;
     uint32_t mDefaultId;
-    int mBatchSize;
     LocationCapabilitiesMask mLocationCapabilitiesMask;
 };
 

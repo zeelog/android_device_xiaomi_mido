@@ -36,6 +36,8 @@
 #include <map>
 
 #include "LocationAPI.h"
+#include <loc_pla.h>
+#include <log_util.h>
 
 enum SESSION_MODE {
     SESSION_MODE_NONE = 0,
@@ -469,11 +471,24 @@ private:
 
     class RemoveGeofencesRequest : public LocationAPIRequest {
     public:
-        RemoveGeofencesRequest(LocationAPIClientBase& API) : mAPI(API) {}
+        RemoveGeofencesRequest(LocationAPIClientBase& API,
+                               BiDict<GeofenceBreachTypeMask>* removedGeofenceBiDict) :
+                               mAPI(API), mRemovedGeofenceBiDict(removedGeofenceBiDict) {}
         inline void onCollectiveResponse(size_t count, LocationError* errors, uint32_t* sessions) {
-            // No need to handle collectiveResponse, cbs already notified
+            if (nullptr != mRemovedGeofenceBiDict) {
+                uint32_t *ids = (uint32_t*)malloc(sizeof(uint32_t) * count);
+                for (size_t i = 0; i < count; i++) {
+                    ids[i] = mRemovedGeofenceBiDict->getId(sessions[i]);
+                }
+                mAPI.onRemoveGeofencesCb(count, errors, ids);
+                free(ids);
+                delete(mRemovedGeofenceBiDict);
+            } else {
+                LOC_LOGE("%s:%d] Unable to access removed geofences data.", __FUNCTION__, __LINE__);
+            }
         }
         LocationAPIClientBase& mAPI;
+        BiDict<GeofenceBreachTypeMask>* mRemovedGeofenceBiDict;
     };
 
     class ModifyGeofencesRequest : public LocationAPIRequest {

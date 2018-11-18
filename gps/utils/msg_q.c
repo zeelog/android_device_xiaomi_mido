@@ -26,14 +26,14 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "msg_q.h"
-
 #define LOG_TAG "LocSvc_utils_q"
-#include <platform_lib_includes.h>
-#include "linked_list.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <loc_pla.h>
+#include <log_util.h>
+#include "linked_list.h"
+#include "msg_q.h"
 
 typedef struct msg_q {
    void* msg_list;                  /* Linked list to store information */

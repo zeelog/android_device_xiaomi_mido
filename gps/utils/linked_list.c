@@ -26,14 +26,15 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#define LOG_TAG "LocSvc_utils_ll"
+
 #include "linked_list.h"
 #include <stdio.h>
 #include <string.h>
-
-#define LOG_TAG "LocSvc_utils_ll"
-#include <platform_lib_includes.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <loc_pla.h>
+#include <log_util.h>
 
 typedef struct list_element {
    struct list_element* next;

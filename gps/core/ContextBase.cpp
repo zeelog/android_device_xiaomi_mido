@@ -35,7 +35,7 @@
 #include <ContextBase.h>
 #include <msg_q.h>
 #include <loc_target.h>
-#include <platform_lib_includes.h>
+#include <loc_pla.h>
 #include <loc_log.h>
 
 namespace loc_core {
@@ -65,6 +65,8 @@ const loc_param_s_type ContextBase::mGps_conf_table[] =
   {"USE_EMERGENCY_PDN_FOR_EMERGENCY_SUPL",  &mGps_conf.USE_EMERGENCY_PDN_FOR_EMERGENCY_SUPL,          NULL, 'n'},
   {"AGPS_CONFIG_INJECT",             &mGps_conf.AGPS_CONFIG_INJECT,             NULL, 'n'},
   {"EXTERNAL_DR_ENABLED",            &mGps_conf.EXTERNAL_DR_ENABLED,                  NULL, 'n'},
+  {"SUPL_HOST",                      &mGps_conf.SUPL_HOST,                      NULL, 's'},
+  {"SUPL_PORT",                      &mGps_conf.SUPL_PORT,                      NULL, 'n'},
 };
 
 const loc_param_s_type ContextBase::mSap_conf_table[] =
@@ -98,6 +100,8 @@ void ContextBase::readConfig()
    mGps_conf.SUPL_VER = 0x10000;
    mGps_conf.SUPL_MODE = 0x1;
    mGps_conf.SUPL_ES = 0;
+   mGps_conf.SUPL_HOST[0] = 0;
+   mGps_conf.SUPL_PORT = 0;
    mGps_conf.CAPABILITIES = 0x7;
    /* LTE Positioning Profile configuration is disable by default*/
    mGps_conf.LPP_PROFILE = 0;

@@ -34,7 +34,7 @@
 #include <gps_extended.h>
 #include <LocationAPI.h>
 #include <MsgTask.h>
-#include <platform_lib_log_util.h>
+#include <log_util.h>
 
 namespace loc_core {
 class ContextBase;
@@ -134,6 +134,7 @@ public:
     void reportGnssMeasurementData(GnssMeasurementsNotification& measurements, int msInWeek);
     void saveSupportedFeatureList(uint8_t *featureList);
     void reportWwanZppFix(LocGpsLocation &zppLoc);
+    void reportOdcpiRequest(OdcpiRequestInfo& request);
 
     // downward calls
     // All below functions are to be defined by adapter specific modules:
@@ -153,6 +154,8 @@ public:
         setAPN(char* apn, int len);
     virtual enum loc_api_adapter_err
         injectPosition(double latitude, double longitude, float accuracy);
+    virtual enum loc_api_adapter_err
+        injectPosition(const Location& location);
     virtual enum loc_api_adapter_err
         setTime(LocGpsUtcTime time, int64_t timeReference, int uncertainty);
     virtual enum loc_api_adapter_err

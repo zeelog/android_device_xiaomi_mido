@@ -32,8 +32,9 @@
 #include <unistd.h>
 #include <MsgTask.h>
 #include <msg_q.h>
+#include <log_util.h>
 #include <loc_log.h>
-#include <platform_lib_includes.h>
+#include <loc_pla.h>
 
 static void LocMsgDestroy(void* msg) {
     delete (LocMsg*)msg;
@@ -82,7 +83,7 @@ void MsgTask::sendMsg(const LocMsg* msg) const {
 
 void MsgTask::prerun() {
     // make sure we do not run in background scheduling group
-     platform_lib_abstraction_set_sched_policy(platform_lib_abstraction_gettid(), PLA_SP_FOREGROUND);
+     set_sched_policy(gettid(), SP_FOREGROUND);
 }
 
 bool MsgTask::run() {

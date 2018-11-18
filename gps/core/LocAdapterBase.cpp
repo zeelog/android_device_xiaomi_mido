@@ -32,7 +32,7 @@
 #include <dlfcn.h>
 #include <LocAdapterBase.h>
 #include <loc_target.h>
-#include <platform_lib_log_util.h>
+#include <log_util.h>
 #include <LocAdapterProxyBase.h>
 
 namespace loc_core {
@@ -159,6 +159,10 @@ DEFAULT_IMPL()
 
 bool LocAdapterBase::
     reportWwanZppFix(LocGpsLocation &/*zppLoc*/)
+DEFAULT_IMPL(false)
+
+bool LocAdapterBase::
+    reportOdcpiRequestEvent(OdcpiRequestInfo& /*request*/)
 DEFAULT_IMPL(false)
 
 } // namespace loc_core

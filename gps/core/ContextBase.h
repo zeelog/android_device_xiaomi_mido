@@ -36,7 +36,8 @@
 #include <LBSProxyBase.h>
 #include <loc_cfg.h>
 
-#define MAX_XTRA_SERVER_URL_LENGTH 256
+#define MAX_XTRA_SERVER_URL_LENGTH (256)
+#define MAX_SUPL_SERVER_URL_LENGTH (256)
 
 /* GPS.conf support */
 /* NOTE: the implementaiton of the parser casts number
@@ -64,6 +65,8 @@ typedef struct loc_gps_cfg_s
     uint32_t       LPPE_CP_TECHNOLOGY;
     uint32_t       LPPE_UP_TECHNOLOGY;
     uint32_t       EXTERNAL_DR_ENABLED;
+    char           SUPL_HOST[MAX_SUPL_SERVER_URL_LENGTH];
+    uint32_t       SUPL_PORT;
 } loc_gps_cfg_s_type;
 
 /* NOTE: the implementaiton of the parser casts number

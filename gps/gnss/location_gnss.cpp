@@ -45,6 +45,7 @@ static void stopTracking(LocationAPI* client, uint32_t id);
 
 static void gnssNiResponse(LocationAPI* client, uint32_t id, GnssNiResponse response);
 static uint32_t gnssDeleteAidingData(GnssAidingData& data);
+static void gnssUpdateXtraThrottle(const bool enabled);
 
 static void setControlCallbacks(LocationControlCallbacks& controlCallbacks);
 static uint32_t enable(LocationTechnologyType techType);
@@ -59,7 +60,10 @@ static void agpsDataConnOpen(AGpsExtType agpsType, const char* apnName, int apnL
 static void agpsDataConnClosed(AGpsExtType agpsType);
 static void agpsDataConnFailed(AGpsExtType agpsType);
 static void getDebugReport(GnssDebugReport& report);
-static void updateConnectionStatus(bool connected, uint8_t type);
+static void updateConnectionStatus(bool connected, int8_t type);
+
+static void odcpiInit(const OdcpiRequestCallback& callback);
+static void odcpiInject(const Location& location);
 
 static const GnssInterface gGnssInterface = {
     sizeof(GnssInterface),
@@ -77,6 +81,7 @@ static const GnssInterface gGnssInterface = {
     disable,
     gnssUpdateConfig,
     gnssDeleteAidingData,
+    gnssUpdateXtraThrottle,
     injectLocation,
     injectTime,
     agpsInit,
@@ -85,6 +90,8 @@ static const GnssInterface gGnssInterface = {
     agpsDataConnFailed,
     getDebugReport,
     updateConnectionStatus,
+    odcpiInit,
+    odcpiInject,
 };
 
 #ifndef DEBUG_X86
@@ -203,6 +210,13 @@ static uint32_t gnssDeleteAidingData(GnssAidingData& data)
     }
 }
 
+static void gnssUpdateXtraThrottle(const bool enabled)
+{
+    if (NULL != gGnssAdapter) {
+        gGnssAdapter->gnssUpdateXtraThrottleCommand(enabled);
+    }
+}
+
 static void injectLocation(double latitude, double longitude, float accuracy)
 {
    if (NULL != gGnssAdapter) {
@@ -251,8 +265,23 @@ static void getDebugReport(GnssDebugReport& report) {
     }
 }
 
-static void updateConnectionStatus(bool connected, uint8_t type) {
+static void updateConnectionStatus(bool connected, int8_t type) {
     if (NULL != gGnssAdapter) {
         gGnssAdapter->getSystemStatus()->eventConnectionStatus(connected, type);
     }
 }
+
+static void odcpiInit(const OdcpiRequestCallback& callback)
+{
+    if (NULL != gGnssAdapter) {
+        gGnssAdapter->initOdcpiCommand(callback);
+    }
+}
+
+static void odcpiInject(const Location& location)
+{
+    if (NULL != gGnssAdapter) {
+        gGnssAdapter->injectOdcpiCommand(location);
+    }
+}
+

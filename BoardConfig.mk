@@ -153,8 +153,8 @@ BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # GPS
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 USE_DEVICE_SPECIFIC_GPS := true
-TARGET_NO_RPC := true
 
 # Extended Filesystem Support
 TARGET_EXFAT_DRIVER := sdfat
