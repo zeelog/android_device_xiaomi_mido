@@ -458,11 +458,11 @@ service vendor.start_hci_filter /vendor/bin/wcnss_filter
     seclabel u:r:bluetooth:s0
     disabled
 
-on property:bluetooth.hciattach=true
-    setprop bluetooth.status on
+on property:vendor.bluetooth.hciattach=true
+    setprop vendor.bluetooth.status on
 
-on property:bluetooth.hciattach=false
-    setprop bluetooth.status off
+on property:vendor.bluetooth.hciattach=false
+    setprop vendor.bluetooth.status off
 
 service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
