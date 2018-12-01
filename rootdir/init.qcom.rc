@@ -239,7 +239,6 @@ on post-fs-data
     mkdir /data/vendor/tombstones 0771 system system
 
     mkdir /data/vendor/ramdump 0771 root system
-    mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
     mkdir /data/vendor/bluetooth 0770 bluetooth bluetooth
     mkdir /data/vendor/ramdump/bluetooth 0770 bluetooth bluetooth
 
