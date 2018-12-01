@@ -44,7 +44,6 @@ on post-fs-data
     mkdir /persist/qti_fp 0700 system system
 
 #Create folder for mm-qcamera-daemon
-mkdir /data/vendor/camera 0770 camera camera
 mkdir /data/misc/camera 0770 camera camera
 
 #start camera server as daemon
