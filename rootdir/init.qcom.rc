@@ -349,9 +349,6 @@ on post-fs-data
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
 
-    #Create FTM_AP dir for factory test
-    mkdir /data/FTM_AP 0775 system system
-
 on property:hw.fm.init=*
     write /sys/module/radio_iris_transport/parameters/fmsmd_set ${hw.fm.init}
 
