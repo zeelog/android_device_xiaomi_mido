@@ -232,9 +232,6 @@ on post-fs-data
     # Create directory for apps access via QTEEConnector
     mkdir /data/vendor/qtee 0770 system system
 
-    # Create directory for voiceprint
-    mkdir /data/misc/qvop 0771 system system
-
     #Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
 
