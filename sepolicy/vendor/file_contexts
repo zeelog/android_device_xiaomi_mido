@@ -25,6 +25,7 @@
 /data/gf_data(/.*)?                             u:object_r:gx_fpd_data_file:s0
 /data/system/fingerprint(/.*)?                  u:object_r:gx_fpd_data_file:s0
 /(vendor|system/vendor)/bin/gx_fpd              u:object_r:gx_fpd_exec:s0
+/(vendor|system/vendor)/bin/init\.goodix\.sh	u:object_r:init_fingerprint_exec:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_mido		u:object_r:hal_fingerprint_mido_exec:s0
