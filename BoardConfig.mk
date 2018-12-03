@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-VENDOR_PATH := device/xiaomi/mido
+DEVICE_PATH := device/xiaomi/mido
 
-TARGET_SPECIFIC_HEADER_PATH := $(VENDOR_PATH)/include
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Architecture
 TARGET_ARCH := arm64
@@ -80,12 +80,8 @@ USE_XML_AUDIO_POLICY_CONF := 1
 TARGET_BOOTLOADER_BOARD_NAME := MSM8953
 TARGET_NO_BOOTLOADER := true
 
-# Bootanimation
-TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(VENDOR_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 
@@ -98,7 +94,7 @@ TARGET_TS_MAKEUP := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
-# CNE / DPM
+# CNE and DPM
 BOARD_USES_QCNE := true
 
 # Crypto
@@ -107,9 +103,7 @@ TARGET_HW_DISK_ENCRYPTION := true
 # Dexpreopt
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
-    ifeq ($(WITH_DEXPREOPT),)
       WITH_DEXPREOPT := true
-    endif
   endif
 endif
 WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
@@ -137,6 +131,9 @@ USE_OPENGL_RENDERER := true
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
+# Extended Filesystem Support
+TARGET_EXFAT_DRIVER := sdfat
+
 # Filesystem
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -144,9 +141,9 @@ BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/dsp:/dsp \
-    /vendor/firmware_mnt:/firmware \
-    /vendor/bt_firmware:/bt_firmware
+    /vendor/firmware_mnt:/firmware
 TARGET_COPY_OUT_VENDOR := vendor
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # FM
 BOARD_HAVE_QCOM_FM := true
@@ -156,34 +153,21 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
 USE_DEVICE_SPECIFIC_GPS := true
 
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
-
-# Filesystem
-TARGET_FS_CONFIG_GEN := $(VENDOR_PATH)/config.fs
-
 # HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(VENDOR_PATH)/vendor_framework_compatibility_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(VENDOR_PATH)/framework_manifest.xml
-DEVICE_MANIFEST_FILE := $(VENDOR_PATH)/manifest.xml
-DEVICE_MATRIX_FILE   := $(VENDOR_PATH)/compatibility_matrix.xml
-
-# HWUI
-HWUI_COMPILE_FOR_PERF := true
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/vendor_framework_compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm8953
 TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8953
 
-# Lineage Hardware
-JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(VENDOR_PATH)/lineagehw|**/*.java
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Lineage Hardware
-BOARD_HARDWARE_CLASS += \
-    $(VENDOR_PATH)/lineagehw
+JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
@@ -207,31 +191,27 @@ TARGET_HAS_NO_WLAN_STATS := true
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/enable_dt2w"
 TARGET_USES_INTERACTION_BOOST := true
 
-# SELinux
-include device/qcom/sepolicy/sepolicy.mk
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(VENDOR_PATH)/sepolicy/private
-BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy/vendor
-
-# Treble
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-PRODUCT_FULL_TREBLE_OVERRIDE := true
-
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_USE_SDCLANG := true
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+
 # RIL
 TARGET_RIL_VARIANT := caf
 
-# Recovery
-ifeq ($(AB_OTA_UPDATER), true)
-TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab_AB.qcom
-else
-TARGET_RECOVERY_FSTAB := $(VENDOR_PATH)/rootdir/etc/fstab.qcom
-endif
-
 # Security patch level
 VENDOR_SECURITY_PATCH := 2018-07-01
+
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
+# Treble
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+PRODUCT_FULL_TREBLE_OVERRIDE := true
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
