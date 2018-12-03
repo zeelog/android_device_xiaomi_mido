@@ -1,3 +1,6 @@
+# Boot reason
+type proc_boot_reason, fs_type;
+
 # Camera
 type camera_socket, file_type, data_file_type;
 
