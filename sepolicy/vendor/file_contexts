@@ -13,7 +13,8 @@
 /sys/devices/soc/soc:fpc1020(/.*)?		u:object_r:fpc_sysfs:s0
 
 # Glove Mode
-/sys/class/tp_glove/tp_glove/glove_enable	u:object_r:proc_touchpanel:s0
+/sys/class/tp_glove/device(/.*)?		u:object_r:proc_touchpanel:s0
+/sys/devices/virtual/tp_glove(/.*)?		u:object_r:proc_touchpanel:s0
 
 # Goodix Fingerprint
 /dev/goodix_fp					u:object_r:gx_fpd_device:s0
