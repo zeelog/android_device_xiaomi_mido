@@ -140,26 +140,6 @@ vendor/lib64/libcne.so|ebc3e20b397180201d8a9d07a35646678a5e414e
 vendor/lib64/libcneapiclient.so|f557cf18c1b4b6234de47a16c25a98be9a021638
 vendor/lib64/libcneoplookup.so|10a44b943
 
-# Display - from Mi A2 jasmine_sprout 9 PKQ1.180904.001 V10.0.1.0.PDIMIFJ release-keys
-etc/permissions/com.qti.snapdragon.sdk.display.xml|79a36c560f8cdbfeca03911fefc282bda25b2322
--framework/com.qti.snapdragon.sdk.display.jar|5af50f654d6174a726c0a57b5f32254e1a9d3016
-lib64/libsdm-disp-apis.so|c6681b458123832bb6f4015fd3e24032d5b2eff8
-lib64/vendor.display.color@1.0.so|ec75654927c63b74c7f8d0760fa463f0e8287f25
-lib64/vendor.display.color@1.1.so|28dd1ef69ea74f5623746bbac5c483a3f3b46990
-lib64/vendor.display.color@1.2.so|2c61fe34f1b7548b258812c85920aa82f6b3a8db
-lib64/vendor.display.postproc@1.0.so|b95e9f990a207d5c62db4d66f5aaf088adc02ba8
-lib64/vendor.qti.hardware.qdutils_disp@1.0.so|de6aade2863c03d5b3e234bf87bd398b8f23b13d
-lib/libsdm-disp-apis.so|5c7e946cfa654f533d481970da9b3d2e0c181161
-lib/vendor.display.color@1.0.so|68f3b191767e32ebe6d1e77725d22bfd1152ce14
-lib/vendor.display.color@1.1.so|9fc879923cdf549709fe09913393f4a01af052cb
-lib/vendor.display.color@1.2.so|88782c36567cf84014710e94630c94217f030fd6
-lib/vendor.display.postproc@1.0.so|fe3bfd38306d1c5e2c1ba900c18ccc09b9152b61
-lib/vendor.qti.hardware.qdutils_disp@1.0.so|09fb9cae13bf5edb70aa7568c7bf457db7415dc8
-vendor/bin/hw/vendor.display.color@1.0-service|4186fc9f9c69897fe4d79bbf58025144df9c6387
-vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti|d37b70fa2aa2da25d829a4616bcc04cde9453ad8
-vendor/etc/init/vendor.display.color@1.0-service.rc|5ad673f879b3685a0e79b5633437e5499cb94f48
-vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc|69d9cbc54f8ac0a0fb010f92bfa7de5981d643cf
-
 # DPM - from B2N_sprout - PPR1.180610.011
 bin/dpmd|6c511738d83ba1cfdc75b00b9bd676d231914f3a
 etc/dpm/dpm.conf|5f19d3984b5291ac956552bda2a84c10c535df0a
@@ -249,85 +229,90 @@ vendor/lib64/vendor.qti.gnss@1.1.so|4313edc2c92a94e1529c9a71ebd56926b0fffbc9
 vendor/lib64/vendor.qti.gnss@1.2.so|203b46a7fb8e2590d29448433254b28386e1bfda
 vendor/lib64/vendor.qti.gnss@2.0.so|ce21dda6d94d1441433893614644fdcd9d293cee
 
-# Graphics - from Mi A2 jasmine_sprout 9 PKQ1.180904.001 V10.0.1.0.PDIMIFJ release-keys
-vendor/lib/libRSDriver_adreno.so|7e6b61cb975de2029ea6debe4fe442852da06e00
-vendor/lib/librs_adreno.so|41b2a1b35a8a9966728cea607bf5b7a8f568680d
-vendor/lib/librs_adreno_sha1.so|3eab25ba145381aa9ac3dd4d913152fb181a74d3
-vendor/lib/libpvr.so|4538ce6f1db3ff0c55772f0a916996f14199980c
-vendor/lib/libOpenCL.so|fbf2d8e82973ea44583f1ca6a624163759167a73
-vendor/lib/libllvm-qcom.so|ba0f181d031bcdd479bc007e33c5490cf5a34723
-vendor/lib/libllvm-glnext.so|aaf39c5b6fd424edc773c64ad06de2e1dfbd9600
-vendor/lib/libgsl.so|2849df0ee52249c7d6e5ed869df064eff910c12c
-vendor/lib/libCB.so|ec481cf472b0cfc568b909be92b7da5a68405f70
-vendor/lib/libc2d30_bltlib.so|e9767a3e4e674d42f23f5482471d38973e038d45
-vendor/lib/libC2D2.so|a110bf0568eef9e49b251b7750cf6e51c3c85969
-vendor/lib/libbccQTI.so|aa1220cad9df3c39c0c14c4a36546342cc518ad1
-vendor/lib/libadreno_utils.so|34023494194932a62c70d82c60d4f6cf2e64b58f
-vendor/lib/egl/libQTapGLES.so|7641cd4f894d86f53394bcdc421ecae254afaf30
-vendor/lib/egl/libq3dtools_esx.so|9116ff1328163d82ca624ea02f09d80ec0f055dc
-vendor/lib/egl/libq3dtools_adreno.so|a2506b94eb0fe3c2bccc7c8e6d8b8d21bd314ae8
-vendor/lib/egl/libGLESv2_adreno.so|005ca25494f36aa4e8298f8a8ff9b8c4ae6bd1e4
-vendor/lib/egl/libGLESv1_CM_adreno.so|0930a64d8889c184de31a085539e1b8b28520a31
-vendor/lib/egl/libEGL_adreno.so|bb2db6766b393777b8d37d81c2614e1166dd39af
-vendor/lib/egl/eglSubDriverAndroid.so|c8ffb5031734026961217586a5caf5becfa99a6d
-vendor/lib64/libscalar.so|a48bf0845cc4c2cbffc3c4a2fac6e11f3acf48ec
-vendor/lib64/libRSDriver_adreno.so|3d77fb21a40b98e908840aa89d044aea4f695694
-vendor/lib64/librs_adreno.so|b6bc2274fc4079818f3124a694348a890c5d7b07
-vendor/lib64/librs_adreno_sha1.so|1eb6385f291f6a611ec7096b3b7cfaeb9a08c9f3
-vendor/lib64/libpvr.so|a766fdd5757fc0b7df96f7b37a7949881ab75a72
-vendor/lib64/libOpenCL.so|1e78c9b98378803703835a3e1cbfabf43318f341
-vendor/lib64/libllvm-qcom.so|4e9dc8128379692407bf730f1b1ebdd3307bd5c0
-vendor/lib64/libllvm-glnext.so|6bad98f9d784d7c50a3d47fe61dbabd6164cc0bc
-vendor/lib64/libgsl.so|39bbfb10ef6c20feab0162ca2078d6bdab64ba6f
-vendor/lib64/libCB.so|7f9ee00ababa07845d200a991d9ec839d364e8f9
-vendor/lib64/libc2d30_bltlib.so|e950f918802d3d3e656ab4f0fe731bb60e1b357e
-vendor/lib64/libC2D2.so|724684ac0e167bc729cbdea1ee9e21da248cfd58
-vendor/lib64/libbccQTI.so|be1ae3a075c42dcb19bc6e1ecd7374f9aeae083c
-vendor/lib64/libadreno_utils.so|4b9072beb7ce486163966d6a12d8edd7e92830b5
-vendor/lib64/egl/libQTapGLES.so|dac820eea4d54f98f7e20a49b82404de6f09743b
-vendor/lib64/egl/libq3dtools_esx.so|19d96756fda3f1ba0251c041120d1d4f3a5a8d03
-vendor/lib64/egl/libq3dtools_adreno.so|4bd18c19a4d8376311983303b0971a7aa1334897
-vendor/lib64/egl/libGLESv2_adreno.so|8027d82d27298e78a9fdb67fd2232a0091623d1f
-vendor/lib64/egl/libGLESv1_CM_adreno.so|95497830d4e08c02a3b6d82bc7623f926d2ef9ed
-vendor/lib64/egl/libEGL_adreno.so|8c7de13558f96022520834663021f8e68b430aac
-vendor/lib64/egl/eglSubDriverAndroid.so|baa2b8d500d0645642f40358be6c5e10fbabd193
+# Graphics - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+lib/libsdm-disp-apis.so:vendor/lib/libsdm-disp-apis.so
+lib64/libsdm-disp-apis.so:vendor/lib64/libsdm-disp-apis.so
+vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/egl/libEGL_adreno.so
+vendor/lib/egl/libGLESv1_CM_adreno.so
+vendor/lib/egl/libGLESv2_adreno.so
+vendor/lib/egl/libQTapGLES.so
+vendor/lib/egl/libq3dtools_adreno.so
+vendor/lib/libC2D2.so
+vendor/lib/libCB.so
+vendor/lib/libOpenCL.so
+vendor/lib/libRSDriver_adreno.so
+vendor/lib/libadreno_utils.so
+vendor/lib/libbccQTI.so
+vendor/lib/libc2d30_bltlib.so
+vendor/lib/libgsl.so
+vendor/lib/libllvm-glnext.so
+vendor/lib/libllvm-qcom.so
+vendor/lib/libmm-hdcpmgr.so
+vendor/lib/librs_adreno.so
+vendor/lib/librs_adreno_sha1.so
+vendor/lib/libscalar.so
+vendor/lib/libsdm-color.so
+vendor/lib/libsdm-diag.so
+-vendor/lib/libsdm-disp-vndapis.so
+vendor/lib/libsdmextension.so
+vendor/lib/libtinyxml2_1.so
+vendor/lib64/egl/eglSubDriverAndroid.so
+vendor/lib64/egl/libEGL_adreno.so
+vendor/lib64/egl/libGLESv1_CM_adreno.so
+vendor/lib64/egl/libGLESv2_adreno.so
+vendor/lib64/egl/libQTapGLES.so
+vendor/lib64/egl/libq3dtools_adreno.so
+vendor/lib64/libC2D2.so
+vendor/lib64/libCB.so
+vendor/lib64/libOpenCL.so
+vendor/lib64/libRSDriver_adreno.so
+vendor/lib64/libadreno_utils.so
+vendor/lib64/libbccQTI.so
+vendor/lib64/libc2d30_bltlib.so
+vendor/lib64/libgsl.so
+vendor/lib64/libllvm-glnext.so
+vendor/lib64/libllvm-qcom.so
+vendor/lib64/libmm-hdcpmgr.so
+vendor/lib64/librs_adreno.so
+vendor/lib64/librs_adreno_sha1.so
+vendor/lib64/libscalar.so
+vendor/lib64/libsdm-color.so
+vendor/lib64/libsdm-diag.so
+-vendor/lib64/libsdm-disp-vndapis.so
+vendor/lib64/libsdmextension.so
+vendor/lib64/libtinyxml2_1.so
 
-# Graphics (HDR) - from Mi A2 jasmine_sprout 9 PKQ1.180904.001 V10.0.1.0.PDIMIFJ release-keys
-vendor/lib/libhdr_tm.so|37ac96055e1fcb2d1a3b4507ba62760ca30915b3
-vendor/lib64/libhdr_tm.so|f4c0fe6a734077666ec5e10f68577f70a26cd2d2
+# Graphics (HDR) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+vendor/lib/libhdr_tm.so
+vendor/lib64/libhdr_tm.so
 
-# Graphics (Postprocessing) - from Mi A2 jasmine_sprout 9 PKQ1.180904.001 V10.0.1.0.PDIMIFJ release-keys
-vendor/bin/mm-pp-dpps|74141c92e68a293b2f5fb0992cb58102ecd9718b
-vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so|4df22feae4105d098205e374f9d09813d58189a6
-vendor/lib/vendor.display.postproc@1.0.so|dfd11af2b40feedc49befa22e5948ea77af0b1e6
-vendor/lib/vendor.display.color@1.2.so|7b8654af0df0d1c1d3fa8c26158b577a1acf1df6
-vendor/lib/vendor.display.color@1.1.so|34f8aa9a3af53911c26fe0b87ef920af0bf43d5e
-vendor/lib/vendor.display.color@1.0.so|00c666b244d0dded349c57c009d492cc99659218
-vendor/lib/libdisp-aba.so|75008ca9696ded106b6bf47e2968d8a8a9dcc897
-vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so|49137c36991e59404ed9394e8b1c415b8338002d
-vendor/lib64/vendor.display.postproc@1.0.so|014e060db0ddb6b1f9af705fb11a775d00ee2d14
-vendor/lib64/vendor.display.color@1.2.so|6a9474efc2736d68bab877dfdbdca5296c8b4e5d
-vendor/lib64/vendor.display.color@1.1.so|a8bfe228ed1235f1ceb8ab794100c7edab38d0a7
-vendor/lib64/vendor.display.color@1.0.so|4a77650c5d42169073a13f5150da619bf806e7d7
-vendor/lib64/libdisp-aba.so|09a8d5f64b3a6f6f57971ad6fab62cfde4e98547
+# Graphics (Postprocessing) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+etc/permissions/com.qti.snapdragon.sdk.display.xml
+framework/com.qti.snapdragon.sdk.display.jar
+-lib/vendor.display.color@1.0.so
+lib/vendor.display.postproc@1.0.so
+lib/vendor.qti.hardware.qdutils_disp@1.0.so
+-lib64/vendor.display.color@1.0.so
+lib64/vendor.display.postproc@1.0.so
+lib64/vendor.qti.hardware.qdutils_disp@1.0.so
+vendor/bin/hw/vendor.display.color@1.0-service
+vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
+vendor/bin/mm-pp-dpps
+vendor/etc/init/vendor.display.color@1.0-service.rc
+vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
+vendor/lib/libdisp-aba.so
+vendor/lib/vendor.display.color@1.0.so
+vendor/lib/vendor.display.postproc@1.0.so
+vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so
+vendor/lib64/libdisp-aba.so
+vendor/lib64/vendor.display.color@1.0.so
+vendor/lib64/vendor.display.postproc@1.0.so
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
-# Graphics (SDM) - from Mi A2 jasmine_sprout 9 PKQ1.180904.001 V10.0.1.0.PDIMIFJ release-keys
-vendor/lib/libtinyxml2_1.so|20fea724b7a9f94530833cfdc841049104a0ffa3
-vendor/lib/libsdmextension.so|50be67d8b328d54c7ef86b0de8aff6efcad0cd85
--vendor/lib/libsdm-disp-vndapis.so|31b8df32d8091ef0390352b118e59bbde3d4acc1
-vendor/lib/libsdm-diag.so|e0455e9dd0e2378a3f770eb914aa11e612d594eb
-vendor/lib/libsdm-color.so|418a070bc1e845f0268ffb2f627af8fcddc437f2
-vendor/lib/libqseed3.so|c60e08f5efa1e9aea339a7a5a6dccdc2d107f530
-vendor/lib64/libtinyxml2_1.so|9d5179eda8ce70b9a4014b144f9d23d33509fddc
-vendor/lib64/libsdmextension.so|db7d755121acd2eaff7134b7403d59202d3cf197
--vendor/lib64/libsdm-disp-vndapis.so|6b0ee25367d386ccc1b42ea941f1da439a48b3ec
-vendor/lib64/libsdm-diag.so|25bab19a8c4453b3d20e3e1a71a0e8d3675b17b4
-vendor/lib64/libsdm-color.so|5c8cda1e79cd46cd29e45d689017e24a440800b7
-vendor/lib64/libqseed3.so|f95dd7b55de9401ce2f568e3ec18493daa5a6bfe
-
-# Graphics (Vulkan) - from Mi A2 jasmine_sprout 9 PKQ1.180904.001 V10.0.1.0.PDIMIFJ release-keys
-vendor/lib/hw/vulkan.sdm660.so:vendor/lib/hw/vulkan.msm8953.so|1426694ac179ddd26d0dadf9cc54305cad0386a4
-vendor/lib64/hw/vulkan.sdm660.so:vendor/lib64/hw/vulkan.msm8953.so|82b72990a737799894c291f8a3515d7d668a5423
+# Graphics (Vulkan) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+vendor/lib/hw/vulkan.msm8953.so
+vendor/lib64/hw/vulkan.msm8953.so
 
 # Graphics firmware
 vendor/firmware/a506_zap.b00
