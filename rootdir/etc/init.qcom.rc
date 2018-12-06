@@ -449,7 +449,7 @@ service vendor.dataqti /vendor/bin/qti
     group radio oem_2901 diag usb net_admin
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.sensors /vendor/bin/sensors.qcom
+service vendor.sensors /vendor/bin/sensors.qti
     class core
     user root
     group root
