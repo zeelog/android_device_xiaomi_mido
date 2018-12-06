@@ -53,7 +53,7 @@ lib/com.qualcomm.qti.ant@1.0.so|fcd6a7130c480bfe4e4d9cc00702ed8444cddc82
 lib64/com.qualcomm.qti.ant@1.0.so|199481b290856fb63f5c5bf6def426b43309becb
 -lib64/libantradio.so|fb958cb68c99c71455f969afdf96225f5110f0df
 
-# Bluetooth
+# Bluetooth - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/wcnss_filter
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
@@ -61,7 +61,7 @@ vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
 vendor/lib64/libbt-hidlclient.so
 
-# Bluetooth (shared dependencies)
+# Bluetooth (shared dependencies) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
 
 # Camera firmware
