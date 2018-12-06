@@ -581,8 +581,8 @@ vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0.so
 
-# Sensors
-vendor/bin/sensors.qcom
+# Sensors - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+vendor/bin/sensors.qti
 vendor/lib/hw/activity_recognition.msm8953.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
@@ -594,16 +594,17 @@ vendor/lib64/libsensor_reg.so
 vendor/lib64/libsensor_user_cal.so
 vendor/lib64/sensors.ssc.so
 
-# Thermal
+# Thermal - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/bin/thermal-engine
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
-# Time services - from B2N_sprout - PPR1.180610.011
--vendor/app/TimeService/TimeService.apk|25337e4160093a998c0e4cfced1c1a6c51177dff
-vendor/bin/time_daemon|757b977a7e6fab2c56b669f0922a74d5af28dd27
-vendor/lib64/libtime_genoff.so|de6f521a43174b748043790cc23181e88560fe32
+# Time services - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+-vendor/app/TimeService/TimeService.apk
+vendor/bin/time_daemon
+-vendor/lib/libtime_genoff.so
+-vendor/lib64/libtime_genoff.so
 
 # TUI - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 lib/vendor.qti.hardware.tui_comm@1.0.so
