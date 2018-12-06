@@ -77,7 +77,7 @@ vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_1_6.fw
 
-# Charger
+# Charger - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/bin/hvdcp_opti
 
 # CNE - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
@@ -180,7 +180,7 @@ vendor/bin/hw/android.hardware.drm@1.1-service.widevine
 vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
 vendor/lib64/libwvhidl.so
 
-# Gatekeeper
+# Gatekeeper - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/lib/hw/gatekeeper.msm8953.so
 vendor/lib64/hw/gatekeeper.msm8953.so
 
@@ -320,20 +320,20 @@ vendor/firmware/a506_zap.mdt
 vendor/firmware/a530_pfp.fw
 vendor/firmware/a530_pm4.fw
 
-# Ipacm
+# Ipacm - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/bin/ipacm-diag
 
-# Keystore
+# Keystore - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/lib/hw/keystore.msm8953.so
 vendor/lib64/hw/keystore.msm8953.so
 
-# Listen- from Mi A2 jasmine_sprout 9 PKQ1.180904.001 V10.0.1.0.PDIMIFJ release-keys
-vendor/lib/hw/sound_trigger.primary.sdm660.so:vendor/lib/hw/sound_trigger.primary.msm8953.so|22b58f782f34308c42bdacde2ee1aad3e740301e
-vendor/lib/libadpcmdec.so|7c12a153200fd2e9f1f6139fcf40beee1a96f48d
-vendor/lib/libsmwrapper.so|5406c4930fc71f16d315723d38cc3f316887c6ef
-vendor/lib/vendor.qti.voiceprint@1.0.so|4085cb86a2112431fe32dba1272b5dfa06088ead
-vendor/lib64/hw/sound_trigger.primary.sdm660.so:vendor/lib64/hw/sound_trigger.primary.msm8953.so|77f393d110d9e917d9791c1bc1653b880fd55567
-vendor/lib64/vendor.qti.voiceprint@1.0.so|578f4586b0e849fb5921b088b619645f413a8a8f
+# Listen - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+vendor/lib/hw/sound_trigger.primary.msm8953.so
+vendor/lib/libadpcmdec.so
+vendor/lib/libsmwrapper.so
+vendor/lib/vendor.qti.voiceprint@1.0.so
+vendor/lib64/hw/sound_trigger.primary.msm8953.so
+vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # Media - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/lib/libI420colorconvert.so
