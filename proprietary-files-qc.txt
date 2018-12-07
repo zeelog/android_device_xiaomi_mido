@@ -45,10 +45,14 @@ vendor/lib64/soundfx/libqcbassboost.so
 vendor/lib64/soundfx/libqcvirt.so
 
 # ANT+ (system) - from enchilada - PKQ1.180716.001
-lib/com.qualcomm.qti.ant@1.0.so|fcd6a7130c480bfe4e4d9cc00702ed8444cddc82
--lib/libantradio.so|7506f2577f2f1068688b623ca85e432be9c3dac9
 lib64/com.qualcomm.qti.ant@1.0.so|199481b290856fb63f5c5bf6def426b43309becb
 -lib64/libantradio.so|fb958cb68c99c71455f969afdf96225f5110f0df
+lib/com.qualcomm.qti.ant@1.0.so|fcd6a7130c480bfe4e4d9cc00702ed8444cddc82
+-lib/libantradio.so|7506f2577f2f1068688b623ca85e432be9c3dac9
+
+# ANT+ (vendor)
+vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so|d60fdc9dcf9565a60a2a5dffecba1691d9b14ef5
+vendor/lib64/com.qualcomm.qti.ant@1.0.so|3a19c81d66ef1190d0b2f361420d5cbf707cc600
 
 # Bluetooth - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
