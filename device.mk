@@ -301,12 +301,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.goodix.sh \
+    init.msm.usb.configfs.rc \
     init.qcom.bt.sh \
     init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.target.rc \
+    move_time_data.sh \
+    move_wifi_data.sh \
     ueventd.qcom.rc
 
 # RenderScript HAL
