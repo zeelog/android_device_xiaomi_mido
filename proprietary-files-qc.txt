@@ -1,4 +1,4 @@
-# ADSP - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# ADSP - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libadsp_default_listener.so
@@ -11,7 +11,7 @@ vendor/lib64/libfastcvadsp_stub.so
 vendor/lib64/libfastcvopt.so
 vendor/lib64/libmdsprpc.so
 
-# ADSP modules - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# ADSP modules - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
 vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
@@ -21,7 +21,7 @@ vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_Qtc2_skel.so
 vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
 
-# Audio - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Audio - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -33,6 +33,7 @@ vendor/lib/libdrc.so
 vendor/lib/libqtigef.so
 vendor/lib/libsurround_3mic_proc.so
 vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
@@ -54,7 +55,7 @@ lib/com.qualcomm.qti.ant@1.0.so|fcd6a7130c480bfe4e4d9cc00702ed8444cddc82
 vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so|d60fdc9dcf9565a60a2a5dffecba1691d9b14ef5
 vendor/lib64/com.qualcomm.qti.ant@1.0.so|3a19c81d66ef1190d0b2f361420d5cbf707cc600
 
-# Bluetooth - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Bluetooth - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/wcnss_filter
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
@@ -62,10 +63,10 @@ vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
 vendor/lib64/libbt-hidlclient.so
 
-# Bluetooth (shared dependencies) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
-vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
+# Bluetooth (shared dependencies) - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
+vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
-# Camera firmware
+# Camera firmware- - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/firmware/cpp_firmware_v1_8_0.fw
 vendor/firmware/cpp_firmware_v1_5_0.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
@@ -78,10 +79,10 @@ vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_1_6.fw
 
-# Charger - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Charger - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/hvdcp_opti
 
-# CNE - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# CNE - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
 framework/cneapiclient.jar
@@ -153,14 +154,14 @@ vendor/lib64/libcneqmiutils.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 
-# DPM - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# DPM - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/dpmQmiMgr
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib64/libdpmqmihal.so
 vendor/lib/com.qualcomm.qti.dpm.api@1.0.so
 vendor/lib/libdpmqmihal.so
 
-# DRM - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# DRM - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/qseecomd
 vendor/lib/libQSEEComAPI.so
 vendor/lib64/libGPreqcancel.so
@@ -176,12 +177,12 @@ vendor/lib64/libsecureui.so
 vendor/lib64/libsecureui_svcsock.so
 vendor/lib64/libssd.so
 
-# DRM - Widevine - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# DRM - Widevine - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine
 vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
-vendor/lib64/libwvhidl.so
+vendor/lib/libwvhidl.so
 
-# Gatekeeper - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Gatekeeper - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/hw/gatekeeper.msm8953.so
 vendor/lib64/hw/gatekeeper.msm8953.so
 
@@ -239,7 +240,7 @@ vendor/lib64/vendor.qti.gnss@1.2.so
 vendor/lib64/vendor.qti.gnss@2.0.so
 vendor/lib64/vendor.qti.gnss@2.1.so
 
-# Graphics - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Graphics - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 lib/libsdm-disp-apis.so:vendor/lib/libsdm-disp-apis.so
 lib64/libsdm-disp-apis.so:vendor/lib64/libsdm-disp-apis.so
 vendor/lib/egl/eglSubDriverAndroid.so
@@ -293,11 +294,11 @@ vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtinyxml2_1.so
 
-# Graphics (HDR) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Graphics (HDR) - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/libhdr_tm.so
 vendor/lib64/libhdr_tm.so
 
-# Graphics (Postprocessing) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Graphics (Postprocessing) - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 etc/permissions/com.qti.snapdragon.sdk.display.xml
 framework/com.qti.snapdragon.sdk.display.jar
 -lib/vendor.display.color@1.0.so
@@ -320,11 +321,11 @@ vendor/lib64/vendor.display.color@1.0.so
 vendor/lib64/vendor.display.postproc@1.0.so
 vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
-# Graphics (Vulkan) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Graphics (Vulkan) - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/hw/vulkan.msm8953.so
 vendor/lib64/hw/vulkan.msm8953.so
 
-# Graphics firmware
+# Graphics firmware - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/firmware/a506_zap.b00
 vendor/firmware/a506_zap.b01
 vendor/firmware/a506_zap.b02
@@ -332,14 +333,14 @@ vendor/firmware/a506_zap.mdt
 vendor/firmware/a530_pfp.fw
 vendor/firmware/a530_pm4.fw
 
-# Ipacm - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Ipacm - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/ipacm-diag
 
-# Keystore - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Keystore - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/hw/keystore.msm8953.so
 vendor/lib64/hw/keystore.msm8953.so
 
-# Listen - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Listen - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/hw/sound_trigger.primary.msm8953.so
 vendor/lib/libadpcmdec.so
 vendor/lib/libsmwrapper.so
@@ -347,7 +348,7 @@ vendor/lib/vendor.qti.voiceprint@1.0.so
 vendor/lib64/hw/sound_trigger.primary.msm8953.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
 
-# Media - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Media - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/libI420colorconvert.so
 vendor/lib/libmmosal_proprietary.so
 vendor/lib/libOmxAacDec.so
@@ -382,11 +383,11 @@ vendor/lib64/libOmxWmaDec.so
 vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libvpplibrary.so
 
-# Modem
+# Modem - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/libwms.so
 vendor/lib64/libwms.so
 
-# Perf - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Perf - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 lib/vendor.qti.hardware.perf@1.0.so
 lib64/vendor.qti.hardware.perf@1.0.so
 vendor/bin/energy-awareness
@@ -405,7 +406,7 @@ vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-util.so
 vendor/lib64/vendor.qti.hardware.perf@1.0.so
 
-# Peripheral manager - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Peripheral manager - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/pm-proxy
 vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
@@ -423,7 +424,7 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 # Power-off charging daemon
 -sbin/charger:sbin/chargeonlymode;rootfs|664dfa548b81cac348f1699222160f8d2b4d247c
 
-# QMI - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# QMI - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 etc/permissions/qti_libpermissions.xml
 etc/permissions/qti_permissions.xml
 lib/libdiag_system.so
@@ -462,7 +463,7 @@ vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmiservices.so
 
-# Radio - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Radio - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 -app/QtiTelephonyService/QtiTelephonyService.apk
 etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
@@ -534,7 +535,7 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 vendor/radio/qcril_database/qcril.db
 
-# Radio (IMS) - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Radio (IMS) - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 -priv-app/ims/ims.apk
 lib/com.qualcomm.qti.imscmservice@1.0.so
 lib/com.qualcomm.qti.imscmservice@2.0.so
@@ -602,7 +603,7 @@ vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0.so
 
-# Sensors - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Sensors - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/sensors.qti
 vendor/lib/hw/activity_recognition.msm8953.so
 vendor/lib/libsensor1.so
@@ -615,19 +616,19 @@ vendor/lib64/libsensor_reg.so
 vendor/lib64/libsensor_user_cal.so
 vendor/lib64/sensors.ssc.so
 
-# Thermal - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Thermal - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/bin/thermal-engine
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
-# Time services - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# Time services - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 -vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
 -vendor/lib/libtime_genoff.so
 -vendor/lib64/libtime_genoff.so
 
-# TUI - from Daisy PKQ1.180917.001/V10.0.1.0.PDLMIFJ
+# TUI - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 lib/vendor.qti.hardware.tui_comm@1.0.so
 lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
