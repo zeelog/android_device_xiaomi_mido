@@ -486,7 +486,7 @@ on property:vendor.bluetooth.hciattach=true
 on property:vendor.bluetooth.hciattach=false
     setprop vendor.bluetooth.status off
 
-service atfwd /vendor/bin/ATFWD-daemon
+service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
     group system radio
