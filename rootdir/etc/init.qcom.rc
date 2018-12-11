@@ -379,14 +379,6 @@ on post-fs-data
     mkdir /data/vendor/swap 0770 root system
     chmod 2770 /data/vendor/swap
 
-    # Sensors
-    chmod 0775 /persist/sensors
-    chmod 0664 /persist/sensors/sensors_settings
-    chown system root /persist/sensors/sensors_settings
-    mkdir /persist/sensors/registry/registry
-    mkdir /data/misc/sensors
-    chmod 0775 /data/misc/sensors
-
     # set aggressive read ahead for dm-0 and dm-1 during boot up
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
