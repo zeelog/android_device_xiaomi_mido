@@ -5,7 +5,7 @@
 /dev/block/mmcblk0p26				u:object_r:persist_block_device:s0
 
 # Camera
-/data/camera(/.*)?                              u:object_r:camera_socket:s0
+/data/vendor/qcam(/.*)?                         u:object_r:camera_socket:s0
 
 # Fpc Fingerprint
 /data/fpc(/.*)?					u:object_r:fpc_data_file:s0
