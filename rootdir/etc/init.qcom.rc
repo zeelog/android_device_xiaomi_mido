@@ -575,7 +575,7 @@ service loc_launcher /system/vendor/bin/loc_launcher
 
 service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
-    user root
+    user system
     group root system radio
     oneshot
 
@@ -677,7 +677,7 @@ on property:sys.fp.onstart=1
 
 service goodix_script /vendor/bin/init.goodix.sh
     class late_start
-    user root
+    user system
     oneshot
 
 on property:dev.bootcomplete=1
