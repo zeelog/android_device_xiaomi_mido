@@ -16,8 +16,8 @@ allow hal_fingerprint_mido fpc_data_file:dir rw_dir_perms;
 allow hal_fingerprint_mido fpc_data_file:sock_file create_file_perms;
 allow hal_fingerprint_mido servicemanager:binder { transfer call };
 
-allow hal_fingerprint_mido fingerprintd_data_file:dir { remove_name write add_name };
-allow hal_fingerprint_mido fingerprintd_data_file:file { getattr rename unlink };
+allow hal_fingerprint_mido fingerprintd_data_file:dir create_dir_perms;
+allow hal_fingerprint_mido fingerprintd_data_file:file create_file_perms;
 allow hal_fingerprint_mido media_rw_data_file:dir { open read search };
 allow hal_fingerprint_mido mnt_user_file:dir search;
 allow hal_fingerprint_mido mnt_user_file:lnk_file read;
