@@ -73,7 +73,7 @@ service per_mgr /vendor/bin/pm-service
     ioprio rt 4
     writepid /dev/cpuset/system-background/tasks
 
-service per_proxy /vendor/bin/pm-proxy
+service vendor.per_proxy /vendor/bin/pm-proxy
     class core
     user system
     group system
