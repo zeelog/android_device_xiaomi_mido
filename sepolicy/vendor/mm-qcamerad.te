@@ -1,5 +1,2 @@
-allow mm-qcamerad camera_data_file:dir create_dir_perms;
-allow mm-qcamerad camera_data_file:sock_file { create unlink };
-
-allow mm-qcamerad camera_socket:dir w_dir_perms;
-allow mm-qcamerad camera_socket:sock_file { create unlink write };
+allow mm-qcamerad camera_socket:dir rw_dir_perms;
+allow mm-qcamerad camera_socket:sock_file { create unlink };

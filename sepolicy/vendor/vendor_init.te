@@ -1,1 +1,0 @@
-allow vendor_init camera_data_file:dir setattr;
