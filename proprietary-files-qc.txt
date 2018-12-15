@@ -63,9 +63,6 @@ vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
 vendor/lib64/libbt-hidlclient.so
 
-# Bluetooth (shared dependencies) - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
-vendor/lib64/vendor.qti.hardware.fm@1.0.so
-
 # Camera firmware- - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/firmware/cpp_firmware_v1_8_0.fw
 vendor/firmware/cpp_firmware_v1_5_0.fw
@@ -181,6 +178,10 @@ vendor/lib64/libssd.so
 vendor/bin/hw/android.hardware.drm@1.1-service.widevine
 vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
 vendor/lib/libwvhidl.so
+
+# FM Radio - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
+vendor/bin/fm_qsoc_patches
+vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
 # Gatekeeper - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
 vendor/lib/hw/gatekeeper.msm8953.so
