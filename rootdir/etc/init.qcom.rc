@@ -580,5 +580,4 @@ service goodix_script /vendor/bin/init.goodix.sh
     oneshot
 
 on property:dev.bootcomplete=1
-    swapon_all /vendor/etc/fstab.qcom
     setprop sys.io.scheduler "bfq"
