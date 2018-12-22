@@ -455,10 +455,6 @@
     <!-- Operating volatage for bluetooth controller. 0 by default-->
     <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
 
-    <!-- Enable overlay for all location components. -->
-    <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
-    <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
-
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
     <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
 

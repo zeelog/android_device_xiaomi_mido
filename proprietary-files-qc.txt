@@ -187,19 +187,6 @@ vendor/lib/hw/gatekeeper.msm8953.so|fb3693904e3b26250157ab5be21ef977971a3382
 vendor/lib64/hw/gatekeeper.msm8953.so|c1b386547234815a0d6116b5e4756de66075cd3f
 
 # GPS - from Tissot PKQ1.180917.001 V10.0.2.0.PDHMIFK
-etc/permissions/com.qti.location.sdk.xml|cb68a566bd77dcc75bb7547199d528289fac01cb
-etc/permissions/com.qualcomm.location.xml|78b2c4d3f4d053f7d7b3e27a60a8d9e65ac583c3
-etc/permissions/izat.xt.srv.xml|a0f460056f27b5495a4d6e959eecf0e429c42a57
-framework/com.qti.location.sdk.jar|79ec49a9e521631dd6661a62216e1d06947f5ef9
-framework/izat.xt.srv.jar|b6418394481311aac9e1282ff77d6845c45f99da
-lib64/liblocationservice_jni.so|2cdb4f1085e8d71cdcbe3e17673e13a39adf6786
-lib64/libxt_native.so|4f1063ec145b241d74b2178e2aadafa5c9b386b2
-lib64/vendor.qti.gnss@1.0.so|90b465adc4542f16fbdd935d0592df73d778909b
-lib64/vendor.qti.gnss@1.1.so|1edcf36fc3afbc465e53e3b74f99fde1e952f718
-lib64/vendor.qti.gnss@1.2.so|fc002fdced5768ed97936fde007476c1e9eaabb2
-lib64/vendor.qti.gnss@2.0.so|58e69a003eb530cf59bbe204251b9652d28a4b89
-lib64/vendor.qti.gnss@2.1.so|e7d80a2a46bcda7445d21701ba94983a43ab46af
--priv-app/com.qualcomm.location/com.qualcomm.location.apk|311daad4717860bacf3fb3e3fa2c2f14b594b467
 vendor/bin/hw/vendor.qti.gnss@1.0-service|049201d8e22064b87eb52df208d8cda7066d140a
 vendor/bin/loc_launcher|23a4470552c0c418662a7d91fa7f593bee767459
 vendor/bin/lowi-server|f83f6ab9b978c618c87d2b5c66854533d0e3a66f
