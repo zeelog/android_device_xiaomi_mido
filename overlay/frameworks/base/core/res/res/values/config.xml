@@ -21,47 +21,223 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+         for debouncing the light sensor.  Different constants are used to debounce the light sensor
+         when adapting to brighter or darker environments.  This parameter controls how quickly
+         brightness changes occur in response to an observed change in light level that exceeds the
+         hysteresis threshold. -->
+    <integer name="config_autoBrightnessDarkeningLightDebounce">4000</integer>
+
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
-         The N entries of this array define N + 1 control points as follows:
-         (1-based arrays)
-         Point 1:            (0, value[1]):             lux <= 0
-         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
-         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
+         The N entries of this array define N  1 zones as follows:
+         Zone 0:        0 <= LUX < array[0]
+         Zone 1:        array[0] <= LUX < array[1]
          ...
-         Point N+1: (level[N], value[N+1]):  level[N] < lux
-         The control points must be strictly increasing.  Each control point
-         corresponds to an entry in the brightness backlight values arrays.
-         For example, if LUX == level[1] (first element of the levels array)
-         then the brightness will be determined by value[2] (second element
-         of the brightness values array).
-         Spline interpolation is used to determine the auto-brightness
-         backlight values for LUX levels between these control points.
+         Zone N:        array[N - 1] <= LUX < array[N]
+         Zone N  1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>8</item>
+        <item>12</item>
+        <item>20</item>
+        <item>33</item>
+        <item>55</item>
+        <item>90</item>
+        <item>148</item>
+        <item>245</item>
+        <item>403</item>
+        <item>665</item>
+        <item>1097</item>
+        <item>1808</item>
+        <item>2981</item>
+        <item>5000</item>
+    </integer-array>
+
+    <!-- Array of desired screen brightness in nits corresponding to the lux values
+         in the config_autoBrightnessLevels array. As with config_screenBrightnessMinimumNits and
+         config_screenBrightnessMaximumNits, the display brightness is defined as the measured
+         brightness of an all-white image.
+         If this is defined then:
+            - config_autoBrightnessLcdBacklightValues should not be defined
+            - config_screenBrightnessNits must be defined
+            - config_screenBrightnessBacklight must be defined
+         This array should have size one greater than the size of the config_autoBrightnessLevels
+         array. The brightness values must be non-negative and non-decreasing. This must be
+         overridden in platform specific overlays -->
+    <array name="config_autoBrightnessDisplayValuesNits">
+        <item>7.702998</item>
+        <item>32.31226</item>
+        <item>38.786167</item>
+        <item>43.30993</item>
+        <item>46.851162</item>
+        <item>55.90478</item>
+        <item>61.334614</item>
+        <item>68.4388</item>
+        <item>75.59099</item>
+        <item>82.8686</item>
+        <item>91.49397</item>
+        <item>102.49851</item>
+        <item>118.8174</item>
+        <item>144.68486</item>
+        <item>180.69225</item>
+        <item>225.84135</item>
+        <item>292.46844</item>
+        <item>377.05084</item>
+        <item>481.93427</item>
+    </array>
+
+    <!-- An array describing the screen's backlight values corresponding to the brightness
+         values in the config_screenBrightnessNits array.
+         This array should be equal in size to config_screenBrightnessBacklight. -->
+    <integer-array name="config_screenBrightnessBacklight">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
         <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>25</item>
         <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
         <item>60</item>
+        <item>65</item>
+        <item>70</item>
+        <item>75</item>
+        <item>80</item>
+        <item>85</item>
+        <item>90</item>
+        <item>95</item>
         <item>100</item>
+        <item>105</item>
+        <item>110</item>
+        <item>115</item>
+        <item>120</item>
+        <item>125</item>
+        <item>130</item>
+        <item>135</item>
+        <item>140</item>
+        <item>145</item>
         <item>150</item>
+        <item>155</item>
+        <item>160</item>
+        <item>165</item>
+        <item>170</item>
+        <item>175</item>
+        <item>180</item>
+        <item>185</item>
+        <item>190</item>
+        <item>195</item>
+        <item>200</item>
+        <item>205</item>
         <item>210</item>
+        <item>215</item>
+        <item>220</item>
+        <item>225</item>
+        <item>230</item>
+        <item>235</item>
+        <item>240</item>
+        <item>245</item>
+        <item>250</item>
         <item>255</item>
     </integer-array>
 
-    <!-- Array of output values for LCD backlight corresponding to the LUX values
-         in the config_autoBrightnessLevels array.  This array should have size one greater
-         than the size of the config_autoBrightnessLevels array.
-         The brightness values must be between 0 and 255 and be non-decreasing.
-         This must be overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>10</item>
-        <item>20</item>
-        <item>40</item>
-        <item>70</item>
-        <item>110</item>
-        <item>160</item>
-        <item>200</item>
-        <item>255</item>
-    </integer-array>
+    <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
+         values in the config_screenBrightnessBacklight array.  On OLED displays these  values
+         should be measured with an all white image while the display is in the fully on state.
+         Note that this value should *not* reflect the maximum brightness value for any high
+         brightness modes but only the maximum brightness value obtainable in a sustainable manner.
+         This array should be equal in size to config_screenBrightnessBacklight -->
+    <array name="config_screenBrightnessNits">
+        <item>2.685</item>
+        <item>3.343</item>
+        <item>4.13</item>
+        <item>5.216</item>
+        <item>6.308</item>
+        <item>7.565</item>
+        <item>9.269</item>
+        <item>10.98</item>
+        <item>13.25</item>
+        <item>15.49</item>
+        <item>18.42</item>
+        <item>20.6</item>
+        <item>22.71</item>
+        <item>24.68</item>
+        <item>26.31</item>
+        <item>28.39</item>
+        <item>30.34</item>
+        <item>32.39</item>
+        <item>33.94</item>
+        <item>35.94</item>
+        <item>45.12</item>
+        <item>54</item>
+        <item>62.31</item>
+        <item>70.73</item>
+        <item>78.85</item>
+        <item>86.41</item>
+        <item>93.53</item>
+        <item>102.3</item>
+        <item>109.1</item>
+        <item>118.7</item>
+        <item>126.4</item>
+        <item>136.9</item>
+        <item>147.8</item>
+        <item>158.9</item>
+        <item>168.3</item>
+        <item>177.4</item>
+        <item>186.6</item>
+        <item>195.7</item>
+        <item>204.5</item>
+        <item>214</item>
+        <item>221.8</item>
+        <item>234</item>
+        <item>242.1</item>
+        <item>250.6</item>
+        <item>263.4</item>
+        <item>272.4</item>
+        <item>282.5</item>
+        <item>296.3</item>
+        <item>305.6</item>
+        <item>315.3</item>
+        <item>329.8</item>
+        <item>339.8</item>
+        <item>349.7</item>
+        <item>357.4</item>
+        <item>364.6</item>
+        <item>374.6</item>
+        <item>384.9</item>
+        <item>392.5</item>
+        <item>402.8</item>
+        <item>413.6</item>
+        <item>421.6</item>
+        <item>432.2</item>
+        <item>440.3</item>
+        <item>448.3</item>
+        <item>459.2</item>
+        <item>467.6</item>
+        <item>478.5</item>
+    </array>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
@@ -101,15 +277,15 @@
     <string-array translatable="false" name="networkAttributes">
         <item>wifi,1,1,1,-1,true</item>
         <item>mobile,0,0,0,-1,true</item>
-        <item>mobile_mms,2,0,4,300000,true</item>
-        <item>mobile_supl,3,0,2,300000,true</item>
-        <item>mobile_dun,4,0,2,300000,true</item>
-        <item>mobile_hipri,5,0,3,300000,true</item>
-        <item>mobile_fota,10,0,2,300000,true</item>
-        <item>mobile_ims,11,0,2,300000,true</item>
-        <item>mobile_cbs,12,0,2,300000,true</item>
+        <item>mobile_mms,2,0,4,60000,true</item>
+        <item>mobile_supl,3,0,2,60000,true</item>
+        <item>mobile_dun,4,0,2,60000,true</item>
+        <item>mobile_hipri,5,0,3,60000,true</item>
+        <item>mobile_fota,10,0,2,60000,true</item>
+        <item>mobile_ims,11,0,2,60000,true</item>
+        <item>mobile_cbs,12,0,2,60000,true</item>
         <item>bluetooth,7,7,2,-1,true</item>
-        <item>ethernet,9,9,4,-1,true</item>
+        <item>mobile_emergency,15,0,5,-1,true</item>
     </string-array>
 
     <!-- This string array should be overridden by the device to present a list of radio
@@ -121,7 +297,6 @@
         <item>1,1</item>
         <item>0,1</item>
         <item>7,1</item>
-        <item>9,1</item>
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
@@ -235,8 +410,9 @@
          If no value is found for the rat-name in use, the system default will be applied.
     -->
     <string-array name="config_mobile_tcp_buffers">
+        <item>5gnr:2097152,6291456,16777216,512000,2097152,8388608</item>
         <item>lte:2097152,4194304,8388608,262144,524288,1048576</item>
-        <item>lte_ca:2097152,4194304,8388608,4096,1048576,2097152</item>
+        <item>lte_ca:4096,6291456,12582912,4096,1048576,2097152</item>
         <item>umts:4094,87380,1220608,4096,16384,1220608</item>
         <item>hspa:4094,87380,1220608,4096,16384,1220608</item>
         <item>hsupa:4094,87380,1220608,4096,16384,1220608</item>
@@ -304,4 +480,6 @@
          and one pSIM) -->
     <integer name="config_num_physical_slots">2</integer>
 
+    <!-- Flag indicating whether we should enable smart battery. -->
+    <bool name="config_smart_battery_available">true</bool>
 </resources>
