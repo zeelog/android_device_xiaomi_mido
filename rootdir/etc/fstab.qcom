@@ -8,7 +8,7 @@
 
 /dev/block/bootdevice/by-name/system		/system			ext4	ro								wait,recoveryonly
 /dev/block/bootdevice/by-name/cust		/vendor			ext4	ro								wait,recoveryonly
-/dev/block/bootdevice/by-name/userdata		/data			f2fs	nosuid,nodev,discard,noatime,lazytime,background_gc=sync,fsync_mode=nobarrier					wait,check,encryptable=footer,quota,formattable
+/dev/block/bootdevice/by-name/userdata		/data			f2fs	nosuid,nodev,discard,noatime,lazytime,background_gc=sync,fsync_mode=nobarrier					wait,check,encryptable=footer,quota
 /dev/block/bootdevice/by-name/userdata		/data			ext4	nosuid,nodev,noatime,noauto_da_alloc				wait,check,encryptable=footer,quota,formattable
 /dev/block/bootdevice/by-name/cache		/cache			f2fs	nosuid,nodev,noatime,inline_xattr,flush_merge,data_flush	wait,formattable,check
 /dev/block/bootdevice/by-name/cache		/cache			ext4	nosuid,nodev,noatime						wait,formattable,check
