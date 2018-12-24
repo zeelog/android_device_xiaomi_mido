@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carrier_config_list>
+    <carrier_config>
+        <boolean name="carrier_volte_available_bool" value="false" />
+        <boolean name="carrier_vt_available_bool" value="false" />
+        <boolean name="config_enable_vt_with_mobile_data_off" value="true" />
+        <boolean name="ignore_data_enabled_changed_for_video_calls" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="false" />
+        <int name="carrier_default_wfc_ims_mode_int" value="1" />
+    </carrier_config>
+    <carrier_config sdk="26">
+        <boolean name="vilte_data_is_metered_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="202" mnc="01">
+        <boolean name="carrier_name_override_bool" value="true" />
+        <string name="carrier_name_string">GR COSMOTE</string>
+    </carrier_config>
+    <carrier_config mcc="260" mnc="06">
+        <boolean name="carrier_name_override_bool" value="true" />
+        <string name="carrier_name_string">PLAY</string>
+    </carrier_config>
+    <carrier_config mcc="268" mnc="03">
+        <boolean name="carrier_name_override_bool" value="true" />
+        <string name="carrier_name_string">NOS</string>
+    </carrier_config>
+    <carrier_config mcc="334" mnc="020">
+        <boolean name="voicemail_notification_persistent_bool" value="true" />
+    </carrier_config>
+    <carrier_config mcc="460">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="01,06,09">
+        <boolean name="carrier_volte_available_bool" value="false" />
+        <boolean name="carrier_vt_available_bool" value="false" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="01,06,09" sdk="28">
+        <boolean name="gsm_cdma_calls_can_be_hd_audio" value="true" />
+    </carrier_config>
+    <carrier_config mcc="460" mnc="03,05,11,12">
+        <boolean name="carrier_volte_available_bool" value="false" />
+        <boolean name="carrier_vt_available_bool" value="false" />
+        <string-array name="apn_hide_rule_strings_array" num="2">
+            <item value="type" />
+            <item value="" />
+        </string-array>
+    </carrier_config>
+    <carrier_config mcc="502" mnc="152">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+    </carrier_config>
+    <carrier_config mcc="404">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+    </carrier_config>
+    <carrier_config mcc="405">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+    </carrier_config>
+    <carrier_config mcc="455" mnc="03">
+        <boolean name="carrier_name_override_bool" value="true" />
+        <string name="carrier_name_string">3 Macau</string>
+    </carrier_config>
+    <carrier_config mcc="455" mnc="02,07">
+        <string-array name="apn_hide_rule_strings_array" num="2">
+            <item value="type" />
+            <item value="" />
+        </string-array>
+    </carrier_config>
+    <carrier_config mcc="525" mnc="05" sdk="28">
+        <boolean name="gsm_cdma_calls_can_be_hd_audio" value="true" />
+    </carrier_config>
+    <carrier_config mcc="530" mnc="24">
+        <string name="default_vm_number_string">+64222022002</string>
+    </carrier_config>
+    <carrier_config mcc="234" mnc="20">
+        <boolean name="hide_enhanced_4g_lte_bool" value="true" />
+    </carrier_config>
+    <carrier_config mcc="208" mnc="20">
+        <string-array name="read_only_apn_types_string_array" num="0" />
+    </carrier_config>
+    <carrier_config mcc="222" mnc="10">
+        <string-array name="read_only_apn_types_string_array" num="0" />
+    </carrier_config>
+    <carrier_config mcc="234" mnc="20">
+        <boolean name="carrier_name_override_bool" value="true" />
+        <string name="carrier_name_string">3</string>
+    </carrier_config>
+    <carrier_config mcc="214" mnc="01">
+        <string name="default_vm_number_string">22177</string>
+        <string-array name="read_only_apn_types_string_array" num="0" />
+    </carrier_config>
+    <carrier_config mcc="730" mnc="09">
+        <string-array name="non_roaming_operator_string_array" num="4">
+            <item value="73001" />
+            <item value="73002" />
+            <item value="73003" />
+            <item value="73021" />
+        </string-array>
+    </carrier_config>
+    <carrier_config mcc="222" mnc="50">
+        <string-array name="read_only_apn_types_string_array" num="0" />
+    </carrier_config>
+    <carrier_config mcc="208" mnc="15">
+        <string-array name="read_only_apn_types_string_array" num="0" />
+    </carrier_config>
+    <carrier_config mcc="647" mnc="03">
+        <string-array name="read_only_apn_types_string_array" num="0" />
+    </carrier_config>
+</carrier_config_list>
