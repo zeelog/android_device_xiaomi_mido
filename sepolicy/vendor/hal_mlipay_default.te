@@ -1,0 +1,16 @@
+type hal_mlipay_default, domain;
+
+type hal_mlipay_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_mlipay_default)
+
+hwbinder_use(hal_mlipay_default)
+get_prop(hal_mlipay_default, hwservicemanager_prop)
+add_hwservice(hal_mlipay_default, hal_mlipay_hwservice)
+
+allow hal_mlipay_default default_prop:file { getattr open read };
+allow hal_mlipay_default fingerprint_prop:file { getattr open read };
+allow hal_mlipay_default tee_device:chr_file rw_file_perms;
+allow hal_mlipay_default ion_device:chr_file r_file_perms;
+
+r_dir_file(hal_mlipay_default, firmware_file)
+set_prop(hal_mlipay_default, ifaa_prop);

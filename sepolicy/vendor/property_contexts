@@ -2,4 +2,7 @@ persist.audio.dirac        u:object_r:dirac_prop:s0
 persist.net.doxlat         u:object_r:vendor_xlat_prop:s0
 persist.camera.            u:object_r:camera_prop:s0
 sys.listeners.registered   u:object_r:vendor_tee_listener_prop:s0
-sys.post_boot.parsed       u:object_r:vendor_mpctl_prop:s0
+sys.post_boot.parsed       u:object_r:vendor_mpctl_prop:s
+
+# Mlipay
+persist.sys.ifaa                    u:object_r:ifaa_prop:s0

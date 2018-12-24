@@ -78,4 +78,7 @@ if [ -s "$MY_DIR"/proprietary-files.txt ]; then
          "$DEVICE_BLOB_ROOT"/vendor/bin/mm-qcamera-daemon
 fi
 
+patchelf --remove-needed vendor.xiaomi.hardware.mtdservice@1.0.so "$BLOB_ROOT"/vendor/bin/mlipayd
+patchelf --remove-needed vendor.xiaomi.hardware.mtdservice@1.0.so "$BLOB_ROOT"/vendor/lib64/libmlipay.so
+
 "$MY_DIR"/setup-makefiles.sh

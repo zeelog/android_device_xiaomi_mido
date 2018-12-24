@@ -1,0 +1,3 @@
+allow { appdomain -isolated_app } hal_mlipay_hwservice:hwservice_manager find;
+binder_call({ appdomain -isolated_app }, hal_mlipay_default)
+get_prop({ appdomain -isolated_app }, ifaa_prop)

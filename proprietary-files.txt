@@ -615,3 +615,9 @@ lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so
 lib64/libfp_client.so:vendor/lib64/libfp_client.so
 lib64/libfpnav.so:vendor/lib64/libfpnav.so
 lib64/libfpservice.so:vendor/lib64/libfpservice.so
+
+# Mlipay
+etc/init/vendor.xiaomi.hardware.mlipay@1.0-service.rc:vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.0-service.rc 
+lib64/vendor.xiaomi.hardware.mlipay@1.0.so:vendor/lib64/vendor.xiaomi.hardware.mlipay@1.0.so 
+vendor/bin/mlipayd 
+vendor/lib64/libmlipay.so
