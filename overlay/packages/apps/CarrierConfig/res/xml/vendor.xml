@@ -1836,6 +1836,85 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
     </carrier_config>
+
+    <carrier_config mcc="312" mnc="670">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="config_enable_display_14digit_imei" value="true" />
+        <boolean name="transmit_static_image" value="true"/>
+        <boolean name="config_enable_mms_with_mobile_data_off" value="true" />
+        <boolean name="carrier_rtt_supported" value="true" />
+        <boolean name="carrier_rtt_upgrade_supported" value="true"/>
+        <boolean name="carrier_rtt_downgrade_supported" value="true"/>
+        <boolean name="carrier_volte_tty_supported_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="313" mnc="100">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="config_enable_display_14digit_imei" value="true" />
+        <boolean name="transmit_static_image" value="true"/>
+        <boolean name="config_enable_mms_with_mobile_data_off" value="true" />
+        <boolean name="carrier_rtt_supported" value="true" />
+        <boolean name="carrier_rtt_upgrade_supported" value="true"/>
+        <boolean name="carrier_rtt_downgrade_supported" value="true"/>
+        <boolean name="carrier_volte_tty_supported_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="313" mnc="110">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="config_enable_display_14digit_imei" value="true" />
+        <boolean name="transmit_static_image" value="true"/>
+        <boolean name="config_enable_mms_with_mobile_data_off" value="true" />
+        <boolean name="carrier_rtt_supported" value="true" />
+        <boolean name="carrier_rtt_upgrade_supported" value="true"/>
+        <boolean name="carrier_rtt_downgrade_supported" value="true"/>
+        <boolean name="carrier_volte_tty_supported_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="313" mnc="120">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="config_enable_display_14digit_imei" value="true" />
+        <boolean name="transmit_static_image" value="true"/>
+        <boolean name="config_enable_mms_with_mobile_data_off" value="true" />
+        <boolean name="carrier_rtt_supported" value="true" />
+        <boolean name="carrier_rtt_upgrade_supported" value="true"/>
+        <boolean name="carrier_rtt_downgrade_supported" value="true"/>
+        <boolean name="carrier_volte_tty_supported_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="313" mnc="130">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="config_enable_display_14digit_imei" value="true" />
+        <boolean name="transmit_static_image" value="true"/>
+        <boolean name="config_enable_mms_with_mobile_data_off" value="true" />
+        <boolean name="carrier_rtt_supported" value="true" />
+        <boolean name="carrier_rtt_upgrade_supported" value="true"/>
+        <boolean name="carrier_rtt_downgrade_supported" value="true"/>
+        <boolean name="carrier_volte_tty_supported_bool" value="false" />
+    </carrier_config>
+
+    <carrier_config mcc="313" mnc="140">
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="config_enable_display_14digit_imei" value="true" />
+        <boolean name="transmit_static_image" value="true"/>
+        <boolean name="config_enable_mms_with_mobile_data_off" value="true" />
+        <boolean name="carrier_rtt_supported" value="true" />
+        <boolean name="carrier_rtt_upgrade_supported" value="true"/>
+        <boolean name="carrier_rtt_downgrade_supported" value="true"/>
+        <boolean name="carrier_volte_tty_supported_bool" value="false" />
+    </carrier_config>
+
     <carrier_config mcc="310" mnc="120">
         <boolean name="carrier_rtt_supported" value="true" />
         <boolean name="carrier_rtt_upgrade_supported" value="true" />
