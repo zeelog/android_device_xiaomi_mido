@@ -18,13 +18,17 @@
 
     <ListPreference
         android:key="dirac_headset_pref"
+        android:entries="@array/dirac_headset_pref_entries"
+        android:entryValues="@array/dirac_headset_pref_values"
         android:defaultValue="0"
         android:title="@string/dirac_headset_title"
         android:summary="%s" />
 
     <ListPreference
         android:key="dirac_preset_pref"
-        android:defaultValue="0"
+        android:entries="@array/dirac_preset_pref_entries"
+        android:entryValues="@array/dirac_preset_pref_values"
+        android:defaultValue="0,0,0,0,0,0,0"
         android:title="@string/dirac_preset_title"
         android:summary="%s" />
 
