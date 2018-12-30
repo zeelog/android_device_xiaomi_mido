@@ -640,6 +640,9 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
+# Wi-Fi - from Tissot PKQ1.180917.001/V10.0.2.0.PDHMIFK
+vendor/bin/wcnss_service
+
 # Wi-Fi Display
 bin/wfdservice
 etc/init/wfdservice.rc
