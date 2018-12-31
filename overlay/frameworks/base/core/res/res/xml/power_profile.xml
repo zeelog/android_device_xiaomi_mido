@@ -2,14 +2,17 @@
 <device name="Android">
     <item name="screen.on">63</item>
     <item name="screen.full">261</item>
+    <item name="wifi.on">0.1</item>
+    <item name="wifi.active">0.1</item>
+    <item name="wifi.scan">0.1</item>
     <array name="cpu.core.speeds">
-        <value>200000</value>
-        <value>499200</value>
-        <value>533333</value>
-        <value>800000</value>
-        <value>998400</value>
-        <value>1094400</value>
-        <value>1209600</value>
+        <value>652800</value>
+        <value>1036800</value>
+        <value>1401600</value>
+        <value>1689600</value>
+        <value>1804800</value>
+        <value>1958400</value>
+        <value>2016000</value>
     </array>
     <array name="cpu.core_power">
         <value>151</value>
