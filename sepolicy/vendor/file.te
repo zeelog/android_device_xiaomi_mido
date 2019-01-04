@@ -14,9 +14,6 @@ type gx_fpd_data_file, file_type, data_file_type;
 type idc_file, file_type, vendor_file_type;
 type keylayout_file, file_type, vendor_file_type;
 
-# MSM Subsys
-type sysfs_msm_subsys, sysfs_type, fs_type;
-
 # Rild
 type rild_file, file_type, vendor_file_type;
 

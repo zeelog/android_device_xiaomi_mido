@@ -5,13 +5,6 @@ genfscon proc  /sys/kernel/boot_reason					u:object_r:proc_boot_reason:s0
 genfscon sysfs /devices/soc/soc:qcom,bcl/power_supply      u:object_r:sysfs_batteryinfo:s0
 genfscon sysfs /devices/soc/msm-bcl-20/power_supply        u:object_r:sysfs_batteryinfo:s0
 
-# MSM Subsys
-genfscon  sysfs /devices/soc/soc:qcom,kgsl-hyp/subsys0/name   		u:object_r:sysfs_msm_subsys:s0
-genfscon  sysfs /devices/soc/1de0000.qcom,venus/subsys1/name  		u:object_r:sysfs_msm_subsys:s0
-genfscon  sysfs /devices/soc/c200000.qcom,lpass/subsys2/name  		u:object_r:sysfs_msm_subsys:s0
-genfscon  sysfs /devices/soc/a21b000.qcom,pronto/subsys3/name 		u:object_r:sysfs_msm_subsys:s0
-genfscon  sysfs /devices/soc/4080000.qcom,mss/subsys4/name   	 	u:object_r:sysfs_msm_subsys:s0
-
 # Rmt
 genfscon debugfs /rmt_storage	u:object_r:debugfs_rmt:s0
 
