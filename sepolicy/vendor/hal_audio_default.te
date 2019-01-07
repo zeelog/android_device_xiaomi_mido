@@ -1,0 +1,1 @@
+dontaudit hal_audio_default sysfs:dir { open read };
