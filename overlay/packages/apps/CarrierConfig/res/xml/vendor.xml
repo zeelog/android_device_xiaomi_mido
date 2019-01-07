@@ -1290,6 +1290,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <string name="carrier_name_string">China Mobile</string>
     </carrier_config>
     <carrier_config mcc="460" mnc="01">
+        <boolean name="config_show_srvcc_toast" value="true" />
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
@@ -1403,6 +1404,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="carrier_parse_number_on_forward_call_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="460" mnc="06">
+        <boolean name="config_show_srvcc_toast" value="true" />
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
@@ -1503,6 +1505,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="carrier_parse_number_on_forward_call_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="460" mnc="09">
+        <boolean name="config_show_srvcc_toast" value="true" />
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
