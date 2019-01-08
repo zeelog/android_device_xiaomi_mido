@@ -176,6 +176,7 @@ on charger
     write /sys/devices/system/cpu/cpu3/online 0
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     start vendor.hvdcp_opti
+    start vendor.power_off_alarm
     start thermal-engine
 
 on boot
