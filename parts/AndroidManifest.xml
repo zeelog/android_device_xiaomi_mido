@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2015-2016 The CyanogenMod Project
-                   2017 The LineageOS Project
+                   2017-2018 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lineageos.settings.doze"
+    package="org.lineageos.settings"
     android:versionCode="1"
     android:versionName="1.0"
     android:sharedUserId="android.uid.system">
@@ -41,12 +41,12 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".DozeService"
+        <service android:name=".doze.DozeService"
                  android:permission="XiaomiDozeService">
         </service>
 
         <activity
-            android:name=".DozeSettingsActivity"
+            android:name=".doze.DozeSettingsActivity"
             android:label="@string/ambient_display_title"
             android:theme="@style/Theme.Main">
             <intent-filter>
