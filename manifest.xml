@@ -410,24 +410,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl">
-        <name>com.quicinc.cne.api</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IApiService</name>
-            <instance>cnd</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>com.quicinc.cne.server</name>
-        <transport>hwbinder</transport>
-        <version>2.2</version>
-        <interface>
-            <name>IServer</name>
-            <instance>cnd</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>vendor.display.color</name>
         <transport>hwbinder</transport>
         <version>1.0</version>

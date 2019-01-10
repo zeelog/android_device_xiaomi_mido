@@ -173,23 +173,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>com.quicinc.cne.server</name>
-        <version>1.0</version>
-        <version>2.0-2</version>
-        <interface>
-            <name>IServer</name>
-            <instance>cnd</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>com.quicinc.cne.api</name>
-        <version>1.0-1</version>
-        <interface>
-            <name>IApiService</name>
-            <instance>cnd</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>vendor.nxp.hardware.nfc</name>
         <version>1.0</version>
         <interface>
