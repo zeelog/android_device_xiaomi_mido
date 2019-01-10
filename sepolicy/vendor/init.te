@@ -1,8 +1,5 @@
 # adsprpcd
 allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
 
-# boot reason
-allow init proc_boot_reason:file r_file_perms;
-
 # leds
 allow init sysfs_leds:lnk_file read;
