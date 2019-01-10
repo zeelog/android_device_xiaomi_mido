@@ -44,7 +44,7 @@ void check_device()
 
     sysinfo(&sys);
 
-    if (sys.totalram > 2048ull * 1024 * 1024) {
+    if (sys.totalram > 3072ull * 1024 * 1024) {
         // from - Stock rom
         heapgrowthlimit = "256m";
         heapminfree = "4m";
