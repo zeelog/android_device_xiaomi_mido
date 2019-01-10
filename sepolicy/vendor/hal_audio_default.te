@@ -1,1 +1,4 @@
 dontaudit hal_audio_default sysfs:dir { open read };
+allow hal_audio_default property_socket:sock_file { rw_file_perms };
+allow hal_audio_default audio_prop:property_service set;
+allow hal_audio_default init:unix_stream_socket connectto;
