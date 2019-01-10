@@ -56,6 +56,8 @@ on early-boot
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
 
+    exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
+
     # for backward compatibility
     chown system system /persist/sensors
     chown system system /persist/sensors/registry
