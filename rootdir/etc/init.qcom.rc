@@ -109,6 +109,10 @@ on boot
     chmod 0666 /proc/touchpanel/capacitive_keys_disable
     chown system system /sys/bus/i2c/devices/3-0038/disable_keys
     chmod 0666 /sys/bus/i2c/devices/3-0038/disable_keys
+    chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/enable_dt2w
+    chmod 0664 /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/enable_dt2w
+    chown system system /proc/touchpanel/enable_dt2w
+    chmod 0664 /proc/touchpanel/enable_dt2w
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
