@@ -601,11 +601,6 @@ etc/qdcm_calib_data_nt35596_tianma_fhd_video_mode_dsi_panel.xml:vendor/etc/qdcm_
 etc/qdcm_calib_data_otm1911_fhd_video_mode_dsi_panel.xml:vendor/etc/qdcm_calib_data_otm1911_fhd_video_mode_dsi_panel.xml
 etc/qdcm_calib_data_r63350_ebbg_fhd_video_mode_dsi_panel.xml:vendor/etc/qdcm_calib_data_r63350_ebbg_fhd_video_mode_dsi_panel.xml
 
-# Dirac - from xiaomi/mido/mido:7.0/NRD90M/V10.1.1.0.NCFCNFI:user/release-keys
-vendor/etc/diracmobile.config
-vendor/lib/libDiracAPI_SHARED.so
-vendor/lib/soundfx/libdirac.so
-
 # Fingerprint
 bin/gx_fpd:vendor/bin/gx_fpd
 lib/hw/fingerprint.searchf.so:vendor/lib/hw/fingerprint.searchf.so
