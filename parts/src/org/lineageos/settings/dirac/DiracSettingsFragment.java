@@ -50,13 +50,17 @@ public class DiracSettingsFragment extends PreferenceFragment implements
     private ListPreference mHeadsetType;
     private ListPreference mPreset;
 
+    private DiracUtils mDiracUtils;
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.dirac_settings);
         final ActionBar actionBar = getActivity().getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        boolean enhancerEnabled = DiracUtils.isDiracEnabled();
+        mDiracUtils = new DiracUtils(getContext());
+
+        boolean enhancerEnabled = mDiracUtils.isDiracEnabled();
 
         mHeadsetType = (ListPreference) findPreference(PREF_HEADSET);
         mHeadsetType.setOnPreferenceChangeListener(this);
@@ -80,7 +84,7 @@ public class DiracSettingsFragment extends PreferenceFragment implements
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        boolean enhancerEnabled = DiracUtils.isDiracEnabled();
+        boolean enhancerEnabled = mDiracUtils.isDiracEnabled();
 
         mTextView = view.findViewById(R.id.switch_text);
         mTextView.setText(getString(enhancerEnabled ?
@@ -101,10 +105,10 @@ public class DiracSettingsFragment extends PreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         switch (preference.getKey()) {
             case PREF_HEADSET:
-                DiracUtils.setHeadsetType(Integer.parseInt(newValue.toString()));
+                mDiracUtils.setHeadsetType(Integer.parseInt(newValue.toString()));
                 return true;
             case PREF_PRESET:
-                DiracUtils.setLevel(String.valueOf(newValue));
+                mDiracUtils.setLevel(String.valueOf(newValue));
                 return true;
             default: return false;
         }
@@ -112,7 +116,7 @@ public class DiracSettingsFragment extends PreferenceFragment implements
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-        DiracUtils.setEnabled(isChecked);
+        mDiracUtils.setEnabled(isChecked);
 
         mTextView.setText(getString(isChecked ? R.string.switch_bar_on : R.string.switch_bar_off));
         mSwitchBar.setActivated(isChecked);
