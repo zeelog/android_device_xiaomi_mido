@@ -18,28 +18,101 @@ package org.lineageos.settings.dirac;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.UserHandle;
+import android.os.SystemClock;
+import android.view.KeyEvent;
+import android.media.session.MediaController;
+import android.media.session.MediaSessionManager;
+import android.media.session.PlaybackState;
+import java.util.List;
 
 public final class DiracUtils {
 
     protected static DiracSound mDiracSound;
     private static boolean mInitialized;
+    private static MediaSessionManager mMediaSessionManager;
+    private static Handler mHandler = new Handler();
+    private static Context mContext;
 
-    public static void initialize() {
+    public static void initialize(Context context) {
         if (!mInitialized) {
+            mContext = context;
+            mMediaSessionManager = (MediaSessionManager) context.getSystemService(Context.MEDIA_SESSION_SERVICE);
             mInitialized = true;
             mDiracSound = new DiracSound(0, 0);
-            mDiracSound.setMusic(mDiracSound.getMusic());
+            setEnabled(mDiracSound.getMusic() == 1);
             mDiracSound.setHeadsetType(mDiracSound.getHeadsetType());
             setLevel(getLevel());
         }
     }
 
-    protected static void setMusic(boolean enable) {
-        mDiracSound.setMusic(enable ? 1 : 0);
+    protected static void refreshPlaybackIfNecessary(){
+        if (mMediaSessionManager == null) {
+            mMediaSessionManager = (MediaSessionManager) mContext.getSystemService(Context.MEDIA_SESSION_SERVICE);
+        }
+        final List<MediaController> sessions
+                = mMediaSessionManager.getActiveSessionsForUser(
+                null, UserHandle.USER_ALL);
+        for (MediaController aController : sessions) {
+            if (PlaybackState.STATE_PLAYING ==
+                    getMediaControllerPlaybackState(aController)) {
+                triggerPlayPause(aController);
+                break;
+            }
+        }
     }
 
-    protected static boolean isDiracEnabled(Context context) {
+    private static void triggerPlayPause(MediaController controller) {
+        long when = SystemClock.uptimeMillis();
+        final KeyEvent evDownPause = new KeyEvent(when, when, KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_MEDIA_PAUSE, 0);
+        final KeyEvent evUpPause = KeyEvent.changeAction(evDownPause, KeyEvent.ACTION_UP);
+        final KeyEvent evDownPlay = new KeyEvent(when, when, KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_MEDIA_PLAY, 0);
+        final KeyEvent evUpPlay = KeyEvent.changeAction(evDownPlay, KeyEvent.ACTION_UP);
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                controller.dispatchMediaButtonEvent(evDownPause);
+            }
+        });
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                controller.dispatchMediaButtonEvent(evUpPause);
+            }
+        }, 20);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                controller.dispatchMediaButtonEvent(evDownPlay);
+            }
+        }, 500);
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                controller.dispatchMediaButtonEvent(evUpPlay);
+            }
+        }, 520);
+    }
+
+    private static int getMediaControllerPlaybackState(MediaController controller) {
+        if (controller != null) {
+            final PlaybackState playbackState = controller.getPlaybackState();
+            if (playbackState != null) {
+                return playbackState.getState();
+            }
+        }
+        return PlaybackState.STATE_NONE;
+    }
+    protected static void setEnabled(boolean enable) {
+        mDiracSound.setEnabled(enable);
+        mDiracSound.setMusic(enable ? 1 : 0);
+        if (enable){
+            refreshPlaybackIfNecessary();
+        }
+    }
+
+    protected static boolean isDiracEnabled() {
         return mDiracSound.getMusic() == 1;
     }
 
