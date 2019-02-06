@@ -7405,8 +7405,10 @@ int QCamera3HardwareInterface::initStaticMetadata(uint32_t cameraId)
     if (supportBurst) {
         available_capabilities.add(ANDROID_REQUEST_AVAILABLE_CAPABILITIES_BURST_CAPTURE);
     }
+#if 0
     available_capabilities.add(ANDROID_REQUEST_AVAILABLE_CAPABILITIES_PRIVATE_REPROCESSING);
     available_capabilities.add(ANDROID_REQUEST_AVAILABLE_CAPABILITIES_YUV_REPROCESSING);
+#endif
     if (hfrEnable && available_hfr_configs.array()) {
         available_capabilities.add(
                 ANDROID_REQUEST_AVAILABLE_CAPABILITIES_CONSTRAINED_HIGH_SPEED_VIDEO);
