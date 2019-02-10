@@ -1,2 +1,3 @@
+typeattribute hal_bluetooth_default data_between_core_and_vendor_violators;
 allow hal_bluetooth_default bluetooth_data_file:dir search;
 allow hal_bluetooth_default bluetooth_data_file:file r_file_perms;

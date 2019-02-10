@@ -1,4 +1,5 @@
 allow ueventd fpc_sysfs:file rw_file_perms;
 
+typeattribute ueventd data_between_core_and_vendor_violators;
 allow ueventd wifi_vendor_data_file:dir search;
 allow ueventd wifi_vendor_data_file:file { getattr open read };

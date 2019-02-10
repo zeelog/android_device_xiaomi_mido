@@ -5,6 +5,7 @@ type gx_fpd_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(gx_fpd)
 binder_use(gx_fpd)
 
+typeattribute gx_fpd data_between_core_and_vendor_violators;
 # allow HAL module to read dir contents
 allow gx_fpd gx_fpd_data_file:file create_file_perms;
 
