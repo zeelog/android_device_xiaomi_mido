@@ -5805,11 +5805,13 @@ int32_t QCameraParameters::initDefaultParameters()
     set(KEY_SUPPORTED_SCENE_MODES, sceneModeValues);
     setSceneMode(SCENE_MODE_AUTO);
 
+#if 0
     // Set CDS Mode
     String8 cdsModeValues = createValuesStringFromMap(
             CDS_MODES_MAP,
             PARAM_MAP_SIZE(CDS_MODES_MAP));
     set(KEY_QC_SUPPORTED_CDS_MODES, cdsModeValues);
+#endif
 
     // Set video CDS Mode
     String8 videoCdsModeValues = createValuesStringFromMap(
