@@ -105,10 +105,6 @@ on boot
     chown system system /sys/kernel/boot_adsp/ssr
     chmod 0660 /sys/module/bluetooth_power/parameters/power
     chmod 0660 /sys/module/radio_iris_transport/parameters/fmsmd_set
-    chown system system /proc/touchpanel/capacitive_keys_disable
-    chmod 0666 /proc/touchpanel/capacitive_keys_disable
-    chown system system /sys/bus/i2c/devices/3-0038/disable_keys
-    chmod 0666 /sys/bus/i2c/devices/3-0038/disable_keys
     chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/enable_dt2w
     chmod 0664 /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/enable_dt2w
     chown system system /proc/touchpanel/enable_dt2w
@@ -166,10 +162,6 @@ on boot
     chmod 0660 /sys/devices/soc/soc:fpc1020/wakeup_enable
     chown system system /sys/devices/soc/soc:fpc1020/wakeup_enable
     chmod 0660 /sys/devices/soc/soc:fpc1020/wakeup_enable
-
-    # Glove Mode
-    chown system system /sys/class/tp_glove/device/glove_enable
-    chmod 0660 /sys/class/tp_glove/device/glove_enable
 
     # Notification LED
     chown system system /sys/class/leds/red/blink

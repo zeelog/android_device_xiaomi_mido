@@ -5,10 +5,5 @@ allow system_server vendor_camera_prop:file { open read getattr };
 r_dir_file(system_server, idc_file)
 r_dir_file(system_server, keylayout_file)
 
-# touchpanel
-allow system_server proc_touchpanel:dir search;
-allow system_server proc_touchpanel:file rw_file_perms;
-allow system_server proc_touchpanel:lnk_file read;
-
 # vibrator
 allow system_server sysfs_vibrator:file read;

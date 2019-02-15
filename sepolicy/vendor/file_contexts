@@ -28,6 +28,7 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine					u:object_r:hal_drm_widevine_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_mido		u:object_r:hal_fingerprint_mido_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi_mido					u:object_r:hal_ir_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.touch@1\.0-service\.xiaomi_mido                     u:object_r:hal_lineage_touch_default_exec:s0
 
 # Input files
 /(vendor|system/vendor)/usr/idc(/.*)?		u:object_r:idc_file:s0
