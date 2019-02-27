@@ -129,9 +129,6 @@ USE_OPENGL_RENDERER := true
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
-# Extended Filesystem Support
-TARGET_EXFAT_DRIVER := sdfat
-
 # Filesystem
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
