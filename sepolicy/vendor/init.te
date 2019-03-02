@@ -1,5 +1,2 @@
 # adsprpcd
 allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
-
-# leds
-allow init sysfs_leds:lnk_file read;
