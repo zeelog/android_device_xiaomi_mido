@@ -44,15 +44,15 @@ BiometricsFingerprint *BiometricsFingerprint::sInstance = nullptr;
 
 BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevice(nullptr) {
     sInstance = this; // keep track of the most recent instance
-    char vend [PROPERTY_VALUE_MAX];
+    char vend[PROPERTY_VALUE_MAX];
     property_get("ro.hardware.fingerprint", vend, NULL);
 
-    if (!strcmp(vend, "searchf")) {
-        is_goodix = false;
-        mDevice = openHal();
-    } else if (!strcmp(vend, "goodix")) {
+    if (!strcmp(vend, "goodix")) {
         is_goodix = true;
         mDevice = getWrapperService(BiometricsFingerprint::notify);
+     else {
+        is_goodix = false;
+        mDevice = openHal();
     }
 
     if (!mDevice) {
@@ -186,7 +186,16 @@ Return<uint64_t> BiometricsFingerprint::getAuthenticatorId() {
 }
 
 Return<RequestStatus> BiometricsFingerprint::cancel() {
-      return ErrorFilter(mDevice->cancel(mDevice));
+      /* notify client on cancel hack */
+    int ret = mDevice->cancel(mDevice);
+    ALOG(LOG_VERBOSE, LOG_TAG, "cancel() %d\n", ret);
+    if (ret == 0) {
+        fingerprint_msg_t msg;
+        msg.type = FINGERPRINT_ERROR;
+        msg.data.error = FINGERPRINT_ERROR_CANCELED;
+        mDevice->notify(&msg);
+    }
+    return ErrorFilter(ret);
 }
 
 Return<RequestStatus> BiometricsFingerprint::enumerate()  {
@@ -207,6 +216,7 @@ Return<RequestStatus> BiometricsFingerprint::setActiveGroup(uint32_t gid,
         return RequestStatus::SYS_EINVAL;
     }
     int ret = mDevice->set_active_group(mDevice, gid, storePath.c_str());
+    /* set active group hack for goodix */
     if ((ret > 0) && is_goodix)
         ret = 0;
     return ErrorFilter(ret);
