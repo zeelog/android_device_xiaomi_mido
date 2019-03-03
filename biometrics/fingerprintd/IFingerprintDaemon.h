@@ -22,8 +22,6 @@
 
 namespace android {
 
-class IFingerprintDaemonCallback;
-
 /*
 * Abstract base class for native implementation of FingerprintService.
 *
@@ -52,7 +50,7 @@ class IFingerprintDaemon : public IInterface, public IBinder::DeathRecipient {
 //        virtual const android::String16& getInterfaceDescriptor() const;
 
         // Binder interface methods
-        virtual void init(const sp<IFingerprintDaemonCallback>& callback) = 0;
+        virtual void init(fingerprint_notify_t notify) = 0;
         virtual int32_t enroll(const uint8_t* token, ssize_t tokenLength, int32_t groupId,
                 int32_t timeout) = 0;
         virtual uint64_t preEnroll() = 0;

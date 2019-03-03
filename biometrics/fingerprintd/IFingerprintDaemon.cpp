@@ -27,7 +27,6 @@
 #include <hardware/fingerprint.h>
 #include <hardware/hw_auth_token.h>
 #include "IFingerprintDaemon.h"
-#include "IFingerprintDaemonCallback.h"
 
 namespace android {
 
@@ -170,17 +169,6 @@ status_t BnFingerprintDaemon::onTransact(uint32_t code, const Parcel& data, Parc
             reply->writeInt32(ret);
             return NO_ERROR;
         }
-        case INIT: {
-            CHECK_INTERFACE(IFingerprintDaemon, data, reply);
-            if (!checkPermission(HAL_FINGERPRINT_PERMISSION)) {
-                return PERMISSION_DENIED;
-            }
-            sp<IFingerprintDaemonCallback> callback =
-                    interface_cast<IFingerprintDaemonCallback>(data.readStrongBinder());
-            init(callback);
-            reply->writeNoException();
-            return NO_ERROR;
-        }
         default:
             return BBinder::onTransact(code, data, reply, flags);
     }
@@ -200,12 +188,8 @@ class BpFingerprintDaemon : public BpInterface<IFingerprintDaemon> {
                 BpInterface<IFingerprintDaemon>(impl) {
         }
 
-        virtual void init(const sp<IFingerprintDaemonCallback>& callback) {
-            Parcel data, reply;
-            data.writeInterfaceToken(descriptor);
-            data.writeStrongBinder(callback->asBinder(callback));
-            remote()->transact(INIT, data, &reply);
-            reply.readExceptionCode();
+        virtual void init(fingerprint_notify_t notify) {
+            ALOGE("init()");
             return;
         }
 

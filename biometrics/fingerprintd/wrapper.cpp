@@ -23,8 +23,6 @@
 
 #include "FingerprintDaemonProxy.h"
 #include "IFingerprintDaemon.h"
-#include "IFingerprintDaemonCallback.h"
-#include "FingerprintDaemonCallbackProxy.h"
 
 using namespace android;
 
@@ -60,10 +58,8 @@ fingerprint_device_t* getWrapperService(fingerprint_notify_t notify) {
 
             if (g_service != NULL) {
                 ALOGE("getService succeed");
-                sp<android::FingerprintDaemonCallbackProxy> callback =
-                        new FingerprintDaemonCallbackProxy();
-                FingerprintDaemonCallbackProxy::setDevice(notify);
-                g_service->init(callback);
+
+                g_service->init(notify);
 
                 ret = g_service->openHal();
                 if (ret == 0) {

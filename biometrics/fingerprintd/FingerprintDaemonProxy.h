@@ -18,7 +18,6 @@
 #define FINGERPRINT_DAEMON_PROXY_H_
 
 #include "IFingerprintDaemon.h"
-#include "IFingerprintDaemonCallback.h"
 
 namespace android {
 
@@ -32,7 +31,7 @@ class FingerprintDaemonProxy : public BnFingerprintDaemon {
         }
 
         // These reflect binder methods.
-        virtual void init(const sp<IFingerprintDaemonCallback>& callback);
+        virtual void init(fingerprint_notify_t notify);
         virtual int32_t enroll(const uint8_t* token, ssize_t tokenLength, int32_t groupId, int32_t timeout);
         virtual uint64_t preEnroll();
         virtual int32_t postEnroll();
@@ -51,13 +50,12 @@ class FingerprintDaemonProxy : public BnFingerprintDaemon {
         FingerprintDaemonProxy();
         virtual ~FingerprintDaemonProxy();
         void binderDied(const wp<IBinder>& who);
-        void notifyKeystore(const uint8_t *auth_token, const size_t auth_token_length);
         static void hal_notify_callback(const fingerprint_msg_t *msg);
 
         static FingerprintDaemonProxy* sInstance;
         fingerprint_module_t const* mModule;
         fingerprint_device_t* mDevice;
-        sp<IFingerprintDaemonCallback> mCallback;
+        fingerprint_notify_t mCallback;
 };
 
 } // namespace android
