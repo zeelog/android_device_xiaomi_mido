@@ -518,11 +518,6 @@ service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
     interface android.hardware.audio@4.0::IDevicesFactory default
     interface android.hardware.audio@2.0::IDevicesFactory default
 
-service goodix_script /vendor/bin/init.goodix.sh
-    class late_start
-    user system
-    oneshot
-
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
     group system

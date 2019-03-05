@@ -296,7 +296,6 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.goodix.sh \
     init.qcom.bt.sh \
     init.qti.fm.sh \
     init.qcom.early_boot.sh \
