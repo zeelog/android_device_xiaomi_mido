@@ -62,9 +62,8 @@ int main() {
     }
 
     if (bio != nullptr) {
-        android::status_t ret = bio->registerAsService();
-        if (ret != android::OK) {
-            ALOGE("Cannot register BiometricsFingerprint service: %d", ret);
+        if (::android::OK != bio->registerAsService()) {
+            return 1;
         }
     } else {
         ALOGE("Can't create instance of BiometricsFingerprint, nullptr");
