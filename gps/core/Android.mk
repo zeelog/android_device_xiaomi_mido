@@ -1,6 +1,3 @@
-ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
-ifneq ($(BUILD_TINY_ANDROID),true)
-
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -60,6 +57,3 @@ LOCAL_EXPORT_C_INCLUDE_DIRS := \
     $(LOCAL_PATH)/data-items/common \
     $(LOCAL_PATH)/observer
 include $(BUILD_HEADER_LIBRARY)
-
-endif # not BUILD_TINY_ANDROID
-endif # BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE
