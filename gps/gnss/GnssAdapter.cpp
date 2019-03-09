@@ -1967,7 +1967,6 @@ GnssAdapter::enableCommand(LocationTechnologyType techType)
             } else if (powerVoteId > 0) {
                 err = LOCATION_ERROR_ALREADY_STARTED;
             } else {
-                mContext.modemPowerVote(true);
                 mAdapter.setPowerVoteId(mSessionId);
                 mApi.setGpsLock(GNSS_CONFIG_GPS_LOCK_NONE);
                 mAdapter.mXtraObserver.updateLockStatus(
@@ -1979,6 +1978,7 @@ GnssAdapter::enableCommand(LocationTechnologyType techType)
 
     if (mContext != NULL) {
         sendMsg(new MsgEnableGnss(*this, *mLocApi, *mContext, sessionId, techType));
+        mContext->modemPowerVote(true);
     } else {
         LOC_LOGE("%s]: Context is NULL", __func__);
     }
@@ -2011,7 +2011,6 @@ GnssAdapter::disableCommand(uint32_t id)
             if (powerVoteId != mSessionId) {
                 err = LOCATION_ERROR_ID_UNKNOWN;
             } else {
-                mContext.modemPowerVote(false);
                 mAdapter.setPowerVoteId(0);
                 mApi.setGpsLock(mAdapter.convertGpsLock(ContextBase::mGps_conf.GPS_LOCK));
                 mAdapter.mXtraObserver.updateLockStatus(
@@ -2023,6 +2022,7 @@ GnssAdapter::disableCommand(uint32_t id)
 
     if (mContext != NULL) {
         sendMsg(new MsgDisableGnss(*this, *mLocApi, *mContext, id));
+        mContext->modemPowerVote(false);
     }
 
 }
