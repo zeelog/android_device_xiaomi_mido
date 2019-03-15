@@ -57,4 +57,7 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+
+     <!-- QS tile title -->
+    <string name="dirac_qs_tile_title">Dirac sound</string>
 </resources>

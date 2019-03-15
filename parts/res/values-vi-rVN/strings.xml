@@ -56,4 +56,6 @@
     <string name="dirac_preset_country">Quê hương</string>
     <string name="dirac_preset_dance">Khiêu vũ</string>
     <string name="dirac_preset_metal">Kim loại</string>
+<!-- QS tile title -->
+    <string name="dirac_qs_tile_title">Âm thanh Dirac</string>
 </resources>

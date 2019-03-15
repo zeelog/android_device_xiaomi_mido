@@ -56,4 +56,6 @@
     <string name="dirac_preset_country">Кантрі</string>
     <string name="dirac_preset_dance">Танцювальна</string>
     <string name="dirac_preset_metal">Метал</string>
+     <!-- QS tile title -->
+    <string name="dirac_qs_tile_title">Dirac звук</string>
 </resources>
