@@ -203,6 +203,10 @@ PRODUCT_PACKAGES += \
     fakelogprint \
     libshims_gxfpd
 
+# FlipFlap
+PRODUCT_PACKAGES += \
+    FlipFlap
+
 # FM
 PRODUCT_PACKAGES += \
     RevampedFMRadio \
