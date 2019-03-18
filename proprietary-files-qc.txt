@@ -190,7 +190,6 @@ vendor/lib64/hw/gatekeeper.msm8953.so|c1b386547234815a0d6116b5e4756de66075cd3f
 vendor/bin/hw/vendor.qti.gnss@1.0-service|049201d8e22064b87eb52df208d8cda7066d140a
 vendor/bin/loc_launcher|23a4470552c0c418662a7d91fa7f593bee767459
 vendor/bin/lowi-server|f83f6ab9b978c618c87d2b5c66854533d0e3a66f
-vendor/bin/slim_daemon|070d038b64a1268d644e266ae3cd9982663f1b78
 vendor/bin/xtra-daemon|f4fdd2d7fc56472066b05899340eb19ff67d54b4
 vendor/etc/cacert_location.pem|0789bf799c7e45d352a83e2f79ddb0cea86db85b
 vendor/etc/init/vendor.qti.gnss@1.0-service.rc|98655e2adc2158a052b0ecf06b065535f0a2aac7
