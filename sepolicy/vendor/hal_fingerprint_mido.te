@@ -29,13 +29,10 @@ allow hal_fingerprint_mido storage_file:lnk_file read;
 set_prop(hal_fingerprint_mido, system_prop)
 r_dir_file(hal_fingerprint_mido, firmware_file)
 
-add_service(hal_fingerprint_mido, hal_fingerprint_mido_service);
-
 # Need to add auth tokens to KeyStore
 use_keystore(hal_fingerprint_mido)
 allow hal_fingerprint_mido keystore:keystore_key { add_auth };
 # need to find KeyStore and add self
-allow hal_fingerprint_mido hal_fingerprint_mido_service:service_manager { add find };
 
 allow hal_fingerprint_mido keystore_service:service_manager find;
 
