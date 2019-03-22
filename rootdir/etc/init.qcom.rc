@@ -339,13 +339,6 @@ service vendor.netmgrd /vendor/bin/netmgrd
     class main
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.ipacm-diag /vendor/bin/ipacm-diag
-    class main
-    user radio
-    socket ipacm_log_file dgram 660 radio radio
-    group radio diag oem_2901
-    writepid /dev/cpuset/system-background/tasks
-
 service vendor.ipacm /vendor/bin/ipacm
     class main
     user radio
