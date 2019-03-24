@@ -14,7 +14,6 @@ persist.vendor.audio.fluence.voicecall=true \
 persist.vendor.audio.fluence.voicerec=true \
 persist.vendor.audio.hw.binder.size_kbyte=1024 \
 persist.vendor.btstack.enable.splita2dp=false \
-ro.af.client_heap_size_kbyte=7168 \
 ro.config.media_vol_steps=25 \
 ro.config.vc_call_vol_steps=7 \
 ro.vendor.audio.sdk.fluencetype=fluence \
