@@ -6575,6 +6575,15 @@ int32_t QCameraParameters::setPreviewFpsRange(int min_fps,
     property_get("persist.debug.set.fixedfps", value, "0");
     fixedFpsValue = atoi(value);
 
+    // Workaround backend AEC bug that doesn't set high enough ISO values when the min FPS value
+    // is higher than expected, which resulted in a very dark preview in low light conditions
+    // while recording. The lowest FPS value AEC expects in such conditions is 19.99, so 15fps
+    // as the min FPS value should be sufficient.
+    if (!isHfrMode() && min_fps > 15000) {
+        LOGH("Original min_fps %d, changing min_fps to 15000", min_fps);
+        min_fps = 15000;
+    }
+
     LOGD("E minFps = %d, maxFps = %d , vid minFps = %d, vid maxFps = %d",
                  min_fps, max_fps, vid_min_fps, vid_max_fps);
 
