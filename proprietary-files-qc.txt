@@ -55,6 +55,12 @@ vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|8c68d863da2456efbc950
 vendor/lib64/libbtnv.so|35444e0ca93a50751db92aa4871cf277dc66b1fa
 vendor/lib64/libbt-hidlclient.so|0b0b69ef9787e3cd5409f0050cad03698dd6ce26
 
+# Bluetooth (aptX) - from marlin - OPM1.171019.011
+lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
+lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
+lib/libaptX_encoder.so|984739a0bc968e18f75ced205733fe3f51c2d4f0
+lib/libaptXHD_encoder.so|974c486e4ca03faa0713553d9dfe2995ac93e01c
+
 # Camera firmware - from Tissot PKQ1.180917.001/V10.0.7.0.PDHMIXM
 vendor/firmware/cpp_firmware_v1_8_0.fw|26e2badbb4e3049243f0a176722f26879e7b87e8
 vendor/firmware/cpp_firmware_v1_5_0.fw|ac19cd179b7b118bb3ea01a35fdfc78dc58164a1
