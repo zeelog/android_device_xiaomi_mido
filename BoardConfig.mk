@@ -195,7 +195,7 @@ TARGET_RIL_VARIANT := caf
 TARGET_USES_OLD_MNC_FORMAT := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2019-01-05
+VENDOR_SECURITY_PATCH := 2019-04-01
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
