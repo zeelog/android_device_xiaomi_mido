@@ -42,8 +42,7 @@ vendor.voice.voip.conc.disabled=true
 PRODUCT_PROPERTY_OVERRIDES += \
 bluetooth.hfp.client=1 \
 vendor.qcom.bluetooth.soc=smd \
-ro.bluetooth.hfp.ver=1.7 \
-ro.qualcomm.bt.hci_transport=smd
+ro.bluetooth.hfp.ver=1.7
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
