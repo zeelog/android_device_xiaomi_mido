@@ -1,49 +1,49 @@
-# ADSP - from Tissot PKQ1.180917.001/V10.0.7.0.PDHMIXM
-vendor/bin/adsprpcd|3d1e7e14dfc2f2468a06e0af9c0d34f4bda28d4b
-vendor/lib/libadsprpc.so|a2ff69f96a9242d4be0fe5cae2475c23294f937a
+# ADSP - from op3 PKQ1.181203.001 1904252148
+vendor/bin/adsprpcd|ef200e3bce4429fd9461c74330a003f069ffd5b3
+vendor/lib/libadsprpc.so|76cf6bd3975e933f1bec55499da3c3e7a17a9e6d
 vendor/lib/libadsp_default_listener.so|d9de89d55eba2d35a7583584b51335a663705fa7
 vendor/lib/libfastcvadsp_stub.so|6b50fd7d53811b51e06fedd87c12a794d0c2f645
-vendor/lib/libfastcvopt.so|be6d462207dcc238a734d324c479d1022a324c16
-vendor/lib/libmdsprpc.so|42d996c1d7b37f218ade5cd4b5ef0df37f93475f
-vendor/lib64/libadsprpc.so|fe4a7c28a2284ab95c068ad3ffaf256705cf9a02
-vendor/lib64/libadsp_default_listener.so|f7ea94537c66dfa11e1235064d43c8f56c3b3c51
-vendor/lib64/libfastcvadsp_stub.so|ad72fe745a7a8f4b3a355cc0aaf177c29301f29f
-vendor/lib64/libfastcvopt.so|8a5bc4a2f5b2b14c421eac5f7e828146ac0f0119
-vendor/lib64/libmdsprpc.so|1b11f9ee7a61d3b8f599f60a9d749d5829a750e6
+vendor/lib/libfastcvopt.so|797b9843ccc1f650d66831d645db2bc96b89c299
+vendor/lib/libmdsprpc.so|f56e3c3c9775e16bf4b92779e58b8596c13258ce
+vendor/lib64/libadsprpc.so|bc7504a5c64c73748927404be5ccfe4015146d25
+vendor/lib64/libadsp_default_listener.so|e1d57433c5af24e3227b679367c133dde1014714
+vendor/lib64/libfastcvadsp_stub.so|e25929713605e70417dee54b362b98d04a860f47
+vendor/lib64/libfastcvopt.so|28fa9dc4b44e86a9c1e722e5705adf047dd35d50
+vendor/lib64/libmdsprpc.so|f1f6d837221102f467e43a38b6c083294a6dfe7f
 
-# ADSP modules - from Tissot PKQ1.180917.001/V10.0.7.0.PDHMIXM
-vendor/lib/rfsa/adsp/libapps_mem_heap.so|5c82ad9cfe3f30105d899e2a4e90cc7566f81252
-vendor/lib/rfsa/adsp/libdspCV_skel.so|628985174b0088bed21c866d7984d23855e5e150
-vendor/lib/rfsa/adsp/libfastcvadsp_skel.so|1ff4a48009e88435d93fd2b9b0c5ea59cedbb4f7
-vendor/lib/rfsa/adsp/libfastcvadsp.so|9818625bfa018f517e32a8f4a1e7fb4b255e5049
+# ADSP modules - from op3 PKQ1.181203.001 1904252148
+vendor/lib/rfsa/adsp/libapps_mem_heap.so|fd362c6b0e30f62cc3fc4566855f46706d2c3c50
+vendor/lib/rfsa/adsp/libdspCV_skel.so|a788855fe98d5f6ea73d2693c983efb29165eae1
+vendor/lib/rfsa/adsp/libfastcvadsp_skel.so|a06a3f52e89d219d2da0c7205e714cd7429b267c
+vendor/lib/rfsa/adsp/libfastcvadsp.so|603711dc1af1f1952d8978a5b494b1541b24c54c
 vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so|f4d8675a46c5e52add8f8e90e35b29cd33ac582b
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_Qtc2_skel.so|b9f68e320d24e9c51871a2056e1f47239bd1cb40
-vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so|3e9c52069ff07e50191d3b3afb33b30409241ab6
-vendor/lib/rfsa/adsp/libscveT2T_skel.so|91b9200dbb982abf0d6b440668252d892a616f66
+vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so|99752b14bc669589f598b2c555af96834147e41e
+vendor/lib/rfsa/adsp/libscveT2T_skel.so|487f830aca26c85ef79c8b599b2f03668ab732b5
 
-# Audio - from Tissot PKQ1.180917.001/V10.0.7.0.PDHMIXM
-vendor/lib/libacdb-fts.so|f140cc5c13855f411d9b944316828b42dd6b7d75
-vendor/lib/libacdbloader.so|52fb25441a742d744f6574d1065ae1b822769c48
-vendor/lib/libacdbrtac.so|8a469a26ed1ecff8e22ee141d98bde97513a6212
-vendor/lib/libadiertac.so|e8e2c208abafc6d6c34717aee3d822bfb3a23f76
-vendor/lib/libadm.so|01e2316dfa1afcb000984e9f68903ba6a1220159
-vendor/lib/libaudcal.so|5a6b0fa75e274b07f2dabdcc7381879e1a59898c
-vendor/lib/libaudioalsa.so|920603e464d518c2a46daf1063a65f45f0236d72
+# Audio - from op3 PKQ1.181203.001 1904252148
+vendor/lib/libacdb-fts.so|100e698279595c86656d5c1fa1773863b4cd05f3
+vendor/lib/libacdbloader.so|b28fa1c9f39bc4f4641307c442a20cf53dd2acb8
+vendor/lib/libacdbrtac.so|25ea2d51f215c1e5e06b298d7c93097e93db7a63
+vendor/lib/libadiertac.so|e5231cdfc829b673702c4661751854bc44f7c72b
+vendor/lib/libadm.so|355bbe01f7117f3e16435224ce0c75b111a0f5b8
+vendor/lib/libaudcal.so|4508cee149c22b8e35e8f4423f38a8e8a9b5d130
+vendor/lib/libaudioalsa.so|5cdcd7d23d26b0576e8832fb8ad451e134ba1bb8
 vendor/lib/libdrc.so|7db89c6858c928457a8731d90ba874420972ec9b
-vendor/lib/libqtigef.so|fc40d4dbae0389afed79d2fcb481d1a49c63b749
+vendor/lib/libqtigef.so|9cd393596185026a68959b75cc7ac3b9342326a5
 vendor/lib/libsurround_3mic_proc.so|832adfad9f3d414234f1b4cfd32b196fe4082bb9
-vendor/lib/soundfx/libqcbassboost.so|0a730813a7335208a5368f48de4790abda536c59
-vendor/lib/soundfx/libqcreverb.so|3cbf222a205e4ccbe812fc69d580abd2237e64d5
-vendor/lib/soundfx/libqcvirt.so|8f60a539fe18de5944d5f1dcd6d0ec5e56b336ea
-vendor/lib64/libacdb-fts.so|1a298a90fe8007fe1a3b352ff7d19ae73734f3cc
-vendor/lib64/libacdbloader.so|2ecf30ba0171aab7fdc720446238d48048cf6b7e
-vendor/lib64/libacdbrtac.so|c44ff9b9aa63e34ca1b77a5f0bfb6a5e50585048
-vendor/lib64/libadiertac.so|aeaf6f057d26acf342609c714213e1c9b3409774
-vendor/lib64/libaudcal.so|96c43cbe0ac304ea128def709d7f3ea99db7f260
-vendor/lib64/libaudioalsa.so|4a27694b5a6842609a2f2572476b7af032ec7201
-vendor/lib64/libqtigef.so|79e811fd04172b0afda1229d182014be28a146b2
-vendor/lib64/soundfx/libqcbassboost.so|0b92d65381d9722c579ccfda12f86c7e3fcaedd1
-vendor/lib64/soundfx/libqcvirt.so|815b3a7cd762cdb6f162dde12c866acb23cdd022
+vendor/lib/soundfx/libqcbassboost.so|572d03f4566f3e08aeac948b9ef92817af243a39
+vendor/lib/soundfx/libqcreverb.so|a9ae6d150aae44358783e6b0c4cfb0b3fec27f6b
+vendor/lib/soundfx/libqcvirt.so|4181edde0747774830930f66f20a756fec95118d
+vendor/lib64/libacdb-fts.so|4f11f438d9830e1b6a9022e164e5c21a62a077cf
+vendor/lib64/libacdbloader.so|f7ea51ff749b47bbd18645b6e4358135d2deea65
+vendor/lib64/libacdbrtac.so|1c7f1cb8b4209e382e5c94f60b08e09cb3ad8b6f
+vendor/lib64/libadiertac.so|4e600d84dc23c6dfc9e73e49c6d9591941c95388
+vendor/lib64/libaudcal.so|093eb55abf185b82e534a6b606fb0da1d9c8b1cc
+vendor/lib64/libaudioalsa.so|2e5d0aa1aa495684a88eb3c0d1f4e69e75d554be
+vendor/lib64/libqtigef.so|fa32bd717e47be37ede9fe551270f4f4d9baebaa
+vendor/lib64/soundfx/libqcbassboost.so|fab0dcaedb029e1045ec1d03767fa10ad636307d
+vendor/lib64/soundfx/libqcvirt.so|c02d70d2405d4405d6d246b18fac5d2fde291692
 
 # ANT+ (vendor) - from Tissot PKQ1.180917.001/V10.0.7.0.PDHMIXM
 vendor/lib64/com.qualcomm.qti.ant@1.0.so|b35afe2c22970170a2164be199c65bb328a17383
