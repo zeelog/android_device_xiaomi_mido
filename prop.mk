@@ -105,12 +105,6 @@ vendor.hw.fm.init=0
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.frp.pst=/dev/block/bootdevice/by-name/config
 
-# GPS
-PRODUCT_PROPERTY_OVERRIDES += \
-persist.gps.qc_nlp_in_use=1 \
-persist.loc.nlp_name=com.qualcomm.location \
-ro.gps.agps_provider=1
-
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
 av.debug.disable.pers.cache=1 \
