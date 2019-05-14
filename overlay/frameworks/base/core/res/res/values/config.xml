@@ -69,25 +69,25 @@
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
-        <item>7.702998</item>
-        <item>32.31226</item>
-        <item>38.786167</item>
-        <item>43.30993</item>
-        <item>46.851162</item>
-        <item>55.90478</item>
-        <item>61.334614</item>
-        <item>68.4388</item>
-        <item>75.59099</item>
-        <item>82.8686</item>
-        <item>91.49397</item>
-        <item>102.49851</item>
-        <item>118.8174</item>
-        <item>144.68486</item>
-        <item>180.69225</item>
-        <item>225.84135</item>
-        <item>292.46844</item>
-        <item>377.05084</item>
-        <item>481.93427</item>
+        <item>3.3431</item>  <!-- 0-1 -->
+        <item>7.702998</item>  <!-- 1-2 -->
+        <item>15.45935</item>  <!-- 2-3 -->
+        <item>38.786167</item>  <!-- 3-4 -->
+        <item>43.30993</item>  <!-- 4-8 -->
+        <item>55.90478</item>  <!-- 8-12 -->
+        <item>61.334614</item>  <!-- 12-20 -->
+        <item>68.4388</item>  <!-- 20-33 -->
+        <item>75.59099</item>  <!-- 33-55 -->
+        <item>82.8686</item>  <!-- 55-90 -->
+        <item>91.49397</item>  <!-- 90-148 -->
+        <item>102.49851</item>  <!-- 148-245 -->
+        <item>118.8174</item>  <!-- 245-403 -->
+        <item>144.68486</item>  <!-- 403-665 -->
+        <item>180.69225</item>  <!-- 665-1097 -->
+        <item>225.84135</item>  <!-- 1097-1808 -->
+        <item>292.46844</item>  <!-- 1808-2981 -->
+        <item>377.05084</item>  <!-- 2981-5000 -->
+        <item>481.93427</item>  <!-- 5000+ -->
     </array>
 
     <!-- An array describing the screen's backlight values corresponding to the brightness
