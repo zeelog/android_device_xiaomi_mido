@@ -2,7 +2,6 @@
 
 <!--
 /* Copyright (c) 2017, The Linux Foundation. All rights reserved.
- * Copyright (c) 2018, The LineageOS Project.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -30,96 +29,71 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 -->
-<HintConfigs>
-    <Powerhint>
-        <!--preview-->
-        <!-- B CPU - above_hispeed_delay of 40 ms -->
-        <!-- B CPU - go hispeed load 95 -->
-        <!-- B CPU - hispeed freq of 556 MHz -->
-        <!-- B CPU - target load of 90 -->
-        <!-- L CPU - above_hispeed_delay of 40 ms -->
-        <!-- L CPU - go hispeed load 95 -->
-        <!-- L CPU - hispeed freq of 556 MHz- -->
-        <!-- L CPU - target load of 90 -->
-        <!-- CPUBW low power ceil mpbs of 2500 -->
-        <!-- CPUBW low power io percent of 50 -->
-        <Config
-            Id="0x00001300" Enable="true" Target="msm8953"
-            Resources="0x41400000, 0x4, 0x41410000, 0x5F, 0x41414000, 0x22C, 0x41420000, 0x5A, 0x41400100, 0x4, 0x41410100, 0x5F
-            , 0x41414100, 0x22C, 0x41420100, 0x5A, 0x41810000, 0x9C4, 0x41814000, 0x32" />
 
-        <!--video encode 30 fps-->
-        <!-- B CPU - above_hispeed_delay of 40 ms -->
-        <!-- B CPU - go hispeed load 95 -->
-        <!-- B CPU - hispeed freq of 806 MHz -->
-        <!-- B CPU - target load of 90 -->
-        <!-- L CPU - above_hispeed_delay of 40 ms -->
-        <!-- L CPU - go hispeed load 95 -->
-        <!-- L CPU - hispeed freq of 556 MHz- -->
-        <!-- L CPU - target load of 90 -->
-        <!-- CPUBW low power ceil mpbs of 2500 -->
-        <!-- CPUBW low power io percent of 50 -->
-        <!-- CPUBW disable hysteresis -->
-        <!-- CPUBW sample_ms of 10ms -->
-        <!-- L CPU - disable ignore_hispeed_notif -->
-        <!-- B CPU - disable ignore_hispeed_notif -->
-        <Config
-            Id="0x00001203" Enable="true" Target="msm8953"
-            Resources="0x41400000, 0x4, 0x41410000, 0x5F ,0x41414000, 0x326, 0x41420000, 0x5A, 0x41400100, 0x4, 0x41410100
-            , 0x5F, 0x41414100, 0x22C, 0x41420100, 0x5A, 0x41810000 ,0x9C4, 0x41814000,
-            0x32, 0x4180C000 ,0x0, 0x41820000, 0xA, 0x41438100, 0x0, 0x41438000, 0x0" />
-
-        <!--video decode-->
-        <!-- L CPU - above_hispeed_delay of 40 ms -->
-        <!-- L CPU - go hispeed load 95 -->
-        <!-- L CPU - hispeed freq of 768 MHz- -->
-        <!-- L CPU - target load of 90 -->
-        <!-- B CPU - above_hispeed_delay of 40 ms -->
-        <!-- B CPU - go hispeed load 95 -->
-        <!-- B CPU - hispeed freq of 729 MHz -->
-        <!-- B CPU - target load of 90 -->
-        <Config
-            Id="0x00001204" Enable="true" Target="msm8953"
-            Resources="0x41400100, 0x4, 0x41410100, 0x5F ,0x41414100, 0x2D9, 0x41420100, 0x5A, 0x41400000, 0x4, 0x41410000
-            , 0x5F, 0x41414000, 0x2D9, 0x41420000, 0x5A" />
-
-        <!--sustained performance-->
-        <!-- B CPU - Cluster min freq uncapped -->
-        <!-- L CPU - Cluster min freq uncapped -->
-        <!-- B CPU - Cluster max freq ~1.2 GHz -->
-        <!-- L CPU - Cluster max freq ~1.2 Ghz -->
-        <!-- GPU - min freq 180 Mhz -->
-        <!-- GPU - max freq 342 Mhz -->
-        <!-- GPUBW freq uncapped -->
-        <Config
-            Id="0x00001206" Enable="true" Target="msm8953"
-            Resources="0x40800000, 0x0, 0x40800100, 0x0, 0x40804000, 0x4E0, 0x40804100, 0x4E0,
-            0x4280C000, 0xB4, 0x42810000, 0x156, 0x42814000, 0x0"/>
-
-        <!--vr mode-->
-        <!-- B CPU - Cluster min freq ~1.4 Ghz -->
-        <!-- L CPU - Cluster min freq ~1.4 Ghz -->
-        <!-- B CPU - Cluster max freq ~1.4 Ghz -->
-        <!-- L CPU - Cluster max freq ~1.4 Ghz -->
-        <!-- GPU - min freq 510 Mhz -->
-        <!-- GPU - max freq 510 Mhz -->
-        <!-- GPUBW freq 775 Mhz-->
-        <Config
-            Id="0x00001207" Enable="true" Target="msm8953"
-            Resources="0x40800000, 0x579, 0x40800100, 0x579, 0x40804000, 0x579, 0x40804100, 0x579,
-            0x4280C000, 0x203, 0x42810000, 0x203, 0x42814000, 0x1E4F"/>
-
-        <!--vr mode sustained performance-->
-        <!-- B CPU - Cluster min freq ~1.2 Ghz -->
-        <!-- L CPU - Cluster min freq ~1.2 Ghz -->
-        <!-- B CPU - Cluster max freq ~1.2 Ghz -->
-        <!-- L CPU - Cluster max freq ~1.2 Ghz -->
-        <!-- GPU - min freq 342 Mhz -->
-        <!-- GPU - max freq 342 Mhz -->
-        <!-- GPUBW freq 775 Mhz -->
-        <Config
-            Id="0x00001301" Enable="true" Target="msm8953"
-            Resources="0x40800000, 0x4E0, 0x40800100, 0x4E0, 0x40804000, 0x4E0, 0x40804100, 0x4E0, 0x4280C000, 0x156,
-            0x42810000, 0x156, 0x42814000, 0x1E4F"/>
-    </Powerhint>
-</HintConfigs>
+<Powerhint>
+    <Hint type="0x0E00"> <!--preview-->
+        <Resource opcode="0x41400000" value="0x4"  />   <!-- B CPU - above_hispeed_delay of 40 ms -->
+        <Resource opcode="0x41410000" value="0x5F" />   <!-- B CPU - go hispeed load 95 -->
+        <Resource opcode="0x41414000" value="0x22C"/>   <!-- B CPU - hispeed freq of 556 MHz -->
+        <Resource opcode="0x41420000" value="0x5A" />   <!-- B CPU - target load of 90 -->
+        <Resource opcode="0x41400100" value="0x4"  />   <!-- L CPU - above_hispeed_delay of 40 ms -->
+        <Resource opcode="0x41410100" value="0x5F" />   <!-- L CPU - go hispeed load 95 -->
+        <Resource opcode="0x41414100" value="0x22C"/>   <!-- L CPU - hispeed freq of 556 MHz- -->
+        <Resource opcode="0x41420100" value="0x5A" />   <!-- L CPU - target load of 90 -->
+        <Resource opcode="0x41810000" value="0x9C4"/>   <!-- CPUBW low power ceil mpbs of 2500 -->
+        <Resource opcode="0x41814000" value="0x32" />   <!-- CPUBW low power io percent of 50 -->
+    </Hint>
+    <Hint type="0x0A00"> <!--video encode 30 fps-->
+        <Resource opcode="0x41400000" value="0x4"  />   <!-- B CPU - above_hispeed_delay of 40 ms -->
+        <Resource opcode="0x41410000" value="0x5F" />   <!-- B CPU - go hispeed load 95 -->
+        <Resource opcode="0x41414000" value="0x326"/>   <!-- B CPU - hispeed freq of 806 MHz -->
+        <Resource opcode="0x41420000" value="0x5A" />   <!-- B CPU - target load of 90 -->
+        <Resource opcode="0x41400100" value="0x4"  />   <!-- L CPU - above_hispeed_delay of 40 ms -->
+        <Resource opcode="0x41410100" value="0x5F" />   <!-- L CPU - go hispeed load 95 -->
+        <Resource opcode="0x41414100" value="0x22C"/>   <!-- L CPU - hispeed freq of 556 MHz- -->
+        <Resource opcode="0x41420100" value="0x5A" />   <!-- L CPU - target load of 90 -->
+        <Resource opcode="0x41810000" value="0x9C4"/>   <!-- CPUBW low power ceil mpbs of 2500 -->
+        <Resource opcode="0x41814000" value="0x32" />   <!-- CPUBW low power io percent of 50 -->
+        <Resource opcode="0x4180C000" value="0x0"  />   <!-- CPUBW disable hysteresis -->
+        <Resource opcode="0x41820000" value="0xA"  />   <!-- CPUBW sample_ms of 10ms -->
+        <Resource opcode="0x41438100" value="0x0"  />   <!-- L CPU - disable ignore_hispeed_notif -->
+        <Resource opcode="0x41438000" value="0x0"  />   <!-- B CPU - disable ignore_hispeed_notif -->
+    </Hint>
+    <Hint type="0x0B00"> <!--video decode-->
+        <Resource opcode="0x41400100" value="0x4"  />   <!-- L CPU - Above Hispeed Delay of 40ms -->
+        <Resource opcode="0x41410100" value="0x5F" />   <!-- L CPU - Go Hispeed Delay of 95 -->
+        <Resource opcode="0x41414100" value="0x2D9"/>   <!-- L CPU - Hispeed Freq of 768 MHz -->
+        <Resource opcode="0x41420100" value="0x5A" />   <!-- L CPU - Target Loads of 90 -->
+        <Resource opcode="0x41400000" value="0x4"  />   <!-- B CPU - Above Hispeed Delay of 40ms -->
+        <Resource opcode="0x41410000" value="0x5F" />   <!-- B CPU - Go Hispeed Load of 95 -->
+        <Resource opcode="0x41414000" value="0x2D9"/>   <!-- B CPU - Hispeed Freq of 729 MHz -->
+        <Resource opcode="0x41420000" value="0x5A" />   <!-- B CPU - Target Load of 90 -->
+    </Hint>
+	<Hint type="0x0F00"> <!--sustained performance-->
+        <Resource opcode="0x40800000" value="0x0"/>     <!-- B CPU - Cluster min freq uncapped -->
+        <Resource opcode="0x40800100" value="0x0"/>     <!-- L CPU - Cluster min freq uncapped -->
+        <Resource opcode="0x40804000" value="0x4E0"/>   <!-- B CPU - Cluster max freq ~1.2 GHz -->
+        <Resource opcode="0x40804100" value="0x4E0"/>   <!-- L CPU - Cluster max freq ~1.2 Ghz -->
+        <Resource opcode="0x4280C000" value="0xB4"/>    <!-- GPU - min freq 180 Mhz -->
+        <Resource opcode="0x42810000" value="0x156"/>   <!-- GPU - max freq 342 Mhz -->
+        <Resource opcode="0x42814000" value="0x0"/>     <!-- GPUBW freq uncapped -->
+    </Hint>
+	<Hint type="0x1000"> <!--vr mode-->
+        <Resource opcode="0x40800000" value="0x579"/>   <!-- B CPU - Cluster min freq ~1.4 Ghz -->
+        <Resource opcode="0x40800100" value="0x579"/>   <!-- L CPU - Cluster min freq ~1.4 Ghz -->
+        <Resource opcode="0x40804000" value="0x579"/>   <!-- B CPU - Cluster max freq ~1.4 Ghz -->
+        <Resource opcode="0x40804100" value="0x579"/>   <!-- L CPU - Cluster max freq ~1.4 Ghz -->
+        <Resource opcode="0x4280C000" value="0x203"/>   <!-- GPU - min freq 510 Mhz -->
+        <Resource opcode="0x42810000" value="0x203"/>   <!-- GPU - max freq 510 Mhz -->
+        <Resource opcode="0x42814000" value="0x1E4F"/>  <!-- GPUBW freq 775 Mhz-->
+    </Hint>
+	<Hint type="0x1001"> <!--vr mode sustained performance-->
+        <Resource opcode="0x40800000" value="0x4E0"/>   <!-- B CPU - Cluster min freq ~1.2 Ghz -->
+        <Resource opcode="0x40800100" value="0x4E0"/>   <!-- L CPU - Cluster min freq ~1.2 Ghz -->
+        <Resource opcode="0x40804000" value="0x4E0"/>   <!-- B CPU - Cluster max freq ~1.2 Ghz -->
+        <Resource opcode="0x40804100" value="0x4E0"/>   <!-- L CPU - Cluster max freq ~1.2 Ghz -->
+        <Resource opcode="0x4280C000" value="0x156"/>   <!-- GPU - min freq 342 Mhz -->
+        <Resource opcode="0x42810000" value="0x156"/>   <!-- GPU - max freq 342 Mhz -->
+        <Resource opcode="0x42814000" value="0x1E4F"/>  <!-- GPUBW freq 775 Mhz -->
+    </Hint>
+</Powerhint>
