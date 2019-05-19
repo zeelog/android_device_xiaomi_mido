@@ -196,13 +196,6 @@ on post-fs-data
     mkdir /data/vendor/connectivity 0771 radio radio
     chown radio radio /data/vendor/connectivity
 
-    # Create directory used by audio subsystem
-    mkdir /data/vendor/misc/audio 0770 audio audio
-
-    # Create directory for audio delta files
-    mkdir /data/vendor/misc/audio/acdbdata 0770 media audio
-    mkdir /data/vendor/misc/audio/acdbdata/delta 0770 media audio
-
     # Create directory for radio
     mkdir /data/vendor/radio 0770 system radio
 
