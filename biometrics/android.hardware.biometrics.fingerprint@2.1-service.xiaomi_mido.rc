@@ -14,13 +14,6 @@ service vendor.gx_fpd /vendor/bin/gx_fpd
      group system drmrpc
      writepid /dev/cpuset/system-background/tasks
 
-on post-fs-data
-    # Create directories for Fingerprint
-    mkdir /data/vendor/misc/qti_fp 0770 system system
-    mkdir /data/vendor/misc/qti_fp/bg_estimation 0770 system system
-    mkdir /data/vendor/misc/qti_fp/calib_test 0770 system system
-    mkdir /data/vendor/misc/qti_fp/database 0770 system system
-
 on boot
     # Fingerprint Permissions
     chown system system /dev/goodix_fp
