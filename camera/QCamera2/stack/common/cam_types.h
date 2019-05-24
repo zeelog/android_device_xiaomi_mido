@@ -82,7 +82,7 @@
 #define MAX_AF_STATS_DATA_SIZE  1000
 #define MAX_ASD_STATS_DATA_SIZE 1000
 
-#define MAX_CAPTURE_BATCH_NUM 32
+#define MAX_CAPTURE_BATCH_NUM 120
 
 #define TUNING_DATA_VERSION        6
 #define TUNING_SENSOR_DATA_MAX     0x10000 /*(need value from sensor team)*/
