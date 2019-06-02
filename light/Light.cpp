@@ -188,7 +188,7 @@ namespace V2_0 {
 namespace implementation {
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
-    LightStateHandler handler;
+    LightStateHandler handler = nullptr;
     bool handled = false;
 
     /* Lock global mutex until light state is updated. */
