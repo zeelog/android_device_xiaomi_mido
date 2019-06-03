@@ -189,7 +189,6 @@ namespace implementation {
 
 Return<Status> Light::setLight(Type type, const LightState& state) {
     LightStateHandler handler = nullptr;
-    bool handled = false;
 
     /* Lock global mutex until light state is updated. */
     std::lock_guard<std::mutex> lock(globalLock);
@@ -211,15 +210,12 @@ Return<Status> Light::setLight(Type type, const LightState& state) {
     for (LightBackend& backend : backends) {
         if (handler == backend.handler && isLit(backend.state)) {
             handler(backend.state);
-            handled = true;
-            break;
+            return Status::SUCCESS;
         }
     }
 
     /* If no type has been lit up, then turn off the hardware. */
-    if (!handled) {
-        handler(state);
-    }
+    handler(state);
 
     return Status::SUCCESS;
 }
