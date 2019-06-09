@@ -37,7 +37,9 @@
          Zone N  1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
+        <item>3</item>
         <item>4</item>
+        <item>6</item>
         <item>8</item>
         <item>12</item>
         <item>20</item>
@@ -66,8 +68,10 @@
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
-        <item>38.786167</item>  <!-- 0-4 -->
-        <item>43.30993</item>  <!-- 4-8 -->
+        <item>10.9800</item>  <!-- 0-3 -->
+        <item>13.2500</item>  <!-- 3-4 -->
+        <item>38.786167</item>  <!-- 4-6 -->
+        <item>43.30993</item>  <!-- 6-8 -->
         <item>55.90478</item>  <!-- 8-12 -->
         <item>61.334614</item>  <!-- 12-20 -->
         <item>68.4388</item>  <!-- 20-33 -->
