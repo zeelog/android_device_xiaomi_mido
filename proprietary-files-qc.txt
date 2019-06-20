@@ -178,7 +178,6 @@ vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc|458dd241f5f8536eccb
 vendor/lib/libwvhidl.so|5559b19fcaa0b462c387bafa173f1ea9fb578acf
 
 # FM Radio - from Tissot PKQ1.180917.001/V10.0.7.0.PDHMIXM
-vendor/bin/fm_qsoc_patches|77f31379d6bf68f2f0b3aa8936150b778c4e89ee
 vendor/lib64/vendor.qti.hardware.fm@1.0.so|32dd637f377d18e862ad24be7086a71a5fe52f71
 
 # Gatekeeper - from Tissot PKQ1.180917.001/V10.0.7.0.PDHMIXM
