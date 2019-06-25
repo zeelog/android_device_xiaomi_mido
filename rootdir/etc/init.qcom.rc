@@ -315,7 +315,6 @@ service vendor.dataqti /vendor/bin/qti
     class main
     user radio
     group radio oem_2901 diag usb net_admin
-    disabled
 
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
