@@ -19,18 +19,18 @@ vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so|ae6767fa6929cc263f524f3d43b30edde0189b59
 vendor/lib/libmmcamera2_dcrf.so|6dc8944dd3a4b24764f13ed996332f9f0bbee5fb
 vendor/lib/libmmcamera2_frame_algorithm.so
-vendor/lib/libmmcamera2_iface_modules.so|bf270e945bd6cb85da83afa6c66b1cf1e6533ccf
-vendor/lib/libmmcamera2_imglib_modules.so|5f89974c7b956807483ac20ac45b1b9e78ddb339
+vendor/lib/libmmcamera2_iface_modules.so|e44a72262b2c99c6ccd646247f820a20b4fa5360
+vendor/lib/libmmcamera2_imglib_modules.so|f259d152c74402c721c5c65577f6b6e41494d8b7
 vendor/lib/libmmcamera2_is.so
 vendor/lib/libmmcamera2_isp_modules.so
-vendor/lib/libmmcamera2_mct.so|ef51dbbdd15ddb56735e02b3a1536b3ab005af4f
+vendor/lib/libmmcamera2_mct.so|5f6d8656b1657041ebe3eb192d957f2b7bd36b1f
 vendor/lib/libmmcamera2_mct_shimlayer.so
 vendor/lib/libmmcamera2_pp_buf_mgr.so
 vendor/lib/libmmcamera2_pproc_modules.so|80fe1e2c4e09d97326ab1a8d91237c729dcacebb
 vendor/lib/libmmcamera2_q3a_core.so|4d8625cdebfc44dca7056ea201737dd48ef2e1cd
-vendor/lib/libmmcamera2_sensor_modules.so|d992775e3cb28dd3a3ccffe116fa33c15520be0e
+vendor/lib/libmmcamera2_sensor_modules.so|74e837d764f8a5e67fe3ff416d1cd990b765d699
 vendor/lib/libmmcamera2_stats_algorithm.so|b8bb13a69fdf3a866669be5cb468e8838f894258
-vendor/lib/libmmcamera2_stats_modules.so|17037fab464d52c4dc9fd5fdeba3cd2d428cf967
+vendor/lib/libmmcamera2_stats_modules.so|6168ec299059f22ebbade833cc43e027bc23e3d6
 vendor/lib/libmmcamera_atmel_at24c32e_eeprom.so
 vendor/lib/libmmcamera_chromaflash_lib.so
 vendor/lib/libmmcamera_csidtg.so
@@ -596,8 +596,8 @@ etc/camera/s5k5e8_sunny_chromatix.xml:vendor/etc/camera/s5k5e8_sunny_chromatix.x
 
 # Dirac
 vendor/etc/diracmobile.config
-vendor/lib/libDiracAPI_SHARED.so
-vendor/lib/soundfx/libdirac.so
+lib/libDiracAPI_SHARED.so:vendor/lib/libDiracAPI_SHARED.so
+lib/soundfx/libdirac.so:vendor/lib/soundfx/libdirac.so
 
 # Display calibration
 etc/qdcm_calib_data_ili9885_boe_fhd_video_mode_dsi_panel.xml:vendor/etc/qdcm_calib_data_ili9885_boe_fhd_video_mode_dsi_panel.xml
@@ -608,10 +608,10 @@ etc/qdcm_calib_data_r63350_ebbg_fhd_video_mode_dsi_panel.xml:vendor/etc/qdcm_cal
 
 # Fingerprint
 bin/gx_fpd:vendor/bin/gx_fpd
-lib/hw/fingerprint.searchf.so:vendor/lib/hw/fingerprint.searchf.so
+lib/hw/fingerprint.searchf.so:vendor/lib/hw/fingerprint.searchf.so|7ad2eb4d37d6fe8ac040168ea0d20f3d9af44f54
 lib64/hw/fingerprint.goodix.so:vendor/lib64/hw/fingerprint.goodix.so
-lib64/hw/fingerprint.searchf.so:vendor/lib64/hw/fingerprint.searchf.so
-lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so
+lib64/hw/fingerprint.searchf.so:vendor/lib64/hw/fingerprint.searchf.so|bf6fce6739ba843b93d2bf04c9fd69f33b4815c0
+lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so|21120610203e3e94a95610702a6f8f9f82535a69
 lib64/libfp_client.so:vendor/lib64/libfp_client.so
 lib64/libfpnav.so:vendor/lib64/libfpnav.so
 lib64/libfpservice.so:vendor/lib64/libfpservice.so
