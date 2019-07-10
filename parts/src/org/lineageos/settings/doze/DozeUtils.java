@@ -23,9 +23,9 @@ import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.UserHandle;
-import android.support.v7.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
+import androidx.preference.PreferenceManager;
 
 import static android.provider.Settings.Secure.DOZE_ENABLED;
 
