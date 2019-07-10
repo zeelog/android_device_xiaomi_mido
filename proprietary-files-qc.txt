@@ -223,65 +223,65 @@ vendor/lib64/vendor.qti.gnss@1.2.so|104f245c358ab202a57211f99898406cd5ad8e0e
 vendor/lib64/vendor.qti.gnss@2.0.so|b3f7ae76d4db00edce0c4f5a7084d7abeac0180a
 vendor/lib64/vendor.qti.gnss@2.1.so|eb908fd65d8b9d1f9cac629815f7adfb48361d16
 
-# Graphics - from op3 - PKQ1.181203.001
+# Graphics - from AquariusX2 (Zangya) PKQ1.190118.001/657
 vendor/lib/libsdm-disp-apis.so|5c7e946cfa654f533d481970da9b3d2e0c181161
 vendor/lib64/libsdm-disp-apis.so|c6681b458123832bb6f4015fd3e24032d5b2eff8
-vendor/lib/egl/eglSubDriverAndroid.so|8468cd8e90386a102d202a48b0c69045fed4af21
-vendor/lib/egl/libEGL_adreno.so|2d401579d0168e4e5ec214293b6a2c0d7c00e5b0
-vendor/lib/egl/libGLESv1_CM_adreno.so|f2670d6c7ef0f989f161a0e5b9b42b09873d936c
-vendor/lib/egl/libGLESv2_adreno.so|d014df897fc4f87d3d76283a63988c00079fde06
-vendor/lib/egl/libQTapGLES.so|46cd5ac004facb42bd3d6398d29e9bfe7b046de0
-vendor/lib/egl/libq3dtools_adreno.so|9f28306f1e31962eceb478bb7198c63e858ae331
-vendor/lib/egl/libq3dtools_esx.so|d108d6000e8085b7353747fb98c3e3b0774680fc
-vendor/lib/libC2D2.so|1a555aae15adb00b0cc0b43e14136956c0cd2c87
-vendor/lib/libCB.so|e399060808010433aa32890728ca684871e9bb5c
-vendor/lib/libOpenCL.so|74840ef50111c3232a7fcef79bf78e7fa516a237
-vendor/lib/libRSDriver_adreno.so|c89086f8cd9b9afb7725741e6653bcf7c5efcc75
-vendor/lib/libadreno_utils.so|bdf956793cdbfd7c672de756f66acdf9143d429a
-vendor/lib/libbccQTI.so|2876950b59585cf4ed60141c87b5f42bc84184aa
-vendor/lib/libc2d30_bltlib.so|55f4a13ce639973c9acf6cda4f682b531766b11b
-vendor/lib/libgsl.so|b9e2b05df65e005aa2670f096f15bbb530d4ef24
-vendor/lib/libllvm-glnext.so|6a15b7c723204f816b3c1ded2834c12c287a845b
-vendor/lib/libllvm-qcom.so|a8f924b3b9da2698fdf4bc7ff1fd737a9bdce60d
-vendor/lib/libmm-hdcpmgr.so|dc85ffe4147bb390127c3e7a8f972ef6135b31ed
-vendor/lib/librs_adreno.so|37722cd580823a183446f50d3d12e820648b67cc
-vendor/lib/librs_adreno_sha1.so|94d4a045a806e63e007fd008319e3cf1b6bb4da2
-vendor/lib64/egl/eglSubDriverAndroid.so|dc9cda8392b4305c46e9b21e38d4bf079ce639b7
-vendor/lib64/egl/libEGL_adreno.so|3c3979826fdfb8633c056fb6db3421b4e21a6f41
-vendor/lib64/egl/libGLESv1_CM_adreno.so|fa838b4a397022b539f95fb6cd4e12fab65a8aae
-vendor/lib64/egl/libGLESv2_adreno.so|f0557442e34f690a988d800c74b6fff7a7b43af7
-vendor/lib64/egl/libQTapGLES.so|0f9d9a1b67e574c41af1c62928c2db0783727912
-vendor/lib64/egl/libq3dtools_adreno.so|a7c5f6d3b795572a51d3697a3a97b14a8f1e6e90
-vendor/lib64/egl/libq3dtools_esx.so|f2b0a2a69e9d4fe25935e309e9d7b1843405702d
-vendor/lib64/libC2D2.so|ed4059076daac6819f985746ddf733d07596203c
-vendor/lib64/libCB.so|4b24c0a633508a8797853338567d7d577ea1ffcc
-vendor/lib64/libOpenCL.so|59820114c38b67126df7b8459c4524616ca4e9d1
-vendor/lib64/libRSDriver_adreno.so|5ffd4aa3a89ded70475b848609720dfa68514136
-vendor/lib64/libadreno_utils.so|22c8a10873d1659b3aa8431223416dca4ba572cb
-vendor/lib64/libbccQTI.so|bfe2c3f1f184881011628927ec41a2ed1bf8d8f4
-vendor/lib64/libc2d30_bltlib.so|ddc38db624d4aeaa6ce569490815298fef5b4b44
-vendor/lib64/libgsl.so|f62be91c4fbc11fd30aca550e19ae51825abb759
-vendor/lib64/libllvm-glnext.so|d4a73c95f64d12edf1f76f9afecad0a5db5b90d3
-vendor/lib64/libllvm-qcom.so|2cd92fac3d99fcb5e95ea6481f416cd736a6af7d
-vendor/lib64/libmm-hdcpmgr.so|151cd14d6408bbfbd9e74a83a2e2668d9d832b3c
-vendor/lib64/librs_adreno.so|3669aa82d7684e799eae5b5c4df6a742bba90821
-vendor/lib64/librs_adreno_sha1.so|614c82c5480cad069170c85d523c2dc25a026383
+vendor/lib/egl/eglSubDriverAndroid.so|2dc3ea90fd0e6c7ad1864a23cf736eedcfa4c985
+vendor/lib/egl/libEGL_adreno.so|adfa25a02996babb29fe6752ef01a25d9482f7d8
+vendor/lib/egl/libGLESv1_CM_adreno.so|0930a64d8889c184de31a085539e1b8b28520a31
+vendor/lib/egl/libGLESv2_adreno.so|a0f957324a8bf97025da7eea9af3b0d08464acfb
+vendor/lib/egl/libQTapGLES.so|7641cd4f894d86f53394bcdc421ecae254afaf30
+vendor/lib/egl/libq3dtools_adreno.so|a2506b94eb0fe3c2bccc7c8e6d8b8d21bd314ae8
+vendor/lib/egl/libq3dtools_esx.so|9116ff1328163d82ca624ea02f09d80ec0f055dc
+vendor/lib/libC2D2.so|a110bf0568eef9e49b251b7750cf6e51c3c85969
+vendor/lib/libCB.so|d9c41b9245b541fa818e63c60e42768306c83bfb
+vendor/lib/libOpenCL.so|fbf2d8e82973ea44583f1ca6a624163759167a73
+vendor/lib/libRSDriver_adreno.so|7e6b61cb975de2029ea6debe4fe442852da06e00
+vendor/lib/libadreno_utils.so|9930d4a99e10bdc821e3609695100248d36b3913
+vendor/lib/libbccQTI.so|aa1220cad9df3c39c0c14c4a36546342cc518ad1
+vendor/lib/libc2d30_bltlib.so|e9767a3e4e674d42f23f5482471d38973e038d45
+vendor/lib/libgsl.so|665a6668c528cbf0681e266ddf0e3e78977cafe8
+vendor/lib/libllvm-glnext.so|8ebcbe46aa922596c5b6b7951dae957ec88a8135
+vendor/lib/libllvm-qcom.so|ee5b5f6e78e7e82d277fb8a90b91bb2a3398447e
+vendor/lib/libmm-hdcpmgr.so|1ece57120c97c2f1168950ca7469460caaa4e954
+vendor/lib/librs_adreno.so|41b2a1b35a8a9966728cea607bf5b7a8f568680d
+vendor/lib/librs_adreno_sha1.so|b846ff1c796978e8158c6ac78c12c631ea9274fe
+vendor/lib64/egl/eglSubDriverAndroid.so|2f3edc8062166bc55cdfbc27fc2e5dc0dd3c5cbc
+vendor/lib64/egl/libEGL_adreno.so|62929bf23ecea823418910defed80bad5fc3416c
+vendor/lib64/egl/libGLESv1_CM_adreno.so|95497830d4e08c02a3b6d82bc7623f926d2ef9ed
+vendor/lib64/egl/libGLESv2_adreno.so|ee893661e7aecb05f9d7e035478ef72352ad31e1
+vendor/lib64/egl/libQTapGLES.so|dac820eea4d54f98f7e20a49b82404de6f09743b
+vendor/lib64/egl/libq3dtools_adreno.so|4bd18c19a4d8376311983303b0971a7aa1334897
+vendor/lib64/egl/libq3dtools_esx.so|19d96756fda3f1ba0251c041120d1d4f3a5a8d03
+vendor/lib64/libC2D2.so|724684ac0e167bc729cbdea1ee9e21da248cfd58
+vendor/lib64/libCB.so|447d353120fa1e221fd2b4360d231ba568aecd98
+vendor/lib64/libOpenCL.so|1e78c9b98378803703835a3e1cbfabf43318f341
+vendor/lib64/libRSDriver_adreno.so|3d77fb21a40b98e908840aa89d044aea4f695694
+vendor/lib64/libadreno_utils.so|c2a2afcee56cad745ad5444c3385fb74c0fb9ff2
+vendor/lib64/libbccQTI.so|be1ae3a075c42dcb19bc6e1ecd7374f9aeae083c
+vendor/lib64/libc2d30_bltlib.so|e950f918802d3d3e656ab4f0fe731bb60e1b357e
+vendor/lib64/libgsl.so|f45d67c2bb1dc10609ae2936256834c225b26334
+vendor/lib64/libllvm-glnext.so|3db54dad4b70e599abbd736ef98759438241b5d8
+vendor/lib64/libllvm-qcom.so|4e9dc8128379692407bf730f1b1ebdd3307bd5c0
+vendor/lib64/libmm-hdcpmgr.so|f42daaad4741e87db5f4e11633a0b7a8f8eba687
+vendor/lib64/librs_adreno.so|b6bc2274fc4079818f3124a694348a890c5d7b07
+vendor/lib64/librs_adreno_sha1.so|4ff782e5e2b20ef901f16830ef671e22a82ac030
 
-# Graphics (HDR) - from op3 - PKQ1.181203.001
-vendor/lib/libhdr_tm.so|37381160c5f44f3974af22fb09f394c0fd1fd3bd
-vendor/lib64/libhdr_tm.so|7a05d56d8305c8df87392b93929949178c336b83
+# Graphics (HDR) - from AquariusX2 (Zangya) PKQ1.190118.001/657
+vendor/lib/libhdr_tm.so|17705b090e4e8b487a39071b2f46a45324d611a6
+vendor/lib64/libhdr_tm.so|a44d285a08aa30ef90e791c646b9c12a697a30b2
 
-# Graphics (Postprocessing) - from op3 - PKQ1.181203.001
-vendor/bin/hw/vendor.display.color@1.0-service|2ca340c7fd7689ac8ddf36f948fd95a7cd3bfc2e
-vendor/bin/mm-pp-dpps|c89656e2349f6c81fe9a26e7c70e304ea77e1079
+# Graphics (Postprocessing) - from AquariusX2 (Zangya) PKQ1.190118.001/657
+vendor/bin/hw/vendor.display.color@1.0-service|e6dbb06d0d82ffe3328e7ddd259db02f80c1669e
+vendor/bin/mm-pp-dpps|f72a48703c0b9f5ab3ce176c12e8c769e20837a3
 vendor/etc/init/vendor.display.color@1.0-service.rc|5ad673f879b3685a0e79b5633437e5499cb94f48
-vendor/lib/libdisp-aba.so|1779aa9d99a04db3ab1b5546bd243ba3ecfc1bb5
-vendor/lib/vendor.display.color@1.0.so|d5f3693e462c1832ea5407ce2eded800641f6d80
-vendor/lib64/libdisp-aba.so|95cafbc303cbf3017c7f10276454ef908b258b1c
-vendor/lib64/vendor.display.color@1.0.so|a41a76b08f60c0e8787d0e5b6a3155f11f58a5fc
-vendor/lib64/vendor.display.color@1.1.so|388404f39cd0c2dd3ea9fc59ee950edf24f78a87
-vendor/lib64/vendor.display.color@1.2.so|da1c83747c7bb4a64cf380bdb889cb811b67bc2e
-vendor/lib64/vendor.display.postproc@1.0.so|f6dae960f3f4eea0d5d36aea4ac0a2e0039691f5
+vendor/lib/libdisp-aba.so|75008ca9696ded106b6bf47e2968d8a8a9dcc897
+vendor/lib/vendor.display.color@1.0.so|f3acc62f826200030db8a565aeab4445c6fb53ef
+vendor/lib64/libdisp-aba.so|09a8d5f64b3a6f6f57971ad6fab62cfde4e98547
+vendor/lib64/vendor.display.color@1.0.so|6093f6b3f654ea557ea297e695bc92a8fbae0c13
+vendor/lib64/vendor.display.color@1.1.so|d08173e23f648017e4226f88efe419e8931a64d6
+vendor/lib64/vendor.display.color@1.2.so|264433edda1e8e7fb8775a6427ace27be4a33e63
+vendor/lib64/vendor.display.postproc@1.0.so|44a60e215fc075f09973f033bacc89af2afe4164
 
 # Graphics (SDM) - from op3 - PKQ1.181203.001
 vendor/lib/libscalar.so|cad128a6e71195b4ad38494bc0382bf80e1fb0b2
