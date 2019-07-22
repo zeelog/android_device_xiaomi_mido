@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.ir@1.0-service.xiaomi_8996"
+#define LOG_TAG "android.hardware.ir@1.0-service.xiaomi_mido"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
