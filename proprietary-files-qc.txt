@@ -79,7 +79,7 @@ vendor/bin/hvdcp_opti|7ee82dd264c7c349fb498111a61d5009ae9f0da2
 
 # CNE - from Tissot PKQ1.180917.001/V10.0.10.0.PDHMIXM
 etc/permissions/cneapiclient.xml|15831adf0e80243042b90c734eea0a68eb8ae9c9
-etc/permissions/com.quicinc.cne.xml|e99e631d8b06ba4680529e9e4004d8d05baf6904
+etc/permissions/com.quicinc.cne.xml|11e268c0dc00ff05a989556c078fd595a89d1d33
 framework/cneapiclient.jar|af7db889362e562a4c5073bb6aae32947218abf0
 framework/com.quicinc.cne.api-V1.0-java.jar|9cf7b7f1784c3594e3329954f64b1b129c433e8d
 framework/com.quicinc.cne.jar|ce985797730a043142c2312e30ada28cb755faef
