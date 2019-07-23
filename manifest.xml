@@ -90,17 +90,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>android.hardware.drm</name>
         <transport>hwbinder</transport>
-        <version>1.1</version>
+        <version>1.0</version>
         <interface>
             <name>ICryptoFactory</name>
-            <instance>widevine</instance>
-            <instance>clearkey</instance>
             <instance>default</instance>
         </interface>
         <interface>
             <name>IDrmFactory</name>
-            <instance>widevine</instance>
-            <instance>clearkey</instance>
             <instance>default</instance>
         </interface>
         <fqname>@1.1::ICryptoFactory/clearkey</fqname>
@@ -124,9 +120,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <interface>
             <name>IGnss</name>
             <instance>default</instance>
+            <instance>gnss_vendor</instance>
         </interface>
-        <fqname>@1.0::IGnss/default</fqname>
-        <fqname>@1.0::IGnss/gnss_vendor</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.graphics.allocator</name>
@@ -250,6 +245,20 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <name>android.hardware.renderscript</name>
         <transport arch="32+64">passthrough</transport>
         <version>1.0</version>
+        <interface>
+            <name>IDevice</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+       <name>android.hardware.secure_element</name>
+       <transport>hwbinder</transport>
+       <version>1.0</version>
+       <interface>
+           <name>ISecureElement</name>
+           <instance>SIM1</instance>
+           <instance>SIM2</instance>
+       </interface>
     </hal>
     <hal format="hidl">
         <name>android.hardware.sensors</name>
@@ -496,7 +505,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>ILocHidlGnss</name>
             <instance>gnss_vendor</instance>
         </interface>
-        <fqname>@1.0::ILocHidlGnss/gnss_vendor</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>
@@ -543,6 +551,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <interface>
             <name>IUimLpa</name>
             <instance>UimLpa0</instance>
+            <instance>UimLpa1</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -553,6 +562,16 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IQtiOemHook</name>
             <instance>oemhook0</instance>
             <instance>oemhook1</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.radio.qtiradio</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IQtiRadio</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -605,6 +624,15 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.ims.callinfo</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.imsrtpservice</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -613,4 +641,4 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>imsrtpservice</instance>
         </interface>
     </hal>
-</manifest> 
+</manifest>
