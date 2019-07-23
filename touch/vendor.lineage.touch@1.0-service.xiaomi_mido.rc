@@ -8,7 +8,7 @@ on init
     chown system system /sys/class/tp_glove/device/glove_enable
     chmod 0660 /sys/class/tp_glove/device/glove_enable
 
-service vendor.touch-hal-1-0-xiaomi_mido /vendor/bin/hw/vendor.lineage.touch@1.0-service.xiaomi_mido
+service vendor.touch-hal-1-0 /vendor/bin/hw/vendor.lineage.touch@1.0-service.xiaomi_mido
     class hal
     user system
     group system
