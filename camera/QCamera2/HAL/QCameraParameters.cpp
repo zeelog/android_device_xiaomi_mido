@@ -5734,7 +5734,7 @@ int32_t QCameraParameters::initDefaultParameters()
             ANTIBANDING_MODES_MAP,
             PARAM_MAP_SIZE(ANTIBANDING_MODES_MAP));
     set(KEY_SUPPORTED_ANTIBANDING, antibandingValues);
-    setAntibanding(ANTIBANDING_OFF);
+    setAntibanding(ANTIBANDING_AUTO);
 
     // Set Effect
     String8 effectValues = createValuesString(
