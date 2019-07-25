@@ -45,7 +45,7 @@
          This needs to match the enums in
          sdk/src/java/org/lineageos/internal/util/DeviceKeysConstants.java.
     -->
-    <integer name="config_longPressOnAppSwitchBehavior">1</integer>
+    <integer name="config_longPressOnAppSwitchBehavior">9</integer>
 
    <!-- All the capabilities of the LEDs on this device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
