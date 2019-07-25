@@ -1,4 +1,4 @@
-/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2015-2017, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -287,6 +287,7 @@ lib2d_error mm_lib2d_init(lib2d_mode mode, cam_format_t src_format,
   mm_lib2d_obj        *lib2d_obj  = NULL;
   img_core_ops_t      *p_core_ops = NULL;
   img_component_ops_t *p_comp     = NULL;
+  pthread_condattr_t cond_attr;
 
   if (my_obj == NULL) {
     return MM_LIB2D_ERR_BAD_PARAM;
@@ -329,8 +330,12 @@ lib2d_error mm_lib2d_init(lib2d_mode mode, cam_format_t src_format,
   p_core_ops = &lib2d_obj->core_ops;
   p_comp     = &lib2d_obj->comp;
 
+  pthread_condattr_init(&cond_attr);
+  pthread_condattr_setclock(&cond_attr, CLOCK_MONOTONIC);
+
   pthread_mutex_init(&lib2d_obj->mutex, NULL);
-  pthread_cond_init(&lib2d_obj->cond, NULL);
+  pthread_cond_init(&lib2d_obj->cond, &cond_attr);
+  pthread_condattr_destroy(&cond_attr);
 
   rc = lib2d_obj->img_lib.img_core_get_comp(IMG_COMP_LIB2D,
     "qti.lib2d", p_core_ops);

@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2017, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -504,6 +504,7 @@ int32_t mm_camera_poll_thread_launch(mm_camera_poll_thread_t * poll_cb,
     int32_t rc = 0;
     size_t i = 0, cnt = 0;
     poll_cb->poll_type = poll_type;
+    pthread_condattr_t cond_attr;
 
     //Initialize poll_fds
     cnt = sizeof(poll_cb->poll_fds) / sizeof(poll_cb->poll_fds[0]);
@@ -530,8 +531,12 @@ int32_t mm_camera_poll_thread_launch(mm_camera_poll_thread_t * poll_cb,
          poll_cb->poll_type,
         poll_cb->pfds[0], poll_cb->pfds[1],poll_cb->timeoutms);
 
+    pthread_condattr_init(&cond_attr);
+    pthread_condattr_setclock(&cond_attr, CLOCK_MONOTONIC);
+
     pthread_mutex_init(&poll_cb->mutex, NULL);
-    pthread_cond_init(&poll_cb->cond_v, NULL);
+    pthread_cond_init(&poll_cb->cond_v, &cond_attr);
+    pthread_condattr_destroy(&cond_attr);
 
     /* launch the thread */
     pthread_mutex_lock(&poll_cb->mutex);

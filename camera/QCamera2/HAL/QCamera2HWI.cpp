@@ -1681,18 +1681,23 @@ QCamera2HardwareInterface::QCamera2HardwareInterface(uint32_t cameraId)
     mCameraDevice.ops = &mCameraOps;
     mCameraDevice.priv = this;
 
+    pthread_condattr_t mCondAttr;
+
+    pthread_condattr_init(&mCondAttr);
+    pthread_condattr_setclock(&mCondAttr, CLOCK_MONOTONIC);
+
     pthread_mutex_init(&m_lock, NULL);
-    pthread_cond_init(&m_cond, NULL);
+    pthread_cond_init(&m_cond, &mCondAttr);
 
     m_apiResultList = NULL;
 
     pthread_mutex_init(&m_evtLock, NULL);
-    pthread_cond_init(&m_evtCond, NULL);
+    pthread_cond_init(&m_evtCond, &mCondAttr);
     memset(&m_evtResult, 0, sizeof(qcamera_api_result_t));
 
-
     pthread_mutex_init(&m_int_lock, NULL);
-    pthread_cond_init(&m_int_cond, NULL);
+    pthread_cond_init(&m_int_cond, &mCondAttr);
+    pthread_condattr_destroy(&mCondAttr);
 
     memset(m_channels, 0, sizeof(m_channels));
 
@@ -5175,10 +5180,12 @@ void QCamera2HardwareInterface::checkIntPicPending(bool JpegMemOpt, char *raw_fo
     int rc = NO_ERROR;
 
     struct timespec   ts;
-    struct timeval    tp;
-    gettimeofday(&tp, NULL);
+    struct timespec   tp;
+    if( clock_gettime(CLOCK_MONOTONIC, &tp) < 0) {
+        LOGE("Error reading the monotonic time clock, cannot use timed wait");
+    }
     ts.tv_sec  = tp.tv_sec + 5;
-    ts.tv_nsec = tp.tv_usec * 1000;
+    ts.tv_nsec = tp.tv_nsec;
 
     if (true == m_bIntJpegEvtPending ||
         (true == m_bIntRawEvtPending)) {

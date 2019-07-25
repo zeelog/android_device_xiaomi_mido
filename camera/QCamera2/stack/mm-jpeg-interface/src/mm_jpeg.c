@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2016, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2012-2017, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -367,8 +367,13 @@ OMX_ERRORTYPE mm_jpeg_session_create(mm_jpeg_job_session_t* p_session)
   OMX_ERRORTYPE rc = OMX_ErrorNone;
   mm_jpeg_obj *my_obj = (mm_jpeg_obj *) p_session->jpeg_obj;
 
+  pthread_condattr_t cond_attr;
+  pthread_condattr_init(&cond_attr);
+  pthread_condattr_setclock(&cond_attr, CLOCK_MONOTONIC);
+
   pthread_mutex_init(&p_session->lock, NULL);
-  pthread_cond_init(&p_session->cond, NULL);
+  pthread_cond_init(&p_session->cond, &cond_attr);
+  pthread_condattr_destroy(&cond_attr);
   cirq_reset(&p_session->cb_q);
   p_session->state_change_pending = OMX_FALSE;
   p_session->abort_state = MM_JPEG_ABORT_NONE;
