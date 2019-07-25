@@ -1990,6 +1990,7 @@ void *QCamera3PostProcessor::dataProcessRoutine(void *data)
             pme->m_inputPPQ.init();
             pme->m_inputFWKPPQ.init();
             pme->m_inputMetaQ.init();
+            pme->m_jpegSettingsQ.init();
             cam_sem_post(&cmdThread->sync_sem);
 
             break;
@@ -2031,6 +2032,7 @@ void *QCamera3PostProcessor::dataProcessRoutine(void *data)
                 pme->m_inputFWKPPQ.flush();
 
                 pme->m_inputMetaQ.flush();
+                pme->m_jpegSettingsQ.flush();
 
                 // signal cmd is completed
                 cam_sem_post(&cmdThread->sync_sem);
