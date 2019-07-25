@@ -1679,8 +1679,8 @@ int QCamera3HardwareInterface::configureStreamsPerfLocked(
         return -EINVAL;
     }
     /* Check whether we have zsl stream or 4k video case */
-    if (isZsl && m_bIsVideo) {
-        LOGE("Currently invalid configuration ZSL&Video!");
+    if (isZsl && m_bIs4KVideo) {
+        LOGE("Currently invalid configuration ZSL & 4K Video!");
         pthread_mutex_unlock(&mMutex);
         return -EINVAL;
     }
