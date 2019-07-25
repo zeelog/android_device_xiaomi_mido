@@ -1617,6 +1617,7 @@ void QCameraPostProcessor::releaseOngoingPPData(void *data, void *user_data)
                 && (pp_job->offline_buffer)) {
             free(pp_job->offline_reproc_buf);
             pp_job->offline_buffer = false;
+            pp_job->offline_reproc_buf = NULL;
         }
         pp_job->reprocCount = 0;
     }
@@ -3181,14 +3182,18 @@ int32_t QCameraPostProcessor::doReprocess()
                 ret = mPPChannels[mCurChannelIdx]->doReprocessOffline(ppInputFrame,
                         meta_buf, m_parent->mParameters);
                 if (ret != NO_ERROR) {
+                    m_ongoingPPQ.dequeue(false);
                     pthread_mutex_unlock(&m_reprocess_lock);
                     goto end;
                 }
 
                 if ((ppreq_job->offline_buffer) &&
                         (ppreq_job->offline_reproc_buf)) {
-                    mPPChannels[mCurChannelIdx]->doReprocessOffline(
+                    ret = mPPChannels[mCurChannelIdx]->doReprocessOffline(
                             ppreq_job->offline_reproc_buf, meta_buf);
+                    if (ret != NO_ERROR) {
+                        m_ongoingPPQ.dequeue(false);
+                    }
                 }
                 pthread_mutex_unlock(&m_reprocess_lock);
             } else {
@@ -3233,6 +3238,9 @@ int32_t QCameraPostProcessor::doReprocess()
 
             ret = mPPChannels[mCurChannelIdx]->doReprocess(ppInputFrame,
                     m_parent->mParameters, pMetaStream, meta_buf_index);
+            if (ret != NO_ERROR) {
+                m_ongoingPPQ.dequeue(false);
+            }
         }
     } else {
         LOGE("Reprocess channel is NULL");
