@@ -256,6 +256,7 @@ private:
     int32_t m_DelayedMsgs;
     bool m_RestoreZSL;
     bool m_bPreviewCallbackNeeded;
+    bool m_bPreviewRestartedInternal;
 };
 
 }; // namespace qcamera
