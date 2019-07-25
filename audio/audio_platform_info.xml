@@ -59,7 +59,7 @@
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT" acdb_id="136"/>
         <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" acdb_id="137"/>
 
-	<device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC_BROADSIDE" acdb_id="121"/>
+        <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC_BROADSIDE" acdb_id="121"/>
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS_BROADSIDE" acdb_id="105"/>
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_BROADSIDE" acdb_id="119"/>
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_NS_BROADSIDE" acdb_id="120"/>
@@ -78,6 +78,10 @@
 	<device name="SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT" acdb_id="136"/>
 	<device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_1" acdb_id="137"/>
 	<device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK_MONO_2" acdb_id="137"/>
+
+	<!-- microphone fix -->
+        <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="1"/>
+        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC" acdb_id="1"/>
     </acdb_ids>
     <!-- below values are for ref purpose to OEM, doesn't contain actual hardware info on MTP -->
     <microphone_characteristics>
