@@ -741,10 +741,6 @@ void QCamera2HardwareInterface::synchronous_stream_cb_routine(
     }*/
     stream->mStreamTimestamp = frameTime;
 
-#ifdef TARGET_TS_MAKEUP
-    pme->TsMakeupProcess_Preview(frame,stream);
-#endif
-
     // Enqueue  buffer to gralloc.
     uint32_t idx = frame->buf_idx;
     LOGD("%p Enqueue Buffer to display %d frame Time = %lld Display Time = %lld",
