@@ -330,6 +330,7 @@ int32_t QCameraPostProcessor::stop()
             pChannel->stop();
             delete pChannel;
             pChannel = NULL;
+            mPPChannels[i] = NULL;
         }
     }
     mPPChannelCount = 0;
