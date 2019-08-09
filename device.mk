@@ -148,6 +148,7 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdMetaData.system \
     libgenlock \
+    libnl \
     libtinyxml
 
 # Device-specific settings
