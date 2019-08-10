@@ -29,6 +29,7 @@
     <param version="0x0101" /> <!-- this must be the first param -->
 
     <common_config>
+        <param implementer_version="0x0100" />
         <param max_cpe_sessions="1" />
         <param max_ape_sessions="5" />
         <param enable_failure_detection="false" />
