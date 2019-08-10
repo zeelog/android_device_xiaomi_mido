@@ -74,6 +74,7 @@ ro.sf.lcd_density=420 \
 ro.vendor.display.cabl=2 \
 vendor.display.enable_default_color_mode=1 \
 vendor.display.disable_skip_validate=1 \
+vendor.gralloc.disable_wb_ubwc=1 \
 vendor.gralloc.enable_fb_ubwc=1
 
 # DRM
@@ -166,4 +167,5 @@ wifi.interface=wlan0
 # Wifi-Display
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.debug.wfd.enable=1 \
+persist.sys.wfd.nohdcp=1 \
 persist.sys.wfd.virtual=0
