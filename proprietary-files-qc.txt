@@ -259,17 +259,17 @@ vendor/lib64/librs_adreno_sha1.so|4ff782e5e2b20ef901f16830ef671e22a82ac030
 vendor/lib/libhdr_tm.so|17705b090e4e8b487a39071b2f46a45324d611a6
 vendor/lib64/libhdr_tm.so|a44d285a08aa30ef90e791c646b9c12a697a30b2
 
-# Graphics (Postprocessing) - from AquariusX2 (Zangya) PKQ1.190118.001/657
+# Graphics (Postprocessing) - from AquariusX2 Pro (Zangya Pro) PKQ1.190118.001/920
 vendor/bin/hw/vendor.display.color@1.0-service|e6dbb06d0d82ffe3328e7ddd259db02f80c1669e
 vendor/bin/mm-pp-dpps|f72a48703c0b9f5ab3ce176c12e8c769e20837a3
 vendor/etc/init/vendor.display.color@1.0-service.rc|5ad673f879b3685a0e79b5633437e5499cb94f48
 vendor/lib/libdisp-aba.so|75008ca9696ded106b6bf47e2968d8a8a9dcc897
-vendor/lib/vendor.display.color@1.0.so|f3acc62f826200030db8a565aeab4445c6fb53ef
+vendor/lib/vendor.display.color@1.0.so|5910d16429426831799379bef45a91fb73f1b96b
 vendor/lib64/libdisp-aba.so|09a8d5f64b3a6f6f57971ad6fab62cfde4e98547
-vendor/lib64/vendor.display.color@1.0.so|6093f6b3f654ea557ea297e695bc92a8fbae0c13
-vendor/lib64/vendor.display.color@1.1.so|d08173e23f648017e4226f88efe419e8931a64d6
-vendor/lib64/vendor.display.color@1.2.so|264433edda1e8e7fb8775a6427ace27be4a33e63
-vendor/lib64/vendor.display.postproc@1.0.so|44a60e215fc075f09973f033bacc89af2afe4164
+vendor/lib64/vendor.display.color@1.0.so|346620084ad60243985250d4082945e6b267c501
+vendor/lib64/vendor.display.color@1.1.so|8fda7c6969fa1ea2104c0c3ebb61f89bf3e22c7b
+vendor/lib64/vendor.display.color@1.2.so|796116f179007448a9fe71c63a18b29030322337
+vendor/lib64/vendor.display.postproc@1.0.so|c6e7afb4b638425e68ca7cecd0931369db506851
 
 # Graphics (SDM) - from op3 - PKQ1.181203.001
 vendor/lib/libscalar.so|cad128a6e71195b4ad38494bc0382bf80e1fb0b2
