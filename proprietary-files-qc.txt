@@ -301,7 +301,15 @@ vendor/firmware/a530_pm4.fw|5741a28752355b478d455635bab008028ff7e1c6
 vendor/lib/hw/keystore.msm8953.so|fdfa414efe6205bfd7750726ae730e4bd3c1ba00
 vendor/lib64/hw/keystore.msm8953.so|f71f1439c9c356ce05d88b876253b4e3dcb10f4b
 
-# Listen - from Tissot PKQ1.180917.001/V10.0.10.0.PDHMIXM
+# Keymaster - from Bardock Pro
+vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so:vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so|9d855636cd20177f6fdaa47a9a45260330ed901b
+lib64/libsoftkeymasterdevice.so:vendor/lib64/libsoftkeymasterdevice-v27.so|2095d5c1c1600c9f1c714b102b4dccef00109fe1
+lib64/libkeymaster_messages.so:vendor/lib64/libkeymaster_messages-v27.so|4a37f2a5f1f208348c93243a58f0eaea457268e3
+lib64/libkeymaster_portable.so:vendor/lib64/libkeymaster_portable-v27.so|32771663c29fa4b8de3086f7c18eddd8dd586c17
+lib64/libkeymaster_staging.so:vendor/lib64/libkeymaster_staging-v27.so|62ae7af0ad77a3de31111a64da24c2329785e3d4
+lib64/libsoftkeymaster.so:vendor/lib64/libsoftkeymaster-v27.so|5704b8420586613635def323ca2c28a0f6ded59a
+
+# Listen - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
 vendor/lib/hw/sound_trigger.primary.msm8953.so|0e716aae6fe6fc4a8b9553953765f64614647e7d
 vendor/lib/libadpcmdec.so|eeaef8dd6cad3da613860bb263f192cda56c60b6
 vendor/lib/libsmwrapper.so|58dcf09adcbe6c851417e1569a120ac2e5e64a9d
