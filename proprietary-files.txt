@@ -608,10 +608,10 @@ etc/qdcm_calib_data_r63350_ebbg_fhd_video_mode_dsi_panel.xml:vendor/etc/qdcm_cal
 
 # Fingerprint
 bin/gx_fpd:vendor/bin/gx_fpd
-lib/hw/fingerprint.searchf.so:vendor/lib/hw/fingerprint.searchf.so|7ad2eb4d37d6fe8ac040168ea0d20f3d9af44f54
+lib/hw/fingerprint.searchf.so:vendor/lib/hw/fingerprint.searchf.so|7982f6bb46f65d7da03b2292cfb2a1f7e5a61867
 lib64/hw/fingerprint.goodix.so:vendor/lib64/hw/fingerprint.goodix.so
-lib64/hw/fingerprint.searchf.so:vendor/lib64/hw/fingerprint.searchf.so|bf6fce6739ba843b93d2bf04c9fd69f33b4815c0
-lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so|21120610203e3e94a95610702a6f8f9f82535a69
+lib64/hw/fingerprint.searchf.so:vendor/lib64/hw/fingerprint.searchf.so|6294b9f22e4f12070a17287a6e9ef7cb05d92f13
+lib64/hw/gxfingerprint.default.so:vendor/lib64/hw/gxfingerprint.default.so|a2dbd386381b2c6bb2b1118d4f81b97c64242211
 lib64/libfp_client.so:vendor/lib64/libfp_client.so
 lib64/libfpnav.so:vendor/lib64/libfpnav.so
 lib64/libfpservice.so:vendor/lib64/libfpservice.so
