@@ -142,11 +142,6 @@
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
                              channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK"/>
                 </mixPort>
-                <mixPort name="surround_sound" role="sink">
-                    <profile name="" format="AUDIO_FORMAT_PCM_16_BIT"
-                             samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000"
-                             channelMasks="AUDIO_CHANNEL_IN_MONO,AUDIO_CHANNEL_IN_STEREO,AUDIO_CHANNEL_IN_FRONT_BACK,AUDIO_CHANNEL_INDEX_MASK_3,AUDIO_CHANNEL_INDEX_MASK_4,AUDIO_CHANNEL_IN_5POINT1,AUDIO_CHANNEL_INDEX_MASK_6"/>
-                </mixPort>
                 <mixPort name="record_24" role="sink">
                     <profile name="" format="AUDIO_FORMAT_PCM_24_BIT_PACKED"
                              samplingRates="8000,11025,12000,16000,22050,24000,32000,44100,48000,96000,192000"
@@ -272,8 +267,6 @@
                        sources="voice_tx"/>
                 <route type="mix" sink="primary input"
                        sources="Wired Headset Mic,BT SCO Headset Mic,FM Tuner,Telephony Rx"/>
-                <route type="mix" sink="surround_sound"
-                       sources="Built-In Mic,Built-In Back Mic"/>
                 <route type="mix" sink="record_24"
                        sources="Built-In Mic,Built-In Back Mic,Wired Headset Mic"/>
                 <route type="mix" sink="voice_rx"
