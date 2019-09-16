@@ -146,7 +146,6 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 BOARD_HAVE_QCOM_FM := true
 
 # HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/vendor_framework_compatibility_matrix.xml
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE   := $(DEVICE_PATH)/compatibility_matrix.xml
