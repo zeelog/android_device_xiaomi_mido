@@ -1,3 +1,6 @@
+# Binaries
+/system/bin/chargeonlymode                      u:object_r:charger_exec:s0
+
 # Camera
 /data/vendor/qcam(/.*)?                         u:object_r:camera_socket:s0
 
