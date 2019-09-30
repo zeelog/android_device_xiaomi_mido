@@ -1,4 +1,0 @@
-# device specific syscalls.
-readlinkat: 1
-pread64: 1
-mremap: 1
