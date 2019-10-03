@@ -263,21 +263,6 @@ service vendor.sensors.qti /vendor/bin/sensors.qti
     group system
     writepid /dev/cpuset/system-background/tasks
 
-service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
-    -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 -dd \
-    -g@android:vendor_wpa_wlan0
-#   we will start as root and wpa_supplicant will switch to user wifi
-#   after setting up the capabilities required for WEXT
-#   user wifi
-#   group wifi inet keystore
-    interface android.hardware.wifi.supplicant@1.0::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.1::ISupplicant default
-    interface android.hardware.wifi.supplicant@1.2::ISupplicant default
-    class main
-    socket vendor_wpa_wlan0 dgram 660 wifi wifi
-    disabled
-    oneshot
-
 service loc_launcher /vendor/bin/loc_launcher
     class late_start
     user gps
