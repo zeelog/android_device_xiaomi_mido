@@ -144,6 +144,11 @@ persist.vendor.radio.nitz_sons_1="" \
 persist.vendor.radio.nitz_sons_2="" \
 persist.vendor.radio.nitz_sons_3=""
 
+# Qualcomm
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.vendor.qti.va_aosp.support=1 \
+ro.vendor.qti.va_odm.support=1
+
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
 DEVICE_PROVISIONED=1 \
