@@ -1,4 +1,19 @@
-type folio_daemon, domain;
-type folio_daemon_exec, exec_type, file_type;
 
+type folio_daemon, domain;
+type folio_daemon_exec, exec_type, vendor_file_type, file_type;
 init_daemon_domain(folio_daemon)
+
+allow folio_daemon binder_device:chr_file rw_file_perms;
+allow folio_daemon uhid_device:chr_file rw_file_perms;
+
+# TODO(b/35870313): Remove this attribute when the corresponding bug is fixed and the treble
+# violations are handled
+typeattribute folio_daemon binder_in_vendor_violators;
+typeattribute folio_daemon socket_between_core_and_vendor_violators;
+allow folio_daemon system_server:unix_stream_socket rw_socket_perms_no_ioctl;
+
+binder_use(folio_daemon)
+binder_call(folio_daemon, system_server)
+
+allow folio_daemon sensorservice_service:service_manager find;
+allow folio_daemon permission_service:service_manager find;
