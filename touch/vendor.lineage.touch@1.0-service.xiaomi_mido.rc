@@ -1,3 +1,13 @@
+on init
+    # Key Disabler
+    chown system system /proc/touchpanel/capacitive_keys_disable
+    chmod 0666 /proc/touchpanel/capacitive_keys_disable
+    chown system system /sys/bus/i2c/devices/3-0038/disable_keys
+    chmod 0666 /sys/bus/i2c/devices/3-0038/disable_keys
+    # Glove Mode
+    chown system system /sys/class/tp_glove/device/glove_enable
+    chmod 0660 /sys/class/tp_glove/device/glove_enable
+
 service vendor.touch-hal-1-0 /vendor/bin/hw/vendor.lineage.touch@1.0-service.xiaomi_mido
     class hal
     user system
