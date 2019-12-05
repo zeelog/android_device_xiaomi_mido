@@ -35,4 +35,10 @@
 
     <!-- After a CDMA conference call is merged, the swap button should be displayed. -->
     <bool name="support_swap_after_merge" translatable="false">false</bool>
+
+    <!-- String indicating the package name of the device ImsService implementation for MMTEL. -->
+    <string name="config_ims_mmtel_package" translatable="false">org.codeaurora.ims</string>
+
+    <!-- String indicating the package name of the device ImsService implementation for RCS. -->
+    <string name="config_ims_rcs_package" translatable="false">com.android.service.ims</string>
 </resources>
