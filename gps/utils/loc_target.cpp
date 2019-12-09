@@ -208,3 +208,24 @@ detected:
     LOC_LOGW("HAL: %s returned %d", __FUNCTION__, gTarget);
     return gTarget;
 }
+
+int loc_read_device_soc_id()
+{
+    char buf[10] = {0};
+    int soc_id = 0;
+    int fd = open("/sys/devices/soc0/soc_id", O_RDONLY);
+    if (fd >= 0)
+    {
+      if (read(fd, buf, sizeof(buf) - 1) == -1)
+      {
+        LOC_LOGI ("%s: unable to read soc_id", __FUNCTION__);
+      }
+      else
+      {
+        soc_id = atoi(buf);
+        LOC_LOGI ("%s: Soc ID :%d", __FUNCTION__, soc_id);
+      }
+      close(fd);
+    }
+    return soc_id;
+}

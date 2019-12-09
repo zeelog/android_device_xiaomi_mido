@@ -37,6 +37,8 @@
 #include <sys/un.h>
 #include <LocThread.h>
 
+using std::string;
+
 namespace loc_util {
 
 class LocIpcSender;
@@ -44,7 +46,7 @@ class LocIpcSender;
 class LocIpc {
 friend LocIpcSender;
 public:
-    inline LocIpc() : mIpcFd(-1), mRunnable(nullptr) {}
+    inline LocIpc() : mIpcFd(-1) {}
     inline virtual ~LocIpc() { stopListening(); }
 
     // Listen for new messages in current thread. Calling this funciton will
@@ -94,7 +96,7 @@ private:
 
     int mIpcFd;
     LocThread mThread;
-    LocRunnable *mRunnable;
+    string mIpcName;
 };
 
 class LocIpcSender {

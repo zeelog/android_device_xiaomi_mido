@@ -33,6 +33,8 @@
 #include <log_util.h>
 #include "LocIpc.h"
 
+using std::string;
+
 namespace loc_util {
 
 #ifdef LOG_TAG
@@ -47,7 +49,7 @@ namespace loc_util {
 class LocIpcRunnable : public LocRunnable {
 friend LocIpc;
 public:
-    LocIpcRunnable(LocIpc& locIpc, const std::string& ipcName)
+    LocIpcRunnable(LocIpc& locIpc, const string& ipcName)
             : mLocIpc(locIpc), mIpcName(ipcName) {}
     bool run() override {
         if (!mLocIpc.startListeningBlocking(mIpcName)) {
@@ -58,17 +60,17 @@ public:
     }
 private:
      LocIpc& mLocIpc;
-     const std::string mIpcName;
+     const string mIpcName;
 };
 
-bool LocIpc::startListeningNonBlocking(const std::string& name) {
-    mRunnable = new LocIpcRunnable(*this, name);
-    std::string threadName("LocIpc-");
+bool LocIpc::startListeningNonBlocking(const string& name) {
+    auto runnable = new LocIpcRunnable(*this, name);
+    string threadName("LocIpc-");
     threadName.append(name);
-    return mThread.start(threadName.c_str(), mRunnable);
+    return mThread.start(threadName.c_str(), runnable);
 }
 
-bool LocIpc::startListeningBlocking(const std::string& name) {
+bool LocIpc::startListeningBlocking(const string& name) {
     bool stopRequested = false;
     int fd = socket(AF_UNIX, SOCK_DGRAM, 0);
 
@@ -90,13 +92,14 @@ bool LocIpc::startListeningBlocking(const std::string& name) {
         LOC_LOGe("bind socket error. reason:%s", strerror(errno));
     } else {
         mIpcFd = fd;
+        mIpcName = name;
 
         // inform that the socket is ready to receive message
         onListenerReady();
 
         ssize_t nBytes = 0;
-        std::string msg = "";
-        std::string abort = LOC_MSG_ABORT;
+        string msg = "";
+        string abort = LOC_MSG_ABORT;
         while (1) {
             msg.resize(LOC_MSG_BUF_LEN);
             nBytes = ::recvfrom(fd, (void*)(msg.data()), msg.size(), 0, NULL, NULL);
@@ -147,20 +150,19 @@ bool LocIpc::startListeningBlocking(const std::string& name) {
 }
 
 void LocIpc::stopListening() {
-    const char *socketName = nullptr;
-
     if (mIpcFd >= 0) {
-        std::string abort = LOC_MSG_ABORT;
-        socketName = (reinterpret_cast<LocIpcRunnable *>(mRunnable))->mIpcName.c_str();
-        send(socketName, abort);
+        string abort = LOC_MSG_ABORT;
+        if (!mIpcName.empty()) {
+            send(mIpcName.c_str(), abort);
+        }
         mIpcFd = -1;
     }
-    if (mRunnable) {
-        mRunnable = nullptr;
+    if (!mIpcName.empty()) {
+        mIpcName.clear();
     }
 }
 
-bool LocIpc::send(const char name[], const std::string& data) {
+bool LocIpc::send(const char name[], const string& data) {
     return send(name, (const uint8_t*)data.c_str(), data.length());
 }
 
@@ -194,7 +196,7 @@ bool LocIpc::sendData(int fd, const sockaddr_un &addr, const uint8_t data[], uin
             result = false;
         }
     } else {
-        std::string head = LOC_MSG_HEAD;
+        string head = LOC_MSG_HEAD;
         head.append(std::to_string(length));
         if (::sendto(fd, head.c_str(), head.length(), 0,
                 (struct sockaddr*)&addr, sizeof(addr)) < 0) {

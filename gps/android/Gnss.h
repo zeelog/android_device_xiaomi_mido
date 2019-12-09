@@ -99,7 +99,7 @@ struct Gnss : public IGnss {
     GnssAPIClient* getApi();
     Return<bool> setGnssNiCb(const sp<IGnssNiCallback>& niCb);
     Return<bool> updateConfiguration(GnssConfig& gnssConfig);
-    GnssInterface* getGnssInterface();
+    const GnssInterface* getGnssInterface();
 
     // Callback for ODCPI request
     void odcpiRequestCb(const OdcpiRequestInfo& request);
@@ -129,10 +129,10 @@ struct Gnss : public IGnss {
     sp<V1_0::IGnssCallback> mGnssCbIface = nullptr;
     sp<V1_0::IGnssNiCallback> mGnssNiCbIface = nullptr;
     GnssConfig mPendingConfig;
-    GnssInterface* mGnssInterface = nullptr;
+    const GnssInterface* mGnssInterface = nullptr;
 };
 
-extern "C" IGnss* HIDL_FETCH_IGnss(const char* name);
+extern "C" V1_0::IGnss* HIDL_FETCH_IGnss(const char* name);
 
 }  // namespace implementation
 }  // namespace V1_0

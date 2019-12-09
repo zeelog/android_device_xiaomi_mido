@@ -520,6 +520,7 @@ static void convertGnssSvStatus(GnssSvNotification& in, IGnssCallback::GnssSvSta
         info.cN0Dbhz = in.gnssSvs[i].cN0Dbhz;
         info.elevationDegrees = in.gnssSvs[i].elevation;
         info.azimuthDegrees = in.gnssSvs[i].azimuth;
+        info.carrierFrequencyHz = in.gnssSvs[i].carrierFrequencyHz;
         info.svFlag = static_cast<uint8_t>(IGnssCallback::GnssSvFlags::NONE);
         if (in.gnssSvs[i].gnssSvOptionsMask & GNSS_SV_OPTIONS_HAS_EPHEMER_BIT)
             info.svFlag |= IGnssCallback::GnssSvFlags::HAS_EPHEMERIS_DATA;
@@ -527,6 +528,8 @@ static void convertGnssSvStatus(GnssSvNotification& in, IGnssCallback::GnssSvSta
             info.svFlag |= IGnssCallback::GnssSvFlags::HAS_ALMANAC_DATA;
         if (in.gnssSvs[i].gnssSvOptionsMask & GNSS_SV_OPTIONS_USED_IN_FIX_BIT)
             info.svFlag |= IGnssCallback::GnssSvFlags::USED_IN_FIX;
+        if (in.gnssSvs[i].gnssSvOptionsMask & GNSS_SV_OPTIONS_HAS_CARRIER_FREQUENCY_BIT)
+            info.svFlag |= IGnssCallback::GnssSvFlags::HAS_CARRIER_FREQUENCY;
     }
 }
 

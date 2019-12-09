@@ -54,6 +54,7 @@ void loc_get_platform_name(char *platform_name, int array_length);
 /*The character array passed to this function should have length
   of atleast PROPERTY_VALUE_MAX*/
 void loc_get_auto_platform_name(char *platform_name, int array_length);
+int loc_read_device_soc_id();
 
 /* Please remember to update 'target_name' in loc_log.cpp,
    if do any changes to this enum. */
