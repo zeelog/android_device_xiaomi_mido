@@ -287,13 +287,6 @@ service vendor.tftp_server /vendor/bin/tftp_server
    user root
    writepid /dev/cpuset/system-background/tasks
 
-service fm_dl /vendor/bin/init.qti.fm.sh
-    class late_start
-    user system
-    group system
-    disabled
-    oneshot
-
 service vendor.atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
