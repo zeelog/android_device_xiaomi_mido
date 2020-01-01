@@ -1258,11 +1258,11 @@ vendor/lib64/libsensor_reg.so|b977629681598d927830ed99986e818c01c2d34a
 vendor/lib64/libsensor_user_cal.so|a9cd76f06c02e23cb7f1552aa7d51567259faa47
 vendor/lib64/sensors.ssc.so|23f60022a6415f0fb644aed853b3ee5dceecd0de
 
-# Thermal - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
-vendor/bin/thermal-engine|bbf772d4acf6c11413d2f728140aae63a49d3eae
--vendor/lib/libthermalclient.so|523476e106337823696f0600b48f057d8c629465
--vendor/lib64/libthermalclient.so|796c3e071fe9d6fa57598e1205a762cb55720f88
-vendor/lib64/libthermalioctl.so|6eed5b8ca6989809eac27abd4af19bbd6f3845ee
+# Thermal - from LA.UM.8.6.r1-02600-89xx.0
+vendor/bin/thermal-engine|37ef9d9d7180d1508096668047e7fd98b8a25b39
+-vendor/lib/libthermalclient.so|5366dedac700727f05ed1729bf00c855d0777de4
+-vendor/lib64/libthermalclient.so|fead3fb780b175ef478c7ab120639dea5b37a802
+vendor/lib64/libthermalioctl.so|1d6587245c7e7148638f14254e2f61f6b5552857
 
 # Time services - from LA.UM.8.6.r1-02600-89xx.0
 -vendor/app/TimeService/TimeService.apk|4a37afd1395758d946580af184a738e3c657b1e2
