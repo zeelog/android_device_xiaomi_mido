@@ -399,8 +399,9 @@ on charger
 
 service time_daemon /vendor/bin/time_daemon
     class main
-    user root
-    group root
+    user system
+    group system
+    capabilities SYS_TIME
     writepid /dev/cpuset/system-background/tasks
 
 service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
