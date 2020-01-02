@@ -31,6 +31,9 @@
 # Legacy root dirs
 /firmware(/.*)?                                 u:object_r:firmware_file:s0
 
+# Product Libs
+/(product|system/product)/lib(64)?(/.*)?	u:object_r:system_lib_file:s0
+
 # Rild
 /(vendor|system/vendor)/radio/qcril_database/qcril.db			u:object_r:rild_file:s0
 

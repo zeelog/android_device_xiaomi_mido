@@ -3,3 +3,6 @@ allow qti_init_shell proc_touchpanel:file { getattr setattr };
 
 typeattribute qti_init_shell data_between_core_and_vendor_violators;
 allow qti_init_shell bluetooth_data_file:file r_file_perms;
+
+# Required for FM
+allow qti_init_shell self:socket create;
