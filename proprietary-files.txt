@@ -1263,7 +1263,7 @@ vendor/bin/thermal-engine|37ef9d9d7180d1508096668047e7fd98b8a25b39
 vendor/lib64/libthermalioctl.so|1d6587245c7e7148638f14254e2f61f6b5552857
 
 # Time services - from LA.UM.8.6.r1-02600-89xx.0
--vendor/app/TimeService/TimeService.apk|4a37afd1395758d946580af184a738e3c657b1e2
+-vendor/app/TimeService/TimeService.apk;:timeservice_app_cert-legacy-um|4a37afd1395758d946580af184a738e3c657b1e2
 vendor/bin/time_daemon|b7140b137f91e6706a074fdab9cb24bd17572eff
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so|3c84c33b565008682681e3dbdcac7c6312e060ce
