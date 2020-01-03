@@ -24,38 +24,38 @@ vendor/lib/rfsa/adsp/libscveT2T_skel.so|91b9200dbb982abf0d6b440668252d892a616f66
 # ANT+ (vendor) - from LA.UM.8.6.r1-02600-89xx.0
 vendor/lib64/com.qualcomm.qti.ant@1.0.so|1a7bee1627309c8eee55dab22b9f25c2302219ae
 
-# Audio - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
-vendor/lib/libacdb-fts.so|f140cc5c13855f411d9b944316828b42dd6b7d75
-vendor/lib/libacdbloader.so|52fb25441a742d744f6574d1065ae1b822769c48
-vendor/lib/libacdbrtac.so|8a469a26ed1ecff8e22ee141d98bde97513a6212
-vendor/lib/libadiertac.so|e8e2c208abafc6d6c34717aee3d822bfb3a23f76
-vendor/lib/libadm.so|01e2316dfa1afcb000984e9f68903ba6a1220159
-vendor/lib/libaudcal.so|5a6b0fa75e274b07f2dabdcc7381879e1a59898c
-vendor/lib/libaudioalsa.so|920603e464d518c2a46daf1063a65f45f0236d72
-vendor/lib/libdrc.so|7db89c6858c928457a8731d90ba874420972ec9b
-vendor/lib/libqtigef.so|fc40d4dbae0389afed79d2fcb481d1a49c63b749
-vendor/lib/libsurround_3mic_proc.so|832adfad9f3d414234f1b4cfd32b196fe4082bb9
-vendor/lib/soundfx/libqcbassboost.so|0a730813a7335208a5368f48de4790abda536c59
-vendor/lib/soundfx/libqcreverb.so|3cbf222a205e4ccbe812fc69d580abd2237e64d5
-vendor/lib/soundfx/libqcvirt.so|8f60a539fe18de5944d5f1dcd6d0ec5e56b336ea
-vendor/lib64/libacdb-fts.so|1a298a90fe8007fe1a3b352ff7d19ae73734f3cc
-vendor/lib64/libacdbloader.so|2ecf30ba0171aab7fdc720446238d48048cf6b7e
-vendor/lib64/libacdbrtac.so|c44ff9b9aa63e34ca1b77a5f0bfb6a5e50585048
-vendor/lib64/libadiertac.so|aeaf6f057d26acf342609c714213e1c9b3409774
-vendor/lib64/libaudcal.so|96c43cbe0ac304ea128def709d7f3ea99db7f260
-vendor/lib64/libaudioalsa.so|4a27694b5a6842609a2f2572476b7af032ec7201
-vendor/lib64/libqtigef.so|79e811fd04172b0afda1229d182014be28a146b2
-vendor/lib64/soundfx/libqcbassboost.so|0b92d65381d9722c579ccfda12f86c7e3fcaedd1
-vendor/lib64/soundfx/libqcvirt.so|815b3a7cd762cdb6f162dde12c866acb23cdd022
+# Audio - from LA.UM.8.6.r1-02600-89xx.0
+vendor/lib/libacdb-fts.so|6bbcdd34b8344964c54d0a072e63feec71673b7c
+vendor/lib/libacdbloader.so|e22715bab37d7aeea3340f3604a89390e02b1018
+vendor/lib/libacdbrtac.so|863cc396b3234bdb978b312bce7746ff1f1a6769
+vendor/lib/libadiertac.so|59bd9c9c2df081580088df25274cb0a196221b80
+vendor/lib/libadm.so|b373d5cb6e4c6e081f1d206f6d9538339f330fda
+vendor/lib/libaudcal.so|dda994bbd37d3c178120791a911fb219a2ccb5ca
+vendor/lib/libaudioalsa.so|1c0615d720024b5bd7ac28bec13d37ab7102b57f
+vendor/lib/libdrc.so|55fc13d205ce3199de2cf1f9c1dab479909c15be
+vendor/lib/libqtigef.so|5630df4e52109c0602d441d5d63bd342d202faf4
+vendor/lib/libsurround_3mic_proc.so|d8c1d2cb7d598eee79ccfe5b7ec83a185c8fef6c
+vendor/lib/soundfx/libqcbassboost.so|bc8ae80ff1ade557ff494631494c2f8261028acb
+vendor/lib/soundfx/libqcreverb.so|1b3cef3c4c9145662fddb03c5e1e7dd3a4f25e1e
+vendor/lib/soundfx/libqcvirt.so|41bf71787ffae3f511d9cb3e32b9e721a0a2e385
+vendor/lib64/libacdb-fts.so|9ad8551afa5a372b19ce295b61d5d9f8f7f69700
+vendor/lib64/libacdbloader.so|adddad70de016fe19fd060c65628d89d06e6e3fe
+vendor/lib64/libacdbrtac.so|220366b0464fe4a8cb04e17feb8bd5da41cbe297
+vendor/lib64/libadiertac.so|87302b3eaa3bb2465c3823d5f9089f3030d9a7a5
+vendor/lib64/libaudcal.so|6964ecc9607ae9c05ee7b37cbff66c0b37bde216
+vendor/lib64/libaudioalsa.so|af924f5a37d3066a97175f1343ea5c9484689ee3
+vendor/lib64/libqtigef.so|e7f0dfa3cd7252310c9a01f2bc0e4074e6e78871
+vendor/lib64/soundfx/libqcbassboost.so|0d2afd6f2c5b9aa2397f3e1cb3287bf906cf8fb6
+vendor/lib64/soundfx/libqcvirt.so|bb046694512d412d6a04bd95ccb2b573454d9717
 
-# Audio ACDB
-etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
-etc/acdbdata/QRD/QRD_General_cal.acdb:vendor/etc/acdbdata/QRD/QRD_General_cal.acdb
-etc/acdbdata/QRD/QRD_Global_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Global_cal.acdb
-etc/acdbdata/QRD/QRD_Handset_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Handset_cal.acdb
-etc/acdbdata/QRD/QRD_Hdmi_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
-etc/acdbdata/QRD/QRD_Headset_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb
-etc/acdbdata/QRD/QRD_Speaker_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb
+# Audio ACDB - from LA.UM.8.6.r1-02600-89xx.0
+etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb|0364848ae2eb5505bdace46d6b8f1391a39095a8
+etc/acdbdata/QRD/QRD_General_cal.acdb:vendor/etc/acdbdata/QRD/QRD_General_cal.acdb|af85e877379f5844d8a87dac8187b1416fd89342
+etc/acdbdata/QRD/QRD_Global_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Global_cal.acdb|0ae1d3c0dfd9c27afd030584b233d2f4b454a743
+etc/acdbdata/QRD/QRD_Handset_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Handset_cal.acdb|855422d5b156ed60f5f6bacb9458e85f6c67ed12
+etc/acdbdata/QRD/QRD_Hdmi_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb|457bd7d412d9359297b9923cee264214d013547a
+etc/acdbdata/QRD/QRD_Headset_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb|ba8ab21912dd9a8c41014f6c26f2dca6d4476fdf
+etc/acdbdata/QRD/QRD_Speaker_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb|b1a9a1497d1ecfab01e8a59d4c33410d409753a3
 
 # Bluetooth - from LA.UM.8.6.r1-02600-89xx.0
 -lib/libbtconfigstore.so|c1d1f2f8b8f2b09fde907c2025c7dccb4d38648e
