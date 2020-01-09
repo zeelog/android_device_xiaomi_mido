@@ -118,7 +118,7 @@ vendor/lib/libmmcamera2_stats_modules.so|6168ec299059f22ebbade833cc43e027bc23e3d
 vendor/lib/libmmcamera_atmel_at24c32e_eeprom.so
 vendor/lib/libmmcamera_chromaflash_lib.so
 vendor/lib/libmmcamera_csidtg.so
-vendor/lib/libmmcamera_dbg.so|ea6de5a4f561bf4ee5cce780976a0994d72ecab0
+vendor/lib/libmmcamera_dbg.so|35bac676a424d596707c56009f194ade07e50785
 vendor/lib/libmmcamera_dcrf_lib.so
 vendor/lib/libmmcamera_dummyalgo.so
 vendor/lib/libmmcamera_dw9761b_2d_eeprom.so
