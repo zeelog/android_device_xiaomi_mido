@@ -352,13 +352,6 @@ on charger
     load_system_props
     start qcom-post-boot
 
-service time_daemon /vendor/bin/time_daemon
-    class main
-    user system
-    group system
-    capabilities SYS_TIME
-    writepid /dev/cpuset/system-background/tasks
-
 service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
     override
     class hal
