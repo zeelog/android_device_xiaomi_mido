@@ -266,11 +266,6 @@ service vendor.atfwd /vendor/bin/ATFWD-daemon
     group system radio
     writepid /dev/cpuset/system-background/tasks
 
-service vendor.dataqti /vendor/bin/qti
-    class main
-    user radio
-    group radio oem_2901 diag usb net_admin
-
 service vendor.sensors.qti /vendor/bin/sensors.qti
     class core
     user system
