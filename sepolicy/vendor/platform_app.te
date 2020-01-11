@@ -1,1 +1,1 @@
-r_dir_file(platform_app, sysfs_kgsl)
+allow platform_app sysfs_kgsl:dir search;

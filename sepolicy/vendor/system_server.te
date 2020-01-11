@@ -1,4 +1,2 @@
 # vibrator
 allow system_server sysfs_vibrator:file read;
-
-allow system_server sysfs_kgsl:lnk_file read;
