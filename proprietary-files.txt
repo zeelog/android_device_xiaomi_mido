@@ -804,7 +804,7 @@ vendor/lib64/libssd.so|33d717f793c2579e3bd17b5ce6534cb68c12887d
 
 # DRM - Widevine - LA.UM.8.6.r1-02600-89xx.0
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine|b626d9bbf7043c66c8ef903c9d0e5183fc47388d
-vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|e3cb732c0bd519988100675edf385d947abf5f6c
+vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|75335443a33a06a03eecfa714dfe9f1c0c4df2b1
 vendor/lib64/libwvhidl.so|4af61fdcf1186700ea7ee23c607fb9ce5fd0f0e8
 
 # Fingerprint
