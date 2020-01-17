@@ -40,7 +40,8 @@ VNDK_SP_LIBRARIES := \
     libz
 
 EXTRA_VENDOR_LIBRARIES := \
-    android.hidl.base@1.0
+    android.hidl.base@1.0 \
+    vendor.qti.hardware.cryptfshw@1.0
 
 #-------------------------------------------------------------------------------
 # VNDK Modules
