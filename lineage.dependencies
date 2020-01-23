@@ -1,10 +1,6 @@
 [
  {
-   "repository": "android_packages_resources_devicesettings",
-   "target_path": "packages/resources/devicesettings"
- },
- {
-   "repository": "android_kernel_xiaomi_msm8953",
-   "target_path": "kernel/xiaomi/msm8953"
+   "repository": "android_kernel_xiaomi_mido",
+   "target_path": "kernel/xiaomi/mido"
  }
 ]
