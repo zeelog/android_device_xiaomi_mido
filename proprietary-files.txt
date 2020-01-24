@@ -745,11 +745,6 @@ vendor/lib64/vendor.qti.hardware.data.latency@1.0.so|ae979b52234d7e965631394f6e1
 vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so|35ad6e08d00e8b1695964fa7d6ddbc521eda8628
 vendor/lib64/vendor.qti.latency@2.0.so|20a3037a1aea98f5f490b14c8f5620d2d3a0cf57
 
-# Dirac
-vendor/etc/diracmobile.config
-lib/libDiracAPI_SHARED.so:vendor/lib/libDiracAPI_SHARED.so
-lib/soundfx/libdirac.so:vendor/lib/soundfx/libdirac.so
-
 # Display calibration
 etc/qdcm_calib_data_ili9885_boe_fhd_video_mode_dsi_panel.xml:vendor/etc/qdcm_calib_data_ili9885_boe_fhd_video_mode_dsi_panel.xml
 etc/qdcm_calib_data_nt35532_fhd_video_mode_dsi_panel.xml:vendor/etc/qdcm_calib_data_nt35532_fhd_video_mode_dsi_panel.xml
