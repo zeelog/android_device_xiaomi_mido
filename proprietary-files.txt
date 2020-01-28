@@ -678,7 +678,7 @@ etc/camera/s5k5e8_ofilm_chromatix.xml:vendor/etc/camera/s5k5e8_ofilm_chromatix.x
 etc/camera/s5k5e8_qtech_chromatix.xml:vendor/etc/camera/s5k5e8_qtech_chromatix.xml
 etc/camera/s5k5e8_sunny_chromatix.xml:vendor/etc/camera/s5k5e8_sunny_chromatix.xml
 
-# Camera firmware - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
+# Camera firmware - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
 vendor/firmware/cpp_firmware_v1_8_0.fw|26e2badbb4e3049243f0a176722f26879e7b87e8
 vendor/firmware/cpp_firmware_v1_5_0.fw|ac19cd179b7b118bb3ea01a35fdfc78dc58164a1
 vendor/firmware/cpp_firmware_v1_6_0.fw|dcd3d1f904c7ee3d731f8f28b5f78f2503916ada
@@ -951,7 +951,7 @@ vendor/lib64/libsdm-diag.so|87373a043267b9b3bb923931a910119a9deb425f
 vendor/lib64/libsdmextension.so|47b7fcfb790df4417654c566af1a8a74d4bf3e2f
 vendor/lib64/libtinyxml2_1.so|56d4d5d0ea010f951de219c7b9fd2c9695a5b9d2
 
-# Graphics firmware - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
+# Graphics firmware - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
 vendor/firmware/a506_zap.b00|c45a7b34456844f5deb73e2dce79cbfcfb9ae71c
 vendor/firmware/a506_zap.b01|00a618f9ecde71e169200fbdc60428c81bab144c
 vendor/firmware/a506_zap.b02|b79957c47f0a6757ac1d721dbe06551508454634
@@ -1050,7 +1050,7 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so|680d4ad1999c8db44ee7d6240dda4ec187
 # Power-off charging daemon
 -sbin/charger:bin/chargeonlymode|664dfa548b81cac348f1699222160f8d2b4d247c
 
-# QMI - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
+# QMI - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
 etc/permissions/qti_libpermissions.xml|593bcb72cce68ceb0a70f50bcae7d460114e7c62
 etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
 lib/libdiag_system.so|96e00fb268257343bac8fa52f02aab5aa12a650e
@@ -1064,7 +1064,7 @@ vendor/lib/libdsutils.so|bfc2e8fb927ccd35158ceaf4389fe54186091132
 vendor/lib/libidl.so|6fe7c2a4e4ec0ac099a6306c3111e6497e2c501f
 vendor/lib/libqcci_legacy.so|2843fc6470c16a59c00280819ec844b0a5bf198b
 vendor/lib/libqdi.so|6cb8c78aaa70a5fa9b83e260556bada097ca0d14
-vendor/lib/libqdp.so|ff0b9d7d1a72fc884264ca0487540c75af5b6c6a
+vendor/lib/libqdp.so|7cb256acd39cf506730158b88b4cc2607fa664d8
 vendor/lib/libqmi.so|0b035dd37319391f27ce6647e707f4e7afaacec0
 vendor/lib/libqmi_client_helper.so|9815eaaffec80f83bfb6736e78a3baf44242aa0c
 vendor/lib/libqmi_client_qmux.so|8a5c4e165cdebce11a3492e72bc29e1d4bf184e1
@@ -1078,7 +1078,7 @@ vendor/lib64/libdsutils.so|fe909f54243f07fc76382b0839f95f96e1abfef2
 vendor/lib64/libidl.so|3b1a7ca55ccfe06d12d62f2c214b5ac2ee0e69da
 vendor/lib64/libqcci_legacy.so|03a636805512f0623ffcd419075ace3305a9b8f0
 vendor/lib64/libqdi.so|5e14939265c9f30c59f4a7964bf83da69ecfa38d
-vendor/lib64/libqdp.so|485c40c20d4421b5b2a1e2e87555c566f49ea944
+vendor/lib64/libqdp.so|60faa5e55e118b18553c160ff55200cbeab2f2f6
 vendor/lib64/libqmi.so|f814a152f974b2305f74f90a4f1c0a20989fb253
 vendor/lib64/libqmi_client_helper.so|ed00314bd9d2f68af0508640bb647bfdf5d582b2
 vendor/lib64/libqmi_client_qmux.so|cf7986589f2e14cc3b9c3ddb22d46dd71c25c9df
@@ -1094,7 +1094,7 @@ vendor/lib64/libpdmapper.so|b837641e006ff90a49764d7ac78553de537acd74
 vendor/lib64/libqmi_cci.so|9e066cc4ceb721413db7e9a322836de981e92c74
 vendor/lib64/libqsocket.so|6264041e0e897f78dc9b6a4be6424cbd927669d0
 
-# Radio - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
+# Radio - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
 -app/QtiTelephonyService/QtiTelephonyService.apk|420b39e20a5166940c1e2e55e8d9c92ec910cebb
 etc/permissions/qcrilhook.xml|9fc58a3d54d20ac1d53bab14608815121aefbce5
 etc/permissions/telephonyservice.xml|3a6bc2a522270f968ff5a332b8781c0289e6d1ef
@@ -1161,7 +1161,7 @@ vendor/lib64/vendor.qti.hardware.radio.uim@1.0.so|534046d4af1f1dba04103f52683b0d
 vendor/lib64/vendor.qti.hardware.radio.uim@1.1.so|3a70bf386f26c96b7ed8b94392b015cbcb20de0e
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so|bf72b4543af85ba2ad39e075a1f68085cfb75270
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so|99296dc2831410fed5df4e397845618b40d0a3a1
-vendor/radio/qcril_database/qcril.db|f25a9215fcc2445e73d1aa0b7ef9bdbd97e33f56
+vendor/radio/qcril_database/qcril.db|43b7d5e7ededc9cd5c0b1f7a8941d21d4eb0c9c1
 
 # Radio - from LA.UM.8.6.r1-02600-89xx.0
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|71d083671c3ea4cd5e287a63fb254bb0ab60ed20
@@ -1173,12 +1173,12 @@ vendor/etc/init/dataqti.rc|6abfd1a850d782adbbb6f42c9d8ca870036b2ad1
 vendor/etc/init/netmgrd.rc|fd3457c69a9fab11b87d0d1b494188fe089684cd
 vendor/etc/init/port-bridge.rc|e52d61a0de5e8a3b21bfbfca929e862422645377
 
-# Radio (IMS) - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
+# Radio (IMS) - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
 lib/com.qualcomm.qti.imscmservice@1.0.so|7d7af9bdbe6048ad5842c30929a9be822fbea7f6
 lib/com.qualcomm.qti.imscmservice@2.0.so|075c6068f3e469e795217fac58a82be2d9102c68
 lib/com.qualcomm.qti.imscmservice@2.1.so|cec69294cb4a3033e462cd735c09dd28263e3ffa
-lib/lib-imscamera.so|4c345f4fe20078d37570216b67864a63ff5394cd
-lib/lib-imsvideocodec.so|d01b7e7efb7998c466fcb4935a794b3fa6d97c12
+lib/lib-imscamera.so|e58c9f6d3fee1f51607d667f9716c6b8d7688ac1
+lib/lib-imsvideocodec.so|bd637e4435da665f24d01243d62737e3283d9cb8
 lib/lib-imsvtextutils.so|b0714e4fa4a9ce59ec4578c061c976d5a7d62261
 lib/lib-imsvtutils.so|8cdeb25b66258f6a8d6bd4116717119ade4fb369
 lib/librcc.so|9ae1cccdc4697c76feb2d9a37eef1a3ef1f11949
@@ -1186,8 +1186,8 @@ lib/vendor.qti.imsrtpservice@1.0.so|af72b35525652ac96f6985c9ee64cef393e31c9d
 lib64/com.qualcomm.qti.imscmservice@1.0.so|e622ddede56d6a9dcb9d3dbcff7c33ab3f4c1131
 lib64/com.qualcomm.qti.imscmservice@2.0.so|47732fea882f132beb4f3f515e4fed5ce7162120
 lib64/com.qualcomm.qti.imscmservice@2.1.so|5808cb432903b7b45e0c2563286851ef89e06a98
-lib64/lib-imscamera.so|d842316ddba5bdd8a85eca4830adf99a23e6488a
-lib64/lib-imsvideocodec.so|dc2f0d36e67f2b465e1fdd803631f6dc67c4ce63
+lib64/lib-imscamera.so|3a9c5c3cb03d4fb2351f8bb7a7807868c1dedf88
+lib64/lib-imsvideocodec.so|56f02699e8ec3ccec1e14329d5f7e4eb11837a0c
 lib64/lib-imsvt.so|7dfc533fc3c439a608b219838281d6c5f605ee22
 lib64/lib-imsvtextutils.so|dc3340321ee2543bb35248d0f9dac4718116a073
 lib64/lib-imsvtutils.so|13480b644ed5290f7ddc2f7c304c0e912f416098
@@ -1276,7 +1276,7 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|7343cf8a20fb8e72e17b014cda7b5ae
 # Wi-Fi - from Bardock Pro
 vendor/bin/wcnss_service|c16c94790dfacc6c7c17316b96f1b3a8cb7eb81c
 
-# Wi-Fi - from Tissot PKQ1.180917.001.V10.0.11.0.PDHMIXM
+# Wi-Fi - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
 vendor/firmware/wlan/prima/WCNSS_cfg.dat|1672af1c3d4f04804f31d4b79a6e59ea4a8b1926
 vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin|5e97baa4957609519835074071c879fbaf462266
 
