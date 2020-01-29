@@ -1165,15 +1165,17 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so|bf72b4543af85ba2
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so|99296dc2831410fed5df4e397845618b40d0a3a1
 vendor/radio/qcril_database/qcril.db|43b7d5e7ededc9cd5c0b1f7a8941d21d4eb0c9c1
 
-# Radio - from LA.UM.8.6.r1-02600-89xx.0
+# Radio - from LA.UM.8.6.r1-02900-89xx.0
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|71d083671c3ea4cd5e287a63fb254bb0ab60ed20
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml|68901007ba1a48ceb1b728fc3b5483dd51b5e3a0
-product/framework/qti-telephony-common.jar|ad2d24e6fb1b0484761c09a1fcc38da602f7f37b
+product/framework/qti-telephony-common.jar|96154b2576114dd566bbc99a2d9af612de8849df
 vendor/bin/adpl|5fba0bb0fe9eb4a4aa232763be47afc0739cafd2
 vendor/etc/init/dataadpl.rc|cd4907d9bfd438fe5f5c86f5d6cec590ac0bac2a
 vendor/etc/init/dataqti.rc|6abfd1a850d782adbbb6f42c9d8ca870036b2ad1
-vendor/etc/init/netmgrd.rc|fd3457c69a9fab11b87d0d1b494188fe089684cd
+vendor/etc/init/netmgrd.rc|213d147cfcfe175aa4cdf1a345f3b148ea72982d
 vendor/etc/init/port-bridge.rc|e52d61a0de5e8a3b21bfbfca929e862422645377
+vendor/etc/init/vendor.qti.rmt_storage.rc|bc212c6353c2ded44ae4d759605fbbe55aa4fa3f
+vendor/etc/init/vendor.qti.tftp.rc|091915c28a3bc574d39189688748cc922d9e65e4
 
 # Radio (IMS) - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
 lib/com.qualcomm.qti.imscmservice@1.0.so|7d7af9bdbe6048ad5842c30929a9be822fbea7f6
@@ -1239,10 +1241,11 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so|bee66b95aa31d6c536e27b67aed2094b0b6
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so|f4eef520bbf98e6e1ac8697ef7eef0109487dba1
 vendor/lib64/vendor.qti.imsrtpservice@1.0.so|559a2dbf409d86746ed4303f2e0089256bb91a07
 
-# Radio - IMS - from LA.UM.8.6.r1-02600-89xx.0
+# Radio - IMS - from LA.UM.8.6.r1-02900-89xx.0
 product/lib64/libimscamera_jni.so|41fd9faa10818c9f7c5a14d372a07f79b0ca0daa
-product/lib64/libimsmedia_jni.so|7b418243f2740c103b3805e0470e45a400196900
--product/priv-app/ims/ims.apk|7eaabefacc6a1a2def0a6ff4b489ceae1993d527
+product/lib64/libimsmedia_jni.so|448795a73bbf72fc0c9876f86a13769139ea8022
+-product/priv-app/ims/ims.apk|a3d6918dfe1abbcce807abb5f74cfd642485559f
+vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so|936011dbcfd05ea9350f7410bb6f4d69ddd3fb61
 
 # Sensors - from LA.UM.8.6.r1-02600-89xx.0
 vendor/bin/sensors.qti|a3e75e6b68125c14f2189945b8ced945b82e05b8
