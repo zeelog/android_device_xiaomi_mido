@@ -5,8 +5,12 @@ allow qti_init_shell {
 
 # Allow init to bind mount loader config for media swcodec
 allow init system_file:file mounton;
+
 # adsprpcd
 allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
 
 # LEDs
 allow init sysfs_leds:lnk_file read;
+
+allow init sysfs:file setattr;
+
