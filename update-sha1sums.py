@@ -59,6 +59,9 @@ def update():
       line = line.split('|')[0]
       filePath = line.split(':')[1] if len(line.split(':')) == 2 else line
 
+      if line.find(';') != -1:
+	filePath = line.split(';:')[0]
+
       if filePath[0] == '-':
         file = open('%s/%s' % (vendorPath, filePath[1:]), 'rb').read()
       else:
