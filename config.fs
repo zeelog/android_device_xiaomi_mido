@@ -29,7 +29,7 @@ caps: BLOCK_SUSPEND NET_ADMIN
 mode: 0755
 user: AID_SYSTEM
 group: AID_SYSTEM
-caps: NET_BIND_SERVICE
+caps: NET_BIND_SERVICE SYS_BOOT
 
 [vendor/bin/imsdatadaemon]
 mode: 0755
