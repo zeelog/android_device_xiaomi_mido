@@ -1,0 +1,1 @@
+allow vendor_dataservice_app hal_mwqemadapter_hwservice:hwservice_manager find;
