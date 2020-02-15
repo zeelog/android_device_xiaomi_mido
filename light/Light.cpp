@@ -67,13 +67,11 @@ static uint32_t getBrightness(const LightState& state) {
     blue = state.color & 0xFF;
 
     /*
-     * Scale RGB brightness if Alpha brightness is not 0xFF.
+     * Scale RGB brightness using Alpha brightness.
      */
-    if (alpha != 0xFF) {
-        red = red * alpha / 0xFF;
-        green = green * alpha / 0xFF;
-        blue = blue * alpha / 0xFF;
-    }
+    red = red * alpha / 0xFF;
+    green = green * alpha / 0xFF;
+    blue = blue * alpha / 0xFF;
 
     return (77 * red + 150 * green + 29 * blue) >> 8;
 }
