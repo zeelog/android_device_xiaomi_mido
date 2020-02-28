@@ -1,5 +1,3 @@
 allow mm-qcamerad camera_socket:dir rw_dir_perms;
 allow mm-qcamerad camera_socket:sock_file { create unlink };
 allow mm-qcamerad persist_sensors_file:file rw_file_perms;
-
-set_prop(mm-qcamerad, vendor_camera_prop)

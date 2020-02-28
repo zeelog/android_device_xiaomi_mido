@@ -8,12 +8,5 @@ genfscon debugfs /rmt_storage	u:object_r:debugfs_rmt:s0
 # RTC
 genfscon sysfs /devices/soc/qpnp-rtc-8/rtc                  u:object_r:sysfs_rtc:s0
 
-# SSR
-genfscon sysfs /devices/soc/soc:qcom,kgsl-hyp/subsys0/name   u:object_r:sysfs_ssr:s0
-genfscon sysfs /devices/soc/1de0000.qcom,venus/subsys1/name  u:object_r:sysfs_ssr:s0
-genfscon sysfs /devices/soc/c200000.qcom,lpass/subsys2/name  u:object_r:sysfs_ssr:s0
-genfscon sysfs /devices/soc/a21b000.qcom,pronto/subsys3/name u:object_r:sysfs_ssr:s0
-genfscon sysfs /devices/soc/4080000.qcom,mss/subsys4/name    u:object_r:sysfs_ssr:s0
-
 # Touchscreen
 genfscon proc /touchpanel	u:object_r:proc_touchpanel:s0

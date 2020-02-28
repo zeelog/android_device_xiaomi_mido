@@ -1,2 +1,0 @@
-#============= isolated_app ==============
-dontaudit isolated_app app_data_file:dir getattr;
