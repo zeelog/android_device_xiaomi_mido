@@ -1,5 +1,6 @@
 type init_fingerprint, domain;
 type init_fingerprint_exec, exec_type, vendor_file_type, file_type;
+typeattribute init_fingerprint data_between_core_and_vendor_violators;
 
 # Allow for transition from init domain to init_fingerprint
 init_daemon_domain(init_fingerprint)
