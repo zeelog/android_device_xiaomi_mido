@@ -1,0 +1,14 @@
+[ 
+  { 
+    "remote": "github", 
+    "repository": "ashaykapadiya/androi_kernel_xiaomi_mido", 
+    "target_path": "kernel/xiaomi/mido", 
+    "branch": "lineage-17.1"
+  },
+
+  {
+    "repository"  : "ashaykapadiya/vendor_xiaomi_mido",
+    "target_path" : "vendor/xiaomi",
+    "branch": "ten"
+  }
+]
