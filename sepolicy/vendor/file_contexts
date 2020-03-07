@@ -3,13 +3,6 @@
 
 # Camera
 /data/vendor/qcam(/.*)?                         u:object_r:camera_socket:s0
-/(product|system/product)/(lib|lib64)/vendor\.qti\.hardware\.camera\.device@1\.0\.so   u:object_r:same_process_hal_file:s0
-
-# Cryptfshw
-/(product|system/product)/lib(64)?/vendor\.qti\.hardware\.cryptfshw@1\.0\.so u:object_r:same_process_hal_file:s0
-
-# Display
-/(product|system/product)/(lib|lib64)/vendor\.display\.config@1\.[0-9]\.so   u:object_r:same_process_hal_file:s0
 
 # Fpc Fingerprint
 /data/fpc(/.*)?					u:object_r:fpc_data_file:s0
