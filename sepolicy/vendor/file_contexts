@@ -2,7 +2,7 @@
 /system/bin/chargeonlymode                      u:object_r:charger_exec:s0
 
 # Camera
-/data/vendor/qcam(/.*)?                         u:object_r:camera_socket:s0
+/data/vendor/qcam(/.*)?                         u:object_r:vendor_camera_data_file:s0
 
 # Fpc Fingerprint
 /data/fpc(/.*)?					u:object_r:fpc_data_file:s0
