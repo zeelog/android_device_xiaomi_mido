@@ -1267,10 +1267,8 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e157937
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|19932d88afdf0351d7bfb6dee19a171d85bc1fde
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|7343cf8a20fb8e72e17b014cda7b5ae85841354a
 
-# Wi-Fi - from Bardock Pro
-vendor/bin/wcnss_service|c16c94790dfacc6c7c17316b96f1b3a8cb7eb81c
-
-# Wi-Fi - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
+# Wi-Fi - from Tissot PKQ1.180917.001.V10.0.18.0.PDHMIXM
+vendor/bin/wcnss_service|f8ecd38a41b6b7f832380b489e0c9804c34174d8
 vendor/firmware/wlan/prima/WCNSS_cfg.dat|1672af1c3d4f04804f31d4b79a6e59ea4a8b1926
 vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin|5e97baa4957609519835074071c879fbaf462266
 
