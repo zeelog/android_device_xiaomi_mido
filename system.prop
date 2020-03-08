@@ -1,0 +1,2 @@
+# Radio
+rild.libargs=-d /dev/smd0
