@@ -33,7 +33,8 @@ PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
 
 # Soong namespaces
-PRODUCT_SOONG_NAMESPACES += device/xiaomi/mido
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH)
 
 # Permissions
 PRODUCT_COPY_FILES += \
