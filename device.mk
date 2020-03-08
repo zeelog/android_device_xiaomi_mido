@@ -173,7 +173,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_mido \
+    android.hardware.biometrics.fingerprint@2.1 \
     libunwind
 
 # FM
