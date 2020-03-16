@@ -361,8 +361,3 @@ service vendor.power_off_alarm /vendor/bin/power_off_alarm
     group system
     disabled
     oneshot
-
-service goodix_script /vendor/bin/init.goodix.sh
-    class late_start
-    user system
-    oneshot
