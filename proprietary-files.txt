@@ -824,7 +824,7 @@ vendor/lib64/libfpservice.so|7ca47dfa5e8be7c502f1ca3431ee2a46d38e1f43
 # FM Radio - from LA.UM.8.6.r1-03400-89xx.0
 vendor/bin/fm_qsoc_patches|1d20ce04a514c151da08e606faa595d2380de4d6
 vendor/bin/init.qti.fm.sh|0ac820dd85ebdf5fa73b5e971f6787ff35ceb65d
-vendor/etc/init/init.qti.fm.rc|4f5459058debbea76991e69f8522126f6655fd3b
+vendor/etc/init/init.qti.fm.rc|07cb64e2109a900eb6e1da1950fddba954d0f8d6
 
 # Gatekeeper - from LA.UM.8.6.r1-03400-89xx.0
 vendor/lib/hw/gatekeeper.msm8953.so|c17725b59dac2effb3423edc60085366dd629e62
