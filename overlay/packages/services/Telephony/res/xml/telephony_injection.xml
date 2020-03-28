@@ -38,7 +38,6 @@
         <component>com.android.internal.telephony.GsmCdmaPhone</component>
         <component>com.android.internal.telephony.PhoneSwitcher</component>
         <component>com.android.internal.telephony.IccPhoneBookInterfaceManager</component>
-        <component>com.android.internal.telephony.dataconnection.DcTracker</component>
         <component>com.android.internal.telephony.RIL</component>
         <component>com.android.internal.telephony.TelephonyComponentFactory</component>
         <component>com.android.internal.telephony.MultiSimSettingController</component>
