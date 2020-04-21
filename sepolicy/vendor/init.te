@@ -1,4 +1,6 @@
 allow init wcnss_device:chr_file write;
+allow init sysfs:file setattr;
+
 allow qti_init_shell {
     fm_prop
 }:property_service set;
@@ -7,10 +9,10 @@ allow qti_init_shell {
 allow init system_file:file mounton;
 
 # adsprpcd
-allow init adsprpcd_file:filesystem { mount relabelfrom relabelto };
+allow init adsprpcd_file:filesystem { getattr mount relabelfrom relabelto };
+
+# Firmware
+allow init firmware_file:filesystem getattr;
 
 # LEDs
 allow init sysfs_leds:lnk_file read;
-
-allow init sysfs:file setattr;
-

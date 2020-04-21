@@ -1,0 +1,1 @@
+allow kernel kernel:capability { kill };

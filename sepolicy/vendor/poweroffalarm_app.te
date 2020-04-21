@@ -1,0 +1,2 @@
+#============= poweroffalarm_app ==============
+allow poweroffalarm_app cgroup:file write;
