@@ -36,7 +36,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <linux/media.h>
-#include <media/msm_cam_sensor.h>
+#include <media/msm_cam_sensor-legacy.h>
 #include <dlfcn.h>
 #include <unistd.h>
 

@@ -32,7 +32,7 @@
 
 // System dependencies
 #include <stdint.h>
-#include <media/msmb_camera.h>
+#include <media/msmb_camera-legacy.h>
 
 #define CAM_MAX_NUM_BUFS_PER_STREAM 64
 #define MAX_METADATA_PRIVATE_PAYLOAD_SIZE_IN_BYTES 8096
