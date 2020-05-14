@@ -131,6 +131,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service \
     camera.msm8953 \
     libmm-qcamera \
+    libshim_camera \
     Snap
 
 # Consumerir
