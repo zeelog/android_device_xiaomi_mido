@@ -74,7 +74,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
 # Device Properties
--include $(LOCAL_PATH)/prop.mk
+-include $(LOCAL_PATH)/vendor_prop.mk
+-include $(LOCAL_PATH)/product_prop.mk
 
 # ANT
 PRODUCT_PACKAGES += \
