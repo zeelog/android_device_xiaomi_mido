@@ -1195,11 +1195,11 @@ vendor/lib64/libsensor_reg.so|77023e0e2f5e16a21224caebecae8dab84a9b10e
 vendor/lib64/libsensor_user_cal.so|619ffc8e2fb28f359876cdd642d57d561d98c0f2
 vendor/lib64/sensors.ssc.so|3780d51a1c58845510d41c8266a3793cc62b50d9
 
-# Thermal - from LA.UM.8.6.r1-04400-89xx.0
-vendor/bin/thermal-engine|f035777bb32c1f7a4a8ff2687e82a4e975568e52
--vendor/lib/libthermalclient.so|14593d3551af6ce493b8534d123739cc7d146993
--vendor/lib64/libthermalclient.so|c36b6baf6e82a73e7afaf52589dada5248a69daf
-vendor/lib64/libthermalioctl.so|1d6587245c7e7148638f14254e2f61f6b5552857
+# Thermal - from Olive PKQ1.190319.001 V10.3.5.0.PCNCNXM
+vendor/bin/thermal-engine|7b59145e9e75cdc8b491f2ed7a04c0880899fc74
+-vendor/lib/libthermalclient.so|2c91276835c185e47a66916d24b3adc98b17e6eb
+-vendor/lib64/libthermalclient.so|faf92c38d52487cb8fa350f1ec786af17ac716cb
+vendor/lib64/libthermalfeature.so|8306e4bc55a4b9c7cb52a19fed11a9f48a604444
 
 # Time services - from LA.UM.8.6.r1-04400-89xx.0
 -vendor/app/TimeService/TimeService.apk;:timeservice_app_cert-legacy-um|c935b678fdaed033513f044f6492361c3370f9f0
