@@ -216,6 +216,11 @@ vendor/lib/libtrueportrait.so
 -vendor/lib/libts_face_beautify_hal.so
 vendor/lib/libubifocus.so
 
+# Camera - from Hydrogen 7.0/NRD90M/V10.3.2.0.NBCCNXM
+vendor/lib/libllvd_smore.so|740de4c339772df80858ddd9390f91ead71eadeb
+vendor/lib/libllvd_sw_tnr.so|406895e2ae614ac84a62d1758bce1810b99c5cda
+vendor/lib/libmmcamera_sw_tnr.so|59b0f350eb0cfa85399c296af14ac680ca99705e
+
 # Camera actuators
 vendor/lib/libactuator_dw9763.so
 vendor/lib/libactuator_dw9763_ofilm_imx258.so
