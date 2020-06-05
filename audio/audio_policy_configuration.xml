@@ -241,7 +241,7 @@
                 <route type="mix" sink="Earpiece"
                        sources="primary output,raw,low_latency,direct_pcm,compressed_offload,voip_rx"/>
                 <route type="mix" sink="Speaker"
-                       sources="primary output,raw,low_latency,direct_pcm,compressed_offload,voip_rx"/>
+                       sources="primary output,low_latency,direct_pcm,compressed_offload,voip_rx"/>
                 <route type="mix" sink="Wired Headset"
                        sources="primary output,raw,low_latency,direct_pcm,compressed_offload,voip_rx"/>
                 <route type="mix" sink="Wired Headphones"
