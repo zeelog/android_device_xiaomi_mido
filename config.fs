@@ -67,6 +67,12 @@ user: AID_SYSTEM
 group: AID_SYSTEM
 caps: NET_BIND_SERVICE
 
+[vendor/bin/slim_daemon]
+mode: 0755
+user:  AID_GPS
+group: AID_GPS
+caps: NET_BIND_SERVICE
+
 [vendor/firmware_mnt/image/*]
 mode: 0771
 user: AID_SYSTEM
