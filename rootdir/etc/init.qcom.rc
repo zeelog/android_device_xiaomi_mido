@@ -198,6 +198,9 @@ on post-fs-data
     mkdir /data/vendor/fm 0770 system system
     chmod 0770 /data/vendor/fm
 
+    # Secure Element directory for loader service functionality
+    mkdir /data/vendor/secure_element 0770 secure_element secure_element
+
     # Mark the copy complete flag to not completed
     write /data/vendor/radio/copy_complete 0
     chown radio radio /data/vendor/radio/copy_complete
