@@ -1,5 +1,6 @@
 typeattribute wcnss_service data_between_core_and_vendor_violators;
 set_prop(wcnss_service, wifi_prop);
+set_prop(wcnss_service, vendor_default_prop);
 dontaudit wcnss_service serialno_prop:file read;
 allow wcnss_service wifi_data_file:dir search;
 allow wcnss_service property_socket:sock_file write;
