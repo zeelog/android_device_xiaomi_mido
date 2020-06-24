@@ -70,10 +70,8 @@ vendor/lib64/libbt-hidlclient.so|4682c8711fe78bb73448b34c30181948989400bf
 # Bluetooth (Audio) - from LA.UM.8.6.r1-04400-89xx.0
 vendor/lib64/hw/audio.bluetooth_qti.default.so|a17474dec03b704cc9741c85f2f6aef62c5ad71e
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so|4e188cd7cc009ced6af7901f357005623dd0875a
-vendor/lib64/hw/vendor.qti.hardware.btconfigstore@1.0-impl.so|df20addad1f9c1c8b342aeee1ff9a5fbc5cf8bb8
 vendor/lib64/libbluetooth_audio_session_qti.so|ac99d03635322385bedf8db2a6e318b996349203
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|237a97fc3d3332b1466583178b548dd1525479ef
-vendor/lib64/vendor.qti.hardware.btconfigstore@1.0.so|5677a85470b88400467410b9a264f56119b30046
 
 # Bluetooth (Shared Dependencies) - from LA.UM.8.6.r1-04400-89xx.0
 vendor/lib64/vendor.qti.hardware.fm@1.0.so|027c226838e80a04209e5fb6a8882ce78c3b4222
