@@ -302,10 +302,6 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 on property:sys.boot_completed=1
     start qcom-post-boot
 
-on property:init.svc.qcom-post-boot=stopped
-    # Set min gpu freq as 320mhz
-    write /sys/class/kgsl/kgsl-3d0/devfreq/min_freq 320000000
-
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
