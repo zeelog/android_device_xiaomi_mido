@@ -1040,7 +1040,6 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so|680d4ad1999c8db44ee7d6240dda4ec187
 -sbin/charger:bin/chargeonlymode|664dfa548b81cac348f1699222160f8d2b4d247c
 
 # QMI - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
-etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
 lib64/libdiag_system.so:product/lib64/libdiag_system.so|811c30efa526e8e3828b112487b1d203cca5ed6e
 vendor/bin/irsc_util|3966b101150b54078b3e004212122a24f3fa0d82
 vendor/lib/libdiag.so|5b7fe4d15ab64af813827020166474c3b77591ef
@@ -1073,6 +1072,7 @@ vendor/lib64/libqmi_encdec.so|68fb631317150d66fd1a39c48f8ef9e0405bbdf2
 -vendor/lib64/libqmiservices.so|842a1b61fad7dd34753e945ee2ada0fdc9589c09
 
 # QMI - from LA.UM.8.6.r1-04400-89xx.0
+etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
 vendor/lib/libpdmapper.so|0959fa03d43b08dea91a57ed6aea228751f80573
 vendor/lib/libqmi_cci.so|475321e87d75f35ecf7c98004ba777064ef11c0d
 vendor/lib64/libpdmapper.so|b837641e006ff90a49764d7ac78553de537acd74
