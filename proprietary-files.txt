@@ -1182,18 +1182,18 @@ vendor/etc/init/imsqmidaemon.rc|dda16d842b7c65296e97bc9921b723a43b152ba3
 vendor/etc/init/imsrcsd.rc|2dc42ff6e4b6dd389bd3bc9a7af30dec2f1a45df
 vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so|936011dbcfd05ea9350f7410bb6f4d69ddd3fb61
 
-# Sensors - from LA.UM.8.6.r1-04400-89xx.0
-vendor/bin/sensors.qti|8915364094374f542e1eb7ad361ab2cb5349afbe
-vendor/lib/hw/activity_recognition.msm8953.so|824eb490aee2203d33ea5d864e49b916474cd13e
-vendor/lib/libsensor1.so|beefcf50269962c1f45806a2fd3e127ac855d26c
-vendor/lib/libsensor_reg.so|db6e00ba09e2d7cb65c070a3aecf374f7ea4cea1
-vendor/lib/libsensor_user_cal.so|d4b038e4424af44d4c7ba3b55ff630e98b78527f
-vendor/lib/sensors.ssc.so|91aaf89def079fe0c06c80656548f5229802e0cd
-vendor/lib64/hw/activity_recognition.msm8953.so|19637d97c2cf50a6c7b34d7529f2636198404522
-vendor/lib64/libsensor1.so|4a63118bc426116643216c5f43f70ce0cd52d537
-vendor/lib64/libsensor_reg.so|b977629681598d927830ed99986e818c01c2d34a
-vendor/lib64/libsensor_user_cal.so|a9cd76f06c02e23cb7f1552aa7d51567259faa47
-vendor/lib64/sensors.ssc.so|3642d92d56cd7b21720ff9d11a008040c16e5c5d
+# Sensors - from LA.UM.8.6.2.r1-07600-89xx.0
+vendor/bin/sensors.qti|add2b9247d142f52789a38c71d89b3410c7caeba
+vendor/lib/hw/activity_recognition.msm8953.so|d3a28bfbfe9faecea49e620ca5b365e245958054
+vendor/lib/libsensor1.so|e42560bab757fdf72b899def90c3887654504e1d
+vendor/lib/libsensor_reg.so|d9fd0574949c31c482160a4c7715711ed2060d65
+vendor/lib/libsensor_user_cal.so|8a12694e9200e057598ae811466982d8a38e3ac0
+vendor/lib/sensors.ssc.so|cc78ac61d2295967754c16232b4be55482b6aef4
+vendor/lib64/hw/activity_recognition.msm8953.so|966e160f22e648a24bba8ea25c378f6431445655
+vendor/lib64/libsensor1.so|834f01bffa724f8ddbb63da04b71a2e660a727ff
+vendor/lib64/libsensor_reg.so|77023e0e2f5e16a21224caebecae8dab84a9b10e
+vendor/lib64/libsensor_user_cal.so|619ffc8e2fb28f359876cdd642d57d561d98c0f2
+vendor/lib64/sensors.ssc.so|3780d51a1c58845510d41c8266a3793cc62b50d9
 
 # Thermal - from LA.UM.8.6.r1-04400-89xx.0
 vendor/bin/thermal-engine|f035777bb32c1f7a4a8ff2687e82a4e975568e52
