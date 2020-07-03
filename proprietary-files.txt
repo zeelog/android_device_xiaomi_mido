@@ -769,21 +769,21 @@ vendor/etc/init/dpmQmiMgr.rc|67569302d3a8828a9118c835e5b69c51b0c8ac68
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|a70cfc1be3e06cde6318d6969e114429fe1950bb
 vendor/lib64/libdpmqmihal.so|3ec8ff45991cdb502e9297e049197d02e2c7e941
 
-# DRM - from LA.UM.8.6.r1-04400-89xx.0
-vendor/bin/qseecomd|e43054ef83d7d27a0b1958c693ae07fdac6d73e0
-vendor/lib/libQSEEComAPI.so|cfc57d8022dbac5b20249e5ce7137b0834a208a0
-vendor/lib64/libGPreqcancel.so|6f59015f1e340dd1c995f0008a5f282037d98867
-vendor/lib64/libGPreqcancel_svc.so|84783ffc4dc45a6934a2c87166842fd1d6c73ebe
-vendor/lib64/libQSEEComAPI.so|050e9cac4b5bd3c2fd2babc4c567987d7c6ce46b
-vendor/lib64/libSecureUILib.so|9462ad202be6df615d008e3c72b2592dc8e20e41
-vendor/lib64/libStDrvInt.so|c5413acfc1eb7218c0cff4085c8116e91252acca
-vendor/lib64/libdrmfs.so|e72d79579f78501486fbd0883ee620fcb0b726ca
-vendor/lib64/libdrmtime.so|7eaed4940c68505b312d26b26585bfc93bbd8d54
-vendor/lib64/libqisl.so|491ac949ab488299c7a1ae4fe8257ec0a6f994b1
-vendor/lib64/librpmb.so|252757acda40774aebbcb29397eab514595f70db
-vendor/lib64/libsecureui.so|4e496259eb6da9b3dcf6fb744da897422350b6c7
-vendor/lib64/libsecureui_svcsock.so|060bbd76ead3b3aeb323af0c7352f9445088d3fe
-vendor/lib64/libssd.so|33d717f793c2579e3bd17b5ce6534cb68c12887d
+# DRM - from LA.UM.8.6.2.r1-07600-89xx.0
+vendor/bin/qseecomd|b6b1b78a4dc7085c2f49d40072094152fb2aecc5
+vendor/lib/libQSEEComAPI.so|9879f27099605136f44bc5ba168d3871f81cab05
+vendor/lib64/libGPreqcancel.so|e402b6dd242031af4e67d9d46f1ec72ff0ed35d3
+vendor/lib64/libGPreqcancel_svc.so|dfbb1b0145971813f4c418420985b0d715cbfaaa
+vendor/lib64/libQSEEComAPI.so|82258703001aac44c218a4f150f0d07ef9ade7e9
+vendor/lib64/libSecureUILib.so|e0b10ab19baabe086e20bad448939bea8a982146
+vendor/lib64/libStDrvInt.so|8c8776fc21988ceca25f6877a10862e12ba02681
+vendor/lib64/libdrmfs.so|d475ad618baf0d24a92579fe99b0836467b84244
+vendor/lib64/libdrmtime.so|fe3512ddedbe49c4b6c39d5dec19a398bddbc816
+vendor/lib64/libqisl.so|c4e7f283f3d416b784f2ec0f7000d607e044809b
+vendor/lib64/librpmb.so|e8c4f3aec58a248d70094194d2831c1f337bacd2
+vendor/lib64/libsecureui.so|fc29832bebb89e7edb8cb46d45ee5cb8fdcdf3d8
+vendor/lib64/libsecureui_svcsock.so|7441cfd83ed51ab13d564f81bc3744c488f08fe2
+vendor/lib64/libssd.so|bcb7c4213115f2377e0d30dd1a05cae5e88212e4
 
 # DRM - Widevine - LA.UM.8.6.r1-04000-89xx.0
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine|b626d9bbf7043c66c8ef903c9d0e5183fc47388d
