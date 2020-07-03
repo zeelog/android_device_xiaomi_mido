@@ -807,9 +807,9 @@ vendor/bin/fm_qsoc_patches|5b5accb606681fb1c7abc2efc8b5208ff220eb88
 vendor/bin/init.qti.fm.sh|0ac820dd85ebdf5fa73b5e971f6787ff35ceb65d
 vendor/etc/init/init.qti.fm.rc|07cb64e2109a900eb6e1da1950fddba954d0f8d6
 
-# Gatekeeper - from LA.UM.8.6.r1-04400-89xx.0
-vendor/lib/hw/gatekeeper.msm8953.so|c17725b59dac2effb3423edc60085366dd629e62
-vendor/lib64/hw/gatekeeper.msm8953.so|b3a9d78faa65029b0a20f2ff6dfe986bc80b64c1
+# Gatekeeper - from LA.UM.8.6.2.r1-07600-89xx.0
+vendor/lib/hw/gatekeeper.msm8953.so|c153dbbd2c31ccee8633837961ce79909257af04
+vendor/lib64/hw/gatekeeper.msm8953.so|2982026cfb7911d279bd4c9be3a02ad21cdb54ec
 
 # GPS - from LA.UM.8.6.r1-04400-89xx.0
 vendor/bin/hw/android.hardware.gnss@2.0-service-qti|c59670c57fad08f9826edeb89d147dd34eab2f4c
