@@ -1207,11 +1207,11 @@ vendor/bin/time_daemon|ccac9c14dcb7f2be8622bc64eeb1820ba595d0fd
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so|b056a9bc0ab6642369eda0ce3b097b036da2b24e
 
-# TUI - from LA.UM.8.6.r1-04400-89xx.0
-vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|05c0a47f24e38b14fc7c1ccfa64c585692277ee5
+# TUI - from LA.UM.8.6.2.r1-07600-89xx.0
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|d4d025e0a12af87f65104fe07801517938733603
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e1579374f001c94588fae7835a12ffc
-vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|19932d88afdf0351d7bfb6dee19a171d85bc1fde
-vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|7343cf8a20fb8e72e17b014cda7b5ae85841354a
+vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|1a3bd8be98867f7af79edd76a25ec00865fd8915
+vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|1ac676dca4c81094b254b62f1b608e471b385847
 
 # VNDK
 vendor/lib/vndk-sp/libcutils.so|846d5769b71abca5b8fa185d4cf83a5cf1afed3c

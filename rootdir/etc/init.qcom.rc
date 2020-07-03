@@ -202,6 +202,9 @@ on post-fs-data
     # Secure Element directory for loader service functionality
     mkdir /data/vendor/secure_element 0770 secure_element secure_element
 
+    # Create dir for TUI
+    mkdir /data/vendor/tui 0700 system drmrpc
+
     # Mark the copy complete flag to not completed
     write /data/vendor/radio/copy_complete 0
     chown radio radio /data/vendor/radio/copy_complete
