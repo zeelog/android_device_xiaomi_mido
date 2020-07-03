@@ -676,8 +676,8 @@ etc/camera/s5k5e8_sunny_chromatix.xml:vendor/etc/camera/s5k5e8_sunny_chromatix.x
 # Camera firmware - from Daisy 10/QKQ1.191002.002/V11.0.5.0.QDLMIXM
 vendor/firmware/cpp_firmware_v1_5_0.fw|ac19cd179b7b118bb3ea01a35fdfc78dc58164a1
 
-# Charger - from LA.UM.8.6.r1-04400-89xx.0
-vendor/bin/hvdcp_opti|7b7cda55c81d523e0fd5741082209bd60f9f6586
+# Charger - from LA.UM.8.6.2.r1-07600-89xx.0
+vendor/bin/hvdcp_opti|e46ec16610d74f941c58848d8f075fbb1c9f367d
 
 # CNE - from LA.UM.8.6.r1-04400-89xx.0
 etc/cne/Nexus/ATT/ATT_profiles.xml|a0039cb3a4c5a4ca1adf897904b61c91e32d06f7
