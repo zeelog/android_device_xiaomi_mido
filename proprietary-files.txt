@@ -1217,8 +1217,8 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|1ac676dca4c81094b254b62f1b608e4
 vendor/lib/vndk-sp/libcutils.so|846d5769b71abca5b8fa185d4cf83a5cf1afed3c
 vendor/lib/vndk/libprocessgroup.so|62743ee7f648f0f742c35c9fbd7299186e91967a
 
-# Wi-Fi - from LA.UM.8.6.r1-04400-89xx.0
-vendor/bin/wcnss_service|cad39605f56cfffb202d3c13ff278052cde8883a
+# Wi-Fi - from LA.UM.8.6.2.r1-07600-89xx.0
+vendor/bin/wcnss_service|5a2bc59ea5c49bf6290b08233d741fba7461706b
 vendor/firmware/wlan/prima/WCNSS_cfg.dat|1672af1c3d4f04804f31d4b79a6e59ea4a8b1926
 vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin|5e97baa4957609519835074071c879fbaf462266
 
