@@ -959,32 +959,32 @@ vendor/lib/hw/sound_trigger.primary.msm8953.so|c35fbded11566f2d9f479849f44de625b
 vendor/lib/libadpcmdec.so|0b00273d1321f4fde109b1f8be514ab0ac6bedf1
 vendor/lib/libsmwrapper.so|5b3e34fd89883a2c308f377988da031c519a7b38
 
-# Media - from LA.UM.8.6.r1-04400-89xx.0
+# Media - from LA.UM.8.6.2.r1-07600-89xx.0
 lib/extractors/libmmparserextractor.so|25e6e1dcf8a2bb76aab935c32428af8f2c7efc69
 lib/libFileMux.so|5a7dc70233541e2e5455a0d802076d0ac593af62
-lib/libmmosal.so|0bf6e50b59f7e77b40e4d256c6c561be5104a148
+lib/libmmosal.so|98aaef4182cf79a056b0e67df2c8b4588ca316b1
 lib/libmmparser_lite.so|8178e82b5de51f7292ad738ff66034459d4b7ffa
 lib/libOmxMux.so|35fc6a701ad6f983b2df886349064a9d1ad9143c
-lib64/libmmosal.so|f2ec52d5ff321b7064dd6102a0ebc7914c11b7c9
--vendor/lib/libgpustats.so|1ebe49e75a0d02e6662108650d15d8dbc988ee64
-vendor/lib/libI420colorconvert.so|0dfd4d0e49f4250e98e781483048a296a679e05e
-vendor/lib/libmm-color-convertor.so|7c74d36d42dc79fc58afe0f4323b76cc1297d36e
-vendor/lib/libmmosal_proprietary.so|b6e3733e84031c17dc408808ae70fb05fc087374
-vendor/lib/libOmxAacDec.so|1ad71e69b0311d278b5aad0d9d1163983c3faeef
-vendor/lib/libOmxAlacDec.so|887e641f7ecd32eba21de6e0f962053072099be1
-vendor/lib/libOmxAlacDecSw.so|f1aac528d09c554ad44d1e611ff91133e1fe680b
-vendor/lib/libOmxAmrDec.so|8bb4d90f61f6730c2728833da4a926c7540f8ad6
-vendor/lib/libOmxAmrwbplusDec.so|51b1300ca6e5fd7dbfccf214ccdab3e5f44b2aff
-vendor/lib/libOmxApeDec.so|f034236491c4b5560276c52fa3b487f4b6cf07d8
-vendor/lib/libOmxApeDecSw.so|26468a8985e5d7d14440e854ca777a3a6644d1fd
-vendor/lib/libOmxDsdDec.so|0090992cd0147066f90fd0643c2d9ae616f37c2d
-vendor/lib/libOmxEvrcDec.so|20a6be418df26f48751b4178f5642e3fc6902690
-vendor/lib/libOmxG711Dec.so|567b1698b1313faa0fbd1f80f7a31d761bdf7d7d
-vendor/lib/libOmxQcelp13Dec.so|27a75185e62e88ea84ac2448a3842c998899ae90
-vendor/lib/libOmxVideoDSMode.so|b25a4993d411313dba2356f568b2d417a0eba271
-vendor/lib/libOmxWmaDec.so|404ae6ea303634d96d3ee46bee2c6f898fa46c15
-vendor/lib/libvqzip.so|c2cf1d2938c7af82bf011c8d371dfa8ae6cb038e
--vendor/lib64/libgpustats.so|0cc12485618ae67fb327e89d03b78c5018eab7c1
+lib64/libmmosal.so|22a5a20d491f8edaded7e92046ad6e832f124ff5
+-vendor/lib/libgpustats.so|b0cbb0338e92bd945677fea9da78b150b5529301
+vendor/lib/libI420colorconvert.so|4feec5034de3e21d95602ca93c559550c682e19b
+vendor/lib/libmm-color-convertor.so|a6c914904f8dde363e4e7986277d29a22fb0041a
+vendor/lib/libmmosal_proprietary.so|048ff9ef1acf741b9ca383042f5d1ab5a4b5e801
+vendor/lib/libOmxAacDec.so|897d3c388bdeb8fa8fbe00b27ab3c1388940e060
+vendor/lib/libOmxAlacDec.so|538e13fbd9e367ef666e0f62ae332cf356197fb1
+vendor/lib/libOmxAlacDecSw.so|4dc343fdc9865810b1568cebb1dad07aa5047bd9
+vendor/lib/libOmxAmrDec.so|7e08b56c17c14276367a094140fcff4c1acb0307
+vendor/lib/libOmxAmrwbplusDec.so|d92a6dee831094aea9a4024f5ce778d408726493
+vendor/lib/libOmxApeDec.so|37b6abb688268962700c5479e4da51ec82f4eda2
+vendor/lib/libOmxApeDecSw.so|96b6b3604855f41198521254e13843b5a75a307d
+vendor/lib/libOmxDsdDec.so|277e36d6e3ae5d671628629113717da5e8df5588
+vendor/lib/libOmxEvrcDec.so|e13bce01bb1f01c05bb5abe59f286ee147bc60eb
+vendor/lib/libOmxG711Dec.so|6e9d06315ac56555645cef7e9bead8935e4a17a6
+vendor/lib/libOmxQcelp13Dec.so|55add43f378cc1f4255d2116accef390dab980ac
+vendor/lib/libOmxVideoDSMode.so|0bab1b2724a9454c36477250194805a222c3feb4
+vendor/lib/libOmxWmaDec.so|4285c349bf86b2efc50258658cbfb8ea51db50eb
+vendor/lib/libvqzip.so|867bc963c94e6812cc4d3a7fe093c3383557bcb9
+-vendor/lib64/libgpustats.so|dd2ecc6c5ef439a8d427a52ab9d153f8e747deff
 
 # Perf - from LA.UM.8.6.r1-04400-89xx.0
 product/lib/vendor.qti.hardware.perf@1.0.so|b4969fa797d1957ad8f35d4f84615608f0e9cc2e
@@ -1222,7 +1222,7 @@ vendor/bin/wcnss_service|cad39605f56cfffb202d3c13ff278052cde8883a
 vendor/firmware/wlan/prima/WCNSS_cfg.dat|1672af1c3d4f04804f31d4b79a6e59ea4a8b1926
 vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin|5e97baa4957609519835074071c879fbaf462266
 
-# WiFi Display - from LA.UM.8.6.r1-04400-89xx.0
+# WiFi Display - from LA.UM.8.6.2.r1-07600-89xx.0
 bin/wfdservice|934817e5689fe6f8b54032902de58c203b8ec2e7
 etc/init/wfdservice.rc|311bfdd1675e56499662f39455536b75b78477bb
 etc/wfdconfig.xml|d07f6b0441c0aa8913865100239490fa8687a020
@@ -1233,12 +1233,12 @@ lib/libmmrtpdecoder.so|a990ab20d1c970c827b8e12fe377c4965da7b7f5
 lib/libmmrtpencoder.so|c1d969d3600a9b9a7505e4d1f18ab3ac0f111406
 lib/libwfdavenhancements.so|638e27b478a40c550e55615aad313073cc34af7b
 lib/libwfdclient.so|1aeeff79aeea226a8448d7b6e8e3b79ab5fcdcc3
-lib/libwfdcodecv4l2.so|57543179ee4fa13bf48e74e65ebefc3ed8618e88
-lib/libwfdcommonutils.so|a1e9da9d78430bdcd4545a5f3671a3cdedf03668
-lib/libwfdconfigutils.so|2854b593dfc491ead6f60aab4d016d131dbcd841
+lib/libwfdcodecv4l2.so|fe30a24e0bfbe0930e57415bbbdd85a85208853b
+lib/libwfdcommonutils.so|b6241fdc58c7f64dd776351fe1bad6d6d72e4b6a
+lib/libwfdconfigutils.so|b636090e4341b992f0524b0fd46be8ebd7105ba3
 lib/libwfdmminterface.so|feb2b5323b5ce8da54b69e0fcec17e02197210fc
-lib/libwfdmmsink.so|866b548e1a6eed172896bbf6bd9c501154dc73ca
-lib/libwfdmmsrc.so|2f857de6a7109da907b176b36a3605e8951ed2f0
+lib/libwfdmmsink.so|ccc9a71da7d777d629386ed102685b3adbef9880
+lib/libwfdmmsrc.so|ff1d55eb140f60d04e29327f76e6be9bf8840788
 lib/libwfdnative.so|f103071788592614cf0ad50764d3437c94d04a76
 lib/libwfdrtsp.so|b45df3a3180cea8b76c2201148a06b045ff26495
 lib/libwfdservice.so|93ae07c742ed1d4d76e34094a0534702555fe975
@@ -1251,11 +1251,11 @@ lib/libwfduibcsrc.so|58d43f5593a7c0a6929c0ed3aef02386fbc0afc8
 lib64/libwfdclient.so|0b2ddc40a0b251e0768a2383c20c318a8c9b0c2d
 lib64/libwfdnative.so|b28b0d83b8d52ad3450735bdeea6498b1a7a18c2
 -priv-app/WfdService/WfdService.apk|9da05dab9097ef8b016e99fd646b50167309ee5b
-vendor/bin/wifidisplayhalservice|53f17ca800499f18514c4a68bff571491404ead6
+vendor/bin/wifidisplayhalservice|e0a910c23ba5a0d10bc0e331c535660dae2ebfb4
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc|04e463342cbba4c0e9c311a18238f95dec9359fd
-vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so|52a65f99b4c2a9e27aed76c5fa16fd89fabb4558
-vendor/lib/libwfdcommonutils_proprietary.so|f9fd5853ab1655e868555c6a20b017509436f07b
-vendor/lib/libwfdhaldsmanager.so|fdd9d1c5a7e75684ad2039e0ce24a1e5ee308833
-vendor/lib/libwfdhdcpcp.so|a87af0f216f9761d513bab6337783a691b02fd3f
-vendor/lib/libwfdmmservice.so|f180f820e507d7ed2676b0d66d6d63cb74458563
-vendor/lib/libwfdmodulehdcpsession.so|4800ec57f1a546200389b98221145a310c5d6aca
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so|0e2118872f842a0fb3ab930a5f4d2fa5eb1f7bdd
+vendor/lib/libwfdcommonutils_proprietary.so|250c1c7f8b1a42033c1dc34552544b673c6c7442
+vendor/lib/libwfdhaldsmanager.so|ed5da08369f4d696984259cb7382a487ffbb7f56
+vendor/lib/libwfdhdcpcp.so|4ae526604b563cb7a4a7a514047212a660ecc9a8
+vendor/lib/libwfdmmservice.so|ae123301165442583a046be5c97446e29328bfc5
+vendor/lib/libwfdmodulehdcpsession.so|0bb7ae8cde5b3b105e86c9551142e00835a80003
