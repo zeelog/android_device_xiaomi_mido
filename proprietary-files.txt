@@ -802,8 +802,8 @@ vendor/lib64/libfp_client.so|110307b89ac3777a42a2c9045fce528f26c918b8
 vendor/lib64/libfpnav.so|588301735456b31b09aa0779a7f46481056868dd
 vendor/lib64/libfpservice.so|7ca47dfa5e8be7c502f1ca3431ee2a46d38e1f43
 
-# FM Radio - from LA.UM.8.6.r1-04400-89xx.0
-vendor/bin/fm_qsoc_patches|82ab33e928933b8077e77c1532a58b61a3551932
+# FM Radio - from LA.UM.8.6.2.r1-07600-89xx.0
+vendor/bin/fm_qsoc_patches|5b5accb606681fb1c7abc2efc8b5208ff220eb88
 vendor/bin/init.qti.fm.sh|0ac820dd85ebdf5fa73b5e971f6787ff35ceb65d
 vendor/etc/init/init.qti.fm.rc|07cb64e2109a900eb6e1da1950fddba954d0f8d6
 
