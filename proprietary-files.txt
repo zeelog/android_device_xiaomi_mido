@@ -950,9 +950,9 @@ vendor/firmware/a506_zap.mdt|621df918f1d6ef0a0c3fe25c8f6a58d56af4b26a
 vendor/firmware/a530_pfp.fw|d027c70fde64241ec13160d09ee1b6c272974a4b
 vendor/firmware/a530_pm4.fw|b1cf625b5552b99839687f479c124ac5daca2ca2
 
-# Keystore - from LA.UM.8.6.r1-04400-89xx.0
-vendor/lib/hw/keystore.msm8953.so|9d4ae263688bcf3f4555255ff2f243f9bdff2032
-vendor/lib64/hw/keystore.msm8953.so|265cd4d0246f5e2e80916dd1c96262be28306b31
+# Keystore - from LA.UM.8.6.2.r1-07600-89xx.0
+vendor/lib/hw/keystore.msm8953.so|556cd3432e786d371bf961fca3160b2e288576e7
+vendor/lib64/hw/keystore.msm8953.so|9f4d991dfa359299739bd443b63731528d9cb5d0
 
 # Listen - from LA.UM.8.6.2.r1-07600-89xx.0
 vendor/lib/hw/sound_trigger.primary.msm8953.so|c35fbded11566f2d9f479849f44de625b7e3f8d8
