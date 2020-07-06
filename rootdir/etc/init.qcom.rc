@@ -284,7 +284,7 @@ service loc_launcher /vendor/bin/loc_launcher
 
 service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
-    user system
+    user root
     group root system radio
     oneshot
 
