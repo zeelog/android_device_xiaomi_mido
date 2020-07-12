@@ -1,1 +1,2 @@
+allow ueventd self:capability sys_nice;
 allow ueventd fpc_sysfs:file rw_file_perms;
