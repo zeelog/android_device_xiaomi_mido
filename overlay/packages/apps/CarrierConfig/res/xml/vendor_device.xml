@@ -4,6 +4,9 @@
         <boolean name="carrier_volte_available_bool" value="true"/>
         <boolean name="carrier_vt_available_bool" value="true"/>
     </carrier_config>
+    <carrier_config mcc="510" mnc="10">
+        <boolean name="carrier_volte_available_bool" value="true"/>
+    </carrier_config>
     <carrier_config mcc="510" mnc="28">
         <boolean name="carrier_volte_available_bool" value="true"/>
         <boolean name="carrier_vt_available_bool" value="true"/>
