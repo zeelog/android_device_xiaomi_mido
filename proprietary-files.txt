@@ -1210,7 +1210,7 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|7343cf8a20fb8e72e17b014cda7b5ae
 
 # VNDK
 vendor/lib/vndk-sp/libcutils.so|846d5769b71abca5b8fa185d4cf83a5cf1afed3c
-vendor/lib/vndk/libprocessgroup.so|62743ee7f648f0f742c35c9fbd7299186e91967a
+vendor/lib/vndk/libprocessgroup.so|d2b88fec1e836193252456335e93afe058d84515
 
 # Wi-Fi - from LA.UM.8.6.r1-04400-89xx.0
 vendor/bin/wcnss_service|cad39605f56cfffb202d3c13ff278052cde8883a
