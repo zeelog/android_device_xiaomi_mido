@@ -16,6 +16,7 @@
 
 #define LOG_TAG "android.hardware.light@2.0-service.xiaomi_mido"
 
+#include <hidl/HidlLazyUtils.h>
 #include <hidl/HidlTransportSupport.h>
 
 #include "Light.h"
@@ -23,6 +24,7 @@
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
+using android::hardware::LazyServiceRegistrar;
 using android::hardware::light::V2_0::ILight;
 using android::hardware::light::V2_0::implementation::Light;
 
@@ -35,7 +37,10 @@ int main() {
 
     configureRpcThreadpool(1, true);
 
-    status_t status = service->registerAsService();
+    android::status_t status;
+    auto serviceRegistrar = std::make_shared<LazyServiceRegistrar>();
+    status = serviceRegistrar->registerService(service);
+
     if (status != OK) {
         ALOGE("Cannot register Light HAL service.");
         return 1;
