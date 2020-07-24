@@ -1005,10 +1005,10 @@ vendor/lib/vendor.qti.hardware.perf@2.0.so|6578499c4538b894821a27d7c7722c31439b9
 
 # Perf (configs) - from LA.UM.8.6.2.r1-07600-89xx.0
 vendor/etc/perf/commonresourceconfigs.xml|89d443b2b67d58fff1ef34c33e3f1c393164cf5d
-vendor/etc/perf/perfboostsconfig.xml|1c120821b2fe9b3ebf9d00b7bc8c0a374c2918d2
+vendor/etc/perf/perfboostsconfig.xml|9fbd442672b7ab9553592c09bd730308a6ff2cf4
 vendor/etc/perf/perfconfigstore.xml|dfa3a78fd24cba4b870a3cd04d657cc9962c8331
 vendor/etc/perf/targetconfig.xml|aa20c25397df1455206965737f82d44d44430e45
-vendor/etc/perf/targetresourceconfigs.xml|d9f9815764725df55e748bf4af4829e609dac853
+vendor/etc/perf/targetresourceconfigs.xml|ec6d4d1df94d4f2dc2cc0acc2deddaaf76d0759f
 
 # Peripheral manager - from LA.UM.8.6.2.r1-07600-89xx.0
 vendor/bin/pm-proxy|6317be13e38a4f7e5005ef544ab36bc7fe9cc3fd
