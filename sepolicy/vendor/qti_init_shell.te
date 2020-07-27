@@ -1,3 +1,5 @@
+dontaudit qti_init_shell self:capability { dac_override };
+
 allow qti_init_shell proc_touchpanel:dir { r_dir_perms setattr };
 allow qti_init_shell proc_touchpanel:file { getattr setattr };
 

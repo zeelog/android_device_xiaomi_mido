@@ -1,1 +1,2 @@
 set_prop(netmgrd, vendor_xlat_prop)
+dontaudit netmgrd system_file:file execute;
