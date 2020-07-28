@@ -895,14 +895,6 @@ vendor/lib64/libmm-hdcpmgr.so|73d428151e99086ac3e48db95a660e7d7807a8e3
 vendor/lib64/librs_adreno.so|5ec4bcbf396d1e2ed97201e84562c410dc1f52d4
 vendor/lib64/librs_adreno_sha1.so|a9b829487e668e1f8cf638260b8f90a2b4a30771
 
-# Graphics (hwcomposer) - from LA.UM.8.6.r1-04400-89xx.0
-vendor/lib/hw/hwcomposer.msm8953.so|32a322e2bae0a502e99d7a2a2c33da6218acef7d
-vendor/lib/libsdmutils.so|8f02e593ad9c59135906086902cf5866e6869755
-vendor/lib/libsdmcore.so|2c73a23424e350a3fea4ee3c8612346101799464
-vendor/lib64/hw/hwcomposer.msm8953.so|0345b6427445a62d3f6182162599ea467bb852ab
-vendor/lib64/libsdmutils.so|016450d0366fbd487aa45585afc7d3b81551bed1
-vendor/lib64/libsdmcore.so|2dbe7125f5fd8a116c8bc03fefc0c9b9d963d3eb
-
 # Graphics (Postprocessing) - from LA.UM.8.6.r1-04400-89xx.0
 etc/permissions/com.qti.snapdragon.sdk.display.xml|79a36c560f8cdbfeca03911fefc282bda25b2322
 framework/com.qti.snapdragon.sdk.display.jar|495d45dd84a61e873a3d1176ab7741826e60d7f1
