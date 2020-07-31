@@ -1,4 +1,7 @@
 service vendor.ir-hal-1-0 /vendor/bin/hw/android.hardware.ir@1.0-service.xiaomi_mido
+    interface android.hardware.ir@1.0::IConsumerIr default
+    oneshot
+    disabled
     class hal
     user system
     group system

@@ -17,6 +17,7 @@
 #define LOG_TAG "android.hardware.ir@1.0-service.xiaomi_mido"
 
 #include <android-base/logging.h>
+#include <hidl/HidlLazyUtils.h>
 #include <hidl/HidlTransportSupport.h>
 
 #include "ConsumerIr.h"
@@ -26,6 +27,7 @@ using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
 // Generated HIDL files
+using android::hardware::LazyServiceRegistrar;
 using android::hardware::ir::V1_0::IConsumerIr;
 using android::hardware::ir::V1_0::implementation::ConsumerIr;
 
@@ -34,7 +36,10 @@ int main() {
 
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
-    android::status_t status = service->registerAsService();
+    android::status_t status;
+    auto serviceRegistrar = std::make_shared<LazyServiceRegistrar>();
+    status = serviceRegistrar->registerService(service);
+
     if (status != android::OK) {
         LOG(ERROR) << "Cannot register ConsumerIr HAL service";
         return 1;
