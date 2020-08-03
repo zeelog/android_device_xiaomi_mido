@@ -112,7 +112,7 @@ service adsprpcd /vendor/bin/adsprpcd
    group media
 
 service wcnss-service /vendor/bin/wcnss_service
-    class late_start
+    class main
     user system
     group system wifi radio
     oneshot
