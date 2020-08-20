@@ -1,1 +1,2 @@
 vendor.qti.hardware.perf::IPerfCallback                      u:object_r:hal_perfcallback_hwservice:s0
+vendor.qti.hardware.slmadapter::ISlmAdapter                  u:object_r:hal_slmadapter_hwservice:s0
