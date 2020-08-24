@@ -1,0 +1,24 @@
+cc_binary {
+    name: "android.hardware.biometrics.fingerprint@2.1-service.xiaomi_mido",
+    defaults: ["hidl_defaults"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.xiaomi_mido.rc"],
+    vendor: true,
+    relative_install_path: "hw",
+    srcs: [
+        "BiometricsFingerprint.cpp",
+        "service.cpp",
+    ],
+
+    shared_libs: [
+        "libbinder",
+        "libcutils",
+        "liblog",
+        "libhidlbase",
+        "libhidltransport",
+        "libhardware",
+        "libutils",
+        "libhwbinder",
+        "android.hardware.biometrics.fingerprint@2.1",
+    ],
+
+}
