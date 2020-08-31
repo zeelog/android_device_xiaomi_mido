@@ -1,0 +1,8 @@
+allow hal_perf_default property_socket:sock_file write;
+
+allow hal_perf_default init:unix_stream_socket connectto;
+
+allow hal_perf_default vendor_default_prop:property_service set;
+
+allow hal_perf_default hal_display_config_hwservice:hwservice_manager find;
+allow hal_perf_default hal_graphics_composer_default:binder call;
