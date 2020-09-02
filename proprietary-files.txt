@@ -810,9 +810,9 @@ vendor/bin/xtwifi-client|3ff885da132f239aa96aa3a5185c7fbbf2593a6b
 vendor/bin/xtwifi-inet-agent|574d0c18b6eb7eb960aec18a52c9bd004d7bb21c
 vendor/etc/flp.conf|8c8642685c225fa0b715c284481018a527dae451
 vendor/etc/izat.conf|5ffb094261e68246149dac5c6f564e0c3d783ad9
-vendor/etc/lowi.conf|1e47a73803542661b9a4c42cc8dfa576ae03a9a2
+vendor/etc/lowi.conf|dd73db0c1297cde822f576e4f664b645cf5fe7b8
 vendor/etc/sap.conf|afbcbacb367b2fcc05efcad76ef096d794e768ba
-vendor/etc/xtwifi.conf|ac2189707c0016c31846ccec73e8857d7f566605
+vendor/etc/xtwifi.conf|ca3517f100be4e331f4e96919378486385cdb6e5
 vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc|8e0b0596a13b8d653e6f5415c41d8a53bb12b73a
 vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml|38f9da1e2592897822b056a5ba5087cf6d437249
 vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml|9b2f6691d6c224bcb9ab9a0d57adfb9e52f1b53e
