@@ -23,8 +23,6 @@ cc_binary {
         "libbase",
         "libhardware",
         "libhidlbase",
-        "libhidltransport",
-        "libhwbinder",
         "libutils",
         "android.hardware.ir@1.0",
     ],
