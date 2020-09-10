@@ -336,7 +336,6 @@ service vendor.msm_irqbal_lb /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqba
     disabled
 
 on charger
-    load_system_props
     start qcom-post-boot
 
 service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
