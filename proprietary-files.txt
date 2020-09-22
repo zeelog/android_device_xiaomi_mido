@@ -754,7 +754,7 @@ product/framework/dpmapi.jar|4696df9793ad676b305d53b5d7ce65ecf74771ad
 product/lib64/com.qualcomm.qti.dpm.api@1.0.so|a70cfc1be3e06cde6318d6969e114429fe1950bb
 product/lib64/libdpmctmgr.so|2426419a75688ab5231565fb65013ee607ba09cb
 product/lib64/libdpmfdmgr.so|97b2f505285ed372a9f3d8a13682ea4022dbd70a
-product/lib64/libdpmframework.so|aa91f700a20834b46a7f52f128ce9d2eb5d9a29c
+product/lib64/libdpmframework.so|b99884d57308bf5fb49f634c8b836c0b568612a7
 product/lib64/libdpmtcm.so|9f99848e2574d2302692446d5dd87cd90f972b0c
 -product/priv-app/dpmserviceapp/dpmserviceapp.apk|68b6f0227ae0b065dff635f30bfdc3c23f90c395
 vendor/bin/dpmQmiMgr|0573af990ed2c0af1d7b19f2e634d7f4966ced69
