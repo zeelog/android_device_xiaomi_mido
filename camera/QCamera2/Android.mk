@@ -4,9 +4,6 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO := qcom/camera
-LOCAL_COPY_HEADERS := QCameraFormat.h
-
 LOCAL_SRC_FILES := \
         util/QCameraBufferMaps.cpp \
         util/QCameraCmdThread.cpp \
@@ -80,7 +77,6 @@ LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/../mm-image-codec/qexif \
         $(LOCAL_PATH)/../mm-image-codec/qomx_core \
         $(LOCAL_PATH)/include \
-        $(LOCAL_PATH)/stack/common \
         $(LOCAL_PATH)/stack/mm-camera-interface/inc \
         $(LOCAL_PATH)/util \
         $(LOCAL_PATH)/HAL3 \
@@ -130,6 +126,7 @@ endif
 ifeq ($(TARGET_TS_MAKEUP),true)
 LOCAL_SHARED_LIBRARIES += libts_face_beautify_hal libts_detected_face_hal
 endif
+LOCAL_HEADER_LIBRARIES += camera_common_headers
 LOCAL_HEADER_LIBRARIES += media_plugin_headers
 
 LOCAL_STATIC_LIBRARIES := android.hardware.camera.common@1.0-helper
@@ -142,6 +139,11 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_32_BIT_ONLY := $(BOARD_QTI_CAMERA_32BIT_ONLY)
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := camera_common_headers
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/stack/common
+include $(BUILD_HEADER_LIBRARY)
 
 include $(call first-makefiles-under,$(LOCAL_PATH))
 endif
