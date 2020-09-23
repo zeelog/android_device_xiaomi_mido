@@ -1087,7 +1087,7 @@ vendor/lib64/libril-qc-qmi-1.so|e0c0b89181fa2eb1a4c09a7537f8e18bb68cf7b7
 vendor/lib64/libril-qc-radioconfig.so|3ee0fa2ca0a2419a2629dfea6c7b4078d9ae11f6
 vendor/lib64/libril-qcril-hook-oem.so|159f6addcb48e2e02ddba6278e05bc5a312d8136
 vendor/lib64/librilqmiservices.so|c61998e2944ff427a9d06c0ab5db83986db412ea
-vendor/lib64/libsettings.so|6ee6af1dc861a34110550d8cd58ee461e22c253e
+vendor/lib64/libsettings.so|7badd19e83cf052433660c3876ebec735a616298
 vendor/lib64/libsystem_health_mon.so|a8a8e75cd251f4f8d8d054d75cea1238e654f7d0
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so|4d77b98a5479ef5f7f1fb757f4dfaf1439f9c666
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so|69218cc0670f9e0b446e40f8f3e6402cd919994e
