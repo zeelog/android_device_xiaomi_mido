@@ -37,8 +37,8 @@ int main() {
     configureRpcThreadpool(1, true /*callerWillJoin*/);
 
     android::status_t status;
-    auto serviceRegistrar = std::make_shared<LazyServiceRegistrar>();
-    status = serviceRegistrar->registerService(service);
+    auto serviceRegistrar = ::android::hardware::LazyServiceRegistrar::getInstance();
+    status = serviceRegistrar.registerService(service);
 
     if (status != android::OK) {
         LOG(ERROR) << "Cannot register ConsumerIr HAL service";
