@@ -1,0 +1,1 @@
+allow sensors sysfs:dir r_dir_perms;
