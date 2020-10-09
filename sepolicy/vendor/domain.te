@@ -1,2 +1,7 @@
 # Silence /dev/stune logspam
 dontaudit domain device:file w_file_perms;
+
+allow { domain -isolated_app -runas_app -untrusted_app_25 -untrusted_app_27 -ephemeral_app -mediaprovider -untrusted_app -perfprofd -vold -iorapd -installd } hal_perf_hwservice:hwservice_manager find;
+allow { domain -isolated_app -runas_app -untrusted_app_25 -untrusted_app_27 -ephemeral_app -mediaprovider -untrusted_app -perfprofd -vold -iorapd -installd } hal_perf_default:binder call;
+
+
