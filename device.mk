@@ -424,6 +424,7 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     libwifi-hal-qcom \
+    TetheringConfigOverlay \
     WifiOverlay \
     wpa_supplicant \
     wpa_supplicant.conf
