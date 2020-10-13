@@ -40,6 +40,6 @@ allow gx_fpd mnt_user_file:lnk_file read;
 r_dir_file(gx_fpd, firmware_file)
 
 #register service in service manager
-allow gx_fpd default_android_service:service_manager find;
+#allow gx_fpd default_android_service:service_manager find;
 
 add_service(gx_fpd, gx_fpd_service);

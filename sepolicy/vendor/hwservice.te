@@ -1,2 +1,3 @@
 type hal_slmadapter_hwservice, hwservice_manager_type;
-type hal_perfcallback_hwservice, hwservice_manager_type;
+
+type vendor_hal_dspmanager_hwservice, hwservice_manager_type;
