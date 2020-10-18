@@ -1,55 +1,58 @@
-# ADSP - from LA.UM.8.6.2.r1-08100-89xx.0
-vendor/bin/adsprpcd|5b803e679ddbce4e59c2a67433ffefa6396d61f3
-vendor/lib/libadsprpc.so|ed3486181652adc974e8270a30b860bfdb70dcc2
-vendor/lib/libadsp_default_listener.so|06609adb02ac321039e043b3fa85b84e02404b7a
-vendor/lib/libfastcvadsp_stub.so|9f82a7d713f92772e9b47570d50ba08c3c051991
-vendor/lib/libfastcvopt.so|d1416581cb3dcaedfbe37e55139dc441f5690921
-vendor/lib/libmdsprpc.so|62adf1fb4cdfcba59f0f7be0a531ca8cb81954ea
-vendor/lib64/libadsprpc.so|a1cd4ba7b4a447f4634f5eb9435e7481d06a092f
-vendor/lib64/libadsp_default_listener.so|2411edf852600158588e40858b4183566733438e
-vendor/lib64/libfastcvadsp_stub.so|50f415f15ba784877a081f0abc2224bb3904f531
-vendor/lib64/libfastcvopt.so|07f642a285a64e3f91175b06f4095763ba1ac841
-vendor/lib64/libmdsprpc.so|b3b74c7abc47d3cd7c8a7e94e711fe204999f176
+# ADSP - from LA.UM.9.6.2.r1-02100-89xx.0
+vendor/bin/adsprpcd|b736b00857d64e74a3b9be887215124d186f95d5
+vendor/bin/dspservice|00dcd6e79d32426b15ed2148bf3c05082c400c9e
+vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|fbf2bb38ca6bdddf98c7123da9e1f263a4eec55f
+vendor/lib/libadsprpc.so|fa98cc683ea513e7403358a44745794dddb4c99d
+vendor/lib/libadsp_default_listener.so|b5a003d1d8aef77265f943de0ac7437f79fadd57
+vendor/lib/libfastcvadsp_stub.so|70772d0bc39617430e27a21f89fccd93cc757185
+vendor/lib/libfastcvopt.so|85a10a6618ff7d7c6f2c90db36add2798845b52e
+vendor/lib/libmdsprpc.so|4200834b00751df53aca4853909c88f7dd102037
+vendor/lib/vendor.qti.hardware.dsp@1.0.so|41bdb4d9eda88cebfbc3bc6db64ff875416dbf5a
+vendor/lib64/libadsprpc.so|ba9eaa47aab8afd76f1ad8019f26ba2f943fdac9
+vendor/lib64/libadsp_default_listener.so|da7a333e76f424ac86f7582cb5cc8220d0d0bb02
+vendor/lib64/libfastcvadsp_stub.so|f4535845bc4f40e3cb8e79d090e5ed87b0acfbb0
+vendor/lib64/libfastcvopt.so|a25fe32ba0a026ff2d6d204aa615d819462f0644
+vendor/lib64/libmdsprpc.so|1f94158d129b263754eb180f3cf4ee497b6c95b2
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|5f30d9c5fff738e6194a36a5b93372fa32ec0471
 
-# ADSP modules - from LA.UM.8.6.2.r1-08100-89xx.0
+# ADSP modules - from LA.UM.9.6.2.r1-02100-89xx.0
+vendor/lib/rfsa/adsp/libadsp_fd_skel.so|677d2932dac248049f031fc5893163e22b49439a
 vendor/lib/rfsa/adsp/libapps_mem_heap.so|5c82ad9cfe3f30105d899e2a4e90cc7566f81252
 vendor/lib/rfsa/adsp/libdspCV_skel.so|628985174b0088bed21c866d7984d23855e5e150
 vendor/lib/rfsa/adsp/libfastcvadsp_skel.so|1ff4a48009e88435d93fd2b9b0c5ea59cedbb4f7
 vendor/lib/rfsa/adsp/libfastcvadsp.so|9818625bfa018f517e32a8f4a1e7fb4b255e5049
-vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so|f4d8675a46c5e52add8f8e90e35b29cd33ac582b
-vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_Qtc2_skel.so|b9f68e320d24e9c51871a2056e1f47239bd1cb40
-vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so|3e9c52069ff07e50191d3b3afb33b30409241ab6
+vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so|944169db3ac67056b92ef4f850f69346958370b5
 vendor/lib/rfsa/adsp/libscveT2T_skel.so|91b9200dbb982abf0d6b440668252d892a616f66
 
 # ANT+ (vendor) - from LA.UM.8.6.2.r1-08100-89xx.0
 system_ext/lib64/com.qualcomm.qti.ant@1.0.so|1860cfe896871694dae434daebf04927fde6347e
 
-# Audio - from LA.UM.8.6.2.r1-08100-89xx.0
-vendor/lib/libacdb-fts.so|1f25781775183447ccee4933cda27dc979216098
-vendor/lib/libacdbloader.so|825acd3605296ec9b47d5685461ce5c6d6beba76
-vendor/lib/libacdbrtac.so|18f7f0a6d881f45fb2c750510e6397e170aec78e
-vendor/lib/libadiertac.so|8407c8050bb3910444a6ec98c1c7b9f0a61dc9d4
-vendor/lib/libadm.so|ec1b296b0600c85e4dccd3fa3d3be0b8d4e19640
-vendor/lib/libaudcal.so|8ab3a31ff2b675b1b948c916e5a24c8660b8d4ec
-vendor/lib/libaudioalsa.so|35cce51f69cb583dfa6c3e0d5da28d294b056ec0
-vendor/lib/libdrc.so|7ec4724b14da8c7720faaf3b2cc676037f6f360c
-vendor/lib/libqtigef.so|f8aa1da28b7759ccd921c59074085df57318050d
-vendor/lib/libsurround_3mic_proc.so|c3889c5ba017b88b7265a472e168fe55db8ac769
-vendor/lib/soundfx/libqcbassboost.so|2ada1bc5152448ccce2b5525a259ed473d7bdb2b
-vendor/lib/soundfx/libqcreverb.so|5b39b8751f49c8795b19b684cf67c0c9961e276e
-vendor/lib/soundfx/libqcvirt.so|447d661ff9db1fec87bb4403a28ac2a99cc7789c
-vendor/lib64/libacdb-fts.so|ef103a2d857204f3477fc643644c07e2c1f8eb11
-vendor/lib64/libacdbloader.so|aaa28269f2f1f7f5a0378686c77b6c0288cf5465
-vendor/lib64/libacdbrtac.so|0dcadc05005216a3b1f16ad00054eb294c5f3650
-vendor/lib64/libadiertac.so|0c4c643cb7071251faec47006e2daace93af3117
-vendor/lib64/libaudcal.so|41a39ae956b77a24e454dd1ecf7325d049a38f42
-vendor/lib64/libaudioalsa.so|bdf49c709df8a1a7a7e232a6cb1ba6d15af594c7
-vendor/lib64/libqtigef.so|85bc35fac24a1a2b38f7999d94d2f16e5a93614a
+# Audio - from LA.UM.9.6.2.r1-02100-89xx.0
+vendor/lib/libacdb-fts.so|fee2b1f0b93c28f5ef0a4d65736cca01c4275975
+vendor/lib/libacdbloader.so|9ffb5455f4229a7a37ae9987cd11d909af380236
+vendor/lib/libacdbrtac.so|50f9c46c1ed2758338db567b00e8eee1889ab21a
+vendor/lib/libadiertac.so|5c80bbb7ae8fb329ec4c2518c4e336b010bd57dc
+vendor/lib/libadm.so|a5e6c65b7133440b4550234db4454e4c81627f66
+vendor/lib/libaudcal.so|9c5c3a04bbe325a8199c6b0b79baded10e80dc43
+vendor/lib/libaudioalsa.so|58feb2c5cbc4ac6e23ef4896c87785bed8db3c80
+vendor/lib/libdrc.so|303d67b5bfea162ae994d3817de317258035c42a
+vendor/lib/libqtigef.so|80fb4a524d9d11c6e94c337ea263256f816f1f39
+vendor/lib/libsurround_3mic_proc.so|84a4d84fcf567554fb5174fc6d41310d864e5f8e
+vendor/lib/soundfx/libqcbassboost.so|651eb64328771004bd99f6729f0d1c5232e6602c
+vendor/lib/soundfx/libqcreverb.so|9fde3f1a20a3d444fac492f54a15455d0f55fe2c
+vendor/lib/soundfx/libqcvirt.so|8c38af059121e5710244eb595a2b5a873c203b2a
+vendor/lib64/libacdb-fts.so|ae8275322050d1bd5cebf2cee15864fcf3c87fdf
+vendor/lib64/libacdbloader.so|c8749da744d66bea0b61cb3d26f7503e4d8ce9ac
+vendor/lib64/libacdbrtac.so|547a42e2ed54d13e780fab26134ec0fd90054d4c
+vendor/lib64/libadiertac.so|98a8c2702d4e203689e4a80c69c4b1cf93af1567
+vendor/lib64/libaudcal.so|77901cc2b49aae38ca5e6209bc9dda829c52cf7b
+vendor/lib64/libaudioalsa.so|534d4dc07fecea0611273c745721b1ed2015a3a3
+vendor/lib64/libqtigef.so|9108e3248c066102d7c57dd79d3e960647a8c84d
 
-# Audiosphere - from LA.UM.8.6.2.r1-08100-89xx.0
-etc/permissions/audiosphere.xml|3c6d8f14bd99e52a424282fd5d0a5b9b06485dea
-framework/audiosphere.jar|c1679f5aca56f0cb24745b3f7d219acd04833bed
-vendor/lib/soundfx/libasphere.so|79433e8819cc43c1b48f192aebc4e9a6fd58e011
+# Audiosphere - from LA.UM.9.6.2.r1-02100-89xx.0
+system_ext/etc/permissions/audiosphere.xml|015ad7be4921039238bfa3d34d052d752453e49c
+system_ext/framework/audiosphere.jar|db76dab5f44013265df54ae41073184d9a0423e9
+vendor/lib/soundfx/libasphere.so|c5d774c899e30c8e14ff20b1790df553b34e41ec
 
 # Audio ACDB
 etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
@@ -932,10 +935,10 @@ vendor/firmware/a530_pm4.fw|b1cf625b5552b99839687f479c124ac5daca2ca2
 vendor/lib/hw/keystore.msm8953.so|67c300556d86c5013628f7a04a30f8893fc241d9
 vendor/lib64/hw/keystore.msm8953.so|b2cab45df036a248a7004281bae9a6005d7e74c6
 
-# Listen - from LA.UM.8.6.2.r1-08100-89xx.0
-vendor/lib/hw/sound_trigger.primary.msm8953.so|92453271f6834a02a32416b6ff690be2c4e76984
-vendor/lib/libadpcmdec.so|0b00273d1321f4fde109b1f8be514ab0ac6bedf1
-vendor/lib/libsmwrapper.so|5b3e34fd89883a2c308f377988da031c519a7b38
+# Listen - from LA.UM.9.6.2.r1-02100-89xx.0
+vendor/lib/hw/sound_trigger.primary.msm8953.so|55f8b7ebf9b30ef84341081dcdd5289dc70ceaa6
+vendor/lib/libadpcmdec.so|7a38d6b28b27cf663681ad077614a03164418f91
+vendor/lib/libsmwrapper.so|f0ee761c02c888e77d947bb87d162d9379bc1530
 
 # Media - from LA.UM.8.6.2.r1-08100-89xx.0
 vendor/lib/libmmosal_proprietary.so|c9832624a187dddfc0c9d72c55b59c7e6193bc12
