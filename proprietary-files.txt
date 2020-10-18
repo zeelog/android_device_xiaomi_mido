@@ -1164,18 +1164,16 @@ vendor/etc/init/imsqmidaemon.rc|dda16d842b7c65296e97bc9921b723a43b152ba3
 vendor/etc/init/imsrcsd.rc|2dc42ff6e4b6dd389bd3bc9a7af30dec2f1a45df
 vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so|936011dbcfd05ea9350f7410bb6f4d69ddd3fb61
 
-# Sensors - from LA.UM.8.6.2.r1-08100-89xx.0
-vendor/bin/sensors.qti|31b42fce9ea90030f7aa789e10d247656d4bd8e6
-vendor/lib/hw/activity_recognition.msm8953.so|d3a28bfbfe9faecea49e620ca5b365e245958054
-vendor/lib/libsensor1.so|e42560bab757fdf72b899def90c3887654504e1d
-vendor/lib/libsensor_reg.so|d9fd0574949c31c482160a4c7715711ed2060d65
-vendor/lib/libsensor_user_cal.so|8a12694e9200e057598ae811466982d8a38e3ac0
-vendor/lib/sensors.ssc.so|cc78ac61d2295967754c16232b4be55482b6aef4
-vendor/lib64/hw/activity_recognition.msm8953.so|966e160f22e648a24bba8ea25c378f6431445655
-vendor/lib64/libsensor1.so|834f01bffa724f8ddbb63da04b71a2e660a727ff
-vendor/lib64/libsensor_reg.so|77023e0e2f5e16a21224caebecae8dab84a9b10e
-vendor/lib64/libsensor_user_cal.so|619ffc8e2fb28f359876cdd642d57d561d98c0f2
-vendor/lib64/sensors.ssc.so|3780d51a1c58845510d41c8266a3793cc62b50d9
+# Sensors - from LA.UM.9.6.2.r1-02100-89xx.0
+vendor/bin/sensors.qti|ee9a5acbc497d76de554b3f918235fcae5c0456b
+vendor/lib/hw/activity_recognition.msm8953.so|b8e9528fb29ea3457151e78a40a37920e47bb0df
+vendor/lib/libsensor1.so|ef8cf83826a2f9b66b89928feee75c51e29b8735
+vendor/lib/libsensor_reg.so|733a12b41dc0751b54c01a9ad980f0d039e45ab2
+vendor/lib/sensors.ssc.so|f8483b2fcc2c11e838631be3322f990be60541cf
+vendor/lib64/hw/activity_recognition.msm8953.so|99a419a6afa3e5b95c050559841304f4fd427de4
+vendor/lib64/libsensor1.so|83bf6729b5729f843a1be72b158e54083fdc1a30
+vendor/lib64/libsensor_reg.so|b8cf5b75c30be2a591d69c84fe5639958b1f6569
+vendor/lib64/sensors.ssc.so|863de4d737c389c059670d8e1592bba58ae33de3
 
 # Thermal - from Olive PKQ1.190319.001 V10.3.5.0.PCNCNXM
 vendor/bin/thermal-engine|7b59145e9e75cdc8b491f2ed7a04c0880899fc74
