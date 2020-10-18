@@ -759,21 +759,21 @@ vendor/etc/init/dpmQmiMgr.rc|67569302d3a8828a9118c835e5b69c51b0c8ac68
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|ab5d46cbf14ce90ab44aaab4dc1520378c568033
 vendor/lib64/libdpmqmihal.so|24b4b7ece0f0ba468e59d2ddcdaa62733635216b
 
-# DRM - from LA.UM.8.6.2.r1-08100-89xx.0
-vendor/bin/qseecomd|b6b1b78a4dc7085c2f49d40072094152fb2aecc5
-vendor/lib/libQSEEComAPI.so|9879f27099605136f44bc5ba168d3871f81cab05
-vendor/lib64/libGPreqcancel.so|e402b6dd242031af4e67d9d46f1ec72ff0ed35d3
-vendor/lib64/libGPreqcancel_svc.so|dfbb1b0145971813f4c418420985b0d715cbfaaa
-vendor/lib64/libQSEEComAPI.so|82258703001aac44c218a4f150f0d07ef9ade7e9
+# DRM - from LA.UM.9.6.2.r1-02100-89xx.0
+vendor/bin/qseecomd|8d86295e6ce2c21542f86626d7d31ae1aaa83338
+vendor/lib/libQSEEComAPI.so|a575beda5ab7bb62b04e39ee38430ffab4318dfa
+vendor/lib64/libGPreqcancel.so|cef7983d5aceb03b4c422731c838ead1a8f3fed4
+vendor/lib64/libGPreqcancel_svc.so|ed0618e97aad6e1539ca439222c23e3f4e64c9a0
+vendor/lib64/libQSEEComAPI.so|5deff2940a69bc476b39bab31c7eccb53d8cc685
 vendor/lib64/libSecureUILib.so|86761f855fd1b834d3f884636f8fe3f0110e986c
-vendor/lib64/libStDrvInt.so|8c8776fc21988ceca25f6877a10862e12ba02681
-vendor/lib64/libdrmfs.so|d475ad618baf0d24a92579fe99b0836467b84244
-vendor/lib64/libdrmtime.so|fe3512ddedbe49c4b6c39d5dec19a398bddbc816
-vendor/lib64/libqisl.so|c4e7f283f3d416b784f2ec0f7000d607e044809b
-vendor/lib64/librpmb.so|d49210ef9ab42b5be62b32b5c6922aba32416a3b
-vendor/lib64/libsecureui.so|8ce0d9a5023aefb3c14c1f8894dcb47420d0bf1f
-vendor/lib64/libsecureui_svcsock.so|7441cfd83ed51ab13d564f81bc3744c488f08fe2
-vendor/lib64/libssd.so|bcb7c4213115f2377e0d30dd1a05cae5e88212e4
+vendor/lib64/libStDrvInt.so|7c921ee6db896233f9ea03f1fb3a9b7d9434e7dc
+vendor/lib64/libdrmfs.so|165dc5dc6c5f3f6a943ad68d09e8cf35dd4e0eb9
+vendor/lib64/libdrmtime.so|bd9e29e14e965a360ff99b9c2fa1e28a1f79d1bf
+vendor/lib64/libqisl.so|529d7e20bb33147fe3404c1a58d266e49228046a
+vendor/lib64/librpmb.so|8bfe5cb6c9f2da12aea621843fd04721ba9ce9c9
+vendor/lib64/libsecureui.so|9e38fe8d5525930a13a1fe9435531700a7377d57
+vendor/lib64/libsecureui_svcsock.so|2232f56927964f10d41868919d94711930d50ed0
+vendor/lib64/libssd.so|2b774b619b0d36471541c2f929b69a3f56cbc1a4
 
 # DRM - from lmi V12.0.3.0.QJKMIXM
 vendor/lib64/libops.so|03dc247cbf3e75f8dedf05b779eb65006f7334cd
@@ -1185,11 +1185,11 @@ vendor/bin/time_daemon|239c40762324702f536fb18a18c2ec16145f3250
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so|216cbb72e22a0ca76d766dc0b84055c5b31e0a4c
 
-# TUI - from LA.UM.8.6.2.r1-08100-89xx.0
-vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|d4d025e0a12af87f65104fe07801517938733603
+# TUI - from LA.UM.9.6.2.r1-02100-89xx.0
+vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|e8d97981d09a4e34907d13bcbbd10f03572c9218
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e1579374f001c94588fae7835a12ffc
-vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|1a3bd8be98867f7af79edd76a25ec00865fd8915
-vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|1ac676dca4c81094b254b62f1b608e471b385847
+vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|cd060cfb909be6d1cb2aabd5cd53fffa01d34be5
+vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|960561ba01e28777e099294fb0a9a749e2b2a775
 
 # VNDK
 vendor/lib/vndk-sp/libcutils.so|7276c71299f501f1de8469b8bf1baffcf60180f3
