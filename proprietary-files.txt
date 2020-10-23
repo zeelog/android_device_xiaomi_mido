@@ -767,10 +767,10 @@ vendor/lib64/libssd.so|2b774b619b0d36471541c2f929b69a3f56cbc1a4
 vendor/lib64/libops.so|03dc247cbf3e75f8dedf05b779eb65006f7334cd
 vendor/lib64/libspl.so|609af852a498b0a50eb00f2d75913e0fbcbbaee6
 
-# DRM - Widevine - LA.UM.8.6.r1-04000-89xx.0
-vendor/bin/hw/android.hardware.drm@1.2-service.widevine|b626d9bbf7043c66c8ef903c9d0e5183fc47388d
-vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|75335443a33a06a03eecfa714dfe9f1c0c4df2b1
-vendor/lib64/libwvhidl.so|4af61fdcf1186700ea7ee23c607fb9ce5fd0f0e8
+# DRM - Widevine - from Redmi/lmi/lmi:11/RKQ1.200826.002/20.10.19:user/release-keys
+vendor/bin/hw/android.hardware.drm@1.3-service.widevine|2230b35e2d067ba92496cae131b00fd1bbc812c2
+vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|6a777556a80797c6c836d73885e0bcef5bbbfe54
+vendor/lib64/libwvhidl.so|07a8861d3aa01ba535b7a1af808e012ba1dbe229
 
 # Fingerprint
 vendor/bin/gx_fpd|2467b30465fe3b1c6a376d50183927dcdcd732c9
