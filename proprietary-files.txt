@@ -25,8 +25,8 @@ vendor/lib/rfsa/adsp/libfastcvadsp.so|9818625bfa018f517e32a8f4a1e7fb4b255e5049
 vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so|944169db3ac67056b92ef4f850f69346958370b5
 vendor/lib/rfsa/adsp/libscveT2T_skel.so|91b9200dbb982abf0d6b440668252d892a616f66
 
-# ANT+ (vendor) - from LA.UM.8.6.2.r1-08100-89xx.0
-system_ext/lib64/com.qualcomm.qti.ant@1.0.so|1860cfe896871694dae434daebf04927fde6347e
+# ANT+ - from LA.UM.9.6.2.r1-02500-89xx.0
+system_ext/lib64/com.qualcomm.qti.ant@1.0.so|7fffcdca309796183708d9e345d3cd97461d901d
 
 # Audio - from LA.UM.9.6.2.r1-02500-89xx.0
 vendor/lib/libacdb-fts.so|fee2b1f0b93c28f5ef0a4d65736cca01c4275975
@@ -64,19 +64,19 @@ etc/acdbdata/QRD/QRD_Hdmi_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
 etc/acdbdata/QRD/QRD_Headset_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Headset_cal.acdb
 etc/acdbdata/QRD/QRD_Speaker_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Speaker_cal.acdb
 
-# Bluetooth - from LA.UM.9.6.2.r1-02100-89xx.0
-vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|545a7e635241148258291a0a5cd841ac904b9cbe
-vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6cf2212e71b901ca4d58b959
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|b75fed5bbddf30d34f1b8307777632519588361f
+# Bluetooth - from LA.UM.9.6.2.r1-02500-89xx.0
+vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti|2401640a10df4de23f704b87c4adab2da9ed111d
+vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|f4ee3b2da2b08647447869ade86ec63f7340accc
+vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|ca038c77c3351a9a9ec2ce5bf3d4e4b1c6e6938c
 vendor/lib64/libbtnv.so|07e031527e60ce5e62a5017fd1d7ff83ef1aafcf
 vendor/lib64/libbt-hidlclient.so|1491414e874419d2df1529c511bd48e348cf53a8
 
-# Bluetooth (Audio) - from LA.UM.9.6.2.r1-02100-89xx.0
+# Bluetooth (Audio) - from LA.UM.9.6.2.r1-02500-89xx.0
 vendor/lib64/hw/audio.bluetooth_qti.default.so|e628e65d5c07c81ff96783217f8aaf46702aa992
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.1-impl.so|a97a6c330c932176acee0bce820c6e737778aed4
-vendor/lib64/libbluetooth_audio_session_qti.so|fdb53d87bd8e9df6beca9a906407f5c4bb460197
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|d1443e04e24cb45dd06f5d222b22a699c9e82cb1
-vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|1671815a79dab0fde9248d0851085ec1ab314f64
+vendor/lib64/libbluetooth_audio_session_qti.so|9260e1e8011a68205474299dbb10ffcfeb34ee3a
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|3281b131bf921fbdc00afe66cf2a0493a86b97a0
+vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|5de4a802667afa2c05b9c75ae6311fcd0c8b23f6
 
 # Bluetooth (aptX) - from Crosshatch - QQ1A.191205.008
 product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
@@ -784,12 +784,12 @@ vendor/lib64/libfp_client.so|110307b89ac3777a42a2c9045fce528f26c918b8
 vendor/lib64/libfpnav.so|588301735456b31b09aa0779a7f46481056868dd
 vendor/lib64/libfpservice.so|7ca47dfa5e8be7c502f1ca3431ee2a46d38e1f43
 
-# FM Radio - from LA.UM.9.6.2.r1-02100-89xx.0
+# FM Radio - from LA.UM.9.6.2.r1-02500-89xx.0
 system_ext/lib64/fm_helium.so|55ef376cc802574df92025bebaba1cebcc74a918
 system_ext/lib64/libfm-hci.so|0cfbf3d84724428721973cc7ad22f5d1e1368591
--system_ext/lib64/vendor.qti.hardware.fm@1.0.so|4a2522113d6b737a87d3b43233f1afa94d9e45ad
-vendor/lib64/vendor.qti.hardware.fm@1.0.so|17e86e9a2054db733d955fcf1066f6e06a44fb21
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|e08ce8739947c9c7a01eddcca8059fe4498f7d5f
+-system_ext/lib64/vendor.qti.hardware.fm@1.0.so|b6bdde84366a79b7d49f98a2eef932dff4f87981
+vendor/lib64/vendor.qti.hardware.fm@1.0.so|f7494923e84b136a44f02699082a7e0a380f94e9
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|bafab5b466dfe2935a41cad6eab36f16032791dc
 
 # Gatekeeper - from LA.UM.8.6.2.r1-08100-89xx.0
 vendor/lib/hw/gatekeeper.msm8953.so|c153dbbd2c31ccee8633837961ce79909257af04
