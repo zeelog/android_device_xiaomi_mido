@@ -763,9 +763,9 @@ vendor/lib64/libsecureui.so|6b9283b14e11dfe5dbaf5edde814d865fb2a81cf
 vendor/lib64/libsecureui_svcsock.so|2232f56927964f10d41868919d94711930d50ed0
 vendor/lib64/libssd.so|2b774b619b0d36471541c2f929b69a3f56cbc1a4
 
-# DRM - from lmi V12.0.3.0.QJKMIXM
-vendor/lib64/libops.so|03dc247cbf3e75f8dedf05b779eb65006f7334cd
-vendor/lib64/libspl.so|609af852a498b0a50eb00f2d75913e0fbcbbaee6
+# DRM - from Redmi/lmi/lmi:11/RKQ1.200826.002/20.10.19:user/release-keys
+vendor/lib64/libops.so|b2223e64db9d8f84262da7a8621013d3c63b6c98
+vendor/lib64/libspl.so|0fa8c0711f72fc8a914dce044cf8dddd79ee62e1
 
 # DRM - Widevine - from Redmi/lmi/lmi:11/RKQ1.200826.002/20.10.19:user/release-keys
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine|2230b35e2d067ba92496cae131b00fd1bbc812c2
