@@ -239,7 +239,6 @@ on property:vendor.radio.atfwd.start=false
 
 on property:vold.decrypt=trigger_restart_framework
     restart vendor.camera-provider-2-4
-    restart vendor.audio-hal-2-0
     restart vendor.fps_hal
     start wcnss-service
 
