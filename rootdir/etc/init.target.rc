@@ -113,11 +113,6 @@ service thermal-engine /vendor/bin/thermal-engine
    group root
    writepid /dev/cpuset/system-background/tasks
 
-service adsprpcd /vendor/bin/adsprpcd
-   class main
-   user media
-   group media
-
 service wcnss-service /vendor/bin/wcnss_service
     class main
     user system
