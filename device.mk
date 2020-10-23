@@ -125,7 +125,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.btconfigstore@1.0.vendor
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
+    vendor.qti.hardware.btconfigstore@2.0.vendor
 
 # Camera
 PRODUCT_PACKAGES += \
