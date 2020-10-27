@@ -16,10 +16,16 @@
 
 cc_library_shared {
     name: "libui_shim",
-
     srcs: ["GraphicBuffer.cpp"],
     shared_libs: ["libui"],
+    compile_multilib: "32",
+    vendor: true
+}
 
+cc_library_shared {
+    name: "libvt_shim",
+    srcs: ["ImsGraphicBuffer.cpp"],
+    shared_libs: ["libui"],
     compile_multilib: "64",
-
+    product_specific: true
 }

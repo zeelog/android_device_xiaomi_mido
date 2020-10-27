@@ -92,3 +92,9 @@ done
 # Camera debug log file
 sed -i "s|persist.camera.debug.logfile|persist.vendor.camera.dbglog|g" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_dbg.so
 "${MY_DIR}/setup-makefiles.sh"
+
+# Camera graphicbuffer shim
+patchelf --add-needed libui_shim.so  "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_ppeiscore.so
+
+# IMS GraphicBuffer shim
+patchelf --add-needed libvt_shim.so "${DEVICE_BLOB_ROOT}"/product/lib64/lib-imsvideocodec.so
