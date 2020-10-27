@@ -1129,7 +1129,7 @@ lib64/com.qualcomm.qti.imscmservice@1.0.so:product/lib64/com.qualcomm.qti.imscms
 lib64/com.qualcomm.qti.imscmservice@2.0.so:product/lib64/com.qualcomm.qti.imscmservice@2.0.so|47732fea882f132beb4f3f515e4fed5ce7162120
 lib64/com.qualcomm.qti.imscmservice@2.1.so:product/lib64/com.qualcomm.qti.imscmservice@2.1.so|5808cb432903b7b45e0c2563286851ef89e06a98
 lib64/lib-imscamera.so:product/lib64/lib-imscamera.so|3a9c5c3cb03d4fb2351f8bb7a7807868c1dedf88
-lib64/lib-imsvideocodec.so:product/lib64/lib-imsvideocodec.so|56f02699e8ec3ccec1e14329d5f7e4eb11837a0c
+lib64/lib-imsvideocodec.so:product/lib64/lib-imsvideocodec.so|aec3541098f1e48cdecaa13b60f41d3c8d34697c
 lib64/lib-imsvt.so:product/lib64/lib-imsvt.so|7dfc533fc3c439a608b219838281d6c5f605ee22
 lib64/lib-imsvtextutils.so:product/lib64/lib-imsvtextutils.so|dc3340321ee2543bb35248d0f9dac4718116a073
 lib64/lib-imsvtutils.so:product/lib64/lib-imsvtutils.so|13480b644ed5290f7ddc2f7c304c0e912f416098
