@@ -1121,6 +1121,7 @@ lib64/lib-imsvt.so:system_ext/lib64/lib-imsvt.so|7dfc533fc3c439a608b219838281d6c
 lib64/lib-imsvtextutils.so:system_ext/lib64/lib-imsvtextutils.so|dc3340321ee2543bb35248d0f9dac4718116a073
 lib64/lib-imsvtutils.so:system_ext/lib64/lib-imsvtutils.so|13480b644ed5290f7ddc2f7c304c0e912f416098
 lib64/librcc.so:system_ext/lib64/librcc.so|4d732d9211e3139ed17fae059edfcd71f0e13d7e
+lib64/libqdMetaData.system.so:system_ext/lib64/libqdMetaData.system.so|7561cef92d4f1a1997ea3a372219de7dce3c8220
 lib64/vendor.qti.imsrtpservice@1.0.so:system_ext/lib64/vendor.qti.imsrtpservice@1.0.so|559a2dbf409d86746ed4303f2e0089256bb91a07
 vendor/bin/ims_rtp_daemon|174be7387753db4b72fa4de305edaa80fe79b6a9
 vendor/bin/imsdatadaemon|56e1ab6f6f6679261bcd36dd218097632da866b6
