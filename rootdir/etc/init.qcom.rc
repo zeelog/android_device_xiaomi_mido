@@ -194,6 +194,11 @@ on post-fs-data
     mkdir /data/vendor/fm 0770 system system
     chmod 0770 /data/vendor/fm
 
+    # Create PERFD daemon related dirs
+    mkdir /data/vendor/perfd 0770 root system
+    chmod 2770 /data/vendor/perfd
+    rm /data/vendor/perfd/default_values
+
     # Secure Element directory for loader service functionality
     mkdir /data/vendor/secure_element 0770 secure_element secure_element
 
