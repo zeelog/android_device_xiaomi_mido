@@ -1,9 +1,6 @@
 # Silence /dev/stune logspam
 dontaudit domain device:file w_file_perms;
 
-# allow all context to read sysfs_kgsl
-allow { domain - isolated_app } sysfs_kgsl:dir search;
-
 get_prop(domain, exported_camera_prop)
 
 
