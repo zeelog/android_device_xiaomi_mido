@@ -35,6 +35,14 @@ on early-init
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
 
+on init
+    # Create cgroup mount point for memory
+    mkdir /sys/fs/cgroup/memory/bg 0750 root system
+    write /sys/fs/cgroup/memory/bg/memory.swappiness 140
+    write /sys/fs/cgroup/memory/bg/memory.move_charge_at_immigrate 1
+    chown root system /sys/fs/cgroup/memory/bg/tasks
+    chmod 0660 /sys/fs/cgroup/memory/bg/tasks
+
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
