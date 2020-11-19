@@ -23,7 +23,6 @@ vendor.audio.offload.multiple.enabled=false \
 vendor.audio.offload.track.enable=true \
 vendor.audio.parser.ip.buffer.size=0 \
 vendor.audio.playback.mch.downsample=true \
-vendor.audio.pp.asphere.enabled=false \
 vendor.audio.safx.pbe.enabled=true \
 vendor.audio.tunnel.encode=false \
 vendor.audio.use.sw.alac.decoder=true \
