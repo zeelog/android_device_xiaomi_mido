@@ -1,3 +1,0 @@
-attribute vendor_hal_dspmanager;
-attribute vendor_hal_dspmanager_client;
-attribute vendor_hal_dspmanager_server;

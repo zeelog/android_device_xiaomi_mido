@@ -4,10 +4,6 @@
 # Camera
 /data/vendor/qcam(/.*)?                         u:object_r:vendor_camera_data_file:s0
 
-# DSP Service
-/vendor/bin/dspservice                          u:object_r:vendor_dspservice_exec:s0
-/vendor/lib(64)?/vendor.qti.hardware.dsp@1.0\.so     u:object_r:same_process_hal_file:s0
-
 # Fpc Fingerprint
 /data/fpc(/.*)?                                 u:object_r:fpc_data_file:s0
 /dev/socket/fpce(/.*)?                          u:object_r:fpce_socket:s0
