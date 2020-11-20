@@ -102,3 +102,6 @@ patchelf --add-needed libvt_shim.so "${DEVICE_BLOB_ROOT}"/system_ext/lib64/lib-i
 # Protobuf (sdk29)
 patchelf --replace-needed libprotobuf-cpp-full.so libprotobuf-cpp-full-v29.so "${DEVICE_BLOB_ROOT}"/vendor/lib64/libsettings.so
 
+# Wcnss_service - libqmiservices_shim
+patchelf --add-needed "libqmiservices_shim.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/wcnss_service
+sed -i "s|dms_get_service_object_internal_v01|dms_get_service_object_shimshim_v01|g" "${DEVICE_BLOB_ROOT}"/vendor/bin/wcnss_service
