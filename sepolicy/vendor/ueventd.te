@@ -5,3 +5,5 @@ allow ueventd fpc_sysfs:file rw_file_perms;
 
 allow ueventd wifi_vendor_data_file:dir r_dir_perms;
 allow ueventd wifi_vendor_data_file:file r_file_perms;
+
+allow ueventd debugfs:dir r_dir_perms;
