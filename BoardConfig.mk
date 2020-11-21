@@ -189,7 +189,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.recovery.qcom
 
 # RIL
 DISABLE_RILD_OEM_HOOK := true
-TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-09-05
