@@ -30,7 +30,6 @@ using android::status_t;
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
-using ::vendor::lineage::livedisplay::V2_0::IPictureAdjustment;
 using ::vendor::lineage::livedisplay::V2_0::sdm::PictureAdjustment;
 
 int main() {

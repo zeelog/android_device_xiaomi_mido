@@ -48,8 +48,6 @@ public:
   Return<bool> setPictureAdjustment(
       const ::vendor::lineage::livedisplay::V2_0::HSIC &hsic) override;
 
-  static void updateDefaultPictureAdjustment();
-
 private:
   void *mLibHandle;
   uint64_t mCookie;
@@ -61,10 +59,6 @@ private:
                                            void *);
   int32_t (*disp_api_set_global_pa_config)(uint64_t, uint32_t, uint32_t,
                                            void *);
-
-  HSIC getPictureAdjustmentInternal();
-
-  HSIC mDefaultPictureAdjustment;
 };
 
 } // namespace sdm
