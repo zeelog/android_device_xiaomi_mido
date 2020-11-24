@@ -806,6 +806,7 @@ vendor/bin/xtra-daemon|e361cc4aa5ff62f2270e5121d930e5bf4180bdaa
 vendor/bin/xtwifi-client|7973fc4382d1d9f2d6e4b4c8bc13dacf7279e671
 vendor/bin/xtwifi-inet-agent|f805841e5c8ca3b0af620486a64a37148daa0980
 vendor/etc/flp.conf|8c8642685c225fa0b715c284481018a527dae451
+vendor/etc/gnss_antenna_info.conf|f0df44f39738a3f712c5e956801494e83c942d77
 vendor/etc/izat.conf|661b962a30295bc429ba4e97147a447fdb522876
 vendor/etc/lowi.conf|b8774138f3b856883528608e19275d050ab7d263
 vendor/etc/sap.conf|b5ea86d9d9ee36dc13194474d343dae36f6fa032
@@ -836,7 +837,6 @@ vendor/lib64/libloc_socket.so|26a06909ac2d91a5eb9479ef78317d7b6a8b5812
 vendor/lib64/liblowi_client.so|f3dc6fe7b45c69438ee8f1a4e8acf336c8ce37dd
 vendor/lib64/liblowi_wifihal.so|b5f93cf5fab1d8ea26eb5d30783b238ca1b3e42d
 vendor/lib64/libqcc_file_agent.so|ddfc0babc52ab12b6b159b36505bc0b5ef460a0a
-vendor/lib64/libqdma_file_agent.so|80c6afee744cb147f30a2b971fff1638a7c0c4e2
 vendor/lib64/libslimclient.so|11bd8ec81dc1da557e2b2a37f0b3df71e94e9957
 vendor/lib64/libxtadapter.so|689ea3eb00dd64dfd9b81f9ef1d67150ccb3eafc
 vendor/lib64/vendor.qti.gnss@1.0.so|b291e8be101b7a2d75b8830cb7d243746c1568f8
