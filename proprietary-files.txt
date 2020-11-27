@@ -51,11 +51,6 @@ vendor/lib64/libaudcal.so|77901cc2b49aae38ca5e6209bc9dda829c52cf7b
 vendor/lib64/libaudioalsa.so|534d4dc07fecea0611273c745721b1ed2015a3a3
 vendor/lib64/libqtigef.so|9108e3248c066102d7c57dd79d3e960647a8c84d
 
-# Audiosphere - from LA.UM.9.6.2.r1-02800-89xx.0
-system_ext/etc/permissions/audiosphere.xml|015ad7be4921039238bfa3d34d052d752453e49c
-system_ext/framework/audiosphere.jar|9c28317f12b93a6d881c80a991ff24716fce4a12
-vendor/lib/soundfx/libasphere.so|c5d774c899e30c8e14ff20b1790df553b34e41ec
-
 # Audio ACDB
 etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb:vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
 etc/acdbdata/QRD/QRD_General_cal.acdb:vendor/etc/acdbdata/QRD/QRD_General_cal.acdb
