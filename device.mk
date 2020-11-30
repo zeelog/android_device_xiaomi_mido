@@ -227,8 +227,7 @@ PRODUCT_PACKAGES += \
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common \
-    ims_ext_common.xml \
-    libvt_shim
+    ims_ext_common.xml
 
 # Input
 PRODUCT_COPY_FILES += \

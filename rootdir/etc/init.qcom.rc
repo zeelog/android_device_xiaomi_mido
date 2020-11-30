@@ -357,4 +357,3 @@ service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-servi
 
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
-    restart ril-daemon

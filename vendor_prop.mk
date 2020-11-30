@@ -66,7 +66,6 @@ persist.camera.sensor.debug=0 \
 persist.camera.stats.test=5 \
 persist.vendor.camera.display.lmax=1280x720 \
 persist.vendor.camera.display.umax=1920x1080 \
-persist.vendor.qti.telephony.vt_cam_interface=1 \
 vendor.camera.lowpower.record.enable=1 \
 vidc.enc.dcvs.extra-buff-count=2
 
