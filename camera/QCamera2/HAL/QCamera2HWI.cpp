@@ -10550,12 +10550,12 @@ bool QCamera2HardwareInterface::isLowPowerMode()
     mParameters.getStreamDimension(CAM_STREAM_TYPE_VIDEO, dim);
 
     char prop[PROPERTY_VALUE_MAX];
-    property_get("camera.lowpower.record.enable", prop, "0");
+    property_get("vendor.camera.lowpower.record.enable", prop, "0");
     int enable = atoi(prop);
 
     //Enable low power mode if :
     //1. Video resolution is 2k (2048x1080) or above and
-    //2. camera.lowpower.record.enable is set
+    //2. vendor.camera.lowpower.record.enable is set
 
     bool isLowpower = mParameters.getRecordingHintValue() && enable
             && ((dim.width * dim.height) >= (2048 * 1080));
