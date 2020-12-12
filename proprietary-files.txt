@@ -1253,10 +1253,12 @@ system_ext/lib/libmmrtpencoder.so|c1d969d3600a9b9a7505e4d1f18ab3ac0f111406
 # WiFi Display - from LA.UM.9.6.2.r1-03300-89xx.0
 bin/wfdservice|96a583c0efeaf90352b26c20c904ee156238b90f
 etc/init/wfdservice.rc|311bfdd1675e56499662f39455536b75b78477bb
-etc/wfdconfig.xml|d07f6b0441c0aa8913865100239490fa8687a020
 etc/wfdconfigsink.xml|5b4a96f251fd83c2eee520d06bea2b5b159fcd36
+etc/wfdconfig.xml|d07f6b0441c0aa8913865100239490fa8687a020
 -framework/WfdCommon.jar|0faa0fdf415b1ecdc92dfe6a52946a3248b7b02b
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so|aa89ab6f11d1d9f22862b8c4076d34172d6f0e8d
+lib/libaudioclient:lib/libwfdaudioclient.so|259c0bf40ba054beebf4a43c95b0923c5b7c8b96
+lib/libmediautils:lib/libwfdmediautils.so|3a9d719ca424297e0dc8b7e081009a60f387ff95
 lib/libwfdavenhancements.so|dd3b57ae90eaa606d069927f5d345b38cc8eba48
 lib/libwfdclient.so|f8bc675421610ed19dcd9e535e9c7a384a89d37d
 lib/libwfdcodecv4l2.so|ed83f92af646d0fb66b2d0481dfd948a6d34d400
@@ -1264,7 +1266,7 @@ lib/libwfdcommonutils.so|9d4f129fcbb0e319b3210b4aed3feafce916cfaf
 lib/libwfdconfigutils.so|4878964c80aa6b268b01056941bde6e976e2e121
 lib/libwfddisplayconfig.so|f06b58228ea5fc570ad0403be5db4a4f8e11f108
 lib/libwfdmminterface.so|668c1fa38a6d94ae36d74cdf8e3e538de41425fc
-lib/libwfdmmsink.so|94100fa142c1b1611e7564e6175f3b78ade89515
+lib/libwfdmmsink.so|40ba43de24c7d97df9244c63a6bfc00b2f11610c
 lib/libwfdmmsrc.so|f63226d830ec077ef55ce2f921b3f1f0021fcdae
 lib/libwfdnative.so|ba926c39a6b5c6a60c1d4f65e9629eb719bafee0
 lib/libwfdrtsp.so|ff172aaf2df1d5ea4da247bc1af16d68304c7389
