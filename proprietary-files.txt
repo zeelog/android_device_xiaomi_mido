@@ -1195,6 +1195,12 @@ vendor/lib64/lib-rtpsl.so|33e2236b436afeb6f4c56df6a9ddfb561522239e
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so|e12ef48f3de36a00ed36746063e5383a10200fb3
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so|435a1bff99121731f3b5ee6904b9278fbe956ecd
 
+# RTP Libs - from vangogh:11/RKQ1.200826.002
+system_ext/lib/libmmrtpdecoder.so|e50c35366bd428ac29e8a828cfd6b22aa08a0a55
+system_ext/lib/libmmrtpencoder.so|5614934db1f7302b91abf5ed123132b346b24038
+system_ext/lib64/libmmrtpdecoder.so|5f468a1a97b28fa5212205e57b849605d5cb6b10
+system_ext/lib64/libmmrtpencoder.so|42b99f85469607c6c03d3701885e5f198305b971
+
 # Sensors - from LA.UM.9.6.2.r1-03300-89xx.0
 system_ext/lib/vendor.qti.hardware.sensorscalibrate@1.0.so|81934fd454fd30282ef1a8a90b7374317f6c42de
 system_ext/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so|32257292ed8c5b2e2f905571b82bb26383a1a041
@@ -1245,10 +1251,6 @@ vendor/lib/vndk/libprocessgroup.so|164204f6902c40dc438c064c88afd0e2749c93f4
 
 # Wi-Fi - from LA.UM.9.6.2.r1-03300-89xx.0
 vendor/bin/wcnss_service|6fb29e5b9beee42dce36657b63815afff5c13b1d
-
-# WiFi Display - from LA.UM.8.6.2.r1-08100-89xx.0
-system_ext/lib/libmmrtpdecoder.so|a990ab20d1c970c827b8e12fe377c4965da7b7f5
-system_ext/lib/libmmrtpencoder.so|c1d969d3600a9b9a7505e4d1f18ab3ac0f111406
 
 # WiFi Display - from LA.UM.9.6.2.r1-03300-89xx.0
 bin/wfdservice|96a583c0efeaf90352b26c20c904ee156238b90f
