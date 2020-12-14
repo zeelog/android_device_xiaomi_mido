@@ -294,13 +294,6 @@ service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 on property:sys.boot_completed=1
     start vendor.qcom-post-boot
 
-on property:ro.data.large_tcp_window_size=true
-    # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
-
-on property:sys.sysctl.tcp_adv_win_scale=*
-    write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
-
 service vendor.ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     user radio
