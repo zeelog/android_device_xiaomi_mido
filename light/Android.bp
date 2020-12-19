@@ -18,6 +18,7 @@ cc_binary {
     name: "android.hardware.light@2.0-service.xiaomi_mido",
     proprietary: true,
     init_rc: ["android.hardware.light@2.0-service.xiaomi_mido.rc"],
+    vintf_fragments: ["android.hardware.light@2.0-service.xiaomi_mido.xml"],
     srcs: ["service.cpp", "Light.cpp"],
     shared_libs: [
         "libhardware",
