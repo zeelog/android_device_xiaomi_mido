@@ -226,12 +226,6 @@ on property:sys.boot_completed=1
     #Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
 
-on property:persist.vendor.radio.atfwd.start=false
-    stop vendor.atfwd
-
-on property:vendor.radio.atfwd.start=false
-    stop vendor.atfwd
-
 # DSDS - Restart qcrild on data switch
 on property:persist.sys.radio.mobile_data_swap=1
     exec /bin/sleep 3s
@@ -261,12 +255,6 @@ service vendor.irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
-
-service vendor.atfwd /vendor/bin/ATFWD-daemon
-    class late_start
-    user system
-    group system radio
-    task_profiles ServiceCapacityLow
 
 service loc_launcher /vendor/bin/loc_launcher
     class late_start

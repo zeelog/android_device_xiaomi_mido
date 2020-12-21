@@ -1027,7 +1027,6 @@ system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml|4f00
 system_ext/etc/permissions/telephonyservice.xml|b7831598d3c19c6ce4ef431d1cc44d94c3c35a8d
 system_ext/framework/qcrilhook.jar|2851c62bf5d823c4228bfc6c56613934517ffdee
 system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|87719275d1e87dec4b3e9f1a8e7373c7937c9dd8
-vendor/bin/ATFWD-daemon|8d2b9db2e2f3cfa59f7aede4ab912d20066f77ea
 vendor/bin/adpl|c6e56a34827222135596c7266343187e055bda06
 vendor/bin/netmgrd|f3eafb4d5e31e3f90544f380667625dfdc22aa37
 vendor/bin/port-bridge|aeff25bb226f44e45ed062e0525651804f261c21
@@ -1045,7 +1044,6 @@ vendor/etc/init/netmgrd.rc|5c592bd2cf775462e147d3def97e99abbac4631e
 vendor/etc/init/port-bridge.rc|e52d61a0de5e8a3b21bfbfca929e862422645377
 vendor/etc/init/vendor.qti.rmt_storage.rc|bc212c6353c2ded44ae4d759605fbbe55aa4fa3f
 vendor/etc/init/vendor.qti.tftp.rc|b27f188cbffba470a4510d50e46ff7c8446c22cb
-vendor/etc/seccomp_policy/atfwd@2.0.policy|74fdb7d47bdb6d0cb06b13701a96a76c9171ab5d
 vendor/lib/libmdmdetect.so|a2df5e8eba8bd275de62bbb7c0f6af1c78fbc7a0
 vendor/lib64/libconfigdb.so|6634f23eebd1156c9053b5a77163ee7a058a1916
 vendor/lib64/liblqe.so|02191d7bfeca08ec8b89550a27bef02c3291609e
@@ -1061,7 +1059,6 @@ vendor/lib64/libsettings.so|e83d93aa0bf78ae4887d78cb766ede5a9cf8b75f
 vendor/lib64/libsystem_health_mon.so|d40c48c91ea120583316efea358cb400a23c81cf
 vendor/lib64/vendor.qti.hardware.data.lce@1.0.so|5932523774458c69122d797ed017a1651b40c7a6
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so|4cc14bfabf63aa20f02ad069933bdf09651aa86e
-vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so|037caa6b6dacc4d64b38e0f435d8415f007b2890
 vendor/lib64/vendor.qti.hardware.radio.ims@1.0.so|c733d10f069f76d2f29e9719d0c50125a6acf230
 vendor/lib64/vendor.qti.hardware.radio.ims@1.1.so|67f1a71c8c4a4340bf644c9e3fc368962b519368
 vendor/lib64/vendor.qti.hardware.radio.ims@1.2.so|1967c6e57583e8061291437fe13f16d3a84ae7b0
