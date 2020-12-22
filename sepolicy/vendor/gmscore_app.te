@@ -1,0 +1,4 @@
+dontaudit gmscore_app adsprpcd_file:filesystem getattr;
+dontaudit gmscore_app firmware_file:filesystem getattr;
+
+binder_call(gmscore_app, hal_memtrack_default);

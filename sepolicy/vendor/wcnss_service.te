@@ -1,4 +1,4 @@
-dontaudit wcnss_service serialno_prop:file { getattr open };
+dontaudit wcnss_service serialno_prop:file { read getattr open };
 typeattribute wcnss_service data_between_core_and_vendor_violators;
 set_prop(wcnss_service, wifi_prop);
 set_prop(wcnss_service, vendor_default_prop);
