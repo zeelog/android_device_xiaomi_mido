@@ -1229,18 +1229,11 @@ vendor/lib64/libsensor_user_cal.so|9493f9495f170ab043b0ea9fec8d0bba0cd7b9d9
 vendor/lib64/sensor_calibrate.so|219ee0b1bdcc6a3f0b9261f6fc31838916856c99
 vendor/lib64/sensors.ssc.so|863de4d737c389c059670d8e1592bba58ae33de3
 
-# Thermal - from olive-user 10 QKQ1.191014.001 V11.0.1.0.QCNCNXM release-keys
-vendor/bin/thermal-engine|633b9cff05ba176a18101bdfc03ecacc98e1e0f0
-vendor/etc/thermal-engine.conf|c6c9312b7c7b52926cf7d0fc9bff933d90967100
-vendor/etc/thermal-engine-camera.conf|e2c04ccb19a5697b8c9c1ce6c6c1663196370d63
-vendor/etc/thermal-engine-map.conf|952fa325f760f821b7a3fe64ca0222fbcea68326
-vendor/etc/thermal-engine-sgame.conf|6214b60612d84ed90b3d53e9953c484bf30e630f
-vendor/etc/thermal-engine-high.conf|6161e379382af8a7240bd79438d48de2a1375a78
-vendor/etc/thermal-engine-nolimits.conf|a0a655ad11b9f2a883febfd5a8b3e655a10924e4
-vendor/etc/thermal-engine-normal.conf|963a64e8e5609aaa5c1a843b18274a7f3ee733fe
--vendor/lib/libthermalclient.so|8837ba9f8f43d4cfbec00d8055fef4c9a7434931
--vendor/lib64/libthermalclient.so|148421212c4b2d3bcb37cb08f9542d3286f008c1
-vendor/lib64/libthermalfeature.so|1c408911610e5b6a11853aff1900860f9e9a861f
+# Thermal - from Olive PKQ1.190319.001 V10.3.5.0.PCNCNXM
+vendor/bin/thermal-engine|7b59145e9e75cdc8b491f2ed7a04c0880899fc74
+-vendor/lib/libthermalclient.so|2c91276835c185e47a66916d24b3adc98b17e6eb
+-vendor/lib64/libthermalclient.so|faf92c38d52487cb8fa350f1ec786af17ac716cb
+vendor/lib64/libthermalfeature.so|8306e4bc55a4b9c7cb52a19fed11a9f48a604444
 
 # Time services - from LA.UM.9.6.2.r1-03300-89xx.0
 -vendor/app/TimeService/TimeService.apk|1a5f39aa2969feee50ff81ec870b5e2669ae515e
