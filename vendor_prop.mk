@@ -201,6 +201,10 @@ persist.vendor.ims.disableDebugLogs=1 \
 persist.vendor.ims.disableSigHandler=1 \
 persist.vendor.ims.disableQXDMLogs=1
 
+# Recovery
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.vendor.recovery_update=false
+
 # SurfaceFlinger
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
