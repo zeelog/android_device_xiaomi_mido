@@ -39,6 +39,7 @@ vendor.voice.voip.conc.disabled=true
 PRODUCT_PROPERTY_OVERRIDES += \
 vendor.audio.feature.hifi_audio.enable=true \
 vendor.audio.feature.compr_voip.enable=true \
+vendor.audio.feature.compress_meta_data.enable=true \
 vendor.audio.feature.src_trkn.enable=true \
 vendor.audio.feature.wsa.enable=true \
 vendor.audio.feature.fluence.enable=true \
