@@ -77,9 +77,6 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /vendor/bin/mm-qcamera-daemon=27 \
     /system/vendor/bin/mm-qcamera-daemon=27 \
 
-# Charger
-BOARD_CHARGER_DISABLE_INIT_BLANK := true
-
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 
