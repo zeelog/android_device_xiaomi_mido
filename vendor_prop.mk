@@ -213,7 +213,8 @@ ro.surface_flinger.max_virtual_display_dimension=4096
 
 # Time Services
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.vendor.delta_time.enable=true
+persist.backup.ntpServer=0.pool.ntp.org \
+persist.timed.enable=true
 
 # Tcp
 PRODUCT_PROPERTY_OVERRIDES += \
