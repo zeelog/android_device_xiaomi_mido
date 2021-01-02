@@ -2,3 +2,6 @@ allow cnd wifi_prop:file { read open getattr };
 
 add_hwservice(cnd,hal_slmadapter_hwservice)
 allow cnd hal_slmadapter_hwservice:hwservice_manager find;
+
+add_hwservice(cnd,hal_mwqemadapter_hwservice)
+allow cnd hal_mwqemadapter_hwservice:hwservice_manager find;
