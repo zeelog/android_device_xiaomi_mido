@@ -1,4 +1,3 @@
 persist.net.doxlat              u:object_r:vendor_xlat_prop:s0
 persist.vendor.camera.dbglog    u:object_r:camera_prop:s0
-vendor.thermal.config           u:object_r:vendor_thermal_prop:s0
 wifi.active.interface           u:object_r:wifi_prop:s0
