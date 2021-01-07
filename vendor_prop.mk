@@ -156,6 +156,10 @@ ro.vendor.use_data_netmgrd=true \
 persist.data.netmgrd.qos.enable=true \
 persist.vendor.data.mode=concurrent
 
+# Network manager
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.vendor.data.iwlan.enable=true
+
 # Nitz
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.vendor.radio.nitz_plmn="" \
