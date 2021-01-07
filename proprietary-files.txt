@@ -769,13 +769,13 @@ vendor/lib64/libsecureui_svcsock.so|2232f56927964f10d41868919d94711930d50ed0
 vendor/lib64/libssd.so|dd06b7968338d0b4d704bac5435055c0502ffde0
 vendor/lib64/libStDrvInt.so|7c921ee6db896233f9ea03f1fb3a9b7d9434e7dc
 
-# DRM - from Redmi/lmi/lmi:11/RKQ1.200826.002/20.10.19:user/release-keys
+# DRM - from Lmi 11/RKQ1.200826.002/V12.2.4.0.RJKMIXM
 vendor/lib64/libops.so|b2223e64db9d8f84262da7a8621013d3c63b6c98
 vendor/lib64/libspl.so|0fa8c0711f72fc8a914dce044cf8dddd79ee62e1
 
-# DRM - Widevine - from Redmi/lmi/lmi:11/RKQ1.200826.002/20.10.19:user/release-keys
+# DRM - Widevine - from Lmi 11/RKQ1.200826.002/V12.2.4.0.RJKMIXM
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine|2230b35e2d067ba92496cae131b00fd1bbc812c2
-vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|6a777556a80797c6c836d73885e0bcef5bbbfe54
+vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|e625bb812ecfe4d3ad6c2d3a632506dd17132eb3
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
 vendor/lib64/libwvhidl.so|07a8861d3aa01ba535b7a1af808e012ba1dbe229
 
