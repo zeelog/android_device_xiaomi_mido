@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_LINEAGE_LIVEDISPLAY_V2_0_PICTUREADJUSTMENT_H
-#define VENDOR_LINEAGE_LIVEDISPLAY_V2_0_PICTUREADJUSTMENT_H
+#pragma once
 
 #include <vendor/lineage/livedisplay/2.0/IPictureAdjustment.h>
 
@@ -66,5 +65,3 @@ private:
 } // namespace livedisplay
 } // namespace lineage
 } // namespace vendor
-
-#endif // VENDOR_LINEAGE_LIVEDISPLAY_V2_0_PICTUREADJUSTMENT_H

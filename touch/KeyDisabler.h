@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_LINEAGE_TOUCH_V1_0_KEYDISABLER_H
-#define VENDOR_LINEAGE_TOUCH_V1_0_KEYDISABLER_H
+#pragma once
 
 #include <vendor/lineage/touch/1.0/IKeyDisabler.h>
 
@@ -44,5 +43,3 @@ class KeyDisabler : public IKeyDisabler {
 }  // namespace touch
 }  // namespace lineage
 }  // namespace vendor
-
-#endif  // VENDOR_LINEAGE_TOUCH_V1_0_KEYDISABLER_H

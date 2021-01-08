@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_HARDWARE_IR_V1_0_IR_H
-#define ANDROID_HARDWARE_IR_V1_0_IR_H
+#pragma once
 
 #include <android/hardware/ir/1.0/IConsumerIr.h>
 #include <hardware/consumerir.h>
@@ -44,5 +43,3 @@ class ConsumerIr : public IConsumerIr {
 }  // namespace ir
 }  // namespace hardware
 }  // namespace android
-
-#endif  // ANDROID_HARDWARE_IR_V1_0_IR_H
