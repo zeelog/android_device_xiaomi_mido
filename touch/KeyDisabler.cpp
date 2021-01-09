@@ -43,7 +43,7 @@ Return<bool> KeyDisabler::isEnabled() {
     if (!has_key_disabler_) return false;
 
     if (!ReadFileToString(kControlPath, &buf, true)) {
-        LOG(ERROR) << "Failed to read " << kControlPath;
+        LOG(ERROR) << "Failed to read from " << kControlPath;
         return false;
     }
 
@@ -54,7 +54,7 @@ Return<bool> KeyDisabler::setEnabled(bool enabled) {
     if (!has_key_disabler_) return false;
 
     if (!WriteStringToFile(enabled ? "1" : "0", kControlPath, true)) {
-        LOG(ERROR) << "Failed to write " << kControlPath;
+        LOG(ERROR) << "Failed to write to " << kControlPath;
         return false;
     }
 

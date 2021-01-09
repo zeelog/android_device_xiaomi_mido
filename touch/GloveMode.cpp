@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2019,2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ Return<bool> GloveMode::isEnabled() {
     std::string buf;
 
 if (!android::base::ReadFileToString(kControlPath, &buf, true)) {
-        LOG(ERROR) << "Failed to read " << kControlPath;
+        LOG(ERROR) << "Failed to read from " << kControlPath;
         return false;
     }
 
@@ -46,7 +46,7 @@ if (!android::base::ReadFileToString(kControlPath, &buf, true)) {
 Return<bool> GloveMode::setEnabled(bool enabled) {
     
     if (!android::base::WriteStringToFile((enabled ? "1" : "0"), kControlPath, true)) {
-        LOG(ERROR) << "Failed to write " << kControlPath;
+        LOG(ERROR) << "Failed to write to " << kControlPath;
         return false;
     }
 
