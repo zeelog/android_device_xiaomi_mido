@@ -35,7 +35,7 @@ class KeyDisabler : public IKeyDisabler {
     Return<bool> setEnabled(bool enabled) override;
 
   private:
-    bool mHasKeyDisabler;
+    bool has_key_disabler_;
 };
 
 }  // namespace implementation
