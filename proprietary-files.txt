@@ -1148,6 +1148,15 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so|bfcb46281a787316
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so|38d9930484e4fc5a31cc98f9654440bf56b71821
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so|b740cefda1111d83a88bb343d90bd132a25f65aa
 
+# Radio (eMBMS) - from LA.UM.9.6.2.r1-03600-89xx.0
+-system_ext/app/embms/embms.apk|e30c32f9e2e5ee2580ff788c76a8969b45199a96
+system_ext/etc/permissions/embms.xml|22e7474091f9f71f02dd0cfc76cfa8848a46f079
+system_ext/framework/embmslibrary.jar|b5fe26c1cea597af8a1751332d187f2f574816c1
+system_ext/lib64/libembmsmmosal.so|67ae89235b93e9c75dcca859467993e00d61f98e
+system_ext/lib64/libembmsmmparser_lite.so|ae77972b1675feaa758c95348d95219f42f0a94c
+system_ext/lib64/libembmssqlite.so|fa0548734c279cb048e8322481f4934ae3b66dfc
+system_ext/lib64/libembmstinyxml.so|cb72973ce2529f71a48dfb96c7bf2b35aa736ea9
+
 # Radio (IMS) - from Tissot PKQ1.180917.001 V10.0.24.0.PDHMIXM
 vendor/bin/imsdatadaemon|56e1ab6f6f6679261bcd36dd218097632da866b6
 vendor/bin/imsqmidaemon|0e5cf08e7cbd4e34fb69e6644a8c7d5e6715c306
