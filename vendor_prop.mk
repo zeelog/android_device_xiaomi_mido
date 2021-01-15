@@ -78,10 +78,6 @@ persist.vendor.cne.feature=1
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.debug.coresight.config=stm-events
 
-# Dalvik dex2oat
-PRODUCT_PROPERTY_OVERRIDES += \
-dalvik.vm.dex2oat64.enabled=true
-
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
 debug.egl.hw=0 \
