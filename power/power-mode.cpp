@@ -14,9 +14,13 @@
  * limitations under the License.
  */
 
+#define LOG_TAG "QTI PowerHAL"
 #include <android-base/file.h>
+#include <log/log.h>
 
 #include <aidl/android/hardware/power/BnPower.h>
+
+#include "power-common.h"
 
 using ::aidl::android::hardware::power::Mode;
 
@@ -28,6 +32,9 @@ namespace impl {
 
 bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
     switch (type) {
+            case Mode::LAUNCH:
+            *_aidl_return = true;
+            return true;
         default:
             return false;
     }
@@ -35,6 +42,9 @@ bool isDeviceSpecificModeSupported(Mode type, bool* _aidl_return) {
 
 bool setDeviceSpecificMode(Mode type, bool enabled) {
     switch (type) {
+        case Mode::LAUNCH:
+            power_hint(POWER_HINT_LAUNCH, enabled ? &enabled : NULL);
+            return true;
         default:
             return false;
     }
