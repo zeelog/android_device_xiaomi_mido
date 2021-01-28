@@ -18,3 +18,8 @@ type persist_sensors_file, file_type, vendor_persist_type;
 
 # Touchscreen
 type proc_touchpanel, fs_type, sysfs_type, proc_type;
+
+# XiaomiParts
+type sysfs_hgain, sysfs_type, fs_type;
+type sysfs_mgain, sysfs_type, fs_type;
+type sysfs_sgain, sysfs_type, fs_type;

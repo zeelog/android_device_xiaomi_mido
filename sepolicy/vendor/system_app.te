@@ -1,2 +1,9 @@
+# XiaomiParts
+allow system_app {
+    sysfs_hgain
+    sysfs_mgain
+    sysfs_sgain
+}:file rw_file_perms;
+
 # zram
 r_dir_file(system_app sysfs_zram)
