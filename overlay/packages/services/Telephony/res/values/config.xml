@@ -34,4 +34,7 @@
 
     <!-- String indicating the package name of the device ImsService implementation for RCS. -->
     <string name="config_ims_rcs_package" translatable="false">org.codeaurora.ims</string>
+
+    <!-- Whether or not to support RCS User Capability Exchange -->
+    <bool name="config_rcs_user_capability_exchange_enabled">false</bool>
 </resources>
