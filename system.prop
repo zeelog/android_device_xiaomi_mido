@@ -22,3 +22,6 @@ ro.telephony.default_network=22,22
 
 # BPF
 ro.kernel.ebpf.supported=true
+
+# Zygote Preforking
+persist.device.config.runtime_native.uasp_pool_enabled=true

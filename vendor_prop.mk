@@ -233,7 +233,3 @@ wifi.interface=wlan0
 # Wifi-Display
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.sys.wfd.virtual=0
-
-# Zygote
-PRODUCT_PROPERTY_OVERRIDES += \
-persist.device_config.runtime_native.usap_pool_enabled=true
