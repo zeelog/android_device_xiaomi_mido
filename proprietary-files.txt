@@ -981,32 +981,23 @@ vendor/lib64/libmmosal.so|e9fdb48163e92b089cea0c397723a8416436c272
 vendor/lib64/libvpplibrary.so|0308510be8b2ea4cb8ba7278ad249eea53f3fb2c
 
 # Perf - from LA.UM.9.6.2.r1-03600-89xx.0
-system_ext/lib/vendor.qti.hardware.perf@2.0.so|b61a2a19ff74b9362d16efed038f5eb7c2fe38a1
-system_ext/lib/vendor.qti.hardware.perf@2.1.so|cdf2ce59500193c7d6f09ffb33991663cc4d8adb
-system_ext/lib/vendor.qti.hardware.perf@2.2.so|dcef4218e555dc56e326db400a232922b0cb0b77
-system_ext/lib64/vendor.qti.hardware.perf@2.0.so|36410d136f510ae998641f668c14167ebc8f1d54
-system_ext/lib64/vendor.qti.hardware.perf@2.1.so|75f4f3ab0d2abdf8dab5aa81865707fe82fec0be
-system_ext/lib64/vendor.qti.hardware.perf@2.2.so|3f4ee88be26b872fd6fa170c69d8f923f54477b1
+vendor/bin/msm_irqbalance|c0910fb319bb8287f176f26078241299455baad0
 vendor/bin/hw/vendor.qti.hardware.perf@2.2-service|5d30808301c7e90cb70478f6f7e38ac593e8cfdf
 vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc|459b4c23550a56ac545f78c6d391f3d7dd9ba45b
-vendor/lib64/libperfconfig.so|077b47e0a5562ecfb0c7274833e8c4e4c9455690
-vendor/lib64/libperfgluelayer.so|f0c16ae2eba0bf355e5ffd194f945f4924cf7d46
-vendor/lib64/libqti-perfd.so|3446c05a2ad52222b339f47d4c6d6b85198e2b2d
-vendor/lib64/libqti-perfd-client.so|cf1db630be11536a27a0ac66646c0024d78c80f7
-vendor/lib64/libqti-util.so|834cc98315887e57a5f229f9ee1a0d20d0d8f4c3
-vendor/lib64/vendor.qti.hardware.perf@1.0.so|befc65637539963c48e3560285d5d330768e245b
-vendor/lib64/vendor.qti.hardware.perf@2.0.so|72b78413ee1d6fbfb38c58942d224c7f8f0cf00b
-vendor/lib64/vendor.qti.hardware.perf@2.1.so|65a22320eace1f7781510de4c7f21185773c7fc3
-vendor/lib64/vendor.qti.hardware.perf@2.2.so|9504a8618f79ceba7f4dad838c80f8804210a806
 vendor/lib/libperfconfig.so|64bcaec5ae84c557b09098d6f095968fa58cd72b
 vendor/lib/libperfgluelayer.so|3570e47f1f84c2854a6cee5eec159b20ebf20f22
-vendor/lib/libqti-perfd.so|60275da4d9e2e71f91d8841ece26b11eb8e77248
+vendor/lib/libperfioctl.so|3b2d1bef61f7cbf0384aa6cc857a6bb17d5b4c5e
 vendor/lib/libqti-perfd-client.so|35c5fb10e0dfc1302460200f7757c3329eb42280
+vendor/lib/libqti-perfd.so|60275da4d9e2e71f91d8841ece26b11eb8e77248
 vendor/lib/libqti-util.so|b90cf5d6dab54445906fd94447d6d624586865ed
-vendor/lib/vendor.qti.hardware.perf@1.0.so|a2bfe4918d6cb6fbeb057148e1db5192a53aafac
-vendor/lib/vendor.qti.hardware.perf@2.0.so|280749be351cb0c26c0c6ee324615b77ea1b15f4
-vendor/lib/vendor.qti.hardware.perf@2.1.so|e7719a0ba123103f06c51cd985f10f3f8c3aa4c3
-vendor/lib/vendor.qti.hardware.perf@2.2.so|4f4f2fd8784bc9e07b432978e0397c02868ac8f6
+vendor/lib/libqti-utils.so|941c03fd2b1ff136a21239471462b036255b451c
+vendor/lib64/libperfconfig.so|077b47e0a5562ecfb0c7274833e8c4e4c9455690
+vendor/lib64/libperfgluelayer.so|f0c16ae2eba0bf355e5ffd194f945f4924cf7d46
+vendor/lib64/libperfioctl.so|7bf289a68671f675ded7fb62e561e59832983138
+vendor/lib64/libqti-perfd-client.so|cf1db630be11536a27a0ac66646c0024d78c80f7
+vendor/lib64/libqti-perfd.so|3446c05a2ad52222b339f47d4c6d6b85198e2b2d
+vendor/lib64/libqti-util.so|834cc98315887e57a5f229f9ee1a0d20d0d8f4c3
+vendor/lib64/libqti-utils.so|e734331e086c9b78852871312429ce69092775ca
 
 # Perf (configs) - from LA.UM.9.6.2.r1-03600-89xx.0
 vendor/etc/perf/commonresourceconfigs.xml|47651621904d0a0ea42b72bc9a0df27f99eaeab6
