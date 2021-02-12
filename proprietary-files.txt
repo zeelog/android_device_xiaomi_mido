@@ -1278,6 +1278,7 @@ etc/wfdconfigsink.xml|5b4a96f251fd83c2eee520d06bea2b5b159fcd36
 etc/wfdconfig.xml|d07f6b0441c0aa8913865100239490fa8687a020
 -framework/WfdCommon.jar|0faa0fdf415b1ecdc92dfe6a52946a3248b7b02b
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so|aa89ab6f11d1d9f22862b8c4076d34172d6f0e8d
+lib/com.qualcomm.qti.wifidisplayhal@1.0.so:vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0.so|aa89ab6f11d1d9f22862b8c4076d34172d6f0e8d
 lib/libaudioclient.so:lib/libwfdaudioclient.so|259c0bf40ba054beebf4a43c95b0923c5b7c8b96
 lib/libmediautils.so:lib/libwfdmediautils.so|3a9d719ca424297e0dc8b7e081009a60f387ff95
 lib/libmmrtpdecoder.so|ed48114fc443311279189e8b32e44ed0886ac4b6
