@@ -90,6 +90,10 @@ sed -i "s|libandroid.so|libcamshim.so|g" libmmcamera2_stats_modules.so
 patchelf --remove-needed libgui.so libmmcamera_ppeiscore.so
 patchelf --remove-needed libandroid.so libmpbase.so
 
+# Goodix
+patchelf --remove-needed libunwind.so gx_fpd
+patchelf --remove-needed libbacktrace.so gx_fpd
+
 # Wcnss_service - libqmiservices_shim
 patchelf --add-needed "libqmiservices_shim.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/wcnss_service
 sed -i "s|dms_get_service_object_internal_v01|dms_get_service_object_shimshim_v01|g" "${DEVICE_BLOB_ROOT}"/vendor/bin/wcnss_service
