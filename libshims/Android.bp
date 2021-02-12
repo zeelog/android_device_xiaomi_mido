@@ -21,3 +21,21 @@ cc_library_shared {
     compile_multilib: "32",
     vendor: true
 }
+
+// Camera
+cc_library_shared {
+    name: "libcamshim",
+    proprietary: true,
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "libshims.cpp",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wextra",
+        "-Wall",
+    ],
+    shared_libs: [
+        "libutils",
+    ],
+}
