@@ -37,11 +37,6 @@
 # Rild
 /(vendor|system/vendor)/radio/qcril_database/qcril.db			u:object_r:rild_file:s0
 
-# Same Process HALs
-/(vendor|system/vendor)/lib(64)?/libdisplayconfig.qti.so                u:object_r:same_process_hal_file:s0
-/(vendor|system/vendor)/lib(64)?/libstagefright_enc_common\.so          u:object_r:same_process_hal_file:s0
-/(vendor|system/vendor)/lib(64)?/vendor\.display\.config@2\.0\.so       u:object_r:same_process_hal_file:s0
-
 # Sensors
 /(mnt/vendor)/persist/sensors(/.*)?                                     u:object_r:persist_sensors_file:s0
 
