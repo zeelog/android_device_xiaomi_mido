@@ -156,7 +156,8 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 TARGET_LD_SHIM_LIBS := \
     /vendor/lib64/hw/gxfingerprint.default.so|fakelogprint.so \
     /vendor/lib64/hw/fingerprint.goodix.so|fakelogprint.so \
-    /vendor/bin/gx_fpd|fakelogprint.so
+    /vendor/bin/gx_fpd|fakelogprint.so \
+    /vendor/bin/gx_fpd|libshims_gxfpd.so
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
