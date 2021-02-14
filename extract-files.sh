@@ -93,6 +93,10 @@ patchelf --remove-needed libandroid.so libmpbase.so
 # Goodix
 patchelf --remove-needed libunwind.so gx_fpd
 patchelf --remove-needed libbacktrace.so gx_fpd
+patchelf --add-needed libshims_gxfpd.so gx_fpd
+patchelf --add-needed fakelogprint.so gx_fpd
+patchelf --add-needed fakelogprint.so fingerpint.goodix.so
+patchelf --add-needed fakelogprint.so gxfingerprint.default.so
 
 # Wcnss_service - libqmiservices_shim
 patchelf --add-needed "libqmiservices_shim.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/wcnss_service

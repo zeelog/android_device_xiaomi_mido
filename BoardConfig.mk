@@ -152,13 +152,6 @@ include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /vendor/lib64/hw/gxfingerprint.default.so|fakelogprint.so \
-    /vendor/lib64/hw/fingerprint.goodix.so|fakelogprint.so \
-    /vendor/bin/gx_fpd|fakelogprint.so \
-    /vendor/bin/gx_fpd|libshims_gxfpd.so
-
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 PRODUCT_FULL_TREBLE_OVERRIDE := true
