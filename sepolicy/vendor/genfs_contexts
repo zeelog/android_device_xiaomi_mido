@@ -20,9 +20,5 @@ genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02/200f000
 # ProcFS
 genfscon proc /sys/vm/swappiness                                      u:object_r:proc_swap:s0
 
-# Slab
-genfscon sysfs /kernel/slab/zs_handle/store_user                      u:object_r:vendor_sysfs_slab_zshandle_storeuser:s0
-genfscon sysfs /kernel/slab/zspage/store_user                         u:object_r:vendor_sysfs_slab_zspage_storeuser:s0
-
 # Touchscreen
 genfscon proc /touchpanel                                             u:object_r:proc_touchpanel:s0

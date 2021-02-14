@@ -1,11 +1,6 @@
 allow init wcnss_device:chr_file write;
-allow init sysfs:file setattr;
 
-allow qti_init_shell {
-    fm_prop
-}:property_service set;
-
-# Allow init to bind mount loader config for media swcodec
+# Allow init to bind mount gps_debug.conf
 allow init system_file:file mounton;
 
 # adsprpcd

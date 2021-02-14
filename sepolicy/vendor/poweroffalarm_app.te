@@ -1,2 +1,1 @@
-#============= poweroffalarm_app ==============
 allow poweroffalarm_app cgroup:file rw_file_perms;

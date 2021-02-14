@@ -3,21 +3,8 @@ dontaudit qti_init_shell self:capability dac_override;
 allow qti_init_shell proc_touchpanel:dir { r_dir_perms setattr };
 allow qti_init_shell proc_touchpanel:file { getattr setattr };
 
-typeattribute qti_init_shell data_between_core_and_vendor_violators;
-allow qti_init_shell bluetooth_data_file:file r_file_perms;
-
-# Allow access to swapiness
+# Allow access to swappiness
 allow qti_init_shell proc_swap:file { open write };
-
-# LEDS
-allow qti_init_shell sysfs_leds:file setattr;
-
-# Required for FM
-allow qti_init_shell self:socket create;
 
 # Postboot
 allow qti_init_shell sysfs:file { write setattr };
-
-# slub debug options
-allow vendor_qti_init_shell vendor_sysfs_slab_zshandle_storeuser:file w_file_perms;
-allow vendor_qti_init_shell vendor_sysfs_slab_zspage_storeuser:file w_file_perms;

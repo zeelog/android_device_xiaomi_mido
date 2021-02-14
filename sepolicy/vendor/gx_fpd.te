@@ -1,42 +1,40 @@
-type gx_fpd, domain, binder_in_vendor_violators;
+type gx_fpd, domain;
 type gx_fpd_exec, exec_type, vendor_file_type, file_type;
 
 # gx_fpd
 init_daemon_domain(gx_fpd)
-binder_use(gx_fpd)
+
+# Allow Binder communication
+vndbinder_use(gx_fpd)
+binder_call(gx_fpd, hal_fingerprint_default)
+
+# Add services
+add_service(gx_fpd, gx_fpd_service)
 
 typeattribute gx_fpd data_between_core_and_vendor_violators;
 
+# Allow storing goodix data
 allow gx_fpd { persist_drm_file gx_fpd_data_file }:dir create_dir_perms;
 allow gx_fpd { persist_drm_file gx_fpd_data_file }:file create_file_perms;
 
-#Allow access to goodix device
+# Allow access to goodix device
 allow gx_fpd gx_fpd_device:chr_file rw_file_perms;
 
-#Allow access to tee device
+# Allow access to tee device
 allow gx_fpd tee_device:chr_file rw_file_perms;
 
 # Allow access to ion device
 allow gx_fpd ion_device:chr_file rw_file_perms;
 
-#allow create socket
+# Allow create socket
 allow gx_fpd self:socket create_socket_perms_no_ioctl;
 allow gx_fpd self:{ netlink_socket netlink_generic_socket } create_socket_perms_no_ioctl;
 
-#allow read/write property
-set_prop(gx_fpd, system_prop)
-
-allow gx_fpd gx_fpd_service:service_manager { add find };
-
-allow gx_fpd hal_fingerprint_mido:binder { transfer call };
-allow gx_fpd fuse:dir search;
-allow gx_fpd fuse:file { getattr open append };
-allow gx_fpd sdcardfs:dir search;
-allow gx_fpd storage_file:dir search;
-allow gx_fpd storage_file:lnk_file read;
-allow gx_fpd media_rw_data_file:dir { open read search };
-allow gx_fpd mnt_user_file:dir search;
-allow gx_fpd mnt_user_file:lnk_file read;
+# Allow reading firmware file
 r_dir_file(gx_fpd, firmware_file)
 
-add_service(gx_fpd, gx_fpd_service);
+# Allow read/write property
+set_prop(gx_fpd, system_prop)
+
+# Ignore all logging requests
+dontaudit gx_fpd storage_file:dir search;

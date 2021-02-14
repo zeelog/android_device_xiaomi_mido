@@ -1,5 +1,2 @@
-# FM radio needs to set fm properties
-set_prop(system_app, fm_prop)
-
 # zram
 r_dir_file(system_app sysfs_zram)

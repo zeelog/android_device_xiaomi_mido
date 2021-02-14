@@ -13,15 +13,8 @@ type proc_swap, fs_type;
 # Rild
 type rild_file, file_type, vendor_file_type;
 
-# Rmt
-type debugfs_rmt, debugfs_type, fs_type;
-
 # Sensors
 type persist_sensors_file, file_type, vendor_persist_type;
-
-# slub-debug
-type vendor_sysfs_slab_zshandle_storeuser, fs_type, sysfs_type;
-type vendor_sysfs_slab_zspage_storeuser, fs_type, sysfs_type;
 
 # Touchscreen
 type proc_touchpanel, fs_type, sysfs_type, proc_type;

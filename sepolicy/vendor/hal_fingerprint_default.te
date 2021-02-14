@@ -1,0 +1,48 @@
+typeattribute hal_fingerprint_default binder_in_vendor_violators;
+
+# Allow Binder communication
+vndbinder_use(hal_fingerprint_default)
+binder_call(hal_fingerprint_default, gx_fpd)
+binder_call(hal_fingerprint_default, keystore)
+
+# Allow HwBinder communication
+hwbinder_use(hal_fingerprint_default)
+
+# Add services
+allow hal_fingerprint_default gx_fpd_service:service_manager find;
+allow hal_fingerprint_default fingerprint_service:service_manager find;
+
+typeattribute hal_fingerprint_default data_between_core_and_vendor_violators;
+
+# Allow storing fingerprint data
+allow hal_fingerprint_default fingerprintd_data_file:file create_file_perms;
+allow hal_fingerprint_default fingerprintd_data_file:dir rw_dir_perms;
+allow hal_fingerprint_default fpc_data_file:dir rw_dir_perms;
+allow hal_fingerprint_default fpc_data_file:sock_file create_file_perms;
+
+# Allow read and write to fpc_sysfs
+allow hal_fingerprint_default fpc_sysfs:file rw_file_perms;
+allow hal_fingerprint_default fpc_sysfs:dir r_dir_perms;
+
+# Allow access to uhid device
+allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
+
+# Allow access to tee device
+allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
+
+# Add auth tokens to KeyStore
+use_keystore(hal_fingerprint_default)
+allow hal_fingerprint_default keystore:keystore_key { add_auth };
+
+# Allow reading firmware file
+r_dir_file(hal_fingerprint_default, firmware_file)
+
+# Allow read/write property
+set_prop(hal_fingerprint_default, system_prop)
+
+allow hal_fingerprint_default storage_file:dir { search };
+allow hal_fingerprint_default storage_file:lnk_file { read };
+allow hal_fingerprint_default mnt_user_file:dir { search };
+allow hal_fingerprint_default mnt_user_file:lnk_file { read };
+allow hal_fingerprint_default sdcardfs:dir { search };
+allow hal_fingerprint_default sdcardfs:file { getattr };
