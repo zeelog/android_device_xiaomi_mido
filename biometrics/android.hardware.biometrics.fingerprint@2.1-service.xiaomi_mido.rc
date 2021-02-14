@@ -28,7 +28,7 @@ on boot
     chown system system /sys/devices/soc/soc:fpc1020/wakeup_enable
     chmod 0660 /sys/devices/soc/soc:fpc1020/wakeup_enable
 
-service goodix_script /vendor/bin/init.goodix.sh
+service vendor.goodix_script /vendor/bin/init.goodix.sh
     class late_start
     user system
     oneshot
