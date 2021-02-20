@@ -90,6 +90,9 @@ sed -i "s|libandroid.so|libcamshim.so|g" libmmcamera2_stats_modules.so
 patchelf --remove-needed libgui.so libmmcamera_ppeiscore.so
 patchelf --remove-needed libandroid.so libmpbase.so
 
+# Gnss
+sed -i -e '$a\\    capabilities NET_BIND_SERVICE' vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc
+
 # Goodix
 patchelf --remove-needed libunwind.so gx_fpd
 patchelf --remove-needed libbacktrace.so gx_fpd
