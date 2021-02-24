@@ -1088,12 +1088,9 @@ vendor/lib64/liblqe.so|63ed946d00ed73664410041e3e8fa8c2f5cbeeb6
 vendor/lib64/libnetmgr_common.so|46b5613d6b31ba32d3202dbfe9a2dbfef512fe6c
 vendor/lib64/libnetmgr.so|6265bfdff5b5251a6c4823b835fc1c572de00728
 vendor/lib64/libnlnetmgr.so|6ad911ebb9ffa785fbb2c071486a0166efcd4775
-vendor/lib64/libqcmaputils.so|3a542dfda06a2c5824ba505ff7d03f920a5eaf43
-vendor/lib64/libqrtr.so|83676274fde1056a0507b4100a3a5423f5af5021
 vendor/lib64/libril-qc-ltedirectdisc.so|28008699ae1178e95fe6e87b2a4b18eb3fd682c2
 vendor/lib64/libril-qc-qmi-1.so|e0c0b89181fa2eb1a4c09a7537f8e18bb68cf7b7
 vendor/lib64/libril-qc-radioconfig.so|3ee0fa2ca0a2419a2629dfea6c7b4078d9ae11f6
-vendor/lib64/librilqmiservices.so|29e5faa2afcb39575274bc86168ba15e2d153248
 vendor/radio/qcril_database/qcril.db|43b7d5e7ededc9cd5c0b1f7a8941d21d4eb0c9c1
 
 # Radio - from LA.UM.9.6.2.r1-03600-89xx.0
@@ -1123,8 +1120,11 @@ vendor/etc/seccomp_policy/atfwd@2.0.policy|74fdb7d47bdb6d0cb06b13701a96a76c9171a
 vendor/lib/libmdmdetect.so|b7c1e8ae955840f76cc6244d6511a92d15fb5f6e
 vendor/lib64/libmdmdetect.so|7d9594eaa6da36b1cf7a7f9ca9447c568dcb2f38
 vendor/lib64/liboemaids_vendor.so|0cbc4ee12f829658a6d7a63453e257927a4ed14a
+vendor/lib64/libqcmaputils.so|131640567f4eac43ad75dd7f211cff48bf2c50a7
+vendor/lib64/libqrtr.so|6f7abe88e19e44f6b933de1cac0c7a3437318f04
 vendor/lib64/libqsocket.so|391748e46f7dbbf267dbc5a5c89f0d2a8b4fca4e
 vendor/lib64/libril-qcril-hook-oem.so|dec0f4f4cd67c27fc0903e29c00964f9533b64ee
+vendor/lib64/librilqmiservices.so|29e5faa2afcb39575274bc86168ba15e2d153248
 vendor/lib64/libsettings.so|7de8204a87c098964cf5a75ea4551e78d5779de0
 vendor/lib64/libsystem_health_mon.so|ebe87c25638ef68937c3820db0d49bc762a74619
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so|c9d3326a23878f87e4a51865490d11d127ae743e
