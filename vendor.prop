@@ -132,6 +132,10 @@ persist.vendor.ims.disableQXDMLogs=1
 # Recovery
 persist.vendor.recovery_update=false
 
+# SoC
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=MSM8953
+
 # Time Services
 persist.backup.ntpServer=0.pool.ntp.org
 
