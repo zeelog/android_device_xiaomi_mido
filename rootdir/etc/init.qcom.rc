@@ -140,6 +140,9 @@ on boot
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
 
+    # Create directory used for dump collection
+    mkdir /data/vendor/ssrdump 0770 root system
+
     # Create directory used by display clients
     mkdir /data/vendor/display 0770 system graphics
 
