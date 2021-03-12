@@ -1039,17 +1039,11 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so|57d936014f89811481712ac7a08d104b85
 # QMI - from Tissot PKQ1.180917.001 V10.0.24.0.PDHMIXM
 vendor/lib/libdsi_netctrl.so|78206e2c94d0a9ceb69712aeec99ed90f8fc63b3
 vendor/lib/libdsutils.so|bfc2e8fb927ccd35158ceaf4389fe54186091132
-vendor/lib/libidl.so|6fe7c2a4e4ec0ac099a6306c3111e6497e2c501f
 vendor/lib/libqdi.so|6cb8c78aaa70a5fa9b83e260556bada097ca0d14
-vendor/lib/libqdp.so|7cb256acd39cf506730158b88b4cc2607fa664d8
-vendor/lib/libqmi.so|0b035dd37319391f27ce6647e707f4e7afaacec0
 -vendor/lib/libqmiservices.so|dcff643662bb3e36c2bcfcb831bffec057038c6f
 vendor/lib64/libdsi_netctrl.so|3022d69494ad5b9400ed7188b72dc2d72dff9e24
 vendor/lib64/libdsutils.so|fe909f54243f07fc76382b0839f95f96e1abfef2
-vendor/lib64/libidl.so|3b1a7ca55ccfe06d12d62f2c214b5ac2ee0e69da
 vendor/lib64/libqdi.so|5e14939265c9f30c59f4a7964bf83da69ecfa38d
-vendor/lib64/libqdp.so|60faa5e55e118b18553c160ff55200cbeab2f2f6
-vendor/lib64/libqmi.so|f814a152f974b2305f74f90a4f1c0a20989fb253
 -vendor/lib64/libqmiservices.so|842a1b61fad7dd34753e945ee2ada0fdc9589c09
 
 # QMI (diag) - from LA.UM.9.6.2.r1-03600-89xx.0
@@ -1060,8 +1054,10 @@ vendor/lib/libdiag.so|e58fea073d2da7f14a84d2fd3ff59501be2f631a
 vendor/lib64/libdiag.so|4ce5001e2c426456c1ade5ebb0ca7191fe43180b
 
 # QMI (shared dependencies) - from LA.UM.9.6.2.r1-03600-89xx.0
+vendor/lib/libidl.so|b15b532d3911ee91e5bd4b7c885e32af0b589947
 vendor/lib/libpdmapper.so|1cf97abdad3aec2d862286c76c2ced97e9eaee16
 vendor/lib/libqcci_legacy.so|39e27fbf8b3ed8f668ea701ac58a5d0a39513bb8
+vendor/lib/libqdp.so|994639c23e2c5957331ef1f452eb8d2a5f86ede2
 vendor/lib/libqmi_cci.so|9c26c6054a6d700dd3fd944dadb7009000c26008
 vendor/lib/libqmi_client_helper.so|0d5bb46b321cc88d23e18de1b5b7b3d36f41cc13
 vendor/lib/libqmi_client_qmux.so|bf02a589b6530e3abba6c340e50b67fadfd26708
@@ -1069,8 +1065,11 @@ vendor/lib/libqmi_common_so.so|8a6ca528e355675a5117264ea92f7574570ff375
 vendor/lib/libqmi_csi.so|aede7e8511d6b9500b64445621e3a8756509e9b2
 vendor/lib/libqmi_encdec.so|ffcfbaeb676e332e63b61402bf711fa7208928a3
 vendor/lib/libqmi_legacy.so|de53cb3d62913a71b44fc2c30e6fbbf2f7ccade5
+vendor/lib/libqmi.so|b0c3154f5de2bdecc8567c69859b5589a85f48f6
+vendor/lib64/libidl.so|485534cc8019d0a07b89b997fbf2eb88db29190f
 vendor/lib64/libpdmapper.so|b872bdda452fe3f7e2394a14ad1da8c3343fef3b
 vendor/lib64/libqcci_legacy.so|b24c65dd780018687d7bbce5a7707141b259f0e5
+vendor/lib64/libqdp.so|76797cb4aa72d8908d30c43e51235b76d35b9bf4
 vendor/lib64/libqmi_cci.so|d35ef8e2412cb7f88887035a02ac83a10ebeaf1f
 vendor/lib64/libqmi_client_helper.so|17ec4e45af869e3440385cbb91ff992f8b95ab7b
 vendor/lib64/libqmi_client_qmux.so|96cf6262f1d1f8dde06425b74991ee79acfe7dc3
@@ -1078,6 +1077,7 @@ vendor/lib64/libqmi_common_so.so|13364998f37a22ed9b526af9afe899ba27ea8150
 vendor/lib64/libqmi_csi.so|28b7dd8906c028af98500bbab2e912d16fab455f
 vendor/lib64/libqmi_encdec.so|acfff1a63cbf216f7349e55668bef9d4eb2e1f00
 vendor/lib64/libqmi_legacy.so|f7fe22113d12d9992b876ea59bd1aa4042cc587b
+vendor/lib64/libqmi.so|bf7533ea35d76ba9affb39499acdc3e200f6619e
 
 # Radio - from Tissot PKQ1.180917.001 V10.0.24.0.PDHMIXM
 vendor/bin/netmgrd|e9c82b0644cb08b160a2ce484fdb58830306237d
