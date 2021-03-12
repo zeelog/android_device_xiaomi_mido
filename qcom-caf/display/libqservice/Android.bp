@@ -6,6 +6,7 @@ cc_library_shared {
     cflags: [
         "-DLOG_TAG=\"qdqservice\"",
         "-Wno-sign-conversion",
+        "-DDO_NOT_CHECK_MANUAL_BINDER_INTERFACES",
     ],
     srcs: [
         "QService.cpp",
