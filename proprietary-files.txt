@@ -885,7 +885,6 @@ vendor/lib/libgpudataproducer.so|7ef37d863a0fa5b262725d4b7cfa9002aa2475cf
 vendor/lib/libgsl.so|9e361f7cce0bd60844b45e7d073c254e37af560b
 vendor/lib/libhdr_tm.so|3d899ac8b0e6370295ab56ad95076e3c00140f75
 vendor/lib/libllvm-glnext.so|3aed42766f2eac2c8b873f99ba4ca68b9b49043c
-vendor/lib/libllvm-qcom.so|5868b21c7c7884289cfff1ade7af256ec633fa6a
 vendor/lib/libmm-hdcpmgr.so|985495bc86a198aa9ecb495c5a10a4aa10cfcadd
 vendor/lib/libpvr.so|69ae26434f9bc9329aa374f472671f567dfa38dd
 vendor/lib/librs_adreno.so|97756870564754d9cd6e6301a4f1a15f7a5a5711
