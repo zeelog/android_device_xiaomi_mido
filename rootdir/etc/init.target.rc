@@ -140,6 +140,12 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
+service energy-awareness /vendor/bin/energy-awareness
+    class main
+    user root
+    group system
+    oneshot
+
 service vendor.hvdcp_opti /vendor/bin/hvdcp_opti
     class main
     user root
