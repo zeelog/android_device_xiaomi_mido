@@ -1345,6 +1345,11 @@
         <path name="headphones" />
     </path>
 
+    <path name="voice-speaker-and-voice-headphones">
+        <path name="wsa-voice-speaker" />
+        <path name="voice-headphones" />
+    </path>
+
     <path name="voice-headset-mic">
         <path name="headset-mic" />
     </path>
