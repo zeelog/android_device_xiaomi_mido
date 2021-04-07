@@ -30,6 +30,7 @@ vendor.audio.tunnel.encode=false \
 vendor.audio.use.sw.alac.decoder=true \
 vendor.audio.use.sw.ape.decoder=true \
 vendor.audio_hal.period_size=192 \
+vendor.fastrpc.disable.adsprpcd_sensorspd.daemon=1 \
 vendor.voice.conc.fallbackpath=deep-buffer \
 vendor.voice.path.for.pcm.voip=true \
 vendor.voice.playback.conc.disabled=true \
