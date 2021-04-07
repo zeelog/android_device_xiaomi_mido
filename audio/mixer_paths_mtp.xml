@@ -925,10 +925,6 @@
        <path name="voicemmode2-call usb-headphones" />
     </path>
 
-    <path name="incall-rec-uplink-and-downlink call-proxy-in">
-        <path name="incall-rec-uplink-and-downlink" />
-    </path>
-
     <path name="voicemmode2-call speaker-and-headphones">
         <path name="voicemmode2-call" />
     </path>
@@ -1028,6 +1024,10 @@
     <path name="incall-rec-uplink-and-downlink">
         <path name="incall-rec-uplink" />
         <path name="incall-rec-downlink" />
+    </path>
+
+    <path name="incall-rec-uplink-and-downlink call-proxy-in">
+        <path name="incall-rec-uplink-and-downlink" />
     </path>
 
     <path name="incall-rec-uplink-and-downlink bt-sco">
@@ -1290,7 +1290,16 @@
     </path>
 
     <path name="hph-lowpower-mode">
-        <ctl name="RX HPH Mode" value="CLS_H_LOHIFI" />
+        <ctl name="RX HPH Mode" value="NORMAL" />
+    </path>
+
+    <path name="headphones-hifi-filter">
+        <path name="headphones" />
+    </path>
+
+    <path name="speaker-and-headphones-hifi-filter">
+        <path name="headphones" />
+        <path name="speaker" />
     </path>
 
     <path name="headset-mic">
@@ -1532,14 +1541,6 @@
 
     <path name="unprocessed-stereo-mic">
         <path name="voice-rec-dmic-ef" />
-    </path>
-    
-    <path name="unprocessed-three-mic">
-        <path name="three-mic" />
-    </path>
-    
-    <path name="unprocessed-quad-mic">
-        <path name="quad-mic" />
     </path>
     
     <path name="unprocessed-headset-mic">
