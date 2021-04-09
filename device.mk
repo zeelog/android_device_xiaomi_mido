@@ -106,6 +106,12 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libqcompostprocbundle
 
+# Audio features
+PRODUCT_PACKAGES += \
+    libhfp:32 \
+    libsndmonitor:32 \
+    libspkrprot:32
+
 # Audio configuration
 PRODUCT_COPY_FILES += \
     hardware/qcom-caf/msm8996/audio/configs/msm8953/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
