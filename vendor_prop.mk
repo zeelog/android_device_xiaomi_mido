@@ -26,6 +26,7 @@ vendor.audio.offload.track.enable=true \
 vendor.audio.parser.ip.buffer.size=262144 \
 vendor.audio.playback.mch.downsample=true \
 vendor.audio.safx.pbe.enabled=true \
+vendor.audio.spkr_prot.tx.sampling_rate=48000 \
 vendor.audio.tunnel.encode=false \
 vendor.audio.use.sw.alac.decoder=true \
 vendor.audio.use.sw.ape.decoder=true \
