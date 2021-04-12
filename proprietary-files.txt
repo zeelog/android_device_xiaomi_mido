@@ -79,7 +79,7 @@ vendor/lib64/libbluetooth_audio_session_qti_2_1.so|2f88a431e8597cd19b423ffb7be7a
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|3281b131bf921fbdc00afe66cf2a0493a86b97a0
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|5de4a802667afa2c05b9c75ae6311fcd0c8b23f6
 
-# Bluetooth (aptX) - from Crosshatch - 11/RP1A.201105.002/6869500
+# Bluetooth (aptX) - from Crosshatch - 11/RQ2A.210405.006/7214111
 system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
@@ -791,11 +791,11 @@ vendor/lib64/libStDrvInt.so|7c921ee6db896233f9ea03f1fb3a9b7d9434e7dc
 vendor/lib64/libops.so|b2223e64db9d8f84262da7a8621013d3c63b6c98
 vendor/lib64/libspl.so|0fa8c0711f72fc8a914dce044cf8dddd79ee62e1
 
-# DRM - Widevine - from Lmi 11/RKQ1.200826.002/V12.2.4.0.RJKMIXM
-vendor/bin/hw/android.hardware.drm@1.3-service.widevine|2230b35e2d067ba92496cae131b00fd1bbc812c2
-vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|e625bb812ecfe4d3ad6c2d3a632506dd17132eb3
+# DRM - Widevine - from Crosshatch - 11/RQ2A.210405.006/7214111
+vendor/bin/hw/android.hardware.drm@1.3-service.widevine|57d280849768bc5d5e9e954b9ac90a5a31c54172
+vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|6b00f42dc85becc58f303bc4588331239c5c83aa
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
-vendor/lib64/libwvhidl.so|07a8861d3aa01ba535b7a1af808e012ba1dbe229
+vendor/lib64/libwvhidl.so|baae2e9c3e2f31f06787de1801b30fd8881b99e8
 
 # Fingerprint
 bin/gx_fpd:vendor/bin/gx_fpd
