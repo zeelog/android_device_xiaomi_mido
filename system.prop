@@ -2,26 +2,128 @@
 # system.prop for mido
 #
 
-rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
-rild.libargs=-d /dev/smd0
-persist.rild.nitz_plmn=
+# Audio
+af.fast_track_multiplier=1
+audio.deep_buffer.media=true
+audio.offload.min.duration.secs=30
+audio.offload.video=true
+ro.af.client_heap_size_kbyte=7168
+ro.config.media_vol_steps=25
+ro.config.vc_call_vol_steps=7
+
+# BPF
+ro.kernel.ebpf.supported=true
+
+# Camera
+persist.vendor.camera.display.lmax=1280x720
+persist.vendor.camera.display.umax=1920x1080
+vendor.camera.lowpower.record.enable=1
+vidc.enc.dcvs.extra-buff-count=2
+
+# Charger
+ro.charger.disable_init_blank=true
+ro.charger.enable_suspend=true
+
+# Console
+persist.console.silent.config=1
+
+# CoreSight
+persist.debug.coresight.config=stm-events
+
+# Data
+ro.vendor.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
+persist.vendor.data.mode=concurrent
+
+# Display
+debug.egl.hw=0
+debug.enable.sglscale=1
+debug.gralloc.enable_fb_ubwc=1
+debug.mdpcomp.logs=0
+debug.sf.enable_hwc_vds=1
+debug.sf.hw=0
+debug.sf.latch_unsignaled=1
+debug.sf.recomputecrop=0
+dev.pm.dyn_samplingrate=1
+persist.demo.hdmirotationlock=false
+persist.hwc.mdpcomp.enable=true
+ro.qualcomm.cabl=2
+vendor.display.disable_skip_validate=1
+vendor.display.enable_default_color_mode=1
+vendor.gralloc.enable_fb_ubwc=1
+
+# Fingerprint
+persist.qfp=false
+
+# FM
+ro.fm.transmitter=false
+
+# HWUI properties
+ro.hwui.texture_cache_size=72
+ro.hwui.layer_cache_size=48
+ro.hwui.r_buffer_cache_size=8
+ro.hwui.path_cache_size=32
+ro.hwui.gradient_cache_size=1
+ro.hwui.drop_shadow_cache_size=6
+ro.hwui.texture_cache_flushrate=0.4
+ro.hwui.text_small_cache_width=1024
+ro.hwui.text_small_cache_height=1024
+ro.hwui.text_large_cache_width=2048
+ro.hwui.text_large_cache_height=1024
+
+# Media
+av.debug.disable.pers.cache=1
+media.aac_51_output_enabled=true
+media.msm8956hw=0
+mm.enable.smoothstreaming=true
+mmp.enable.3g2=true
+vendor.mm.enable.qcom_parser=1048575
+vendor.vidc.debug.level=0
+vendor.vidc.dec.downscalar_height=1088
+vendor.vidc.dec.downscalar_width=1920
+vendor.vidc.disable.split.mode=1
+vendor.vidc.enc.disable_bframes=1
+vendor.vidc.enc.disable.pq=true
+vendor.video.disable.ubwc=1
+
+# Qualcomm
+ro.vendor.qti.va_aosp.support=1
+
+# SurfaceFlinger
+ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+ro.surface_flinger.max_virtual_display_dimension=4096
+
+# Time
+persist.timed.enable=true
+
+# Telephony
+DEVICE_PROVISIONED=1
 persist.rild.nitz_long_ons_0=
 persist.rild.nitz_long_ons_1=
 persist.rild.nitz_long_ons_2=
 persist.rild.nitz_long_ons_3=
+persist.rild.nitz_plmn=
 persist.rild.nitz_short_ons_0=
 persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
+rild.libargs=-d /dev/smd0
+rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 ril.subscription.types=NV,RUIM
-DEVICE_PROVISIONED=1
+ro.telephony.call_ring.multiple=false
+ro.telephony.use_old_mnc_mcc_format=true
+service.qti.ims.enabled=1
 #
 # Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode
 #
 ro.telephony.default_network=22,22
 
-# BPF
-ro.kernel.ebpf.supported=true
+# WiFi
+persist.mm.sta.enable=0
+
+# WFD
+persist.hwc.enable_vds=1
 
 # Zygote Preforking
 persist.device.config.runtime_native.uasp_pool_enabled=true

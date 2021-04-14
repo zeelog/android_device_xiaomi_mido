@@ -1,0 +1,147 @@
+#
+# vendor.prop for mido
+#
+
+# Audio
+audio.deep_buffer.media=true
+audio.offload.min.duration.secs=30
+audio.offload.video=true
+persist.vendor.audio.fluence.speaker=true
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicerec=false
+persist.vendor.audio.hw.binder.size_kbyte=1024
+ro.af.client_heap_size_kbyte=7168
+ro.vendor.audio.sdk.fluencetype=fluence
+ro.vendor.audio.sdk.ssr=false
+vendor.audio.flac.sw.decoder.24bit=true
+vendor.audio.hal.boot.timeout.ms=20000
+vendor.audio.hw.aac.encoder=true
+vendor.audio.offload.buffer.size.kb=64
+vendor.audio.offload.gapless.enabled=true
+vendor.audio.offload.multiaac.enable=true
+vendor.audio.offload.multiple.enabled=false
+vendor.audio.offload.track.enable=true
+vendor.audio.parser.ip.buffer.size=262144
+vendor.audio.playback.mch.downsample=true
+vendor.audio.safx.pbe.enabled=true
+vendor.audio.spkr_prot.tx.sampling_rate=48000
+vendor.audio.tunnel.encode=false
+vendor.audio.use.sw.alac.decoder=true
+vendor.audio.use.sw.ape.decoder=true
+vendor.audio_hal.period_size=192
+vendor.audio.read.wsatz.type=true
+vendor.fastrpc.disable.adsprpcd_sensorspd.daemon=1
+vendor.voice.conc.fallbackpath=deep-buffer
+vendor.voice.path.for.pcm.voip=true
+vendor.voice.playback.conc.disabled=true
+vendor.voice.record.conc.disabled=false
+vendor.voice.voip.conc.disabled=true
+
+# Audio dynamic feature flags
+vendor.audio.feature.anc_headset.enable=true
+vendor.audio.feature.compress_meta_data.enable=true
+vendor.audio.feature.compr_voip.enable=true
+vendor.audio.feature.custom_stereo.enable=true
+vendor.audio.feature.fluence.enable=true
+vendor.audio.feature.fm.enable=true
+vendor.audio.feature.hfp.enable=true
+vendor.audio.feature.hifi_audio.enable=true
+vendor.audio.feature.incall_music.enable=true
+vendor.audio.feature.kpi_optimize.enable=true
+vendor.audio.feature.multi_voice_session.enable=true
+vendor.audio.feature.snd_mon.enable=true
+vendor.audio.feature.spkr_prot.enable=true
+vendor.audio.feature.src_trkn.enable=true
+vendor.audio.feature.vbat.enable=true
+vendor.audio.feature.wsa.enable=true
+
+# Bluetooth
+persist.vendor.qcom.bluetooth.soc=pronto
+persist.vendor.qcom.bluetooth.enable.splita2dp=false
+ro.bluetooth.hfp.ver=1.7
+ro.vendor.bluetooth.wipower=false
+
+# Camera
+persist.camera.mct.debug=0
+persist.camera.iface.logs=0
+persist.camera.imglib.logs=0
+persist.camera.isp.clock.optmz=0
+persist.camera.isp.debug=0
+persist.camera.sensor.debug=0
+persist.camera.stats.test=5
+
+# Cne
+persist.vendor.cne.feature=1
+persist.vendor.mwqem.enable=1
+
+# Display
+ro.hardware.vulkan=adreno
+ro.hardware.egl=adreno
+ro.opengles.version=196610
+ro.vendor.display.cabl=2
+vendor.display.disable_skip_validate=1
+vendor.gralloc.enable_fb_ubwc=1
+
+# DPM
+persist.vendor.dpmhalservice.enable=1
+
+# DRM
+drm.service.enabled=true
+
+# Fm
+vendor.hw.fm.init=0
+
+# Frp
+ro.frp.pst=/dev/block/bootdevice/by-name/config
+
+# Media
+debug.stagefright.omx_default_rank=0
+vendor.vidc.disable.split.mode=1
+
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.qti.sys.fw.bservice_enable=true
+
+# Network manager
+persist.vendor.data.iwlan.enable=true
+
+# Radio
+persist.radio.multisim.config=dsds
+persist.vendor.radio.add_power_save=1
+persist.vendor.radio.apm_sim_not_pwdn=1
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.hw_mbn_update=0
+persist.vendor.radio.procedure_bytes=SKIP
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.sib16_support=1
+rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+
+# Radio (IMS)
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+persist.vendor.ims.disableIMSLogs=1
+persist.vendor.ims.disableADBLogs=1
+persist.vendor.ims.disableDebugDataPathLogs=1
+persist.vendor.ims.disableDebugLogs=1
+persist.vendor.ims.disableSigHandler=1
+persist.vendor.ims.disableQXDMLogs=1
+
+# Recovery
+persist.vendor.recovery_update=false
+
+# Time Services
+persist.backup.ntpServer=0.pool.ntp.org
+
+# Tcp
+net.tcp.2g_init_rwnd=10
+
+# Usb
+persist.vendor.usb.config.extra=none
+
+# Wifi
+wifi.interface=wlan0
+
+# Wifi-Display
+persist.sys.wfd.virtual=0
