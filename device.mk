@@ -433,7 +433,8 @@ PRODUCT_COPY_FILES += \
 
 # Wi-Fi Display
 PRODUCT_PACKAGES += \
-    libnl
+    libnl \
+    libshim_wfdmmsink
 
 PRODUCT_BOOT_JARS += \
     WfdCommon

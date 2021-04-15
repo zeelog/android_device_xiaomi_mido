@@ -56,3 +56,17 @@ cc_library_shared {
     compile_multilib: "64",
     vendor: true
 }
+
+// WFD
+cc_library_shared {
+    name: "libshim_wfdmmsink",
+
+    srcs: ["AudioTrack.cpp"],
+    shared_libs: ["libaudioclient"],
+    header_libs: [
+        "libaudioclient_headers",
+        "libmedia_headers",
+        "libmediametrics_headers",
+    ],
+
+}
