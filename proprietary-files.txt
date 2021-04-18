@@ -39,8 +39,6 @@ vendor/lib/libadm.so|a5e6c65b7133440b4550234db4454e4c81627f66
 vendor/lib/libaudcal.so|fc5b7759e6fc2ba8ecd8ee2bc0e1576ebb1221b5
 vendor/lib/libaudioalsa.so|58feb2c5cbc4ac6e23ef4896c87785bed8db3c80
 vendor/lib/libdrc.so|303d67b5bfea162ae994d3817de317258035c42a
-vendor/lib/libqtigef.so|80fb4a524d9d11c6e94c337ea263256f816f1f39
-vendor/lib/libsurround_3mic_proc.so|84a4d84fcf567554fb5174fc6d41310d864e5f8e
 vendor/lib/soundfx/libqcbassboost.so|670474cfd302150304e0c9efcb418100d6f17cad
 vendor/lib/soundfx/libqcreverb.so|839436acdd02cd79d577b9ad0b4084353b9116fa
 vendor/lib/soundfx/libqcvirt.so|2aa8fd3dedcd2538fa72768f70e664cfc5b6abe6
@@ -50,7 +48,6 @@ vendor/lib64/libacdbrtac.so|547a42e2ed54d13e780fab26134ec0fd90054d4c
 vendor/lib64/libadiertac.so|98a8c2702d4e203689e4a80c69c4b1cf93af1567
 vendor/lib64/libaudcal.so|758db7040b1efb88a65e9ba2196aa9b27edebd49
 vendor/lib64/libaudioalsa.so|534d4dc07fecea0611273c745721b1ed2015a3a3
-vendor/lib64/libqtigef.so|9108e3248c066102d7c57dd79d3e960647a8c84d
 
 # Audio ACDB - from LA.UM.9.6.2.r1-04100-89xx.0
 vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb|0364848ae2eb5505bdace46d6b8f1391a39095a8
@@ -888,7 +885,6 @@ vendor/lib/libhdr_tm.so|3d899ac8b0e6370295ab56ad95076e3c00140f75
 vendor/lib/libllvm-glnext.so|beaa9203400ad4598770c808c629637dd66aa5c9
 vendor/lib/libmm-hdcpmgr.so|985495bc86a198aa9ecb495c5a10a4aa10cfcadd
 vendor/lib/libpvr.so|34a02d80caef357e673732661810207c9cb32a22
-vendor/lib/librs_adreno.so|97756870564754d9cd6e6301a4f1a15f7a5a5711
 vendor/lib/libVkLayer_q3dtools.so|315532013abc28cacbb133d8582f40abfb58ca1e
 vendor/lib64/egl/eglSubDriverAndroid.so|d5bc7ac6e13e88fa7b58c2034b85fcba075581b2
 vendor/lib64/egl/libEGL_adreno.so|da4b09fc0bf7c82c267d227dda812b46db52deb7
@@ -908,7 +904,6 @@ vendor/lib64/libhdr_tm.so|cfd5f03dd37b5b6fb46d288bed619b780ec7343e
 vendor/lib64/libllvm-glnext.so|1a72aa1ce9820be7bde1bafcf19417d606445fb3
 vendor/lib64/libmm-hdcpmgr.so|cb689116359eff2a0a8bc56e3f6a085cca60e428
 vendor/lib64/libpvr.so|310828d47b0020ea7cb52eec68f16903fc1728be
-vendor/lib64/librs_adreno.so|d8bee70cc12ab5c6a979427e24fb7843fddae08b
 vendor/lib64/libVkLayer_q3dtools.so|ab31099e2b6b66fa66dc73aea017e254d875d0ca
 
 # Graphics (Postprocessing) - from LA.UM.9.6.2.r1-04100-89xx.0
