@@ -102,9 +102,6 @@ vendor.vidc.disable.split.mode=1
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.qti.sys.fw.bservice_enable=true
 
-# Network manager
-persist.vendor.data.iwlan.enable=true
-
 # Radio
 persist.radio.multisim.config=dsds
 persist.vendor.radio.add_power_save=1
