@@ -1,4 +1,4 @@
 allow radio gpuservice:binder call;
 allow radio system_app_data_file:dir getattr;
 
-get_prop(radio, qcom_ims_prop)
+get_prop(radio, vendor_qcom_ims_prop)
