@@ -80,31 +80,31 @@ done
 sed -i "s|persist.camera.debug.logfile|persist.vendor.camera.dbglog|g" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_dbg.so
 
 # Camera graphicbuffer shim
-patchelf --add-needed "libui_shim.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_ppeiscore.so
+"${PATCHELF}" --add-needed "libui_shim.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_ppeiscore.so
 
 # Camera VNDK support
-patchelf --remove-needed "libandroid.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
-patchelf --remove-needed "libgui.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
+"${PATCHELF}" --remove-needed "libandroid.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
+"${PATCHELF}" --remove-needed "libgui.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
 sed -i "s|libandroid.so|libcamshim.so|g" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera2_stats_modules.so
-patchelf --remove-needed "libgui.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_ppeiscore.so
-patchelf --remove-needed "libandroid.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmpbase.so
+"${PATCHELF}" --remove-needed "libgui.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmmcamera_ppeiscore.so
+"${PATCHELF}" --remove-needed "libandroid.so" "${DEVICE_BLOB_ROOT}"/vendor/lib/libmpbase.so
 
 # Gnss
 sed -i -e '$a\\    capabilities NET_BIND_SERVICE' "${DEVICE_BLOB_ROOT}"/vendor/etc/init/android.hardware.gnss@2.1-service-qti.rc
 
 # Goodix
-patchelf --remove-needed "libunwind.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/gx_fpd
-patchelf --remove-needed "libbacktrace.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/gx_fpd
-patchelf --add-needed "libshims_gxfpd.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/gx_fpd
-patchelf --add-needed "fakelogprint.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/gx_fpd
-patchelf --add-needed "fakelogprint.so" "${DEVICE_BLOB_ROOT}"/vendor/lib64/hw/fingerprint.goodix.so
-patchelf --add-needed "fakelogprint.so" "${DEVICE_BLOB_ROOT}"/vendor/lib64/hw/gxfingerprint.default.so
+"${PATCHELF}" --remove-needed "libunwind.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/gx_fpd
+"${PATCHELF}" --remove-needed "libbacktrace.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/gx_fpd
+"${PATCHELF}" --add-needed "libshims_gxfpd.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/gx_fpd
+"${PATCHELF}" --add-needed "fakelogprint.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/gx_fpd
+"${PATCHELF}" --add-needed "fakelogprint.so" "${DEVICE_BLOB_ROOT}"/vendor/lib64/hw/fingerprint.goodix.so
+"${PATCHELF}" --add-needed "fakelogprint.so" "${DEVICE_BLOB_ROOT}"/vendor/lib64/hw/gxfingerprint.default.so
 
 # WFD
-patchelf --add-needed "libshim_wfdmmsink.so" "${DEVICE_BLOB_ROOT}"/lib/libwfdmmsink.so
+"${PATCHELF}" --add-needed "libshim_wfdmmsink.so" "${DEVICE_BLOB_ROOT}"/lib/libwfdmmsink.so
 
 # Wcnss_service - libqmiservices_shim
-patchelf --add-needed "libqmiservices_shim.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/wcnss_service
+"${PATCHELF}" --add-needed "libqmiservices_shim.so" "${DEVICE_BLOB_ROOT}"/vendor/bin/wcnss_service
 sed -i "s|dms_get_service_object_internal_v01|dms_get_service_object_shimshim_v01|g" "${DEVICE_BLOB_ROOT}"/vendor/bin/wcnss_service
 
 "${MY_DIR}/setup-makefiles.sh"
