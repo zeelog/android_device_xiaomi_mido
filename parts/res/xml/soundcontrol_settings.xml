@@ -20,7 +20,7 @@
         android:key="audio">
 
         <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
-            android:defaultValue="0"
+            android:defaultValue="-10"
             android:key="headphone_gain"
             android:max="20"
             app:min="-40"
