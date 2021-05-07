@@ -188,6 +188,10 @@ on post-fs-data
     mkdir /dev/socket/location/xtra 0770 gps gps
     mkdir /dev/socket/location/dgnss 0770 gps gps
 
+    #Create directories for wifihal services
+    mkdir /dev/socket/wifihal 0770 wifi wifi
+    chmod 2770 /dev/socket/wifihal
+
     # Create /data/vendor/time folder for time-services
     mkdir /data/vendor/time/ 0700 system system
 
