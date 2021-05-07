@@ -186,6 +186,7 @@ on post-fs-data
     mkdir /dev/socket/location 0770 gps gps
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
+    mkdir /dev/socket/location/dgnss 0770 gps gps
     mkdir /data/vendor/location-partner 0770 gps gps
     mkdir /data/vendor/location-partner/dre 0770 gps gps
     mkdir /data/vendor/location-partner/ppe 0770 gps gps
