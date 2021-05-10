@@ -135,6 +135,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0_32 \
     android.hardware.camera.common@1.0 \
     android.hardware.camera.device@3.3:64 \
     android.hardware.camera.device@3.4:64 \
