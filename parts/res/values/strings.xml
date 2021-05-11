@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2018 The Asus-SDM660 Project
+     Copyright (C) 2017-2021 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,9 +15,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="advanced_settings">Audio Amplification</string>
-
     <!-- Audio amplification -->
+    <string name="audio_title">Audio Amplification</string>
+    <string name="audio_summary">Sound control settings</string>
     <string name="headphone_gain">Headphone gain</string>
     <string name="microphone_gain">Microphone gain</string>
     <string name="speaker_gain">Speaker gain</string>
@@ -26,5 +27,4 @@
     <string name="custom_seekbar_default_value">Default</string>
     <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong press to set</string>
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
-
 </resources>
