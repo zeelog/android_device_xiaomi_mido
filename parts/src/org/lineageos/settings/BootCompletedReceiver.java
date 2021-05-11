@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.provider.Settings;
 
+import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.soundcontrol.SoundControlSettings;
 import org.lineageos.settings.soundcontrol.SoundControlFileUtils;
@@ -38,6 +39,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             if (DEBUG) Log.d(TAG, "Starting Doze service");
             DozeUtils.startService(context);
         }
+        new DiracUtils(context).onBootCompleted();
 
     int gain = Settings.Secure.getInt(context.getContentResolver(),
                 SoundControlSettings.PREF_HEADPHONE_GAIN, 4);

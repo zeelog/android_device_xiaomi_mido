@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2018 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License"
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:key="dirac_headset_pref"
+        android:entries="@array/dirac_headset_pref_entries"
+        android:entryValues="@array/dirac_headset_pref_values"
+        android:defaultValue="0"
+        android:title="@string/dirac_headset_title"
+        android:summary="%s" 
+	android:icon="@drawable/ic_dirac" />
+
+    <ListPreference
+        android:key="dirac_preset_pref"
+        android:entries="@array/dirac_preset_pref_entries"
+        android:entryValues="@array/dirac_preset_pref_values"
+        android:defaultValue="0,0,0,0,0,0,0"
+        android:title="@string/dirac_preset_title"
+        android:summary="%s"
+	android:icon="@drawable/ic_preset" />
+
+</PreferenceScreen>
