@@ -155,6 +155,7 @@ on charger
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
+    setprop sys.usb.configfs 1
     setprop persist.sys.usb.config mass_storage
     start vendor.hvdcp_opti
     start vendor.power_off_alarm
