@@ -26,21 +26,21 @@
 
 static char *cpu_sensors_8953[] =
 {
-    "tsens_tz_sensor9",
-    "tsens_tz_sensor10",
-    "tsens_tz_sensor11",
-    "tsens_tz_sensor12",
-    "tsens_tz_sensor4",
-    "tsens_tz_sensor5",
-    "tsens_tz_sensor6",
-    "tsens_tz_sensor7",
+    "apc0-cpu0-usr",
+    "apc0-cpu1-usr",
+    "apc0-cpu2-usr",
+    "apc0-cpu3-usr",
+    "apc1-cpu0-usr",
+    "apc1-cpu1-usr",
+    "apc1-cpu2-usr",
+    "apc1-cpu3-usr",
 };
 
 static char *misc_sensors_8953[] =
 {
-    "tsens_tz_sensor15",
+    "gpu0-usr",
     "battery",
-    "xo_therm"
+    "xo-therm-adc"
 };
 
 static struct target_therm_cfg sensor_cfg_8953[] = {
@@ -48,13 +48,15 @@ static struct target_therm_cfg sensor_cfg_8953[] = {
         .type = DEVICE_TEMPERATURE_CPU,
         .sensor_list = cpu_sensors_8953,
         .sens_cnt = ARRAY_SIZE(cpu_sensors_8953),
-        .mult = 0.1,
+        .mult = 0.001,
+        .throt_thresh = 65,
+        .shutdwn_thresh = 125,
     },
     {
         .type = DEVICE_TEMPERATURE_GPU,
         .sensor_list = &misc_sensors_8953[0],
         .sens_cnt = 1,
-        .mult = 0.1,
+        .mult = 0.001,
         .label = "GPU",
     },
     {
@@ -62,13 +64,16 @@ static struct target_therm_cfg sensor_cfg_8953[] = {
         .sensor_list = &misc_sensors_8953[1],
         .sens_cnt = 1,
         .mult = 0.001,
+        .shutdwn_thresh = 60,
         .label = "battery",
     },
     {
         .type = DEVICE_TEMPERATURE_SKIN,
         .sensor_list = &misc_sensors_8953[2],
         .sens_cnt = 1,
-        .mult = 1,
+        .mult = 0.001,
+        .throt_thresh = 45,
+        .shutdwn_thresh = 70,
         .label = "skin",
     }
 };
