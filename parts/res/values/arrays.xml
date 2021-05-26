@@ -80,6 +80,7 @@
         <item>@string/dirac_preset_country</item>
         <item>@string/dirac_preset_dance</item>
         <item>@string/dirac_preset_metal</item>
+        <item>@string/dirac_preset_bass_booster</item>
     </string-array>
 
     <string-array name="dirac_preset_pref_values" translatable="false">
@@ -94,5 +95,6 @@
         <item>"0,0,-2,-2,2,2,0"</item>
         <item>"0,4,2,0,-2,-2,4"</item>
         <item>"2,0,0,-2,-4,0,0"</item>
+        <item>"10,8,0,-3,0,5,6"</item>
     </string-array>
 </resources>
