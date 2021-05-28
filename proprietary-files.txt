@@ -1154,28 +1154,10 @@ vendor/bin/imsdatadaemon|56e1ab6f6f6679261bcd36dd218097632da866b6
 vendor/bin/imsqmidaemon|0e5cf08e7cbd4e34fb69e6644a8c7d5e6715c306
 
 # Radio (IMS) - from LA.UM.9.6.2.r1-04200-89xx.0
--system_ext/app/imssettings/imssettings.apk|8b47c43d56228dcce93cc8c07c6ceb08cb3d2fe5
-system_ext/lib64/com.qualcomm.qti.imscmservice@1.0.so|3e98176489fa517e4240e5edc1cc4945cff620b4
-system_ext/lib64/com.qualcomm.qti.imscmservice@2.0.so|099da0cec8721bf0f98a256d5f2b95e764160fef
-system_ext/lib64/com.qualcomm.qti.imscmservice@2.1.so|bd2ab9f246141ed058b69299ce51d90d184df69d
-system_ext/lib64/com.qualcomm.qti.imscmservice@2.2.so|b382ac2b0d7dbcb801c425ad3d75aa731eea61c6
-system_ext/lib64/com.qualcomm.qti.uceservice@2.0.so|c1ab8dc5de956caf0060a33922d402d0ec6c732e
-system_ext/lib64/com.qualcomm.qti.uceservice@2.1.so|f86a87d2fef32f7176d697a7aad346b8c5be3d00
-system_ext/lib64/com.qualcomm.qti.uceservice@2.2.so|620f8c0af756a026ac78750adc4fe0590c4e9d45
-system_ext/lib64/com.qualcomm.qti.uceservice@2.3.so|7fcb3e6f1f580bab7ff6c18aa44094df05a1bbde
-system_ext/lib64/vendor.qti.ims.callcapability@1.0.so|a1142ee46361fa560f67ef9dca0911cc3bf7a265
-system_ext/lib64/vendor.qti.ims.callinfo@1.0.so|b70fdd7a8a565c0d8113d40c8b5d4fed14393a34
-system_ext/lib64/vendor.qti.ims.factory@1.0.so|9d89eddbd3fd5f6bd3bdc440a0329e373d7f5f59
-system_ext/lib64/vendor.qti.ims.factory@1.1.so|112299da1ba01cd27c30b7a4b9087d7f7c6cf816
-system_ext/lib64/vendor.qti.ims.rcsconfig@1.0.so|3d7e6d255ddbe63916971528c1db71f8135a38fe
-system_ext/lib64/vendor.qti.ims.rcsconfig@1.1.so|04cea75e378f4dd65f8d280d737c02cba2275491
-system_ext/lib64/vendor.qti.ims.rcsconfig@2.0.so|fdd00a9a62b6ff2f6e3cb1f39bc667ee68a6fd5c
-system_ext/lib64/vendor.qti.ims.rcsconfig@2.1.so|cc2bed9ddc22c2c72989b37d711e33898213d054
 vendor/bin/imsrcsd|c4a5cf31cda60ab50955631538cddd1e7fa1d844
 vendor/etc/init/imsrcsd.rc|2dc42ff6e4b6dd389bd3bc9a7af30dec2f1a45df
 vendor/etc/init/imsdatadaemon.rc|29face37c174aebcd1358f7d7ad0bd4baf83063b
 vendor/etc/init/imsqmidaemon.rc|dda16d842b7c65296e97bc9921b723a43b152ba3
-vendor/lib64/com.qualcomm.qti.imscmservice@1.0.so|a72bef6baba9e0090bfb53fec354a309255f0fa7
 vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so|2fa1f2aca212504901631400a2c2a0116ae576dd
 vendor/lib64/com.qualcomm.qti.imscmservice@2.1.so|e2da89046a8123263690a803098b0a693cb255c9
 vendor/lib64/com.qualcomm.qti.imscmservice@2.2.so|a1b64c92b0fba6e78e070d67635e3a52e0299683
