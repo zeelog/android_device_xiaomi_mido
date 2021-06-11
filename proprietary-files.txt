@@ -790,11 +790,11 @@ vendor/lib64/libStDrvInt.so|7c921ee6db896233f9ea03f1fb3a9b7d9434e7dc
 vendor/lib64/libops.so|b2223e64db9d8f84262da7a8621013d3c63b6c98
 vendor/lib64/libspl.so|0fa8c0711f72fc8a914dce044cf8dddd79ee62e1
 
-# DRM - Widevine - from Crosshatch - 11/RQ2A.210405.006/7214111
+# DRM - Widevine - from Crosshatch - 11/RQ3A.210605.005/7349499
 vendor/bin/hw/android.hardware.drm@1.3-service.widevine|57d280849768bc5d5e9e954b9ac90a5a31c54172
 vendor/etc/init/android.hardware.drm@1.3-service.widevine.rc|6b00f42dc85becc58f303bc4588331239c5c83aa
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
-vendor/lib64/libwvhidl.so|baae2e9c3e2f31f06787de1801b30fd8881b99e8
+vendor/lib64/libwvhidl.so|ae215b1afd38cda71818dfde44c6186bd4ec2cb1
 
 # Fingerprint
 bin/gx_fpd:vendor/bin/gx_fpd
