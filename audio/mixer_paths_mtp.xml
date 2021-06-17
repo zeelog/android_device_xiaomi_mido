@@ -1282,14 +1282,6 @@
     <path name="audio-record-voip bt-sco">
         <ctl name="MultiMedia10 Mixer INTERNAL_BT_SCO_TX" value="1" />
     </path>
-    <!-- VoIP Tx settings -->
-    <path name="audio-record-voip">
-        <ctl name="MultiMedia10 Mixer TERT_MI2S_TX" value="1" />
-    </path>
-
-    <path name="audio-record-voip bt-sco">
-        <ctl name="MultiMedia10 Mixer INTERNAL_BT_SCO_TX" value="1" />
-    </path>
 
     <path name="audio-record-voip bt-sco-wb">
         <ctl name="Internal BTSCO SampleRate" value="BTSCO_RATE_16KHZ" />
