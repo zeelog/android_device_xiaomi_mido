@@ -15,13 +15,13 @@
  * limitations under the License
  */
 
-package org.lineageos.settings.torch;
+package org.lineageos.settings.preferences;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public final class TorchFileUtils {
+public final class FileUtils {
 
     public static boolean fileWritable(String filename) {
         return fileExists(filename) && new File(filename).canWrite();

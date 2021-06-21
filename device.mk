@@ -348,9 +348,8 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     init.recovery.qcom.usb.rc \
-    init.soundcontrol.rc \
+    init.parts.rc \
     init.target.rc \
-    init.torch.rc \
     init.veth_ipa_config.sh \
     ueventd.qcom.rc
 

@@ -25,6 +25,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 
 import org.lineageos.settings.preferences.CustomSeekBarPreference;
+import org.lineageos.settings.preferences.FileUtils;
 
 import org.lineageos.settings.R;
 
@@ -44,11 +45,11 @@ public class TorchSettings extends PreferenceFragment implements
         setPreferencesFromResource(R.xml.torch_settings, rootKey);
 
         mWhiteTorchBrightness = (CustomSeekBarPreference) findPreference(KEY_WHITE_TORCH_BRIGHTNESS);
-        mWhiteTorchBrightness.setEnabled(TorchFileUtils.fileWritable(TORCH_1_BRIGHTNESS_PATH));
+        mWhiteTorchBrightness.setEnabled(FileUtils.fileWritable(TORCH_1_BRIGHTNESS_PATH));
         mWhiteTorchBrightness.setOnPreferenceChangeListener(this);
 
         mYellowTorchBrightness = (CustomSeekBarPreference) findPreference(KEY_YELLOW_TORCH_BRIGHTNESS);
-        mYellowTorchBrightness.setEnabled(TorchFileUtils.fileWritable(TORCH_2_BRIGHTNESS_PATH));
+        mYellowTorchBrightness.setEnabled(FileUtils.fileWritable(TORCH_2_BRIGHTNESS_PATH));
         mYellowTorchBrightness.setOnPreferenceChangeListener(this);
     }
 
@@ -57,11 +58,11 @@ public class TorchSettings extends PreferenceFragment implements
         final String key = preference.getKey();
         switch (key) {
             case KEY_WHITE_TORCH_BRIGHTNESS:
-                TorchFileUtils.setValue(TORCH_1_BRIGHTNESS_PATH, (int) value);
+                FileUtils.setValue(TORCH_1_BRIGHTNESS_PATH, (int) value);
                 break;
 
             case KEY_YELLOW_TORCH_BRIGHTNESS:
-                TorchFileUtils.setValue(TORCH_2_BRIGHTNESS_PATH, (int) value);
+                FileUtils.setValue(TORCH_2_BRIGHTNESS_PATH, (int) value);
                 break;
         }
         return true;
