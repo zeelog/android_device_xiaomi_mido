@@ -3,7 +3,13 @@ allow system_app {
     sysfs_hgain
     sysfs_mgain
     sysfs_sgain
+    sysfs_torch
 }:file rw_file_perms;
+
+allow system_app {
+    sysfs_leds
+}:dir search;
+
 
 # zram
 r_dir_file(system_app sysfs_zram)

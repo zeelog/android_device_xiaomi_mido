@@ -164,11 +164,6 @@ on charger
 on boot
     chown system system /sys/kernel/hbtp/display_pwr
 
-# Flashlight
-    chown root system /sys/class/leds/led:torch_1/max_brightness
-    chmod 0660 /sys/class/leds/led:torch_1/max_brightness
-    write /sys/class/leds/led:torch_1/max_brightness 0
-
 # Update cpusets on boot and we want better load balancing
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-6

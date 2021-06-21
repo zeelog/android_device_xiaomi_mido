@@ -27,6 +27,8 @@ import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.soundcontrol.SoundControlSettings;
 import org.lineageos.settings.soundcontrol.SoundControlFileUtils;
+import org.lineageos.settings.torch.TorchSettings;
+import org.lineageos.settings.torch.TorchFileUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 
@@ -41,6 +43,12 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
         new DiracUtils(context).onBootCompleted();
 
+        TorchFileUtils.setValue(TorchSettings.TORCH_1_BRIGHTNESS_PATH,
+                Settings.Secure.getInt(context.getContentResolver(),
+                        TorchSettings.KEY_WHITE_TORCH_BRIGHTNESS, 100));
+        TorchFileUtils.setValue(TorchSettings.TORCH_2_BRIGHTNESS_PATH,
+                Settings.Secure.getInt(context.getContentResolver(),
+                        TorchSettings.KEY_YELLOW_TORCH_BRIGHTNESS, 100));
     int gain = Settings.Secure.getInt(context.getContentResolver(),
                 SoundControlSettings.PREF_HEADPHONE_GAIN, 4);
         SoundControlFileUtils.setValue(SoundControlSettings.HEADPHONE_GAIN_PATH, gain + " " + gain);
