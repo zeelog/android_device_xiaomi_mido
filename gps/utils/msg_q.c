@@ -76,6 +76,8 @@ static msq_q_err_type convert_linked_list_err_type(linked_list_err_type linked_l
       return eMSG_Q_UNAVAILABLE_RESOURCE;
    case eLINKED_LIST_INSUFFICIENT_BUFFER:
       return eMSG_Q_INSUFFICIENT_BUFFER;
+   case eLINKED_LIST_EMPTY:
+      return eMSG_Q_EMPTY;
 
    case eLINKED_LIST_FAILURE_GENERAL:
    default:
@@ -298,7 +300,7 @@ msq_q_err_type msg_q_rmv(void* msg_q_data, void** msg_obj)
    if (linked_list_empty(p_msg_q->msg_list)) {
       LOC_LOGW("%s: list is empty !!\n", __FUNCTION__);
       pthread_mutex_unlock(&p_msg_q->list_mutex);
-      return eLINKED_LIST_EMPTY;
+      return eMSG_Q_EMPTY;
    }
 
    rv = convert_linked_list_err_type(linked_list_remove(p_msg_q->msg_list, msg_obj));

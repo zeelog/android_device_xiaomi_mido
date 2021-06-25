@@ -50,6 +50,8 @@ typedef enum
      /**< Failed because an there were not enough resources. */
   eMSG_Q_INSUFFICIENT_BUFFER                 = -5,
      /**< Failed because an the supplied buffer was too small. */
+  eMSG_Q_EMPTY                               = -6
+     /**< Failed because list is empty. */
 }msq_q_err_type;
 
 /*===========================================================================
