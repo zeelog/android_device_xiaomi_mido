@@ -293,7 +293,7 @@ public:
             mConnected(connected),
             mRoaming(roaming),
             mNetworkHandle(networkHandle),
-            mId(NETWORKINFO_DATA_ITEM_ID), mApn(apn) {
+            mApn(apn), mId(NETWORKINFO_DATA_ITEM_ID) {
                 mAllNetworkHandles[0].networkHandle = networkHandle;
                 mAllNetworkHandles[0].networkType = initialType;
             }
