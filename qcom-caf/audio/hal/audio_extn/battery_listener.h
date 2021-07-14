@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2019, The Linux Foundation. All rights reserved.
+* Copyright (c) 2019, 2021 The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -31,8 +31,8 @@ extern "C" {
 #endif
 typedef void (* battery_status_change_fn_t)(bool);
 void battery_properties_listener_init(battery_status_change_fn_t fn);
-void battery_properties_listener_deinit();
-bool battery_properties_is_charging();
+void battery_properties_listener_deinit(void);
+bool battery_properties_is_charging(void);
 #ifdef __cplusplus
 }
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2021, The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
  * Copyright (C) 2013 The Android Open Source Project
@@ -41,7 +41,7 @@ enum {
 
 struct mixer;
 /* Audio calibration related functions */
-typedef void (*acdb_deallocate_t)();
+typedef void (*acdb_deallocate_t)(void);
 typedef int  (*acdb_init_t)();
 typedef int  (*acdb_init_v2_t)(const char *, char *, int);
 typedef int  (*acdb_init_v3_t)(const char *, char *, struct listnode *);
