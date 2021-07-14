@@ -5573,10 +5573,10 @@ static void *batt_listener_lib_handle = NULL;
 typedef void (*batt_listener_init_t)(battery_status_change_fn_t);
 static batt_listener_init_t batt_listener_init;
 
-typedef void (*batt_listener_deinit_t)();
+typedef void (*batt_listener_deinit_t)(void);
 static batt_listener_deinit_t batt_listener_deinit;
 
-typedef bool (*batt_prop_is_charging_t)();
+typedef bool (*batt_prop_is_charging_t)(void);
 static batt_prop_is_charging_t batt_prop_is_charging;
 
 void battery_listener_feature_init(bool is_feature_enabled)
