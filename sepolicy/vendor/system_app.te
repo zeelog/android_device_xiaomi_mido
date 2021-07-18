@@ -1,3 +1,6 @@
+# FM
+set_prop(system_app, vendor_fm_prop)
+
 # XiaomiParts
 allow system_app {
     sysfs_hgain

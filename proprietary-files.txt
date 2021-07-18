@@ -806,9 +806,9 @@ lib64/libfpnav.so:vendor/lib64/libfpnav.so
 lib64/libfpservice.so:vendor/lib64/libfpservice.so
 
 # FM Radio - from LA.UM.9.6.2.r1-04200-89xx.0
-system_ext/lib64/fm_helium.so|55ef376cc802574df92025bebaba1cebcc74a918
-system_ext/lib64/libfm-hci.so|0cfbf3d84724428721973cc7ad22f5d1e1368591
--system_ext/lib64/vendor.qti.hardware.fm@1.0.so|b6bdde84366a79b7d49f98a2eef932dff4f87981
+vendor/bin/init.qti.fm.sh|0ac820dd85ebdf5fa73b5e971f6787ff35ceb65d
+vendor/bin/fm_qsoc_patches|84e197364b2ec81cb9dfff97af49b30afa06b6e9
+vendor/etc/init/init.qti.fm.rc|07cb64e2109a900eb6e1da1950fddba954d0f8d6
 vendor/lib64/vendor.qti.hardware.fm@1.0.so|f7494923e84b136a44f02699082a7e0a380f94e9
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so|66c50040a46dfa7fcefda85ddd009bff2b76f6b8
 

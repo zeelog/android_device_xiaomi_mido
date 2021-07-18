@@ -9,5 +9,12 @@ allow init adsprpcd_file:filesystem { getattr mount relabelfrom relabelto };
 # Firmware
 allow init firmware_file:filesystem getattr;
 
+allow init wcnss_device:chr_file write;
+
+# FM
+allow qti_init_shell {
+    vendor_fm_prop
+}:property_service set;
+
 # LEDs
 allow init sysfs_leds:lnk_file read;
