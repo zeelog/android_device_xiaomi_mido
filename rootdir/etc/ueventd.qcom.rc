@@ -68,7 +68,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/pta                  0660   system     system
 
 #radio
-/dev/radio0               0640   system     system
+/dev/radio0               0644   system     system
 /dev/rfcomm0              0660   bluetooth  bluetooth
 /dev/ttyUSB0              0660   bluetooth  bluetooth
 /dev/smdcntl0             0640   radio      radio
