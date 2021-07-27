@@ -6,5 +6,8 @@ allow qti_init_shell proc_touchpanel:file { getattr setattr };
 # Allow access to swappiness
 allow qti_init_shell proc_swap:file { open write };
 
+# Allow adjust page_cluster setting
+allow qti_init_shell proc_page_cluster:file { open write };
+
 # Postboot
 allow qti_init_shell sysfs:file { write setattr };
