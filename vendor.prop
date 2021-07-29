@@ -58,7 +58,6 @@ vendor.audio.feature.wsa.enable=true
 # Bluetooth
 persist.vendor.qcom.bluetooth.soc=pronto
 persist.vendor.qcom.bluetooth.enable.splita2dp=false
-ro.bluetooth.hfp.ver=1.7
 ro.vendor.bluetooth.wipower=false
 
 # Camera
