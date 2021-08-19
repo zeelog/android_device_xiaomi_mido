@@ -48,8 +48,6 @@ on post-fs
     chmod 0755 /sys/kernel/debug/tracing
 
 on early-boot
-    # set RLIMIT_MEMLOCK to 64MB
-    setrlimit 8 67108864 67108864
     # Allow subsystem (modem etc) debugging
     write /sys/kernel/boot_adsp/boot 1
     write /sys/kernel/boot_slpi/boot 1
