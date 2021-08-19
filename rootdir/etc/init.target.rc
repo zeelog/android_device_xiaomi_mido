@@ -42,9 +42,6 @@ on fs
     mkdir /mnt/vendor/persist/data 0700 system system
     mkdir /mnt/vendor/persist/bms 0700 root system
 
-    chmod 0664 /sys/class/thermal/thermal_message/sconfig
-    chown system system /sys/class/thermal/thermal_message/sconfig
-
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
@@ -60,17 +57,6 @@ on init
     write /dev/cpuset/camera-daemon/mems 0
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
     chmod 0660 /dev/cpuset/camera-daemon/tasks
-
-service thermal-engine /vendor/bin/thermal-engine
-   class main
-   user root
-   #chmod 0664 /sys/class/thermal/thermal_message/sconfig
-   #chown system system /sys/class/thermal/thermal_message/sconfig
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   socket thermal-send-rule stream 0660 system system
-   group root
 
 on post-fs
     start vendor.qseecomd
@@ -115,6 +101,15 @@ service vendor.qseecomd /vendor/bin/qseecomd
    user root
    group root
    writepid /dev/cpuset/system-background/tasks
+
+service thermal-engine /vendor/bin/thermal-engine
+   class main
+   user root
+   socket thermal-send-client stream 0666 system system
+   socket thermal-recv-client stream 0660 system system
+   socket thermal-recv-passive-client stream 0666 system system
+   socket thermal-send-rule stream 0660 system system
+   group root
 
 service wcnss-service /vendor/bin/wcnss_service
     class main
