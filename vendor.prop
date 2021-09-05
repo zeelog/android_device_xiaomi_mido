@@ -80,6 +80,7 @@ ro.hardware.vulkan=adreno
 ro.hardware.egl=adreno
 ro.opengles.version=196610
 ro.vendor.display.cabl=2
+vendor.display.disable_rotator_downscale=1
 vendor.display.disable_skip_validate=1
 vendor.gralloc.enable_fb_ubwc=1
 
