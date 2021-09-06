@@ -7,3 +7,5 @@ allow ueventd {
     debugfs
     debugfs_wakeup_sources
 }:file getattr;
+
+allow ueventd self:capability kill;
