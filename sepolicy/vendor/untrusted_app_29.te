@@ -1,1 +1,6 @@
 dontaudit untrusted_app_29 hal_memtrack_hwservice:hwservice_manager { find } ;
+dontaudit untrusted_app_29 cgroup:file { open read };
+dontaudit untrusted_app_29 postinstall_mnt_dir:dir getattr;
+dontaudit untrusted_app_29 sysfs:dir { open read };
+dontaudit untrusted_app_29 sysfs:file { getattr open read };
+dontaudit untrusted_app_29 proc_pressure_mem:file read;
