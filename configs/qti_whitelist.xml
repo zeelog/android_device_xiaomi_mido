@@ -62,6 +62,4 @@
     <hidden-api-whitelisted-app package="com.qualcomm.qti.uimlpatest" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.lpa" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.uim" />
-    <hidden-api-whitelisted-app package="com.qualcomm.wfd.client" />
-    <hidden-api-whitelisted-app package="com.qualcomm.wfd.service" />
 </config>
