@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: mm-core
+Description: mm-core library
+Version: @VERSION@
+Libs: -L${libdir} -lOmxCore -lmm-omxcore
+Cflags: -I${includedir}/mm-core/omxcore
