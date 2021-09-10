@@ -29,28 +29,6 @@
 #include <hardware/thermal.h>
 #define ARRAY_SIZE(x) (int)(sizeof(x)/sizeof(x[0]))
 
-enum therm_msm_id {
-    THERM_MSM_UNKNOWN = 0,
-    THERM_MSM_8953,
-    THERM_SDM_660,
-    THERM_SDM_630,
-    THERM_SDM_710,
-    THERM_QCS_605,
-    THERM_SDM_632,
-    THERM_SDM_439,
-    THERM_MSMNILE,
-    THERM_TALOS,
-    THERM_SDMMAGPIE,
-    THERM_MSM_8917,
-    THERM_TRINKET,
-    THERM_KONA,
-    THERM_LITO,
-    THERM_ATOLL,
-    THERM_BENGAL,
-    THERM_LAGOON,
-    THERM_SCUBA,
-};
-
 struct target_therm_cfg {
     enum temperature_type type;
     char **sensor_list;
