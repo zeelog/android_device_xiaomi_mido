@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--- Copyright (c) 2013-2017, The Linux Foundation. All rights reserved.       -->
+<!---                                                                           -->
+<!--- Redistribution and use in source and binary forms, with or without        -->
+<!--- modification, are permitted provided that the following conditions are    -->
+<!--- met:                                                                      -->
+<!---     * Redistributions of source code must retain the above copyright      -->
+<!---       notice, this list of conditions and the following disclaimer.       -->
+<!---     * Redistributions in binary form must reproduce the above             -->
+<!---       copyright notice, this list of conditions and the following         -->
+<!---       disclaimer in the documentation and/or other materials provided     -->
+<!---       with the distribution.                                              -->
+<!---     * Neither the name of The Linux Foundation nor the names of its       -->
+<!---       contributors may be used to endorse or promote products derived     -->
+<!---       from this software without specific prior written permission.       -->
+<!---                                                                           -->
+<!--- THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED              -->
+<!--- WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF      -->
+<!--- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT    -->
+<!--- ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS    -->
+<!--- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR    -->
+<!--- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF      -->
+<!--- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR           -->
+<!--- BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,     -->
+<!--- WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE      -->
+<!--- OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN    -->
+<!--- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                             -->
+<sound_trigger_platform_info>
+    <param version="0x0101" /> <!-- this must be the first param -->
+    <common_config>
+        <param max_cpe_sessions="1" />
+        <param max_wdsp_sessions="2" />
+        <param max_ape_sessions="8" />
+        <param enable_failure_detection="false" />
+        <!-- Below backend params must match with port used in mixer path file -->
+        <!-- param used to configure backend sample rate, format and channels -->
+        <param backend_port_name="SLIM_0_TX" />
+        <!-- Param used to match and obtain device backend index -->
+        <param backend_dai_name="SLIMBUS_0_TX" />
+    </common_config>
+    <acdb_ids>
+        <param DEVICE_HANDSET_MIC_APE="100" />
+        <param DEVICE_HANDSET_MIC_CPE="128" />
+        <param DEVICE_HANDSET_MIC_ECPP_CPE="128" />
+        <param DEVICE_HANDSET_MIC_PP_APE="137" />
+        <param DEVICE_HANDSET_QMIC_APE="138" />
+    </acdb_ids>
+    <!-- Multiple sound_model_config tags can be listed, each with unique   -->
+    <!-- vendor_uuid. The below tag represents QTI SVA engine sound model   -->
+    <!-- configuration. ISV must use their own unique vendor_uuid.          -->
+    <sound_model_config>
+        <param vendor_uuid="68ab2d40-e860-11e3-95ef-0002a5d5c51b" />
+        <param execution_type="WDSP" /> <!-- value: "WDSP" "ADSP" "DYNAMIC" -->
+        <param app_type="2" /> <!-- app type used in ACDB -->
+        <param library="libsmwrapper.so" />
+        <param max_cpe_phrases="6" />
+        <param max_cpe_users="3" />
+        <param max_ape_phrases="10" />
+        <param max_ape_users="10" />
+        <!-- Profile specific data which the algorithm can support -->
+        <param sample_rate="16000" />
+        <param bit_width="16" />
+        <param channel_count="1"/>
+        <!-- adm_cfg_profile should match with the one defined under adm_config -->
+        <!-- Set it to NONE if LSM directly connects to AFE -->
+        <param adm_cfg_profile="NONE" />
+        <!-- fluence_type: "FLUENCE", FLUENCE_DMIC", FLUENCE_QMIC" -->
+        <!-- param value is valid when adm_cfg_profile="FLUENCE" -->
+        <param fluence_type="FLUENCE_QMIC" />
+        <gcs_usecase>
+            <param uid="0x1" />
+            <!-- module_id, instance_id, param_id -->
+            <param load_sound_model_ids="0x00012C0D, 0x2, 0x00012C14" />
+            <param confidence_levels_ids="0x00012C0D, 0x2, 0x00012C28" />
+            <param detection_event_ids="0x00012C0D, 0x2, 0x00012C29" />
+            <param read_cmd_ids="0x00020013, 0x2, 0x00020015" />
+            <param read_rsp_ids="0x00020013, 0x2, 0x00020016" />
+        </gcs_usecase>
+        <gcs_usecase>
+            <param uid="0x2" />
+            <param load_sound_model_ids="0x00012C0D, 0x3, 0x00012C14" />
+            <param confidence_levels_ids="0x00012C0D, 0x3, 0x00012C28" />
+            <param detection_event_ids="0x00012C0D, 0x3, 0x00012C29" />
+            <param read_cmd_ids="0x00020013, 0x3, 0x00020015" />
+            <param read_rsp_ids="0x00020013, 0x3, 0x00020016" />
+        </gcs_usecase>
+        <!-- Module and param ids with which the algorithm is integrated
+            in non-graphite firmware (note these must come after gcs params)
+            Extends flexibility to have different ids based on execution mode.
+            valid execution_mode values: "WDSP" "ADSP" -->
+        <lsm_usecase>
+            <param execution_mode="ADSP" />
+            <param load_sound_model_ids="0x00012C1C, 0x00012C14" />
+            <param unload_sound_model_ids="0x00012C1C, 0x00012C15" />
+            <param confidence_levels_ids="0x00012C1C, 0x00012C07" />
+            <param operation_mode_ids="0x00012C1C, 0x00012C02" />
+            <param polling_enable_ids="0x00012C1C, 0x00012C1B" />
+        </lsm_usecase>
+
+        <lsm_usecase>
+            <param execution_mode="WDSP" />
+            <param load_sound_model_ids="0x00012C0D, 0x00012C14" />
+            <param unload_sound_model_ids="0x00012C0D, 0x00012C15" />
+            <param confidence_levels_ids="0x00012C0D, 0x00012C07" />
+            <param operation_mode_ids="0x00012C0D, 0x00012C02" />
+        </lsm_usecase>
+
+        <!-- format: "ADPCM_packet" or "PCM_packet" !-->
+        <!-- transfer_mode: "FTRT" or "RT" -->
+        <!--  kw_duration is in milli seconds. It is valid only for FTRT
+            transfer mode -->
+        <param capture_keyword="PCM_packet, RT, 2000" />
+        <param client_capture_read_delay="2000" />
+    </sound_model_config>
+
+    <!-- Multiple adm_config tags can be listed, each with unique profile name. -->
+    <!-- app_type to match corresponding value from ACDB -->
+    <adm_config>
+        <param adm_cfg_profile="DEFAULT" />
+        <param app_type="69938" />
+        <param sample_rate="16000" />
+        <param bit_width="16" />
+    </adm_config>
+
+    <adm_config>
+        <param adm_cfg_profile="FLUENCE" />
+        <param app_type="69943" />
+        <param sample_rate="16000" />
+        <param bit_width="16" />
+    </adm_config>
+
+    <!-- backend_type tag defines backend type for each device -->
+    <!-- Default value is assumed for devices that are not listed here -->
+    <backend_type>
+        <param DEVICE_HANDSET_MIC_ECPP_CPE="BACKEND_ECPP" />
+    </backend_type>
+</sound_trigger_platform_info>

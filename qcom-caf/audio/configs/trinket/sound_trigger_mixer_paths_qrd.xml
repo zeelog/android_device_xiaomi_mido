@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--- Copyright (c) 2014-2019, The Linux Foundation. All rights reserved.       -->
+<!---                                                                           -->
+<!--- Redistribution and use in source and binary forms, with or without        -->
+<!--- modification, are permitted provided that the following conditions are    -->
+<!--- met:                                                                      -->
+<!---     * Redistributions of source code must retain the above copyright      -->
+<!---       notice, this list of conditions and the following disclaimer.       -->
+<!---     * Redistributions in binary form must reproduce the above             -->
+<!---       copyright notice, this list of conditions and the following         -->
+<!---       disclaimer in the documentation and/or other materials provided     -->
+<!---       with the distribution.                                              -->
+<!---     * Neither the name of The Linux Foundation nor the names of its       -->
+<!---       contributors may be used to endorse or promote products derived     -->
+<!---       from this software without specific prior written permission.       -->
+<!---                                                                           -->
+<!--- THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED              -->
+<!--- WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF      -->
+<!--- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT    -->
+<!--- ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS    -->
+<!--- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR    -->
+<!--- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF      -->
+<!--- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR           -->
+<!--- BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,     -->
+<!--- WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE      -->
+<!--- OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN    -->
+<!--- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                             -->
+
+<mixer>
+    <!-- These are the initial mixer settings -->
+    <ctl name="LSM1 Mixer TX_CDC_DMA_TX_3" value="0" />
+    <ctl name="LSM2 Mixer TX_CDC_DMA_TX_3" value="0" />
+    <ctl name="LSM3 Mixer TX_CDC_DMA_TX_3" value="0" />
+    <ctl name="LSM4 Mixer TX_CDC_DMA_TX_3" value="0" />
+    <ctl name="LSM5 Mixer TX_CDC_DMA_TX_3" value="0" />
+    <ctl name="LSM6 Mixer TX_CDC_DMA_TX_3" value="0" />
+    <ctl name="LSM7 Mixer TX_CDC_DMA_TX_3" value="0" />
+    <ctl name="LSM8 Mixer TX_CDC_DMA_TX_3" value="0" />
+    <ctl name="LSM1 Port" value="None" />
+    <ctl name="LSM2 Port" value="None" />
+    <ctl name="LSM3 Port" value="None" />
+    <ctl name="LSM4 Port" value="None" />
+    <ctl name="LSM5 Port" value="None" />
+    <ctl name="LSM6 Port" value="None" />
+    <ctl name="LSM7 Port" value="None" />
+    <ctl name="LSM8 Port" value="None" />
+    <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="None" />
+    <ctl name="TX_CDC_DMA_TX_3 Channels" value="One" />
+    <ctl name="TX_AIF1_CAP Mixer DEC0" value="0" />
+    <ctl name="TX_AIF1_CAP Mixer DEC1" value="0" />
+    <ctl name="TX_AIF1_CAP Mixer DEC2" value="0" />
+    <ctl name="TX_AIF1_CAP Mixer DEC3" value="0" />
+    <ctl name="TX DEC0 MUX" value="MSM_DMIC" />
+    <ctl name="TX DMIC MUX0" value="ZERO" />
+    <ctl name="TX SMIC MUX0" value="ZERO" />
+    <ctl name="TX DEC1 MUX" value="MSM_DMIC" />
+    <ctl name="TX DMIC MUX1" value="ZERO" />
+    <ctl name="TX SMIC MUX1" value="ZERO" />
+    <ctl name="TX DEC2 MUX" value="MSM_DMIC" />
+    <ctl name="TX DMIC MUX2" value="ZERO" />
+    <ctl name="TX DEC3 MUX" value="MSM_DMIC" />
+    <ctl name="TX DMIC MUX3" value="ZERO" />
+    <ctl name="ADC1_MIXER Switch" value="0" />
+    <ctl name="ADC2_MIXER Switch" value="0" />
+    <ctl name="ADC2 MUX" value="ZERO" />
+    <ctl name="AUDIO_REF_EC_UL1 MUX" value="None"/>
+    <ctl name="EC Reference Channels" value="Zero"/>
+    <ctl name="EC Reference Bit Format" value="0"/>
+    <ctl name="EC Reference SampleRate" value="0"/>
+
+    <path name="listen-voice-wakeup-1">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM1 Port" value="TX_CDC_DMA_TX_3" />
+        <ctl name="LSM1 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-2">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM2 Port" value="TX_CDC_DMA_TX_3" />
+        <ctl name="LSM2 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-3">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM3 Port" value="TX_CDC_DMA_TX_3" />
+        <ctl name="LSM3 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-4">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM4 Port" value="TX_CDC_DMA_TX_3" />
+        <ctl name="LSM4 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-5">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM5 Port" value="TX_CDC_DMA_TX_3" />
+        <ctl name="LSM5 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-6">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM6 Port" value="TX_CDC_DMA_TX_3" />
+        <ctl name="LSM6 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-7">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM7 Port" value="TX_CDC_DMA_TX_3" />
+        <ctl name="LSM7 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-8">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM8 Port" value="TX_CDC_DMA_TX_3" />
+        <ctl name="LSM8 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-1 preproc">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM1 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM1 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-2 preproc">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM2 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM2 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-3 preproc">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM3 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM3 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-4 preproc">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM4 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM4 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-5 preproc">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM5 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM5 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-6 preproc">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM6 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM6 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-7 preproc">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM7 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM7 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-voice-wakeup-8 preproc">
+        <ctl name="TX_CDC_DMA_TX_3 LSM Function" value="SWAUDIO" />
+        <ctl name="LSM8 Port" value="ADM_LSM_TX" />
+        <ctl name="LSM8 Mixer TX_CDC_DMA_TX_3" value="1" />
+    </path>
+
+    <path name="listen-ape-handset-mic">
+        <ctl name="TX DEC0 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX0" value="ADC0" />
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="One" />
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
+        <ctl name="ADC1_MIXER Switch" value="1" />
+    </path>
+
+    <path name="listen-ape-handset-mic-preproc">
+        <path name="listen-ape-handset-mic"/>
+    </path>
+
+    <path name="listen-ape-handset-dmic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
+        <ctl name="TX DEC0 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX0" value="ADC0" />
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
+        <ctl name="ADC1_MIXER Switch" value="1" />
+        <ctl name="TX DEC1 MUX" value="SWR_MIC" />
+        <ctl name="TX SMIC MUX1" value="ADC2" />
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
+        <ctl name="ADC2_MIXER Switch" value="1" />
+        <ctl name="ADC2 MUX" value="INP3" />
+    </path>
+
+    <path name="listen-ape-handset-tmic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Three" />
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
+        <ctl name="TX DMIC MUX0" value="DMIC2" />
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
+        <ctl name="TX DMIC MUX1" value="DMIC0" />
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1" />
+        <ctl name="TX DMIC MUX2" value="DMIC3" />
+    </path>
+
+    <path name="listen-ape-handset-qmic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Four" />
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1" />
+        <ctl name="TX DMIC MUX0" value="DMIC2" />
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1" />
+        <ctl name="TX DMIC MUX1" value="DMIC1" />
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1" />
+        <ctl name="TX DMIC MUX2" value="DMIC3" />
+        <ctl name="TX_AIF1_CAP Mixer DEC3" value="1" />
+        <ctl name="TX DMIC MUX3" value="DMIC0" />
+    </path>
+
+    <path name="echo-reference">
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="WSA_CDC_DMA_RX_0"/>
+        <ctl name="EC Reference Channels" value="Two"/>
+        <ctl name="EC Reference Bit Format" value="S16_LE"/>
+        <ctl name="EC Reference SampleRate" value="48000"/>
+    </path>
+
+    <path name="echo-reference a2dp">
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="SLIM_7_RX"/>
+        <ctl name="EC Reference Channels" value="Two"/>
+        <ctl name="EC Reference Bit Format" value="S16_LE"/>
+        <ctl name="EC Reference SampleRate" value="48000"/>
+    </path>
+
+</mixer>
