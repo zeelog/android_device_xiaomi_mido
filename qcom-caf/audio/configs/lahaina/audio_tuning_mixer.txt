@@ -1,0 +1,261 @@
+# Copyright (c) 2019-2020, The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#RAS_TEST_SPKR_PHONE_SPKR_STEREO
+acdb_dev_id:136
+!Playback
+Rxdevice:0
+
+enable
+WSA_CDC_DMA_RX_0 Channels:Two
+WSA RX0 MUX:AIF1_PB
+WSA RX1 MUX:AIF1_PB
+WSA_RX0 INP0:RX0
+WSA_RX1 INP0:RX1
+WSA_COMP1 Switch:1
+WSA_COMP2 Switch:1
+SpkrLeft COMP Switch:1
+SpkrRight COMP Switch:1
+SpkrLeft VISENSE Switch:1
+SpkrRight VISENSE Switch:1
+SpkrLeft SWR DAC_Port Switch:1
+SpkrRight SWR DAC_Port Switch:1
+WSA_RX0 Digital Volume:62
+WSA_RX1 Digital Volume:62
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:1
+
+disable
+WSA RX0 MUX:ZERO
+WSA RX1 MUX:ZERO
+WSA_RX0 INP0:ZERO
+WSA_RX1 INP0:ZERO
+WSA_COMP1 Switch:0
+WSA_COMP2 Switch:0
+SpkrLeft COMP Switch:0
+SpkrRight COMP Switch:0
+SpkrLeft VISENSE Switch:0
+SpkrRight VISENSE Switch:0
+SpkrLeft SWR DAC_Port Switch:0
+SpkrRight SWR DAC_Port Switch:0
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:0
+
+#SPKR_PHONE_SPKR_TX_FB_PROT
+acdb_dev_id:102
+!Record
+Txdevice:0
+
+enable
+WSA_AIF_VI Mixer WSA_SPKR_VI_1:1
+WSA_AIF_VI Mixer WSA_SPKR_VI_2:1
+WSA_CDC_DMA_0 TX Format:UNPACKED
+VI_FEED_TX Channels:Two
+WSA_RX_0_VI_FB_LCH_MUX:WSA_CDC_DMA_TX_0
+WSA_RX_0_VI_FB_RCH_MUX:WSA_CDC_DMA_TX_0
+MultiMedia1 Mixer WSA_CDC_DMA_TX_0:1
+
+
+disable
+WSA_AIF_VI Mixer WSA_SPKR_VI_1:0
+WSA_AIF_VI Mixer WSA_SPKR_VI_2:0
+MultiMedia1 Mixer WSA_CDC_DMA_TX_0:0
+
+#SPKR_PHONE_SPKR_STEREO_RX_FB_PROT
+acdb_dev_id:124
+!Playback
+Rxdevice:0
+
+enable
+WSA_CDC_DMA_RX_0 Channels:Two
+WSA RX0 MUX:AIF1_PB
+WSA RX1 MUX:AIF1_PB
+WSA_RX0 INP0:RX0
+WSA_RX1 INP0:RX1
+WSA_COMP1 Switch:1
+WSA_COMP2 Switch:1
+SpkrLeft COMP Switch:1
+SpkrRight COMP Switch:1
+SpkrLeft VISENSE Switch:1
+SpkrRight VISENSE Switch:1
+SpkrLeft SWR DAC_Port Switch:1
+SpkrRight SWR DAC_Port Switch:1
+WSA_RX0 Digital Volume:62
+WSA_RX1 Digital Volume:62
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:1
+
+disable
+WSA RX0 MUX:ZERO
+WSA RX1 MUX:ZERO
+WSA_RX0 INP0:ZERO
+WSA_RX1 INP0:ZERO
+WSA_COMP1 Switch:0
+WSA_COMP2 Switch:0
+SpkrLeft COMP Switch:0
+SpkrRight COMP Switch:0
+SpkrLeft VISENSE Switch:0
+SpkrRight VISENSE Switch:0
+SpkrLeft SWR DAC_Port Switch:0
+SpkrRight SWR DAC_Port Switch:0
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:0
+
+#SPKR_PHONE_SPKR_TX_FB_PROT_STEREO_MCS
+acdb_dev_id:193
+!Record
+Txdevice:0
+
+enable
+WSA_AIF_VI Mixer WSA_SPKR_VI_1:1
+WSA_AIF_VI Mixer WSA_SPKR_VI_2:1
+WSA_CDC_DMA_0 TX Format:UNPACKED
+VI_FEED_TX Channels:Two
+WSA_RX_0_VI_FB_LCH_MUX:WSA_CDC_DMA_TX_0
+WSA_RX_0_VI_FB_RCH_MUX:WSA_CDC_DMA_TX_0
+MultiMedia1 Mixer WSA_CDC_DMA_TX_0:1
+
+
+disable
+WSA_AIF_VI Mixer WSA_SPKR_VI_1:0
+WSA_AIF_VI Mixer WSA_SPKR_VI_2:0
+MultiMedia1 Mixer WSA_CDC_DMA_TX_0:0
+
+#SPKR_PHONE_SPKR_TX_FB_PROT_MONO_L_MCS
+acdb_dev_id:194
+!Record
+Txdevice:0
+
+enable
+WSA_AIF_VI Mixer WSA_SPKR_VI_1:1
+WSA_CDC_DMA_0 TX Format:UNPACKED
+VI_FEED_TX Channels:One
+WSA_RX_0_VI_FB_LCH_MUX:WSA_CDC_DMA_TX_0
+MultiMedia1 Mixer WSA_CDC_DMA_TX_0:1
+
+disable
+WSA_AIF_VI Mixer WSA_SPKR_VI_1:0
+MultiMedia1 Mixer WSA_CDC_DMA_TX_0:0
+
+#SPKR_PHONE_SPKR_TX_FB_PROT_MONO_R_MCS
+acdb_dev_id:195
+!Record
+Txdevice:0
+
+enable
+WSA_AIF_VI Mixer WSA_SPKR_VI_2:1
+WSA_CDC_DMA_0 TX Format:UNPACKED
+VI_FEED_TX Channels:One
+WSA_RX_0_VI_FB_RCH_MUX:WSA_CDC_DMA_TX_0
+MultiMedia1 Mixer WSA_CDC_DMA_TX_0:1
+
+disable
+WSA_AIF_VI Mixer WSA_SPKR_VI_2:0
+MultiMedia1 Mixer WSA_CDC_DMA_TX_0:0
+
+#SPKR_PHONE_SPKR_STEREO_RX_FB_PROT_MCS
+acdb_dev_id:196
+!Playback
+Rxdevice:0
+
+enable
+WSA_CDC_DMA_RX_0 Channels:Two
+WSA RX0 MUX:AIF1_PB
+WSA RX1 MUX:AIF1_PB
+WSA_RX0 INP0:RX0
+WSA_RX1 INP0:RX1
+WSA_COMP1 Switch:1
+WSA_COMP2 Switch:1
+SpkrLeft COMP Switch:1
+SpkrRight COMP Switch:1
+SpkrLeft VISENSE Switch:1
+SpkrRight VISENSE Switch:1
+SpkrLeft SWR DAC_Port Switch:1
+SpkrRight SWR DAC_Port Switch:1
+WSA_RX0 Digital Volume:62
+WSA_RX1 Digital Volume:62
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:1
+
+disable
+WSA RX0 MUX:ZERO
+WSA RX1 MUX:ZERO
+WSA_RX0 INP0:ZERO
+WSA_RX1 INP0:ZERO
+WSA_COMP1 Switch:0
+WSA_COMP2 Switch:0
+SpkrLeft COMP Switch:0
+SpkrRight COMP Switch:0
+SpkrLeft VISENSE Switch:0
+SpkrRight VISENSE Switch:0
+SpkrLeft SWR DAC_Port Switch:0
+SpkrRight SWR DAC_Port Switch:0
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:0
+
+#SPKR_PHONE_SPKR_MONO_L_RX_FB_PROT_MCS
+acdb_dev_id:197
+!Playback
+Rxdevice:0
+
+enable
+WSA_CDC_DMA_RX_0 Channels:One
+WSA RX0 MUX:AIF1_PB
+WSA_RX0 INP0:RX0
+WSA_COMP1 Switch:1
+SpkrLeft COMP Switch:1
+SpkrLeft VISENSE Switch:1
+SpkrLeft SWR DAC_Port Switch:1
+WSA_RX0 Digital Volume:62
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:1
+
+disable
+WSA RX0 MUX:ZERO
+WSA_RX0 INP0:ZERO
+WSA_COMP1 Switch:0
+SpkrLeft COMP Switch:0
+SpkrLeft VISENSE Switch:0
+SpkrLeft SWR DAC_Port Switch:0
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:0
+
+
+#SPKR_PHONE_SPKR_MONO_R_RX_FB_PROT_MCS
+acdb_dev_id:198
+!Playback
+Rxdevice:0
+
+enable
+WSA_CDC_DMA_RX_0 Channels:One
+WSA RX1 MUX:AIF1_PB
+WSA_RX1 INP0:RX1
+WSA_COMP2 Switch:1
+SpkrRight COMP Switch:1
+SpkrRight VISENSE Switch:1
+SpkrRight SWR DAC_Port Switch:1
+WSA_RX1 Digital Volume:62
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:1
+
+disable
+WSA RX1 MUX:ZERO
+WSA_RX1 INP0:ZERO
+WSA_COMP2 Switch:0
+SpkrRight COMP Switch:0
+SpkrRight VISENSE Switch:0
+SpkrRight SWR DAC_Port Switch:0
+WSA_CDC_DMA_RX_0 Audio Mixer MultiMedia1:0
