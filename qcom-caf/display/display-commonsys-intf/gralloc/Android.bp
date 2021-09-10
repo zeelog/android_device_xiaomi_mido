@@ -1,0 +1,23 @@
+cc_library_shared {
+    name: "libgralloc.qti",
+    vendor_available: true,
+    system_ext_specific: true,
+    cflags: [
+        "-Wno-sign-conversion",
+        "-DLOG_TAG=\"qtigralloc\"",
+    ],
+    shared_libs: [
+         "liblog",
+         "libcutils",
+         "libutils",
+         "libgralloctypes",
+         "libhidlbase",
+         "libhardware",
+         "android.hardware.graphics.mapper@4.0",
+    ],
+
+    srcs: ["QtiGralloc.cpp"],
+
+    header_libs: ["display_intf_headers"],
+}
+

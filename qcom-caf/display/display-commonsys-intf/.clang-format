@@ -1,0 +1,14 @@
+---
+Language:        Cpp
+BasedOnStyle:  Google
+Standard : C++11
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortBlocksOnASingleLine: false
+ColumnLimit:     100
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 4
+DerivePointerAlignment: false
+PointerAlignment: Right
+#ReflowComments: false
