@@ -27,9 +27,6 @@ ro.charger.enable_suspend=true
 # Console
 persist.console.silent.config=1
 
-# CoreSight
-persist.debug.coresight.config=stm-events
-
 # Data
 ro.vendor.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
