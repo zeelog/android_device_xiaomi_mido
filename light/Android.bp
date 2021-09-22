@@ -1,0 +1,22 @@
+//
+// Copyright (C) 2021 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "android.hardware.light-service",
+    relative_install_path: "hw",
+    init_rc: ["android.hardware.light-service.rc"],
+    vintf_fragments: ["android.hardware.light-service.xml"],
+    srcs: [
+        "Lights.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "android.hardware.light-V1-ndk_platform",
+    ],
+    vendor: true,
+}
