@@ -5,10 +5,10 @@
 //
 
 cc_binary {
-    name: "android.hardware.light-service",
+    name: "android.hardware.light-service.xiaomi",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.light-service.rc"],
-    vintf_fragments: ["android.hardware.light-service.xml"],
+    init_rc: ["android.hardware.light-service.xiaomi.rc"],
+    vintf_fragments: ["android.hardware.light-service.xiaomi.xml"],
     srcs: [
         "Lights.cpp",
         "service.cpp",

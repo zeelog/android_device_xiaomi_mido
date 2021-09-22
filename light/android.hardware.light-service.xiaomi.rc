@@ -1,0 +1,5 @@
+service vendor.light-default /vendor/bin/hw/android.hardware.light-service.xiaomi
+    class hal
+    user nobody
+    group nobody
+    shutdown critical
