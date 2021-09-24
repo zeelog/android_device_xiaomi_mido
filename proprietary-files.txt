@@ -950,6 +950,8 @@ vendor/lib64/hw/keystore.msm8953.so|0a68ac29004f72237f48008cea188dd98d6c6560
 # Listen - from LA.UM.9.6.2.r1-04200-89xx.0
 vendor/lib/hw/sound_trigger.primary.msm8953.so|55f8b7ebf9b30ef84341081dcdd5289dc70ceaa6
 vendor/lib/libadpcmdec.so|7a38d6b28b27cf663681ad077614a03164418f91
+vendor/lib/libcapiv2svacnn.so|927d89e3c65bd6b1d1028e1dc7318d98e288f510
+vendor/lib/libcapiv2vop.so|1515e1e4d37c01e1c8d3b819add1b5ca71d22f43
 vendor/lib/libsmwrapper.so|f0ee761c02c888e77d947bb87d162d9379bc1530
 
 # Media - from LA.UM.9.6.2.r1-04200-89xx.0
