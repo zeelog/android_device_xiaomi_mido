@@ -61,7 +61,7 @@ argb_t colorToArgb(uint32_t color) {
     r.blue = color & 0xFF;
 
     // Scale RGB colors if a brightness has been applied by the user
-    if (r.alpha != 0xFF) {
+    if (r.alpha > 0 && r.alpha < 255) {
         r.red = r.red * r.alpha / 0xFF;
         r.green = r.green * r.alpha / 0xFF;
         r.blue = r.blue * r.alpha / 0xFF;
