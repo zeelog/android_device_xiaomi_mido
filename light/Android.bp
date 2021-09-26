@@ -11,6 +11,8 @@ cc_binary {
     vintf_fragments: ["android.hardware.light-service.xiaomi.xml"],
     srcs: [
         "Lights.cpp",
+        "LED.cpp",
+        "Utils.cpp",
         "service.cpp",
     ],
     shared_libs: [
