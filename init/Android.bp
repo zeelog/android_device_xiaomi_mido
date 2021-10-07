@@ -19,8 +19,8 @@ cc_library_static {
     recovery_available: true,
     srcs: ["init_mido.cpp"],
     include_dirs: [
-        "system/core/base/include",
-        "system/core/init"
+        "system/core/init",
+        "system/libbase/include"
     ],
     shared_libs: [
         "libbase",
