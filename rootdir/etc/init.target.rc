@@ -67,7 +67,7 @@ service vendor.qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
-    writepid /dev/cpuset/system-background/tasks
+    task_profiles ServiceCapacityLow
 
 #Start up peripheral manager
 service vendor.per_mgr /vendor/bin/pm-service
@@ -75,14 +75,14 @@ service vendor.per_mgr /vendor/bin/pm-service
     user system
     group system net_raw
     ioprio rt 4
-    writepid /dev/cpuset/system-background/tasks
+    task_profiles ServiceCapacityLow
 
 service vendor.per_proxy /vendor/bin/pm-proxy
     class core
     user system
     group system
     disabled
-    writepid /dev/cpuset/system-background/tasks
+    task_profiles ServiceCapacityLow
 
 on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
@@ -95,7 +95,7 @@ service vendor.qseecomd /vendor/bin/qseecomd
    class core
    user root
    group root
-   writepid /dev/cpuset/system-background/tasks
+   task_profiles ServiceCapacityLow
 
 service thermal-engine /vendor/bin/thermal-engine
    class main
