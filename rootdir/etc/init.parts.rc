@@ -15,3 +15,6 @@ on property:sys.boot_completed=1
   chmod 0660 /sys/kernel/sound_control/headphone_gain
   chmod 0660 /sys/kernel/sound_control/mic_gain
   chmod 0660 /sys/kernel/sound_control/speaker_gain
+
+# modem subsys error Only restart sysbus instead of system
+   write /sys/devices/platform/soc/4080000.qcom,mss/subsys4/restart_level RELATED
