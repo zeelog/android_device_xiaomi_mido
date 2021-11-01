@@ -250,7 +250,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
     ims-ext-common \
-    ims_ext_common.xml
+    ims_ext_common.xml \
+    libims-shim
 
 # Input
 PRODUCT_COPY_FILES += \
