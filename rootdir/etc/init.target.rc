@@ -124,6 +124,7 @@ service wcnss-service /vendor/bin/wcnss_service
     user system
     group system wifi radio
     oneshot
+    task_profiles ServiceCapacityLow
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
