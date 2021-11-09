@@ -17,12 +17,14 @@
 
 package org.lineageos.settings.torch;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class TorchSettingsActivity extends Activity {
+import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+import com.android.settingslib.collapsingtoolbar.R;
+
+public class TorchSettingsActivity extends CollapsingToolbarBaseActivity {
 
     private TorchSettings mTorchSettingsFragment;
 
@@ -30,13 +32,11 @@ public class TorchSettingsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-
         Fragment fragment = getFragmentManager().findFragmentById(android.R.id.content);
         if (fragment == null) {
             mTorchSettingsFragment = new TorchSettings();
             getFragmentManager().beginTransaction()
-                    .add(android.R.id.content, mTorchSettingsFragment)
+                    .add(R.id.content_frame, mTorchSettingsFragment)
                     .commit();
         } else {
             mTorchSettingsFragment = (TorchSettings) fragment;

@@ -14,7 +14,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/ambient_display_title">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:defaultValue="false"
+        android:key="doze_enable"
+        android:title="@string/ambient_enable" />
 
     <PreferenceCategory
         android:key="tilt_sensor"

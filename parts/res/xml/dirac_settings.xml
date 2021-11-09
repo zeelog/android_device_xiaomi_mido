@@ -14,7 +14,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/dirac_title">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:defaultValue="false"
+        android:key="dirac_enable"
+        android:title="@string/dirac_enable" />
 
     <ListPreference
         android:key="dirac_headset_pref"

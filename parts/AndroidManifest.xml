@@ -36,7 +36,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/device_settings_app_name"
         android:persistent="true"
-        android:theme="@style/Theme.Main">
+        android:theme="@style/Theme.SubSettingsBase">
 
         <receiver android:name=".BootCompletedReceiver">
             <intent-filter>
@@ -47,7 +47,8 @@
 
         <activity
             android:name=".dirac.DiracActivity"
-            android:label="@string/dirac_title">
+            android:label="@string/dirac_title"
+            android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
@@ -61,7 +62,8 @@
         <activity
             android:name=".soundcontrol.SoundControlSettingsActivity"
             android:exported="false"
-            android:label="@string/audio_title">
+            android:label="@string/audio_title"
+            android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -74,7 +76,8 @@
         <activity
             android:name=".torch.TorchSettingsActivity"
             android:exported="false"
-            android:label="@string/torch_title">
+            android:label="@string/torch_title"
+            android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -90,7 +93,8 @@
 
         <activity
             android:name=".doze.DozeSettingsActivity"
-            android:label="@string/ambient_display_title">
+            android:label="@string/ambient_display_title"
+	    android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="org.lineageos.settings.device.DOZE_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />

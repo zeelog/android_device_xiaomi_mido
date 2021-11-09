@@ -39,6 +39,7 @@ public final class DozeUtils {
     protected static final String GESTURE_PICK_UP_KEY = "gesture_pick_up";
     protected static final String GESTURE_HAND_WAVE_KEY = "gesture_hand_wave";
     protected static final String GESTURE_POCKET_KEY = "gesture_pocket";
+    protected static final String DOZE_ENABLE = "doze_enable";
 
     public static void startService(Context context) {
         if (DEBUG) Log.d(TAG, "Starting service");

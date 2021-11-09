@@ -15,6 +15,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient settings -->
+    <string name="ambient_enable">Use ambient display</string>
+
     <!-- Audio amplification -->
     <string name="audio_title">Audio Amplification</string>
     <string name="audio_summary">Sound control settings</string>
@@ -29,6 +32,7 @@
     <string name="custom_seekbar_default_value_is_set">Default value is set</string>
 
     <!-- Dirac settings -->
+    <string name="dirac_enable">Enable dirac</string>
     <string name="dirac_title">Dirac™ Sound</string>
     <string name="dirac_summary">Optimize audio quality</string>
     <string name="dirac_headset_title">Choose headphones type</string>
