@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2019-2020, The Linux Foundation. All rights reserved.
+* Copyright (c) 2019-2021, The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -33,10 +33,8 @@
 #define LOG_TAG "LocSvc_BatteryListener"
 #define LOG_NDEBUG 0
 
-#include <android/hidl/manager/1.0/IServiceManager.h>
 #include <android/hardware/health/2.1/IHealth.h>
 #include <android/hardware/health/2.1/IHealthInfoCallback.h>
-#include <healthhalutils/HealthHalUtils.h>
 #include <hidl/HidlTransportSupport.h>
 #include <thread>
 #include <log_util.h>
@@ -49,7 +47,6 @@ using android::hardware::health::V2_1::HealthInfo;
 using android::hardware::health::V2_1::IHealthInfoCallback;
 using android::hardware::health::V2_1::IHealth;
 using android::hardware::health::V2_0::Result;
-using android::hidl::manager::V1_0::IServiceManager;
 using namespace std::literals::chrono_literals;
 
 static bool sIsBatteryListened = false;
@@ -145,8 +142,7 @@ status_t BatteryListenerImpl::init()
                     case BatteryStatus::NOT_CHARGING : {
                         auto mStatusnot_ncharging =
                                 [this, local_status]() { return mStatus != local_status; };
-                        mCond.wait_for(l, 3s, mStatusnot_ncharging);
-                        if (mStatusnot_ncharging()) // i.e event changed
+                        if (mCond.wait_for(l, 3s, mStatusnot_ncharging)) // i.e event changed
                             break;
                         [[clang::fallthrough]]; //explicit fall-through between switch labels
                     }
@@ -222,9 +218,9 @@ void BatteryListenerImpl::serviceDied(uint64_t cookie __unused,
 // Replace single var by a list if this assumption is broken
 Return<void> BatteryListenerImpl::healthInfoChanged(
         const hardware::health::V2_0::HealthInfo& info) {
-    LOC_LOGv("healthInfoChanged: %d", info.legacy.batteryStatus);
     std::unique_lock<std::mutex> l(mLock);
     if (info.legacy.batteryStatus != mStatus) {
+        LOC_LOGv("batteryStatus changed from %d to %d", mStatus, info.legacy.batteryStatus);
         mStatus = info.legacy.batteryStatus;
         mCond.notify_one();
     }
@@ -233,7 +229,6 @@ Return<void> BatteryListenerImpl::healthInfoChanged(
 
 Return<void> BatteryListenerImpl::healthInfoChanged_2_1(
         const hardware::health::V2_1::HealthInfo& info) {
-    LOC_LOGv("healthInfoChanged_2_1: %d", info.legacy.legacy.batteryStatus);
     healthInfoChanged(info.legacy);
     return Void();
 }
@@ -247,7 +242,7 @@ bool batteryPropertiesListenerIsCharging() {
 status_t batteryPropertiesListenerInit(BatteryListenerImpl::cb_fn_t cb) {
     batteryListener = new BatteryListenerImpl(cb);
     bool isCharging = batteryPropertiesListenerIsCharging();
-    LOC_LOGv("charging status: %s charging", isCharging ? "" : "not");;
+    LOC_LOGv("charging status: %s charging", isCharging ? "" : "not");
     if (isCharging) {
         cb(isCharging);
     }

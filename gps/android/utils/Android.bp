@@ -18,7 +18,6 @@ cc_library_static {
         "android.hardware.health@1.0",
         "android.hardware.health@2.0",
         "android.hardware.health@2.1",
-        "android.hardware.power@1.2",
         "libbase",
     ],
 
