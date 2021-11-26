@@ -7,6 +7,9 @@ type fpce_socket, file_type;
 type fpc_sysfs, fs_type, sysfs_type;
 type gx_fpd_data_file, file_type, data_file_type, core_data_file_type;
 
+# netmgr
+type netmgr_data_file, file_type, data_file_type;
+
 # /proc
 type proc_swap, fs_type;
 

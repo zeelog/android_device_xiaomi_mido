@@ -1,1 +1,2 @@
-allow rild rild_file:file r_file_perms;
+# Allow binder communication with qtidataservices_app
+binder_call(rild, qtidataservices_app)
