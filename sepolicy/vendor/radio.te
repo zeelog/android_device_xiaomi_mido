@@ -1,4 +1,12 @@
-allow radio gpuservice:binder call;
-allow radio system_app_data_file:dir getattr;
+allow radio { hal_datafactory_hwservice hal_iwlan_hwservice }:hwservice_manager find;
+allow radio { cameraserver_service mediaextractor_service mediaserver_service mediametrics_service drmserver_service audioserver_service }:service_manager find;
+allow radio self:socket create_socket_perms;
+allowxperm radio self:socket ioctl msm_sock_ipc_ioctls;
+
+binder_call(radio, cnd)
+binder_call(radio, gpuservice)
+binder_call(radio, hal_imsrtp)
 
 get_prop(radio, vendor_qcom_ims_prop)
+allow radio hal_cacert_hwservice:hwservice_manager find;
+allow radio hal_datafactory_hwservice:hwservice_manager find;
