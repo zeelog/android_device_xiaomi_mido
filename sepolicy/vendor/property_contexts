@@ -2,3 +2,7 @@ persist.audio.dirac             u:object_r:dirac_prop:s0
 persist.net.doxlat              u:object_r:vendor_xlat_prop:s0
 persist.vendor.camera.dbglog    u:object_r:camera_prop:s0
 wifi.active.interface           u:object_r:wifi_prop:s0
+
+# vendor_radio_prop
+persist.vendor.data.shsusr_load                 u:object_r:vendor_radio_prop:s0
+persist.vendor.data.qmipriod_load               u:object_r:vendor_radio_prop:s0
