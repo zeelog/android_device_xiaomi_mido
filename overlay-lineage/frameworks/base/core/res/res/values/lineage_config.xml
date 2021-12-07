@@ -18,4 +18,12 @@
         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
         <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
     </string-array>
+
+    <!-- Battery life saver -->
+    <!-- Disable this if your device does not support input_suspend or charging_enabled -->
+    <bool name="config_deviceHasBatteryLifeSaver">true</bool>
+    <!-- Use /sys/class/power_supply/battery/charging_enabled with inverted values for old devices-->
+    <string name="config_batteryLifeSaverSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
+    <string name="config_batteryLifeSaverSysfsNodeStopValue" translatable="false">0</string>
+    <string name="config_batteryLifeSaverSysfsNodeStartValue" translatable="false">1</string>
 </resources>

@@ -1,4 +1,13 @@
 on boot
+
+# Battery life saver
+   chown system system /sys/class/power_supply/battery/charging_enabled
+   chmod 0666 /sys/class/power_supply/battery/charging_enabled
+   chown system system /sys/class/power_supply/battery/capacity
+   chmod 0666 /sys/class/power_supply/battery/capacity
+   chown system system /sys/class/power_supply/battery/temp
+   chmod 0666 /sys/class/power_supply/battery/temp
+
 # Flashlight
    chown root system sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_0/max_brightness
    chmod 0660 sys/devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-03/200f000.qcom,spmi:qcom,pmi8950@3:qcom,leds@d300/leds/led:torch_0/max_brightness
