@@ -1058,7 +1058,7 @@ vendor/lib64/libqmi_common_so.so|d817b576a054dd91e8e4346d73e6d635d221bfde
 vendor/lib64/libqmi_csi.so|7e19c2266b7f63f3f9e69c039b1446acd460231b
 vendor/lib64/libqmi_encdec.so|a18bb21e5b9b53e3dc8dc45f6e7e65e32a467607
 vendor/lib64/libqmi_legacy.so|f324c6701ecf78ff50975c0bc7f99aea09cb3539
--vendor/lib64/libqmiservices.so|52770edf3e35f5376f3d0a131636f3213c9e59fa
+vendor/lib64/libqmiservices.so|52770edf3e35f5376f3d0a131636f3213c9e59fa
 vendor/lib64/libqmi.so|e39dddc2e0d106d2017c117e569790d3b4454f42
 vendor/lib/libdsi_netctrl.so|7893cdd6d0f656f9d5f1193fa074713ac0d8682f
 vendor/lib/libdsutils.so|6395b4702d3bfcf705b16318f5d0adcce24f90e1
@@ -1074,7 +1074,7 @@ vendor/lib/libqmi_common_so.so|3de41cb14094a549b849795a2fde39a4c4182d98
 vendor/lib/libqmi_csi.so|a38ce1f6ed1e9c335983cbcb202e01ae1635f4f7
 vendor/lib/libqmi_encdec.so|7771bb05dfd737978ec0c8b6f969534a15cdb5a3
 vendor/lib/libqmi_legacy.so|b9cd2f529f7f8747345787e650f1b54b77551d13
--vendor/lib/libqmiservices.so|75a7ce77d65fb7344a465356b2fc9512d78ce12e
+vendor/lib/libqmiservices.so|75a7ce77d65fb7344a465356b2fc9512d78ce12e
 vendor/lib/libqmi.so|66c431786d56b20499b2dc841ada116114828fcb
 
 # Radio - from LA.UM.9.6.3.r1-04400-89xx.0
@@ -1277,5 +1277,5 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e157937
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so|933eb7026797f3dadad3d10fd69443b11f6563f3
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|16baab27397ad493e845515c20ac0c0c063c775d
 
-# Wi-Fi - from LA.UM.9.6.2.r1-04200-89xx.0
-vendor/bin/wcnss_service|317325ee182ad09f426975cc6ec44ce33addb052
+# Wi-Fi - from LA.UM.9.6.3.r1-04400-89xx.0
+vendor/bin/wcnss_service|48e4a96a9de69bd83791a3b0b2134f5ab1205adc
