@@ -1,5 +1,7 @@
-# FM
-set_prop(system_app, vendor_fm_prop)
+allow system_app proc_pagetypeinfo:file r_file_perms;
+
+binder_call(system_app, hal_power_default)
+binder_call(system_app, hal_vibrator_default)
 
 # XiaomiParts
 allow system_app {
@@ -12,7 +14,6 @@ allow system_app {
 allow system_app {
     sysfs_leds
 }:dir search;
-
 
 # zram
 r_dir_file(system_app sysfs_zram)

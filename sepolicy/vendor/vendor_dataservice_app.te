@@ -1,1 +1,2 @@
 allow vendor_dataservice_app hal_mwqemadapter_hwservice:hwservice_manager find;
+allow vendor_dataservice_app system_data_file:dir search;

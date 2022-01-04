@@ -1,14 +1,4 @@
-# Leds
-genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00/200f000.qcom,spmi:qcom,pm8953@0:qcom,leds@a100                       u:object_r:sysfs_leds:s0
-genfscon sysfs /devices/platform/soc/78b6000.i2c/i2c-2/2-0045/leds/                                                                         u:object_r:sysfs_leds:s0
-
 # Power
-genfscon sysfs   /devices/soc/78b7000.i2c/i2c-3/3-0020/power_supply   u:object_r:sysfs_battery_supply:s0
-genfscon sysfs   /devices/soc/78b8000.i2c/i2c-4/4-001d/power_supply   u:object_r:sysfs_battery_supply:s0
-genfscon sysfs   /devices/soc/msm-bcl-21/power_supply                 u:object_r:sysfs_battery_supply:s0
-genfscon sysfs   /devices/soc/qpnp-typec-9/power_supply               u:object_r:sysfs_battery_supply:s0
-genfscon sysfs   /devices/soc/soc:qcom,bcl/power_supply               u:object_r:sysfs_battery_supply:s0
-
 genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00                                                                     u:object_r:sysfs_battery_supply:s0
 genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-01                                                                     u:object_r:sysfs_battery_supply:s0
 genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02                                                                     u:object_r:sysfs_battery_supply:s0
@@ -16,9 +6,6 @@ genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02/200f000
 genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02/200f000.qcom,spmi:qcom,pmi8950@2:vadc@3400                          u:object_r:sysfs_battery_supply:s0
 genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02/200f000.qcom,spmi:qcom,pmi8950@2:bcl@4200                           u:object_r:sysfs_battery_supply:s0
 genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02/200f000.qcom,spmi:qcom,pm8953@0:qcom,pm8953_rtc                     u:object_r:sysfs_rtc:s0
-
-# ProcFS
-genfscon proc /sys/vm/swappiness                                      u:object_r:proc_swap:s0
 
 # Touchscreen
 genfscon proc /touchpanel                                             u:object_r:proc_touchpanel:s0

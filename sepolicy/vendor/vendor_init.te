@@ -1,6 +1,15 @@
 typeattribute vendor_init data_between_core_and_vendor_violators;
 
 allow vendor_init {
-  fpc_data_file
-  proc_swap
+  bluetooth_data_file
+  vendor_camera_data_file
+  media_rw_data_file
+  system_data_file
+  tombstone_data_file
+  vendor_time_data_file
+  wifi_data_file
+  wpa_socket
 }:dir { create search getattr open read setattr ioctl write add_name remove_name rmdir relabelfrom };
+
+get_prop(vendor_init, vendor_fp_prop)
+set_prop(vendor_init, vendor_fp_prop)

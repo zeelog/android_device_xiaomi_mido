@@ -10,15 +10,15 @@
 /sys/devices/(platform)?/soc/soc:fpc1020(/.*)?  u:object_r:fpc_sysfs:s0
 
 # Glove Mode
-/sys/class/tp_glove/device(/.*)?		u:object_r:proc_touchpanel:s0
-/sys/devices/virtual/tp_glove(/.*)?		u:object_r:proc_touchpanel:s0
+/sys/class/tp_glove/device(/.*)?		  u:object_r:proc_touchpanel:s0
+/sys/devices/virtual/tp_glove(/.*)?		  u:object_r:proc_touchpanel:s0
 
 # Goodix Fingerprint
 /dev/goodix_fp                                  u:object_r:gx_fpd_device:s0
 /data/gf_data(/.*)?                             u:object_r:gx_fpd_data_file:s0
 /data/system/fingerprint(/.*)?                  u:object_r:gx_fpd_data_file:s0
 /(vendor|system/vendor)/bin/gx_fpd              u:object_r:gx_fpd_exec:s0
-/(vendor|system/vendor)/bin/init\.goodix\.sh	u:object_r:init_fingerprint_exec:s0
+/(vendor|system/vendor)/bin/init\.goodix\.sh	  u:object_r:init_fingerprint_exec:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_mido    u:object_r:hal_fingerprint_default_exec:s0
@@ -34,7 +34,7 @@
 /sys/devices(/platform)?/soc/[a-f0-9]+.sdhci/mmc_host/mmc[0-9]/mmc[0-9]:[a-f0-9]+/block/mmcblk[0-9]/queue/read_ahead_kb u:object_r:sysfs_mmc_host:s0
 
 # Ir
-/dev/lirc[0-9]*					u:object_r:lirc_device:s0
+/dev/lirc[0-9]*                                 u:object_r:lirc_device:s0
 
 # Legacy root dirs
 /firmware(/.*)?                                 u:object_r:firmware_file:s0
@@ -44,14 +44,10 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock              u:object_r:hal_power_stats_default_exec:s0
 
 # Rild
-/(vendor|system/vendor)/radio/qcril_database/qcril.db			u:object_r:rild_file:s0
-
-# Sensors
-/(mnt/vendor)/persist/sensors(/.*)?                                     u:object_r:persist_sensors_file:s0
+/(vendor|system/vendor)/radio/qcril_database/qcril.db			   u:object_r:rild_file:s0
 
 # Sys files
 /sys/devices(/platform)?/soc/78b6000\.i2c/i2c-2/2-[0-9a-f]+/leds(/.*)?          u:object_r:sysfs_leds:s0
-/sys/devices(/platform)?/soc/leds-qpnp-[0-9]+/leds(/.*)?                        u:object_r:sysfs_leds:s0
 /sys/devices(/platform)?/soc/78b7000\.i2c/i2c-3/3-[0-9a-f]+/enable_dt2w         u:object_r:proc_touchpanel:s0
 /sys/devices(/platform)?/soc/78b7000\.i2c/i2c-3/3-[0-9a-f]+/disable_keys        u:object_r:proc_touchpanel:s0
 

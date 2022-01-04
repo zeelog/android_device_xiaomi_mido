@@ -1,4 +1,5 @@
 allow ueventd self:capability sys_nice;
+allow ueventd self:capability kill;
 
 allow ueventd qti_debugfs:dir relabelto;
 allow ueventd debugfs:dir { r_dir_perms relabelfrom };
@@ -7,5 +8,3 @@ allow ueventd {
     debugfs
     debugfs_wakeup_sources
 }:file getattr;
-
-allow ueventd self:capability kill;

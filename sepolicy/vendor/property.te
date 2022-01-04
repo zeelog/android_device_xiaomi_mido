@@ -1,5 +1,8 @@
-# Camera
-type vendor_camera_prop, property_type;
-
 # Dirac
-type dirac_prop, property_type;
+vendor_restricted_prop(vendor_dirac_prop);
+
+# Fingerprint
+vendor_public_prop(vendor_fp_prop);
+
+# Wi-Fi
+vendor_internal_prop(vendor_wifi_prop);

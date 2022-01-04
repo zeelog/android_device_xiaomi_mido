@@ -1,2 +1,0 @@
-# allow hvdcp to query spmi0-03 nodes
-allow hvdcp sysfs:dir r_dir_perms;

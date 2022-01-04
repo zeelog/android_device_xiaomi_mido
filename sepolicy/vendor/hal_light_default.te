@@ -1,1 +1,2 @@
 allow hal_light_default sysfs_battery_supply:dir search;
+allow hal_light_default sysfs_battery_supply:file { getattr open write };

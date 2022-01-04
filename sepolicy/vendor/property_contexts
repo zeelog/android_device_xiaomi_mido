@@ -1,8 +1,42 @@
-persist.audio.dirac             u:object_r:dirac_prop:s0
-persist.net.doxlat              u:object_r:vendor_xlat_prop:s0
-persist.vendor.camera.dbglog    u:object_r:camera_prop:s0
-wifi.active.interface           u:object_r:wifi_prop:s0
+# Audio
+audio_hal.in_period_size        u:object_r:vendor_audio_prop:s0
 
-# vendor_radio_prop
-persist.vendor.data.shsusr_load                 u:object_r:vendor_radio_prop:s0
-persist.vendor.data.qmipriod_load               u:object_r:vendor_radio_prop:s0
+# Audio (Dirac)
+audio.dirac.                    u:object_r:vendor_dirac_prop:s0
+persist.audio.dirac             u:object_r:vendor_dirac_prop:s0
+
+# Camera
+camera.clientname               u:object_r:camera_prop:s0
+camera.cpp.dumppreviewpayload   u:object_r:camera_prop:s0
+cameradaemon.SaveMemAtBoot      u:object_r:camera_prop:s0
+camera.llvd.preview.disable     u:object_r:camera_prop:s0
+cpp.set.clock                   u:object_r:camera_prop:s0
+disable.cpp.power.collapse      u:object_r:camera_prop:s0
+persist.camera.                 u:object_r:camera_prop:s0
+persist.cam.pp.feat.mask        u:object_r:camera_prop:s0
+persist.capture.burst.exposures u:object_r:camera_prop:s0
+persist.debug.set.fixedfps      u:object_r:camera_prop:s0
+persist.debug.sf.showfps        u:object_r:camera_prop:s0
+persist.denoise.process.plates  u:object_r:camera_prop:s0
+persist.enable.max.pending.buf  u:object_r:camera_prop:s0
+persist.llvd.preview.disable    u:object_r:camera_prop:s0
+persist.partial.skip            u:object_r:camera_prop:s0
+persist.vendor.camera.dbglog    u:object_r:camera_prop:s0
+ro.camera.res.fmq.size          u:object_r:camera_prop:s0
+
+# Fingerprint
+fpc.fp.miui.token               u:object_r:vendor_fp_prop:s0
+goodix.fp.miui.analyse          u:object_r:vendor_fp_prop:s0
+goodix.fp.miui.token            u:object_r:vendor_fp_prop:s0
+ro.boot.fpsensor                u:object_r:vendor_fp_prop:s0
+ro.hardware.fingerprint         u:object_r:vendor_fp_prop:s0
+sys.fp.goodix                   u:object_r:vendor_fp_prop:s0
+sys.fp.vendor                   u:object_r:vendor_fp_prop:s0
+
+# Perf
+vendor.target.init.complete     u:object_r:vendor_mpctl_prop:s0
+
+# Wi-Fi
+persist.sys.dynamic.nv          u:object_r:vendor_wifi_prop:s0
+vendor.wlan.                    u:object_r:vendor_wifi_prop:s0
+wifi.active.interface           u:object_r:vendor_wifi_prop:s0

@@ -7,17 +7,8 @@ type fpce_socket, file_type;
 type fpc_sysfs, fs_type, sysfs_type;
 type gx_fpd_data_file, file_type, data_file_type, core_data_file_type;
 
-# netmgr
-type netmgr_data_file, file_type, data_file_type;
-
-# /proc
-type proc_swap, fs_type;
-
 # Rild
 type rild_file, file_type, vendor_file_type;
-
-# Sensors
-type persist_sensors_file, file_type, vendor_persist_type;
 
 # Touchscreen
 type proc_touchpanel, fs_type, sysfs_type, proc_type;

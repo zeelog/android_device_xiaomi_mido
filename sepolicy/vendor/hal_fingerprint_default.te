@@ -1,4 +1,4 @@
-typeattribute hal_fingerprint_default binder_in_vendor_violators;
+typeattribute hal_fingerprint_default data_between_core_and_vendor_violators;
 
 # Allow Binder communication
 vndbinder_use(hal_fingerprint_default)
@@ -11,8 +11,6 @@ hwbinder_use(hal_fingerprint_default)
 # Add services
 allow hal_fingerprint_default gx_fpd_service:service_manager find;
 allow hal_fingerprint_default fingerprint_service:service_manager find;
-
-typeattribute hal_fingerprint_default data_between_core_and_vendor_violators;
 
 # Allow storing fingerprint data
 allow hal_fingerprint_default fingerprintd_data_file:file create_file_perms;
@@ -38,7 +36,7 @@ allow hal_fingerprint_default keystore:keystore_key { add_auth };
 r_dir_file(hal_fingerprint_default, firmware_file)
 
 # Allow read/write property
-set_prop(hal_fingerprint_default, system_prop)
+set_prop(hal_fingerprint_default, vendor_fp_prop)
 
 allow hal_fingerprint_default storage_file:dir { search };
 allow hal_fingerprint_default storage_file:lnk_file { read };

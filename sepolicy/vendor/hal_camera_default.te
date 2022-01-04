@@ -1,0 +1,2 @@
+get_prop(hal_camera_default, bootanim_system_prop);
+get_prop(hal_camera_default, camera_prop);
