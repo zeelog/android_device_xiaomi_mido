@@ -5,11 +5,21 @@
 # Audio
 ro.config.media_vol_steps=25
 ro.config.vc_call_vol_steps=6
+vendor.fastrpc.disable.adsprpcd_sensorspd.daemon=1
 
 # BPF
 ro.kernel.ebpf.supported=true
 
 # Camera
+persist.camera.gyro.android=0
+persist.camera.gyro.disable=1
+persist.camera.iface.logs=0
+persist.camera.imglib.logs=0
+persist.camera.isp.clock.optmz=0
+persist.camera.isp.debug=0
+persist.camera.mct.debug=0
+persist.camera.sensor.debug=0
+persist.camera.stats.test=5
 persist.vendor.camera.display.lmax=1280x720
 persist.vendor.camera.display.umax=1920x1080
 vendor.camera.lowpower.record.enable=1
@@ -53,6 +63,7 @@ persist.qfp=false
 
 # FM
 ro.fm.transmitter=false
+vendor.hw.fm.init=0
 
 # LMKD
 ro.lmk.log_stats=true
@@ -80,8 +91,25 @@ vendor.vidc.enc.disable_bframes=1
 vendor.vidc.enc.disable.pq=true
 vendor.video.disable.ubwc=1
 
+# Perf
+ro.vendor.qti.sys.fw.bservice_enable=true
+
 # Qualcomm
 ro.vendor.qti.va_aosp.support=1
+
+# Radio (IMS)
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+persist.vendor.ims.disableIMSLogs=1
+persist.vendor.ims.disableADBLogs=1
+persist.vendor.ims.disableDebugDataPathLogs=1
+persist.vendor.ims.disableDebugLogs=1
+persist.vendor.ims.disableSigHandler=1
+persist.vendor.ims.disableQXDMLogs=1
+
+# Recovery
+persist.vendor.recovery_update=false
 
 # SurfaceFlinger
 debug.sf.early_phase_offset_ns=1500000
@@ -96,6 +124,7 @@ ro.surface_flinger.max_virtual_display_dimension=4096
 persist.sys.binary_xml=false
 
 # Time
+persist.backup.ntpServer=0.pool.ntp.org
 persist.timed.enable=true
 
 # Telephony
@@ -133,4 +162,4 @@ ro.zram.first_wb_delay_mins=180
 ro.zram.periodic_wb_delay_hours=24
 
 # Zygote Preforking
-persist.device.config.runtime_native.uasp_pool_enabled=true
+persist.device.config.runtime_native.usap_pool_enabled=true

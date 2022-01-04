@@ -30,7 +30,6 @@ vendor.audio.use.sw.alac.decoder=true
 vendor.audio.use.sw.ape.decoder=true
 vendor.audio_hal.period_size=192
 vendor.audio.read.wsatz.type=true
-vendor.fastrpc.disable.adsprpcd_sensorspd.daemon=1
 vendor.voice.conc.fallbackpath=deep-buffer
 vendor.voice.path.for.pcm.voip=true
 vendor.voice.playback.conc.disabled=true
@@ -60,17 +59,6 @@ persist.vendor.qcom.bluetooth.soc=pronto
 persist.vendor.qcom.bluetooth.enable.splita2dp=false
 ro.vendor.bluetooth.wipower=false
 
-# Camera
-persist.camera.mct.debug=0
-persist.camera.iface.logs=0
-persist.camera.imglib.logs=0
-persist.camera.isp.clock.optmz=0
-persist.camera.isp.debug=0
-persist.camera.sensor.debug=0
-persist.camera.stats.test=5
-persist.camera.gyro.android=0
-persist.camera.gyro.disable=1
-
 # Cne
 persist.vendor.cne.feature=1
 persist.vendor.mwqem.enable=1
@@ -90,9 +78,6 @@ persist.vendor.dpmhalservice.enable=1
 # DRM
 drm.service.enabled=true
 
-# Fm
-vendor.hw.fm.init=0
-
 # Frp
 ro.frp.pst=/dev/block/bootdevice/by-name/config
 
@@ -103,7 +88,6 @@ vendor.vidc.disable.split.mode=1
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
-ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Radio
 persist.radio.multisim.config=dsds
@@ -119,26 +103,9 @@ persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
 vendor.rild.libargs=-d /dev/smd0
 
-# Radio (IMS)
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
-persist.dbg.wfc_avail_ovr=1
-persist.vendor.ims.disableIMSLogs=1
-persist.vendor.ims.disableADBLogs=1
-persist.vendor.ims.disableDebugDataPathLogs=1
-persist.vendor.ims.disableDebugLogs=1
-persist.vendor.ims.disableSigHandler=1
-persist.vendor.ims.disableQXDMLogs=1
-
-# Recovery
-persist.vendor.recovery_update=false
-
 # SoC
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=MSM8953
-
-# Time Services
-persist.backup.ntpServer=0.pool.ntp.org
 
 # Tcp
 net.tcp.2g_init_rwnd=10
