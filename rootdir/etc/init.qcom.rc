@@ -98,10 +98,8 @@ on early-boot
 on boot
     chown system system /sys/bus/i2c/devices/3-0038/set_cover_mode
     chmod 0660 /sys/bus/i2c/devices/3-0038/set_cover_mode
-    chown system system /sys/module/radio_iris_transport/parameters/fmsmd_set
     chown system system /sys/kernel/boot_slpi/ssr
     chown system system /sys/kernel/boot_adsp/ssr
-    chmod 0660 /sys/module/radio_iris_transport/parameters/fmsmd_set
     chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/enable_dt2w
     chmod 0664 /sys/devices/soc/78b7000.i2c/i2c-3/3-0038/enable_dt2w
 
@@ -259,6 +257,13 @@ on property:persist.vendor.radio.atfwd.start=false
 
 on property:vendor.radio.atfwd.start=false
     stop vendor.atfwd
+
+# FM
+on property:hw.fm.init=0
+    write /sys/module/radio_iris_transport/parameters/fmsmd_set 0
+
+on property:hw.fm.init=1
+    write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
 service qcom-c_main-sh /vendor/bin/init.class_main.sh
     class main
