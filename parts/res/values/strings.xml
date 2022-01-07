@@ -75,6 +75,12 @@
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
     <string name="dirac_preset_bass_booster">Bass Booster</string>
+    <string name="dirac_preset_live">Live</string>
+    <string name="dirac_preset_balanced">Balanced</string>
+    <string name="dirac_preset_bass_reduction">Bass Reduction</string>
+    <string name="dirac_preset_treble_reduction">Treble Reduction</string>
+    <string name="dirac_preset_soft_bass">Soft Bass</string>
+    <string name="dirac_preset_soft_treble">Soft Treble</string>
 
      <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Dirac sound</string>
