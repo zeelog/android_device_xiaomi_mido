@@ -43,4 +43,7 @@
 
     <!-- Indicate the driver support NL80211_REG_CHANGED event. -->
     <bool translatable="false" name="config_wifiDriverSupportedNl80211RegChangedEvent">true</bool>
+
+    <!-- Indicate the device support request channel on Wi-Fi Aware data-path. -->
+    <bool translatable="false" name="config_wifiSupportChannelOnDataPath">true</bool>
 </resources>
