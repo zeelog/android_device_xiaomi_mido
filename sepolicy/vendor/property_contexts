@@ -30,8 +30,7 @@ goodix.fp.miui.analyse          u:object_r:vendor_fp_prop:s0
 goodix.fp.miui.token            u:object_r:vendor_fp_prop:s0
 ro.boot.fpsensor                u:object_r:vendor_fp_prop:s0
 ro.hardware.fingerprint         u:object_r:vendor_fp_prop:s0
-sys.fp.goodix                   u:object_r:vendor_fp_prop:s0
-sys.fp.vendor                   u:object_r:vendor_fp_prop:s0
+sys.fp.                         u:object_r:vendor_fp_prop:s0
 
 # Perf
 vendor.target.init.complete     u:object_r:vendor_mpctl_prop:s0
