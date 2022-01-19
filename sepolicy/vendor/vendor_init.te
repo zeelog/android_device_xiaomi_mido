@@ -1,5 +1,7 @@
 typeattribute vendor_init data_between_core_and_vendor_violators;
 
+allow vendor_init self:capability kill;
+
 allow vendor_init {
   bluetooth_data_file
   vendor_camera_data_file
