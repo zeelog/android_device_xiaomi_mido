@@ -71,7 +71,7 @@ vendor/lib64/libbtnv.so|07e031527e60ce5e62a5017fd1d7ff83ef1aafcf
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|3281b131bf921fbdc00afe66cf2a0493a86b97a0
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so|5de4a802667afa2c05b9c75ae6311fcd0c8b23f6
 
-# Bluetooth (aptX) - from Crosshatch - 11/RQ2A.210405.006/7214111
+# Bluetooth (aptX) - from Coral - 12/SQ1A.220105.002/7961164
 system_ext/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
 system_ext/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
@@ -791,15 +791,15 @@ vendor/lib64/libsecureui_svcsock.so|2232f56927964f10d41868919d94711930d50ed0
 vendor/lib64/libssd.so|6dcbfc531e69a3c7eeaf21e85ac0202b8fa82d55
 vendor/lib64/libStDrvInt.so|7c921ee6db896233f9ea03f1fb3a9b7d9434e7dc
 
-# DRM - from Lmi 11/RKQ1.200826.002/V12.2.4.0.RJKMIXM
-vendor/lib64/libops.so|b2223e64db9d8f84262da7a8621013d3c63b6c98
-vendor/lib64/libspl.so|0fa8c0711f72fc8a914dce044cf8dddd79ee62e1
+# DRM - from Coral - 12/SQ1A.220105.002/7961164
+vendor/lib64/libops.so|3c763226ccc3b0f32e131af71a458b41bf2b3d8d
+vendor/lib64/libspl.so|f8bbe0322ce06a545f5dc79c888183ac61673b68
 
-# DRM - Widevine - from Coral - 12/SP1A.211105.002.A1/7807550
+# DRM - Widevine - from Coral - 12/SQ1A.220105.002/7961164
 vendor/bin/hw/android.hardware.drm@1.4-service.widevine|40007c2086cb435d36b38de089cdfa4f38941b4e
 vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc|225dd006bfecf6c1dca6793fa1c13a455ce4eae6
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml|91d7c0996133556cb7f7c5d1b7e5d9e7f07b78b2
-vendor/lib64/libwvhidl.so|f3eb958264e7647f1f2adfcc6fd61ae1ae3736c8
+vendor/lib64/libwvhidl.so|8ffc9cfc0ca2abc0e7bbde94c61961b1fef45e6f
 
 # Fingerprint
 bin/gx_fpd:vendor/bin/gx_fpd
