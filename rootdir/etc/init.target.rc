@@ -178,3 +178,16 @@ service ppd /vendor/bin/mm-pp-dpps
     group system graphics
     socket pps stream 0660 system system
     disabled
+
+on property:sys.boot_completed=1
+ # write caching
+    # Tell the kernel to use up to 99% of the RAM as cache for writes
+    # and instruct kernel to use up to 50% of RAM before slowing down
+    # the process that's writing.
+    write /proc/sys/vm/dirty_ratio 99
+    write /proc/sys/vm/dirty_background_ratio 50
+
+    # Tell that 10 minutes write delay is ok to even start writing
+    # stuff on the disk (ten minutes = 60000; 1 hour 360000).
+    write /proc/sys/vm/dirty_expire_centisecs 60000
+    write /proc/sys/vm/dirty_writeback_centisecs 60000

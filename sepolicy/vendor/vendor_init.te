@@ -15,3 +15,6 @@ allow vendor_init {
 
 get_prop(vendor_init, vendor_fp_prop)
 set_prop(vendor_init, vendor_fp_prop)
+
+allow vendor_init proc_dirty:file w_file_perms;
+allow vendor_init proc_dirty_ratio:file w_file_perms;
