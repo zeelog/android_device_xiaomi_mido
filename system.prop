@@ -120,10 +120,6 @@ ro.build.shutdown_timeout=2
 
 # SurfaceFlinger
 debug.sf.disable_client_composition_cache=1
-debug.sf.early_phase_offset_ns=1500000
-debug.sf.early_app_phase_offset_ns=1500000
-debug.sf.early_gl_phase_offset_ns=3000000
-debug.sf.early_gl_app_phase_offset_ns=15000000
 debug.sf.enable_transaction_tracing=false
 debug.sf.predict_hwc_composition_strategy=0
 ro.surface_flinger.enable_layer_caching=true
