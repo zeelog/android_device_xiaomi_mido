@@ -648,7 +648,7 @@ void GnssAPIClient::onGnssNmeaCb(GnssNmeaNotification gnssNmeaNotification)
     auto gnssCbIface_2_1(mGnssCbIface_2_1);
     mMutex.unlock();
 
-    if (gnssCbIface != nullptr || gnssCbIface_2_0 != nullptr| gnssCbIface_2_1 != nullptr) {
+    if (gnssCbIface != nullptr || gnssCbIface_2_0 != nullptr || gnssCbIface_2_1 != nullptr) {
         const std::string s(gnssNmeaNotification.nmea);
         std::stringstream ss(s);
         std::string each;
