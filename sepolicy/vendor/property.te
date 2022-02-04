@@ -4,5 +4,11 @@ vendor_restricted_prop(vendor_dirac_prop);
 # Fingerprint
 vendor_public_prop(vendor_fp_prop);
 
+# mwqem property
+vendor_restricted_prop(vendor_mwqem_prop);
+
+# slm property
+vendor_restricted_prop(vendor_slm_prop);
+
 # Wi-Fi
 vendor_internal_prop(vendor_wifi_prop);

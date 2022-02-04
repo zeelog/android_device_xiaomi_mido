@@ -87,6 +87,9 @@ vendor.vidc.enc.disable_bframes=1
 vendor.vidc.enc.disable.pq=true
 vendor.video.disable.ubwc=1
 
+# Mwqem
+persist.vendor.mwqem.enable=1
+
 # Perf
 ro.vendor.qti.sys.fw.bservice_enable=true
 

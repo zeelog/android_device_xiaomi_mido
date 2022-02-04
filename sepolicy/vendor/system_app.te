@@ -2,6 +2,11 @@ allow system_app proc_pagetypeinfo:file r_file_perms;
 
 binder_call(system_app, hal_power_default)
 binder_call(system_app, hal_vibrator_default)
+binder_call(system_app, iorapd)
+binder_call(system_app, wificond)
+
+# aosp fm
+allow system_app fm_radio_device:chr_file { ioctl open read };
 
 # XiaomiParts
 allow system_app {

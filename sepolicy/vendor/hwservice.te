@@ -1,2 +1,1 @@
-type hal_mwqemadapter_hwservice, hwservice_manager_type;
-type hal_slmadapter_hwservice, hwservice_manager_type;
+type vendor_hal_slmadapter_hwservice, hwservice_manager_type, protected_hwservice;

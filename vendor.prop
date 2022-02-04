@@ -61,7 +61,6 @@ ro.vendor.bluetooth.wipower=false
 
 # Cne
 persist.vendor.cne.feature=1
-persist.vendor.mwqem.enable=1
 
 # Display
 ro.hardware.vulkan=adreno

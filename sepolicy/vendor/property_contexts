@@ -32,10 +32,21 @@ ro.boot.fpsensor                u:object_r:vendor_fp_prop:s0
 ro.hardware.fingerprint         u:object_r:vendor_fp_prop:s0
 sys.fp.                         u:object_r:vendor_fp_prop:s0
 
+# iwlan
+persist.vendor.iwlan.logging.logcat          u:object_r:vendor_cnd_vendor_prop:s0
+
+# MWQEM
+persist.vendor.mwqem.           u:object_r:vendor_mwqem_prop:s0
+
 # Perf
 vendor.target.init.complete     u:object_r:vendor_mpctl_prop:s0
 
+# SLM
+persist.vendor.slm.             u:object_r:vendor_slm_prop:s0
+
 # Wi-Fi
 persist.sys.dynamic.nv          u:object_r:vendor_wifi_prop:s0
+vendor.wlan.driver.ath          u:object_r:vendor_wifi_prop:s0
+vendor.wlan.driver.config       u:object_r:vendor_wifi_prop:s0
 vendor.wlan.                    u:object_r:vendor_wifi_prop:s0
 wifi.active.interface           u:object_r:vendor_wifi_prop:s0
