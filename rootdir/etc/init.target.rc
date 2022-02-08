@@ -156,7 +156,7 @@ on charger
     setprop persist.sys.usb.config mass_storage
     start vendor.hvdcp_opti
     start vendor.power_off_alarm
-    start thermal-engine
+    restart thermal-engine
 
 on boot
     # Add a cpuset for the camera daemon
