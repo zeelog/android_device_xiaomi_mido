@@ -11,6 +11,7 @@ android_app {
     resource_dirs: ["res"],
     certificate: "platform",
     platform_apis: true,
+    system_ext_specific: true,
     privileged: true,
 
     static_libs: [
