@@ -67,4 +67,6 @@ cc_library_shared {
     srcs: [
         "Surface.cpp"
     ],
+    compile_multilib: "64",
+    system_ext_specific: true
 }
