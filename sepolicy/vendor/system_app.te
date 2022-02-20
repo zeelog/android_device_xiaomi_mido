@@ -4,6 +4,7 @@ binder_call(system_app, hal_power_default)
 binder_call(system_app, hal_vibrator_default)
 binder_call(system_app, iorapd)
 binder_call(system_app, wificond)
+binder_call(system_app vold)
 
 # aosp fm
 allow system_app fm_radio_device:chr_file { ioctl open read };
