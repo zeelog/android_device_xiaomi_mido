@@ -281,6 +281,9 @@ on property:vold.decrypt=trigger_restart_framework
     restart vendor.camera-provider-2-4
     restart vendor.fps_hal
     start wcnss-service
+    restart vendor.qcrild
+    exec /bin/sleep 2
+    restart vendor.qcrild2
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
