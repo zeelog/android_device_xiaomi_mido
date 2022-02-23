@@ -1,16 +1,15 @@
-#include <gui/Surface.h>
+#include <gui/SurfaceComposerClient.h>
 
-namespace android {
+using namespace android;
 
-extern "C" void
-_ZN7android7SurfaceC1ERKNS_2spINS_22IGraphicBufferProducerEEEbRKNS1_INS_7IBinderEEE(
-    const sp<IGraphicBufferProducer> &, bool, sp<IBinder> &);
+extern "C" {
 
-extern "C" void _ZN7android7SurfaceC1ERKNS_2spINS_22IGraphicBufferProducerEEEb(
-    const sp<IGraphicBufferProducer> &bufferProducer, bool controlledByApp) {
-  sp<IBinder> handle = static_cast<sp<IBinder>>(nullptr);
-  return _ZN7android7SurfaceC1ERKNS_2spINS_22IGraphicBufferProducerEEEbRKNS1_INS_7IBinderEEE(
-      bufferProducer, controlledByApp, handle);
+void _ZN7android7SurfaceC1ERKNS_2spINS_22IGraphicBufferProducerEEEbRKNS1_INS_7IBinderEEE(
+    void* thisptr, const sp<IGraphicBufferProducer>& bufferProducer, bool controlledByApp, const sp<IBinder>& surfaceControlHandle);
+
+void _ZN7android7SurfaceC1ERKNS_2spINS_22IGraphicBufferProducerEEEb(
+    void* thisptr, const sp<IGraphicBufferProducer> &bufferProducer, bool controlledByApp) {
+        _ZN7android7SurfaceC1ERKNS_2spINS_22IGraphicBufferProducerEEEbRKNS1_INS_7IBinderEEE(thisptr, bufferProducer, controlledByApp, nullptr);
 }
 
-} // namespace android
+}
