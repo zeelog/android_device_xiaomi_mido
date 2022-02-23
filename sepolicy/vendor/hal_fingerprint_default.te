@@ -44,3 +44,6 @@ allow hal_fingerprint_default mnt_user_file:dir { search };
 allow hal_fingerprint_default mnt_user_file:lnk_file { read };
 allow hal_fingerprint_default sdcardfs:dir { search };
 allow hal_fingerprint_default sdcardfs:file { getattr };
+
+# Allow fp to read boot status prop
+get_prop(hal_fingerprint_default, boot_status_prop)
