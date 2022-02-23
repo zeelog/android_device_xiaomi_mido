@@ -8,6 +8,7 @@ persist.audio.dirac             u:object_r:vendor_dirac_prop:s0
 # Camera
 camera.clientname               u:object_r:camera_prop:s0
 camera.cpp.dumppreviewpayload   u:object_r:camera_prop:s0
+camera.cpp.dumpvideopayload     u:object_r:camera_prop:s0
 cameradaemon.SaveMemAtBoot      u:object_r:camera_prop:s0
 camera.llvd.preview.disable     u:object_r:camera_prop:s0
 cpp.set.clock                   u:object_r:camera_prop:s0
