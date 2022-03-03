@@ -541,4 +541,7 @@
     
     <!-- The max scale for the wallpaper when it's zoomed in -->
     <item name="config_wallpaperMaxScale" format="float" type="dimen">1.00</item>
+
+    <!-- Whether to select voice/data/sms preference without user confirmation. -->
+    <bool name="config_voice_data_sms_auto_fallback">true</bool>
 </resources>
