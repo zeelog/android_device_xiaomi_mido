@@ -1,4 +1,5 @@
 allow vold proc_touchpanel:dir r_dir_perms;
+allow vold cache_block_device:blk_file getattr;
 
 # For setting read_ahead_kb
 allow vold sysfs_mmc_host:file create_file_perms;
