@@ -1,0 +1,1 @@
+allow mediaserver package_native_service:service_manager find;
