@@ -33,7 +33,6 @@
 #include <utils/constants.h>
 #include <utils/String16.h>
 #include <cutils/properties.h>
-#include <bfqio/bfqio.h>
 #include <hardware_legacy/uevent.h>
 #include <sys/resource.h>
 #include <sys/prctl.h>
@@ -1431,7 +1430,6 @@ void* HWCSession::HWCUeventThreadHandler() {
   uevent_locker_.Lock();
   prctl(PR_SET_NAME, uevent_thread_name_, 0, 0, 0);
   setpriority(PRIO_PROCESS, 0, HAL_PRIORITY_URGENT_DISPLAY);
-  android_set_rt_ioprio(0, 1);
   if (!uevent_init()) {
     DLOGE("Failed to init uevent");
     pthread_exit(0);
