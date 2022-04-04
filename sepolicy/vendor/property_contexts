@@ -13,6 +13,7 @@ cameradaemon.SaveMemAtBoot      u:object_r:camera_prop:s0
 camera.llvd.preview.disable     u:object_r:camera_prop:s0
 cpp.set.clock                   u:object_r:camera_prop:s0
 disable.cpp.power.collapse      u:object_r:camera_prop:s0
+persist.camera.module.info      u:object_r:camera_prop:s0
 persist.camera.                 u:object_r:camera_prop:s0
 persist.cam.pp.feat.mask        u:object_r:camera_prop:s0
 persist.capture.burst.exposures u:object_r:camera_prop:s0
@@ -23,6 +24,7 @@ persist.enable.max.pending.buf  u:object_r:camera_prop:s0
 persist.llvd.preview.disable    u:object_r:camera_prop:s0
 persist.partial.skip            u:object_r:camera_prop:s0
 persist.vendor.camera.dbglog    u:object_r:camera_prop:s0
+persist.vendor.camera.mi.module.info    u:object_r:camera_prop:s0
 ro.camera.res.fmq.size          u:object_r:camera_prop:s0
 
 # Fingerprint
