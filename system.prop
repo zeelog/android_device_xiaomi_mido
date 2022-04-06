@@ -111,6 +111,9 @@ persist.vendor.ims.disableQXDMLogs=1
 # Recovery
 persist.vendor.recovery_update=false
 
+# ScalarConfig
+vendor.display.disable_scaler=1
+
 # Shutdown
 ro.build.shutdown_timeout=2
 
