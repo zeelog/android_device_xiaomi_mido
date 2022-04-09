@@ -384,6 +384,9 @@ firmware_directories /vendor/firmware_mnt/image/
 /sys/class/kgsl/kgsl-3d0    bus_split                0664    root  system
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
 
+#KGSL
+/sys/class/kgsl/kgsl-3d0    perfcounter              0660    root    shell
+
 # lirc
 /dev/lirc0                0660   system     system
 /dev/peel_ir              0660   system     system
