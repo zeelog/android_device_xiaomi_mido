@@ -1,0 +1,2 @@
+allow surfaceflinger hal_graphics_composer_default:dir r_dir_perms;
+allow surfaceflinger hal_graphics_composer_default:file r_file_perms;
