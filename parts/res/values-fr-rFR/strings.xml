@@ -56,4 +56,9 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Métal</string>
+    <!-- Torch Settings -->
+    <string name="torch_title">Torche</string>
+    <string name="torch_summary">Définir la luminosité maximale de la led jaune/blanche</string>
+    <string name="yellow_torch_brightness_title">Luminosité maximale de la led jaune</string>
+    <string name="white_torch_brightness_title">Luminosité maximale de la led blanche</string>
 </resources>

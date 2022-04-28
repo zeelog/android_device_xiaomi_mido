@@ -15,7 +15,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Hodnota: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Pôvodná</string>
+    <string name="custom_seekbar_default_value_to_set">Pôvodná hodnota: <xliff:g id="v">%s</xliff:g>\nPodržte pre nastavenie</string>
+    <string name="custom_seekbar_default_value_is_set">Pôvodná hodnota je nastavená na</string>
     <!-- Dirac settings -->
     <string name="dirac_title">Dirac HD Sound</string>
     <string name="dirac_summary">Vylepšiť kvalitu zvuku</string>

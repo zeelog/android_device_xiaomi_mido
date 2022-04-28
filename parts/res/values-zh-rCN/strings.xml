@@ -15,7 +15,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">数值: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">默认</string>
+    <string name="custom_seekbar_default_value_to_set">默认数值: <xliff:g id="v">%s</xliff:g>\n长按以设置</string>
+    <string name="custom_seekbar_default_value_is_set">默认数值已设定</string>
     <!-- Dirac settings -->
     <string name="dirac_title">使用米音提升音质</string>
     <string name="dirac_summary">米音</string>

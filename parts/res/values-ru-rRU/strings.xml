@@ -15,7 +15,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значение: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">по умолчанию</string>
+    <string name="custom_seekbar_default_value_to_set">Значение по умолчанию: <xliff:g id="v">%s</xliff:g>\nДолгий тап для установки</string>
+    <string name="custom_seekbar_default_value_is_set">Значение по умолчанию установлено</string>
     <!-- Dirac settings -->
     <string name="dirac_title">Улучшение звука Mi</string>
     <string name="dirac_summary">Улучшить качество звука</string>
@@ -58,4 +63,9 @@
     <string name="dirac_preset_metal">Металл</string>
      <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Dirac звук</string>
+    <!-- Torch -->
+    <string name="torch_title">Сенсорная панель</string>
+    <string name="torch_summary">Максимальная яркость белого/желтого светодиода</string>
+    <string name="yellow_torch_brightness_title">Максимальная яркость желтого светодиода</string>
+    <string name="white_torch_brightness_title">Максимальная яркость белого светодиода</string>
 </resources>

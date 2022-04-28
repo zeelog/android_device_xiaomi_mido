@@ -15,7 +15,18 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Audio amplification -->
+    <string name="audio_title">Amplificazione Audio</string>
+    <string name="audio_summary">Impostazioni audio avanzate</string>
+    <string name="headphone_gain">Volume delle cuffie</string>
+    <string name="microphone_gain">Volume del microfono</string>
+    <string name="speaker_gain">Volume dell\'altoparlante</string>
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Valore: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Default</string>
+    <string name="custom_seekbar_default_value_to_set">Valore di default: <xliff:g id="v">%s</xliff:g>\nPremere a lungo per impostare</string>
+    <string name="custom_seekbar_default_value_is_set">Il valore predefinito è impostato</string>
     <!-- Dirac settings -->
     <string name="dirac_title">Ottimizzazione Mi Sound</string>
     <string name="dirac_summary">Ottimizza la qualità audio</string>
@@ -56,4 +67,9 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+    <!-- Torch -->
+    <string name="torch_title">Impostazioni della torcia</string>
+    <string name="torch_summary">Controllo luminosità giallo/bianco della torcia</string>
+    <string name="yellow_torch_brightness_title">Impostazioni di luminosità della torcia gialla</string>
+    <string name="white_torch_brightness_title">Impostazioni di luminosità della torcia bianca</string>
 </resources>

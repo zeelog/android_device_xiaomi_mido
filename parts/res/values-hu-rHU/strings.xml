@@ -56,4 +56,9 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metál</string>
+    <!-- Torch -->
+    <string name="torch_title">Zseblámpa</string>
+    <string name="torch_summary">A sárga/fehér LED maximális fényerejének beállítása</string>
+    <string name="yellow_torch_brightness_title">Sárga LED maximális fényerő</string>
+    <string name="white_torch_brightness_title">A fehér LED maximális fényerejének beállítása</string>
 </resources>

@@ -56,6 +56,11 @@
     <string name="dirac_preset_country">Quê hương</string>
     <string name="dirac_preset_dance">Khiêu vũ</string>
     <string name="dirac_preset_metal">Kim loại</string>
-<!-- QS tile title -->
+    <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Âm thanh Dirac</string>
+    <!-- Torch -->
+    <string name="torch_title">Đèn pin</string>
+    <string name="torch_summary">Led trắng với độ sáng tối đa</string>
+    <string name="yellow_torch_brightness_title">Xác định độ sáng tối đa của led vàng</string>
+    <string name="white_torch_brightness_title">Xác định độ sáng tối đa của led vàng</string>
 </resources>

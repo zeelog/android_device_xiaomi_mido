@@ -15,7 +15,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значення: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">за замовчуванням</string>
+    <string name="custom_seekbar_default_value_to_set">Значення за замовчуванням: <xliff:g id="v">%s</xliff:g>\nДовгий тап для встановлення</string>
+    <string name="custom_seekbar_default_value_is_set">Значення за замовчуванням встановлено</string>
     <!-- Dirac settings -->
     <string name="dirac_title">Покращення звуку \"Мі Sound\"</string>
     <string name="dirac_summary">Поліпшити якість звуку</string>
@@ -56,6 +61,11 @@
     <string name="dirac_preset_country">Кантрі</string>
     <string name="dirac_preset_dance">Танцювальна</string>
     <string name="dirac_preset_metal">Метал</string>
-     <!-- QS tile title -->
+    <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Dirac звук</string>
+    <!-- Torch -->
+    <string name="torch_title">Сенсорна панель</string>
+    <string name="torch_summary">Максимальна яскравість жовтого/білого світлодіода</string>
+    <string name="yellow_torch_brightness_title">Максимальна яскравість жовтого світлодіода</string>
+    <string name="white_torch_brightness_title">Максимальна яскравість білого світлодіода</string>
 </resources>
