@@ -13,7 +13,6 @@ android_app {
     platform_apis: true,
     system_ext_specific: true,
     privileged: true,
-    overrides: ["AudioFX"],
 
     static_libs: [
         "org.lineageos.settings.resources",
