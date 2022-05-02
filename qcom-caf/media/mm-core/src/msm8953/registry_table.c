@@ -477,7 +477,7 @@ omx_core_cb_type core[] =
      "audio_decoder.awbplus"
     }
   },
-  {
+  /*{
     "OMX.qcom.audio.decoder.alac",
     NULL,   // Create instance function
     // Unique instance handle
@@ -489,7 +489,7 @@ omx_core_cb_type core[] =
     {
       "audio_decoder.alac"
     }
-  },
+  },*/
   {
     "OMX.qcom.audio.decoder.g711mlaw",
     NULL,   // Create instance function
@@ -516,7 +516,7 @@ omx_core_cb_type core[] =
       "audio_decoder.g711"
     }
   },
-  {
+  /*{
     "OMX.qti.audio.decoder.alac.sw",
     NULL,   // Create instance function
     // Unique instance handle
@@ -531,7 +531,7 @@ omx_core_cb_type core[] =
     {
       "audio_decoder.alac"
     }
-  },
+  },*/
   {
     "OMX.qcom.audio.decoder.ape",
     NULL,   // Create instance function

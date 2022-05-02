@@ -438,7 +438,7 @@ omx_core_cb_type core[] =
      "audio_decoder.wma"
     }
   },
-  {
+  /*{
     "OMX.qcom.audio.decoder.alac",
     NULL,   // Create instance function
     // Unique instance handle
@@ -469,7 +469,7 @@ omx_core_cb_type core[] =
     {
       "audio_decoder.alac"
     }
-  },
+  },*/
   {
     "OMX.qcom.audio.decoder.ape",
     NULL,   // Create instance function
