@@ -251,13 +251,22 @@ service qcom-c_main-sh /vendor/bin/init.class_main.sh
     group root system
     oneshot
 
+on property:vold.decrypt=trigger_shutdown_framework
+    stop vendor.gnss_service
+    stop vendor.camera-provider-2-4
+    stop vendor.fps_hal
+    stop wcnss-service
+    stop vendor.qcrild
+    stop vendor.qcrild2
+
 on property:vold.decrypt=trigger_restart_framework
-    restart vendor.camera-provider-2-4
+    stop vendor.camera-provider-2-4
     restart vendor.fps_hal
     start wcnss-service
     restart vendor.qcrild
     exec /bin/sleep 2
     restart vendor.qcrild2
+    restart vendor.gnss_service
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
@@ -300,6 +309,7 @@ service vendor.qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 
 on property:sys.boot_completed=1
     start vendor.qcom-post-boot
+    start vendor.camera-provider-2-4
 
 service vendor.charger /system/bin/chargeonlymode
     class charger
