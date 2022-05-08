@@ -11,6 +11,7 @@ allow system_app fm_radio_device:chr_file { ioctl open read };
 
 # XiaomiParts
 allow system_app {
+    kcal_dev
     sysfs_hgain
     sysfs_mgain
     sysfs_sgain
@@ -18,6 +19,7 @@ allow system_app {
 }:file rw_file_perms;
 
 allow system_app {
+    kcal_dev
     sysfs_leds
 }:dir search;
 
