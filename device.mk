@@ -191,11 +191,14 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-service \
     gralloc.msm8953 \
     hwcomposer.msm8953 \
-    memtrack.msm8953 \
-    libqdMetaData \
+    libgralloc.system.qti \
+    libqdMetaData.system \
     libtinyxml \
     libvulkan \
-    vendor.display.config@1.0.vendor
+    memtrack.msm8953 \
+    vendor.display.config@1.0.vendor \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.mapper@2.0.vendor
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
