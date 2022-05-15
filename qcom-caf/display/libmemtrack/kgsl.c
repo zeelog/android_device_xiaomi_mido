@@ -1,4 +1,9 @@
 /*
+ *
+ * Copyright (c) 2021, The Linux Foundation. All rights reserved.
+ *
+ * Not a  Contribution.
+ *
  * Copyright (C) 2013 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -81,7 +86,6 @@ int kgsl_memtrack_get_memory(pid_t pid, enum memtrack_type type,
 
         fp = fopen(syspath, "r");
         if (fp == NULL) {
-            fclose(fp);
             return -errno;
         }
 

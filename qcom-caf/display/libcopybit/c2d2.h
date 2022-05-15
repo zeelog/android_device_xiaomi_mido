@@ -72,7 +72,6 @@ typedef enum {
     C2D_FORMAT_MACROTILED        = (1 << 16), /* tiled in macro level */
     C2D_FORMAT_TILED_4x4         = (1 << 17), /* 4x4 tiled format */
     C2D_FORMAT_SWAP_RB           = (1 << 18), /* Swap R & B color components */
-    C2D_FORMAT_BT601_FULLRANGE   = (1 << 20), /* YUV format is full range following BT 601 */
     C2D_FORMAT_UBWC_COMPRESSED   = (1 << 23), /* UBWC compressed format */
 } C2D_FORMAT_MODE;
 
@@ -208,7 +207,6 @@ typedef enum {
     C2D_COLOR_FORMAT_422_Y42B     = 174,
 
     C2D_COLOR_FORMAT_800_Y800     = 190,
-    C2D_COLOR_FORMAT_420_TP10     = 191,
 
 } C2D_YUV_FORMAT;
 

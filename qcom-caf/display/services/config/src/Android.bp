@@ -1,0 +1,24 @@
+cc_library_shared {
+    name: "libdisplayconfig.qti",
+    vendor: true,
+    cflags: [
+        "-Wno-sign-conversion",
+        "-Wno-unused-parameter",
+        "-DLOG_TAG=\"libdisplayconfigqti\"",
+    ],
+    shared_libs: [
+        "liblog",
+        "libhidlbase",
+        "libutils",
+        "vendor.display.config@2.0"
+    ],
+    header_libs: ["libhardware_headers", "display_intf_headers"],
+    srcs: [
+        "client_interface.cpp",
+        "client_impl.cpp",
+        "device_impl.cpp",
+        "device_interface.cpp",
+    ],
+    export_header_lib_headers: ["display_intf_headers"],
+}
+

@@ -26,6 +26,8 @@
 #include "QtiGrallocDefs.h"
 #include "gr_priv_handle.h"
 
+//#pragma message "Warning: gralloc_priv.h is deprecated"
+
 #define GRALLOC_PROP_PREFIX  "vendor.gralloc."
 #define GRALLOC_PROP(prop_name) GRALLOC_PROP_PREFIX prop_name
 
@@ -78,9 +80,9 @@ inline int roundUpToPageSize(int x) {
 #define HAL_CSC_ITU_R_601 0
 #define HAL_CSC_ITU_R_601_FR 1
 #define HAL_CSC_ITU_R_709 2
-#define HAL_CSC_ITU_R_709_FR 3
-#define HAL_CSC_ITU_R_2020 4
-#define HAL_CSC_ITU_R_2020_FR 5
+#define HAL_CSC_ITU_R_2020 3
+#define HAL_CSC_ITU_R_2020_FR 4
+#define HAL_CSC_ITU_R_709_FR 5
 
 /* possible formats for 3D content*/
 enum {

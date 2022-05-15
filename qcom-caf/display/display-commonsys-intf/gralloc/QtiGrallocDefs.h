@@ -54,27 +54,29 @@
 /* This flag is used for SECURE display usecase */
 #define GRALLOC_USAGE_PRIVATE_SECURE_DISPLAY (UINT32_C(1) << 31)
 
-/* This flag is used to indicate video NV21 format */
-#define GRALLOC_USAGE_PRIVATE_VIDEO_NV21_ENCODER 1ULL << 48
-
 /* unused legacy flags */
 #define GRALLOC_USAGE_PRIVATE_MM_HEAP 0
 #define GRALLOC_USAGE_PRIVATE_IOMMU_HEAP 0
-
-/* This flag is set for WFD usecase */
-#define GRALLOC_USAGE_PRIVATE_WFD 1ULL << 51
+#define GRALLOC_USAGE_PRIVATE_10BIT_TP 0
 
 /* This flag is set for HEIF usecase */
 #define GRALLOC_USAGE_PRIVATE_HEIF (UINT32_C(1) << 27)
 
-/* TODO(user): Remove when clients stop referencing this flag */
-#define GRALLOC_USAGE_PRIVATE_10BIT_TP 0
+/* This flag is used to indicate video NV21 format */
+#define GRALLOC_USAGE_PRIVATE_VIDEO_NV21_ENCODER 1ULL << 48
 
 /* This flag indicates PI format is being used */
-#define GRALLOC_USAGE_PRIVATE_ALLOC_UBWC_PI 1ULL << 49
+#define GRALLOC_USAGE_PRIVATE_ALLOC_UBWC_PI      1ULL << 49
 
 /* This flag is set while CDSP accesses the buffer */
-#define GRALLOC_USAGE_PRIVATE_CDSP 1ULL << 50
+#define GRALLOC_USAGE_PRIVATE_CDSP               1ULL << 50
+
+/* This flag is set for WFD usecase */
+#define GRALLOC_USAGE_PRIVATE_WFD                1ULL << 51
+
+/* This flag indicates video HW usage */
+#define GRALLOC_USAGE_PRIVATE_VIDEO_HW           1ULL << 52
+
 
 // OEM specific HAL formats
 #define HAL_PIXEL_FORMAT_RGBA_5551 6
@@ -136,6 +138,7 @@
 
 // UBWC aligned Venus format
 #define HAL_PIXEL_FORMAT_YCbCr_420_SP_VENUS_UBWC 0x7FA30C06
+#define HAL_PIXEL_FORMAT_YCbCr_420_SP_4R_UBWC 0x7FA30C07
 #define HAL_PIXEL_FORMAT_YCbCr_420_TP10_UBWC 0x7FA30C09
 
 // Khronos ASTC formats
@@ -167,6 +170,14 @@
 #define HAL_PIXEL_FORMAT_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR 0x93DB
 #define HAL_PIXEL_FORMAT_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR 0x93DC
 #define HAL_PIXEL_FORMAT_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR 0x93DD
+
+/*Legacy Colorspace values - Values maps to ColorSpace_t in qdMetadata.h*/
+#define HAL_CSC_ITU_R_601 0
+#define HAL_CSC_ITU_R_601_FR 1
+#define HAL_CSC_ITU_R_709 2
+#define HAL_CSC_ITU_R_2020 3
+#define HAL_CSC_ITU_R_2020_FR 4
+#define HAL_CSC_ITU_R_709_FR 5
 
 enum { BUFFER_TYPE_UI = 0, BUFFER_TYPE_VIDEO };
 

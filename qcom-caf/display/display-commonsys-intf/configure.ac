@@ -17,21 +17,6 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_SUBST([AM_CPPFLAGS], [--std=c++11])
 
-AC_ARG_WITH([core_includes],
-    AC_HELP_STRING([--with-core-includes=@<:@dir@:>@],
-       [Specify the location of the core headers]),
-    [core_incdir=$withval],
-    with_core_includes=no)
-
-if test "x$with_core_includes" != "xno"; then
-   CFLAGS="${CFLAGS} -I${core_incdir}"
-fi
-
-AC_ARG_WITH(sanitized-headers,
-   AS_HELP_STRING([--with-sanitized-headers=DIR],
-       [Specify the location of the sanitized Linux headers]),
-   [CPPFLAGS="$CPPFLAGS -I$withval"])
-
 # Checks for programs.
 AC_PROG_CC
 AM_PROG_CC_C_O
@@ -46,7 +31,6 @@ AC_PROG_MAKE_SET
 AC_SUBST([CFLAGS])
 AC_SUBST([CC])
 AC_CONFIG_FILES([ \
-        Makefile \
-        libqdmetadata/Makefile
+        Makefile
         ])
 AC_OUTPUT

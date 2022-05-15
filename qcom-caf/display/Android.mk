@@ -11,7 +11,7 @@ endif
 display-hals += gralloc
 
 ifneq ($(TARGET_PROVIDES_LIBLIGHT),true)
-display-hals += liblight
+    display-hals += liblight
 endif
 
 ifeq ($(call is-vendor-board-platform,QCOM),true)

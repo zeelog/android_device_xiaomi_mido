@@ -1,0 +1,27 @@
+aidl_interface {
+    name: "vendor.qti.hardware.display.config",
+    vendor_available: true,
+    srcs: [
+        "vendor/qti/hardware/display/config/*.aidl",
+    ],
+    stability: "vintf",
+    imports: [
+        "android.hardware.common-V2",
+    ],
+    backend: {
+        java: {
+            enabled: false,
+        },
+        cpp: {
+            enabled: false,
+        },
+    },
+    versions: [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+    ],
+    owner: "qti",
+}
