@@ -34,11 +34,6 @@ public class DiracSound extends AudioEffect {
         super(EFFECT_TYPE_NULL, EFFECT_TYPE_DIRACSOUND, priority, audioSession);
     }
 
-    public void setMusic(int enable) throws IllegalStateException,
-            IllegalArgumentException, UnsupportedOperationException {
-        checkStatus(setParameter(DIRACSOUND_PARAM_MUSIC, enable));
-    }
-
     public int getMusic() throws IllegalStateException,
             IllegalArgumentException, UnsupportedOperationException {
         int[] value = new int[1];
@@ -46,9 +41,9 @@ public class DiracSound extends AudioEffect {
         return value[0];
     }
 
-    public void setHeadsetType(int type) throws IllegalStateException,
+    public void setMusic(int enable) throws IllegalStateException,
             IllegalArgumentException, UnsupportedOperationException {
-        checkStatus(setParameter(DIRACSOUND_PARAM_HEADSET_TYPE, type));
+        checkStatus(setParameter(DIRACSOUND_PARAM_MUSIC, enable));
     }
 
     public int getHeadsetType() throws IllegalStateException,
@@ -58,10 +53,9 @@ public class DiracSound extends AudioEffect {
         return value[0];
     }
 
-    public void setLevel(int band, float level) throws IllegalStateException,
+    public void setHeadsetType(int type) throws IllegalStateException,
             IllegalArgumentException, UnsupportedOperationException {
-        checkStatus(setParameter(new int[]{DIRACSOUND_PARAM_EQ_LEVEL, band},
-                String.valueOf(level).getBytes()));
+        checkStatus(setParameter(DIRACSOUND_PARAM_HEADSET_TYPE, type));
     }
 
     public float getLevel(int band) throws IllegalStateException,
@@ -72,5 +66,11 @@ public class DiracSound extends AudioEffect {
         param[1] = band;
         checkStatus(getParameter(param, value));
         return new Float(new String(value)).floatValue();
+    }
+
+    public void setLevel(int band, float level) throws IllegalStateException,
+            IllegalArgumentException, UnsupportedOperationException {
+        checkStatus(setParameter(new int[]{DIRACSOUND_PARAM_EQ_LEVEL, band},
+                String.valueOf(level).getBytes()));
     }
 }

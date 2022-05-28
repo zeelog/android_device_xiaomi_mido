@@ -31,9 +31,17 @@ import java.util.List;
 public final class DiracUtils {
 
     protected DiracSound mDiracSound;
+    private static DiracUtils mInstance;
     private MediaSessionManager mMediaSessionManager;
     private Handler mHandler = new Handler();
     private Context mContext;
+
+    public static DiracUtils getInstance() {
+        if (mInstance == null) {
+            throw new IllegalArgumentException("Trying to get instance without initializing!");
+        }
+        return mInstance;
+    }
 
     public DiracUtils(final Context context) {
         mContext = context;
@@ -41,10 +49,27 @@ public final class DiracUtils {
         mDiracSound = new DiracSound(0, 0);
     }
 
-    public void onBootCompleted(){
+    public void onBootCompleted() {
         setEnabled(mDiracSound.getMusic() == 1);
         mDiracSound.setHeadsetType(mDiracSound.getHeadsetType());
         setLevel(getLevel());
+        mInstance = this;
+    }
+
+    protected void refreshPlaybackIfNecessary(){
+        if (mMediaSessionManager == null) {
+            mMediaSessionManager = (MediaSessionManager) mContext.getSystemService(Context.MEDIA_SESSION_SERVICE);
+        }
+        final List<MediaController> sessions
+                = mMediaSessionManager.getActiveSessionsForUser(
+                null, UserHandle.ALL);
+        for (MediaController aController : sessions) {
+            if (PlaybackState.STATE_PLAYING ==
+                    getMediaControllerPlaybackState(aController)) {
+                triggerPlayPause(aController);
+                break;
+            }
+        }
     }
 
     private void triggerPlayPause(MediaController controller) {
@@ -91,10 +116,13 @@ public final class DiracUtils {
     protected void setEnabled(boolean enable) {
         mDiracSound.setEnabled(enable);
         mDiracSound.setMusic(enable ? 1 : 0);
+        if (enable) {
+            refreshPlaybackIfNecessary();
+        }
     }
 
     protected boolean isDiracEnabled() {
-        return mDiracSound != null && mDiracSound.getMusic() == 1;
+        return mDiracSound.getMusic() == 1;
     }
 
     protected void setLevel(String preset) {
