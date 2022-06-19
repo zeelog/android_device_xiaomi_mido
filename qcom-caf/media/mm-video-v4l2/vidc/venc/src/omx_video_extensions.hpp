@@ -25,7 +25,44 @@ BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Changes from Qualcomm Innovation Center are provided under the following license:
+
+Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted (subject to the limitations in the
+disclaimer below) provided that the following conditions are met:
+
+   * Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+
+   * Redistributions in binary form must reproduce the above
+     copyright notice, this list of conditions and the following
+     disclaimer in the documentation and/or other materials provided
+     with the distribution.
+
+   * Neither the name of Qualcomm Innovation Center, Inc. nor the names of its
+     contributors may be used to endorse or promote products derived
+     from this software without specific prior written permission.
+
+NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
+GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------*/
+
+const char* BITRATE_RATIO_VALUES_KEY[] = {"bitrateRatio0", "bitrateRatio1", "bitrateRatio2",
+    "bitrateRatio3", "bitrateRatio4", "bitrateRatio5", "bitrateRatio6", "bitrateRatio7"};
 
 void omx_video::init_vendor_extensions(VendorExtensionStore &store) {
 
@@ -95,6 +132,27 @@ void omx_video::init_vendor_extensions(VendorExtensionStore &store) {
     ADD_EXTENSION("qti-ext-enc-base-layer-pid", OMX_QcomIndexConfigBaseLayerId, OMX_DirInput)
     ADD_PARAM_END("value", OMX_AndroidVendorValueInt32)
 
+    ADD_EXTENSION("qti-ext-enc-bitrate-mode", OMX_IndexParamVideoBitrate, OMX_DirOutput)
+    ADD_PARAM_END("value", OMX_AndroidVendorValueInt32)
+
+    ADD_EXTENSION("qti-ext-enc-bitrate-ratio", OMX_QcomIndexParamBitrateRatio, OMX_DirInput)
+    ADD_PARAM    ("pattern", OMX_AndroidVendorValueInt32)
+    ADD_PARAM    ("supportedPatterns", OMX_AndroidVendorValueInt32)
+    ADD_PARAM    ("layerCountMax", OMX_AndroidVendorValueInt32)
+    ADD_PARAM    ("BLayerCountMax", OMX_AndroidVendorValueInt32)
+    ADD_PARAM    ("PLayerCountActual", OMX_AndroidVendorValueInt32)
+    ADD_PARAM    ("BLayerCountActual", OMX_AndroidVendorValueInt32)
+    ADD_PARAM    ("portIndex", OMX_AndroidVendorValueInt32)
+    // Based on OMX_VIDEO_ANDROID_MAXTEMPORALLAYERS
+    ADD_PARAM(BITRATE_RATIO_VALUES_KEY[0], OMX_AndroidVendorValueInt32)
+    ADD_PARAM(BITRATE_RATIO_VALUES_KEY[1], OMX_AndroidVendorValueInt32)
+    ADD_PARAM(BITRATE_RATIO_VALUES_KEY[2], OMX_AndroidVendorValueInt32)
+    ADD_PARAM(BITRATE_RATIO_VALUES_KEY[3], OMX_AndroidVendorValueInt32)
+    ADD_PARAM(BITRATE_RATIO_VALUES_KEY[4], OMX_AndroidVendorValueInt32)
+    ADD_PARAM(BITRATE_RATIO_VALUES_KEY[5], OMX_AndroidVendorValueInt32)
+    ADD_PARAM(BITRATE_RATIO_VALUES_KEY[6], OMX_AndroidVendorValueInt32)
+    ADD_PARAM(BITRATE_RATIO_VALUES_KEY[7], OMX_AndroidVendorValueInt32)
+    ADD_PARAM_END    ("bitrateRatiosSpecified", OMX_AndroidVendorValueInt32)
 }
 
 OMX_ERRORTYPE omx_video::get_vendor_extension_config(
@@ -246,6 +304,29 @@ OMX_ERRORTYPE omx_video::get_vendor_extension_config(
         case OMX_QcomIndexConfigBaseLayerId:
         {
             setStatus &= vExt.setParamInt32(ext, "value", m_sBaseLayerID.nPID);
+            break;
+        }
+        case OMX_IndexParamVideoBitrate:
+        {
+            setStatus &= vExt.setParamInt32(ext, "value", m_sParamBitrate.eControlRate);
+            break;
+        }
+        case OMX_QcomIndexParamBitrateRatio:
+        {
+            setStatus &= vExt.setParamInt32(ext, "pattern", m_sParamTemporalLayers.ePattern);
+            setStatus &= vExt.setParamInt32(ext, "supportedPatterns", m_sParamTemporalLayers.eSupportedPatterns);
+            setStatus &= vExt.setParamInt32(ext, "layerCountMax", m_sParamTemporalLayers.nLayerCountMax);
+            setStatus &= vExt.setParamInt32(ext, "BLayerCountMax", m_sParamTemporalLayers.nBLayerCountMax);
+            setStatus &= vExt.setParamInt32(ext, "PLayerCountActual", m_sParamTemporalLayers.nPLayerCountActual);
+            setStatus &= vExt.setParamInt32(ext, "BLayerCountActual", m_sParamTemporalLayers.nBLayerCountActual);
+            setStatus &= vExt.setParamInt32(ext, "portIndex", m_sParamTemporalLayers.nPortIndex);
+            setStatus &= vExt.setParamInt32(ext, "bitrateRatiosSpecified", m_sParamTemporalLayers.bBitrateRatiosSpecified);
+
+            for (int cnt = 0; cnt < OMX_VIDEO_ANDROID_MAXTEMPORALLAYERS; cnt++)
+            {
+                setStatus &= vExt.setParamInt32(ext, BITRATE_RATIO_VALUES_KEY[cnt], m_sParamTemporalLayers.nBitrateRatios[cnt]);
+            }
+
             break;
         }
         default:
@@ -580,6 +661,57 @@ OMX_ERRORTYPE omx_video::set_vendor_extension_config(
         case OMX_QTIIndexParamCapabilitiesMaxTemporalLayers:
         {
              break;
+        }
+        case OMX_IndexParamVideoBitrate:
+        {
+            OMX_VIDEO_PARAM_BITRATETYPE bitRateParam;
+            memcpy(&bitRateParam, &m_sParamBitrate, sizeof(OMX_VIDEO_PARAM_BITRATETYPE));
+            valueSet |= vExt.readParamInt32(ext, "value", (OMX_S32 *)&(bitRateParam.eControlRate));
+            if (!valueSet) {
+                break;
+            }
+            DEBUG_PRINT_HIGH("VENDOR-EXT: set_param: ControlRate = %d",
+                                bitRateParam.eControlRate);
+            err = set_parameter(
+                   NULL, (OMX_INDEXTYPE)OMX_IndexParamVideoBitrate, &bitRateParam);
+            if (err != OMX_ErrorNone) {
+                DEBUG_PRINT_ERROR("set_param: OMX_IndexParamVideoBitrate failed !");
+            }
+            break;
+        }
+        case OMX_QcomIndexParamBitrateRatio:
+        {
+            OMX_VIDEO_PARAM_ANDROID_TEMPORALLAYERINGTYPE layerParams;
+            OMX_INIT_STRUCT(&layerParams, OMX_VIDEO_PARAM_ANDROID_TEMPORALLAYERINGTYPE);
+            layerParams.nSize = sizeof(OMX_VIDEO_PARAM_ANDROID_TEMPORALLAYERINGTYPE);
+
+            valueSet |= vExt.readParamInt32(ext, "bitrateRatiosSpecified", (OMX_S32 *)&(layerParams.bBitrateRatiosSpecified));
+            if (!valueSet) {
+                break;
+            }
+
+            vExt.readParamInt32(ext, "pattern",(OMX_S32 *)&(layerParams.ePattern));
+            vExt.readParamInt32(ext, "layerCountMax",(OMX_S32 *)&(layerParams.nLayerCountMax));
+            vExt.readParamInt32(ext, "BLayerCountMax",(OMX_S32 *)&(layerParams.nBLayerCountMax));
+            vExt.readParamInt32(ext, "PLayerCountActual",(OMX_S32 *)&(layerParams.nPLayerCountActual));
+            vExt.readParamInt32(ext, "BLayerCountActual",(OMX_S32 *)&(layerParams.nBLayerCountActual));
+            vExt.readParamInt32(ext, "portIndex",(OMX_S32 *)&(layerParams.nPortIndex));
+
+            for (int cnt = 0; cnt < OMX_VIDEO_ANDROID_MAXTEMPORALLAYERS; cnt++)
+            {
+                OMX_S32 ratio = 0;
+                vExt.readParamInt32(ext, BITRATE_RATIO_VALUES_KEY[cnt],(OMX_S32 *)&(ratio));
+                if (ratio > 0){
+                    layerParams.nBitrateRatios[cnt] = (OMX_U32)ratio;
+                }
+            }
+
+            err = set_parameter(
+                    NULL, (OMX_INDEXTYPE)OMX_IndexParamAndroidVideoTemporalLayering, &layerParams);
+            if (err != OMX_ErrorNone) {
+                DEBUG_PRINT_ERROR("set_param: OMX_IndexParamAndroidVideoTemporalLayering failed !");
+            }
+            break;
         }
         default:
         {

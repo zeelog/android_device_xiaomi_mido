@@ -6491,7 +6491,7 @@ bool venc_dev::venc_set_ltrmode(OMX_U32 enable, OMX_U32 count)
     struct v4l2_ext_controls controls;
     int rc;
 
-    if (!venc_validate_hybridhp_params(0, 0, count, 0)) {
+    if (enable && temporal_layers_config.hier_mode == HIER_P_HYBRID) {
         DEBUG_PRINT_ERROR("Invalid settings, LTR enabled with HybridHP");
         return false;
     }
