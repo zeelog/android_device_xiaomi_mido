@@ -64,8 +64,8 @@
     <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Dirac звук</string>
     <!-- Torch -->
-    <string name="torch_title">Сенсорна панель</string>
-    <string name="torch_summary">Максимальна яскравість жовтого/білого світлодіода</string>
-    <string name="yellow_torch_brightness_title">Максимальна яскравість жовтого світлодіода</string>
-    <string name="white_torch_brightness_title">Максимальна яскравість білого світлодіода</string>
+    <string name="torch_title">Ліхтарик</string>
+    <string name="torch_summary">Яскравість жовтого/білого світлодіода</string>
+    <string name="yellow_torch_brightness_title">Яскравість жовтого світлодіода</string>
+    <string name="white_torch_brightness_title">Яскравість білого світлодіода</string>
 </resources>
