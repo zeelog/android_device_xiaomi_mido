@@ -64,8 +64,8 @@
      <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Dirac звук</string>
     <!-- Torch -->
-    <string name="torch_title">Сенсорная панель</string>
-    <string name="torch_summary">Максимальная яркость белого/желтого светодиода</string>
-    <string name="yellow_torch_brightness_title">Максимальная яркость желтого светодиода</string>
-    <string name="white_torch_brightness_title">Максимальная яркость белого светодиода</string>
+    <string name="torch_title">Фонарик</string>
+    <string name="torch_summary">Яркость белого/желтого светодиода</string>
+    <string name="yellow_torch_brightness_title">Яркость желтого светодиода</string>
+    <string name="white_torch_brightness_title">Яркость белого светодиода</string>
 </resources>
