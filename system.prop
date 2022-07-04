@@ -26,7 +26,7 @@ ro.charger.disable_init_blank=true
 ro.charger.enable_suspend=true
 
 # Console
-persist.console.silent.config=1
+persist.vendor.console.silent.config=1
 
 # Data
 ro.vendor.use_data_netmgrd=true
