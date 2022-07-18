@@ -17,8 +17,10 @@
 
 package org.lineageos.settings.preferences;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 
 public final class FileUtils {
@@ -74,6 +76,36 @@ public final class FileUtils {
             try {
                 FileOutputStream fos = new FileOutputStream(new File(path));
                 fos.write(value.getBytes());
+                fos.flush();
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    static String getValue(String filename) {
+        if (filename == null) {
+            return null;
+        }
+        String line;
+        try (BufferedReader br = new BufferedReader(new FileReader(filename), 1024)) {
+            line = br.readLine();
+        } catch (IOException e) {
+            return null;
+        }
+        // ignore
+        return line;
+    }
+
+    public static void setValue(String path, Boolean value) {
+        if (fileWritable(path)) {
+            if (path == null) {
+                return;
+            }
+            try {
+                FileOutputStream fos = new FileOutputStream(new File(path));
+                fos.write((value ? "1" : "0").getBytes());
                 fos.flush();
                 fos.close();
             } catch (IOException e) {

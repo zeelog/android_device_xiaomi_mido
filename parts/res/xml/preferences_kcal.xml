@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2018 The Xiaomi-SDM660 Project
+     Copyright (C) 2017-2022 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <org.lineageos.settings.preferences.SecureSettingSwitchPreference
+        android:defaultValue="false"
+        android:key="kcal_enabled"
+        android:title="@string/kcal_disabled" />
+
+    <org.lineageos.settings.preferences.SecureSettingSwitchPreference
+        android:defaultValue="false"
+        android:dependency="kcal_enabled"
+        android:key="set_on_boot"
+        android:title="@string/set_on_boot" />
+
+    <PreferenceCategory
+        android:key="cat_colormanagement"
+        android:title="@string/cat_colormanagement">
+
+        <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="255"
+            android:dependency="kcal_enabled"
+            android:key="color_red"
+            android:max="255"
+            android:title="@string/color_red" />
+
+        <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="255"
+            android:dependency="kcal_enabled"
+            android:key="color_green"
+            android:max="255"
+            android:title="@string/color_green" />
+
+        <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="255"
+            android:dependency="kcal_enabled"
+            android:key="color_blue"
+            android:max="255"
+            android:title="@string/color_blue" />
+
+        <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="35"
+            android:dependency="kcal_enabled"
+            android:key="color_minimum"
+            android:max="255"
+            android:title="@string/color_minimum" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="cat_calibration"
+        android:title="@string/cat_calibration">
+
+        <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="35"
+            android:dependency="kcal_enabled"
+            android:key="saturation"
+            android:max="158"
+            android:title="@string/saturation" />
+
+        <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="127"
+            android:dependency="kcal_enabled"
+            android:key="value"
+            android:max="255"
+            android:title="@string/value" />
+
+        <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="127"
+            android:dependency="kcal_enabled"
+            android:key="contrast"
+            android:max="255"
+            android:title="@string/contrast" />
+
+        <org.lineageos.settings.preferences.SecureSettingCustomSeekBarPreference
+            android:defaultValue="0"
+            android:dependency="kcal_enabled"
+            android:key="hue"
+            android:max="1536"
+            android:title="@string/hue" />
+
+        <org.lineageos.settings.preferences.SecureSettingSwitchPreference
+            android:defaultValue="false"
+            android:dependency="kcal_enabled"
+            android:key="grayscale"
+            android:title="@string/grayscale" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
