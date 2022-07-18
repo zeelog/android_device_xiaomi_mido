@@ -56,4 +56,22 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+    <!-- KCAL -->
+    <string name="presets_dialog_title">Seleccionar preajuste</string>
+    <string name="advanced_settings_kcal">Calibración de color de pantalla</string>
+    <string name="cat_colormanagement">Configuración de color</string>
+    <string name="cat_calibration">Calibración de pantalla</string>
+    <string name="kcal_enabled">Activado</string>
+    <string name="kcal_disabled">Desactivado</string>
+    <string name="set_on_boot">Establecer en el arranque</string>
+    <string name="color_red">Rojo</string>
+    <string name="color_green">Verde</string>
+    <string name="color_blue">Azul</string>
+    <string name="color_minimum">Mínimo</string>
+    <string name="saturation">Saturación</string>
+    <string name="value">Valor</string>
+    <string name="contrast">Contraste</string>
+    <string name="tone">Tono</string>
+    <string name="grayscale">Pantalla en escala de grises</string>
+    <string name="kcal_reset">Restablecer</string>
 </resources>

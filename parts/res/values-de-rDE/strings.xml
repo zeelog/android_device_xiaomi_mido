@@ -56,4 +56,22 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+    <!-- kcal -->
+    <string name="presets_dialog_title">Voreinstellung auswählen</string>
+    <string name="advanced_settings_kcal">Farbkalibrierung anzeigen</string>
+    <string name="cat_colormanagement">Farbeinstellungen</string>
+    <string name="cat_calibration">Display-Kalibrierung</string>
+    <string name="kcal_enabled">Ein</string>
+    <string name="kcal_disabled">Aus</string>
+    <string name="set_on_boot">Beim Booten setzen</string>
+    <string name="color_red">Rot</string>
+    <string name="color_green">Grün</string>
+    <string name="color_blue">Blau</string>
+    <string name="color_minimum">Minimum</string>
+    <string name="saturation">Sättigung</string>
+    <string name="value">Wert</string>
+    <string name="contrast">Kontrast</string>
+    <string name="hue">Farbton</string>
+    <string name="grayscale">Graustufenanzeige</string>
+    <string name="kcal_reset">Zurücksetzen</string>
 </resources>

@@ -56,4 +56,23 @@
     <string name="dirac_preset_country">الريف</string>
     <string name="dirac_preset_dance">رقص</string>
     <string name="dirac_preset_metal">معدن</string>
+
+     <string name="advanced_settings_kcal"> معايرة ألوان العرض </string>
+     <string name="cat_colormanagement"> إعدادات اللون </string>
+     <string name="cat_calibration"> معايرة العرض </string>
+
+     <string name="kcal_enabled"> تشغيل </string>
+     <string name="kcal_disabled"> متوقف </string>
+     <string name="set_on_boot"> تعيين عند التمهيد </string>
+     <string name="color_red"> أحمر </string>
+     <string name="color_green"> أخضر </string>
+     <string name="color_blue"> أزرق </string>
+     <string name="color_minimum"> الحد الأدنى </string>
+     <string name="saturation"> التشبع </string>
+     <string name="value"> القيمة </string>
+     <string name="contrast"> المقابل> </string>
+     <string name="hue"> Hue </string>
+     <string name="grayscale"> عرض تدرج الرمادي </string>
+
+     <string name="kcal_reset"> إعادة تعيين </string>
 </resources>

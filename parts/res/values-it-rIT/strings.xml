@@ -72,4 +72,22 @@
     <string name="torch_summary">Controllo luminosità giallo/bianco della torcia</string>
     <string name="yellow_torch_brightness_title">Impostazioni di luminosità della torcia gialla</string>
     <string name="white_torch_brightness_title">Impostazioni di luminosità della torcia bianca</string>
+    <!-- kcal -->
+    <string name="presets_dialog_title">Seleziona predefinito</string>
+    <string name="advanced_settings_kcal">Visualizza calibrazione colore</string>
+    <string name="cat_colormanagement">Impostazioni colore</string>
+    <string name="cat_calibration">Visualizza calibrazione</string>
+    <string name="kcal_enabled">Attivo</string>
+    <string name="kcal_disabled">Disattiva</string>
+    <string name="set_on_boot">Imposta all\'avvio</string>
+    <string name="color_red">Rosso</string>
+    <string name="color_green">Verde</string>
+    <string name="color_blue">Blu</string>
+    <string name="color_minimum">Minimo</string>
+    <string name="saturation">Saturazione</string>
+    <string name="value">Valore</string>
+    <string name="contrast">Contrasto</string>
+    <string name="hue">Tonalità</string>
+    <string name="grayscale">Visualizzazione in scala di grigi</string>
+    <string name="kcal_reset">Ripristina</string>
 </resources>

@@ -68,4 +68,22 @@
     <string name="torch_summary">Яркость белого/желтого светодиода</string>
     <string name="yellow_torch_brightness_title">Яркость желтого светодиода</string>
     <string name="white_torch_brightness_title">Яркость белого светодиода</string>
+    <!-- kcal -->
+    <string name="presets_dialog_title">Выбрать предустановку</string>
+    <string name="advanced_settings_kcal">Калибровка цвета дисплея</string>
+    <string name="cat_colormanagement">Настройки цвета</string>
+    <string name="cat_dication">Калибровка дисплея</string>
+    <string name="kcal_enabled">Вкл</string>
+    <string name="kcal_disabled">Выкл</string>
+    <string name="set_on_boot">Установить при загрузке</string>
+    <string name="color_red">Красный</string>
+    <string name="color_green">Зеленый</string>
+    <string name="color_blue">Синий</string>
+    <string name="color_minimum">Минимум</string>
+    <string name="saturation">Насыщенность</string>
+    <string name="value">Значение</string>
+    <string name="contrast">Контраст</string>
+    <string name="hue">Оттенок</string>
+    <string name="grayscale">Отображение в оттенках серого</string>
+    <string name="kcal_reset">Сброс</string>
 </resources>
