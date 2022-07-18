@@ -1,4 +1,0 @@
-service vendor.livedisplay-hal-2-0-sdm /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service.xiaomi_mido
-    class late_start
-    user system
-    group system
