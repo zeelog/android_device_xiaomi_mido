@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient display-->
+    <string name="ambient_enable">Ambient megjelenítés használata</string>
+
+    <!-- Audio amplification -->
+    <string name="audio_title">Hangerősítés</string>
+    <string name="audio_summary">Hangvezérlési beállítások</string>
+    <string name="headphone_gain">Fejhallgató-erősítés</string>
+    <string name="microphone_gain">Mikrofonerősítés</string>
+    <string name="speaker_gain">Hangszóró erősítése</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Érték: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Alapértelmezett</string>
+    <string name="custom_seekbar_default_value_to_set">Alapértelmezett érték: <xliff:g id="v">%s</xliff:g>\nHosszú lenyomás a beállításhoz</string>
+    <string name="custom_seekbar_default_value_is_set">Az alapértelmezett érték beállítva</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Mi Hangjavítás</string>
     <string name="dirac_summary">Hangminőség optimalizálása</string>
@@ -56,11 +72,7 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metál</string>
-    <!-- Torch -->
-    <string name="torch_title">Zseblámpa</string>
-    <string name="torch_summary">A sárga/fehér LED maximális fényerejének beállítása</string>
-    <string name="yellow_torch_brightness_title">Sárga LED maximális fényerő</string>
-    <string name="white_torch_brightness_title">A fehér LED maximális fényerejének beállítása</string>
+
     <!-- kcal -->
     <string name="presets_dialog_title">Válassza ki az Előbeállítás</string>
     <string name="advanced_settings_kcal">Kijelző színkalibrálása</string>
@@ -79,4 +91,13 @@
     <string name="hue">Színárnyalat</string>
     <string name="grayscale">Szürkeárnyalatos kijelző</string>
     <string name="kcal_reset">Visszaállítás</string>
+
+    <!-- QS tile -->
+    <string name="dirac_qs_tile_title">Dirac hang</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Zseblámpa</string>
+    <string name="torch_summary">A sárga/fehér LED maximális fényerejének beállítása</string>
+    <string name="yellow_torch_brightness_title">Sárga LED maximális fényerő</string>
+    <string name="white_torch_brightness_title">A fehér LED maximális fényerejének beállítása</string>
 </resources>

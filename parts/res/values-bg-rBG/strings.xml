@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Използване на околен дисплей</string>
+
+    <!-- Аudio amplification -->
+    <string name="audio_title">Аудио усилване</string>
+    <string name="audio_summary">Настройки за управление на звука</string>
+    <string name="headphone_gain">Усилване на слушалки</string>
+    <string name="microphone_gain">Усилване на микрофона</string>
+    <string name="speaker_gain">Усилване на високоговорителя</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Стойност: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">По подразбиране</string>
+    <string name="custom_seekbar_default_value_to_set">Стойност по подразбиране: <xliff:g id="v">%s</xliff:g>\nНатиснете продължително, за да зададете</string>
+    <string name="custom_seekbar_default_value_is_set">Стойността по подразбиране е зададена</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Използване на MiSound enhancer</string>
     <string name="dirac_summary">Оптимизиране качеството на звука</string>
@@ -56,6 +72,7 @@
     <string name="dirac_preset_country">Кънтри</string>
     <string name="dirac_preset_dance">Танцувална</string>
     <string name="dirac_preset_metal">Метъл</string>
+
     <!-- KCAL -->
     <string name="presets_dialog_title">Изберете предварително зададено</string>
     <string name="advanced_settings_kcal">Калибриране на цвета на дисплея</string>
@@ -74,4 +91,13 @@
     <string name="hue">Нюанс</string>
     <string name="grayscale">Дисплей в скала на сивото</string>
     <string name="kcal_reset">Нулиране</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Звук на Дирак</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Настройки на фенерчето</string>
+    <string name="torch_summary">Контрол за бяло/жълто фенерче</string>
+    <string name="yellow_torch_brightness_title">Яркост на жълтата факла</string>
+    <string name="white_torch_brightness_title">Яркост на бялата факла</string>
 </resources>

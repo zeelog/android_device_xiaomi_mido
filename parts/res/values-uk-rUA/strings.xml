@@ -16,11 +16,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Використовувати зовнішній дисплей</string>
+
+    <!--Audio Amplification -->
+    <string name="audio_title">Посилення звуку</string>
+    <string name="audio_summary">Налаштування керування звуком</string>
+    <string name="headphone_gain">Посилення навушників</string>
+    <string name="microphone_gain">Посилення мікрофона</string>
+    <string name="speaker_gain">Посилення динаміка</string>
+
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Значення: <xliff:g id="v">%s</xliff:g></string>
     <string name="custom_seekbar_default_value">за замовчуванням</string>
     <string name="custom_seekbar_default_value_to_set">Значення за замовчуванням: <xliff:g id="v">%s</xliff:g>\nДовгий тап для встановлення</string>
     <string name="custom_seekbar_default_value_is_set">Значення за замовчуванням встановлено</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Покращення звуку \"Мі Sound\"</string>
     <string name="dirac_summary">Поліпшити якість звуку</string>
@@ -61,18 +72,19 @@
     <string name="dirac_preset_country">Кантрі</string>
     <string name="dirac_preset_dance">Танцювальна</string>
     <string name="dirac_preset_metal">Метал</string>
-    <!-- QS tile title -->
-    <string name="dirac_qs_tile_title">Dirac звук</string>
-    <!-- Torch -->
-    <string name="torch_title">Ліхтарик</string>
-    <string name="torch_summary">Яскравість жовтого/білого світлодіода</string>
-    <string name="yellow_torch_brightness_title">Яскравість жовтого світлодіода</string>
-    <string name="white_torch_brightness_title">Яскравість білого світлодіода</string>
+    <string name="dirac_preset_bass_booster">Підсилення басів</string>
+    <string name="dirac_preset_live">Наживо</string>
+    <string name="dirac_preset_balanced">Збалансована</string>
+    <string name="dirac_preset_bass_reduction">Зниження басу</string>
+    <string name="dirac_preset_treble_reduction">Знизити високі частоти</string>
+    <string name="dirac_preset_soft_bass">М\'який бас</string>
+    <string name="dirac_preset_soft_treble">М\'які частоти</string>
+
     <!-- kcal -->
-    <string name="presets_dialog_title">Виберіть стиль</string>
     <string name="advanced_settings_kcal">Калібрування кольору дисплея</string>
     <string name="cat_colormanagement">Налаштування кольору</string>
     <string name="cat_calibration">Калібрування дисплея</string>
+
     <string name="kcal_enabled">Увімкнено</string>
     <string name="kcal_disabled">Вимкнено</string>
     <string name="set_on_boot">Установити під час завантаження</string>
@@ -85,5 +97,47 @@
     <string name="contrast">Контраст</string>
     <string name="hue">Відтінок</string>
     <string name="grayscale">Відтінки сірого дисплея</string>
+
+    <!-- kcal menu -->
+    <string name="kcal_presets">@string/presets_dialog_title</string>
     <string name="kcal_reset">Скинути</string>
+
+    <!-- kcal presets -->
+    <string name="presets_dialog_title">Виберіть стиль</string>
+    <string name="preset_default">За умовчанням</string>
+    <string name="preset_version_1">Версія 1</string>
+    <string name="preset_version_2">Версія 2</string>
+    <string name="preset_version_3">Версія 3</string>
+    <string name="preset_triluminous">Трисвітовий</string>
+    <string name="preset_deep_black_white">Глибокий чорно-білий</string>
+    <string name="preset_deep_natural">Глибокий природний</string>
+    <string name="preset_cool_amoled">Cool Amoled</string>
+    <string name="preset_extreme_amoled">Extreme Amoled</string>
+    <string name="preset_warm_amoled">Теплий Amoled</string>
+    <string name="preset_hybrid_mamba">Гібридна Мамба</string>
+    <string name="preset_burn_in">Записати</string>
+    <string name="preset_retention">Виправлення збереження</string>
+    <string name="preset_gerard_extrem_cool">Gerard Extreme Cool</string>
+    <string name="preset_yoyoz808">Yoyoz808</string>
+    <string name="preset_purian">Пуріан</string>
+    <string name="preset_deep_black_colorful">Deep Black Colorful</string>
+    <string name="preset_vomer_deep_rich">Vomer Deep Rich</string>
+    <string name="preset_franco">Франко</string>
+    <string name="preset_wrinklefree_cool">WrinkleFree Cool</string>
+    <string name="preset_harley_tech">Harley-Tech</string>
+    <string name="preset_perfection">Досконалість</string>
+    <string name="preset_banged_up">Вдарили</string>
+    <string name="preset_sim_cooler">SimCooler</string>
+    <string name="preset_obsanity">Небажаність</string>
+    <string name="preset_obsanity_ips">Obsanity IPS</string>
+    <string name="preset_sir_banger">Сер Бенгер</string>
+
+    <!-- QS tile title -->
+    <string name="dirac_qs_tile_title">Dirac звук</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Ліхтарик</string>
+    <string name="torch_summary">Яскравість жовтого/білого світлодіода</string>
+    <string name="yellow_torch_brightness_title">Яскравість жовтого світлодіода</string>
+    <string name="white_torch_brightness_title">Яскравість білого світлодіода</string>
 </resources>

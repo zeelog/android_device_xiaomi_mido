@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient display -->
+    <string name="ambient_enable">Koristi ambijentalni zaslon</string>
+
+    <!-- Audio amplification -->
+    <string name="audio_title">Audio pojačanje</string>
+    <string name="audio_summary">Postavke kontrole zvuka</string>
+    <string name="headphone_gain">Jačanje slušalica</string>
+    <string name="microphone_gain">Pojačanje mikrofona</string>
+    <string name="speaker_gain">Jačanje zvučnika</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Vrijednost: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Zadano</string>
+    <string name="custom_seekbar_default_value_to_set">Zadana vrijednost: <xliff:g id="v">%s</xliff:g>\nDugi pritisak za postavljanje</string>
+    <string name="custom_seekbar_default_value_is_set">Zadana vrijednost je postavljena</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Mi Sound Enhancer</string>
     <string name="dirac_summary">Optimiziranje kvalitete zvuka</string>
@@ -56,6 +72,7 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+
     <!-- kcal -->
     <string name="presets_dialog_title">Odaberi unaprijed postavljeno</string>
     <string name="advanced_settings_kcal">Kalibracija boja zaslona</string>
@@ -74,4 +91,13 @@
     <string name="hue">Nijansa</string>
     <string name="grayscale">Zaslon u sivim tonovima</string>
     <string name="kcal_reset">Poništi</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Dirac zvuk</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Postavke svjetiljke</string>
+    <string name="torch_summary">Bjelo/žuta kontrola svjetiljke</string>
+    <string name="yellow_torch_brightness_title">Svjetlina žute baklje</string>
+    <string name="white_torch_brightness_title">Svjetlina bijele baklje</string>
 </resources>

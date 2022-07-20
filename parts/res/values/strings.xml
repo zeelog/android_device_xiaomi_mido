@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Ambient settings -->
-    <string name="ambient_enable">Use ambient display</string>
+    <string name="ambient_enable">Use Ambient Display</string>
 
     <!-- Audio amplification -->
     <string name="audio_title">Audio Amplification</string>

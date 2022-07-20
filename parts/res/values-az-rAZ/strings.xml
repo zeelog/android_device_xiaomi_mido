@@ -57,11 +57,11 @@
     <string name="dirac_preset_dance">Rəqs</string>
     <string name="dirac_preset_metal">Metal</string>
 
+    <!-- kcal -->
     <string name="presets_dialog_title">Ön təyinat seçin</string>
     <string name="advanced_settings_kcal">Ekran Rəng Kalibrasiyası</string>
     <string name="cat_colormanagement">Rəng Parametrləri</string>
     <string name="cat_calibration">Ekran Kalibrasiyası</string>
-
     <string name="kcal_enabled">Aktiv</string>
     <string name="kcal_disabled">Deaktiv</string>
     <string name="set_on_boot">Yükləmədə Quraşdır</string>

@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">পরিবেষ্টিত প্রদর্শন ব্যবহার করুন</string>
+
+    <!-- Audio Amplification -->
+    <string name="audio_title">অডিও পরিবর্ধন</string>
+    <string name="audio_summary">শব্দ নিয়ন্ত্রণ সেটিংস</string>
+    <string name="headphone_gain">হেডফোন লাভ</string>
+    <string name="microphone_gain">মাইক্রোফোন লাভ</string>
+    <string name="speaker_gain">স্পীকার লাভ</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">মান: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">ডিফল্ট</string>
+    <string name="custom_seekbar_default_value_to_set">ডিফল্ট মান: <xliff:g id="v">%s</xliff:g>\nসেট করতে দীর্ঘক্ষণ টিপুন</string>
+    <string name="custom_seekbar_default_value_is_set">ডিফল্ট মান সেট করা আছে</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Mi সাউন্ড বিবর্ধক</string>
     <string name="dirac_summary">অডিওয়ের গুণমান অপ্টিমাইজ করুন</string>
@@ -56,4 +72,32 @@
     <string name="dirac_preset_country">কান্ট্রি</string>
     <string name="dirac_preset_dance">নাচ</string>
     <string name="dirac_preset_metal">মেটাল</string>
+
+    <!-- KCAL -->
+    <string name="presets_dialog_title">প্রিসেট নির্বাচন করুন</string>
+    <string name="advanced_settings_kcal">ডিসপ্লে কালার ক্যালিব্রেশন</string>
+    <string name="cat_colormanagement">রঙ সেটিংস</string>
+    <string name="cat_calibration"> প্রদর্শন ক্রমাঙ্কন</string>
+    <string name="kcal_enabled">সক্ষম</string>
+    <string name="kcal_disabled">অক্ষম</string>
+    <string name="set_on_boot">বুটে সেট করুন</string>
+    <string name="color_red">লাল</string>
+    <string name="color_green">সবুজ</string>
+    <string name="color_blue">নীল</string>
+    <string name="color_minimum">সর্বনিম্ন</string>
+    <string name="saturation">স্যাচুরেশন</string>
+    <string name="value">মান</string>
+    <string name="contrast">কন্ট্রাস্ট</string>
+    <string name="hue">হ্যু</string>
+    <string name="grayscale">গ্রেস্কেল প্রদর্শন</string>
+    <string name="kcal_reset">রিসেট করুন</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">ডিরাক সাউন্ড</string>
+
+    <!-- Torch -->
+    <string name="torch_title">টর্চ সেটিংস</string>
+    <string name="torch_summary">সাদা/হলুদ টর্চ নিয়ন্ত্রণ</string>
+    <string name="yellow_torch_brightness_title">হলুদ টর্চের উজ্জ্বলতা</string>
+    <string name="white_torch_brightness_title">সাদা টর্চের উজ্জ্বলতা</string>
 </resources>

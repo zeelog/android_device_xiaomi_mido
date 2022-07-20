@@ -16,17 +16,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Usa la visualizzazione ambientale</string>
+
     <!-- Audio amplification -->
     <string name="audio_title">Amplificazione Audio</string>
     <string name="audio_summary">Impostazioni audio avanzate</string>
     <string name="headphone_gain">Volume delle cuffie</string>
     <string name="microphone_gain">Volume del microfono</string>
     <string name="speaker_gain">Volume dell\'altoparlante</string>
+
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">Valore: <xliff:g id="v">%s</xliff:g></string>
     <string name="custom_seekbar_default_value">Default</string>
     <string name="custom_seekbar_default_value_to_set">Valore di default: <xliff:g id="v">%s</xliff:g>\nPremere a lungo per impostare</string>
     <string name="custom_seekbar_default_value_is_set">Il valore predefinito è impostato</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Ottimizzazione Mi Sound</string>
     <string name="dirac_summary">Ottimizza la qualità audio</string>
@@ -67,16 +72,19 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
-    <!-- Torch -->
-    <string name="torch_title">Impostazioni della torcia</string>
-    <string name="torch_summary">Controllo luminosità giallo/bianco della torcia</string>
-    <string name="yellow_torch_brightness_title">Impostazioni di luminosità della torcia gialla</string>
-    <string name="white_torch_brightness_title">Impostazioni di luminosità della torcia bianca</string>
+    <string name="dirac_preset_bass_booster">Amplificatore dei bassi</string>
+    <string name="dirac_preset_live">Live</string>
+    <string name="dirac_preset_balanced">Bilanciato</string>
+    <string name="dirac_preset_bass_reduction">Riduzione dei bassi</string>
+    <string name="dirac_preset_treble_reduction">Riduzione degli alti</string>
+    <string name="dirac_preset_soft_bass">Bassi morbidi</string>
+    <string name="dirac_preset_soft_treble">Alti tenui</string>
+
     <!-- kcal -->
-    <string name="presets_dialog_title">Seleziona predefinito</string>
     <string name="advanced_settings_kcal">Visualizza calibrazione colore</string>
     <string name="cat_colormanagement">Impostazioni colore</string>
     <string name="cat_calibration">Visualizza calibrazione</string>
+
     <string name="kcal_enabled">Attivo</string>
     <string name="kcal_disabled">Disattiva</string>
     <string name="set_on_boot">Imposta all\'avvio</string>
@@ -89,5 +97,47 @@
     <string name="contrast">Contrasto</string>
     <string name="hue">Tonalità</string>
     <string name="grayscale">Visualizzazione in scala di grigi</string>
+
+    <!-- kcal menu -->
+    <string name="kcal_presets">@string/presets_dialog_title</string>
     <string name="kcal_reset">Ripristina</string>
+
+    <!-- kcal presets -->
+    <string name="presets_dialog_title">Seleziona predefinito</string>
+    <string name="preset_default">Predefinito</string>
+    <string name="preset_version_1">Versione 1</string>
+    <string name="preset_version_2">Versione 2</string>
+    <string name="preset_version_3">Versione 3</string>
+    <string name="preset_triluminous">Triluminoso</string>
+    <string name="preset_deep_black_white">Bianco e nero profondo</string>
+    <string name="preset_deep_natural">Profondo naturale</string>
+    <string name="preset_cool_amoled">Freddo Amoled</string>
+    <string name="preset_extreme_amoled">Extreme Amoled</string>
+    <string name="preset_warm_amoled">Caldo Amoled</string>
+    <string name="preset_hybrid_mamba">Hybrid Mamba</string>
+    <string name="preset_burn_in">Accedi</string>
+    <string name="preset_retention">Correzione di conservazione</string>
+    <string name="preset_gerard_extrem_cool">Gerard Extreme Cool</string>
+    <string name="preset_yoyoz808">Yoyoz808</string>
+    <string name="preset_purian">Purian</string>
+    <string name="preset_deep_black_colorful">Colorato nero intenso</string>
+    <string name="preset_vomer_deep_rich">Vomer Deep Rich</string>
+    <string name="preset_franco">Franco</string>
+    <string name="preset_wrinklefree_cool">WrinkleFree Cool</string>
+    <string name="preset_harley_tech">Harley-Tech</string>
+    <string name="preset_perfection">Perfezione</string>
+    <string name="preset_banged_up">Sbagliato</string>
+    <string name="preset_sim_cooler">SimCooler</string>
+    <string name="preset_obsanity">Obsanity</string>
+    <string name="preset_obsanity_ips">Obsanity IPS</string>
+    <string name="preset_sir_banger">Signore Banger</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Suono Dirac</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Impostazioni della torcia</string>
+    <string name="torch_summary">Controllo luminosità giallo/bianco della torcia</string>
+    <string name="yellow_torch_brightness_title">Impostazioni di luminosità della torcia gialla</string>
+    <string name="white_torch_brightness_title">Impostazioni di luminosità della torcia bianca</string>
 </resources>

@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Выкарыстоўваць навакольнае адлюстраванне</string>
+
+    <!-- Audio Amplification -->
+    <string name="audio_title">Узмацненне гуку</string>
+    <string name="audio_summary">Настройкі кіравання гукам</string>
+    <string name="headphone_gain">Узмацненне навушнікаў</string>
+    <string name="microphone_gain">Узмацненне мікрафона</string>
+    <string name="speaker_gain">Узмацненне дынаміка</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значэнне: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Па змаўчанні</string>
+    <string name="custom_seekbar_default_value_to_set">Значэнне па змаўчанні: <xliff:g id="v">%s</xliff:g>\nДоўгае націсканне, каб усталяваць</string>
+    <string name="custom_seekbar_default_value_is_set">Значэнне па змаўчанні ўстаноўлена</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Паляпшэнне гуку Mi</string>
     <string name="dirac_summary">Паляпшэнне якасці гуку</string>
@@ -56,6 +72,7 @@
     <string name="dirac_preset_country">Кантры</string>
     <string name="dirac_preset_dance">Танцавальная</string>
     <string name="dirac_preset_metal">Метал</string>
+
     <!-- Kcal -->
     <string name="presets_dialog_title">Выберыце загадзя</string>
     <string name="advanced_settings_kcal">Каліброўка колеру дысплея</string>
@@ -74,4 +91,13 @@
     <string name="hue">Адценне</string>
     <string name="grayscale">Дысплей у адценнях шэрага</string>
     <string name="kcal_reset">Скінуць</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Гук Дырака</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Настройкі факела</string>
+    <string name="torch_summary">Элемент кіравання белым/жоўтым ліхтарыкам</string>
+    <string name="yellow_torch_brightness_title">Яркасць жоўтага факела</string>
+    <string name="white_torch_brightness_title">Яркасць белага факела</string>
 </resources>

@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient display -->
+    <string name="ambient_enable">Utiliser l\'affichage ambiant</string>
+
+    <!-- Audio amplification -->
+    <string name="audio_title">Amplification audio</string>
+    <string name="audio_summary">Paramètres de contrôle du son</string>
+    <string name="headphone_gain">Gain du casque</string>
+    <string name="microphone_gain">Gain du microphone</string>
+    <string name="speaker_gain">Gain du haut-parleur</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Valeur : <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Par défaut</string>
+    <string name="custom_seekbar_default_value_to_set">Valeur par défaut : <xliff:g id="v">%s</xliff:g>\nAppuyez longuement pour définir</string>
+    <string name="custom_seekbar_default_value_is_set">La valeur par défaut est définie</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Amélioration audio Mi</string>
     <string name="dirac_summary">Optimiser la qualité audio</string>
@@ -56,11 +72,14 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Métal</string>
-    <!-- Torch Settings -->
-    <string name="torch_title">Torche</string>
-    <string name="torch_summary">Définir la luminosité maximale de la led jaune/blanche</string>
-    <string name="yellow_torch_brightness_title">Luminosité maximale de la led jaune</string>
-    <string name="white_torch_brightness_title">Luminosité maximale de la led blanche</string>
+    <string name="dirac_preset_bass_booster">Amplificateur de basses</string>
+    <string name="dirac_preset_live">En direct</string>
+    <string name="dirac_preset_balanced">Équilibré</string>
+    <string name="dirac_preset_bass_reduction">Réduction des basses</string>
+    <string name="dirac_preset_treble_reduction">Réduction des aigus</string>
+    <string name="dirac_preset_soft_bass">Basses douces</string>
+    <string name="dirac_preset_soft_treble">Aigus doux</string>
+
     <!-- kcal -->
     <string name="presets_dialog_title">Sélectionner le préréglage</string>
     <string name="advanced_settings_kcal">Étalonnage des couleurs d\'affichage</string>
@@ -79,4 +98,13 @@
     <string name="hue">Teinte</string>
     <string name="grayscale">Affichage en niveaux de gris</string>
     <string name="kcal_reset">Réinitialiser</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Son Dirac</string>
+
+    <!-- Torch Settings -->
+    <string name="torch_title">Torche</string>
+    <string name="torch_summary">Définir la luminosité maximale de la led jaune/blanche</string>
+    <string name="yellow_torch_brightness_title">Luminosité maximale de la led jaune</string>
+    <string name="white_torch_brightness_title">Luminosité maximale de la led blanche</string>
 </resources>

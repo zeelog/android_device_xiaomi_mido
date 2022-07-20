@@ -56,6 +56,14 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_bass_booster">Reforçar graves</string>
+    <string name="dirac_preset_live">Ao Vivo</string>
+    <string name="dirac_preset_balanced">Equilibrado</string>
+    <string name="dirac_preset_bass_reduction">Redução de Graves</string>
+    <string name="dirac_preset_treble_reduction">Redução de Agudos</string>
+    <string name="dirac_preset_soft_bass">Graves (Suave)</string>
+    <string name="dirac_preset_soft_treble">Agudos (Suave)</string>
+
     <!-- kcal -->
     <string name="presets_dialog_title">Selecionar predefinição</string>
     <string name="advanced_settings_kcal">Calibração de cores da tela</string>

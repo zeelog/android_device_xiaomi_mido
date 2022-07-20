@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Sử dụng màn hình xung quanh</string>
+
+    <!-- Audio Amplification -->
+    <string name="audio_title">Khuếch đại âm thanh</string>
+    <string name="audio_summary">Cài đặt điều khiển âm thanh</string>
+    <string name="headphone_gain">Độ lợi của tai nghe</string>
+    <string name="microphone_gain">Độ lợi micrô</string>
+    <string name="speaker_gain">Độ lợi của loa</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Giá trị: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Mặc định</string>
+    <string name="custom_seekbar_default_value_to_set">Giá trị mặc định: <xliff:g id="v">%s</xliff:g>\n Nhấn và giữ để đặt</string>
+    <string name="custom_seekbar_default_value_is_set">Giá trị mặc định được đặt</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Tăng cường Mi Sound</string>
     <string name="dirac_summary">Tối ưu chất lượng âm thanh</string>
@@ -56,29 +72,39 @@
     <string name="dirac_preset_country">Quê hương</string>
     <string name="dirac_preset_dance">Khiêu vũ</string>
     <string name="dirac_preset_metal">Kim loại</string>
+    <string name="dirac_preset_bass_booster">Tăng Bass</string>
+    <string name="dirac_preset_live">Trực tiếp</string>
+    <string name="dirac_preset_balanced">Cân bằng</string>
+    <string name="dirac_preset_bass_reduction">Giảm âm Bass</string>
+    <string name="dirac_preset_treble_reduction">Giảm âm Treble</string>
+    <string name="dirac_preset_soft_bass">Bass nhẹ</string>
+    <string name="dirac_preset_soft_treble">Treble nhẹ</string>
+
+    <!-- kcal -->
+    <string name="presets_dialog_title">Chọn Cài đặt sẵn</string>
+    <string name="advanced_settings_kcal">Hiệu chỉnh màu hiển thị</string>
+    <string name="cat_colormanagement">Cài đặt Màu</string>
+    <string name="cat_calibration">Hiệu chỉnh Hiển thị</string>
+    <string name="kcal_enabled">Bật</string>
+    <string name="kcal_disabled">Tắt</string>
+    <string name="set_on_boot">Đặt khi khởi động</string>
+    <string name="color_red">Đỏ</string>
+    <string name="color_green">Màu xanh lá cây</string>
+    <string name="color_blue">Xanh lam</string>
+    <string name="color_minimum">Tối thiểu</string>
+    <string name="saturation">Độ bão hòa</string>
+    <string name="value">Giá trị</string>
+    <string name="contrast">Độ tương phản</string>
+    <string name="hue">Huế</string>
+    <string name="grayscale">Hiển thị thang độ xám</string>
+    <string name="kcal_reset">Đặt lại</string>
+
     <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Âm thanh Dirac</string>
+
     <!-- Torch -->
     <string name="torch_title">Đèn pin</string>
     <string name="torch_summary">Led trắng với độ sáng tối đa</string>
     <string name="yellow_torch_brightness_title">Xác định độ sáng tối đa của led vàng</string>
     <string name="white_torch_brightness_title">Xác định độ sáng tối đa của led vàng</string>
-    <!-- kcal -->
-    <string name="presets_dialog_title"> Chọn Cài đặt sẵn </string>
-    <string name="advanced_settings_kcal"> Hiệu chỉnh màu hiển thị </string>
-    <string name="cat_colormanagement"> Cài đặt Màu </string>
-    <string name="cat_calibration"> Hiệu chỉnh Hiển thị </string>
-    <string name="kcal_enabled"> Bật </string>
-    <string name="kcal_disabled"> Tắt </string>
-    <string name="set_on_boot"> Đặt khi khởi động </string>
-    <string name="color_red"> Đỏ </string>
-    <string name="color_green"> Màu xanh lá cây </string>
-    <string name="color_blue"> Xanh lam </string>
-    <string name="color_minimum"> Tối thiểu </string>
-    <string name="saturation"> Độ bão hòa </string>
-    <string name="value"> Giá trị </string>
-    <string name="contrast"> Độ tương phản </string>
-    <string name="hue"> Huế </string>
-    <string name="grayscale"> Hiển thị thang độ xám </string>
-    <string name="kcal_reset"> Đặt lại </string>
 </resources>

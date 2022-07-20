@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Použít ambientní displej</string>
+
+    <!-- Audio Amplification -->
+    <string name="audio_title">Zesílení zvuku</string>
+    <string name="audio_summary">Nastavení ovládání zvuku</string>
+    <string name="headphone_gain">Zisk sluchátek</string>
+    <string name="microphone_gain">Zisk mikrofonu</string>
+    <string name="speaker_gain">Zisk reproduktoru</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Hodnota: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Výchozí</string>
+    <string name="custom_seekbar_default_value_to_set">Výchozí hodnota: <xliff:g id="v">%s</xliff:g>\nNastavíte dlouhým stisknutím</string>
+    <string name="custom_seekbar_default_value_is_set">Výchozí hodnota je nastavena</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Vylepšení Mi Sound</string>
     <string name="dirac_summary">Optimalizovat kvalitu zvuku</string>
@@ -56,6 +72,14 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Taneční</string>
     <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_bass_booster">Zvýraznění basů</string>
+    <string name="dirac_preset_live">Živá</string>
+    <string name="dirac_preset_balanced">Vyvážená</string>
+    <string name="dirac_preset_bass_reduction">Potlačení basů</string>
+    <string name="dirac_preset_treble_reduction">Potlačení výšek</string>
+    <string name="dirac_preset_soft_bass">Jemné basy</string>
+    <string name="dirac_preset_soft_treble">Jemné výšky</string>
+
     <!-- kcal -->
     <string name="presets_dialog_title">Vyberte předvolbu</string>
     <string name="advanced_settings_kcal">Kalibrace barev displeje</string>
@@ -74,4 +98,13 @@
     <string name="hue">Odstín</string>
     <string name="grayscale">Zobrazení ve stupních šedi</string>
     <string name="kcal_reset">Resetovat</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Zvuk Dirac</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Nastavení pochodně</string>
+    <string name="torch_summary">Ovládání bílé/žluté baterky</string>
+    <string name="yellow_torch_brightness_title">Jas žluté pochodně</string>
+    <string name="white_torch_brightness_title">Jas bílé pochodně</string>
 </resources>

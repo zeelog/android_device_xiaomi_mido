@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">परिवेश प्रदर्शन का उपयोग करें</string>
+
+    <!-- Audio Amplification-->
+    <string name="audio_title">ऑडियो एम्प्लीफिकेशन</string>
+    <string name="audio_summary">ध्वनि नियंत्रण सेटिंग</string>
+    <string name="headphone_gain">हेडफ़ोन लाभ</string>
+    <string name="microphone_gain">माइक्रोफ़ोन लाभ</string>
+    <string name="speaker_gain">स्पीकर का लाभ</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">मान: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">डिफ़ॉल्ट</string>
+    <string name="custom_seekbar_default_value_to_set">डिफ़ॉल्ट मान: <xliff:g id="v">%s</xliff:g>\nसेट करने के लिए देर तक दबाएं</string>
+    <string name="custom_seekbar_default_value_is_set">डिफ़ॉल्ट मान सेट हो गया है</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Mi ध्वनि एन्हांसर</string>
     <string name="dirac_summary">ऑडियो गुणवत्ता ऑप्टिमाइज़ करें</string>
@@ -56,6 +72,7 @@
     <string name="dirac_preset_country">कंट्री</string>
     <string name="dirac_preset_dance">डांस</string>
     <string name="dirac_preset_metal">मेटल</string>
+
     <!-- kcal -->
     <string name="presets_dialog_title">प्रीसेट चुनें</string>
     <string name="advanced_settings_kcal">रंग कैलिब्रेशन प्रदर्शित करें</string>
@@ -74,4 +91,13 @@
     <string name="hue">ह्यू</string>
     <string name="grayscale">ग्रेस्केल डिस्प्ले</string>
     <string name="kcal_reset">रीसेट करें</string>
+
+    <!-- QS Tile-->
+    <string name="dirac_qs_tile_title">डिराक ध्वनि</string>
+
+    <!-- Torch -->
+    <string name="torch_title">मशाल सेटिंग</string>
+    <string name="torch_summary">फ़्लैशलाइट सफ़ेद/पीला नियंत्रण</string>
+    <string name="yellow_torch_brightness_title">पीली मशाल की चमक</string>
+    <string name="white_torch_brightness_title">सफेद मशाल की चमक</string>
 </resources>

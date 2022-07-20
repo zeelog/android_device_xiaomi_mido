@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Gunakan Tampilan Sekitar</string>
+
+    <!-- Audio amplification -->
+    <string name="audio_title">Amplifikasi Audio</string>
+    <string name="audio_summary">Setelan kontrol suara</string>
+    <string name="headphone_gain">Penguatan headphone</string>
+    <string name="microphone_gain">Penguatan mikrofon</string>
+    <string name="speaker_gain">Penguatan speaker</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Nilai: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Default</string>
+    <string name="custom_seekbar_default_value_to_set">Nilai default: <xliff:g id="v">%s</xliff:g>\nTekan lama untuk menyetel</string>
+    <string name="custom_seekbar_default_value_is_set">Nilai default disetel</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Mi Sound Enhancer</string>
     <string name="dirac_summary">Optimalkan kualitas audio</string>
@@ -56,4 +72,39 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_bass_booster">Penguat Bass</string>
+    <string name="dirac_preset_live">Langsung</string>
+    <string name="dirac_preset_balanced">Seimbang</string>
+    <string name="dirac_preset_bass_reduction">Pengurangan Bass</string>
+    <string name="dirac_preset_treble_reduction">Pengurangan Treble</string>
+    <string name="dirac_preset_soft_bass">Bass Lembut</string>
+    <string name="dirac_preset_soft_treble">Treble Lembut</string>
+
+    <!-- kkal -->
+    <string name="advanced_settings_kcal">Kalibrasi Warna Tampilan</string>
+    <string name="cat_colormanagement">Setelan Warna</string>
+    <string name="cat_calibration">Kalibrasi Tampilan</string>
+    <string name="kcal_enabled">Aktif</string>
+    <string name="kcal_disabled">Nonaktif</string>
+    <string name="set_on_boot">Setel Saat Boot</string>
+    <string name="color_red">Merah</string>
+    <string name="color_green">Hijau</string>
+    <string name="color_blue">Biru</string>
+    <string name="color_minimum">Minimum</string>
+    <string name="saturation">Saturasi</string>
+    <string name="value">Nilai</string>
+    <string name="contrast">Kontras</string>
+    <string name="hue">Hue</string>
+    <string name="grayscale">Tampilan Skala Abu-abu</string>
+    <string name="kcal_presets">@string/presets_dialog_title</string>
+    <string name="kcal_reset">Setel ulang</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Suara dirac</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Setelan Obor</string>
+    <string name="torch_summary">Kontrol senter putih/kuning</string>
+    <string name="yellow_torch_brightness_title">Kecerahan Obor Kuning</string>
+    <string name="white_torch_brightness_title">Kecerahan Obor Putih</string>
 </resources>

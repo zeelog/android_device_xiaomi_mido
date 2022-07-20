@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+     <string name="ambient_enable">Usar exibição ambiente</string>
+
+     <!-- Audio Amplication -->
+     <string name="audio_title">Amplificação de áudio</string>
+     <string name="audio_summary">Configurações de controle de som</string>
+     <string name="headphone_gain">Ganho de fone de ouvido</string>
+     <string name="microphone_gain">Ganho do microfone</string>
+     <string name="speaker_gain">Ganho do alto-falante</string>
+
+     <!-- Custom seekbar -->
+     <string name="custom_seekbar_value">Valor: <xliff:g id="v">%s</xliff:g></string>
+     <string name="custom_seekbar_default_value">Padrão</string>
+     <string name="custom_seekbar_default_value_to_set">Valor padrão: <xliff:g id="v">%s</xliff:g>\nPressione e segure para definir</string>
+     <string name="custom_seekbar_default_value_is_set">O valor padrão está definido</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Amplificador Mi Sound</string>
     <string name="dirac_summary">Otimizar qualidade de áudio</string>
@@ -56,6 +72,14 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_bass_booster">Aumento dos graves</string>
+    <string name="dirac_preset_live">Ao vivo</string>
+    <string name="dirac_preset_balanced">Equilibrado</string>
+    <string name="dirac_preset_bass_reduction">Reduzir graves</string>
+    <string name="dirac_preset_treble_reduction">Reduzir agudos</string>
+    <string name="dirac_preset_soft_bass">Graves suaves</string>
+    <string name="dirac_preset_soft_treble">Agudos suaves</string>
+
     <!-- kcal -->
     <string name="presets_dialog_title">Selecionar predefinição</string>
     <string name="advanced_settings_kcal">Calibração de cores da tela</string>
@@ -74,4 +98,13 @@
     <string name="hue">Matiz</string>
     <string name="grayscale">Exibição em tons de cinza</string>
     <string name="kcal_reset">Redefinir</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Som Dirac</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Configurações da tocha</string>
+    <string name="torch_summary">Controle branco/amarelo da lanterna</string>
+    <string name="yellow_torch_brightness_title">Brilho da tocha amarela</string>
+    <string name="white_torch_brightness_title">Brilho da tocha branca</string>
 </resources>

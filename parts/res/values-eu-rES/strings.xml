@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Erabili inguruneko pantaila</string>
+
+    <!-- Audio amplification -->
+    <string name="audio_title">Audio-anplifikazioa</string>
+    <string name="audio_summary">Soinu kontrolaren ezarpenak</string>
+    <string name="headphone_gain">Aurikularren irabazia</string>
+    <string name="microphone_gain">Mikrofonoaren irabazia</string>
+    <string name="speaker_gain">Bozgorailuaren irabazia</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Balioa: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Lehenetsia</string>
+    <string name="custom_seekbar_default_value_to_set">Balio lehenetsia: <xliff:g id="v">%s</xliff:g>\nSakatu luze ezartzeko</string>
+    <string name="custom_seekbar_default_value_is_set">Balio lehenetsia ezarri da</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Mi Soinu indartzailea</string>
     <string name="dirac_summary">Audio kalitatea optimizatu</string>
@@ -56,4 +72,37 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_bass_booster">Bass Booster</string>
+    <string name="dirac_preset_live">Zuzenean</string>
+    <string name="dirac_preset_balanced">Orekatua</string>
+    <string name="dirac_preset_bass_reduction">Baxu murrizketa</string>
+    <string name="dirac_preset_treble_reduction">Agutzen murrizketa</string>
+    <string name="dirac_preset_soft_bass">Soft Bass</string>
+    <string name="dirac_preset_soft_treble">Soft Treble</string>
+
+    <!-- kcal -->
+    <string name="advanced_settings_kcal">Bistaratzeko koloreen kalibratzea</string>
+    <string name="cat_colormanagement">Kolore ezarpenak</string>
+    <string name="cat_calibration">Bistaratzeko kalibratzea</string>
+    <string name="kcal_enabled">Aktibatuta</string>
+    <string name="kcal_disabled">Desaktibatuta</string>
+    <string name="set_on_boot">Ezarri abioan</string>
+    <string name="color_red">gorria</string>
+    <string name="color_green">Berdea</string>
+    <string name="color_blue">Urdina</string>
+    <string name="color_minimum">Gutxienekoa</string>
+    <string name="saturation">Saturazioa</string>
+    <string name="value">Balioa</string>
+    <string name="contrast">Kontrastea</string>
+    <string name="hue">Tinta</string>
+    <string name="grayscale">Grayscale Display</string>
+
+    <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">Dirac soinua</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Antornen ezarpenak</string>
+    <string name="torch_summary">Linterna zuri/horia kontrola</string>
+    <string name="yellow_torch_brightness_title">Antorcha horiaren distira</string>
+    <string name="white_torch_brightness_title">Antorcha Zuriaren distira</string>
 </resources>

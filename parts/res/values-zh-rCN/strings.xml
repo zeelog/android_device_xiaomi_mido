@@ -16,11 +16,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+     <string name="ambient_enable">使用環境顯示</string>
+
+    <!-- Audio Amplification -->
+    <string name="audio_title">音頻放大</string>
+    <string name="audio_summary">聲控設置</string>
+    <string name="headphone_gain">耳機增益</string>
+    <string name="microphone_gain">麥克風增益</string>
+    <string name="speaker_gain">揚聲器增益</string>
+
     <!-- Custom seekbar -->
     <string name="custom_seekbar_value">数值: <xliff:g id="v">%s</xliff:g></string>
     <string name="custom_seekbar_default_value">默认</string>
     <string name="custom_seekbar_default_value_to_set">默认数值: <xliff:g id="v">%s</xliff:g>\n长按以设置</string>
     <string name="custom_seekbar_default_value_is_set">默认数值已设定</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">使用米音提升音质</string>
     <string name="dirac_summary">米音</string>
@@ -61,6 +72,14 @@
     <string name="dirac_preset_country">乡村</string>
     <string name="dirac_preset_dance">舞曲</string>
     <string name="dirac_preset_metal">金属</string>
+    <string name="dirac_preset_bass_booster">低音强化</string>
+    <string name="dirac_preset_live">现场</string>
+    <string name="dirac_preset_balanced">均衡</string>
+    <string name="dirac_preset_bass_reduction">低音弱化</string>
+    <string name="dirac_preset_treble_reduction">高音弱化</string>
+    <string name="dirac_preset_soft_bass">柔和低音</string>
+    <string name="dirac_preset_soft_treble">柔和高音</string>
+
     <!-- kcal -->
     <string name="presets_dialog_title">選擇預設</string>
     <string name="advanced_settings_kcal">顯示顏色校準</string>
@@ -79,4 +98,13 @@
     <string name="hue">色相</string>
     <string name="grayscale">灰度顯示</string>
     <string name="kcal_reset">重置</string>
+
+     <!-- QS Tile -->
+     <string name="dirac_qs_tile_title">狄拉克聲音</string>
+
+     <!-- Torch -->
+     <string name="torch_title">手電筒設置</string>
+     <string name="torch_summary">手電筒白/黃控</string>
+     <string name="yellow_torch_brightness_title">黃手電筒亮度</string>
+     <string name="white_torch_brightness_title">白手電筒亮度</string>
 </resources>

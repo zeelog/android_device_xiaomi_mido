@@ -15,7 +15,23 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient Display -->
+    <string name="ambient_enable">Utilitza la pantalla ambiental</string>
+
+    <!-- Audio Amplification -->
+    <string name="audio_title">Amplificació d\'àudio</string>
+    <string name="audio_summary">Configuració del control de so</string>
+    <string name="headphone_gain">Guany dels auriculars</string>
+    <string name="microphone_gain">Guany del micròfon</string>
+    <string name="speaker_gain">Guany de l\'altaveu</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Valor: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Per defecte</string>
+    <string name="custom_seekbar_default_value_to_set">Valor per defecte: <xliff:g id="v">%s</xliff:g>\nPremeu llargament per configurar</string>
+    <string name="custom_seekbar_default_value_is_set">El valor predeterminat està definit</string>
+
     <!-- Dirac settings -->
     <string name="dirac_title">Potenciador de so Mi</string>
     <string name="dirac_summary">Optimitza la qualitat d\'àudio</string>
@@ -56,4 +72,72 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metall</string>
+    <string name="dirac_preset_bass_booster">Amplificador de baix</string>
+    <string name="dirac_preset_live">En directe</string>
+    <string name="dirac_preset_balanced">Equilibrat</string>
+    <string name="dirac_preset_bass_reduction">Reducció de graves</string>
+    <string name="dirac_preset_treble_reduction">Reducció dels aguts</string>
+    <string name="dirac_preset_soft_bass">Baix suau</string>
+    <string name="dirac_preset_soft_treble">Aguts suaus</string>
+
+    <!-- kcal -->
+    <string name="advanced_settings_kcal">Calibració del color de la pantalla</string>
+    <string name="cat_colormanagement">Configuració del color</string>
+    <string name="cat_calibration">Calibració de la pantalla</string>
+
+    <string name="kcal_enabled">Activat</string>
+    <string name="kcal_disabled">Desactivat</string>
+    <string name="set_on_boot">Configura a l\'arrencada</string>
+    <string name="color_red">Vermell</string>
+    <string name="color_green">Verd</string>
+    <string name="color_blue">Blau</string>
+    <string name="color_minimum">Mínim</string>
+    <string name="saturation">Saturació</string>
+    <string name="value">Valor</string>
+    <string name="contrast">Contrast</string>
+    <string name="hue">Tonalitat</string>
+    <string name="grayscale">Visualització en escala de grisos</string>
+
+    <!-- kcal menu -->
+    <string name="kcal_presets">@string/presets_dialog_title</string>
+    <string name="kcal_reset">Restablir</string>
+
+    <!-- kcal Presets -->
+    <string name="presets_dialog_title">Seleccioneu un valor predefinit</string>
+    <string name="preset_default">Per defecte</string>
+    <string name="preset_version_1">Versió 1</string>
+    <string name="preset_version_2">Versió 2</string>
+    <string name="preset_version_3">Versió 3</string>
+    <string name="preset_triluminous">Triluminós</string>
+    <string name="preset_deep_black_white">Blanc i negre profund</string>
+    <string name="preset_deep_natural">Deep Natural</string>
+    <string name="preset_cool_amoled">Cool Amoled</string>
+    <string name="preset_extreme_amoled">Amoled extrem</string>
+    <string name="preset_warm_amoled">Amoled càlid</string>
+    <string name="preset_hybrid_mamba">Mamba híbrida</string>
+    <string name="preset_burn_in">Enregistrar</string>
+    <string name="preset_retention">Correcció de retenció</string>
+    <string name="preset_gerard_extrem_cool">Gerard Extreme Cool</string>
+    <string name="preset_yoyoz808">Yoyoz808</string>
+    <string name="preset_purian">purià</string>
+    <string name="preset_deep_black_colorful">Negre profund de colors</string>
+    <string name="preset_vomer_deep_rich">Vomer Deep Rich</string>
+    <string name="preset_franco">Franco</string>
+    <string name="preset_wrinklefree_cool">WrinkleFree Cool</string>
+    <string name="preset_harley_tech">Harley-Tech</string>
+    <string name="preset_perfection">Perfecció</string>
+    <string name="preset_banged_up">Esquebrat</string>
+    <string name="preset_sim_cooler">SimCooler</string>
+    <string name="preset_obsanity">Obsanitat</string>
+    <string name="preset_obsanity_ips">Obsanity IPS</string>
+    <string name="preset_sir_banger">Sir Banger</string>
+
+     <!-- QS Tile -->
+    <string name="dirac_qs_tile_title">So Dirac</string>
+
+    <!-- Torch -->
+    <string name="torch_title">Configuració de la torxa</string>
+    <string name="torch_summary">Control de la llanterna blanc/groc</string>
+    <string name="yellow_torch_brightness_title">Brillo de la torxa groga</string>
+    <string name="white_torch_brightness_title">Brillo de la torxa blanca</string>
 </resources>
