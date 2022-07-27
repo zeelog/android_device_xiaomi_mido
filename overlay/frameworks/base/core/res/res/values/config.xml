@@ -504,34 +504,6 @@
         manager will disable alpha trasformation in animations where not
         strictly needed. -->
     <bool name="config_sf_limitedAlpha">true</bool>
-
-     <!-- The default journal mode to use use when Write-Ahead Logging is not active.
-         Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
-         PERSIST may improve performance by reducing how often journal blocks are
-         reallocated (compared to truncation) resulting in better data block locality
-         and less churn of the storage media.
-         The PERSIST mode results in data persisting in the journal beyond the life of
-         a transaction, so it interacts poorly with SECURE_DELETE. -->
-    <string name="db_default_journal_mode">MEMORY</string>
-
-    <!-- The database synchronization mode when using the default journal mode.
-         FULL is safest and preserves durability at the cost of extra fsyncs.
-         NORMAL also preserves durability in non-WAL modes and uses checksums to ensure
-         integrity although there is a small chance that an error might go unnoticed.
-         Choices are: FULL, NORMAL, OFF. -->
-    <string name="db_default_sync_mode">OFF</string>
-
-    <!-- The database synchronization mode when using Write-Ahead Logging.
-         From https://www.sqlite.org/pragma.html#pragma_synchronous:
-         WAL mode is safe from corruption with synchronous=NORMAL, and probably DELETE mode is safe
-         too on modern filesystems. WAL mode is always consistent with synchronous=NORMAL, but WAL
-         mode does lose durability. A transaction committed in WAL mode with
-         synchronous=NORMAL might roll back following a power loss or system crash.
-         Transactions are durable across application crashes regardless of the synchronous setting
-         or journal mode. The synchronous=NORMAL setting is a good choice for most applications
-         running in WAL mode.
-         Choices are: FULL, NORMAL, OFF. -->
-    <string name="db_wal_sync_mode">OFF</string>
     
     <!-- Whether to select voice/data/sms preference without user confirmation. -->
     <bool name="config_voice_data_sms_auto_fallback">true</bool>
