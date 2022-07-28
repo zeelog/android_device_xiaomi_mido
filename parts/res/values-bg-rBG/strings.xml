@@ -100,4 +100,12 @@
     <string name="torch_summary">Контрол за бяло/жълто фенерче</string>
     <string name="yellow_torch_brightness_title">Яркост на жълтата факла</string>
     <string name="white_torch_brightness_title">Яркост на бялата факла</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Настройването на твърде високо ниво на усещане може да причини трайна повреда на хардуера, използвайте на свой собствен риск</string>
+    <string name="haptic_summary">Персонализиране на интензитета на вибрациите</string>
+    <string name="vibrator_intensity_control">Контрол на интензитета на вибрациите</string>
+    <string name="vmax_override_mode_title">Замяна на интензитета на вибрациите</string>
+    <string name="vmax_override_mode_summary">Заменя стойността на интензитета на вибрациите за всички събития за уведомяване</string>
+    <string name="system_strength_title">Силност на вибрациите</string>
 </resources>

@@ -140,4 +140,12 @@
     <string name="torch_summary">Яркость белого/желтого светодиода</string>
     <string name="yellow_torch_brightness_title">Яркость желтого светодиода</string>
     <string name="white_torch_brightness_title">Яркость белого светодиода</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Установка слишком высокого тактильного уровня может привести к необратимому повреждению оборудования, используйте на свой страх и риск</string>
+    <string name="haptic_summary">Настроить интенсивность вибрации</string>
+    <string name="vibrator_intensity_control">Контроль интенсивности вибрации</string>
+    <string name="vmax_override_mode_title">Переопределить интенсивность вибрации</string>
+    <string name="vmax_override_mode_summary">Переопределяет значение интенсивности вибрации для всех уведомлений</string>
+    <string name="system_strength_title">Сила вибрации</string>
 </resources>

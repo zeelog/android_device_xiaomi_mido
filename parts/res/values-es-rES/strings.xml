@@ -140,4 +140,12 @@
     <string name="torch_summary">Control de linterna blanca/amarilla</string>
     <string name="yellow_torch_brightness_title">Brillo de la antorcha amarilla</string>
     <string name="white_torch_brightness_title">Brillo de antorcha blanca</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Configurar un nivel háptico demasiado alto puede causar daños permanentes en el hardware, utilícelo bajo su propio riesgo</string>
+    <string name="haptic_summary">Personalizar la intensidad de la vibración</string>
+    <string name="vibrator_intensity_control">Control de intensidad de vibración</string>
+    <string name="vmax_override_mode_title">Anular la intensidad de vibración</string>
+    <string name="vmax_override_mode_summary">Anula el valor de intensidad de vibración para todos los eventos de notificación</string>
+    <string name="system_strength_title">Fuerza de vibración</string>
 </resources>

@@ -140,4 +140,12 @@
     <string name="torch_summary">Lommelygte hvid/gul kontrol</string>
     <string name="yellow_torch_brightness_title">Gul fakkellysstyrke</string>
     <string name="white_torch_brightness_title">Hvid fakkellysstyrke</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Opsætning af haptisk niveau for højt kan forårsage permanent hardwareskade, brug på egen risiko</string>
+    <string name="haptic_summary">Tilpas vibrationsintensitet</string>
+    <string name="vibrator_intensity_control">Vibrationsintensitetskontrol</string>
+    <string name="vmax_override_mode_title">Tilsidesæt vibrationsintensitet</string>
+    <string name="vmax_override_mode_summary">Tilsidesætter værdi for vibrationsintensitet for alle underretningsbegivenheder</string>
+    <string name="system_strength_title">Vibrationsstyrke</string>
 </resources>

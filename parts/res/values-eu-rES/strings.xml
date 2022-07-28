@@ -105,4 +105,12 @@
     <string name="torch_summary">Linterna zuri/horia kontrola</string>
     <string name="yellow_torch_brightness_title">Antorcha horiaren distira</string>
     <string name="white_torch_brightness_title">Antorcha Zuriaren distira</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Haptiko-maila altuegia konfiguratzeak hardwarearen kalte iraunkorrak eragin ditzake, erabili zure ardurapean</string>
+    <string name="haptic_summary">Pertsonalizatu bibrazio-intentsitatea</string>
+    <string name="vibrator_intensity_control">Bibrazio-intentsitatearen kontrola</string>
+    <string name="vmax_override_mode_title">Bibrazio intentsitatea gainidatzi</string>
+    <string name="vmax_override_mode_summary">Bibrazio-intentsitatearen balioa gainidazten du jakinarazpen-gertaera guztientzat</string>
+    <string name="system_strength_title">Bibrazio indarra</string>
 </resources>

@@ -140,4 +140,12 @@
     <string name="torch_summary">Control de la llanterna blanc/groc</string>
     <string name="yellow_torch_brightness_title">Brillo de la torxa groga</string>
     <string name="white_torch_brightness_title">Brillo de la torxa blanca</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">La configuració d\'un nivell hàptic massa alt\ pot causar danys permanents al maquinari; feu servir sota el vostre propi risc</string>
+    <string name="haptic_summary">Personalitza la intensitat de la vibració</string>
+    <string name="vibrator_intensity_control">Control de la intensitat de la vibració</string>
+    <string name="vmax_override_mode_title">Anul·lació de la intensitat de vibració</string>
+    <string name="vmax_override_mode_summary">Anul·la el valor d\'intensitat de vibració per a tots els esdeveniments de notificació</string>
+    <string name="system_strength_title">Força de vibració</string>
 </resources>

@@ -134,4 +134,12 @@
     <string name="torch_summary">عنصر تحكم مصباح يدوي أبيض / أصفر</string>
     <string name="yellow_torch_brightness_title">سطوع الشعلة الصفراء</string>
     <string name="white_torch_brightness_title">سطوع الشعلة البيضاء</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">قد يتسبب إعداد مستوى عالي جدًا في حدوث تلف دائم للأجهزة ، استخدمه على مسؤوليتك الخاصة</string>
+    <string name="haptic_summary">تخصيص شدة الاهتزاز</string>
+    <string name="vibrator_intensity_control">التحكم في شدة الاهتزاز</string>
+    <string name="vmax_override_mode_title">تجاوز شدة الاهتزاز</string>
+    <string name="vmax_override_mode_summary">يلغي قيمة شدة الاهتزاز لجميع أحداث الإعلام</string>
+    <string name="system_strength_title">قوة الاهتزاز</string>
 </resources>

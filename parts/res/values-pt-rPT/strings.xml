@@ -107,4 +107,12 @@
     <string name="torch_summary">Controle branco/amarelo da lanterna</string>
     <string name="yellow_torch_brightness_title">Brilho da tocha amarela</string>
     <string name="white_torch_brightness_title">Brilho da tocha branca</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Configurar um nível háptico muito alto pode causar danos permanentes ao hardware, use por sua conta e risco</string>
+    <string name="haptic_summary">Personalizar a intensidade da vibração</string>
+    <string name="vibrator_intensity_control">Controle de intensidade de vibração</string>
+    <string name="vmax_override_mode_title">Substituir intensidade de vibração</string>
+    <string name="vmax_override_mode_summary">Substitui o valor de intensidade de vibração para todos os eventos de notificação</string>
+    <string name="system_strength_title">Força da vibração</string>
 </resources>

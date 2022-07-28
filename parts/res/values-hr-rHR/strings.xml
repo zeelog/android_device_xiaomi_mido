@@ -100,4 +100,12 @@
     <string name="torch_summary">Bjelo/žuta kontrola svjetiljke</string>
     <string name="yellow_torch_brightness_title">Svjetlina žute baklje</string>
     <string name="white_torch_brightness_title">Svjetlina bijele baklje</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Postavljanje previsoke razine dodira može uzrokovati trajno oštećenje hardvera, koristite na vlastitu odgovornost</string>
+    <string name="haptic_summary">Prilagodite intenzitet vibracije</string>
+    <string name="vibrator_intensity_control">Kontrola intenziteta vibracije</string>
+    <string name="vmax_override_mode_title">Nadjačaj intenzitet vibracije</string>
+    <string name="vmax_override_mode_summary">Nadjačava vrijednost intenziteta vibracije za sve događaje obavijesti</string>
+    <string name="system_strength_title">Jačina vibracija</string>
 </resources>

@@ -140,4 +140,12 @@
     <string name="torch_summary">Контрола со фенер бела/жолта</string>
     <string name="yellow_torch_brightness_title">Осветленост на жолт факел</string>
     <string name="white_torch_brightness_title">Осветленост на бел факел</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Поставувањето на превисокото ниво на хаптика може да предизвика трајно оштетување на хардверот, користете го на ваш сопствен ризик</string>
+    <string name="haptic_summary">Приспособете го интензитетот на вибрациите</string>
+    <string name="vibrator_intensity_control">Контрола на интензитетот на вибрации</string>
+    <string name="vmax_override_mode_title">Надминете го интензитетот на вибрации</string>
+    <string name="vmax_override_mode_summary">Ја отфрла вредноста на интензитетот на вибрациите за сите настани за известување</string>
+    <string name="system_strength_title">Јачина на вибрации</string>
 </resources>

@@ -107,4 +107,12 @@
      <string name="torch_summary">手電筒白/黃控</string>
      <string name="yellow_torch_brightness_title">黃手電筒亮度</string>
      <string name="white_torch_brightness_title">白手電筒亮度</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">設置觸覺級別過高可能會導致永久硬件損壞，使用風險自負</string>
+    <string name="haptic_summary">自定義振動強度</string>
+    <string name="vibrator_intensity_control">振動強度控制</string>
+    <string name="vmax_override_mode_title">覆蓋振動強度</string>
+    <string name="vmax_override_mode_summary">覆蓋所有通知事件的振動強度值</string>
+    <string name="system_strength_title">振動強度</string>
 </resources>

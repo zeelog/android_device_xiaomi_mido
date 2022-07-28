@@ -100,4 +100,12 @@
     <string name="torch_summary">সাদা/হলুদ টর্চ নিয়ন্ত্রণ</string>
     <string name="yellow_torch_brightness_title">হলুদ টর্চের উজ্জ্বলতা</string>
     <string name="white_torch_brightness_title">সাদা টর্চের উজ্জ্বলতা</string>
+
+    <!-- Vibration Intensity -->
+    <string name = "haptic_warning"> হ্যাপটিক লেভেল খুব বেশি সেট-আপ করলে স্থায়ী হার্ডওয়্যারের ক্ষতি হতে পারে, নিজের ঝুঁকিতে ব্যবহার করুন</string>
+    <string name="haptic_summary">কম্পনের তীব্রতা কাস্টমাইজ করুন</string>
+    <string name="vibrator_intensity_control">কম্পনের তীব্রতা নিয়ন্ত্রণ</string>
+    <string name="vmax_override_mode_title">কম্পনের তীব্রতা ওভাররাইড করুন</string>
+    <string name="vmax_override_mode_summary">সমস্ত বিজ্ঞপ্তি ইভেন্টের জন্য কম্পনের তীব্রতার মান ওভাররাইড করে</string>
+    <string name="system_strength_title">কম্পনের শক্তি</string>
 </resources>

@@ -100,4 +100,13 @@
     <string name="torch_summary">फ़्लैशलाइट सफ़ेद/पीला नियंत्रण</string>
     <string name="yellow_torch_brightness_title">पीली मशाल की चमक</string>
     <string name="white_torch_brightness_title">सफेद मशाल की चमक</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">हैप्टिक स्तर बहुत अधिक सेट करने से स्थायी हार्डवेयर क्षति हो सकती है, अपने जोखिम पर उपयोग करें</string>
+    <string name="haptic_summary">कंपन तीव्रता को अनुकूलित करें</string>
+    <string name="vibrator_intensity_control">कंपन तीव्रता नियंत्रण</string>
+    <string name="vmax_override_mode_title">कंपन तीव्रता को ओवरराइड करें</string>
+    <string name="vmax_override_mode_summary">सभी अधिसूचना ईवेंट के लिए कंपन तीव्रता मान को ओवरराइड करता है</string>
+    <string name="system_strength_title">कंपन शक्ति</string>
+    
 </resources>

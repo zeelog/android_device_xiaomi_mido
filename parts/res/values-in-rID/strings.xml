@@ -107,4 +107,12 @@
     <string name="torch_summary">Kontrol senter putih/kuning</string>
     <string name="yellow_torch_brightness_title">Kecerahan Obor Kuning</string>
     <string name="white_torch_brightness_title">Kecerahan Obor Putih</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Menyetel level haptic terlalu tinggi dapat menyebabkan kerusakan perangkat keras permanen, gunakan dengan risiko Anda sendiri</string>
+    <string name="haptic_summary">Sesuaikan intensitas getaran</string>
+    <string name="vibrator_intensity_control">Kontrol Intensitas Getaran</string>
+    <string name="vmax_override_mode_title">Abaikan Intensitas Getaran</string>
+    <string name="vmax_override_mode_summary">Mengganti nilai intensitas getaran untuk semua peristiwa notifikasi</string>
+    <string name="system_strength_title">Kekuatan getaran</string>
 </resources>

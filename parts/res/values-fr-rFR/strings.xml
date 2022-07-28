@@ -107,4 +107,12 @@
     <string name="torch_summary">Définir la luminosité maximale de la led jaune/blanche</string>
     <string name="yellow_torch_brightness_title">Luminosité maximale de la led jaune</string>
     <string name="white_torch_brightness_title">Luminosité maximale de la led blanche</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Configurer un niveau haptique trop élevé peut causer des dommages matériels permanents, utilisez à vos risques et périls</string>
+    <string name="haptic_summary">Personnaliser l\'intensité des vibrations</string>
+    <string name="vibrator_intensity_control">Contrôle de l\'intensité des vibrations</string>
+    <string name="vmax_override_mode_title">Remplacer l\'intensité des vibrations</string>
+    <string name="vmax_override_mode_summary">Remplace la valeur d\'intensité de vibration pour tous les événements de notification</string>
+    <string name="system_strength_title">Force des vibrations</string>
 </resources>

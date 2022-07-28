@@ -140,4 +140,12 @@
     <string name="torch_summary">Controllo luminosità giallo/bianco della torcia</string>
     <string name="yellow_torch_brightness_title">Impostazioni di luminosità della torcia gialla</string>
     <string name="white_torch_brightness_title">Impostazioni di luminosità della torcia bianca</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">L\'impostazione di un livello aptico troppo alto può causare danni permanenti all\'hardware, utilizzare a proprio rischio</string>
+    <string name="haptic_summary">Personalizza l\'intensità della vibrazione</string>
+    <string name="vibrator_intensity_control">Controllo dell\'intensità delle vibrazioni</string>
+    <string name="vmax_override_mode_title">Sostituisci l\'intensità della vibrazione</string>
+    <string name="vmax_override_mode_summary">Sostituisce il valore dell\'intensità della vibrazione per tutti gli eventi di notifica</string>
+    <string name="system_strength_title">Forza di vibrazione</string>
 </resources>
