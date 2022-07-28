@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- *               2017-2018 The LineageOS Project
+ *               2017-2022 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@ import org.lineageos.settings.preferences.FileUtils;
 import org.lineageos.settings.preferences.SecureSettingSwitchPreference;
 import org.lineageos.settings.soundcontrol.SoundControlSettings;
 import org.lineageos.settings.torch.TorchSettings;
+import org.lineageos.settings.vibration.VibratorStrengthPreference;
 
 public class BootCompletedReceiver extends BroadcastReceiver implements Utils {
 
@@ -74,6 +75,8 @@ public class BootCompletedReceiver extends BroadcastReceiver implements Utils {
         }
 
         new DiracUtils(context).onBootCompleted();
+
+        VibratorStrengthPreference.restore(context);
 
         FileUtils.setValue(TorchSettings.TORCH_1_BRIGHTNESS_PATH,
                 Settings.Secure.getInt(context.getContentResolver(),

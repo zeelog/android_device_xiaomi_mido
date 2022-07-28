@@ -30,6 +30,10 @@ on boot
     chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal_val
     chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal_min
     chmod 660 /sys/devices/platform/kcal_ctrl.0/kcal
+
+# Vibrator
+    chown system system /sys/module/qti_haptics/parameters/vmax_mv_override
+    chmod 0664 /sys/module/qti_haptics/parameters/vmax_mv_override
    
 on property:sys.boot_completed=1
 # Audio gain permissions

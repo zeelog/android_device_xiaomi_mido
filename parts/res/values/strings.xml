@@ -142,4 +142,12 @@
     <string name="torch_summary">Flashlight white/yellow control</string>
     <string name="yellow_torch_brightness_title">Yellow Torch Brightness</string>
     <string name="white_torch_brightness_title">White Torch Brightness</string>
+
+    <!-- Vibration Intensity -->
+    <string name="haptic_warning">Setting-up haptic level too high may cause permanent hardware damage, use at your own risk</string>
+    <string name="haptic_summary">Customize vibration intensity</string>
+    <string name="vibrator_intensity_control">Vibration Intensity Control</string>
+    <string name="vmax_override_mode_title">Override Vibration Intensity</string>
+    <string name="vmax_override_mode_summary">Overrides vibration intensity value for all notification events</string>
+    <string name="system_strength_title">Vibration strength</string>
 </resources>
