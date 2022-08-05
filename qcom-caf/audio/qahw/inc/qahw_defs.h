@@ -176,6 +176,9 @@ __BEGIN_DECLS
 #define QAHW_AUDIO_FLAG_HPCM_TX 0x00020000
 #define QAHW_AUDIO_FLAG_HPCM_RX 0x00040000
 
+/* audio output flag for timestamp mode */
+#define QAHW_OUTPUT_FLAG_TIMESTAMP 0x20000000
+
 /* Query fm volume */
 #define QAHW_PARAMETER_KEY_FM_VOLUME "fm_volume"
 
@@ -223,6 +226,13 @@ __BEGIN_DECLS
 
 #define QAHW_AUDIO_DEVICE_OUT_SPEAKER2 0x10000000
 #define QAHW_AUDIO_DEVICE_OUT_SPEAKER3 0x20000000
+#define QAHW_AUDIO_DEVICE_OUT_OPTICAL 0x40000
+
+#define QAHW_PCM_CUSTOM_CHANNEL_MAP_12  59
+#define QAHW_PCM_CUSTOM_CHANNEL_MAP_13  60
+#define QAHW_PCM_CUSTOM_CHANNEL_MAP_14  61
+#define QAHW_PCM_CUSTOM_CHANNEL_MAP_15  62
+#define QAHW_PCM_CUSTOM_CHANNEL_MAP_16  63
 
 /* type of asynchronous write callback events. Mutually exclusive */
 typedef enum {
@@ -240,6 +250,11 @@ typedef int qahw_stream_callback_t(qahw_stream_callback_event_t event,
                                    void *param,
                                    void *cookie);
 
+struct qahw_stream_callback_param {
+    qahw_stream_callback_t *cb;    /* callback function */
+    void *cookie;                  /* callback context */
+};
+
 /* type of drain requested to audio_stream_out->drain(). Mutually exclusive */
 typedef enum {
     QAHW_DRAIN_ALL,            /* drain() returns when all data has been played */
@@ -252,6 +267,8 @@ typedef enum {
 /*TBD: Extend this based on stb requirement*/
 typedef enum {
  QAHW_META_DATA_FLAGS_NONE = 0,
+ QAHW_META_DATA_FLAGS_TIMESTAMP_VALID,
+ QAHW_META_DATA_FLAGS_TIMESTAMP_CONTINUE,
 } qahw_meta_data_flags_t;
 
 typedef struct {
@@ -358,6 +375,7 @@ struct qahw_out_presentation_position_param {
 typedef enum {
     QAHW_STREAM_PP_EVENT = 0,
     QAHW_STREAM_ENCDEC_EVENT = 1,
+    QAHW_STREAM_IEC_61937_FMT_UPDATE_EVENT = 2,
 } qahw_event_id;
 
 /* payload format for HAL parameter
@@ -367,6 +385,11 @@ struct qahw_adsp_event {
     qahw_event_id event_type;      /* type of the event */
     uint32_t payload_length;       /* length in bytes of the payload */
     void *payload;                 /* the actual payload */
+};
+
+struct qahw_in_channel_map_param {
+   uint8_t       channels;                               /* Input Channels */
+   uint8_t       channel_map[AUDIO_CHANNEL_COUNT_MAX];   /* Input Channel Map */
 };
 
 struct qahw_out_channel_map_param {
@@ -439,6 +462,21 @@ typedef struct qahw_hpcm_params {
    qahw_hpcm_direction direction;
 } qahw_hpcm_params_t;
 
+struct qahw_in_ttp_offset_param {
+   uint64_t        ttp_offset; /* TTP value is derived from ttp offset*/
+};
+
+struct qahw_out_channel_status_info {
+    /* Channel status is 192 bits each for CH A and CH B*/
+    char channel_status[48];
+};
+
+struct qahw_device_channel_bit_mask {
+    audio_devices_t device;
+    /* Channel status bit mask is 192 bits each for CH A and CH B*/
+    char bit_mask[48];
+};
+
 typedef union {
     struct qahw_source_tracking_param st_params;
     struct qahw_sound_focus_param sf_params;
@@ -449,6 +487,7 @@ typedef union {
     struct qahw_out_enable_drift_correction drift_enable_param;
     struct qahw_out_correct_drift drift_correction_param;
     struct qahw_adsp_event adsp_event_params;
+	struct qahw_in_channel_map_param in_channel_map_params;
     struct qahw_out_channel_map_param channel_map_params;
     struct qahw_device_cfg_param device_cfg_params;
     struct qahw_mix_matrix_params mix_matrix_params;
@@ -457,6 +496,9 @@ typedef union {
     struct qahw_dtmf_gen_params dtmf_gen_params;
     struct qahw_tty_params tty_mode_params;
     struct qahw_hpcm_params hpcm_params;
+	struct qahw_in_ttp_offset_param ttp_offset;
+	struct qahw_out_channel_status_info ch_status_info;
+	struct qahw_device_channel_bit_mask ch_bit_mask;
 } qahw_param_payload;
 
 typedef enum {
@@ -480,15 +522,33 @@ typedef enum {
     QAHW_PARAM_DTMF_GEN,
     QAHW_PARAM_TTY_MODE,
     QAHW_PARAM_HPCM,
+	QAHW_PARAM_IN_TTP_OFFSET,
+	QAHW_PARAM_IN_CHANNEL_MAP,     /* PARAM to set i/p channel map */
+	QAHW_PARAM_CHANNEL_STATUS_INFO,
+	QAHW_PARAM_CHANNEL_BIT_MASK,
 } qahw_param_id;
 
 typedef union {
     struct qahw_out_render_window_param render_window_params;
+    struct qahw_stream_callback_param stream_callback_params;
 } qahw_loopback_param_payload;
 
 typedef enum {
-    QAHW_PARAM_LOOPBACK_RENDER_WINDOW /* PARAM to set render window */
+    QAHW_PARAM_LOOPBACK_RENDER_WINDOW, /* PARAM to set render window */
+    QAHW_PARAM_LOOPBACK_SET_CALLBACK
 } qahw_loopback_param_id;
+
+typedef struct {
+    uint32_t num_sources;
+    audio_input_flags_t flags;
+    struct audio_port_config *source_config;
+} qahw_source_port_config_t;
+
+typedef struct {
+    uint32_t num_sinks;
+    audio_output_flags_t flags;
+    struct audio_port_config *sink_config;
+} qahw_sink_port_config_t;
 
 /** stream direction enumeration */
 typedef enum {

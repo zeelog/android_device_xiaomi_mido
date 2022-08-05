@@ -503,7 +503,6 @@ int update_device_list(struct listnode *head, audio_devices_t type,
         goto done;
 
     if (type == AUDIO_DEVICE_NONE) {
-        ALOGE("%s: Invalid device: %#x", __func__, type);
         ret = -EINVAL;
         goto done;
     }

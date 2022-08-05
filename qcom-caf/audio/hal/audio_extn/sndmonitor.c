@@ -50,6 +50,7 @@
 #include <pthread.h>
 #include <sys/stat.h>
 #include <sys/poll.h>
+#include <pthread.h>
 #include <cutils/list.h>
 #include <cutils/hashmap.h>
 #include <log/log.h>
@@ -226,6 +227,7 @@ static int enum_sndcards()
             (strncasecmp(card_id, "kona", 4) != 0) &&
             (strncasecmp(card_id, "holi", 4) != 0) &&
             (strncasecmp(card_id, "shima", 5) != 0) &&
+            (strncasecmp(card_id, "yupik", 5) != 0) &&
             (strncasecmp(card_id, "lahaina", 7) != 0) &&
             (strncasecmp(card_id, "atoll", 5) != 0) &&
             (strncasecmp(card_id, "bengal", 6) != 0) &&

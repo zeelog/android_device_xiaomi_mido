@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2019, 2021 The Linux Foundation. All rights reserved.
  * Not a contribution.
  *
  * Copyright (C) 2013 The Android Open Source Project
@@ -534,6 +534,12 @@ int platform_get_default_app_type(void *platform __unused)
 {
     ALOGE("%s: Not implemented", __func__);
     return -ENOSYS;
+}
+
+int platform_send_audio_calibration_hfp(void *platform __unused,
+                                        snd_device_t snd_device __unused)
+{
+    return 0;
 }
 
 int platform_send_audio_calibration(void *platform, struct audio_usecase *usecase,
@@ -1202,17 +1208,24 @@ int platform_get_edid_info(void *platform __unused)
 }
 
 int platform_set_channel_map(void *platform __unused, int ch_count __unused,
-                             char *ch_map __unused, int snd_id __unused)
+                             char *ch_map __unused, int snd_id __unused,
+                             int be_idx __unused)
 {
     return -ENOSYS;
 }
 
 int platform_set_stream_channel_map(void *platform __unused,
                                     audio_channel_mask_t channel_mask __unused,
-                                    int snd_id __unused
+                                    int snd_id __unused,
+                                    int be_idx __unused,
                                     uint8_t *input_channel_map __unused)
 {
     return -ENOSYS;
+}
+
+int platform_get_is_afe_loopback_enabled(void *platform __unused)
+{
+   return 0;
 }
 
 int platform_set_edid_channels_configuration(void *platform __unused,
@@ -1279,12 +1292,6 @@ bool platform_send_gain_dep_cal(void *platform __unused,
 void platform_set_gsm_mode(void *platform __unused, bool enable __unused)
 {
     ALOGE("%s: Not implemented", __func__);
-}
-
-int platform_set_snd_device_name(snd_device_t snd_device __unused,
-                                 const char * name __unused)
-{
-    return -ENOSYS;
 }
 
 bool platform_can_enable_spkr_prot_on_device(snd_device_t snd_device __unused)

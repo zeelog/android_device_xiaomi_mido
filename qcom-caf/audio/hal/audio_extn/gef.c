@@ -39,15 +39,14 @@
 #include "audio_hw.h"
 #include "platform.h"
 #include "platform_api.h"
-#include <pthread.h>
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <dlfcn.h>
 #include <math.h>
+#include <pthread.h>
 #include <cutils/properties.h>
 #include "audio_extn.h"
 #include "audio_hw.h"
-#include <pthread.h>
 
 #ifdef DYNAMIC_LOG_ENABLED
 #include <log_xml_parser.h>

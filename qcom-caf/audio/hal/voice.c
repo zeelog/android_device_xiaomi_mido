@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2021, The Linux Foundation. All rights reserved.
  * Not a contribution.
  *
  * Copyright (C) 2013 The Android Open Source Project
@@ -203,6 +203,9 @@ int voice_stop_usecase(struct audio_device *adev, audio_usecase_t usecase_id)
     disable_snd_device(adev, uc_info->out_snd_device);
     disable_snd_device(adev, uc_info->in_snd_device);
 
+    adev->voice.lte_call = false;
+    adev->voice.uc_active = false;
+
     list_remove(&uc_info->list);
     free(uc_info);
 
@@ -242,6 +245,8 @@ int voice_start_usecase(struct audio_device *adev, audio_usecase_t usecase_id)
         return -ENOMEM;
     }
 
+    adev->voice.uc_active = true;
+
     uc_info->id = usecase_id;
     uc_info->type = VOICE_CALL;
     uc_info->stream.out = adev->current_call_output;
@@ -251,6 +256,7 @@ int voice_start_usecase(struct audio_device *adev, audio_usecase_t usecase_id)
     if (is_in_call && list_length(&uc_info->device_list) == 2) {
         ALOGE("%s: Invalid combo device(%#x) for voice call", __func__,
               get_device_types(&uc_info->device_list));
+        adev->voice.in_call = false;
         ret = -EIO;
         goto error_start_voice;
     }
@@ -261,7 +267,6 @@ int voice_start_usecase(struct audio_device *adev, audio_usecase_t usecase_id)
 
     if (is_sco_out_device_type(&uc_info->device_list) && !adev->bt_sco_on) {
         ALOGE("start_call: couldn't find BT SCO, SCO is not ready");
-        adev->voice.in_call = false;
         ret = -EIO;
         goto error_start_voice;
     }
@@ -440,7 +445,7 @@ bool voice_is_in_call_rec_stream(const struct stream_in *in)
     bool in_call_rec = false;
 
     if (!in) {
-       ALOGE("%s: input stream is NULL", __func__);
+       ALOGV("%s: input stream is NULL", __func__);
        return in_call_rec;
     }
 
@@ -451,6 +456,11 @@ bool voice_is_in_call_rec_stream(const struct stream_in *in)
     }
 
     return in_call_rec;
+}
+
+bool voice_is_uc_active(const struct audio_device *adev)
+{
+    return adev->voice.uc_active;
 }
 
 uint32_t voice_get_active_session_id(struct audio_device *adev)
@@ -644,6 +654,11 @@ int voice_set_mic_mute(struct audio_device *adev, bool state)
     return err;
 }
 
+bool voice_is_lte_call_active(struct audio_device *adev)
+{
+   return adev->voice.lte_call;
+}
+
 bool voice_get_mic_mute(struct audio_device *adev)
 {
     return adev->voice.mic_mute;
@@ -828,6 +843,8 @@ void voice_init(struct audio_device *adev)
     adev->voice.volume = 1.0f;
     adev->voice.mic_mute = false;
     adev->voice.in_call = false;
+    adev->voice.lte_call = false;
+    adev->voice.uc_active = false;
     for (i = 0; i < max_voice_sessions; i++) {
         adev->voice.session[i].pcm_rx = NULL;
         adev->voice.session[i].pcm_tx = NULL;

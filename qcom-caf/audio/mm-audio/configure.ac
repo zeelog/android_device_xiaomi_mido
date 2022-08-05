@@ -26,6 +26,16 @@ AC_ARG_WITH(sanitized-headers,
                 [Specify the location of the sanitized Linux headers]),
         [CPPFLAGS="$CPPFLAGS -idirafter $withval"])
 
+AC_ARG_WITH(sanitized-audio-headers,
+        AS_HELP_STRING([--with-sanitized-headers-audio=DIR],
+                [Specify the location of the sanitized Linux audio headers]),
+        [CPPFLAGS="$CPPFLAGS -idirafter $withval"])
+
+AC_ARG_WITH(audio-kernel-headers,
+        AS_HELP_STRING([--with-audio-kernel-headers=DIR],
+                [Specify the location of the sanitized Linux headers]),
+        [CPPFLAGS="$CPPFLAGS -idirafter $withval"])
+
 AC_ARG_WITH([glib],
       AC_HELP_STRING([--with-glib],
          [enable glib, Build against glib. Use this when building for HLOS systems which use glib]))

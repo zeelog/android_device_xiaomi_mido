@@ -45,6 +45,7 @@
     <ctl name="LSM7 Port" value="None" />
     <ctl name="LSM8 Port" value="None" />
     <ctl name="VA_CDC_DMA_TX_0 Channels" value="One" />
+    <ctl name="VA_CDC_DMA_TX_0 SampleRate" value="KHZ_16" />
     <ctl name="VA_AIF1_CAP Mixer DEC0" value="0" />
     <ctl name="VA_AIF1_CAP Mixer DEC1" value="0" />
     <ctl name="VA_AIF1_CAP Mixer DEC2" value="0" />
@@ -85,7 +86,20 @@
     <ctl name="LPI Enable" value="0" />
     <ctl name="ADC2 Volume" value="12" />
     <ctl name="VA_DEC0 MODE" value="ADC_DEFAULT" />
+    <ctl name="VA_DEC1 MODE" value="ADC_DEFAULT" />
+    <ctl name="VA_DEC2 MODE" value="ADC_DEFAULT" />
+    <ctl name="VA_DEC3 MODE" value="ADC_DEFAULT" />
     <ctl name="ADC2_BCS Disable" value="0" />
+    <ctl name="ADC1 ChMap" value="ZERO" />
+    <ctl name="ADC2 ChMap" value="ZERO" />
+    <ctl name="ADC3 ChMap" value="ZERO" />
+    <ctl name="ADC4 ChMap" value="ZERO" />
+    <ctl name="HDR12 MUX" value="NO_HDR12" />
+    <ctl name="HDR34 MUX" value="NO_HDR34" />
+    <ctl name="TX0 MODE" value="ADC_NORMAL" />
+    <ctl name="TX1 MODE" value="ADC_NORMAL" />
+    <ctl name="TX2 MODE" value="ADC_NORMAL" />
+    <ctl name="TX3 MODE" value="ADC_NORMAL" />
 
     <path name="listen-voice-wakeup-1">
         <ctl name="LSM1 Mixer VA_CDC_DMA_TX_0" value="1" />
@@ -234,7 +248,7 @@
     <path name="listen-ape-handset-mic">
         <ctl name="VA_AIF1_CAP Mixer DEC0" value="1" />
         <ctl name="VA DEC0 MUX" value="MSM_DMIC" />
-        <ctl name="VA DMIC MUX0" value="DMIC1" />
+        <ctl name="VA DMIC MUX0" value="DMIC4" />
     </path>
 
     <path name="listen-ape-handset-mic-preproc">
@@ -247,8 +261,8 @@
         <ctl name="VA_AIF1_CAP Mixer DEC1" value="1" />
         <ctl name="VA DEC0 MUX" value="MSM_DMIC" />
         <ctl name="VA DEC1 MUX" value="MSM_DMIC" />
-        <ctl name="VA DMIC MUX0" value="DMIC1" />
-        <ctl name="VA DMIC MUX1" value="DMIC2" />
+        <ctl name="VA DMIC MUX0" value="DMIC4" />
+        <ctl name="VA DMIC MUX1" value="DMIC1" />
     </path>
 
     <path name="listen-ape-handset-tmic">
@@ -283,10 +297,11 @@
     <path name="listen-ape-headset-mic">
         <ctl name="VA_AIF1_CAP Mixer DEC0" value="1" />
         <ctl name="VA DEC0 MUX" value="SWR_MIC" />
-        <ctl name="VA SMIC MUX0" value="SWR_MIC1" />
+        <ctl name="VA SMIC MUX0" value="SWR_MIC5" />
+        <ctl name="TX1 MODE" value="ADC_LP" />
         <ctl name="ADC2 MUX" value="INP2" />
         <ctl name="VA_DEC0 MODE" value="ADC_LOW_PWR" />
-        <ctl name="ADC2 ChMap" value="SWRM_TX1_CH2" />
+        <ctl name="ADC2 ChMap" value="SWRM_TX2_CH2" />
         <ctl name="HDR12 MUX" value="NO_HDR12" />
         <ctl name="ADC2_BCS Disable" value="1" />
         <ctl name="ADC2_MIXER Switch" value="1" />
@@ -299,11 +314,22 @@
         <ctl name="EC Reference SampleRate" value="48000"/>
     </path>
 
-    <path name="echo-reference headset">
+    <path name="echo-reference handset">
         <ctl name="AUDIO_REF_EC_UL1 MUX" value="WSA_CDC_DMA_RX_0"/>
         <ctl name="EC Reference Channels" value="One"/>
         <ctl name="EC Reference Bit Format" value="S16_LE"/>
         <ctl name="EC Reference SampleRate" value="48000"/>
+    </path>
+
+    <path name="echo-reference headphones">
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="RX_CDC_DMA_RX_0"/>
+        <ctl name="EC Reference Channels" value="Two"/>
+        <ctl name="EC Reference Bit Format" value="S16_LE"/>
+        <ctl name="EC Reference SampleRate" value="48000"/>
+    </path>
+
+    <path name="echo-reference headset">
+        <path name="echo-reference headphones" />
     </path>
 
     <path name="echo-reference a2dp">
@@ -312,5 +338,4 @@
         <ctl name="EC Reference Bit Format" value="S16_LE"/>
         <ctl name="EC Reference SampleRate" value="48000"/>
     </path>
-
 </mixer>

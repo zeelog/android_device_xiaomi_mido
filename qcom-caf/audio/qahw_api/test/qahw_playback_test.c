@@ -2117,6 +2117,7 @@ int main(int argc, char* argv[]) {
         {"ec-ref",        no_argument,         0, 'L'},
         {"help",          no_argument,          0, 'h'},
         {"bt-wbs",        no_argument,    0, 'z'},
+        {"HFP-call",      no_argument,          0, 'H'},
         {0, 0, 0, 0}
     };
 
@@ -2139,13 +2140,67 @@ int main(int argc, char* argv[]) {
 
     while ((opt = getopt_long(argc,
                               argv,
-                              "-f:r:c:b:d:s:v:V:l:t:a:w:k:PD:KF:Ee:A:u:m:S:C:p::x:y:qQzLh:i:h:g:O:",
+                              "-f:r:c:b:d:s:v:V:l:t:a:w:k:PD:KF:Ee:A:u:m:S:C:p::x:y:qQzLh:i:h:g:H:O:",
                               long_options,
                               &option_index)) != -1) {
 
         fprintf(log_file, "for argument %c, value is %s\n", opt, optarg);
 
         switch (opt) {
+        case 'H':
+          {
+            int hfp_test_rc;
+            qahw_module_handle_t* qap_out_hal_handle = NULL;
+            qahw_stream_handle_t* out_handle;
+            const char* hfp_set_sampling_rate = "hfp_set_sampling_rate=16000";
+            const char* hfp_volume = "hfp_volume=15";
+            const char* hfp_enable = "hfp_enable=true";
+            const char* hfp_disable = "hfp_enable=false";
+            audio_config_t config;
+            config.sample_rate = 48000;
+            config.channel_mask = 0x3;
+            config.format = 1;
+            config.frame_count = 0;
+            config.offload_info.version = AUDIO_OFFLOAD_INFO_VERSION_CURRENT;
+            config.offload_info.size = sizeof(audio_offload_info_t);
+
+            wakelock_acquired = request_wake_lock(wakelock_acquired, true);
+
+            qap_out_hal_handle = load_hal(AUDIO_DEVICE_NONE);
+
+            hfp_test_rc = qahw_open_output_stream(qap_out_hal_handle,
+                                                  0x999,
+                                                  AUDIO_DEVICE_OUT_BUS,
+                                                  AUDIO_OUTPUT_FLAG_PRIMARY,
+                                                  &config,
+                                                  &out_handle,
+                                                  "BUS00_MEDIA");
+            fprintf(stderr, "hfp_test: qahw_open_output_stream result %d\n", hfp_test_rc);
+
+            hfp_test_rc = qahw_set_parameters(qap_out_hal_handle, hfp_set_sampling_rate);
+            fprintf(stderr, "hfp_test: hfp_set_sampling_rate result %d\n", hfp_test_rc);
+
+            hfp_test_rc = qahw_set_parameters(qap_out_hal_handle, hfp_volume);
+            fprintf(stderr, "hfp_test: hfp_volume result %d\n", hfp_test_rc);
+
+            hfp_test_rc = qahw_set_parameters(qap_out_hal_handle, hfp_enable);
+            fprintf(stderr, "hfp_test: hfp_enable result %d\n", hfp_test_rc);
+
+            sleep(10);
+
+            hfp_test_rc = qahw_set_parameters(qap_out_hal_handle, hfp_disable);
+            fprintf(stderr, "hfp_test: hfp_disable result %d\n", hfp_test_rc);
+
+            hfp_test_rc = qahw_close_output_stream(out_handle);
+
+            unload_hals();
+
+            wakelock_acquired = request_wake_lock(wakelock_acquired, false);
+
+            fprintf(stderr, "\nADL: BYE BYE\n");
+
+            return 0;
+          }
         case 'f':
             stream_param[i].filename = optarg;
             break;

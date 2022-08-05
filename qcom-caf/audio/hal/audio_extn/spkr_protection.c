@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 - 2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013 - 2021, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -45,6 +45,7 @@
 #include <dlfcn.h>
 #include <math.h>
 #include <unistd.h>
+#include <pthread.h>
 #include <cutils/properties.h>
 #include "audio_extn.h"
 #include <linux/msm_audio_calibration.h>
@@ -552,14 +553,8 @@ static int set_spkr_prot_cal(int cal_fd,
         ALOGD("%s: quick calibration enabled", __func__);
         cal_data.cal_type.cal_info.quick_calib_flag = 1;
     } else {
-        property_get("persist.spkr.cal.duration", value, "0");
-        if (atoi(value) > 0) {
-            ALOGD("%s: quick calibration enabled", __func__);
-            cal_data.cal_type.cal_info.quick_calib_flag = 1;
-        } else {
-            ALOGD("%s: quick calibration disabled", __func__);
-            cal_data.cal_type.cal_info.quick_calib_flag = 0;
-        }
+        ALOGD("%s: quick calibration disabled", __func__);
+        cal_data.cal_type.cal_info.quick_calib_flag = 0;
     }
 
     cal_data.cal_type.cal_data.mem_handle = -1;
@@ -1171,11 +1166,7 @@ static void* spkr_calibration_thread()
     property_get("persist.vendor.audio.spkr.cal.duration", value, "0");
     if (atoi(value) > 0)
         min_idle_time = atoi(value);
-    else {
-        property_get("persist.spkr.cal.duration", value, "0");
-        if (atoi(value) > 0)
-            min_idle_time = atoi(value);
-    }
+
     handle.speaker_prot_threadid = pthread_self();
     spv3_enable = property_get_bool("persist.vendor.audio.spv3.enable", false);
     property_get("persist.vendor.audio.avs.afe_api_version", afe_version_value,
@@ -2187,10 +2178,8 @@ int fbsp_get_parameters(struct str_parms *query,
     int err = 0;
     char value[MAX_STR_SIZE] = {0};
 
-    if (!handle.spkr_prot_enable) {
-        ALOGD("%s: Speaker protection disabled", __func__);
+    if (!handle.spkr_prot_enable)
         return -EINVAL;
-    }
 
     err = str_parms_get_str(query, AUDIO_PARAMETER_KEY_FBSP_GET_SPKR_CAL, value,
                                                           sizeof(value));
@@ -2503,6 +2492,8 @@ exit:
         list_remove(&uc_info_tx->list);
         uc_info_tx->in_snd_device = in_snd_device;
         uc_info_tx->out_snd_device = SND_DEVICE_NONE;
+        audio_route_reset_and_update_path(adev->audio_route,
+           device_name);
         fp_disable_snd_device(adev, in_snd_device);
         fp_disable_audio_route(adev, uc_info_tx);
         free(uc_info_tx);

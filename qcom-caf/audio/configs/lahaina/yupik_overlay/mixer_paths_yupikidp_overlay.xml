@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--- Copyright (c) 2020-2021, The Linux Foundation. All rights reserved.       -->
+<!---                                                                           -->
+<!--- Redistribution and use in source and binary forms, with or without        -->
+<!--- modification, are permitted provided that the following conditions are    -->
+<!--- met:                                                                      -->
+<!---     * Redistributions of source code must retain the above copyright      -->
+<!---       notice, this list of conditions and the following disclaimer.       -->
+<!---     * Redistributions in binary form must reproduce the above             -->
+<!---       copyright notice, this list of conditions and the following         -->
+<!---       disclaimer in the documentation and/or other materials provided     -->
+<!---       with the distribution.                                              -->
+<!---     * Neither the name of The Linux Foundation nor the names of its       -->
+<!---       contributors may be used to endorse or promote products derived     -->
+<!---       from this software without specific prior written permission.       -->
+<!---                                                                           -->
+<!--- THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED              -->
+<!--- WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF      -->
+<!--- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT    -->
+<!--- ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS    -->
+<!--- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR    -->
+<!--- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF      -->
+<!--- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR           -->
+<!--- BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,     -->
+<!--- WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE      -->
+<!--- OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN    -->
+<!--- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                             -->
+<mixer>
+    <ctl name="TX DEC0 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC1 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC2 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC3 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC4 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC5 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC6 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC7 MUX" value="MSM_DMIC"/>
+    <ctl name="MultiMedia1 Mixer SEC_MI2S_TX" value="0"/>
+    <ctl name="MultiMedia2 Mixer SEC_MI2S_TX" value="0"/>
+    <ctl name="MultiMedia8 Mixer SEC_MI2S_TX" value="0"/>
+    <ctl name="MultiMedia16 Mixer SEC_MI2S_TX" value="0"/>
+    <ctl name="SEC MI2S LOOPBACK Volume" value="0"/>
+    <ctl name="WSA_CDC_DMA_RX_0 Port Mixer SEC_MI2S_TX" value="0"/>
+
+    <path name="speaker-mic">
+        <path name="dmic4"/>
+    </path>
+    <path name="speaker-mic-liquid">
+        <path name="dmic4"/>
+    </path>
+    <path name="handset-mic">
+        <path name="dmic1"/>
+    </path>
+    <path name="handset-dmic-endfire">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC0"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC1"/>
+    </path>
+    <path name="speaker-dmic-endfire">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC3"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC1"/>
+    </path>
+    <path name="speaker-dmic-broadside">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC3"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC0"/>
+    </path>
+    <path name="three-mic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Three"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC3"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC0"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC3" value="1"/>
+        <ctl name="TX DMIC MUX3" value="DMIC2"/>
+    </path>
+    <path name="speaker-tmic">
+        <path name="three-mic" />
+    </path>
+    <path name="speaker-qmic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Four"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC3"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC0"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC3" value="1"/>
+        <ctl name="TX DMIC MUX3" value="DMIC2"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC4" value="1"/>
+        <ctl name="TX DMIC MUX4" value="DMIC1"/>
+    </path>
+    <path name="voice-tty-vco-handset-mic">
+        <path name="dmic1"/>
+    </path>
+    <path name="audio-record capture-fm">
+        <ctl name="MultiMedia1 Mixer SEC_MI2S_TX" value="1"/>
+    </path>
+    <path name="low-latency-record capture-fm">
+        <ctl name="MultiMedia8 Mixer SEC_MI2S_TX" value="1"/>
+    </path>
+    <path name="fm-virtual-record capture-fm">
+        <ctl name="MultiMedia2 Mixer SEC_MI2S_TX" value="1"/>
+    </path>
+    <path name="play-fm">
+        <ctl name="SEC MI2S LOOPBACK Volume" value="1"/>
+        <ctl name="WSA_CDC_DMA_RX_0 Port Mixer SEC_MI2S_TX" value="1"/>
+        <ctl name="WSA_CDC_DMA_RX_0_DL_HL Switch" value="1"/>
+    </path>
+    <path name="play-fm headphones">
+        <ctl name="SEC MI2S LOOPBACK Volume" value="1"/>
+        <ctl name="RX_CDC_DMA_RX_0 Port Mixer SEC_MI2S_TX" value="1"/>
+        <ctl name="RX_CDC_DMA_RX_0_DL_HL Switch" value="1"/>
+    </path>
+    <path name="mmap-record capture-fm">
+        <ctl name="MultiMedia16 Mixer SEC_MI2S_TX" value="1"/>
+    </path>
+</mixer>

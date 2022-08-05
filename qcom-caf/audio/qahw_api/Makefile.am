@@ -5,7 +5,8 @@ h_sources = inc/qahw_api.h \
             inc/qahw_effect_equalizer.h \
             inc/qahw_effect_presetreverb.h \
             inc/qahw_effect_virtualizer.h \
-            inc/qahw_effect_visualizer.h
+            inc/qahw_effect_visualizer.h \
+            inc/qahw_effect_trumpet.h
 
 AM_CPPFLAGS := -I $(top_srcdir)/qahw_api/inc/
 AM_CPPFLAGS += -I $(PKG_CONFIG_SYSROOT_DIR)/usr/include/mm-audio/audio-hal-server

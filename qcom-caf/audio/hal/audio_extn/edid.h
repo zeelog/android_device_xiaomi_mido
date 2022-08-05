@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, 2016-2017, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2014, 2016-2017, 2020,  The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -48,10 +48,12 @@
 #define PCM_CHANNEL_RS    5  /* Right surround channel.                       */
 #define PCM_CHANNEL_LFE   6  /* Low frequency effect channel.                 */
 #define PCM_CHANNEL_CS    7  /* Center surround channel; Rear center channel. */
+#define PCM_CHANNEL_CB    7  /* Center back channel.                          */
 #define PCM_CHANNEL_LB    8  /* Left back channel; Rear left channel.         */
 #define PCM_CHANNEL_RB    9  /* Right back channel; Rear right channel.       */
 #define PCM_CHANNEL_TS   10  /* Top surround channel.                         */
 #define PCM_CHANNEL_CVH  11  /* Center vertical height channel.               */
+#define PCM_CHANNEL_TFC  11  /* Top front center channel                      */
 #define PCM_CHANNEL_MS   12  /* Mono surround channel.                        */
 #define PCM_CHANNEL_FLC  13  /* Front left of center.                         */
 #define PCM_CHANNEL_FRC  14  /* Front right of center.                        */

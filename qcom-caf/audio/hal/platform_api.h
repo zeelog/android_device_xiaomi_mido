@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2021, The Linux Foundation. All rights reserved.
  * Not a contribution.
  *
  * Copyright (C) 2013 The Android Open Source Project
@@ -182,6 +182,7 @@ int platform_set_native_support(int na_mode);
 int platform_get_native_support();
 int platform_send_audio_calibration(void *platform, struct audio_usecase *usecase,
                                     int app_type);
+int platform_send_audio_calibration_hfp(void *platform, snd_device_t snd_device);
 int platform_get_default_app_type(void *platform);
 int platform_get_default_app_type_v2(void *platform, usecase_type_t  type);
 int platform_switch_voice_call_device_pre(void *platform);
@@ -253,7 +254,6 @@ const char * platform_get_snd_device_backend_interface(snd_device_t device);
 void platform_add_app_type(const char *uc_type,
                            const char *mode,
                            int bw, int app_type, int max_sr);
-int platform_set_snd_device_name(snd_device_t snd_device, const char * name);
 
 /* From platform_info.c */
 int platform_info_init(const char *filename, void *, caller_t);
@@ -284,7 +284,7 @@ int platform_get_supported_copp_sampling_rate(uint32_t stream_sr);
 int platform_set_channel_map(void *platform, int ch_count, char *ch_map,
                              int snd_id, int be_idx);
 int platform_set_stream_channel_map(void *platform, audio_channel_mask_t channel_mask,
-                                   int snd_id, uint8_t *input_channel_map);
+                                   int snd_id, int be_idx, uint8_t *input_channel_map);
 int platform_set_stream_pan_scale_params(void *platform,
                                          int snd_id,
                                          struct mix_matrix_params mm_params);
@@ -306,6 +306,7 @@ int platform_set_device_params(struct stream_out *out, int param, int value);
 int platform_set_audio_device_interface(const char * device_name, const char *intf_name,
                                         const char * codec_type);
 void platform_set_gsm_mode(void *platform, bool enable);
+void platform_set_tx_lpi_mode(void *platform, bool enable);
 bool platform_can_enable_spkr_prot_on_device(snd_device_t snd_device);
 int platform_get_spkr_prot_acdb_id(snd_device_t snd_device);
 int platform_get_spkr_prot_snd_device(snd_device_t snd_device);
@@ -332,8 +333,10 @@ bool platform_check_codec_dsd_support(void *platform);
 bool platform_check_codec_asrc_support(void *platform);
 int platform_get_backend_index(snd_device_t snd_device);
 int platform_get_ext_disp_type(void *platform);
+int platform_get_is_afe_loopback_enabled(void *platform);
 void platform_invalidate_hdmi_config(void *platform);
 void platform_invalidate_backend_config(void * platform,snd_device_t snd_device);
+bool platform_get_spkr_hph_single_be_native_concurrency_flag();
 
 #ifdef INSTANCE_ID_ENABLED
 void platform_make_cal_cfg(acdb_audio_cal_cfg_t* cal, int acdb_dev_id,
@@ -421,6 +424,8 @@ int platform_set_hdmi_channels_v2(void *platform, int channel_count,
 int platform_get_display_port_ctl_index(int controller, int stream);
 bool platform_is_call_proxy_snd_device(snd_device_t snd_device);
 void platform_set_audio_source_delay(audio_source_t audio_source, int delay_ms);
+bool platform_set_fluence_nn_state(void *platform, bool start);
+int platform_get_fluence_nn_state(void *platform);
 
 int platform_get_audio_source_index(const char *audio_source_name);
 bool platform_check_and_update_island_power_status(void *platform,
@@ -433,4 +438,6 @@ int platform_set_power_mode_on_device(struct audio_device* adev, snd_device_t sn
 int platform_set_island_cfg_on_device(struct audio_device* adev, snd_device_t snd_device,
                                       bool enable);
 void platform_reset_island_power_status(void *platform, snd_device_t snd_device);
+void platform_is_volume_boost_supported_device(void *platform, struct listnode *devices);
+const char *platform_get_mixer_FM_RX_control(struct audio_device *adev);
 #endif // AUDIO_PLATFORM_API_H

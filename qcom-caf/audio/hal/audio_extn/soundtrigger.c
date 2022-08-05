@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2014, 2016-2020, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2013-2014, 2016-2021, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -37,6 +37,7 @@
 #include <pthread.h>
 #include <log/log.h>
 #include <unistd.h>
+#include <cutils/properties.h>
 #include "audio_hw.h"
 #include "audio_extn.h"
 #include "platform.h"
@@ -85,7 +86,8 @@ typedef enum {
     AUDIO_EVENT_BATTERY_STATUS_CHANGED,
     AUDIO_EVENT_GET_PARAM,
     AUDIO_EVENT_UPDATE_ECHO_REF,
-    AUDIO_EVENT_SCREEN_STATUS_CHANGED
+    AUDIO_EVENT_SCREEN_STATUS_CHANGED,
+    AUDIO_EVENT_ROUTE_INIT_DONE
 } audio_event_type_t;
 
 typedef enum {
@@ -147,6 +149,7 @@ struct audio_event_info {
         struct audio_hal_usecase usecase;
         bool audio_ec_ref_enabled;
         struct sound_trigger_get_param_data st_get_param_data;
+        struct audio_route *audio_route;
     } u;
     struct sound_trigger_device_info device_info;
 };
@@ -208,6 +211,7 @@ struct sound_trigger_audio_device {
     pthread_mutex_t lock;
     unsigned int sthal_prop_api_version;
     bool st_ec_ref_enabled;
+    bool shared_mixer;
 };
 
 static struct sound_trigger_audio_device *st_dev;
@@ -425,7 +429,7 @@ exit:
             in->is_st_session_active = false;
         memset(buffer, 0, bytes);
         ALOGV("%s: read failed status %d - sleep", __func__, ret);
-        usleep((bytes * 1000000) / (audio_stream_in_frame_size((struct audio_stream_in *)in) *
+        usleep(((useconds_t)bytes * 1000000) / (audio_stream_in_frame_size((struct audio_stream_in *)in) *
                                    in->config.rate));
     }
     return ret;
@@ -493,6 +497,9 @@ bool audio_extn_sound_trigger_check_ec_ref_enable()
         return ret;
     }
 
+    if (st_dev->shared_mixer)
+        return ret;
+
     pthread_mutex_lock(&st_dev->lock);
     if (st_dev->st_ec_ref_enabled) {
         ret = true;
@@ -513,6 +520,9 @@ void audio_extn_sound_trigger_update_ec_ref_status(bool on)
         ALOGE("%s: st_dev NULL", __func__);
         return;
     }
+
+    if (st_dev->shared_mixer)
+        return;
 
     ev_info.u.audio_ec_ref_enabled = on;
     st_dev->st_callback(AUDIO_EVENT_UPDATE_ECHO_REF, &ev_info);
@@ -551,7 +561,7 @@ void audio_extn_sound_trigger_update_device_status(snd_device_t snd_device,
     struct stream_in *active_input = adev_get_active_input(st_dev->adev);
     audio_source_t  source = (active_input == NULL) ?
                                AUDIO_SOURCE_DEFAULT : active_input->source;
-    if (st_dev->adev->mode == AUDIO_MODE_IN_CALL) {
+    if (voice_is_uc_active(st_dev->adev)) {
         ev_info.u.usecase.type = USECASE_TYPE_VOICE_CALL;
     } else if ((st_dev->adev->mode == AUDIO_MODE_IN_COMMUNICATION ||
                 source == AUDIO_SOURCE_VOICE_COMMUNICATION) &&
@@ -600,10 +610,8 @@ void audio_extn_sound_trigger_update_stream_status(struct audio_usecase *uc_info
         uc_info->in_snd_device < SND_DEVICE_IN_END)) {
         if (is_same_as_st_device(uc_info->in_snd_device))
             update_device_list(&ev_info.device_info.devices, ST_DEVICE_HANDSET_MIC, "", true);
-    } else {
-        ALOGV("%s: invalid input device 0x%x, for event %d",
-                    __func__, uc_info->in_snd_device, event);
     }
+
     raise_event = platform_sound_trigger_usecase_needs_event(uc_info->id);
     ALOGD("%s: uc_info->id %d of type %d for Event %d, with Raise=%d",
         __func__, uc_info->id, uc_info->type, event, raise_event);
@@ -792,6 +800,7 @@ int audio_extn_sound_trigger_init(struct audio_device *adev)
     int status = 0;
     char sound_trigger_lib[100];
     void *sthal_prop_api_version;
+    audio_event_info_t event = {{0}, {0}};
 
     ALOGI("%s: Enter", __func__);
 
@@ -839,9 +848,15 @@ int audio_extn_sound_trigger_init(struct audio_device *adev)
 
     st_dev->adev = adev;
     st_dev->st_ec_ref_enabled = false;
+    st_dev->shared_mixer =
+        property_get_bool("persist.vendor.audio.shared_mixer.enabled", false);
     list_init(&st_dev->st_ses_list);
     audio_extn_snd_mon_register_listener(st_dev, stdev_snd_mon_cb);
-
+    if (st_dev->shared_mixer) {
+        event.u.audio_route = adev->audio_route;
+        st_dev->st_callback(AUDIO_EVENT_ROUTE_INIT_DONE, &event);
+        ALOGD("%s: send the audio route instance to sthal",  __func__);
+    }
     return 0;
 
 cleanup:

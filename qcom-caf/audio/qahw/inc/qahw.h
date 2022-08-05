@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2019, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2016-2021, The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
  * Copyright (C) 2011 The Android Open Source Project *
@@ -364,6 +364,12 @@ ssize_t qahw_in_read_l(qahw_stream_handle_t *in_handle,
  * Stop input stream. Returns zero on success.
  */
 int qahw_in_stop_l(qahw_stream_handle_t *in_handle);
+
+/* API to set capture stream specific config parameters */
+int qahw_in_set_param_data_l(qahw_stream_handle_t *in_handle,
+                            qahw_param_id param_id,
+                            qahw_param_payload *payload);
+
 /*
  * Return the amount of input frames lost in the audio driver since the
  * last call of this function.
@@ -465,6 +471,11 @@ int qahw_create_audio_patch_l(qahw_module_handle_t *hw_module,
                         const struct audio_port_config *sources,
                         unsigned int num_sinks,
                         const struct audio_port_config *sinks,
+                        audio_patch_handle_t *handle);
+
+int qahw_create_audio_patch_v2_l(qahw_module_handle_t *hw_module,
+                        qahw_source_port_config_t *source_port_config,
+                        qahw_sink_port_config_t *sink_port_config,
                         audio_patch_handle_t *handle);
 
 /* Release an audio patch */

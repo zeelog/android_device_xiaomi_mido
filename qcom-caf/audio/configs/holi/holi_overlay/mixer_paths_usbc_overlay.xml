@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--- Copyright (c) 2020, The Linux Foundation. All rights reserved.       -->
+<!---                                                                           -->
+<!--- Redistribution and use in source and binary forms, with or without        -->
+<!--- modification, are permitted provided that the following conditions are    -->
+<!--- met:                                                                      -->
+<!---     * Redistributions of source code must retain the above copyright      -->
+<!---       notice, this list of conditions and the following disclaimer.       -->
+<!---     * Redistributions in binary form must reproduce the above             -->
+<!---       copyright notice, this list of conditions and the following         -->
+<!---       disclaimer in the documentation and/or other materials provided     -->
+<!---       with the distribution.                                              -->
+<!---     * Neither the name of The Linux Foundation nor the names of its       -->
+<!---       contributors may be used to endorse or promote products derived     -->
+<!---       from this software without specific prior written permission.       -->
+<!---                                                                           -->
+<!--- THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED              -->
+<!--- WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF      -->
+<!--- MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT    -->
+<!--- ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS    -->
+<!--- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR    -->
+<!--- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF      -->
+<!--- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR           -->
+<!--- BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,     -->
+<!--- WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE      -->
+<!--- OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN    -->
+<!--- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                             -->
+<mixer>
+    <ctl name="TX DEC0 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC1 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC2 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC3 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC4 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC5 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC6 MUX" value="MSM_DMIC"/>
+    <ctl name="TX DEC7 MUX" value="MSM_DMIC"/>
+    <path name="echo-reference">
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="RX_CDC_DMA_RX_1"/>
+        <ctl name="EC Reference Channels" value="Two"/>
+    </path>
+    <path name="echo-reference handset">
+        <ctl name="AUDIO_REF_EC_UL1 MUX" value="RX_CDC_DMA_RX_0"/>
+        <ctl name="EC Reference Channels" value="One"/>
+    </path>
+    <path name="echo-reference-voip-low-latency">
+        <ctl name="AUDIO_REF_EC_UL8 MUX" value="RX_CDC_DMA_RX_1"/>
+        <ctl name="EC Reference Channels" value="One"/>
+    </path>
+    <path name="echo-reference-voip-low-latency handset">
+        <ctl name="AUDIO_REF_EC_UL8 MUX" value="RX_CDC_DMA_RX_0"/>
+        <ctl name="EC Reference Channels" value="One"/>
+    </path>
+    <path name="echo-reference-voip">
+        <ctl name="AUDIO_REF_EC_UL10 MUX" value="RX_CDC_DMA_RX_1"/>
+        <ctl name="EC Reference Channels" value="One"/>
+    </path>
+    <path name="echo-reference-voip handset">
+        <ctl name="AUDIO_REF_EC_UL10 MUX" value="RX_CDC_DMA_RX_0"/>
+        <ctl name="EC Reference Channels" value="One"/>
+    </path>
+    <path name="deep-buffer-playback">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia1" value="1"/>
+    </path>
+    <path name="low-latency-playback">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia5" value="1"/>
+    </path>
+    <path name="audio-ull-playback">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia8" value="1"/>
+    </path>
+    <path name="compress-offload-playback">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia4" value="1"/>
+    </path>
+    <path name="compress-offload-playback headphones-dsd">
+        <ctl name="RX_CDC_DMA_RX_5 Audio Mixer MultiMedia4" value="1"/>
+    </path>
+    <path name="compress-offload-playback2">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia7" value="1"/>
+    </path>
+    <path name="compress-offload-playback3">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia10" value="1"/>
+    </path>
+    <path name="compress-offload-playback4">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia11" value="1"/>
+    </path>
+    <path name="compress-offload-playback5">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia12" value="1"/>
+    </path>
+    <path name="compress-offload-playback6">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia13" value="1"/>
+    </path>
+    <path name="compress-offload-playback7">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia14" value="1"/>
+    </path>
+    <path name="compress-offload-playback8">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia15" value="1"/>
+    </path>
+    <path name="compress-offload-playback9">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia16" value="1"/>
+    </path>
+    <path name="audio-record capture-fm">
+        <ctl name="MultiMedia1 Mixer SLIM_8_TX" value="1"/>
+    </path>
+    <path name="low-latency-record capture-fm">
+        <ctl name="MultiMedia8 Mixer SLIM_8_TX" value="1"/>
+    </path>
+    <path name="fm-virtual-record capture-fm">
+        <ctl name="MultiMedia2 Mixer SLIM_8_TX" value="1"/>
+    </path>
+    <path name="play-fm">
+        <ctl name="SLIMBUS_8 LOOPBACK Volume" value="1"/>
+        <ctl name="RX_CDC_DMA_RX_1 Port Mixer SLIM_8_TX" value="1"/>
+        <ctl name="RX_CDC_DMA_RX_1_DL_HL Switch" value="1"/>
+    </path>
+    <path name="play-fm headphones">
+        <ctl name="SLIMBUS_8 LOOPBACK Volume" value="1"/>
+        <ctl name="RX_CDC_DMA_RX_0 Port Mixer SLIM_8_TX" value="1"/>
+        <ctl name="RX_CDC_DMA_RX_0_DL_HL Switch" value="1"/>
+    </path>
+    <path name="incall-rec-uplink">
+        <ctl name="MultiMedia9 Mixer VOC_REC_UL" value="1"/>
+    </path>
+    <path name="incall-rec-downlink">
+        <ctl name="MultiMedia9 Mixer VOC_REC_DL" value="1"/>
+    </path>
+    <path name="compress-voip-call">
+        <ctl name="RX_CDC_DMA_RX_1_Voice Mixer Voip" value="1"/>
+        <ctl name="Voip_Tx Mixer TX_CDC_DMA_TX_3_Voip" value="1"/>
+    </path>
+    <path name="voicemmode1-call">
+        <ctl name="RX_CDC_DMA_RX_1_Voice Mixer VoiceMMode1" value="1"/>
+        <ctl name="VoiceMMode1_Tx Mixer TX_CDC_DMA_TX_3_MMode1" value="1"/>
+    </path>
+    <path name="voicemmode2-call">
+        <ctl name="RX_CDC_DMA_RX_1_Voice Mixer VoiceMMode2" value="1"/>
+        <ctl name="VoiceMMode2_Tx Mixer TX_CDC_DMA_TX_3_MMode2" value="1"/>
+    </path>
+    <path name="audio-playback-voip">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia10" value="1"/>
+    </path>
+    <path name="audio-record-voip">
+        <ctl name="MultiMedia10 Mixer TX_CDC_DMA_TX_3" value="1"/>
+        <ctl name="TX_DEC2 Volume" value="84"/>
+    </path>
+    <path name="spkr-rx-calib">
+        <ctl name="RX_CDC_DMA_RX_1_DL_HL Switch" value="1"/>
+    </path>
+    <path name="amic2">
+        <ctl name="TX DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX SMIC MUX0" value="SWR_MIC1"/>
+        <ctl name="TX_CDC_DMA_TX_4 Channels" value="One"/>
+        <ctl name="TX_AIF2_CAP Mixer DEC0" value="1"/>
+        <ctl name="DEC0_BCS Switch" value="1"/>
+        <ctl name="ADC2_MIXER Switch" value="1"/>
+        <ctl name="ADC2 MUX" value="INP2"/>
+        <ctl name="ADC2 ChMap" value="SWRM_TX1_CH2"/>
+        <ctl name="MBHC ChMap" value="SWRM_TX2_CH3"/>
+        <ctl name="BCS Channel" value="CH6"/>
+        <ctl name="HDR12 MUX" value="NO_HDR12"/>
+    </path>
+    <path name="speaker">
+        <ctl name="RX_CDC_DMA_RX_1 Channels" value="One"/>
+        <ctl name="RX_MACRO RX2 MUX" value="AIF2_PB"/>
+        <ctl name="RX INT2_1 MIX1 INP0" value="RX2"/>
+        <ctl name="AUX_RDAC Switch" value="1"/>
+        <ctl name="SpkrMono WSA_RDAC" value="Switch"/>
+    </path>
+    <path name="speaker-mono">
+        <path name="speaker"/>
+    </path>
+    <path name="speaker-mono-2">
+        <path name="speaker"/>
+    </path>
+    <path name="sidetone-handset">
+        <path name="sidetone-iir"/>
+        <ctl name="IIR0 INP0 Volume" value="54"/>
+        <ctl name="IIR0 INP0 MUX" value="DEC2"/>
+        <ctl name="RX INT0 MIX2 INP" value="SRC0"/>
+    </path>
+    <path name="speaker-mic">
+        <path name="dmic2"/>
+    </path>
+    <path name="speaker-mic-liquid">
+        <path name="dmic2"/>
+    </path>
+    <path name="handset">
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_CDC_DMA_RX_0 Channels" value="One"/>
+        <ctl name="RX INT0_1 MIX1 INP0" value="RX0"/>
+        <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT"/>
+        <ctl name="EAR_RDAC Switch" value="1"/>
+        <ctl name="RDAC3_MUX" value="RX1"/>
+        <ctl name="RX_EAR Mode" value="ON"/>
+    </path>
+    <path name="handset-mic">
+        <path name="dmic3"/>
+    </path>
+    <path name="headphones">
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="RX_CDC_DMA_RX_0 Channels" value="Two"/>
+        <ctl name="RX INT0_1 MIX1 INP0" value="RX0"/>
+        <ctl name="RX INT1_1 MIX1 INP0" value="RX1"/>
+        <ctl name="RX INT0 DEM MUX" value="CLSH_DSM_OUT"/>
+        <ctl name="RX INT1 DEM MUX" value="CLSH_DSM_OUT"/>
+        <ctl name="RX_COMP1 Switch" value="1"/>
+        <ctl name="RX_COMP2 Switch" value="1"/>
+        <ctl name="HPH_L Switch" value="1"/>
+        <ctl name="HPH_R Switch" value="1"/>
+        <ctl name="HPHL_COMP Switch" value="1"/>
+        <ctl name="HPHR_COMP Switch" value="1"/>
+        <ctl name="HPHL_RDAC Switch" value="1"/>
+        <ctl name="HPHR_RDAC Switch" value="1"/>
+    </path>
+    <path name="handset-dmic-endfire">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC2"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC3"/>
+    </path>
+    <path name="speaker-dmic-endfire">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC2"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC3"/>
+    </path>
+    <path name="speaker-dmic-broadside">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC2"/>
+    </path>
+    <path name="three-mic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Three"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC2"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC3" value="1"/>
+        <ctl name="TX DMIC MUX3" value="DMIC3"/>
+    </path>
+    <path name="speaker-tmic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Three"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC2"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC3" value="1"/>
+        <ctl name="TX DMIC MUX3" value="DMIC3"/>
+    </path>
+    <path name="speaker-qmic">
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="Four"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX DMIC MUX0" value="DMIC1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX DMIC MUX1" value="DMIC2"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX DMIC MUX2" value="DMIC3"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC3" value="1"/>
+        <ctl name="TX DMIC MUX3" value="DMIC0"/>
+    </path>
+    <path name="voice-tty-full-headset-mic">
+        <path name="amic2"/>
+        <ctl name="ADC2 Volume" value="0"/>
+        <ctl name="TX_DEC0 Volume" value="84"/>
+    </path>
+    <path name="voice-tty-hco-headset-mic">
+        <ctl name="TX DEC6 MUX" value="SWR_MIC"/>
+        <ctl name="TX SMIC MUX6" value="SWR_MIC4"/>
+        <ctl name="TX_CDC_DMA_TX_3 Channels" value="One"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC6" value="1"/>
+        <ctl name="ADC2_MIXER Switch" value="1"/>
+        <ctl name="ADC2 MUX" value="INP2"/>
+    </path>
+    <path name="voice-tty-vco-handset-mic">
+        <path name="dmic3"/>
+    </path>
+    <path name="ADSP testfwk">
+        <ctl name="RX_CDC_DMA_RX_1_DL_HL Switch" value="1"/>
+    </path>
+    <path name="mmap-playback">
+        <ctl name="RX_CDC_DMA_RX_1 Audio Mixer MultiMedia16" value="1"/>
+    </path>
+    <path name="mmap-record capture-fm">
+        <ctl name="MultiMedia16 Mixer SLIM_8_TX" value="1"/>
+    </path>
+</mixer>

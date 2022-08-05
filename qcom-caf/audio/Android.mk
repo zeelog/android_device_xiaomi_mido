@@ -1,5 +1,6 @@
 ifeq ($(call my-dir),$(call project-path-for,qcom-audio))
 
+ifneq ($(DUAL_AUDIO_FRAMEWORK_AR), true)
 ifneq ($(AUDIO_USE_STUB_HAL), true)
 ifneq ($(filter mpq8092 msm8960 msm8226 msm8x26 msm8610 msm8974 msm8x74 apq8084 msm8916 msm8994 msm8992 msm8909 msm8996 msm8952 msm8937 thorium msm8953 msmgold msm8998 sdm660 sdm845 sdm710 apq8098_latv qcs605 sdmshrike msmnile kona lahaina holi $(MSMSTEPPE) $(TRINKET) atoll lito bengal,$(TARGET_BOARD_PLATFORM)),)
 
@@ -28,4 +29,6 @@ endif
 
 endif
 endif
+endif
+
 endif

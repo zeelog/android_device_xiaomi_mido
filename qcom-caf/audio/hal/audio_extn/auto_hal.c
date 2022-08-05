@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2019-2021, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -47,8 +47,6 @@
 #endif
 
 //external feature dependency
-static fp_in_get_stream_t                           fp_in_get_stream;
-static fp_out_get_stream_t                          fp_out_get_stream;
 static fp_audio_extn_ext_hw_plugin_usecase_start_t  fp_audio_extn_ext_hw_plugin_usecase_start;
 static fp_audio_extn_ext_hw_plugin_usecase_stop_t   fp_audio_extn_ext_hw_plugin_usecase_stop;
 static fp_get_usecase_from_list_t                   fp_get_usecase_from_list;
@@ -309,6 +307,54 @@ int auto_hal_get_car_audio_stream_from_address(const char *address)
     return (0x1 << bus_num);
 }
 
+int auto_hal_open_input_stream(struct stream_in *in)
+{
+    int ret = 0;
+
+    switch(in->car_audio_stream) {
+    case CAR_AUDIO_STREAM_IN_PRIMARY:
+        in->usecase = USECASE_AUDIO_RECORD_BUS;
+        if (in->flags == AUDIO_INPUT_FLAG_NONE)
+            in->flags |= AUDIO_INPUT_FLAG_PRIMARY;
+        break;
+    case CAR_AUDIO_STREAM_IN_FRONT_PASSENGER:
+        in->usecase = USECASE_AUDIO_RECORD_BUS_FRONT_PASSENGER;
+        if (in->flags == AUDIO_INPUT_FLAG_NONE)
+            in->flags |= AUDIO_INPUT_FLAG_FRONT_PASSENGER;
+        break;
+    case CAR_AUDIO_STREAM_IN_REAR_SEAT:
+        in->usecase = USECASE_AUDIO_RECORD_BUS_REAR_SEAT;
+        if (in->flags == AUDIO_INPUT_FLAG_NONE)
+            in->flags |= AUDIO_INPUT_FLAG_REAR_SEAT;
+        break;
+    default:
+        ALOGE("%s: Car audio stream 0x%x not supported", __func__,
+            in->car_audio_stream);
+        ret = -EINVAL;
+    }
+
+    return ret;
+}
+
+/*
+ * Function: auto_hal_open_echo_reference_stream
+ * ---------------------------------------------
+ * opens an input stream to capture an echo reference
+ * and sets for external echo reference
+ *
+ * param *in: stream to be used for echo reference
+ *
+ * returns: 0
+ */
+int auto_hal_open_echo_reference_stream(struct stream_in *in)
+{
+    /* note: this function may be expanded in the future
+    to accommodate other echo reference sources
+    such as an internal AFE loopback. */
+    in->usecase = USECASE_AUDIO_RECORD_ECHO_REF_EXT;
+    return 0;
+}
+
 int auto_hal_open_output_stream(struct stream_out *out)
 {
     int ret = 0;
@@ -401,11 +447,11 @@ bool auto_hal_is_bus_device_usecase(audio_usecase_t uc_id)
     return false;
 }
 
-snd_device_t auto_hal_get_snd_device_for_car_audio_stream(struct stream_out *out)
+snd_device_t auto_hal_get_snd_device_for_car_audio_stream(int car_audio_stream)
 {
     snd_device_t snd_device = SND_DEVICE_NONE;
 
-    switch(out->car_audio_stream) {
+    switch(car_audio_stream) {
     case CAR_AUDIO_STREAM_MEDIA:
         snd_device = SND_DEVICE_OUT_BUS_MEDIA;
         break;
@@ -424,11 +470,31 @@ snd_device_t auto_hal_get_snd_device_for_car_audio_stream(struct stream_out *out
     case CAR_AUDIO_STREAM_REAR_SEAT:
         snd_device = SND_DEVICE_OUT_BUS_RSE;
         break;
+    case CAR_AUDIO_STREAM_IN_PRIMARY:
+        snd_device = SND_DEVICE_IN_BUS;
+        break;
+    case CAR_AUDIO_STREAM_IN_FRONT_PASSENGER:
+        snd_device = SND_DEVICE_IN_BUS_PAX;
+        break;
+    case CAR_AUDIO_STREAM_IN_REAR_SEAT:
+        snd_device = SND_DEVICE_IN_BUS_RSE;
+        break;
     default:
-        ALOGE("%s: Unknown car audio stream (%x)",
-            __func__, out->car_audio_stream);
+        ALOGE("%s: Unknown car audio stream (%#x)",
+            __func__, car_audio_stream);
     }
     return snd_device;
+}
+
+bool auto_hal_overwrite_priority_for_auto(struct stream_in *in)
+{
+    /* Don't use the priority_in stream when the source is
+     * AUDIO_SOURCE_ECHO_REFERENCE because the platform_get_input_snd_device
+     * call (below) needs to set the snd_device based the echo ref stream and
+     * NOT based on higher priority streams (such as concurrent recording
+     * streams from the mic) */
+
+    return (in->source == AUDIO_SOURCE_ECHO_REFERENCE);
 }
 
 int auto_hal_get_audio_port(struct audio_hw_device *dev __unused,
@@ -723,7 +789,7 @@ snd_device_t auto_hal_get_input_snd_device(struct audio_device *adev,
                 snd_device = SND_DEVICE_IN_VOICE_SPEAKER_MIC_HFP;
             }
             if (adev->enable_hfp)
-                fp_platform_set_echo_reference(adev, false, &out_devices);
+                fp_platform_set_echo_reference(adev, true, &out_devices);
             break;
         case USECASE_AUDIO_HFP_SCO_DOWNLINK:
             snd_device = SND_DEVICE_IN_BT_SCO_MIC;
@@ -733,6 +799,12 @@ snd_device_t auto_hal_get_input_snd_device(struct audio_device *adev,
             break;
         case USECASE_VOICE_CALL:
             snd_device = SND_DEVICE_IN_VOICE_SPEAKER_MIC;
+            break;
+        case USECASE_ICC_CALL:
+            snd_device = SND_DEVICE_IN_ICC;
+            break;
+        case USECASE_AUDIO_PLAYBACK_SYNTHESIZER:
+            snd_device = SND_DEVICE_IN_SYNTH_MIC;
             break;
         default:
             ALOGE("%s: Usecase (%d) not supported", __func__, uc_id);
@@ -797,6 +869,8 @@ snd_device_t auto_hal_get_output_snd_device(struct audio_device *adev,
             snd_device = SND_DEVICE_OUT_VOICE_SPEAKER;
             break;
         case USECASE_AUDIO_PLAYBACK_MEDIA:
+            snd_device = SND_DEVICE_OUT_BUS_MEDIA;
+            break;
         case USECASE_AUDIO_PLAYBACK_OFFLOAD:
         case USECASE_AUDIO_PLAYBACK_OFFLOAD2:
         case USECASE_AUDIO_PLAYBACK_OFFLOAD3:
@@ -810,6 +884,33 @@ snd_device_t auto_hal_get_output_snd_device(struct audio_device *adev,
         case USECASE_AUDIO_PLAYBACK_MMAP:
         case USECASE_AUDIO_PLAYBACK_VOIP:
             snd_device = SND_DEVICE_OUT_BUS_MEDIA;
+            /* Override the snd_device based on the bus address if available */
+            if (usecase->stream.out->car_audio_stream) {
+                switch (usecase->stream.out->car_audio_stream) {
+                    case CAR_AUDIO_STREAM_MEDIA:
+                        snd_device = SND_DEVICE_OUT_BUS_MEDIA;
+                        break;
+                    case CAR_AUDIO_STREAM_SYS_NOTIFICATION:
+                        snd_device = SND_DEVICE_OUT_BUS_SYS;
+                        break;
+                    case CAR_AUDIO_STREAM_NAV_GUIDANCE:
+                        snd_device = SND_DEVICE_OUT_BUS_NAV;
+                        break;
+                    case CAR_AUDIO_STREAM_PHONE:
+                        snd_device = SND_DEVICE_OUT_BUS_PHN;
+                        break;
+                    case CAR_AUDIO_STREAM_FRONT_PASSENGER:
+                        snd_device = SND_DEVICE_OUT_BUS_PAX;
+                        break;
+                    case CAR_AUDIO_STREAM_REAR_SEAT:
+                        snd_device = SND_DEVICE_OUT_BUS_RSE;
+                        break;
+                    default:
+                        ALOGE("%s: Car audio stream %x not supported", __func__,
+                        usecase->stream.out->car_audio_stream);
+                        return -EINVAL;
+                }
+            }
             break;
         case USECASE_AUDIO_PLAYBACK_SYS_NOTIFICATION:
             snd_device = SND_DEVICE_OUT_BUS_SYS;
@@ -825,6 +926,12 @@ snd_device_t auto_hal_get_output_snd_device(struct audio_device *adev,
             break;
         case USECASE_AUDIO_PLAYBACK_REAR_SEAT:
             snd_device = SND_DEVICE_OUT_BUS_RSE;
+            break;
+        case USECASE_ICC_CALL:
+            snd_device = SND_DEVICE_OUT_ICC;
+            break;
+        case USECASE_AUDIO_PLAYBACK_SYNTHESIZER:
+            snd_device = SND_DEVICE_OUT_SYNTH_SPKR;
             break;
         default:
             ALOGE("%s: Usecase (%d) not supported", __func__, uc_id);
@@ -858,8 +965,6 @@ int auto_hal_init(struct audio_device *adev, auto_hal_init_config_t init_config)
 
     auto_hal->adev = adev;
 
-    fp_in_get_stream = init_config.fp_in_get_stream;
-    fp_out_get_stream = init_config.fp_out_get_stream;
     fp_audio_extn_ext_hw_plugin_usecase_start = init_config.fp_audio_extn_ext_hw_plugin_usecase_start;
     fp_audio_extn_ext_hw_plugin_usecase_stop = init_config.fp_audio_extn_ext_hw_plugin_usecase_stop;
     fp_get_usecase_from_list = init_config.fp_get_usecase_from_list;
@@ -884,7 +989,10 @@ void auto_hal_deinit(void)
         return;
     }
 
-    free(auto_hal);
+    if(auto_hal != NULL) {
+       free(auto_hal);
+       auto_hal = NULL;
+    }
 
     return;
 }

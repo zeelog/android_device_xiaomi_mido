@@ -6,7 +6,7 @@ AM_CFLAGS = -Wundef \
         -fno-short-enums \
         -fpic \
         -I inc \
-        -I ${WORKSPACE}/$(call project-path-for,qcom-media)/mm-core/inc/
+        -I ${WORKSPACE}/hardware/qcom/media/mm-core/inc/
 
 # required pre-processor flags
 AM_CPPFLAGS = -D__packed__=
@@ -16,7 +16,7 @@ AM_CPPFLAGS += -DFEATURE_Q_NO_SELF_QPTR
 AM_CPPFLAGS += -DFEATURE_LINUX
 AM_CPPFLAGS += -DFEATURE_NATIVELINUX -Dstrlcpy=g_strlcpy
 AM_CPPFLAGS += -DFEATURE_DSM_DUP_ITEMS
-AM_CPPFLAGS += -I ${WORKSPACE}/$(call project-path-for,qcom-media)/mm-core/inc/
+AM_CPPFLAGS += -I ${WORKSPACE}/hardware/qcom/media/mm-core/inc/
 AM_CPPFLAGS += -I $(PKG_CONFIG_SYSROOT_DIR)/usr/include/audio-kernel
 
 AM_CPPFLAGS += -g

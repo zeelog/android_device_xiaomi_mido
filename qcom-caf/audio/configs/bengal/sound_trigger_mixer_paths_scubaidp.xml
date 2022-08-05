@@ -45,6 +45,7 @@
     <ctl name="LSM7 Port" value="None" />
     <ctl name="LSM8 Port" value="None" />
     <ctl name="VA_CDC_DMA_TX_0 Channels" value="One" />
+    <ctl name="VA_CDC_DMA_TX_0 SampleRate" value="KHZ_16" />
     <ctl name="VA_AIF1_CAP Mixer DEC0" value="0" />
     <ctl name="VA_AIF1_CAP Mixer DEC1" value="0" />
     <ctl name="VA DEC0 MUX" value="MSM_DMIC" />

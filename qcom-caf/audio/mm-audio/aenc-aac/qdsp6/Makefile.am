@@ -16,7 +16,7 @@ AM_CPPFLAGS += -DFEATURE_NATIVELINUX
 AM_CPPFLAGS += -DFEATURE_DSM_DUP_ITEMS
 AM_CPPFLAGS += -DNDEBUG
 AM_CPPFLAGS += -Iinc
-AM_CPPFLAGS += -I ${WORKSPACE}/$(call project-path-for,qcom-media)/mm-core/inc/
+AM_CPPFLAGS += -I ${WORKSPACE}/hardware/qcom/media/mm-core/inc/
 AM_CPPFLAGS += -I $(PKG_CONFIG_SYSROOT_DIR)/usr/include/audio-kernel
 
 c_sources =src/omx_aac_aenc.cpp

@@ -287,6 +287,12 @@
     <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia9" value="0" />
     <ctl name="MultiMedia9 Mixer TERT_TDM_TX_0" value="0" />
 
+    <path name="synth-loopback">
+        <ctl name="TERT_TDM_RX_0 Channels" value="Six" />
+        <ctl name="TERT_TDM_RX_0 Audio Mixer MultiMedia9" value="1" />
+        <ctl name="TERT_TDM_TX_0 Channels" value="Four" />
+        <ctl name="MultiMedia9 Mixer TERT_TDM_TX_0" value="1" />
+    </path>
     <!-- These are audio route (FE to BE) specific mixer settings -->
 
     <!-- EC Reference -->
@@ -1302,34 +1308,44 @@
         <ctl name="TERT_TDM_RX_0 Audio Mixer MultiMedia1" value="1" />
     </path>
 
-    <path name="sys-notification-playback">
+    <path name="sys-notification-playback sys-bus-out">
         <ctl name="TERT_TDM_RX_0 Channels" value="Six" />
         <ctl name="TERT_TDM_RX_0 Audio Mixer MultiMedia5" value="1" />
     </path>
 
-    <path name="nav-guidance-playback">
+    <path name="nav-guidance-playback nav-bus-out">
         <ctl name="TERT_TDM_RX_1 Channels" value="One" />
         <ctl name="TERT_TDM_RX_1 Audio Mixer MultiMedia2" value="1" />
     </path>
 
-    <path name="phone-playback">
+    <path name="phone-playback phone-bus-out">
         <ctl name="TERT_TDM_RX_2 Channels" value="One" />
         <ctl name="TERT_TDM_RX_2 Audio Mixer MultiMedia10" value="1" />
     </path>
 
-    <path name="front-passenger-playback">
+    <path name="front-passenger-playback pax-bus-out">
         <ctl name="QUAT_TDM_RX_0 Channels" value="Eight" />
         <ctl name="QUAT_TDM_RX_0 Audio Mixer MultiMedia23" value="1" />
     </path>
 
-    <path name="rear-seat-playback">
+    <path name="rear-seat-playback rse-bus-out">
         <ctl name="QUIN_TDM_RX_0 Channels" value="Sixteen" />
         <ctl name="QUIN_TDM_RX_0 Audio Mixer MultiMedia22" value="1" />
     </path>
 
     <path name="audio-record">
-        <ctl name="TERT_TDM_TX_0 Channels" value="One" />
+        <ctl name="TERT_TDM_TX_0 Channels" value="Four" />
         <ctl name="MultiMedia1 Mixer TERT_TDM_TX_0" value="1" />
+    </path>
+
+    <path name="front-passenger-record">
+        <ctl name="QUAT_TDM_TX_0 Channels" value="Eight" />
+        <ctl name="MultiMedia23 Mixer QUAT_TDM_TX_0" value="1" />
+    </path>
+
+    <path name="rear-seat-record">
+        <ctl name="QUIN_TDM_TX_0 Channels" value="Eight" />
+        <ctl name="MultiMedia22 Mixer QUIN_TDM_TX_0" value="1" />
     </path>
 
     <path name="audio-record headset-mic">
@@ -1353,6 +1369,10 @@
     <path name="audio-record capture-fm">
         <ctl name="TERT_TDM_TX_0 Channels" value="One" />
         <ctl name="MultiMedia1 Mixer TERT_TDM_TX_0" value="1" />
+    </path>
+
+    <path name="echo-reference-external">
+        <ctl name="MultiMedia2 Mixer SEC_TDM_TX_0" value="1" />
     </path>
 
     <path name="audio-record-compress">
@@ -1597,9 +1617,8 @@
     </path>
 
     <path name="icc-call">
-        <ctl name="SEC_TDM_RX_0 SampleRate" value="KHZ_16" />
-        <ctl name="SEC_TDM_RX_0 Channels" value="Four" />
-        <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia9" value="1" />
+        <ctl name="TERT_TDM_RX_0 Channels" value="Six" />
+        <ctl name="TERT_TDM_RX_0 Audio Mixer MultiMedia9" value="1" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Four" />
         <ctl name="MultiMedia9 Mixer TERT_TDM_TX_0" value="1" />
     </path>
@@ -1954,6 +1973,10 @@
 
     <path name="bus-speaker">
         <!--ctl name="TERT_TDM_RX_0 Channels" value="Six" /-->
+    </path>
+
+    <path name="bus-mic">
+        <!--ctl name="TERT_TDM_TX_0 Channels" value="Four" /-->
     </path>
 
    <path name="sidetone-iir">
@@ -2705,6 +2728,26 @@
         <ctl name="TERT_TDM_RX_0 Audio Mixer MultiMedia16" value="1" />
     </path>
 
+    <path name="mmap-playback sys-bus-out">
+        <ctl name="TERT_TDM_RX_0 Audio Mixer MultiMedia16" value="1" />
+    </path>
+
+    <path name="mmap-playback nav-bus-out">
+        <ctl name="TERT_TDM_RX_1 Audio Mixer MultiMedia16" value="1" />
+    </path>
+
+    <path name="mmap-playback phone-bus-out">
+        <ctl name="TERT_TDM_RX_2 Audio Mixer MultiMedia16" value="1" />
+    </path>
+
+    <path name="mmap-playback pax-bus-out">
+        <ctl name="QUAT_TDM_RX_0 Audio Mixer MultiMedia16" value="1" />
+    </path>
+
+    <path name="mmap-playback rse-bus-out">
+        <ctl name="QUIN_TDM_RX_0 Audio Mixer MultiMedia16" value="1" />
+    </path>
+
     <path name="mmap-playback headphones">
         <ctl name="SLIMBUS_6_RX Audio Mixer MultiMedia16" value="1" />
     </path>
@@ -2912,11 +2955,6 @@
     <path name="incall_music_uplink bt-a2dp">
         <path name="incall_music_uplink" />
     </path>
-
-    <path name="incall_music_uplink afe-proxy">
-        <path name="incall_music_uplink" />
-    </path>
-
     <path name="incall_music_uplink2">
         <ctl name="Incall_Music_2 Audio Mixer MultiMedia9" value="1" />
     </path>
@@ -2986,10 +3024,6 @@
     </path>
 
     <path name="incall_music_uplink2 bt-a2dp">
-        <path name="incall_music_uplink2" />
-    </path>
-
-    <path name="incall_music_uplink2 afe-proxy">
         <path name="incall_music_uplink2" />
     </path>
 </mixer>

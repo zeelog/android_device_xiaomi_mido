@@ -61,6 +61,9 @@
                     </device>
                 </group>
             </volumeGroups>
+            <inputDevices>
+                <inputDevice address="BUS04_INPUT"/>
+            </inputDevices>
             <displays>
                 <display port="0"/>
             </displays>
@@ -91,6 +94,9 @@
                     </device>
                 </group>
             </volumeGroups>
+            <inputDevices>
+                <inputDevice address="BUS09_INPUT_FRONT_PASSENGER"/>
+            </inputDevices>
             <displays>
                 <display port="1"/>
             </displays>
@@ -114,6 +120,9 @@
                     </device>
                 </group>
             </volumeGroups>
+            <inputDevices>
+                <inputDevice address="BUS17_INPUT_REAR_SEAT"/>
+            </inputDevices>
             <displays>
                 <display port="2"/>
             </displays>

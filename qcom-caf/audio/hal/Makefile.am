@@ -1,24 +1,20 @@
-AM_CFLAGS = -I ${WORKSPACE}/external/tinyalsa/include \
-        -I ${WORKSPACE}/system/media/audio_effects/include \
-        -I ${WORKSPACE}/system/media/audio_utils/include \
-        -I $(top_srcdir)/hal \
+AM_CFLAGS = -I $(top_srcdir)/hal \
         -I $(top_srcdir)/hal/audio_extn \
         -I $(top_srcdir)/hal/voice_extn \
         -I $(PKG_CONFIG_SYSROOT_DIR)/usr/include/audio-kernel \
+        -I $(PKG_CONFIG_SYSROOT_DIR)/usr/include \
         -I $(top_srcdir)/hal/${TARGET_PLATFORM}
 
 c_sources = audio_hw.c \
-            voice.c \
             platform_info.c \
+            voice.c \
+            acdb.c \
             ${TARGET_PLATFORM}/platform.c \
-            audio_extn/audio_extn.c \
             audio_extn/utils.c \
-            acdb.c
+            audio_extn/audio_extn.c \
+            audio_extn/device_utils.c \
+            audio_extn/audio_stub.c
 
-if HDMI_EDID
-AM_CFLAGS += -DHDMI_EDID
-c_sources += edid.c
-endif
 
 if FM_POWER_OPT
 AM_CFLAGS += -DFM_POWER_OPT
@@ -28,17 +24,6 @@ endif
 if USBAUDIO
 AM_CFLAGS += -DUSB_TUNNEL_ENABLED
 c_sources += audio_extn/usb.c
-endif
-
-if HFP
-AM_CFLAGS += -DHFP_ENABLED
-c_sources += audio_extn/hfp.c
-endif
-
-if SSR
-AM_CFLAGS += -DSSR_ENABLED
-c_sources += audio_extn/ssr.c
-AM_CFLAGS +=  -I ${WORKSPACE}/audio/mm-audio-external-noship/surround_sound_3mic/libsurround_3mic_proc/surround_rec_interface/inc/
 endif
 
 if MULTI_VOICE_SESSIONS
@@ -51,19 +36,13 @@ AM_CFLAGS += -DCOMPRESS_VOIP_ENABLED
 c_sources += voice_extn/compress_voip.c
 endif
 
-if SPKR_PROTECTION
-AM_CFLAGS += -DSPKR_PROT_ENABLED
-c_sources += audio_extn/spkr_protection.c
-endif
+
+AM_CFLAGS += -DAUDIO_GKI_ENABLED
+
 
 if HW_VARIANTS
 AM_CFLAGS += -DHW_VARIANTS_ENABLED
 c_sources +=  ${TARGET_PLATFORM}/hw_info.c
-endif
-
-if COMPRESS_CAPTURE
-AM_CFLAGS += -DCOMPRESS_CAPTURE_ENABLED
-c_sources += audio_extn/compress_capture.c
 endif
 
 if DTS_EAGLE
@@ -93,36 +72,34 @@ AM_CFLAGS += -DSOURCE_TRACKING_ENABLED
 c_sources += audio_extn/source_track.c
 endif
 
-#if LISTEN
-#AM_CFLAGS += -DAUDIO_LISTEN_ENABLED
-#AM_CFLAGS += -I ${WORKSPACE}/audio/mm-audio-external-noship/audio-listen
-#c_sources += audio_extn/listen.c
-#endif
+if LISTEN
+AM_CFLAGS += -DAUDIO_LISTEN_ENABLED
+c_sources += audio_extn/listen.c
+endif
 
 if SOUND_TRIGGER
 AM_CFLAGS += -DSOUND_TRIGGER_ENABLED
-AM_CFLAGS += -I ${WORKSPACE}/audio/mm-audio/sound_trigger/
 c_sources += audio_extn/soundtrigger.c
 endif
 
 if FLAC_SUPPORT
 AM_CFLAGS += -DFLAC_OFFLOAD_ENABLED
-AM_CFLAGS += -DCOMPRESS_METADATA_NEEDED
+AM_CFLAGS += -DCOMPRESS_METADATA_ENABLED
 endif
 
 if ALAC_SUPPORT
 AM_CFLAGS += -DALAC_OFFLOAD_ENABLED
-AM_CFLAGS += -DCOMPRESS_METADATA_NEEDED
+AM_CFLAGS += -DCOMPRESS_METADATA_ENABLED
 endif
 
 if VORBIS_SUPPORT
 AM_CFLAGS += -DVORBIS_OFFLOAD_ENABLED
-AM_CFLAGS += -DCOMPRESS_METADATA_NEEDED
+AM_CFLAGS += -DCOMPRESS_METADATA_ENABLED
 endif
 
 if WMA_SUPPORT
 AM_CFLAGS += -DWMA_OFFLOAD_ENABLED
-AM_CFLAGS += -DCOMPRESS_METADATA_NEEDED
+AM_CFLAGS += -DCOMPRESS_METADATA_ENABLED
 endif
 
 if COMPRESS_INPUT
@@ -136,7 +113,6 @@ c_sources += audio_extn/passthru.c
 endif
 
 if AUDIO_PARSER
-AM_CFLAGS += -I ${WORKSPACE}/audio/mm-audio/audio-parsers/inc/
 if DTSHD_PARSER
 AM_CFLAGS += -DDTSHD_PARSER_ENABLED
 endif
@@ -168,11 +144,6 @@ endif
 if ADSP_HDLR
 AM_CFLAGS += -DAUDIO_EXTN_ADSP_HDLR_ENABLED
 c_sources += audio_extn/adsp_hdlr.c
-endif
-
-if A2DP_OFFLOAD
-AM_CFLAGS += -DA2DP_OFFLOAD_ENABLED
-c_sources += audio_extn/a2dp.c
 endif
 
 if AUDIO_IP_HDLR
@@ -209,8 +180,16 @@ if INSTANCE_ID
 AM_CFLAGS += -DINSTANCE_ID_ENABLED
 endif
 
+if HFP
+AM_CFLAGS += -DHFP_ENABLED
+endif
+
 if LL_AS_PRIMARY_OUTPUT
 AM_CFLAGS += -DUSE_LL_AS_PRIMARY_OUTPUT
+endif
+
+if DISABLE_COMPRESS_FORMAT
+AM_CFLAGS += -DAUDIO_DISABLE_COMPRESS_FORMAT
 endif
 
 h_sources = audio_extn/audio_defs.h \
@@ -224,14 +203,17 @@ library_includedir = $(includedir)
 lib_LTLIBRARIES = audio.primary.default.la
 audio_primary_default_la_SOURCES = $(c_sources)
 audio_primary_default_la_LIBADD = $(GLIB_LIBS) -llog -lcutils -ltinyalsa
-audio_primary_default_la_LIBADD += -ltinycompress -laudioroute -ldl -lexpat -laudioutils
+audio_primary_default_la_LIBADD += -ltinycompress -laudioroute -ldl -lexpat -laudioutils -lutils
+audio_primary_default_la_LIBADD += -lm -lc -lresolv
 if AUDIO_PARSER
 audio_primary_default_la_LIBADD += -laudioparsers
 endif
 audio_primary_default_la_CFLAGS = $(AM_CFLAGS) $(GLIB_CFLAGS)
 audio_primary_default_la_CFLAGS += -Dstrlcat=g_strlcat
-audio_primary_default_la_CFLAGS += -DINT_MAX=0x7fffffff
+audio_primary_default_la_CFLAGS += -DINT_MAX=0x7fffffff -Wno-error=deprecated-declarations -DPATH_MAX=1024 -DULONG_MAX=0xFFFFFFFFFFFFFFFFUL
 audio_primary_default_la_CFLAGS += -D__unused=__attribute__\(\(__unused__\)\)
 audio_primary_default_la_CFLAGS += -DLINUX_ENABLED $(TARGET_CFLAGS) -DAUDIO_EXTN_FORMATS_ENABLED
 audio_primary_default_la_CFLAGS += -DNDEBUG
 audio_primary_default_la_LDFLAGS = -module -shared -avoid-version
+audio_primary_default_la_CPPFLAGS = $(AM_CFLAGS) $(GLIB_CFLAGS)
+audio_primary_default_la_CPPFLAGS += -DLINUX_ENABLED

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Copyright (c) 2015 - 2016, 2018, 2020, The Linux Foundation. All rights reserved.         -->
+<!-- Copyright (c) 2015-2016, 2018, 2020-2021, The Linux Foundation. All rights reserved.         -->
 <!--                                                                        -->
 <!-- Redistribution and use in source and binary forms, with or without     -->
 <!-- modification, are permitted provided that the following conditions are -->
@@ -53,6 +53,8 @@
         <usecase name="USECASE_INCALL_REC_UPLINK" type="in" id="14" />
         <usecase name="USECASE_INCALL_REC_DOWNLINK" type="in" id="14" />
         <usecase name="USECASE_INCALL_REC_UPLINK_AND_DOWNLINK" type="in" id="14" />
+        <usecase name="USECASE_AUDIO_PLAYBACK_VOIP" type="out" id="27" />
+        <usecase name="USECASE_AUDIO_RECORD_VOIP" type="in" id="27" />
     </pcm_ids>
     <config_params>
         <param key="spkr_1_tz_name" value="wsa881x.0f"/>
@@ -64,6 +66,7 @@
         <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT" acdb_id="136"/>
         <device name="SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT" acdb_id="136"/>
         <device name="SND_DEVICE_IN_CAPTURE_VI_FEEDBACK" acdb_id="137"/>
+        <device name="SND_DEVICE_IN_HEADSET_MIC_FLUENCE" acdb_id="8"/>
     </acdb_ids>
 
     <backend_names>
@@ -165,6 +168,10 @@
         <device name="SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB" backend="speaker-and-bt-sco-wb" interface="PRI_MI2S_RX-and-INT_BT_SCO_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO" backend="wsa-speaker-and-bt-sco" interface="PRI_MI2S_RX-and-INT_BT_SCO_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO_WB" backend="wsa-speaker-and-bt-sco-wb" interface="PRI_MI2S_RX-and-INT_BT_SCO_RX"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC" interface="INT_BT_SCO_TX"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC_NREC" interface="INT_BT_SCO_TX"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC_WB" interface="INT_BT_SCO_TX"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC_WB_NREC" interface="INT_BT_SCO_TX"/>
     </backend_names>
     <!-- below values are for ref purpose to OEM, doesn't contain actual hardware info on MTP -->
     <microphone_characteristics>

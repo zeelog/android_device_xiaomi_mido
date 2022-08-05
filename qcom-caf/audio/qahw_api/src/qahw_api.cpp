@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2016-2019, The Linux Foundation. All rights reserved.
+* Copyright (c) 2016-2021, The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -714,6 +714,17 @@ int qahw_in_standby(qahw_stream_handle_t *in_handle)
     }
 }
 
+int qahw_in_set_param_data(qahw_stream_handle_t *in_handle,
+                            qahw_param_id param_id,
+                            qahw_param_payload *payload)
+{
+    ALOGV("%d:%s",__LINE__, __func__);
+    if (g_binder_enabled)
+        return -ENODEV;
+    else
+        return qahw_in_set_param_data_l(in_handle, param_id, payload);
+}
+
 int qahw_in_set_parameters(qahw_stream_handle_t *in_handle, const char *kv_pairs)
 {
     ALOGV("%d:%s",__LINE__, __func__);
@@ -999,6 +1010,16 @@ int qahw_create_audio_patch(qahw_module_handle_t *hw_module,
                                          sources, num_sinks, sinks,
                                          handle);
     }
+}
+
+int qahw_create_audio_patch_v2(qahw_module_handle_t *hw_module,
+                        qahw_source_port_config_t *source_port_config,
+                        qahw_sink_port_config_t *sink_port_config,
+                        audio_patch_handle_t *handle)
+{
+    ALOGV("%d:%s",__LINE__, __func__);
+    return qahw_create_audio_patch_v2_l(hw_module, source_port_config,
+                                     sink_port_config, handle);
 }
 
 int qahw_release_audio_patch(qahw_module_handle_t *hw_module,
@@ -1666,6 +1687,14 @@ int qahw_in_get_capture_position(const qahw_stream_handle_t *in_handle,
     return qahw_in_get_capture_position_l(in_handle, frames, time);
 }
 
+int qahw_in_set_param_data(qahw_stream_handle_t *in_handle,
+                            qahw_param_id param_id,
+                            qahw_param_payload *payload)
+{
+    ALOGV("%d:%s",__LINE__, __func__);
+    return qahw_in_set_param_data_l(in_handle, param_id, payload);
+}
+
 int qahw_init_check(const qahw_module_handle_t *hw_module)
 {
     ALOGV("%d:%s start",__LINE__, __func__);
@@ -1810,6 +1839,16 @@ int qahw_create_audio_patch(qahw_module_handle_t *hw_module,
     return qahw_create_audio_patch_l(hw_module, num_sources,
                                      sources, num_sinks, sinks,
                                      handle);
+}
+
+int qahw_create_audio_patch_v2(qahw_module_handle_t *hw_module,
+                        qahw_source_port_config_t *source_port_config,
+                        qahw_sink_port_config_t *sink_port_config,
+                        audio_patch_handle_t *handle)
+{
+    ALOGV("%d:%s",__LINE__, __func__);
+    return qahw_create_audio_patch_v2_l(hw_module, source_port_config,
+                                     sink_port_config, handle);
 }
 
 int qahw_release_audio_patch(qahw_module_handle_t *hw_module,

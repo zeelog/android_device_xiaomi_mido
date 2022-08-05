@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2021, The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
  * Copyright (C) 2013 The Android Open Source Project
@@ -85,10 +85,17 @@ static int32_t fm_set_volume(struct audio_device *adev, float value, bool persis
 {
     int32_t vol, ret = 0;
     struct mixer_ctl *ctl;
-    const char *mixer_ctl_name = FM_RX_VOLUME;
+    const char *mixer_ctl_name;
 
     ALOGV("%s: entry", __func__);
     ALOGD("%s: (%f)\n", __func__, value);
+
+    mixer_ctl_name = platform_get_mixer_FM_RX_control(adev);
+    if (!mixer_ctl_name) {
+        ALOGE("%s: Could not get FM_RX mixer control",
+              __func__);
+        return -EINVAL;
+    }
 
     if (value < 0.0) {
         ALOGW("%s: (%f) Under 0.0, assuming 0.0\n", __func__, value);

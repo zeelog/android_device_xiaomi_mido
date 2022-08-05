@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2021, The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
  * Copyright (C) 2013 The Android Open Source Project
@@ -64,6 +64,7 @@
 #define PLATFORM_INFO_XML_PATH_SKUSH_NAME  "audio_platform_info_skush.xml"
 #define PLATFORM_INFO_XML_PATH_SKUW_NAME  "audio_platform_info_skuw.xml"
 #define PLATFORM_INFO_XML_PATH_QRD_NAME  "audio_platform_info_qrd.xml"
+#define PLATFORM_INFO_XML_PATH_HDK_NAME  "audio_platform_info_hdk.xml"
 #define PLATFORM_INFO_XML_PATH_LAGOON_QRD_NAME  "audio_platform_info_lagoon_qrd.xml"
 #define PLATFORM_INFO_XML_PATH_NAME "audio_platform_info.xml"
 #define MIXER_XML_PATH_AUXPCM_NAME "mixer_paths_auxpcm.xml"
@@ -71,6 +72,12 @@
 #define PLATFORM_INFO_XML_PATH_I2S_NAME "audio_platform_info_extcodec.xml"
 #define PLATFORM_INFO_XML_PATH_WSA_NAME  "audio_platform_info_wsa.xml"
 #define PLATFORM_INFO_XML_PATH_TDM_NAME  "audio_platform_info_tdm.xml"
+#define PLATFORM_INFO_XML_PATH_SHIMA_IDP "audio_platform_info_shimaidp.xml"
+#define PLATFORM_INFO_XML_PATH_SHIMA_QRD "audio_platform_info_shimaqrd.xml"
+#define PLATFORM_INFO_XML_PATH_YUPIK_QRD "audio_platform_info_yupikqrd.xml"
+#define PLATFORM_INFO_XML_PATH_YUPIK_IDP "audio_platform_info_yupikidp.xml"
+#define PLATFORM_INFO_XML_PATH_SCUBA_IDP "audio_platform_info_scubaidp.xml"
+#define PLATFORM_INFO_XML_PATH_SCUBA_QRD "audio_platform_info_scubaqrd.xml"
 
 #include <linux/msm_audio.h>
 #if defined (PLATFORM_MSM8998) || (PLATFORM_SDM845) || (PLATFORM_SDM710) || \
@@ -79,7 +86,7 @@
     defined (PLATFORM_QCS405) || defined (PLATFORM_TRINKET) || \
     defined (PLATFORM_LITO) || defined (PLATFORM_MSMFALCON) || \
     defined (PLATFORM_ATOLL) || defined (PLATFORM_BENGAL) || \
-    defined (PLATFORM_HOLI)
+    defined (PLATFORM_HOLI) || defined (PLATFORM_LAHAINA)
 
 #include <sound/devdep_params.h>
 #endif
@@ -95,7 +102,12 @@
 #define TOSTRING_(x) #x
 #define TOSTRING(x) TOSTRING_(x)
 
+#ifdef DAEMON_SUPPORT_AUTO
+#define LIB_ACDB_LOADER "libacdbloaderclient.so"
+#else
 #define LIB_ACDB_LOADER "libacdbloader.so"
+#endif
+
 #define CVD_VERSION_MIXER_CTL "CVD Version"
 
 #define FLAC_COMPRESS_OFFLOAD_FRAGMENT_SIZE (256 * 1024)
@@ -277,6 +289,7 @@ typedef struct codec_backend_cfg {
 
 static native_audio_prop na_props = {0, 0, NATIVE_AUDIO_MODE_INVALID};
 static bool supports_true_32_bit = false;
+static bool spkr_hph_single_be_native_concurrency = false;
 
 static int max_be_dai_names = 0;
 static const struct be_dai_name_struct *be_dai_name_table;
@@ -304,6 +317,7 @@ struct platform_data {
     bool fluence_nn_enabled;
     int  fluence_type;
     int  fluence_mode;
+    int  afe_loopback;
     char fluence_cap[PROPERTY_VALUE_MAX];
     bool ambisonic_capture;
     bool ambisonic_profile;
@@ -320,6 +334,7 @@ struct platform_data {
     bool is_vbat_speaker;
     bool is_bcl_speaker;
     bool gsm_mode_enabled;
+    bool lpi_enabled;
     bool is_slimbus_interface;
     bool is_internal_codec;
     bool is_default_be_config;
@@ -344,6 +359,8 @@ struct platform_data {
     acdb_set_codec_data_t      acdb_set_codec_data;
     acdb_reload_t              acdb_reload;
     acdb_reload_v2_t           acdb_reload_v2;
+    acdb_get_fluence_nn_state_t  acdb_get_fluence_nn_state;
+    acdb_set_fluence_nn_state_t  acdb_set_fluence_nn_state;
     void *hw_info;
     acdb_send_gain_dep_cal_t   acdb_send_gain_dep_cal;
     struct csd_data *csd;
@@ -485,6 +502,7 @@ static int pcm_device_table[AUDIO_USECASE_MAX][2] = {
 
     [USECASE_AUDIO_PLAYBACK_VOIP] = {AUDIO_PLAYBACK_VOIP_PCM_DEVICE, AUDIO_PLAYBACK_VOIP_PCM_DEVICE},
     [USECASE_AUDIO_RECORD_VOIP] = {AUDIO_RECORD_VOIP_PCM_DEVICE, AUDIO_RECORD_VOIP_PCM_DEVICE},
+    [USECASE_AUDIO_RECORD_VOIP_LOW_LATENCY] = {LOWLATENCY_PCM_DEVICE, LOWLATENCY_PCM_DEVICE},
     [USECASE_AUDIO_PLAYBACK_INTERACTIVE_STREAM1] =
                      {PLAYBACK_INTERACTIVE_STRM_DEVICE1, PLAYBACK_INTERACTIVE_STRM_DEVICE1},
     [USECASE_AUDIO_PLAYBACK_INTERACTIVE_STREAM2] =
@@ -515,10 +533,17 @@ static int pcm_device_table[AUDIO_USECASE_MAX][2] = {
     [USECASE_AUDIO_PLAYBACK_REAR_SEAT] = {REAR_SEAT_PCM_DEVICE,
                                           REAR_SEAT_PCM_DEVICE},
     [USECASE_AUDIO_FM_TUNER_EXT] = {-1, -1},
+    [USECASE_ICC_CALL] = {ICC_PCM_DEVICE, ICC_PCM_DEVICE},
+
+    [USECASE_AUDIO_RECORD_BUS] = {AUDIO_RECORD_PCM_DEVICE, AUDIO_RECORD_PCM_DEVICE},
+    [USECASE_AUDIO_RECORD_BUS_FRONT_PASSENGER] = {FRONT_PASSENGER_PCM_DEVICE, FRONT_PASSENGER_PCM_DEVICE},
+    [USECASE_AUDIO_RECORD_BUS_REAR_SEAT] = {REAR_SEAT_PCM_DEVICE, REAR_SEAT_PCM_DEVICE},
+    [USECASE_AUDIO_PLAYBACK_SYNTHESIZER] = {-1, -1},
+    [USECASE_AUDIO_RECORD_ECHO_REF_EXT] = {MULTIMEDIA2_PCM_DEVICE, MULTIMEDIA2_PCM_DEVICE},
 };
 
 /* Array to store sound devices */
-static const char * device_table[SND_DEVICE_MAX] = {
+static const char * const device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_NONE] = "none",
     /* Playback sound devices */
     [SND_DEVICE_OUT_HANDSET] = "handset",
@@ -535,19 +560,17 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_HIFI_FILTER] = "speaker-and-headphones-hifi-filter",
     [SND_DEVICE_OUT_HEADPHONES_44_1] = "headphones-44.1",
     [SND_DEVICE_OUT_LINE] = "line",
-    [SND_DEVICE_OUT_SPEAKER_AND_HAPTICS] = "speaker-and-haptics",
-    [SND_DEVICE_OUT_HEADPHONES_AND_HAPTICS] = "headphones-and-haptics",
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES] = "speaker-and-headphones",
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_HEADPHONES] = "speaker-safe-and-headphones",
     [SND_DEVICE_OUT_SPEAKER_AND_LINE] = "speaker-and-line",
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_LINE] = "speaker-safe-and-line",
-    [SND_DEVICE_OUT_SPEAKER_HEADPHONES_AND_HAPTICS] = "speaker-headphones-and-haptics",
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_1] = "speaker-and-headphones-ext-1",
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_2] = "speaker-and-headphones-ext-2",
     [SND_DEVICE_OUT_VOICE_HANDSET] = "voice-handset",
     [SND_DEVICE_OUT_VOICE_HAC_HANDSET] = "voice-hac-handset",
     [SND_DEVICE_OUT_VOICE_SPEAKER] = "voice-speaker",
     [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO] = "voice-speaker-stereo",
+    [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT] = "voice-speaker-stereo-vbat",
     [SND_DEVICE_OUT_VOICE_SPEAKER_WSA] = "wsa-voice-speaker",
     [SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = "voice-speaker-vbat",
     [SND_DEVICE_OUT_VOICE_SPEAKER_2] = "voice-speaker-2",
@@ -568,8 +591,6 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_BT_A2DP] = "bt-a2dp",
     [SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP] = "speaker-and-bt-a2dp",
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_A2DP] = "speaker-safe-and-bt-a2dp",
-    [SND_DEVICE_OUT_SPEAKER_BT_A2DP_AND_HAPTICS] = "speaker-bt-a2dp-and-haptics",
-    [SND_DEVICE_OUT_SPEAKER_SAFE_BT_A2DP_AND_HAPTICS] = "speaker-safe-bt-a2dp-and-haptics",
     [SND_DEVICE_OUT_VOICE_HANDSET_TMUS] = "voice-handset-tmus",
     [SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES] = "voice-tty-full-headphones",
     [SND_DEVICE_OUT_VOICE_TTY_FULL_HEADSET] = "voice-tty-full-headset",
@@ -587,8 +608,6 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_USB_HEADPHONES] = "usb-headphones",
     [SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET] = "speaker-and-usb-headphones",
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_USB_HEADSET] = "speaker-safe-and-usb-headphones",
-    [SND_DEVICE_OUT_SPEAKER_USB_HEADSET_AND_HAPTICS] = "speaker-usb-headphones-and-haptics",
-    [SND_DEVICE_OUT_SPEAKER_SAFE_USB_HEADSET_AND_HAPTICS] = "speaker-safe-usb-headphones-and-haptics",
     [SND_DEVICE_OUT_TRANSMISSION_FM] = "transmission-fm",
     [SND_DEVICE_OUT_ANC_HEADSET] = "anc-headphones",
     [SND_DEVICE_OUT_ANC_FB_HEADSET] = "anc-fb-headphones",
@@ -607,6 +626,7 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED] = "voice-speaker-protected",
     [SND_DEVICE_OUT_VOICE_SPEAKER_HFP] = "voice-speaker-hfp",
     [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED] = "voice-speaker-stereo-protected",
+    [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT] = "voice-speaker-stereo-protected-vbat",
     [SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED] = "voice-speaker-2-protected",
     [SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT] = "speaker-protected-vbat",
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT] = "voice-speaker-protected-vbat",
@@ -619,12 +639,6 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_SWB] = "speaker-and-bt-sco-swb",
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_WB] = "speaker-safe-and-bt-sco-wb",
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_SWB] = "speaker-safe-and-bt-sco-swb",
-    [SND_DEVICE_OUT_SPEAKER_BT_SCO_AND_HAPTICS] = "speaker-bt-sco-and-haptics",
-    [SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_AND_HAPTICS] = "speaker-safe-bt-sco-and-haptics",
-    [SND_DEVICE_OUT_SPEAKER_BT_SCO_WB_AND_HAPTICS] = "speaker-bt-sco-wb-and-haptics",
-    [SND_DEVICE_OUT_SPEAKER_BT_SCO_SWB_AND_HAPTICS] = "speaker-bt-sco-swb-and-haptics",
-    [SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_WB_AND_HAPTICS] = "speaker-safe-bt-sco-wb-and-haptics",
-    [SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_SWB_AND_HAPTICS] = "speaker-safe-bt-sco-swb-and-haptics",
     [SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO] = "wsa-speaker-and-bt-sco",
     [SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO_WB] = "wsa-speaker-and-bt-sco-wb",
     [SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO_SWB] = "wsa-speaker-and-bt-sco-wb",
@@ -636,6 +650,9 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_BUS_PAX] = "bus-speaker",
     [SND_DEVICE_OUT_BUS_RSE] = "bus-speaker",
     [SND_DEVICE_OUT_CALL_PROXY] = "call-proxy",
+    [SND_DEVICE_OUT_HAPTICS] = "haptics",
+    [SND_DEVICE_OUT_ICC] = "bus-speaker",
+    [SND_DEVICE_OUT_SYNTH_SPKR] = "bus-speaker",
 
     /* Capture sound devices */
     [SND_DEVICE_IN_HANDSET_MIC] = "handset-mic",
@@ -779,12 +796,17 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOIP_HEADPHONES] = "voip-headphones",
     [SND_DEVICE_IN_VOICE_HEARING_AID] = "hearing-aid-mic",
     [SND_DEVICE_IN_BUS] = "bus-mic",
+    [SND_DEVICE_IN_BUS_PAX] = "bus-mic",
+    [SND_DEVICE_IN_BUS_RSE] = "bus-mic",
     [SND_DEVICE_IN_EC_REF_LOOPBACK] = "ec-ref-loopback",
     [SND_DEVICE_IN_HANDSET_DMIC_AND_EC_REF_LOOPBACK] = "handset-dmic-and-ec-ref-loopback",
     [SND_DEVICE_IN_HANDSET_QMIC_AND_EC_REF_LOOPBACK] = "handset-qmic-and-ec-ref-loopback",
     [SND_DEVICE_IN_HANDSET_6MIC_AND_EC_REF_LOOPBACK] = "handset-6mic-and-ec-ref-loopback",
     [SND_DEVICE_IN_HANDSET_8MIC_AND_EC_REF_LOOPBACK] = "handset-8mic-and-ec-ref-loopback",
     [SND_DEVICE_IN_CALL_PROXY] = "call-proxy-in",
+    [SND_DEVICE_IN_ICC] = "speaker-mic",
+    [SND_DEVICE_IN_SYNTH_MIC] = "speaker-mic",
+    [SND_DEVICE_IN_ECHO_REFERENCE] = "echo-reference",
 };
 
 // Platform specific backend bit width table
@@ -843,12 +865,8 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_HEADPHONES] = 10,
     [SND_DEVICE_OUT_HEADPHONES_DSD] = 10,
     [SND_DEVICE_OUT_HEADPHONES_44_1] = 10,
-    [SND_DEVICE_OUT_HEADPHONES_AND_HAPTICS] = 10,
-    [SND_DEVICE_OUT_SPEAKER_AND_HAPTICS] = 10,
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES] = 10,
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_HEADPHONES] = 10,
-    [SND_DEVICE_OUT_SPEAKER_HEADPHONES_AND_HAPTICS] = 10,
-    [SND_DEVICE_OUT_SPEAKER_SAFE_HEADPHONES_AND_HAPTICS] = 10,
     [SND_DEVICE_OUT_SPEAKER_AND_LINE] = 10,
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_LINE] = 10,
     [SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_1] = 130,
@@ -856,6 +874,7 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_HANDSET] = 7,
     [SND_DEVICE_OUT_VOICE_SPEAKER] = 14,
     [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO] = 15,
+    [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT] = 15,
     [SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = 14,
     [SND_DEVICE_OUT_VOICE_SPEAKER_2] = 14,
     [SND_DEVICE_OUT_VOICE_SPEAKER_WSA] = 135,
@@ -877,22 +896,15 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_DISPLAY_PORT1] = 18,
     [SND_DEVICE_OUT_SPEAKER_AND_DISPLAY_PORT] = 14,
     [SND_DEVICE_OUT_SPEAKER_AND_DISPLAY_PORT1] = 14,
-    [SND_DEVICE_OUT_SPEAKER_DISPLAY_PORT_AND_HAPTICS] = 14,
-    [SND_DEVICE_OUT_SPEAKER_DISPLAY_PORT1_AND_HAPTICS] = 14,
     [SND_DEVICE_OUT_BT_SCO] = 22,
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO] = 14,
-    [SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_AND_HAPTICS] = 14,
     [SND_DEVICE_OUT_BT_SCO_WB] = 39,
     [SND_DEVICE_OUT_BT_SCO_SWB] = 39,
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_WB] = 14,
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_SWB] = 14,
-    [SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_WB_AND_HAPTICS] = 14,
-    [SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_SWB_AND_HAPTICS] = 14,
     [SND_DEVICE_OUT_BT_A2DP] = 20,
     [SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP] = 14,
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_A2DP] = 14,
-    [SND_DEVICE_OUT_SPEAKER_BT_A2DP_AND_HAPTICS] = 14,
-    [SND_DEVICE_OUT_SPEAKER_SAFE_BT_A2DP_AND_HAPTICS] = 14,
     [SND_DEVICE_OUT_VOICE_HANDSET_TMUS] = 88,
     [SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES] = 17,
     [SND_DEVICE_OUT_VOICE_TTY_FULL_HEADSET] = 17,
@@ -910,8 +922,6 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_USB_HEADPHONES] = 45,
     [SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET] = 14,
     [SND_DEVICE_OUT_SPEAKER_SAFE_AND_USB_HEADSET] = 14,
-    [SND_DEVICE_OUT_SPEAKER_USB_HEADSET_AND_HAPTICS] = 14,
-    [SND_DEVICE_OUT_SPEAKER_SAFE_USB_HEADSET_AND_HAPTICS] = 14,
     [SND_DEVICE_OUT_TRANSMISSION_FM] = 0,
     [SND_DEVICE_OUT_ANC_HEADSET] = 26,
     [SND_DEVICE_OUT_ANC_FB_HEADSET] = 27,
@@ -930,6 +940,7 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT] = 101,
     [SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT] = 101,
     [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED] = 124,
+    [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT] = 124,
     [SND_DEVICE_OUT_SPEAKER_PROTECTED_RAS] = 134,
     [SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT_RAS] = 134,
     [SND_DEVICE_OUT_VOICE_HEARING_AID] = 45,
@@ -940,6 +951,9 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_BUS_PAX] = 60,
     [SND_DEVICE_OUT_BUS_RSE] = 60,
     [SND_DEVICE_OUT_CALL_PROXY] = 32,
+    [SND_DEVICE_OUT_HAPTICS] = 200,
+    [SND_DEVICE_OUT_ICC] = 16,
+    [SND_DEVICE_OUT_SYNTH_SPKR] = 134,
     [SND_DEVICE_IN_HANDSET_MIC] = 4,
     [SND_DEVICE_IN_HANDSET_MIC_SB] = 163,
     [SND_DEVICE_IN_HANDSET_MIC_NN] = 183,
@@ -1030,6 +1044,7 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_IN_USB_HEADSET_MULTI_CHANNEL_MIC_AEC] = 162,
     [SND_DEVICE_IN_UNPROCESSED_USB_HEADSET_MULTI_CHANNEL_MIC] = 162,
     [SND_DEVICE_IN_CAPTURE_FM] = 0,
+    [SND_DEVICE_IN_ECHO_REFERENCE] = 100,
     [SND_DEVICE_IN_AANC_HANDSET_MIC] = 104,
     [SND_DEVICE_IN_VOICE_FLUENCE_DMIC_AANC] = 105,
     [SND_DEVICE_IN_QUAD_MIC] = 46,
@@ -1078,7 +1093,11 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_IN_CAMCORDER_SELFIE_PORTRAIT] = 4,
     [SND_DEVICE_IN_VOICE_HEARING_AID] = 44,
     [SND_DEVICE_IN_BUS] = 11,
+    [SND_DEVICE_IN_BUS_PAX] = 11,
+    [SND_DEVICE_IN_BUS_RSE] = 11,
     [SND_DEVICE_IN_CALL_PROXY] = 33,
+    [SND_DEVICE_IN_ICC] = 46,
+    [SND_DEVICE_IN_SYNTH_MIC] = 11,
 };
 
 struct name_to_index {
@@ -1104,12 +1123,8 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_HIFI_FILTER)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_HEADPHONES_44_1)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_LINE)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_HAPTICS)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_HEADPHONES_AND_HAPTICS)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_AND_HEADPHONES)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_HEADPHONES_AND_HAPTICS)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_HEADPHONES_AND_HAPTICS)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_LINE)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_AND_LINE)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_1)},
@@ -1117,6 +1132,7 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_HANDSET)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_WSA)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_HFP)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_VBAT)},
@@ -1131,20 +1147,15 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_DISPLAY_PORT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_DISPLAY_PORT1)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_DISPLAY_PORT)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_DISPLAY_PORT_AND_HAPTICS)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_BT_SCO)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_AND_HAPTICS)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_BT_SCO_WB)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_BT_SCO_SWB)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_WB)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_WB_AND_HAPTICS)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_SWB_AND_HAPTICS)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_SWB)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_BT_A2DP)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_A2DP)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_BT_A2DP_AND_HAPTICS)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_BT_A2DP_AND_HAPTICS)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_HANDSET_TMUS)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_HAC_HANDSET)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES)},
@@ -1157,9 +1168,6 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO_WB)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO_SWB)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_BT_SCO_AND_HAPTICS)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_BT_SCO_WB_AND_HAPTICS)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_BT_SCO_SWB_AND_HAPTICS)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_TTY_FULL_USB)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_TTY_VCO_USB)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_TX)},
@@ -1170,8 +1178,6 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_USB_HEADPHONES)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_AND_USB_HEADSET)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_USB_HEADSET_AND_HAPTICS)},
-    {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_SAFE_USB_HEADSET_AND_HAPTICS)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_USB_HEADSET_SPEC)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_TRANSMISSION_FM)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_ANC_HEADSET)},
@@ -1185,6 +1191,7 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT)},
@@ -1201,6 +1208,7 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_BUS_PAX)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_BUS_RSE)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_CALL_PROXY)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_HAPTICS)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_SB)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_MIC_NN)},
@@ -1291,6 +1299,7 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_IN_VOICE_RECOG_USB_HEADSET_MULTI_CHANNEL_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_USB_HEADSET_MULTI_CHANNEL_MIC_AEC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_CAPTURE_FM)},
+    {TO_NAME_INDEX(SND_DEVICE_IN_ECHO_REFERENCE)},
     {TO_NAME_INDEX(SND_DEVICE_IN_AANC_HANDSET_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_VOICE_FLUENCE_DMIC_AANC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_QUAD_MIC)},
@@ -1341,12 +1350,19 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     /* For legacy xml file parsing */
     {TO_NAME_INDEX(SND_DEVICE_IN_CAMCORDER_MIC)},
     {TO_NAME_INDEX(SND_DEVICE_IN_BUS)},
+    {TO_NAME_INDEX(SND_DEVICE_IN_BUS_PAX)},
+    {TO_NAME_INDEX(SND_DEVICE_IN_BUS_RSE)},
     {TO_NAME_INDEX(SND_DEVICE_IN_EC_REF_LOOPBACK)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_DMIC_AND_EC_REF_LOOPBACK)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_QMIC_AND_EC_REF_LOOPBACK)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_6MIC_AND_EC_REF_LOOPBACK)},
     {TO_NAME_INDEX(SND_DEVICE_IN_HANDSET_8MIC_AND_EC_REF_LOOPBACK)},
     {TO_NAME_INDEX(SND_DEVICE_IN_CALL_PROXY)},
+    /* ICC */
+    {TO_NAME_INDEX(SND_DEVICE_IN_ICC)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_ICC)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_SYNTH_SPKR)},
+    {TO_NAME_INDEX(SND_DEVICE_IN_SYNTH_MIC)},
 };
 
 static char * backend_tag_table[SND_DEVICE_MAX] = {0};
@@ -1418,6 +1434,11 @@ static struct name_to_index usecase_name_index[AUDIO_USECASE_MAX] = {
     {TO_NAME_INDEX(USECASE_AUDIO_PLAYBACK_PHONE)},
     {TO_NAME_INDEX(USECASE_AUDIO_PLAYBACK_FRONT_PASSENGER)},
     {TO_NAME_INDEX(USECASE_AUDIO_PLAYBACK_REAR_SEAT)},
+    {TO_NAME_INDEX(USECASE_AUDIO_RECORD_VOIP_LOW_LATENCY)},
+    {TO_NAME_INDEX(USECASE_AUDIO_RECORD_BUS)},
+    {TO_NAME_INDEX(USECASE_AUDIO_RECORD_BUS_FRONT_PASSENGER)},
+    {TO_NAME_INDEX(USECASE_AUDIO_RECORD_BUS_REAR_SEAT)},
+    {TO_NAME_INDEX(USECASE_AUDIO_PLAYBACK_SYNTHESIZER)},
 };
 
 static const struct name_to_index usecase_type_index[USECASE_TYPE_MAX] = {
@@ -1793,8 +1814,22 @@ static void update_codec_type_and_interface(struct platform_data * my_data,
                    sizeof("lahaina-qrd-snd-card")) ||
          !strncmp(snd_card_name, "lahaina-cdp-snd-card",
                    sizeof("lahaina-cdp-snd-card")) ||
+         !strncmp(snd_card_name, "lahaina-hdk-snd-card",
+                   sizeof("lahaina-hdk-snd-card")) ||
+         !strncmp(snd_card_name, "lahaina-hhg-snd-card",
+                   sizeof("lahaina-hhg-snd-card")) ||
          !strncmp(snd_card_name, "kona-mtp-snd-card",
                    sizeof("kona-mtp-snd-card")) ||
+         !strncmp(snd_card_name, "lahaina-shimaidp-snd-card",
+                   sizeof("lahaina-shimaidp-snd-card")) ||
+         !strncmp(snd_card_name, "lahaina-shimaidps-snd-card",
+                   sizeof("lahaina-shimaidps-snd-card")) ||
+         !strncmp(snd_card_name, "lahaina-shimaqrd-snd-card",
+                   sizeof("lahaina-shimaqrd-snd-card")) ||
+         !strncmp(snd_card_name, "lahaina-yupikidp-snd-card",
+                   sizeof("lahaina-yupikidp-snd-card")) ||
+         !strncmp(snd_card_name, "lahaina-yupikqrd-snd-card",
+                   sizeof("lahaina-yupikqrd-snd-card")) ||
          !strncmp(snd_card_name, "kona-qrd-snd-card",
                    sizeof("kona-qrd-snd-card")) ||
          !strncmp(snd_card_name, "lito-mtp-snd-card",
@@ -1823,12 +1858,20 @@ static void update_codec_type_and_interface(struct platform_data * my_data,
                    sizeof("bengal-idp-snd-card")) ||
          !strncmp(snd_card_name, "bengal-scubaidp-snd-card",
                    sizeof("bengal-scubaidp-snd-card")) ||
+         !strncmp(snd_card_name, "bengal-scubaqrd-snd-card",
+                   sizeof("bengal-scubaqrd-snd-card")) ||
          !strncmp(snd_card_name, "bengal-qrd-snd-card",
                    sizeof("bengal-qrd-snd-card")) ||
          !strncmp(snd_card_name, "holi-mtp-snd-card",
                    sizeof("holi-mtp-snd-card")) ||
+         !strncmp(snd_card_name, "holi-usbc-snd-card",
+                   sizeof("holi-usbc-snd-card")) ||
+         !strncmp(snd_card_name, "holi-mtpsku1-snd-card",
+                   sizeof("holi-mtpsku1-snd-card")) ||
          !strncmp(snd_card_name, "holi-qrd-snd-card",
                    sizeof("holi-qrd-snd-card")) ||
+         !strncmp(snd_card_name, "holi-qrdsku1-snd-card",
+                   sizeof("holi-qrdsku1-snd-card")) ||
          !strncmp(snd_card_name, "msm8937-snd-card-mtp",
                    sizeof("msm8937-snd-card-mtp")) ||
          !strncmp(snd_card_name, "msm8953-snd-card-mtp",
@@ -1837,6 +1880,7 @@ static void update_codec_type_and_interface(struct platform_data * my_data,
                    sizeof("msm8953-sku4-snd-card")) ||
          !strncmp(snd_card_name, "lito-lagoonmtp-snd-card",
                    sizeof("lito-lagoonmtp-snd-card")) ||
+         strstr(snd_card_name, "sdm429w") ||
          !strncmp(snd_card_name, "lito-lagoonqrd-snd-card",
                    sizeof("lito-lagoonqrd-snd-card")) ||
          !strncmp(snd_card_name, "lito-orchidmtp-snd-card",
@@ -1863,6 +1907,7 @@ static bool can_enable_mbdrc_on_device(snd_device_t snd_device)
         snd_device == SND_DEVICE_OUT_SPEAKER_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT ||
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO ||
@@ -1910,6 +1955,22 @@ static void platform_reset_edid_info(void *platform) {
             state->valid = false;
         }
     }
+}
+
+const char *platform_get_mixer_FM_RX_control(struct audio_device *adev) {
+    char *snd_card_name = NULL;
+
+    snd_card_name = strdup(mixer_get_name(adev->mixer));
+    if (!snd_card_name) {
+        ALOGE("%s: failed to allocate memory for snd_card_name\n",__func__);
+        return NULL;
+    }
+
+    if (!strncmp(snd_card_name, "lahaina-yupikidp-snd-card",
+            sizeof("lahaina-yupikidp-snd-card")))
+                return "SEC MI2S LOOPBACK Volume";
+
+    return FM_RX_VOLUME;
 }
 
 bool platform_send_gain_dep_cal(void *platform, int level) {
@@ -1997,6 +2058,8 @@ void platform_set_echo_reference(struct audio_device *adev, bool enable,
 {
     struct platform_data *my_data = (struct platform_data *)adev->platform;
     char ec_ref_mixer_path[MIXER_PATH_MAX_LENGTH] = "echo-reference";
+    struct audio_usecase *uc = NULL;
+    struct listnode *node;
 
     audio_extn_sound_trigger_update_ec_ref_status(enable);
 
@@ -2008,8 +2071,14 @@ void platform_set_echo_reference(struct audio_device *adev, bool enable,
 
     if (enable) {
         if (!voice_extn_is_compress_voip_supported()) {
-            if (adev->mode == AUDIO_MODE_IN_COMMUNICATION)
+            if (adev->mode == AUDIO_MODE_IN_COMMUNICATION) {
                 strlcat(ec_ref_mixer_path, "-voip", MIXER_PATH_MAX_LENGTH);
+                list_for_each(node, &adev->usecase_list) {
+                    uc =  node_to_item(node, struct audio_usecase, list);
+                    if (uc->id == USECASE_AUDIO_RECORD_VOIP_LOW_LATENCY)
+                        strlcat(ec_ref_mixer_path, "-low-latency", MIXER_PATH_MAX_LENGTH);
+                }
+            }
         }
         strlcpy(my_data->ec_ref_mixer_path, ec_ref_mixer_path,
                     MIXER_PATH_MAX_LENGTH);
@@ -2057,6 +2126,24 @@ void platform_set_echo_reference(struct audio_device *adev, bool enable,
             audio_route_apply_and_update_path(adev->audio_route, my_data->ec_ref_mixer_path);
 
         ALOGD("%s: enabling %s", __func__, my_data->ec_ref_mixer_path);
+    }
+}
+
+void platform_set_tx_lpi_mode(void *platform, bool enable)
+{
+    struct platform_data *my_data = (struct platform_data *)platform;
+    struct audio_device *adev = my_data->adev;
+
+    if (!enable && my_data->lpi_enabled) {
+        my_data->lpi_enabled = false;
+        ALOGV("%s: disabling TX LPI mode", __func__);
+        audio_route_reset_and_update_path(adev->audio_route, "tx-lpi-enable");
+    }
+
+    if (enable) {
+        my_data->lpi_enabled = true;
+        ALOGD("%s: enabling TX LPI mode", __func__);
+        audio_route_apply_and_update_path(adev->audio_route, "tx-lpi-enable");
     }
 }
 
@@ -2329,13 +2416,10 @@ static void set_platform_defaults(struct platform_data * my_data)
     backend_tag_table[SND_DEVICE_OUT_HEADPHONES_HIFI_FILTER] = strdup("headphones-hifi-filter");
     backend_tag_table[SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_HIFI_FILTER] =
         strdup("speaker-and-headphones-hifi-filter");
-    backend_tag_table[SND_DEVICE_OUT_SPEAKER_AND_HAPTICS] =
-        strdup("speaker-and-haptics");
-    backend_tag_table[SND_DEVICE_OUT_HEADPHONES_AND_HAPTICS] =
-        strdup("headphones-and-haptics");
     backend_tag_table[SND_DEVICE_OUT_HEADPHONES_44_1] = strdup("headphones-44.1");
     backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = strdup("voice-speaker-vbat");
     backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT] = strdup("voice-speaker-2-vbat");
+    backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT] = strdup("voice-speaker-stereo-vbat");
     backend_tag_table[SND_DEVICE_OUT_BT_A2DP] = strdup("bt-a2dp");
     backend_tag_table[SND_DEVICE_IN_BT_A2DP] = strdup("bt-a2dp-cap");
     backend_tag_table[SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP] = strdup("speaker-and-bt-a2dp");
@@ -2352,6 +2436,7 @@ static void set_platform_defaults(struct platform_data * my_data)
     backend_tag_table[SND_DEVICE_OUT_VOICE_HEARING_AID] = strdup("hearing-aid");
     backend_tag_table[SND_DEVICE_IN_VOICE_SPEAKER_MIC_HFP_MMSECNS] = strdup("bt-sco-mmsecns");
     backend_tag_table[SND_DEVICE_OUT_CALL_PROXY] = strdup("call-proxy");
+    backend_tag_table[SND_DEVICE_OUT_HAPTICS] = strdup("haptics");
     backend_tag_table[SND_DEVICE_IN_CALL_PROXY] = strdup("call-proxy-in");
 
     hw_interface_table[SND_DEVICE_OUT_HANDSET] = strdup("SLIMBUS_0_RX");
@@ -2381,6 +2466,7 @@ static void set_platform_defaults(struct platform_data * my_data)
     hw_interface_table[SND_DEVICE_OUT_VOICE_HAC_HANDSET] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO] = strdup("SLIMBUS_0_RX");
+    hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_2] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT] = strdup("SLIMBUS_0_RX");
@@ -2437,6 +2523,7 @@ static void set_platform_defaults(struct platform_data * my_data)
     hw_interface_table[SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_SWB] = strdup("QUAT_TDM_RX_0-and-SLIMBUS_7_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED] = strdup("SLIMBUS_0_RX");
+    hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT] = strdup("SLIMBUS_0_RX");
@@ -2454,6 +2541,7 @@ static void set_platform_defaults(struct platform_data * my_data)
     hw_interface_table[SND_DEVICE_OUT_BUS_PAX] = strdup("QUAT_TDM_RX_0");
     hw_interface_table[SND_DEVICE_OUT_BUS_RSE] = strdup("QUIN_TDM_RX_0");
     hw_interface_table[SND_DEVICE_OUT_CALL_PROXY] = strdup("CALL_PROXY_RX");
+    hw_interface_table[SND_DEVICE_OUT_HAPTICS] = strdup("RX_CDC_DMA_RX_6");
     hw_interface_table[SND_DEVICE_IN_HANDSET_MIC] = strdup("SLIMBUS_0_TX");
     hw_interface_table[SND_DEVICE_IN_HANDSET_MIC_SB] = strdup("SLIMBUS_0_TX");
     hw_interface_table[SND_DEVICE_IN_HANDSET_MIC_NN] = strdup("SLIMBUS_0_TX");
@@ -2591,7 +2679,14 @@ static void set_platform_defaults(struct platform_data * my_data)
     hw_interface_table[SND_DEVICE_IN_CAMCORDER_SELFIE_PORTRAIT] = strdup("SLIMBUS_0_TX");
     hw_interface_table[SND_DEVICE_IN_VOICE_HEARING_AID] = strdup("SLIMBUS_0_TX");
     hw_interface_table[SND_DEVICE_IN_BUS] = strdup("TERT_TDM_TX_0");
+    hw_interface_table[SND_DEVICE_IN_BUS_PAX] = strdup("QUAT_TDM_TX_0");
+    hw_interface_table[SND_DEVICE_IN_BUS_RSE] = strdup("QUIN_TDM_TX_0");
     hw_interface_table[SND_DEVICE_IN_CALL_PROXY] = strdup("CALL_PROXY_TX");
+    hw_interface_table[SND_DEVICE_IN_ICC] = strdup("TERT_TDM_TX_0");
+    hw_interface_table[SND_DEVICE_OUT_ICC] = strdup("TERT_TDM_RX_0");
+    hw_interface_table[SND_DEVICE_OUT_SYNTH_SPKR] = strdup("TERT_TDM_RX_0");
+    hw_interface_table[SND_DEVICE_IN_SYNTH_MIC] = strdup("TERT_TDM_TX_0");
+    hw_interface_table[SND_DEVICE_IN_ECHO_REFERENCE] = strdup("SEC_TDM_TX_0");
     my_data->max_mic_count = PLATFORM_DEFAULT_MIC_COUNT;
 
      /*remove ALAC & APE from DSP decoder list based on software decoder availability*/
@@ -3051,11 +3146,8 @@ static int init_be_dai_name_table(struct audio_device *adev)
     for (i = 0; i < SND_DEVICE_MAX; i++) {
         valid_hw_interface = false;
 
-        if (hw_interface_table[i] == NULL) {
-            ALOGW("%s: sound device %s has no hw interface set\n",
-                  __func__, platform_get_snd_device_name(i));
+        if (hw_interface_table[i] == NULL)
             continue;
-        }
 
         for (j = 0; j < max_be_dai_names; j++) {
             if (strcmp(hw_interface_table[i], be_dai_name_table[j].be_name)
@@ -3064,9 +3156,6 @@ static int init_be_dai_name_table(struct audio_device *adev)
                 break;
             }
         }
-        if (!valid_hw_interface)
-            ALOGD("%s: sound device %s does not have a valid hw interface set (disregard for combo devices) %s\n",
-                   __func__, platform_get_snd_device_name(i), hw_interface_table[i]);
     }
 
     goto done;
@@ -3143,6 +3232,7 @@ void *platform_init(struct audio_device *adev)
     list_init(&operator_info_list);
     list_init(&app_type_entry_list);
 
+    ALOGD("%s: enter", __func__);
     adev->snd_card = audio_extn_utils_open_snd_mixer(&adev->mixer);
     if (adev->snd_card < 0) {
         ALOGE("%s: Unable to find correct sound card", __func__);
@@ -3217,6 +3307,7 @@ void *platform_init(struct audio_device *adev)
     my_data->use_sprk_default_sample_rate = true;
     my_data->fluence_in_voice_comm = false;
     my_data->ec_car_state = false;
+    my_data->lpi_enabled = false;
     my_data->is_multiple_sample_rate_combo_supported = true;
     platform_reset_edid_info(my_data);
 
@@ -3375,6 +3466,10 @@ void *platform_init(struct audio_device *adev)
                sizeof("lahaina-qrd-snd-card"))) {
         platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_QRD_NAME),
             my_data, PLATFORM);
+    } else if (!strncmp(snd_card_name, "lahaina-hdk-snd-card",
+               sizeof("lahaina-hdk-snd-card"))) {
+        platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_HDK_NAME),
+            my_data, PLATFORM);
     } else if (!strncmp(snd_card_name, "kona-qrd-snd-card",
                sizeof("kona-qrd-snd-card"))) {
         platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_QRD_NAME),
@@ -3400,7 +3495,9 @@ void *platform_init(struct audio_device *adev)
         platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_QRD_NAME),
             my_data, PLATFORM);
     } else if (!strncmp(snd_card_name, "holi-qrd-snd-card",
-               sizeof("holi-qrd-snd-card"))) {
+               sizeof("holi-qrd-snd-card")) ||
+               !strncmp(snd_card_name, "holi-qrdsku1-snd-card",
+               sizeof("holi-qrdsku1-snd-card"))) {
         platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_QRD_NAME),
             my_data, PLATFORM);
     } else if (!strncmp(snd_card_name, "qcs405-wsa-snd-card",
@@ -3411,11 +3508,36 @@ void *platform_init(struct audio_device *adev)
                sizeof("qcs405-tdm-snd-card"))) {
         platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_TDM_NAME),
             my_data, PLATFORM);
-    } else if (my_data->is_internal_codec) {
+    } else if (!strncmp(snd_card_name, "lahaina-shimaidp-snd-card",
+               sizeof("lahaina-shimaidp-snd-card")) ||
+               !strncmp(snd_card_name, "lahaina-shimaidps-snd-card",
+               sizeof("lahaina-shimaidps-snd-card"))) {
+        platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_SHIMA_IDP),
+            my_data, PLATFORM);
+    } else if (!strncmp(snd_card_name, "lahaina-shimaqrd-snd-card",
+               sizeof("lahaina-shimaqrd-snd-card"))) {
+        platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_SHIMA_QRD),
+            my_data, PLATFORM);
+    } else if (!strncmp(snd_card_name, "lahaina-yupikidp-snd-card",
+               sizeof("lahaina-yupikidp-snd-card"))) {
+        platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_YUPIK_IDP),
+            my_data, PLATFORM);
+    } else if (!strncmp(snd_card_name, "lahaina-yupikqrd-snd-card",
+               sizeof("lahaina-yupikqrd-snd-card"))) {
+        platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_YUPIK_QRD),
+            my_data, PLATFORM);
+    } else if (!strncmp(snd_card_name, "bengal-scubaidp-snd-card",
+               sizeof("bengal-scubaidp-snd-card"))) {
+        platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_SCUBA_IDP),
+            my_data, PLATFORM);
+    } else if (!strncmp(snd_card_name, "bengal-scubaqrd-snd-card",
+               sizeof("bengal-scubaqrd-snd-card"))) {
+        platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_SCUBA_QRD),
+            my_data, PLATFORM);
+    } else if (my_data->is_internal_codec && (strstr(snd_card_name, "sdm429w") == NULL)) {
         platform_info_init(get_xml_file_path(PLATFORM_INFO_XML_PATH_INTCODEC_NAME),
             my_data, PLATFORM);
-    }
-    else {
+    } else {
         // Try to load pixel or default
         audio_extn_utils_get_platform_info(snd_card_name, platform_info_file);
         platform_info_init(platform_info_file, my_data, PLATFORM);
@@ -3498,13 +3620,10 @@ void *platform_init(struct audio_device *adev)
 #endif
 
     /* CSRA devices support multiple sample rates via I2S at spkr out */
-    if (!strncmp(snd_card_name, "qcs405-csra", strlen("qcs405-csra"))) {
-        ALOGE("%s: soundcard: %s supports multiple sample rates", __func__, snd_card_name);
+    if (!strncmp(snd_card_name, "qcs405-csra", strlen("qcs405-csra")))
         my_data->use_sprk_default_sample_rate = false;
-    } else {
+    else
         my_data->use_sprk_default_sample_rate = true;
-        ALOGE("%s: soundcard: %s supports only default sample rate", __func__, snd_card_name);
-    }
 
     my_data->voice_feature_set = VOICE_FEATURE_SET_DEFAULT;
     my_data->acdb_handle = dlopen(LIB_ACDB_LOADER, RTLD_NOW);
@@ -3612,6 +3731,18 @@ void *platform_init(struct audio_device *adev)
         if (my_data->acdb_reload_v2 == NULL) {
             ALOGE("%s: dlsym error %s for acdb_loader_reload_acdb_files_v2", __func__, dlerror());
         }
+
+        my_data->acdb_set_fluence_nn_state = (acdb_set_fluence_nn_state_t)dlsym(
+                                                                   my_data->acdb_handle,
+                                                                   "acdb_set_fluence_nn_state");
+        if (!my_data->acdb_set_fluence_nn_state)
+            ALOGE("%s: dlsym error %s for acdb_set_fluence_nn_state", __func__, dlerror());
+
+        my_data->acdb_get_fluence_nn_state = (acdb_get_fluence_nn_state_t)dlsym(
+                                                                   my_data->acdb_handle,
+                                                                   "acdb_get_fluence_nn_state");
+        if (!my_data->acdb_get_fluence_nn_state)
+            ALOGE("%s: dlsym error %s for acdb_get_fluence_nn_state", __func__, dlerror());
 
         my_data->acdb_reload = (acdb_reload_t)dlsym(my_data->acdb_handle,
                                                     "acdb_loader_reload_acdb_files");
@@ -3743,6 +3874,8 @@ acdb_init_fail:
         //TODO:: make generic interfaceface to check Slimbus/I2S/CDC_DMA
         if (!strncmp(snd_card_name, "sm6150", strlen("sm6150")) ||
             !strncmp(snd_card_name, "kona", strlen("kona")) ||
+            !strncmp(snd_card_name, "shima", strlen("shima")) ||
+            !strncmp(snd_card_name, "yupik", strlen("yupik")) ||
             !strncmp(snd_card_name, "lahaina", strlen("lahaina")) ||
             !strncmp(snd_card_name, "lito", strlen("lito")) ||
             !strncmp(snd_card_name, "atoll", strlen("atoll")) ||
@@ -4012,6 +4145,7 @@ acdb_init_fail:
 
     platform_reset_edid_info(my_data);
     free(snd_card_name);
+    ALOGD("%s: exit", __func__);
     return my_data;
 }
 
@@ -4049,7 +4183,7 @@ struct audio_custom_mtmx_params *
             }
         }
     }
-    ALOGI("%s: no matching param with id %d ip_ch %d op_ch %d uc_id %d snd_dev %d",
+    ALOGV("%s: no matching param with id %d ip_ch %d op_ch %d uc_id %d snd_dev %d",
           __func__, info->id, info->ip_channels, info->op_channels,
           info->usecase_id[0], info->snd_device);
     return NULL;
@@ -4405,7 +4539,8 @@ void platform_add_backend_name(char *mixer_path, snd_device_t snd_device,
     }
 
     if ((snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
-        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT) &&
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT ||
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT) &&
         !(usecase->type == VOICE_CALL || usecase->type == VOIP_CALL)) {
         ALOGI("%s: Not adding vbat speaker device to non voice use cases", __func__);
         return;
@@ -4441,12 +4576,12 @@ bool platform_check_backends_match(snd_device_t snd_device1, snd_device_t snd_de
                 platform_get_snd_device_name(snd_device2));
 
     if ((snd_device1 < SND_DEVICE_MIN) || (snd_device1 >= SND_DEVICE_OUT_END)) {
-        ALOGE("%s: Invalid snd_device = %s", __func__,
+        ALOGV("%s: Invalid snd_device1 = %s", __func__,
                 platform_get_snd_device_name(snd_device1));
         return false;
     }
     if ((snd_device2 < SND_DEVICE_MIN) || (snd_device2 >= SND_DEVICE_OUT_END)) {
-        ALOGE("%s: Invalid snd_device = %s", __func__,
+        ALOGV("%s: Invalid snd_device2 = %s", __func__,
                 platform_get_snd_device_name(snd_device2));
         return false;
     }
@@ -5115,6 +5250,27 @@ int platform_get_native_support()
     return ret;
 }
 
+bool platform_get_spkr_hph_single_be_native_concurrency_flag()
+{
+    return spkr_hph_single_be_native_concurrency;
+}
+
+void spkr_hph_single_be_native_concurrency_params(struct str_parms *parms,
+                                    char *value, int len)
+{
+    int ret = 0;
+
+    ret = str_parms_get_str(parms, AUDIO_PARAMETER_SPKR_HPH_SINGLE_BE_NATIVE_CONCURRENCY,
+                           value, len);
+    if (ret >= 0) {
+        if (value && !strncmp(value, "true", sizeof("true")))
+            spkr_hph_single_be_native_concurrency = true;
+        else
+            spkr_hph_single_be_native_concurrency = false;
+        str_parms_del(parms, AUDIO_PARAMETER_SPKR_HPH_SINGLE_BE_NATIVE_CONCURRENCY);
+    }
+}
+
 void native_audio_get_params(struct str_parms *query,
                              struct str_parms *reply,
                              char *value, int len)
@@ -5291,9 +5447,6 @@ int platform_get_backend_index(snd_device_t snd_device)
                         port = USB_AUDIO_RX_BACKEND;
                 else if (strcmp(backend_tag_table[snd_device], "call-proxy") == 0)
                         port = CALL_PROXY_RX_BACKEND;
-                else if (strncmp(backend_tag_table[snd_device], "headphones-and-haptics",
-                            sizeof("headphones-and-haptics")) == 0)
-                        port = HEADPHONE_BACKEND;
         }
     } else if (snd_device >= SND_DEVICE_IN_BEGIN && snd_device < SND_DEVICE_IN_END) {
         port = DEFAULT_CODEC_TX_BACKEND;
@@ -5335,7 +5488,7 @@ int platform_send_audio_calibration(void *platform, struct audio_usecase *usecas
     struct audio_backend_cfg backend_cfg = {0};
     bool is_bus_dev_usecase = false;
 
-    if (voice_is_in_call_or_call_screen(my_data->adev))
+    if (voice_is_in_call_or_call_screen(my_data->adev) && (usecase->type == PCM_CAPTURE))
         is_incall_rec_usecase = voice_is_in_call_rec_stream(usecase->stream.in);
 
     if (compare_device_type(&usecase->device_list, AUDIO_DEVICE_OUT_BUS))
@@ -5343,9 +5496,10 @@ int platform_send_audio_calibration(void *platform, struct audio_usecase *usecas
 
     if (usecase->type == PCM_PLAYBACK)
         snd_device = usecase->out_snd_device;
-    else if ((usecase->type == PCM_CAPTURE) && is_incall_rec_usecase)
+    else if (is_incall_rec_usecase)
         snd_device = voice_get_incall_rec_snd_device(usecase->in_snd_device);
-    else if ((usecase->type == PCM_HFP_CALL) || (usecase->type == PCM_CAPTURE))
+    else if ((usecase->type == PCM_HFP_CALL) || (usecase->type == PCM_CAPTURE)||
+            (usecase->type == ICC_CALL) || (usecase->type == SYNTH_LOOPBACK))
         snd_device = usecase->in_snd_device;
     else if (usecase->type == TRANSCODE_LOOPBACK_RX)
         snd_device = usecase->out_snd_device;
@@ -5369,7 +5523,9 @@ int platform_send_audio_calibration(void *platform, struct audio_usecase *usecas
             new_snd_device[0] = snd_device;
         }
     }
-    if ((usecase->type == PCM_HFP_CALL) && is_bus_dev_usecase) {
+    if (((usecase->type == PCM_HFP_CALL) || (usecase->type == ICC_CALL) ||
+         (usecase->type == SYNTH_LOOPBACK)) &&
+          is_bus_dev_usecase) {
         num_devices = 2;
         new_snd_device[0] = usecase->in_snd_device;
         new_snd_device[1] = usecase->out_snd_device;
@@ -5393,7 +5549,9 @@ int platform_send_audio_calibration(void *platform, struct audio_usecase *usecas
         if ((usecase->type == PCM_CAPTURE) && (app_type == DEFAULT_APP_TYPE_RX_PATH)) {
             ALOGD("Resetting app type for Tx path to default");
             app_type  = DEFAULT_APP_TYPE_TX_PATH;
-        } else if ((usecase->type == PCM_HFP_CALL) && is_bus_dev_usecase) {
+        } else if (((usecase->type == PCM_HFP_CALL) || (usecase->type == ICC_CALL) ||
+                    (usecase->type == SYNTH_LOOPBACK)) &&
+                     is_bus_dev_usecase) {
             if (new_snd_device[i] >= SND_DEVICE_OUT_BEGIN &&
                 new_snd_device[i] < SND_DEVICE_OUT_END) {
                 app_type  = usecase->out_app_type_cfg.app_type;
@@ -5449,6 +5607,71 @@ int platform_send_audio_calibration(void *platform, struct audio_usecase *usecas
         }
     }
 
+    /* send haptics audio calibration */
+    if (usecase->id == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS) {
+        acdb_dev_id =
+            acdb_device_table[platform_get_spkr_prot_snd_device(SND_DEVICE_OUT_HAPTICS)];
+        acdb_dev_type = ACDB_DEV_TYPE_OUT;
+        sample_rate = DEFAULT_OUTPUT_SAMPLING_RATE;
+        if (my_data->acdb_send_audio_cal_v4) {
+            my_data->acdb_send_audio_cal_v4(acdb_dev_id, acdb_dev_type,
+                                            app_type, sample_rate, i,
+                                            sample_rate);
+        } else if (my_data->acdb_send_audio_cal_v3) {
+            my_data->acdb_send_audio_cal_v3(acdb_dev_id, acdb_dev_type,
+                                            app_type, sample_rate, i);
+        } else if (my_data->acdb_send_audio_cal) {
+            my_data->acdb_send_audio_cal(acdb_dev_id, acdb_dev_type, app_type,
+                                         sample_rate);
+        }
+    }
+
+    return 0;
+}
+
+int platform_send_audio_calibration_hfp(void *platform, snd_device_t snd_device)
+{
+    struct platform_data *my_data = (struct platform_data *)platform;
+    int acdb_dev_id, acdb_dev_type;
+    int sample_rate = CODEC_BACKEND_DEFAULT_SAMPLE_RATE;
+    int app_type = 0;
+
+    acdb_dev_id = platform_get_snd_device_acdb_id(snd_device);
+    if (acdb_dev_id < 0) {
+        ALOGE("%s: Could not find acdb id for device(%d)",
+              __func__, snd_device);
+        return -EINVAL;
+    }
+
+    if ((snd_device >= SND_DEVICE_OUT_BEGIN) &&
+        (snd_device < SND_DEVICE_OUT_END)) {
+        acdb_dev_type = ACDB_DEV_TYPE_OUT;
+        app_type = DEFAULT_APP_TYPE_RX_PATH;
+    } else {
+        acdb_dev_type = ACDB_DEV_TYPE_IN;
+        app_type = DEFAULT_APP_TYPE_TX_PATH;
+    }
+
+    if ((my_data->acdb_send_audio_cal_v3) &&
+        ((snd_device == SND_DEVICE_IN_VOICE_SPEAKER_MIC_HFP) ||
+        (snd_device == SND_DEVICE_IN_VOICE_SPEAKER_DMIC))) {
+        /* TX path calibration */
+        my_data->acdb_send_audio_cal_v3(acdb_dev_id, ACDB_DEV_TYPE_IN,
+                                DEFAULT_APP_TYPE_TX_PATH, sample_rate, 0);
+        my_data->acdb_send_audio_cal_v3(acdb_dev_id, ACDB_DEV_TYPE_OUT,
+                                DEFAULT_APP_TYPE_RX_PATH, sample_rate, 0);
+    } else if ((my_data->acdb_send_audio_cal_v3) &&
+               (snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_HFP)) {
+        /* RX path calibration */
+        my_data->acdb_send_audio_cal_v3(acdb_dev_id, ACDB_DEV_TYPE_IN,
+                                DEFAULT_APP_TYPE_TX_PATH, sample_rate,0 );
+        my_data->acdb_send_audio_cal_v3(acdb_dev_id, ACDB_DEV_TYPE_OUT,
+                                DEFAULT_APP_TYPE_RX_PATH, sample_rate,0 );
+    } else if (my_data->acdb_send_audio_cal) {
+        my_data->acdb_send_audio_cal(acdb_dev_id, acdb_dev_type, app_type,
+                                     sample_rate);
+    }
+
     return 0;
 }
 
@@ -5482,6 +5705,7 @@ int platform_switch_voice_call_enable_device_config(void *platform,
 
     if ((out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO ||
+         out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT) &&
@@ -5509,6 +5733,24 @@ int platform_switch_voice_call_enable_device_config(void *platform,
     return ret;
 }
 
+void platform_is_volume_boost_supported_device(void *platform,
+                                               struct listnode *devices)
+{
+    struct platform_data *my_data = (struct platform_data *)platform;
+
+    if (my_data->voice_feature_set &&
+        !(compare_device_type(devices,
+                              AUDIO_DEVICE_OUT_SPEAKER)) &&
+        !(compare_device_type(devices,
+                              AUDIO_DEVICE_OUT_EARPIECE)) &&
+        !(my_data->adev->voice.tty_mode == TTY_MODE_HCO)) {
+          if(!my_data->acdb_reload_vocvoltable(VOICE_FEATURE_SET_DEFAULT)) {
+             my_data->voice_feature_set = 0;
+             ALOGD("%s: Unsupported volume boost device", __func__);
+          }
+    }
+}
+
 int platform_switch_voice_call_device_post(void *platform,
                                            snd_device_t out_snd_device,
                                            snd_device_t in_snd_device)
@@ -5525,6 +5767,8 @@ int platform_switch_voice_call_device_post(void *platform,
                 out_snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED;
             else if (out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO)
                 out_snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED;
+            else if (out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT)
+                out_snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT;
             else if (out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT)
                 out_snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT;
             else if (out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
@@ -5561,6 +5805,7 @@ int platform_switch_voice_call_usecase_route_post(void *platform,
     if ((out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO ||
+         out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT) &&
          audio_extn_spkr_prot_is_enabled()) {
@@ -5845,12 +6090,6 @@ int platform_split_snd_device(void *platform,
              new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER;
         new_snd_devices[1] = SND_DEVICE_OUT_HEADPHONES;
         ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_HEADPHONES_AND_HAPTICS &&
-        !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_HEADPHONES)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_AND_HAPTICS;
-        new_snd_devices[1] = SND_DEVICE_OUT_HEADPHONES;
-        ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_AND_LINE &&
                !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_LINE)) {
         *num_devices = 2;
@@ -5861,12 +6100,6 @@ int platform_split_snd_device(void *platform,
                !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE, SND_DEVICE_OUT_HEADPHONES)) {
         *num_devices = 2;
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE;
-        new_snd_devices[1] = SND_DEVICE_OUT_HEADPHONES;
-        ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_HEADPHONES_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE, SND_DEVICE_OUT_HEADPHONES)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE_AND_HAPTICS;
         new_snd_devices[1] = SND_DEVICE_OUT_HEADPHONES;
         ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_AND_LINE &&
@@ -5963,12 +6196,6 @@ int platform_split_snd_device(void *platform,
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER;
         new_snd_devices[1] = SND_DEVICE_OUT_USB_HEADSET;
         ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_USB_HEADSET_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_USB_HEADSET)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_AND_HAPTICS;
-        new_snd_devices[1] = SND_DEVICE_OUT_USB_HEADSET;
-        ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_HIFI_FILTER &&
                !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_HEADPHONES_HIFI_FILTER)) {
         *num_devices = 2;
@@ -5981,12 +6208,6 @@ int platform_split_snd_device(void *platform,
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER;
         new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO;
         ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_BT_SCO_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_BT_SCO)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_AND_HAPTICS;
-        new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO;
-        ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO &&
                !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE,
                                               SND_DEVICE_OUT_BT_SCO)) {
@@ -5994,29 +6215,10 @@ int platform_split_snd_device(void *platform,
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE;
         new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO;
         ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE,
-                                              SND_DEVICE_OUT_BT_SCO)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE_AND_HAPTICS;
-        new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO;
-        ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_BT_SCO_WB_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_BT_SCO_WB)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_AND_HAPTICS;
-        new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO_WB;
-        ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB &&
                !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_BT_SCO_WB)) {
         *num_devices = 2;
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER;
-        new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO_WB;
-        ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_BT_SCO_WB_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_BT_SCO_WB)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_AND_HAPTICS;
         new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO_WB;
         ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_WB &&
@@ -6032,12 +6234,6 @@ int platform_split_snd_device(void *platform,
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER;
         new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO_SWB;
         ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_BT_SCO_SWB_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER, SND_DEVICE_OUT_BT_SCO_SWB)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_AND_HAPTICS;
-        new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO_SWB;
-        ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_SWB &&
                !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE,
                                               SND_DEVICE_OUT_BT_SCO_SWB)) {
@@ -6045,23 +6241,10 @@ int platform_split_snd_device(void *platform,
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE;
         new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO_SWB;
         ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_SWB_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE,
-                                              SND_DEVICE_OUT_BT_SCO_SWB)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE_AND_HAPTICS;
-        new_snd_devices[1] = SND_DEVICE_OUT_BT_SCO_SWB;
-        ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_AND_USB_HEADSET &&
                !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE, SND_DEVICE_OUT_USB_HEADSET)) {
         *num_devices = 2;
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE;
-        new_snd_devices[1] = SND_DEVICE_OUT_USB_HEADSET;
-        ret = 0;
-    } else if (snd_device == SND_DEVICE_OUT_SPEAKER_SAFE_USB_HEADSET_AND_HAPTICS &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE, SND_DEVICE_OUT_USB_HEADSET)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE_AND_HAPTICS;
         new_snd_devices[1] = SND_DEVICE_OUT_USB_HEADSET;
         ret = 0;
     } else if (snd_device == SND_DEVICE_OUT_SPEAKER_WSA_AND_BT_SCO &&
@@ -6081,23 +6264,11 @@ int platform_split_snd_device(void *platform,
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER;
         new_snd_devices[1] = SND_DEVICE_OUT_BT_A2DP;
         ret = 0;
-    } else if (SND_DEVICE_OUT_SPEAKER_BT_A2DP_AND_HAPTICS == snd_device) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_AND_HAPTICS;
-        new_snd_devices[1] = SND_DEVICE_OUT_BT_A2DP;
-        ret = 0;
     } else if (SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_A2DP == snd_device &&
                !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE,
                                               SND_DEVICE_OUT_BT_A2DP)) {
         *num_devices = 2;
         new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE;
-        new_snd_devices[1] = SND_DEVICE_OUT_BT_A2DP;
-        ret = 0;
-    } else if (SND_DEVICE_OUT_SPEAKER_SAFE_BT_A2DP_AND_HAPTICS == snd_device &&
-               !platform_check_backends_match(SND_DEVICE_OUT_SPEAKER_SAFE,
-                                              SND_DEVICE_OUT_BT_A2DP)) {
-        *num_devices = 2;
-        new_snd_devices[0] = SND_DEVICE_OUT_SPEAKER_SAFE_AND_HAPTICS;
         new_snd_devices[1] = SND_DEVICE_OUT_BT_A2DP;
         ret = 0;
     } else if (SND_DEVICE_IN_INCALL_REC_RX_TX == snd_device) {
@@ -6128,7 +6299,7 @@ int platform_split_snd_device(void *platform,
     }
 
 
-    ALOGD("%s: snd_device(%d) num devices(%d) new_snd_devices(%d)", __func__,
+    ALOGV("%s: snd_device(%d) num devices(%d) new_snd_devices(%d)", __func__,
         snd_device, *num_devices, *new_snd_devices);
 
     return ret;
@@ -6344,8 +6515,6 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
             else if  (audio_extn_is_hifi_filter_enabled(adev, out, snd_device,
                my_data->codec_variant, channel_count, 1))
                 snd_device = SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_HIFI_FILTER;
-            else if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                snd_device = SND_DEVICE_OUT_SPEAKER_HEADPHONES_AND_HAPTICS;
             else
                 snd_device = SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES;
         } else if (compare_device_type(&devices, AUDIO_DEVICE_OUT_LINE) &&
@@ -6375,8 +6544,6 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
             else {
                 if (is_active_voice_call)
                     snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_AND_VOICE_HEADPHONES;
-                else if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                    snd_device = SND_DEVICE_OUT_SPEAKER_HEADPHONES_AND_HAPTICS;
                 else
                     snd_device = SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES;
             }
@@ -6408,30 +6575,18 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
             }
         } else if (compare_device_type(&devices, AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET) &&
                    compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER)) {
-            if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                snd_device = SND_DEVICE_OUT_SPEAKER_USB_HEADSET_AND_HAPTICS;
-            else
-                snd_device = SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET;
+            snd_device = SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET;
         } else if ((compare_device_type(&devices, AUDIO_DEVICE_OUT_USB_DEVICE) &&
                     compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER)) ||
                    (compare_device_type(&devices, AUDIO_DEVICE_OUT_USB_HEADSET) &&
                     compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER))) {
-            if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                snd_device = SND_DEVICE_OUT_SPEAKER_USB_HEADSET_AND_HAPTICS;
-            else
-                snd_device = SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET;
+            snd_device = SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET;
         } else if (compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER) &&
                    is_a2dp_out_device_type(&devices)) {
-            if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                snd_device = SND_DEVICE_OUT_SPEAKER_BT_A2DP_AND_HAPTICS;
-            else
-                snd_device = SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP;
+            snd_device = SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP;
         }  else if (compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER_SAFE) &&
                    is_a2dp_out_device_type(&devices)) {
-            if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                snd_device = SND_DEVICE_OUT_SPEAKER_SAFE_BT_A2DP_AND_HAPTICS;
-            else
-                snd_device = SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_A2DP;
+            snd_device = SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_A2DP;
         } else if (is_sco_out_device_type(&devices) &&
                    compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER)) {
             if (my_data->is_wsa_speaker) {
@@ -6444,10 +6599,6 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
             } else {
                 if (adev->swb_speech_mode != SPEECH_MODE_INVALID)
                     snd_device = SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_SWB;
-                else if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                    snd_device = adev->bt_wb_speech_enabled ?
-                            SND_DEVICE_OUT_SPEAKER_BT_SCO_SWB_AND_HAPTICS :
-                            SND_DEVICE_OUT_SPEAKER_BT_SCO_AND_HAPTICS;
                 else
                     snd_device = adev->bt_wb_speech_enabled ?
                             SND_DEVICE_OUT_SPEAKER_AND_BT_SCO_WB :
@@ -6457,10 +6608,6 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
                          compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER_SAFE)) {
             if (adev->swb_speech_mode != SPEECH_MODE_INVALID)
                 snd_device = SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_SWB;
-            else if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                snd_device = adev->bt_wb_speech_enabled ?
-                        SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_SWB_AND_HAPTICS :
-                        SND_DEVICE_OUT_SPEAKER_SAFE_BT_SCO_AND_HAPTICS;
             else
                 snd_device = adev->bt_wb_speech_enabled ?
                         SND_DEVICE_OUT_SPEAKER_SAFE_AND_BT_SCO_WB :
@@ -6469,10 +6616,7 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
                     compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER_SAFE)) ||
                    (compare_device_type(&devices, AUDIO_DEVICE_OUT_USB_HEADSET) &&
                     compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER_SAFE))) {
-            if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                snd_device = SND_DEVICE_OUT_SPEAKER_SAFE_USB_HEADSET_AND_HAPTICS;
-            else
-                snd_device = SND_DEVICE_OUT_SPEAKER_SAFE_AND_USB_HEADSET;
+            snd_device = SND_DEVICE_OUT_SPEAKER_SAFE_AND_USB_HEADSET;
         } else {
             ALOGE("%s: Invalid combo device(%#x)", __func__, get_device_types(&devices));
             goto exit;
@@ -6569,12 +6713,21 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
                    compare_device_type(&devices, AUDIO_DEVICE_OUT_SPEAKER_SAFE)) {
             if (my_data->is_vbat_speaker || my_data->is_bcl_speaker) {
                 if (hw_info_is_stereo_spkr(my_data->hw_info)) {
+                    if (my_data->fluence_type & FLUENCE_QUAD_MIC &&
+                        hw_info_use_mono_spkr_for_qmic(my_data->hw_info))
+                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_VBAT;
+                    else if (my_data->voice_speaker_stereo)
+                        snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT;
+                    else if (my_data->mono_speaker == SPKR_1)
+                        snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_VBAT;
+                    else
+                        snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT;
+                } else {
                     if (my_data->mono_speaker == SPKR_1)
                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_VBAT;
                     else
                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT;
-                } else
-                    snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_VBAT;
+                }
             } else if (my_data->is_wsa_speaker) {
                     if (my_data->mono_speaker == SPKR_1)
                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_WSA;
@@ -6582,7 +6735,10 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA;
             } else {
                 if (hw_info_is_stereo_spkr(my_data->hw_info)) {
-                    if (my_data->voice_speaker_stereo)
+                    if (my_data->fluence_type & FLUENCE_QUAD_MIC &&
+                        hw_info_use_mono_spkr_for_qmic(my_data->hw_info))
+                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER;
+                    else if (my_data->voice_speaker_stereo)
                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_STEREO;
                     else if (adev->enable_hfp)
                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_HFP;
@@ -6594,8 +6750,12 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
                     }
                 } else if (adev->enable_hfp)
                     snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_HFP;
-                else
-                    snd_device = SND_DEVICE_OUT_VOICE_SPEAKER;
+                else {
+                    if (my_data->mono_speaker == SPKR_1)
+                        snd_device = SND_DEVICE_OUT_VOICE_SPEAKER;
+                    else
+                        snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_2;
+                }
             }
         } else if (is_a2dp_out_device_type(&devices)) {
             snd_device = SND_DEVICE_OUT_BT_A2DP;
@@ -6664,10 +6824,7 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
         } else if (compare_device_type(&devices, AUDIO_DEVICE_OUT_LINE)) {
                 snd_device = SND_DEVICE_OUT_LINE;
         } else {
-                if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                        snd_device = SND_DEVICE_OUT_HEADPHONES_AND_HAPTICS;
-                else
-                        snd_device = SND_DEVICE_OUT_HEADPHONES;
+                snd_device = SND_DEVICE_OUT_HEADPHONES;
         }
     } else if (compare_device_type(&devices, AUDIO_DEVICE_OUT_LINE)) {
         snd_device = SND_DEVICE_OUT_LINE;
@@ -6695,10 +6852,7 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
           else if (my_data->is_wsa_speaker)
             snd_device = SND_DEVICE_OUT_SPEAKER_WSA;
           else {
-            if (out->usecase == USECASE_AUDIO_PLAYBACK_WITH_HAPTICS)
-                    snd_device = SND_DEVICE_OUT_SPEAKER_AND_HAPTICS;
-            else
-                    snd_device = SND_DEVICE_OUT_SPEAKER;
+            snd_device = SND_DEVICE_OUT_SPEAKER;
           }
     } else if (is_sco_out_device_type(&devices)) {
         if (adev->swb_speech_mode != SPEECH_MODE_INVALID)
@@ -7431,6 +7585,9 @@ snd_device_t platform_get_input_snd_device(void *platform,
         }
     } else if (source == AUDIO_SOURCE_FM_TUNER) {
         snd_device = SND_DEVICE_IN_CAPTURE_FM;
+    } else if ((source == AUDIO_SOURCE_ECHO_REFERENCE) &&
+        (uc_id == USECASE_AUDIO_RECORD_ECHO_REF_EXT)) {
+        snd_device = SND_DEVICE_IN_ECHO_REFERENCE;
     } else if (source == AUDIO_SOURCE_DEFAULT) {
         goto exit;
     }
@@ -7504,6 +7661,9 @@ snd_device_t platform_get_input_snd_device(void *platform,
             snd_device = SND_DEVICE_IN_USB_HEADSET_MIC;
         } else if (compare_device_type(&in_devices, AUDIO_DEVICE_IN_FM_TUNER)) {
             snd_device = SND_DEVICE_IN_CAPTURE_FM;
+        } else if (compare_device_type(&in_devices, AUDIO_DEVICE_IN_ECHO_REFERENCE) &&
+            (uc_id == USECASE_AUDIO_RECORD_ECHO_REF_EXT)) {
+            snd_device = SND_DEVICE_IN_ECHO_REFERENCE;
         } else if (audio_extn_usb_connected(NULL) &&
                    is_usb_in_device_type(&in_devices)) {
             snd_device = fixup_usb_headset_mic_snd_device(platform,
@@ -8067,7 +8227,7 @@ static void set_audiocal(void *platform, struct str_parms *parms, char *value, i
           }
         }
         cal.acdb_dev_id = platform_get_snd_device_acdb_id(cal.snd_dev_id);
-        ALOGD("Setting audio calibration for snd_device(%d) acdb_id(%d)",
+        ALOGV("Setting audio calibration for snd_device(%d) acdb_id(%d)",
                 cal.snd_dev_id, cal.acdb_dev_id);
         if(cal.acdb_dev_id == -EINVAL) {
             ALOGE("[%s] Invalid acdb_device id %d for snd device id %d",
@@ -8379,18 +8539,23 @@ int platform_set_parameters(void *platform, struct str_parms *parms)
         }
     }
 
-    if (hw_info_is_stereo_spkr(my_data->hw_info)) {
-        err = str_parms_get_str(parms, AUDIO_PARAMETER_KEY_MONO_SPEAKER, value, len);
-        if (err >= 0) {
-            if (!strncmp("left", value, sizeof("left")))
-                my_data->mono_speaker = SPKR_1;
-            else if (!strncmp("right", value, sizeof("right")))
-                my_data->mono_speaker = SPKR_2;
-
-            str_parms_del(parms, AUDIO_PARAMETER_KEY_MONO_SPEAKER);
-        }
+    err = str_parms_get_str(parms, "afe_loopback", value, len);
+    if (err >= 0) {
+        my_data->afe_loopback = atoi(value);
+        ALOGD("Updating afe_loopback as %d from platform XML" , my_data->afe_loopback);
     }
-    err = str_parms_get_str(parms, AUDIO_PARAMETER_KEY_EXT_AUDIO_DEVICE,
+
+    err = str_parms_get_str(parms, AUDIO_PARAMETER_KEY_MONO_SPEAKER, value, len);
+    if (err >= 0) {
+        if (!strncmp("left", value, sizeof("left")))
+            my_data->mono_speaker = SPKR_1;
+        else if (!strncmp("right", value, sizeof("right")))
+            my_data->mono_speaker = SPKR_2;
+
+       str_parms_del(parms, AUDIO_PARAMETER_KEY_MONO_SPEAKER);
+    }
+
+   err = str_parms_get_str(parms, AUDIO_PARAMETER_KEY_EXT_AUDIO_DEVICE,
                             value, len);
     if (err >= 0) {
         char *event_name, *status_str;
@@ -8459,6 +8624,7 @@ int platform_set_parameters(void *platform, struct str_parms *parms)
 
     /* handle audio calibration parameters */
     set_audiocal(platform, parms, value, len);
+    spkr_hph_single_be_native_concurrency_params(parms, value, len);
     native_audio_set_params(platform, parms, value, len);
     audio_extn_spkr_prot_set_parameters(parms, value, len);
     audio_extn_usb_set_sidetone_gain(parms, value, len);
@@ -8822,7 +8988,8 @@ void platform_get_parameters(void *platform,
                 for (i = 0; i < sizeof(dsp_only_decoders_mime)/sizeof(dsp_only_decoders_mime[0]); i++) {
                     if (!strncmp(decoder_mime_type, dsp_only_decoders_mime[i],
                     strlen(dsp_only_decoders_mime[i]))) {
-                       ALOGD("Rejecting request for DSP only session from HAL during voice call/SSR state");
+                       ALOGV("Rejecting request for DSP only session from HAL \
+                              during voice call/SSR state");
                        isallowed = 0;
                        break;
                     }
@@ -8898,6 +9065,13 @@ void platform_set_audio_source_delay(audio_source_t audio_source, int delay_ms)
 /* Delay in Us */
 int64_t platform_get_audio_source_delay(audio_source_t audio_source)
 {
+    if (audio_source == AUDIO_SOURCE_ECHO_REFERENCE) {
+        /* return 0 because audio source delay is not
+        currently implemented on automotive in the
+        audio_platform_info.xml */
+        return 0;
+    }
+
     if ((audio_source < AUDIO_SOURCE_DEFAULT) ||
             (audio_source > AUDIO_SOURCE_MAX)) {
         ALOGE("%s: Invalid audio_source = %d", __func__, audio_source);
@@ -9050,6 +9224,7 @@ bool platform_sound_trigger_usecase_needs_event(audio_usecase_t uc_id)
     case USECASE_INCALL_MUSIC_UPLINK:
     case USECASE_INCALL_MUSIC_UPLINK2:
     case USECASE_AUDIO_RECORD_VOIP:
+    case USECASE_AUDIO_RECORD_VOIP_LOW_LATENCY:
         needs_event = true;
         break;
     default:
@@ -9380,7 +9555,9 @@ static int platform_set_codec_backend_cfg(struct audio_device* adev,
             ALOGD("%s:becf: afe: %s mixer set to %d bit for %x format", __func__,
                   my_data->current_backend_cfg[backend_idx].bitwidth_mixer_ctl, bit_width, format);
             for (int idx = 0; idx < MAX_CODEC_BACKENDS; idx++) {
-                if (my_data->current_backend_cfg[idx].bitwidth_mixer_ctl) {
+                if (my_data->current_backend_cfg[idx].bitwidth_mixer_ctl
+                        && strcmp(my_data->current_backend_cfg[idx].bitwidth_mixer_ctl,
+                        my_data->current_backend_cfg[backend_idx].bitwidth_mixer_ctl) == 0) {
                     ctl = mixer_get_ctl_by_name(adev->mixer,
                                  my_data->current_backend_cfg[idx].bitwidth_mixer_ctl);
                     id_string = platform_get_mixer_control(ctl);
@@ -9485,7 +9662,9 @@ static int platform_set_codec_backend_cfg(struct audio_device* adev,
             ALOGD("%s:becf: afe: %s set to %s", __func__,
                   my_data->current_backend_cfg[backend_idx].samplerate_mixer_ctl, rate_str);
             for (int idx = 0; idx < MAX_CODEC_BACKENDS; idx++) {
-                if (my_data->current_backend_cfg[idx].samplerate_mixer_ctl) {
+                if (my_data->current_backend_cfg[idx].samplerate_mixer_ctl
+                        && strcmp(my_data->current_backend_cfg[idx].samplerate_mixer_ctl,
+                        my_data->current_backend_cfg[backend_idx].samplerate_mixer_ctl) == 0) {
                     ctl = mixer_get_ctl_by_name(adev->mixer,
                                  my_data->current_backend_cfg[idx].samplerate_mixer_ctl);
                     id_string = platform_get_mixer_control(ctl);
@@ -9540,7 +9719,9 @@ static int platform_set_codec_backend_cfg(struct audio_device* adev,
             ALOGD("%s:becf: afe: %s set to %s", __func__,
                   my_data->current_backend_cfg[backend_idx].channels_mixer_ctl, channel_cnt_str);
             for (int idx = 0; idx < MAX_CODEC_BACKENDS; idx++) {
-                if (my_data->current_backend_cfg[idx].channels_mixer_ctl) {
+                if (my_data->current_backend_cfg[idx].channels_mixer_ctl &&
+                        strcmp(my_data->current_backend_cfg[idx].channels_mixer_ctl,
+                        my_data->current_backend_cfg[backend_idx].channels_mixer_ctl) == 0) {
                     ctl = mixer_get_ctl_by_name(adev->mixer,
                                  my_data->current_backend_cfg[idx].channels_mixer_ctl);
                     id_string = platform_get_mixer_control(ctl);
@@ -9833,7 +10014,7 @@ static bool platform_check_codec_backend_cfg(struct audio_device* adev,
     struct audio_device_config_param *adev_device_cfg_ptr = adev->device_cfg_params;
     int controller = -1;
     int stream = -1;
-
+    bool combo_in_use = false;
 
     /*BT devices backend is not configured from HAL hence skip*/
     if (snd_device == SND_DEVICE_OUT_BT_A2DP ||
@@ -9948,6 +10129,9 @@ static bool platform_check_codec_backend_cfg(struct audio_device* adev,
                 uc = node_to_item(node, struct audio_usecase, list);
                 struct stream_out *curr_out =
                     (struct stream_out*) uc->stream.out;
+                if (check_hdset_combo_device(uc->out_snd_device) &&
+                        spkr_hph_single_be_native_concurrency)
+                    combo_in_use = true;
 
                 /*if native audio playback
                 * is active then it will take priority
@@ -9956,7 +10140,13 @@ static bool platform_check_codec_backend_cfg(struct audio_device* adev,
                     if (is_offload_usecase(uc->id) &&
                         (curr_out->sample_rate % OUTPUT_SAMPLING_RATE_44100 == 0)) {
                         ALOGD("%s:napb:native stream detected %d sampling rate", __func__, curr_out->sample_rate);
-                        sample_rate = curr_out->sample_rate;
+                        if (combo_in_use && spkr_hph_single_be_native_concurrency) {
+                            ALOGE("%s: native playback loses priority due to spkr_hph_single_be.\n",
+                                    __func__);
+                        } else {
+                            ALOGI("%s: native sample rate activates.\n", __func__);
+                            sample_rate = curr_out->sample_rate;
+                        }
                     }
                 }
 
@@ -10017,9 +10207,10 @@ static bool platform_check_codec_backend_cfg(struct audio_device* adev,
 
         /*set sample rate to 48khz if multiple sample rates are not supported in spkr and hdset*/
         if (is_hdset_combo_device(&usecase->device_list) &&
-            !my_data->is_multiple_sample_rate_combo_supported)
+            !my_data->is_multiple_sample_rate_combo_supported) {
             sample_rate = CODEC_BACKEND_DEFAULT_SAMPLE_RATE;
             ALOGD("%s:becf: afe: set default Sample Rate(48k) for combo device",__func__);
+        }
     }
 
     if (backend_idx != platform_get_voice_call_backend(adev)
@@ -10075,7 +10266,7 @@ static bool platform_check_codec_backend_cfg(struct audio_device* adev,
          */
         if (platform_spkr_use_default_sample_rate(adev->platform)) {
             sample_rate = CODEC_BACKEND_DEFAULT_SAMPLE_RATE;
-            ALOGD("%s:becf: afe: playback on codec device not supporting native playback set "
+            ALOGV("%s:becf: afe: playback on codec device not supporting native playback set "
             "default Sample Rate(48k)", __func__);
         }
     }
@@ -10447,7 +10638,7 @@ int platform_set_snd_device_backend(snd_device_t device, const char *backend_tag
         goto done;
     }
 
-    ALOGD("%s: backend_tag_table[%s]: old = %s new = %s", __func__,
+    ALOGV("%s: backend_tag_table[%s]: old = %s new = %s", __func__,
           platform_get_snd_device_name(device),
           backend_tag_table[device] != NULL ? backend_tag_table[device]: "null",
           backend_tag);
@@ -10463,7 +10654,7 @@ int platform_set_snd_device_backend(snd_device_t device, const char *backend_tag
         if (hw_interface_table[device])
             free(hw_interface_table[device]);
 
-        ALOGD("%s: hw_interface_table[%d] = %s", __func__, device, hw_interface);
+        ALOGV("%s: hw_interface_table[%d] = %s", __func__, device, hw_interface);
         hw_interface_table[device] = strdup(hw_interface);
     }
 done:
@@ -10730,14 +10921,14 @@ end:
 }
 
 int platform_set_stream_channel_map(void *platform, audio_channel_mask_t channel_mask,
-                                               int snd_id, uint8_t *input_channel_map)
+                                    int snd_id, int be_idx, uint8_t *input_channel_map)
 {
     int ret = 0, i = 0;
     int channels = audio_channel_count_from_out_mask(channel_mask);
 
     char channel_map[AUDIO_CHANNEL_COUNT_MAX];
     memset(channel_map, 0, sizeof(channel_map));
-    if (*input_channel_map) {
+    if ((input_channel_map != NULL) && *input_channel_map) {
         for (i = 0; i < channels; i++) {
              ALOGV("%s:: Channel Map channel_map[%d] - %d", __func__, i, *input_channel_map);
              channel_map[i] = *input_channel_map;
@@ -10863,7 +11054,7 @@ int platform_set_stream_channel_map(void *platform, audio_channel_mask_t channel
                 return -1;
         }
     }
-    ret = platform_set_channel_map(platform, channels, channel_map, snd_id, -1);
+    ret = platform_set_channel_map(platform, channels, channel_map, snd_id, be_idx);
     return ret;
 }
 
@@ -11349,6 +11540,12 @@ int platform_set_edid_channels_configuration(void *platform, int channels,
                         backend_idx, snd_device, 0, 0);
 }
 
+int platform_get_is_afe_loopback_enabled(void *platform)
+{
+  struct platform_data *my_data = (struct platform_data *)platform;
+  return my_data->afe_loopback;
+}
+
 int platform_set_edid_channels_configuration_v2(void *platform, int channels,
                                      int backend_idx, snd_device_t snd_device,
                                      int controller, int stream) {
@@ -11414,7 +11611,9 @@ int platform_set_edid_channels_configuration_v2(void *platform, int channels,
                 platform_set_channel_map(platform, adev_device_cfg_ptr->dev_cfg_params.channels,
                                      (char *)adev_device_cfg_ptr->dev_cfg_params.channel_map, -1, be_idx);
             } else {
-                platform_set_channel_map(platform, channels, info->channel_map, -1, be_idx);
+                platform_set_stream_channel_map(platform,
+                        audio_channel_out_mask_from_count(channels),
+                        -1, be_idx, NULL);
             }
 
             if (adev_device_cfg_ptr->use_client_dev_cfg) {
@@ -11579,6 +11778,7 @@ bool platform_can_enable_spkr_prot_on_device(snd_device_t snd_device)
         snd_device == SND_DEVICE_OUT_SPEAKER_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT ||
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
@@ -11619,6 +11819,9 @@ int platform_get_spkr_prot_acdb_id(snd_device_t snd_device)
         case SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT:
              acdb_id = platform_get_snd_device_acdb_id(SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT);
              break;
+        case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT:
+             acdb_id = platform_get_snd_device_acdb_id(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT);
+             break;
         default:
              acdb_id = -EINVAL;
              break;
@@ -11652,6 +11855,8 @@ int platform_get_spkr_prot_snd_device(snd_device_t snd_device)
              return SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT;
         case SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT:
              return SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT;
+        case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT:
+             return SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT;
         default:
              return snd_device;
     }
@@ -11662,6 +11867,7 @@ int platform_get_vi_feedback_snd_device(snd_device_t snd_device)
         case SND_DEVICE_OUT_SPEAKER_PROTECTED:
         case SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT:
         case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED:
+        case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT:
              return SND_DEVICE_IN_CAPTURE_VI_FEEDBACK;
         case SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED:
         case SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT:
@@ -11740,21 +11946,6 @@ int platform_set_audio_device_interface(const char *device_name, const char *int
 
     ret = -EINVAL;
 
-done:
-    return ret;
-}
-
-int platform_set_snd_device_name(snd_device_t device, const char *name)
-{
-    int ret = 0;
-
-    if ((device < SND_DEVICE_MIN) || (device >= SND_DEVICE_MAX)) {
-        ALOGE("%s:: Invalid snd_device = %d", __func__, device);
-        ret = -EINVAL;
-        goto done;
-    }
-
-    device_table[device] = strdup(name);
 done:
     return ret;
 }
@@ -12236,7 +12427,7 @@ int platform_get_supported_copp_sampling_rate(uint32_t stream_sr)
     defined (PLATFORM_QCS405) || defined (PLATFORM_TRINKET) || \
     defined (PLATFORM_LITO) || defined (PLATFORM_MSMFALCON) || \
     defined (PLATFORM_ATOLL) || defined (PLATFORM_BENGAL) || \
-    defined (PLATFORM_HOLI)
+    defined (PLATFORM_HOLI) || defined (PLATFORM_LAHAINA)
 int platform_get_mmap_data_fd(void *platform, int fe_dev, int dir, int *fd,
                               uint32_t *size)
 {
@@ -12419,4 +12610,38 @@ bool platform_is_call_proxy_snd_device(snd_device_t snd_device) {
     if (snd_device == SND_DEVICE_IN_CALL_PROXY || snd_device == SND_DEVICE_OUT_CALL_PROXY)
         return true;
     return false;
+}
+
+bool platform_set_fluence_nn_state(void *platform, bool state) {
+     struct platform_data *my_data = (struct platform_data *)platform;
+
+     if (my_data->acdb_set_fluence_nn_state == NULL) {
+         ALOGE("%s: dlsym error for acdb_set_fluence_nn_state", __func__);
+         return false;
+     }
+
+     if (my_data->fluence_nn_enabled) {
+         my_data->acdb_set_fluence_nn_state(state);
+         ALOGD("%s: set fluence nn state %d", __func__, state);
+         return true;
+     }
+
+     return false;
+}
+
+int platform_get_fluence_nn_state(void *platform) {
+    struct platform_data *my_data = (struct platform_data *)platform;
+    int ret = -1;
+
+    if (my_data->acdb_get_fluence_nn_state == NULL) {
+        ALOGE("%s: dlsym error for acdb_get_fluence_nn_state", __func__);
+        return ret;
+    }
+
+    if (my_data->fluence_nn_enabled)
+        ret = my_data->acdb_get_fluence_nn_state();
+    else
+        ALOGD("fluence nn disabled");
+
+    return ret;
 }

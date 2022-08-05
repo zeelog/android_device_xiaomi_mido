@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, The Linux Foundation. All rights reserved.
+ * Copyright (c) 2013-2021, The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
  * Copyright (C) 2013 The Android Open Source Project
@@ -421,7 +421,7 @@ int pcm_device_table[AUDIO_USECASE_MAX][2] = {
 };
 
 /* Array to store sound devices */
-static const char * device_table[SND_DEVICE_MAX] = {
+static const char * const device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_NONE] = "none",
     /* Playback sound devices */
     [SND_DEVICE_OUT_HANDSET] = "handset",
@@ -442,6 +442,7 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_HANDSET] = "voice-handset",
     [SND_DEVICE_OUT_VOICE_SPEAKER] = "voice-speaker",
     [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO] = "voice-speaker-stereo",
+    [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT] = "vbat-voice-speaker-stereo",
     [SND_DEVICE_OUT_VOICE_SPEAKER_WSA] = "wsa-voice-speaker",
     [SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = "vbat-voice-speaker",
     [SND_DEVICE_OUT_VOICE_SPEAKER_2] = "voice-speaker-2",
@@ -481,6 +482,7 @@ static const char * device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_SPEAKER_PROTECTED] = "speaker-protected",
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED] = "voice-speaker-protected",
     [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED] = "voice-speaker-stereo-protected",
+    [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT] = "voice-speaker-stereo-protected-vbat",
     [SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED] = "voice-speaker-2-protected",
     [SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT] = "speaker-protected-vbat",
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT] = "voice-speaker-protected-vbat",
@@ -625,6 +627,7 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_LINE] = 10,
     [SND_DEVICE_OUT_VOICE_SPEAKER] = 14,
     [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO] = 15,
+    [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT] = 15,
     [SND_DEVICE_OUT_VOICE_SPEAKER_2] = 14,
     [SND_DEVICE_OUT_VOICE_SPEAKER_WSA] = 135,
     [SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA] = 135,
@@ -667,6 +670,7 @@ static int acdb_device_table[SND_DEVICE_MAX] = {
     [SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT] = 101,
     [SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT] = 101,
     [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED] = 124,
+    [SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT] = 124,
     [SND_DEVICE_OUT_SPEAKER_PROTECTED_RAS] = 134,
     [SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT_RAS] = 134,
     [SND_DEVICE_OUT_VOIP_HANDSET] = 133,
@@ -783,6 +787,7 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_WSA)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_VBAT)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT)},
@@ -821,6 +826,7 @@ static struct name_to_index snd_device_name_index[SND_DEVICE_MAX] = {
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED)},
+    {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT)},
     {TO_NAME_INDEX(SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT)},
@@ -1627,6 +1633,7 @@ static void set_platform_defaults(struct platform_data * my_data)
     backend_tag_table[SND_DEVICE_OUT_HEADPHONES_DSD] = strdup("headphones-dsd");
     backend_tag_table[SND_DEVICE_OUT_HEADPHONES_44_1] = strdup("headphones-44.1");
     backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = strdup("vbat-voice-speaker");
+    backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT] = strdup("vbat-voice-speaker-stereo");
     backend_tag_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT] = strdup("vbat-voice-speaker-2");
     backend_tag_table[SND_DEVICE_OUT_BT_A2DP] = strdup("bt-a2dp");
     backend_tag_table[SND_DEVICE_OUT_SPEAKER_AND_BT_A2DP] = strdup("speaker-and-bt-a2dp");
@@ -1658,6 +1665,7 @@ static void set_platform_defaults(struct platform_data * my_data)
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_2] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT] = strdup("SLIMBUS_0_RX");
+    hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_HEADPHONES] = strdup("SLIMBUS_6_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_LINE] = strdup("SLIMBUS_6_RX");
     hw_interface_table[SND_DEVICE_OUT_HDMI] = strdup("HDMI");
@@ -1689,6 +1697,7 @@ static void set_platform_defaults(struct platform_data * my_data)
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED] = strdup("SLIMBUS_0_RX");
+    hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT] = strdup("SLIMBUS_0_RX");
     hw_interface_table[SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT] = strdup("SLIMBUS_0_RX");
@@ -3055,7 +3064,8 @@ void platform_add_backend_name(char *mixer_path, snd_device_t snd_device,
     }
 
     if ((snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
-        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT) &&
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT ||
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT) &&
         !(usecase->type == VOICE_CALL || usecase->type == VOIP_CALL)) {
         ALOGI("%s: Not adding vbat speaker device to non voice use cases", __func__);
         return;
@@ -3770,6 +3780,12 @@ int platform_send_audio_calibration(void *platform, struct audio_usecase *usecas
     return 0;
 }
 
+int platform_send_audio_calibration_hfp(void *platform __unused,
+                                        snd_device_t snd_device __unused)
+{
+    return 0;
+}
+
 int platform_switch_voice_call_device_pre(void *platform)
 {
     struct platform_data *my_data = (struct platform_data *)platform;
@@ -3799,6 +3815,7 @@ int platform_switch_voice_call_enable_device_config(void *platform,
         return ret;
 
     if ((out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER ||
+         out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT) &&
@@ -3842,6 +3859,8 @@ int platform_switch_voice_call_device_post(void *platform,
                 out_snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED;
             else if (out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO)
                 out_snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED;
+            else if (out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT)
+                out_snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT;
             else if (out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
                 out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA)
                 out_snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED;
@@ -3878,6 +3897,7 @@ int platform_switch_voice_call_usecase_route_post(void *platform,
     if ((out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO ||
+         out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_VBAT ||
          out_snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT) &&
          audio_extn_spkr_prot_is_enabled()) {
@@ -4393,7 +4413,9 @@ snd_device_t platform_get_output_snd_device(void *platform, struct stream_out *o
                 snd_device = SND_DEVICE_OUT_BT_A2DP;
         } else if (devices & AUDIO_DEVICE_OUT_SPEAKER) {
                 if (my_data->is_vbat_speaker) {
-                    if (my_data->mono_speaker == SPKR_1)
+                    if (my_data->voice_speaker_stereo)
+                        snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT;
+                    else if (my_data->mono_speaker == SPKR_1)
                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_VBAT;
                     else
                         snd_device = SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT;
@@ -7247,14 +7269,14 @@ end:
 }
 
 int platform_set_stream_channel_map(void *platform, audio_channel_mask_t channel_mask,
-                                               int snd_id, uint8_t *input_channel_map)
+                                    int snd_id, int be_idx, uint8_t *input_channel_map)
 {
     int ret = 0, i = 0;
     int channels = audio_channel_count_from_out_mask(channel_mask);
 
     char channel_map[AUDIO_CHANNEL_COUNT_MAX];
     memset(channel_map, 0, sizeof(channel_map));
-    if (*input_channel_map) {
+    if ((input_channel_map != NULL) && *input_channel_map) {
         for (i = 0; i < channels; i++) {
              ALOGV("%s:: Channel Map channel_map[%d] - %d", __func__, i, *input_channel_map);
              channel_map[i] = *input_channel_map;
@@ -7341,7 +7363,7 @@ int platform_set_stream_channel_map(void *platform, audio_channel_mask_t channel
                 return -1;
         }
     }
-    ret = platform_set_channel_map(platform, channels, channel_map, snd_id, -1);
+    ret = platform_set_channel_map(platform, channels, channel_map, snd_id, be_idx);
     return ret;
 }
 
@@ -7643,6 +7665,11 @@ bool platform_is_edid_supported_sample_rate(void *platform, int sample_rate)
     return false;
 }
 
+int platform_get_is_afe_loopback_enabled(void *platform __unused)
+{
+   return 0;
+}
+
 int platform_set_edid_channels_configuration(void *platform, int channels, int backend_idx __unused, snd_device_t snd_device __unused) {
 
     struct platform_data *my_data = (struct platform_data *)platform;
@@ -7688,7 +7715,9 @@ int platform_set_edid_channels_configuration(void *platform, int channels, int b
                 platform_set_channel_map(platform, adev_device_cfg_ptr->dev_cfg_params.channels,
                                    (char *)adev_device_cfg_ptr->dev_cfg_params.channel_map, -1, -1);
             } else {
-                platform_set_channel_map(platform, channels, info->channel_map, -1, -1);
+                platform_set_stream_channel_map(platform,
+                        audio_channel_out_mask_from_count(channels),
+                        -1, -1, NULL);
             }
 
             if (adev_device_cfg_ptr->use_client_dev_cfg) {
@@ -7930,6 +7959,7 @@ static bool can_enable_mbdrc_on_device(snd_device_t snd_device)
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO ||
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_WSA ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA) {
         ret = true;
@@ -8014,6 +8044,7 @@ bool platform_can_enable_spkr_prot_on_device(snd_device_t snd_device)
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2 ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO ||
+        snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_WSA ||
         snd_device == SND_DEVICE_OUT_VOICE_SPEAKER_2_WSA) {
         ret = true;
@@ -8051,6 +8082,9 @@ int platform_get_spkr_prot_acdb_id(snd_device_t snd_device)
         case SND_DEVICE_OUT_VOICE_SPEAKER_2_VBAT:
              acdb_id = platform_get_snd_device_acdb_id(SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED_VBAT);
              break;
+        case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT:
+             acdb_id = platform_get_snd_device_acdb_id(SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT);
+             break;
         default:
              acdb_id = -EINVAL;
              break;
@@ -8075,6 +8109,8 @@ int platform_get_spkr_prot_snd_device(snd_device_t snd_device)
              return SND_DEVICE_OUT_VOICE_SPEAKER_2_PROTECTED;
         case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO:
              return SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED;
+        case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_VBAT:
+             return SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT;
         case SND_DEVICE_OUT_SPEAKER_VBAT:
              return SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT;
         case SND_DEVICE_OUT_VOICE_SPEAKER_VBAT:
@@ -8092,6 +8128,7 @@ int platform_get_vi_feedback_snd_device(snd_device_t snd_device)
         case SND_DEVICE_OUT_SPEAKER_PROTECTED:
         case SND_DEVICE_OUT_SPEAKER_PROTECTED_VBAT:
         case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED:
+        case SND_DEVICE_OUT_VOICE_SPEAKER_STEREO_PROTECTED_VBAT:
              return SND_DEVICE_IN_CAPTURE_VI_FEEDBACK;
         case SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED:
         case SND_DEVICE_OUT_VOICE_SPEAKER_PROTECTED_VBAT:
@@ -8116,21 +8153,6 @@ int platform_get_ec_ref_loopback_snd_device(int channel_count)
         snd_device = SND_DEVICE_NONE;
 
     return snd_device;
-}
-
-int platform_set_snd_device_name(snd_device_t device, const char *name)
-{
-    int ret = 0;
-
-    if ((device < SND_DEVICE_MIN) || (device >= SND_DEVICE_MAX)) {
-        ALOGE("%s:: Invalid snd_device = %d", __func__, device);
-        ret = -EINVAL;
-        goto done;
-    }
-
-    device_table[device] = strdup(name);
-done:
-    return ret;
 }
 
 int platform_set_sidetone(struct audio_device *adev,
@@ -8808,3 +8830,8 @@ int platform_get_display_port_ctl_index(int controller __unused,
 bool platform_is_call_proxy_snd_device(snd_device_t snd_device __unused) {
     return false;
 }
+
+const char *platform_get_mixer_FM_RX_control(struct audio_device *adev) {
+    return FM_RX_VOLUME;
+}
+

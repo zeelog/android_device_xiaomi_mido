@@ -35,14 +35,13 @@
 #include <errno.h>
 #include <log/log.h>
 #include <cutils/atomic.h>
+#include <pthread.h>
 
 #include <hardware/audio.h>
 #include "sound/compress_params.h"
 #include "audio_hw.h"
 #include "audio_extn.h"
 #include "audio_hw_extn_api.h"
-
-#include <pthread.h>
 
 #ifdef DYNAMIC_LOG_ENABLED
 #include <log_xml_parser.h>

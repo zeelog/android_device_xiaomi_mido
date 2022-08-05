@@ -50,7 +50,7 @@
         <!-- Param used to match and obtain device backend index -->
         <param backend_dai_name="VA_CDC_DMA_TX_0" />
         <!-- Param used to indicate if SVA has dedicated SLIM ports -->
-        <param dedicated_sva_path="true" />
+        <param dedicated_sva_path="false" />
         <param dedicated_headset_path="false" />
         <param platform_lpi_enable="true" />
         <param enable_debug_dumps="false" />
@@ -308,6 +308,7 @@
         <param sample_rate="16000" />
         <param bit_width="16" />
         <param out_channels="1"/> <!-- Module output channels -->
+        <param get_module_version="false"/>
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
@@ -333,6 +334,7 @@
                 <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
                 <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
                 <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
+                <param version_ids="0x18000001, 0x0, 0x18000101" />
             </module_params>
         </lsm_usecase>
         <lsm_usecase>
@@ -360,6 +362,7 @@
                 <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
                 <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
                 <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
+                <param version_ids="0x18000001, 0x0, 0x18000101" />
             </module_params>
         </lsm_usecase>
         <lsm_usecase>
@@ -374,6 +377,7 @@
                 <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
                 <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
                 <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
+                <param version_ids="0x18000001, 0x0, 0x18000101" />
             </module_params>
         </lsm_usecase>
 

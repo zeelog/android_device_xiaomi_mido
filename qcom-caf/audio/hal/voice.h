@@ -61,6 +61,8 @@ struct voice {
     bool use_device_mute;
     float volume;
     bool in_call;
+    bool lte_call;
+    bool uc_active;
 };
 
 struct power_mode_cfg {
@@ -92,7 +94,9 @@ void voice_init(struct audio_device *adev);
 bool voice_is_in_call(const struct audio_device *adev);
 bool voice_is_in_call_or_call_screen(const struct audio_device *adev);
 bool voice_is_in_call_rec_stream(const struct stream_in *in);
+bool voice_is_uc_active(const struct audio_device *adev);
 int voice_set_mic_mute(struct audio_device *dev, bool state);
+bool voice_is_lte_call_active(struct audio_device *adev);
 bool voice_get_mic_mute(struct audio_device *dev);
 int voice_set_volume(struct audio_device *adev, float volume);
 int voice_check_and_set_incall_rec_usecase(struct audio_device *adev,

@@ -259,6 +259,7 @@
         <param sample_rate="16000" />
         <param bit_width="16" />
         <param out_channels="1"/> <!-- Module output channels -->
+        <param get_module_version="false" />
         <lsm_usecase>
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
@@ -277,6 +278,7 @@
             <param operation_mode_ids="0x18000001, 0x0, 0x00012C02" />
             <param polling_enable_ids="0x18000001, 0x0, 0x00012C1B" />
             <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
+            <param version_ids="0x18000001, 0x0, 0x18000101" />
         </lsm_usecase>
         <lsm_usecase>
             <param capture_device="HEADSET" />
@@ -291,6 +293,7 @@
             <param operation_mode_ids="0x18000001, 0x0, 0x00012C02" />
             <param polling_enable_ids="0x18000001, 0x0, 0x00012C1B" />
             <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
+            <param version_ids="0x18000001, 0x0, 0x18000101" />
         </lsm_usecase>
 
         <!-- format: "ADPCM_packet" or "PCM_packet" !-->

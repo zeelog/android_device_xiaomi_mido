@@ -1595,9 +1595,8 @@
     </path>
 
     <path name="icc-call">
-        <ctl name="SEC_TDM_RX_0 SampleRate" value="KHZ_16" />
-        <ctl name="SEC_TDM_RX_0 Channels" value="Four" />
-        <ctl name="SEC_TDM_RX_0 Audio Mixer MultiMedia9" value="1" />
+        <ctl name="TERT_TDM_RX_0 Channels" value="Six" />
+        <ctl name="TERT_TDM_RX_0 Audio Mixer MultiMedia9" value="1" />
         <ctl name="TERT_TDM_TX_0 Channels" value="Four" />
         <ctl name="MultiMedia9 Mixer TERT_TDM_TX_0" value="1" />
     </path>

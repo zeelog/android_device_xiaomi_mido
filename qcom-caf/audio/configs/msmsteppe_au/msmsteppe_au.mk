@@ -4,7 +4,11 @@
 BOARD_USES_ALSA_AUDIO := true
 
 ifneq ($(TARGET_USES_AOSP_FOR_AUDIO), true)
+ifeq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS),true)
 USE_CUSTOM_AUDIO_POLICY := 1
+else
+USE_CUSTOM_AUDIO_POLICY := 0
+endif
 AUDIO_FEATURE_ENABLED_COMPRESS_CAPTURE := false
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := false
 AUDIO_FEATURE_ENABLED_DYNAMIC_ECNS := true
@@ -39,7 +43,12 @@ endif
 USE_XML_AUDIO_POLICY_CONF := 1
 AUDIO_FEATURE_ENABLED_DLKM := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
+BOARD_SUPPORTS_OPENSOURCE_STHAL := true
+AUDIO_FEATURE_ENABLED_SVA_CHANNEL_IDX := true
 AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
+ifeq ($(TARGET_HAS_GENERIC_KERNEL_HEADERS), true)
+AUDIO_FEATURE_ENABLED_GKI := true
+endif
 AUDIO_USE_DEEP_AS_PRIMARY_OUTPUT := false
 AUDIO_FEATURE_ENABLED_VBAT_MONITOR := true
 AUDIO_FEATURE_ENABLED_NT_PAUSE_TIMEOUT := true
@@ -71,13 +80,36 @@ AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 AUDIO_FEATURE_ENABLED_BATTERY_LISTENER := false
 ##AUDIO_FEATURE_FLAGS
 
+AUDIO_HARDWARE += audio.a2dp.default
+AUDIO_HARDWARE += audio.usb.default
+AUDIO_HARDWARE += audio.r_submix.default
+AUDIO_HARDWARE += audio.primary.$(MSMSTEPPE)
+
+#HAL Wrapper
+AUDIO_WRAPPER := libqahw
+AUDIO_WRAPPER += libqahwwrapper
+
+#HAL Test app
+AUDIO_HAL_TEST_APPS := hal_play_test
+AUDIO_HAL_TEST_APPS += hal_rec_test
+
+PRODUCT_PACKAGES += $(AUDIO_HARDWARE)
+PRODUCT_PACKAGES += $(AUDIO_WRAPPER)
+PRODUCT_PACKAGES += $(AUDIO_HAL_TEST_APPS)
+
 AUDIO_FEATURE_ENABLED_AUTO_HAL := true
 AUDIO_FEATURE_ENABLED_EXT_HW_PLUGIN := true
 AUDIO_FEATURE_ENABLED_AUDIO_CONTROL_HAL := true
 ifneq ($(ENABLE_HYP),true)
 AUDIO_FEATURE_ENABLED_AUTO_AUDIOD := true
+AUDIO_FEATURE_ENABLED_DAEMON_SUPPORT := true
+AUDIO_FEATURE_ENABLED_SILENT_BOOT := true
 endif
 AUDIO_FEATURE_ENABLED_FM_TUNER_EXT := true
+AUDIO_FEATURE_ENABLED_ICC := true
+ifneq ( ,$(filter S 12, $(PLATFORM_VERSION)))
+AUDIO_FEATURE_ENABLED_POWER_POLICY := true
+endif
 ##AUTOMOTIVE_AUDIO_FEATURE_FLAGS
 
 ifneq ($(strip $(TARGET_USES_RRO)), true)
@@ -293,6 +325,13 @@ vendor.audio.adm.buffering.ms=2
 PRODUCT_PROPERTY_OVERRIDES += \
 vendor.audio.hal.output.suspend.supported=false
 
+#Enable AAudio MMAP/NOIRQ data path
+#1 is AAUDIO_POLICY_NEVER so it will not try MMAP
+#2 is AAUDIO_POLICY_AUTO so it will try MMAP then fallback to Legacy path
+PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=1
+#Allow EXCLUSIVE then fall back to SHARED.
+PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_exclusive_policy=1
+
 #enable mirror-link feature
 PRODUCT_PROPERTY_OVERRIDES += \
 vendor.audio.enable.mirrorlink=false
@@ -325,7 +364,7 @@ vendor.audio.feature.compr_cap.enable=false \
 vendor.audio.feature.compress_in.enable=false \
 vendor.audio.feature.compress_meta_data.enable=false \
 vendor.audio.feature.compr_voip.enable=false \
-vendor.audio.feature.concurrent_capture.enable=true  \
+vendor.audio.feature.concurrent_capture.enable=false  \
 vendor.audio.feature.custom_stereo.enable=false \
 vendor.audio.feature.display_port.enable=false \
 vendor.audio.feature.dsm_feedback.enable=false \
@@ -339,6 +378,7 @@ vendor.audio.feature.fm.enable=false \
 vendor.audio.feature.hdmi_edid.enable=false \
 vendor.audio.feature.hdmi_passthrough.enable=false \
 vendor.audio.feature.hfp.enable=true  \
+vendor.audio.feature.icc.enable=true  \
 vendor.audio.feature.hifi_audio.enable=false \
 vendor.audio.feature.hwdep_cal.enable=false  \
 vendor.audio.feature.incall_music.enable=true  \
@@ -358,7 +398,9 @@ vendor.audio.feature.vbat.enable=false \
 vendor.audio.feature.wsa.enable=false \
 vendor.audio.feature.audiozoom.enable=false \
 vendor.audio.feature.snd_mon.enable=false \
-vendor.audio.feature.auto_hal.enable=true
+vendor.audio.feature.auto_hal.enable=true \
+vendor.audio.feature.synth.enable=true \
+vendor.audio.feature.powerpolicy.enable=true
 else
 # Non-Generic ODM varient related
 PRODUCT_ODM_PROPERTIES += \
@@ -370,7 +412,7 @@ vendor.audio.feature.compr_cap.enable=false \
 vendor.audio.feature.compress_in.enable=true \
 vendor.audio.feature.compress_meta_data.enable=true \
 vendor.audio.feature.compr_voip.enable=false \
-vendor.audio.feature.concurrent_capture.enable=true \
+vendor.audio.feature.concurrent_capture.enable=false \
 vendor.audio.feature.custom_stereo.enable=true \
 vendor.audio.feature.display_port.enable=true \
 vendor.audio.feature.dsm_feedback.enable=false \
@@ -384,6 +426,7 @@ vendor.audio.feature.fm.enable=true \
 vendor.audio.feature.hdmi_edid.enable=true \
 vendor.audio.feature.hdmi_passthrough.enable=true \
 vendor.audio.feature.hfp.enable=true \
+vendor.audio.feature.icc.enable=true  \
 vendor.audio.feature.hifi_audio.enable=false \
 vendor.audio.feature.hwdep_cal.enable=false \
 vendor.audio.feature.incall_music.enable=true \
@@ -403,7 +446,9 @@ vendor.audio.feature.vbat.enable=true \
 vendor.audio.feature.wsa.enable=false \
 vendor.audio.feature.audiozoom.enable=false \
 vendor.audio.feature.snd_mon.enable=false \
-vendor.audio.feature.auto_hal.enable=true
+vendor.audio.feature.auto_hal.enable=true \
+vendor.audio.feature.synth.enable=true \
+vendor.audio.feature.powerpolicy.enable=true
 endif
 
 # for HIDL related packages
@@ -446,8 +491,8 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # for HIDL related audiocontrol packages
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.automotive.audiocontrol@1.0-service \
-    android.hardware.automotive.audiocontrol@1.0
+    android.hardware.automotive.audiocontrol@2.0-service \
+    android.hardware.automotive.audiocontrol@2.0
 
 ifeq ($(ENABLE_HYP),true)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -461,3 +506,6 @@ persist.vendor.audio.calfile6=/vendor/etc/acdbdata/ADP/Hdmi_cal.acdb\
 persist.vendor.audio.calfile7=/vendor/etc/acdbdata/ADP/Headset_cal.acdb\
 persist.vendor.audio.calfile8=/vendor/etc/acdbdata/ADP/Speaker_cal.acdb
 endif
+
+#Audio sample file for early services
+PRODUCT_COPY_FILES += device/qcom/$(MSMSTEPPE)_au/bike_bell.wav:$(TARGET_COPY_OUT_VENDOR)/etc/bike_bell.wav

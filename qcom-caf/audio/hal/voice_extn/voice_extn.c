@@ -615,6 +615,14 @@ int voice_extn_set_parameters(struct audio_device *adev,
         }
 
         if (is_valid_vsid(vsid) && is_valid_call_state(call_state)) {
+            err = str_parms_get_str(parms, AUDIO_PARAMETER_KEY_CALL_TYPE, str_value,
+                                    sizeof(str_value));
+            if (err >= 0) {
+                  if (!strncmp("LTE", str_value, sizeof("LTE"))) {
+                      adev->voice.lte_call = true;
+                      ALOGD("%s: %s call is active",__func__, str_value);
+                  }
+            }
             ret = update_call_states(adev, vsid, call_state);
         } else {
             ALOGE("%s: invalid vsid:%x or call_state:%d",

@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2016-2019, The Linux Foundation. All rights reserved.
+* Copyright (c) 2016-2021, The Linux Foundation. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -80,6 +80,15 @@ typedef int (*qahwi_loopback_set_param_data_t)(audio_patch_handle_t patch_handle
                                                qahw_loopback_param_id param_id,
                                                qahw_loopback_param_payload *payload);
 
+typedef int (*qahwi_create_audio_patch_v2_t)(const audio_hw_device_t *,
+                        qahw_source_port_config_t *source_port_config,
+                        qahw_sink_port_config_t *sink_port_config,
+                        audio_patch_handle_t *);
+
+typedef int (*qahwi_in_set_param_data_t)(struct audio_stream_in *in,
+                                      qahw_param_id param_id,
+                                      qahw_param_payload *payload);
+
 typedef struct {
     audio_hw_device_t *audio_device;
     char module_name[MAX_MODULE_NAME_LENGTH];
@@ -92,6 +101,7 @@ typedef struct {
     qahwi_get_param_data_t qahwi_get_param_data;
     qahwi_set_param_data_t qahwi_set_param_data;
     qahwi_loopback_set_param_data_t qahwi_loopback_set_param_data;
+    qahwi_create_audio_patch_v2_t qahwi_create_audio_patch_v2;
 } qahw_module_t;
 
 typedef struct {
@@ -117,6 +127,7 @@ typedef struct {
     pthread_mutex_t lock;
     qahwi_in_read_v2_t qahwi_in_read_v2;
     qahwi_in_stop_t qahwi_in_stop;
+    qahwi_in_set_param_data_t qahwi_in_set_param_data;
 } qahw_stream_in_t;
 
 typedef enum {
@@ -1001,6 +1012,39 @@ exit:
     return str_param;
 }
 
+/* API to get capture stream specific config parameters */
+int qahw_in_set_param_data_l(qahw_stream_handle_t *in_handle,
+                            qahw_param_id param_id,
+                            qahw_param_payload *payload)
+{
+    int rc = -EINVAL;
+    qahw_stream_in_t *qahw_stream_in = (qahw_stream_in_t *)in_handle;
+    audio_stream_in_t *in = NULL;
+
+    if (!payload) {
+        ALOGE("%s::Invalid param", __func__);
+        goto exit;
+    }
+
+    if (!is_valid_qahw_stream_l((void *)qahw_stream_in, STREAM_DIR_IN)) {
+        ALOGE("%s::Invalid in handle %p", __func__, in_handle);
+        goto exit;
+    }
+
+    pthread_mutex_lock(&qahw_stream_in->lock);
+    in = qahw_stream_in->stream;
+    if (qahw_stream_in->qahwi_in_set_param_data) {
+        rc = qahw_stream_in->qahwi_in_set_param_data(in, param_id, payload);
+    } else {
+        rc = -ENOSYS;
+        ALOGW("%s not supported", __func__);
+    }
+    pthread_mutex_unlock(&qahw_stream_in->lock);
+
+exit:
+    return rc;
+}
+
 /*
  * Read audio buffer in from audio driver. Returns number of bytes read, or a
  *  negative status_t. If at least one frame was read prior to the error,
@@ -1445,6 +1489,38 @@ exit:
      return ret;
 }
 
+int qahw_create_audio_patch_v2_l(qahw_module_handle_t *hw_module,
+                        qahw_source_port_config_t *source_port_config,
+                        qahw_sink_port_config_t *sink_port_config,
+                        audio_patch_handle_t *handle)
+{
+    int ret = 0;
+    qahw_module_t *qahw_module = (qahw_module_t *)hw_module;
+    qahw_module_t *qahw_module_temp;
+
+    pthread_mutex_lock(&qahw_module_init_lock);
+    qahw_module_temp = get_qahw_module_by_ptr_l(qahw_module);
+    pthread_mutex_unlock(&qahw_module_init_lock);
+    if (qahw_module_temp == NULL) {
+        ALOGE("%s:: invalid hw module %p", __func__, qahw_module);
+        goto exit;
+    }
+
+    pthread_mutex_lock(&qahw_module->lock);
+
+    if (qahw_module->qahwi_create_audio_patch_v2){
+        ret = qahw_module->qahwi_create_audio_patch_v2(qahw_module->audio_device,
+                                   source_port_config, sink_port_config, handle);
+    } else {
+         ret = -ENOSYS;
+         ALOGE("%s not supported\n",__func__);
+    }
+    pthread_mutex_unlock(&qahw_module->lock);
+
+exit:
+     return ret;
+}
+
 /* Release an audio patch */
 int qahw_release_audio_patch_l(qahw_module_handle_t *hw_module,
                         audio_patch_handle_t handle)
@@ -1805,6 +1881,17 @@ int qahw_open_input_stream_l(qahw_module_handle_t *hw_module,
 
     /* clear any existing errors */
     dlerror();
+    qahw_stream_in->qahwi_in_set_param_data = (qahwi_in_set_param_data_t)
+                                             dlsym(qahw_module->module->dso,
+                                             "qahwi_in_set_param_data");
+    if ((error = dlerror()) != NULL) {
+        ALOGI("%s: dlsym error %s for qahwi_in_set_param_data",
+                   __func__, error);
+        qahw_stream_in->qahwi_in_set_param_data = NULL;
+    }
+
+    /* clear any existing errors */
+    dlerror();
     qahw_stream_in->qahwi_in_stop = (qahwi_in_stop_t)
         dlsym(qahw_module->module->dso, "qahwi_in_stop");
     if ((error = dlerror()) != NULL) {
@@ -1970,6 +2057,11 @@ qahw_module_handle_t *qahw_load_module_l(const char *hw_module_id)
                                                   "qahwi_loopback_set_param_data");
     if (!qahw_module->qahwi_loopback_set_param_data)
          ALOGD("%s::qahwi_loopback_set_param_data api is not defined\n", __func__);
+
+    qahw_module->qahwi_create_audio_patch_v2 = (qahwi_create_audio_patch_v2_t) dlsym (module->dso,
+                            "qahwi_create_audio_patch_v2");
+    if (!qahw_module->qahwi_create_audio_patch_v2)
+         ALOGD("%s::qahwi_create_audio_patch_v2 api is not defined\n",__func__);
 
     if (!qahw_list_count)
         list_init(&qahw_module_list);
