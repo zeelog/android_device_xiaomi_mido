@@ -774,7 +774,6 @@ vendor/lib64/libdpmqmihal.so|41eb89e66ba065c43a5eb79cd3c72cef0ee167aa
 
 # DRM - from LA.UM.9.6.2.r1-04200-89xx.0
 vendor/bin/qseecomd|12fde638ad4528c06fe336342862fd0ffc033dd0
-vendor/lib/libQSEEComAPI.so|961b8c99bf5d2a53b607cebf399fbdafb48c9bc6
 vendor/lib64/libdrmfs.so|1654e650448a464b9de765c9ce80ba5a29e8b9c1
 vendor/lib64/libdrmtime.so|b3f024dae4aaa62c4fc33965847d1627387c6b56
 vendor/lib64/libGPreqcancel.so|d851bcc3e1b982d8403dc86921c5dd9274f71dc5
@@ -914,17 +913,6 @@ vendor/lib64/libscalar.so|c2b4383fe9d506cad9062f60ab97b0ef64acacfb
 vendor/bin/hw/vendor.display.color@1.0-service|1f1d5cba21378c81f1c23c78d987d06c7613b794
 vendor/bin/mm-pp-dpps|083a05570aa6ec8c36e92a1294e34ca420b89437
 vendor/etc/init/vendor.display.color@1.0-service.rc|5ad673f879b3685a0e79b5633437e5499cb94f48
-vendor/lib/libhdr_tm.so|0d03941ffa1d48b2cc8400ce6131894450151665
-vendor/lib/libsdedrm.so|66099cb6029c8debb38a7d9ad6fb7848f1200950
-vendor/lib/libsdm-color.so|c58a15de9c9ba41ad1f2c0d70b9b1995404b6c90
-vendor/lib/libsdm-diag.so|79076ce24dd17f50c2485a31ae1c469f619b7fe8
--vendor/lib/libsdm-disp-vndapis.so|26abcf287d54a78a02e8663b9ec2f5f5bd7f6592
-vendor/lib/libsdmextension.so|970c0c73be847b51d9f78d72788b130c9c85c11f
-vendor/lib/libtinyxml2_1.so|96b24efb1037998e6c5c523160c431128ab411bf
-vendor/lib/vendor.display.color@1.0.so|7786f830d3cfe807ff2004957283a5fa7f925952
-vendor/lib/vendor.display.color@1.1.so|1cff66d0900d2555eaa51df9fbd6039e031e0b1f
-vendor/lib/vendor.display.color@1.2.so|54805d318e9f0e45cc3b6abec53cacdc1849302c
-vendor/lib/vendor.display.postproc@1.0.so|0b704dae454b0f8f82930c4cfec5b271b7a86663
 vendor/lib64/libdisp-aba.so|1b27405e7d1101f40be242d99ab4da0ff9a271b0
 vendor/lib64/libhdr_tm.so|66f312694a60e9f917a6aafa04563b9c376b1411
 vendor/lib64/libsdedrm.so|d1876b91c534548cb4775d80cfb8bfee2fd7e1fd
@@ -1024,7 +1012,6 @@ vendor/etc/perf/targetresourceconfigs.xml|c7575bce83e7d83a68e260437ff0ba164dfcd2
 # Peripheral manager - from LA.UM.9.6.3.r1-06200-89xx.0
 vendor/bin/pm-proxy|cfa016d416eb95949c76090bde8ccffcd5517159
 vendor/bin/pm-service|06608529b6125c5362dee26f459c52d9e51f3c92
-vendor/lib/libperipheral_client.so|7ace2f7c8c7ebd986db6c7796de7237e584e658b
 vendor/lib64/libperipheral_client.so|9bfd41e276e16b8f7c6808f3d87531fc5be4cdd5
 
 # Power-off alarm - from LA.UM.9.6.3.r1-06200-89xx.0
@@ -1275,7 +1262,6 @@ vendor/lib64/sensors.ssc.so|863de4d737c389c059670d8e1592bba58ae33de3
 
 # Thermal - from Onclite PKQ1.181021.001/V10.2.5.0.PFLCNXM
 vendor/bin/thermal-engine|562035759ae60b3c5267a01293f1aeaa3f40c44b
--vendor/lib/libthermalclient.so|241d1e751b3a96c67ac5b618ef38bb39d2a94fa7
 -vendor/lib64/libthermalclient.so|54121e31e4a5170f8c50e36ddb57685b6c538a21
 vendor/lib64/libthermalfeature.so|829b2fc0aa8c863d4b4b331e0a2c00663e01efe6
 
