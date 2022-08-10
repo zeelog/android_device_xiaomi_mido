@@ -15,6 +15,7 @@ android_app {
     privileged: true,
 
     static_libs: [
+        "androidx.core_core",
         "org.lineageos.settings.resources",
     ],
 

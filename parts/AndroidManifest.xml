@@ -45,7 +45,7 @@
 
         <activity
             android:name=".dirac.DiracActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/dirac_title"
             android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
@@ -60,7 +60,7 @@
  
         <activity
             android:name=".soundcontrol.SoundControlSettingsActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/audio_title"
             android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
@@ -74,7 +74,7 @@
 
         <activity
             android:name=".torch.TorchSettingsActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/torch_title"
             android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
@@ -103,7 +103,7 @@
 
         <service
             android:name=".dirac.DiracTileService"
-            android:exported="false"
+            android:exported="true"
             android:icon="@drawable/dirac_qs_tile_icon"
             android:label="@string/dirac_qs_tile_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -114,7 +114,7 @@
 
         <activity
             android:name=".vibration.VibratorActivity"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/vibrator_intensity_control"
             android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
@@ -126,5 +126,16 @@
                        android:resource="@string/haptic_summary" />
         </activity>
 
+        <provider
+            android:name=".PartsSearchIndexablesProvider"
+            android:authorities="org.lineageos.settings"
+            android:multiprocess="false"
+            android:grantUriPermissions="true"
+            android:permission="android.permission.READ_SEARCH_INDEXABLES"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.action.SEARCH_INDEXABLES_PROVIDER" />
+            </intent-filter>
+        </provider>
     </application>
 </manifest>
