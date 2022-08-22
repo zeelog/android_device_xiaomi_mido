@@ -31,8 +31,7 @@ ro.camera.res.fmq.size          u:object_r:camera_prop:s0
 
 # Fingerprint
 fpc.fp.miui.token               u:object_r:vendor_fp_prop:s0
-goodix.fp.miui.analyse          u:object_r:vendor_fp_prop:s0
-goodix.fp.miui.token            u:object_r:vendor_fp_prop:s0
+goodix.fp.                      u:object_r:vendor_fp_prop:s0
 ro.boot.fpsensor                u:object_r:vendor_fp_prop:s0
 ro.hardware.fingerprint         u:object_r:vendor_fp_prop:s0
 sys.fp.                         u:object_r:vendor_fp_prop:s0
