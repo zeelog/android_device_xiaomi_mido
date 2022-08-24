@@ -2,6 +2,7 @@
 dontaudit domain device:file w_file_perms;
 
 get_prop(domain, exported_camera_prop)
+get_prop(domain, camera_prop)
 
 # Silence dalvikcache logspam
 dontaudit domain dalvikcache_data_file:file execmod;
