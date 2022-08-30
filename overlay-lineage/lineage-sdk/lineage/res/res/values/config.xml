@@ -69,7 +69,4 @@
         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
         <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
     </string-array>
-    
-    <!-- Default values for LiveDisplay -->
-    <bool name="config_enableLiveDisplay">false</bool>
 </resources>
