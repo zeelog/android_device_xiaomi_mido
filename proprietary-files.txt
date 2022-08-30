@@ -885,7 +885,6 @@ vendor/lib/libc2d30_bltlib.so|dc708ecb2d453008f0b1f9d0562a1da9abe45630
 vendor/lib/libgpudataproducer.so|92114e9046317be8efd41d48ed7542d0dec55dfc
 vendor/lib/libgsl.so|2ce3a6a52578c48a36d0e9ce464174d425caa16a
 vendor/lib/libllvm-glnext.so|ecb7e1ac03779b3fccd002c81d7ad1d31cb3f03c
-vendor/lib/libllvm-qcom.so|a1b7346e09a5282a9767a1bdbc8ec5cb41935639
 vendor/lib/librs_adreno.so|09b8ba52d3e432992793522c7cba985075db4a6c
 vendor/lib/libscalar.so|2fcc1d0486ecb83b2a84ce96775e3eb3ba5fee52
 vendor/lib64/egl/eglSubDriverAndroid.so|3db3a9de1801c1a11ba8ae2dcdcc668d9647d986
@@ -905,7 +904,6 @@ vendor/lib64/libc2d30_bltlib.so|bb495ec7d4f9617f54c6a5e9804193aabccdcee2
 vendor/lib64/libgpudataproducer.so|5e5b610bb5ac4931880e7587d5d40b76052d8654
 vendor/lib64/libgsl.so|701d28eac847ac7218d0636566de12572870b51b
 vendor/lib64/libllvm-glnext.so|f7721fe7d3a2e0dad300608d24c1cf90b6624e1f
-vendor/lib64/libllvm-qcom.so|e6b6abd9abfefaeff79e61b4eee1b0c6054aaa4e
 vendor/lib64/librs_adreno.so|967ac0c16d936ae432f081151e1fe10cec647011
 vendor/lib64/libscalar.so|c2b4383fe9d506cad9062f60ab97b0ef64acacfb
 

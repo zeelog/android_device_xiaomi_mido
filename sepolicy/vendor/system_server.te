@@ -1,5 +1,3 @@
-allow system_server system_file:file ioctl;
-
 get_prop(system_server, userspace_reboot_config_prop)
 get_prop(system_server, userspace_reboot_exported_prop)
 
