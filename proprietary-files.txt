@@ -790,15 +790,15 @@ vendor/lib64/libsecureui_svcsock.so|2232f56927964f10d41868919d94711930d50ed0
 vendor/lib64/libssd.so|6dcbfc531e69a3c7eeaf21e85ac0202b8fa82d55
 vendor/lib64/libStDrvInt.so|7c921ee6db896233f9ea03f1fb3a9b7d9434e7dc
 
-# DRM - from Coral - 12/SQ1A.220105.002/7961164
+# DRM - from Coral - Tiramisu/TPP1.220114.016/8158200
 vendor/lib64/libops.so|3c763226ccc3b0f32e131af71a458b41bf2b3d8d
 vendor/lib64/libspl.so|f8bbe0322ce06a545f5dc79c888183ac61673b68
 
-# DRM - Widevine - from Coral - 12/SQ1A.220105.002/7961164
-vendor/bin/hw/android.hardware.drm@1.4-service.widevine|40007c2086cb435d36b38de089cdfa4f38941b4e
+# DRM - Widevine - from Coral - Tiramisu/TPP1.220114.016/8158200
+vendor/bin/hw/android.hardware.drm@1.4-service.widevine|1ad2e046be16d2ee422925dba60b8ef4d9d10e43
 vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc|225dd006bfecf6c1dca6793fa1c13a455ce4eae6
 vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml|91d7c0996133556cb7f7c5d1b7e5d9e7f07b78b2
-vendor/lib64/libwvhidl.so|8ffc9cfc0ca2abc0e7bbde94c61961b1fef45e6f
+vendor/lib64/libwvhidl.so|aa31972bf48749785f3e5d91aaafac21f226ac87
 
 # Fingerprint
 bin/gx_fpd:vendor/bin/gx_fpd
