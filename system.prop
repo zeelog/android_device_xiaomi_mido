@@ -153,3 +153,6 @@ persist.mm.sta.enable=0
 
 # WFD
 persist.hwc.enable_vds=1
+
+# Zygote
+zygote.critical_window.minute=10
