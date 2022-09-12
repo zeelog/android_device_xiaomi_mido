@@ -49,11 +49,11 @@ bool isLit(uint32_t color) {
     return color & 0x00ffffff;
 }
 
-argb_t colorToArgb(uint32_t color) {
-    argb_t r;
+rgb_t colorToRgb(uint32_t color) {
+    rgb_t r;
 
     // Extract brightness from AARRGGBB.
-    r.alpha = (color >> 24) & 0xFF;
+    uint8_t alpha = (color >> 24) & 0xFF;
 
     // Retrieve each of the RGB colors
     r.red = (color >> 16) & 0xFF;
@@ -61,23 +61,23 @@ argb_t colorToArgb(uint32_t color) {
     r.blue = color & 0xFF;
 
     // Scale RGB colors if a brightness has been applied by the user
-    if (r.alpha > 0 && r.alpha < 255) {
-        r.red = r.red * r.alpha / 0xFF;
-        r.green = r.green * r.alpha / 0xFF;
-        r.blue = r.blue * r.alpha / 0xFF;
+    if (alpha > 0 && alpha < 255) {
+        r.red = r.red * alpha / 0xFF;
+        r.green = r.green * alpha / 0xFF;
+        r.blue = r.blue * alpha / 0xFF;
     }
 
     return r;
 }
 
-uint8_t argbToBrightness(argb_t c_argb) {
-    return (77 * c_argb.red + 150 * c_argb.green + 29 * c_argb.blue) >> 8;
+uint8_t rgbToBrightness(rgb_t c_rgb) {
+    return (77 * c_rgb.red + 150 * c_rgb.green + 29 * c_rgb.blue) >> 8;
 }
 
 uint8_t colorToBrightness(uint32_t color) {
-    argb_t c_argb = colorToArgb(color);
+    rgb_t c_rgb = colorToRgb(color);
 
-    return argbToBrightness(c_argb);
+    return rgbToBrightness(c_rgb);
 }
 
 } // namespace light
