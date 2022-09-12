@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2022 The LineageOS Project
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -8,6 +8,7 @@
 
 #include <aidl/android/hardware/light/BnLights.h>
 #include <mutex>
+#include "Backlight.h"
 
 using ::aidl::android::hardware::light::HwLightState;
 using ::aidl::android::hardware::light::HwLight;
@@ -28,7 +29,7 @@ private:
 
     std::vector<HwLight> mLights;
 
-    std::string mBacklightPath;
+    BacklightDevice *mBacklightDevice;
     std::vector<std::string> mButtonsPaths;
     bool mWhiteLED;
 

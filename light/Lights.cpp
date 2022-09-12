@@ -15,11 +15,6 @@ namespace android {
 namespace hardware {
 namespace light {
 
-static const std::string kAllBacklightPaths[] = {
-    "/sys/class/backlight/panel0-backlight/brightness",
-    "/sys/class/leds/lcd-backlight/brightness",
-};
-
 static const std::string kAllButtonsPaths[] = {
     "/sys/class/leds/button-backlight/brightness",
     "/sys/class/leds/button-backlight1/brightness",
@@ -48,13 +43,9 @@ static const HwLight kButtonsHwLight = AutoHwLight(LightType::BUTTONS);
 static const HwLight kNotificationHwLight = AutoHwLight(LightType::NOTIFICATIONS);
 
 Lights::Lights() {
-    for (auto& backlight : kAllBacklightPaths) {
-        if (!fileWriteable(backlight))
-            continue;
-
-        mBacklightPath = backlight;
+    mBacklightDevice = getBacklightDevice();
+    if (mBacklightDevice) {
         mLights.push_back(kBacklightHwLight);
-        break;
     }
 
     for (auto& buttons : kAllButtonsPaths) {
@@ -80,8 +71,8 @@ ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) 
     LightType type = static_cast<LightType>(id);
     switch (type) {
         case LightType::BACKLIGHT:
-            if (!mBacklightPath.empty())
-                writeToFile(mBacklightPath, color.toBrightness());
+            if (mBacklightDevice)
+                mBacklightDevice->setBacklight(color.toBrightness());
             break;
         case LightType::BUTTONS:
             for (auto& buttons : mButtonsPaths)

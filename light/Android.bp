@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2021 The LineageOS Project
+// Copyright (C) 2021-2022 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -10,6 +10,7 @@ cc_binary {
     init_rc: ["android.hardware.light-service.xiaomi.rc"],
     vintf_fragments: ["android.hardware.light-service.xiaomi.xml"],
     srcs: [
+        "Backlight.cpp",
         "Lights.cpp",
         "LED.cpp",
         "Utils.cpp",
