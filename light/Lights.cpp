@@ -74,15 +74,18 @@ Lights::Lights() {
 }
 
 ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) {
+    rgb_t color(state.color);
+    rgb_t batteryStateColor;
+
     LightType type = static_cast<LightType>(id);
     switch (type) {
         case LightType::BACKLIGHT:
             if (!mBacklightPath.empty())
-                writeToFile(mBacklightPath, colorToBrightness(state.color));
+                writeToFile(mBacklightPath, color.toBrightness());
             break;
         case LightType::BUTTONS:
             for (auto& buttons : mButtonsPaths)
-                writeToFile(buttons, isLit(state.color));
+                writeToFile(buttons, color.isLit());
             break;
         case LightType::BATTERY:
         case LightType::NOTIFICATIONS:
@@ -91,7 +94,8 @@ ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) 
                 mLastBatteryState = state;
             else
                 mLastNotificationState = state;
-            setLED(isLit(mLastBatteryState.color) ? mLastBatteryState : mLastNotificationState);
+            batteryStateColor = rgb_t(mLastBatteryState.color);
+            setLED(batteryStateColor.isLit() ? mLastBatteryState : mLastNotificationState);
             mLEDMutex.unlock();
             break;
         default:
@@ -111,7 +115,7 @@ ndk::ScopedAStatus Lights::getLights(std::vector<HwLight> *_aidl_return) {
 
 void Lights::setLED(const HwLightState& state) {
     bool rc = true;
-    rgb_t color = colorToRgb(state.color);
+    rgb_t color(state.color);
     uint8_t blink = (state.flashOnMs != 0 && state.flashOffMs != 0);
 
     switch (state.flashMode) {
@@ -132,7 +136,7 @@ void Lights::setLED(const HwLightState& state) {
             FALLTHROUGH_INTENDED;
         default:
             if (mWhiteLED) {
-                rc = kLEDs[WHITE].setBrightness(colorToBrightness(state.color));
+                rc = kLEDs[WHITE].setBrightness(color.toBrightness());
             } else {
                 rc = kLEDs[RED].setBrightness(color.red);
                 rc &= kLEDs[GREEN].setBrightness(color.green);

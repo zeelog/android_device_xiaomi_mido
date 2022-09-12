@@ -45,39 +45,29 @@ bool writeToFile(const std::string& file, uint32_t content) {
     return writeToFile(file, std::to_string(content));
 }
 
-bool isLit(uint32_t color) {
-    return color & 0x00ffffff;
-}
-
-rgb_t colorToRgb(uint32_t color) {
-    rgb_t r;
-
+rgb::rgb(uint32_t color) {
     // Extract brightness from AARRGGBB.
     uint8_t alpha = (color >> 24) & 0xFF;
 
     // Retrieve each of the RGB colors
-    r.red = (color >> 16) & 0xFF;
-    r.green = (color >> 8) & 0xFF;
-    r.blue = color & 0xFF;
+    red = (color >> 16) & 0xFF;
+    green = (color >> 8) & 0xFF;
+    blue = color & 0xFF;
 
     // Scale RGB colors if a brightness has been applied by the user
     if (alpha > 0 && alpha < 255) {
-        r.red = r.red * alpha / 0xFF;
-        r.green = r.green * alpha / 0xFF;
-        r.blue = r.blue * alpha / 0xFF;
+        red = red * alpha / 0xFF;
+        green = green * alpha / 0xFF;
+        blue = blue * alpha / 0xFF;
     }
-
-    return r;
 }
 
-uint8_t rgbToBrightness(rgb_t c_rgb) {
-    return (77 * c_rgb.red + 150 * c_rgb.green + 29 * c_rgb.blue) >> 8;
+bool rgb::isLit() {
+    return !!red || !!green || !!blue;
 }
 
-uint8_t colorToBrightness(uint32_t color) {
-    rgb_t c_rgb = colorToRgb(color);
-
-    return rgbToBrightness(c_rgb);
+uint8_t rgb::toBrightness() {
+    return (77 * red + 150 * green + 29 * blue) >> 8;
 }
 
 } // namespace light
