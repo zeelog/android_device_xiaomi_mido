@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2022 The LineageOS Project
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -25,11 +25,11 @@ bool LED::exists() {
     return fileWriteable(mBasePath + "brightness");
 }
 
-bool LED::setBreath(uint32_t value) {
+bool LED::setBreath(uint8_t value) {
     return writeToFile(mBasePath + (mBreath ? "breath" : "blink"), value);
 }
 
-bool LED::setBrightness(uint32_t value) {
+bool LED::setBrightness(uint8_t value) {
     return writeToFile(mBasePath + "brightness", value * mMaxBrightness / 0xFF);
 }
 

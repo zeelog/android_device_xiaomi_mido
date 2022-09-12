@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2022 The LineageOS Project
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -70,11 +70,11 @@ argb_t colorToArgb(uint32_t color) {
     return r;
 }
 
-uint32_t argbToBrightness(argb_t c_argb) {
+uint8_t argbToBrightness(argb_t c_argb) {
     return (77 * c_argb.red + 150 * c_argb.green + 29 * c_argb.blue) >> 8;
 }
 
-uint32_t colorToBrightness(uint32_t color) {
+uint8_t colorToBrightness(uint32_t color) {
     argb_t c_argb = colorToArgb(color);
 
     return argbToBrightness(c_argb);
