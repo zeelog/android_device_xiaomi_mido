@@ -21,6 +21,9 @@ on early-boot
     chown system system /sys/class/leds/white/max_brightness
 
     # Backlight
+    chown system system /sys/class/backlight/backlight/brightness
+    chown system system /sys/class/backlight/backlight/max_brightness
+
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel0-backlight/max_brightness
 

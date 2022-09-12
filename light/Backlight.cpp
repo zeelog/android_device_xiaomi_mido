@@ -52,6 +52,7 @@ private:
 };
 
 static const std::string kBacklightDevices[] = {
+    "backlight",
     "panel0-backlight",
 };
 
