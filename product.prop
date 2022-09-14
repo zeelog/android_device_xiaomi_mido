@@ -4,6 +4,7 @@
 
 # Bluetooth
 bluetooth.device.class_of_device=90,2,12
+bluetooth.hardware.power.operating_voltage_mv=3300
 
 # Bluetooth profiles
 bluetooth.profile.asha.central.enabled?=true
