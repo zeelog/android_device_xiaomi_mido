@@ -1221,7 +1221,7 @@ vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so|f52f0cd5e19455eba97dea61542217d4aa5
 system_ext/lib64/lib-imscamera.so|49ead972646b09d700556d63676673b3e8af2036
 system_ext/lib64/libimscamera_jni.so|486abdb09a82ccee5e49307a17ba3dc9efdf5e9d
 system_ext/lib64/libimsmedia_jni.so|f8be2575f8eaef8bb89a4bc049381ebffe857831
-system_ext/lib64/lib-imsvideocodec.so|a5ea44ba27c43e9c454e2b578f7cfba8642dec46
+system_ext/lib64/lib-imsvideocodec.so|965107dc9dc04b53e6c21697237eb42fa3db8d20
 system_ext/lib64/lib-imsvtextutils.so|1acf1de305e455a3a924483e5652b37133d10fd1
 system_ext/lib64/lib-imsvt.so|0b2065c9b500a11d39aa49f32dd06267e083fabb
 system_ext/lib64/lib-imsvtutils.so|9d46eb9d65885fdd3d0ca74645238ca179a115de
