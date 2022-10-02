@@ -80,6 +80,9 @@ drm.service.enabled=true
 # Frp
 ro.frp.pst=/dev/block/bootdevice/by-name/config
 
+# HEH filename encryption is being dropped
+ro.crypto.volume.filenames_mode=aes-256-cts
+
 # Media
 debug.stagefright.omx_default_rank=0
 vendor.vidc.disable.split.mode=1
