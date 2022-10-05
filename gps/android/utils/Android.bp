@@ -13,8 +13,10 @@ cc_library_static {
     shared_libs: [
         "liblog",
         "libhidlbase",
+        "libbinder_ndk",
         "libcutils",
         "libutils",
+        "android.hardware.health-V1-ndk",
         "android.hardware.health@1.0",
         "android.hardware.health@2.0",
         "android.hardware.health@2.1",
