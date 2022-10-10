@@ -77,6 +77,10 @@ vendor.video.disable.ubwc=1
 #codecs:(PARSER_)AAC AC3 AMR_NB AMR_WB ASF FLV 3G2 MP2PS MP2TS MP3 OGG QCP WAV FLAC AIFF
 vendor.mm.enable.qcom_parser=522911
 
+# Disable media transcoding
+persist.sys.fuse.transcode_user_control=true
+persist.sys.fuse.transcode_enabled=false
+
 # Mwqem
 persist.vendor.mwqem.enable=1
 
