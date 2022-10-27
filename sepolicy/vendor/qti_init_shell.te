@@ -12,3 +12,6 @@ allow qti_init_shell system_data_file:file getattr;
 # Kcal
 allow qti_init_shell kcal_dev:dir search;
 allow qti_init_shell kcal_dev:file rw_file_perms;
+
+# Allow watermark scale factor to write
+allow qti_init_shell proc_watermark_scale_factor:file write;
