@@ -102,7 +102,6 @@ persist.vendor.radio.mt_sms_ack=30
 persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.rat_on=combine
 persist.vendor.radio.sib16_support=1
-ro.telephony.block_binder_thread_on_incoming_calls=false
 vendor.rild.libargs=-d /dev/smd0
 
 # SOC

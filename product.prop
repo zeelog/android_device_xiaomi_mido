@@ -32,3 +32,6 @@ bluetooth.profile.vcp.controller.enabled?=true
 
 # Default to BFQ I/O scheduler
 persist.sys.io.scheduler=bfq
+
+# IMS
+ro.telephony.block_binder_thread_on_incoming_calls=false
