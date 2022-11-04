@@ -20,6 +20,10 @@
 /(vendor|system/vendor)/bin/gx_fpd              u:object_r:gx_fpd_exec:s0
 /(vendor|system/vendor)/bin/init\.goodix\.sh	  u:object_r:init_fingerprint_exec:s0
 
+# Graphics Libs
+/vendor/lib(64)?/libadreno_app_profiles\.so    u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libgpudataproducer\.so        u:object_r:same_process_hal_file:s0
+
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.xiaomi_mido    u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.ir@1\.0-service\.xiaomi_mido                         u:object_r:hal_ir_default_exec:s0
