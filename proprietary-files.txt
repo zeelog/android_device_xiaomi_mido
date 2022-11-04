@@ -1041,7 +1041,7 @@ vendor/lib64/libdiag.so|8d92025445dcf905778a15e76adc1afdc3395642
 
 # QMI (shared dependencies) - LA.UM.9.6.3.r1-06200-89xx.0
 etc/permissions/privapp-permissions-qti.xml|3eda27003bad39514039190d0d7eb675ba034cb9
-etc/sysconfig/qti_whitelist.xml|e280dc9a012bd864c3fa91cf4439338d54218730
+system_ext/etc/sysconfig/qti_whitelist.xml|e280dc9a012bd864c3fa91cf4439338d54218730
 vendor/etc/qmi_fw.conf|7aa8186a05b3e1ac6ce556bb6e9ae613df0e82c1
 vendor/lib64/libdsi_netctrl.so|6cd16a99432f27d76f2dffd920dedde1baac3bbc
 vendor/lib64/libdsutils.so|3628bfbb317348a5047aa38c8d12924088d361ab
