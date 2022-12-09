@@ -19,7 +19,7 @@ package org.lineageos.settings.vibration;
 import android.app.ActionBar;
 import android.os.Bundle;
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import com.android.settingslib.collapsingtoolbar.R;
+import com.android.settingslib.widget.R;
 
 public class VibratorActivity extends CollapsingToolbarBaseActivity {
 
