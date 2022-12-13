@@ -860,6 +860,7 @@ LOCAL_CFLAGS += \
 LOCAL_SHARED_LIBRARIES := \
     android.hardware.health@1.0 \
     android.hardware.health@2.0 \
+    android.hardware.health@2.1 \
     android.hardware.power@1.2 \
     libaudioroute \
     libaudioutils \
