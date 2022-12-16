@@ -44,6 +44,9 @@
 /firmware(/.*)?                                 u:object_r:firmware_file:s0
 /persist(/.*)?                                  u:object_r:mnt_vendor_file:s0
 
+# MMC
+/sys/devices/platform/soc/7824900.sdhci/mmc_host/mmc0/mmc0:0001/block/mmcblk0/queue/discard_max_bytes u:object_r:sysfs_mmc_host:s0
+
 # Power aidl stats
 /(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock              u:object_r:hal_power_stats_default_exec:s0
 
