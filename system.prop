@@ -126,7 +126,6 @@ persist.backup.ntpServer=0.pool.ntp.org
 persist.timed.enable=true
 
 # Telephony
-DEVICE_PROVISIONED=1
 ril.subscription.types=NV,RUIM
 ro.telephony.call_ring.multiple=false
 service.qti.ims.enabled=1
