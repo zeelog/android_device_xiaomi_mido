@@ -43,6 +43,7 @@ dalvik.vm.dex2oat64.enabled=true
 debug.egl.hw=0
 debug.enable.sglscale=1
 debug.gralloc.enable_fb_ubwc=1
+debug.hwui.skia_atrace_enabled=false
 debug.mdpcomp.logs=0
 debug.renderengine.backend=skiaglthreaded
 debug.sf.hw=0
