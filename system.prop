@@ -33,6 +33,9 @@ ro.vendor.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 persist.vendor.data.mode=concurrent
 
+# Disable MTE Async for system server
+arm64.memtag.process.system_server=off
+
 # Dexopt
 dalvik.vm.dex2oat64.enabled=true
 
