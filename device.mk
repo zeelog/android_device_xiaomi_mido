@@ -279,7 +279,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_mido
+    android.hardware.light-service.xiaomi_mido
 
 # LiveDisplay
 PRODUCT_PACKAGES += \

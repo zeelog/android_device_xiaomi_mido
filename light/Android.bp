@@ -5,10 +5,10 @@
 //
 
 cc_binary {
-    name: "android.hardware.light-service.xiaomi",
+    name: "android.hardware.light-service.xiaomi_mido",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.light-service.xiaomi.rc"],
-    vintf_fragments: ["android.hardware.light-service.xiaomi.xml"],
+    init_rc: ["android.hardware.light-service.xiaomi_mido.rc"],
+    vintf_fragments: ["android.hardware.light-service.xiaomi_mido.xml"],
     srcs: [
         "Backlight.cpp",
         "Lights.cpp",
