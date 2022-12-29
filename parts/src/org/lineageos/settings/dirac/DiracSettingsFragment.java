@@ -69,21 +69,44 @@ public class DiracSettingsFragment extends PreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        switch (preference.getKey()) {
-            case PREF_HEADSET:
-                mDiracUtils.setHeadsetType(Integer.parseInt(newValue.toString()));
-                return true;
-            case PREF_PRESET:
-                mDiracUtils.setLevel(String.valueOf(newValue));
-                return true;
-            default:
-                return false;
+        if (!mDiracUtils.isDiracEnabled()) {
+            getActivity().recreate();
+            return false;
+        }
+
+        try {
+            switch (preference.getKey()) {
+                case PREF_HEADSET:
+                    mDiracUtils.setHeadsetType(Integer.parseInt(newValue.toString()));
+                    return true;
+                case PREF_PRESET:
+                    mDiracUtils.setLevel(String.valueOf(newValue));
+                    return true;
+                default:
+                    return false;
+            }
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            getActivity().recreate();
+            return false;
         }
     }
 
     @Override
     public void onSwitchChanged(Switch switchView, boolean isChecked) {
-        mDiracUtils.setEnabled(isChecked);
+        if (isChecked == mDiracUtils.isDiracEnabled()) {
+            getActivity().recreate();
+            return;
+        }
+
+        try {
+            mDiracUtils.setEnabled(isChecked);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            getActivity().recreate();
+            return;
+        }
+
         if (isChecked) {
             mSwitchBar.setEnabled(false);
             mHandler.postDelayed(new Runnable() {
