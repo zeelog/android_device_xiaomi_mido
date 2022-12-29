@@ -113,17 +113,6 @@
         </service>
 
         <activity
-            android:name=".kcal.KCalSettingsActivity"
-            android:exported="true"
-            android:label="@string/advanced_settings_kcal">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
             android:name=".vibration.VibratorActivity"
             android:exported="false"
             android:label="@string/vibrator_intensity_control"
