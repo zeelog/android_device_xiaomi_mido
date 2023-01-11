@@ -68,6 +68,7 @@ ro.hardware.egl=adreno
 ro.opengles.version=196610
 ro.vendor.display.cabl=2
 vendor.display.disable_metadata_dynamic_fps=1
+vendor.display.disable_partial_split=1
 vendor.display.disable_rotator_downscale=1
 vendor.display.disable_skip_validate=1
 vendor.display.perf_hint_window=50
