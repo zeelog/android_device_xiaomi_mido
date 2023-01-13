@@ -343,7 +343,7 @@ struct platform_data {
     /* Audio calibration related functions */
     void                       *acdb_handle;
     int                        voice_feature_set;
-    acdb_init_t                acdb_init;
+    acdb_init_v2_t             acdb_init;
     acdb_init_v3_t             acdb_init_v3;
     acdb_init_v4_t             acdb_init_v4;
     acdb_deallocate_t          acdb_deallocate;
@@ -3719,10 +3719,10 @@ void *platform_init(struct audio_device *adev)
             ALOGE("%s: dlsym error %s for acdb_loader_init_v3", __func__, dlerror());
         }
 
-        my_data->acdb_init = (acdb_init_t)dlsym(my_data->acdb_handle,
-                                                     "acdb_loader_init_v3");
+        my_data->acdb_init = (acdb_init_v2_t)dlsym(my_data->acdb_handle,
+                                                     "acdb_loader_init_v2");
         if (my_data->acdb_init == NULL) {
-            ALOGE("%s: dlsym error %s for acdb_loader_init_v3", __func__, dlerror());
+            ALOGE("%s: dlsym error %s for acdb_loader_init_v2", __func__, dlerror());
             goto acdb_init_fail;
         }
 

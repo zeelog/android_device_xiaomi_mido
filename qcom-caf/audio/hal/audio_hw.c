@@ -9914,7 +9914,7 @@ static void adev_close_input_stream(struct audio_hw_device *dev,
     }
 
     if (audio_extn_compr_cap_enabled() &&
-            audio_extn_compr_cap_format_supported(in->config.format))
+            audio_extn_compr_cap_format_supported(pcm_format_to_audio_format((in->config).format)))
         audio_extn_compr_cap_deinit();
 
     if (audio_extn_cin_attached_usecase(in))
