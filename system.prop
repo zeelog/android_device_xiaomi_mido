@@ -52,7 +52,6 @@ debug.sf.recomputecrop=0
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
-ro.qualcomm.cabl=2
 vendor.display.enable_default_color_mode=1
 
 # Fingerprint
