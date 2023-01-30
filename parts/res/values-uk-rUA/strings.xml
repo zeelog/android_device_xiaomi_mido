@@ -80,58 +80,6 @@
     <string name="dirac_preset_soft_bass">М\'який бас</string>
     <string name="dirac_preset_soft_treble">М\'які частоти</string>
 
-    <!-- kcal -->
-    <string name="advanced_settings_kcal">Калібрування кольору дисплея</string>
-    <string name="cat_colormanagement">Налаштування кольору</string>
-    <string name="cat_calibration">Калібрування дисплея</string>
-
-    <string name="kcal_enabled">Увімкнено</string>
-    <string name="kcal_disabled">Вимкнено</string>
-    <string name="set_on_boot">Установити під час завантаження</string>
-    <string name="color_red">Червоний</string>
-    <string name="color_green">Зелений</string>
-    <string name="color_blue">Синій</string>
-    <string name="color_minimum">Мінімум</string>
-    <string name="saturation">Насиченість</string>
-    <string name="value">Значення</string>
-    <string name="contrast">Контраст</string>
-    <string name="hue">Відтінок</string>
-    <string name="grayscale">Відтінки сірого дисплея</string>
-
-    <!-- kcal menu -->
-    <string name="kcal_presets">@string/presets_dialog_title</string>
-    <string name="kcal_reset">Скинути</string>
-
-    <!-- kcal presets -->
-    <string name="presets_dialog_title">Виберіть стиль</string>
-    <string name="preset_default">За умовчанням</string>
-    <string name="preset_version_1">Версія 1</string>
-    <string name="preset_version_2">Версія 2</string>
-    <string name="preset_version_3">Версія 3</string>
-    <string name="preset_triluminous">Трисвітовий</string>
-    <string name="preset_deep_black_white">Глибокий чорно-білий</string>
-    <string name="preset_deep_natural">Глибокий природний</string>
-    <string name="preset_cool_amoled">Cool Amoled</string>
-    <string name="preset_extreme_amoled">Extreme Amoled</string>
-    <string name="preset_warm_amoled">Теплий Amoled</string>
-    <string name="preset_hybrid_mamba">Гібридна Мамба</string>
-    <string name="preset_burn_in">Записати</string>
-    <string name="preset_retention">Виправлення збереження</string>
-    <string name="preset_gerard_extrem_cool">Gerard Extreme Cool</string>
-    <string name="preset_yoyoz808">Yoyoz808</string>
-    <string name="preset_purian">Пуріан</string>
-    <string name="preset_deep_black_colorful">Deep Black Colorful</string>
-    <string name="preset_vomer_deep_rich">Vomer Deep Rich</string>
-    <string name="preset_franco">Франко</string>
-    <string name="preset_wrinklefree_cool">WrinkleFree Cool</string>
-    <string name="preset_harley_tech">Harley-Tech</string>
-    <string name="preset_perfection">Досконалість</string>
-    <string name="preset_banged_up">Вдарили</string>
-    <string name="preset_sim_cooler">SimCooler</string>
-    <string name="preset_obsanity">Небажаність</string>
-    <string name="preset_obsanity_ips">Obsanity IPS</string>
-    <string name="preset_sir_banger">Сер Бенгер</string>
-
     <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Dirac звук</string>
 

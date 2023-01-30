@@ -80,58 +80,6 @@
     <string name="dirac_preset_soft_bass">Мягкий бас</string>
     <string name="dirac_preset_soft_treble">Мягкие высокие частоты</string>
 
-    <!-- kcal -->
-    <string name="advanced_settings_kcal">Калибровка цвета дисплея</string>
-    <string name="cat_colormanagement">Настройки цвета</string>
-    <string name="cat_calibration">Калибровка дисплея</string>
-
-    <string name="kcal_enabled">Вкл</string>
-    <string name="kcal_disabled">Выкл</string>
-    <string name="set_on_boot">Установить при загрузке</string>
-    <string name="color_red">Красный</string>
-    <string name="color_green">Зеленый</string>
-    <string name="color_blue">Синий</string>
-    <string name="color_minimum">Минимум</string>
-    <string name="saturation">Насыщенность</string>
-    <string name="value">Значение</string>
-    <string name="contrast">Контраст</string>
-    <string name="hue">Оттенок</string>
-    <string name="grayscale">Отображение в оттенках серого</string>
-
-    <!-- kcal menu -->
-    <string name="kcal_presets">@string/presets_dialog_title</string>
-    <string name="kcal_reset">Сброс</string>
-
-    <!-- kcal presets -->
-    <string name="presets_dialog_title">Выбрать предустановку</string>
-    <string name="preset_default">По умолчанию</string>
-    <string name="preset_version_1">Версия 1</string>
-    <string name="preset_version_2">Версия 2</string>
-    <string name="preset_version_3">Версия 3</string>
-    <string name="preset_triluminous">Трилюминус</string>
-    <string name="preset_deep_black_white">Глубокий черно-белый</string>
-    <string name="preset_deep_natural">Глубокий натуральный</string>
-    <string name="preset_cool_amoled">Крутой амолед</string>
-    <string name="preset_extreme_amoled">Экстремальный амолед</string>
-    <string name="preset_warm_amoled">Теплый амолед</string>
-    <string name="preset_hybrid_mamba">Гибридная Мамба</string>
-    <string name="preset_burn_in">Записать</string>
-    <string name="preset_retention">Исправление удержания</string>
-    <string name="preset_gerard_extrem_cool">Джерард Экстрим Крутой</string>
-    <string name="preset_yoyoz808">Yoyoz808</string>
-    <string name="preset_purian">Пуриан</string>
-    <string name="preset_deep_black_colorful">Глубокий черный красочный</string>
-    <string name="preset_vomer_deep_rich">Вомер Дип Рич</string>
-    <string name="preset_franco">Франко</string>
-    <string name="preset_wrinklefree_cool">Прохладный WrinkleFree</string>
-    <string name="preset_harley_tech">Harley-Tech</string>
-    <string name="preset_perfection">Совершенство</string>
-    <string name="preset_banged_up">Испорчен</string>
-    <string name="preset_sim_cooler">SimCooler</string>
-    <string name="preset_obsanity">Мрачность</string>
-    <string name="preset_obsanity_ips">Обзорность IPS</string>
-    <string name="preset_sir_banger">Сэр Бэнгер</string>
-
      <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Dirac звук</string>
 

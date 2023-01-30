@@ -73,25 +73,6 @@
     <string name="dirac_preset_dance">Танцавальная</string>
     <string name="dirac_preset_metal">Метал</string>
 
-    <!-- Kcal -->
-    <string name="presets_dialog_title">Выберыце загадзя</string>
-    <string name="advanced_settings_kcal">Каліброўка колеру дысплея</string>
-    <string name="cat_colormanagement">Настройкі колеру</string>
-    <string name="cat_calibration">Каліброўка дысплея</string>
-    <string name="kcal_enabled">Уключана</string>
-    <string name="kcal_disabled">Выключана</string>
-    <string name="set_on_boot">Усталяваць пры загрузцы</string>
-    <string name="color_red">Чырвоны</string>
-    <string name="color_green">Зялёны</string>
-    <string name="color_blue">Сіні</string>
-    <string name="color_minimum">Мінімум</string>
-    <string name="saturation">Насычанасць</string>
-    <string name="value">Значэнне</string>
-    <string name="contrast">Кантраст</string>
-    <string name="hue">Адценне</string>
-    <string name="grayscale">Дысплей у адценнях шэрага</string>
-    <string name="kcal_reset">Скінуць</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Гук Дырака</string>
 

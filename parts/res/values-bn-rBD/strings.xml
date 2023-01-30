@@ -73,25 +73,6 @@
     <string name="dirac_preset_dance">নাচ</string>
     <string name="dirac_preset_metal">মেটাল</string>
 
-    <!-- KCAL -->
-    <string name="presets_dialog_title">প্রিসেট নির্বাচন করুন</string>
-    <string name="advanced_settings_kcal">ডিসপ্লে কালার ক্যালিব্রেশন</string>
-    <string name="cat_colormanagement">রঙ সেটিংস</string>
-    <string name="cat_calibration"> প্রদর্শন ক্রমাঙ্কন</string>
-    <string name="kcal_enabled">সক্ষম</string>
-    <string name="kcal_disabled">অক্ষম</string>
-    <string name="set_on_boot">বুটে সেট করুন</string>
-    <string name="color_red">লাল</string>
-    <string name="color_green">সবুজ</string>
-    <string name="color_blue">নীল</string>
-    <string name="color_minimum">সর্বনিম্ন</string>
-    <string name="saturation">স্যাচুরেশন</string>
-    <string name="value">মান</string>
-    <string name="contrast">কন্ট্রাস্ট</string>
-    <string name="hue">হ্যু</string>
-    <string name="grayscale">গ্রেস্কেল প্রদর্শন</string>
-    <string name="kcal_reset">রিসেট করুন</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">ডিরাক সাউন্ড</string>
 

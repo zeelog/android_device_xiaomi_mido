@@ -80,25 +80,6 @@
     <string name="dirac_preset_soft_bass">Bass Lembut</string>
     <string name="dirac_preset_soft_treble">Treble Lembut</string>
 
-    <!-- kkal -->
-    <string name="advanced_settings_kcal">Kalibrasi Warna Tampilan</string>
-    <string name="cat_colormanagement">Setelan Warna</string>
-    <string name="cat_calibration">Kalibrasi Tampilan</string>
-    <string name="kcal_enabled">Aktif</string>
-    <string name="kcal_disabled">Nonaktif</string>
-    <string name="set_on_boot">Setel Saat Boot</string>
-    <string name="color_red">Merah</string>
-    <string name="color_green">Hijau</string>
-    <string name="color_blue">Biru</string>
-    <string name="color_minimum">Minimum</string>
-    <string name="saturation">Saturasi</string>
-    <string name="value">Nilai</string>
-    <string name="contrast">Kontras</string>
-    <string name="hue">Hue</string>
-    <string name="grayscale">Tampilan Skala Abu-abu</string>
-    <string name="kcal_presets">@string/presets_dialog_title</string>
-    <string name="kcal_reset">Setel ulang</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Suara dirac</string>
 

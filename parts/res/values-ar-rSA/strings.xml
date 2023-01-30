@@ -74,58 +74,6 @@
     <string name="dirac_preset_soft_bass">عميق ناعم</string>
     <string name="dirac_preset_soft_treble">حاد ناعم</string>
 
-    <!-- kcal -->
-    <string name="advanced_settings_kcal">معايرة ألوان العرض</string>
-    <string name="cat_colormanagement">إعدادات اللون</string>
-    <string name="cat_calibration">معايرة العرض</string>
-
-    <string name="kcal_enabled">تشغيل</string>
-    <string name="kcal_disabled">متوقف</string>
-    <string name="set_on_boot">تعيين عند التمهيد</string>
-    <string name="color_red">أحمر</string>
-    <string name="color_green">أخضر</string>
-    <string name="color_blue">أزرق</string>
-    <string name="color_minimum">الحد الأدنى</string>
-    <string name="saturation">التشبع</string>
-    <string name="value">القيمة</string>
-    <string name="contrast">التباين</string>
-    <string name="hue">Hue</string>
-    <string name="grayscale">عرض تدرج الرمادي</string>
-
-    <!-- kcal menu -->
-    <string name="kcal_presets">@ string / presets_dialog_title</string>
-    <string name="kcal_reset">إعادة تعيين</string>
-
-    <!-- kcal Presets -->
-    <string name="presets_dialog_title">تحديد الإعداد المسبق</string>
-    <string name="preset_default">افتراضي</string>
-    <string name="preset_version_1">الإصدار 1</string>
-    <string name="preset_version_2">الإصدار 2</string>
-    <string name="preset_version_3">الإصدار 3</string>
-    <string name="preset_triluminous">ثلاثي الأضواء</string>
-    <string name="preset_deep_black_white">أسود وأبيض عميق</string>
-    <string name="preset_deep_natural">ديب ناتشورال</string>
-    <string name="preset_cool_amoled">Cool Amoled</string>
-    <string name="preset_extreme_amoled">Extreme Amoled</string>
-    <string name="preset_warm_amoled">دافئ Amoled</string>
-    <string name="preset_hybrid_mamba">هجين مامبا</string>
-    <string name="preset_burn_in">نسخ في</string>
-    <string name="preset_retention">إصلاح الاستبقاء</string>
-    <string name="preset_gerard_extrem_cool">جيرارد إكستريم كول</string>
-    <string name="preset_yoyoz808">Yoyoz808</string>
-    <string name="preset_purian">Purian</string>
-    <string name="preset_deep_black_colorful">أسود عميق ملون</string>
-    <string name="preset_vomer_deep_rich">Vomer Deep Rich</string>
-    <string name="preset_franco">فرانكو</string>
-    <string name="preset_wrinklefree_cool">WrinkleFree Cool</string>
-    <string name="preset_harley_tech">Harley-Tech</string>
-    <string name="preset_perfection">الكمال</string>
-    <string name="preset_banged_up">مختلق</string>
-    <string name="preset_sim_cooler">SimCooler</string>
-    <string name="preset_obsanity">الفداحة</string>
-    <string name="preset_obsanity_ips">Obsanity IPS</string>
-    <string name="preset_sir_banger">السير بانجر</string>
-
     <!-- Dirac QS Tile -->
     <string name="dirac_qs_tile_title">صوت ديراك</string>
 

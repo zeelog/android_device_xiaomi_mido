@@ -80,25 +80,6 @@
     <string name="dirac_preset_soft_bass">柔和低音</string>
     <string name="dirac_preset_soft_treble">柔和高音</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">選擇預設</string>
-    <string name="advanced_settings_kcal">顯示顏色校準</string>
-    <string name="cat_colormanagement">顏色設置</string>
-    <string name="cat_calibration">顯示校準</string>
-    <string name="kcal_enabled">開啟</string>
-    <string name="kcal_disabled">關閉</string>
-    <string name="set_on_boot">開機設置</string>
-    <string name="color_red">紅色</string>
-    <string name="color_green">綠色</string>
-    <string name="color_blue">藍色</string>
-    <string name="color_minimum">最小</string>
-    <string name="saturation">飽和度</string>
-    <string name="value">值</string>
-    <string name="contrast">對比度</string>
-    <string name="hue">色相</string>
-    <string name="grayscale">灰度顯示</string>
-    <string name="kcal_reset">重置</string>
-
      <!-- QS Tile -->
      <string name="dirac_qs_tile_title">狄拉克聲音</string>
 

@@ -73,25 +73,6 @@
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metál</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">Válassza ki az Előbeállítás</string>
-    <string name="advanced_settings_kcal">Kijelző színkalibrálása</string>
-    <string name="cat_colormanagement">Színbeállítások</string>
-    <string name="cat_calibration">Kijelző kalibrálása</string>
-    <string name="kcal_enabled">Be</string>
-    <string name="kcal_disabled">Ki</string>
-    <string name="set_on_boot">Beállítás rendszerindításkor</string>
-    <string name="color_red">Piros</string>
-    <string name="color_green">Zöld</string>
-    <string name="color_blue">Kék</string>
-    <string name="color_minimum">Minimum</string>
-    <string name="saturation">telítettség</string>
-    <string name="value">Érték</string>
-    <string name="contrast">Kontraszt</string>
-    <string name="hue">Színárnyalat</string>
-    <string name="grayscale">Szürkeárnyalatos kijelző</string>
-    <string name="kcal_reset">Visszaállítás</string>
-
     <!-- QS tile -->
     <string name="dirac_qs_tile_title">Dirac hang</string>
 

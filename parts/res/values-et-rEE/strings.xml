@@ -80,58 +80,6 @@
     <string name="dirac_preset_soft_bass">pehme bass</string>
     <string name="dirac_preset_soft_treble">Pehmed kõrged helid</string>
 
-    <!-- kcal -->
-    <string name="advanced_settings_kcal">Ekraani värvi kalibreerimine</string>
-    <string name="cat_colormanagement">Värviseaded</string>
-    <string name="cat_calibration">Ekraani kalibreerimine</string>
-
-    <string name="kcal_enabled">Sees</string>
-    <string name="kcal_disabled">Väljas</string>
-    <string name="set_on_boot">Käivitamisel seadistamine</string>
-    <string name="color_red">Punane</string>
-    <string name="color_green">Roheline</string>
-    <string name="color_blue">Sinine</string>
-    <string name="color_minimum">Minimaalne</string>
-    <string name="saturation">Küllastus</string>
-    <string name="value">Väärtus</string>
-    <string name="contrast">Kontrastsus</string>
-    <string name="hue">Toon</string>
-    <string name="grayscale">Halltoonides ekraan</string>
-
-    <!-- kcal menu -->
-    <string name="kcal_presets">@string/presets_dialog_title</string>
-    <string name="kcal_reset">Lähtesta</string>
-
-    <!-- kcal Eelseaded -->
-    <string name="presets_dialog_title">Valige Eelseade</string>
-    <string name="preset_default">Vaikimisi</string>
-    <string name="preset_version_1">Versioon 1</string>
-    <string name="preset_version_2">2. versioon</string>
-    <string name="preset_version_3">Versioon 3</string>
-    <string name="preset_triluminous">Triluminous</string>
-    <string name="preset_deep_black_white">sügav mustvalge</string>
-    <string name="preset_deep_natural">Sügav loomulik</string>
-    <string name="preset_cool_amoled">Lahe Amoled</string>
-    <string name="preset_extreme_amoled">Äärmiselt häiritud</string>
-    <string name="preset_warm_amoled">Soe amoled</string>
-    <string name="preset_hybrid_mamba">Mamba hübriid</string>
-    <string name="preset_burn_in">Sissepõletamine</string>
-    <string name="preset_retention">Säilitamise parandus</string>
-    <string name="preset_gerard_extrem_cool">Gerard Extreme Cool</string>
-    <string name="preset_yoyoz808">Yoyoz808</string>
-    <string name="preset_purian">Purian</string>
-    <string name="preset_deep_black_colorful">Sügavmust värviline</string>
-    <string name="preset_vomer_deep_rich">Vomer Deep Rich</string>
-    <string name="preset_franco">franko</string>
-    <string name="preset_wrinklefree_cool">WrinkleFree Cool</string>
-    <string name="preset_harley_tech">Harley-Tech</string>
-    <string name="preset_perfection">Täiuslikkus</string>
-    <string name="preset_banged_up">Läks paugu</string>
-    <string name="preset_sim_cooler">SimCooler</string>
-    <string name="preset_obsanity">Jõmedus</string>
-    <string name="preset_obsanity_ips">Obsanity IPS</string>
-    <string name="preset_sir_banger">Sir Banger</string>
-
      <!-- QS-Tile -->
     <string name="dirac_qs_tile_title">Diraci heli</string>
 

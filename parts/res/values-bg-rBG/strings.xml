@@ -73,25 +73,6 @@
     <string name="dirac_preset_dance">Танцувална</string>
     <string name="dirac_preset_metal">Метъл</string>
 
-    <!-- KCAL -->
-    <string name="presets_dialog_title">Изберете предварително зададено</string>
-    <string name="advanced_settings_kcal">Калибриране на цвета на дисплея</string>
-    <string name="cat_colormanagement">Настройки на цвета</string>
-    <string name="cat_calibration">Калибриране на дисплея</string>
-    <string name="kcal_enabled">Включено</string>
-    <string name="kcal_disabled">Изключено</string>
-    <string name="set_on_boot">Задаване при зареждане</string>
-    <string name="color_red">Червено</string>
-    <string name="color_green">Зелен</string>
-    <string name="color_blue">Син</string>
-    <string name="color_minimum">Минимум</string>
-    <string name="saturation">Наситеност</string>
-    <string name="value">Стойност</string>
-    <string name="contrast">Контраст</string>
-    <string name="hue">Нюанс</string>
-    <string name="grayscale">Дисплей в скала на сивото</string>
-    <string name="kcal_reset">Нулиране</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Звук на Дирак</string>
 

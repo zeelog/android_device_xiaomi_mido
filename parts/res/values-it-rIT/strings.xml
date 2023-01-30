@@ -80,58 +80,6 @@
     <string name="dirac_preset_soft_bass">Bassi morbidi</string>
     <string name="dirac_preset_soft_treble">Alti tenui</string>
 
-    <!-- kcal -->
-    <string name="advanced_settings_kcal">Visualizza calibrazione colore</string>
-    <string name="cat_colormanagement">Impostazioni colore</string>
-    <string name="cat_calibration">Visualizza calibrazione</string>
-
-    <string name="kcal_enabled">Attivo</string>
-    <string name="kcal_disabled">Disattiva</string>
-    <string name="set_on_boot">Imposta all\'avvio</string>
-    <string name="color_red">Rosso</string>
-    <string name="color_green">Verde</string>
-    <string name="color_blue">Blu</string>
-    <string name="color_minimum">Minimo</string>
-    <string name="saturation">Saturazione</string>
-    <string name="value">Valore</string>
-    <string name="contrast">Contrasto</string>
-    <string name="hue">Tonalità</string>
-    <string name="grayscale">Visualizzazione in scala di grigi</string>
-
-    <!-- kcal menu -->
-    <string name="kcal_presets">@string/presets_dialog_title</string>
-    <string name="kcal_reset">Ripristina</string>
-
-    <!-- kcal presets -->
-    <string name="presets_dialog_title">Seleziona predefinito</string>
-    <string name="preset_default">Predefinito</string>
-    <string name="preset_version_1">Versione 1</string>
-    <string name="preset_version_2">Versione 2</string>
-    <string name="preset_version_3">Versione 3</string>
-    <string name="preset_triluminous">Triluminoso</string>
-    <string name="preset_deep_black_white">Bianco e nero profondo</string>
-    <string name="preset_deep_natural">Profondo naturale</string>
-    <string name="preset_cool_amoled">Freddo Amoled</string>
-    <string name="preset_extreme_amoled">Extreme Amoled</string>
-    <string name="preset_warm_amoled">Caldo Amoled</string>
-    <string name="preset_hybrid_mamba">Hybrid Mamba</string>
-    <string name="preset_burn_in">Accedi</string>
-    <string name="preset_retention">Correzione di conservazione</string>
-    <string name="preset_gerard_extrem_cool">Gerard Extreme Cool</string>
-    <string name="preset_yoyoz808">Yoyoz808</string>
-    <string name="preset_purian">Purian</string>
-    <string name="preset_deep_black_colorful">Colorato nero intenso</string>
-    <string name="preset_vomer_deep_rich">Vomer Deep Rich</string>
-    <string name="preset_franco">Franco</string>
-    <string name="preset_wrinklefree_cool">WrinkleFree Cool</string>
-    <string name="preset_harley_tech">Harley-Tech</string>
-    <string name="preset_perfection">Perfezione</string>
-    <string name="preset_banged_up">Sbagliato</string>
-    <string name="preset_sim_cooler">SimCooler</string>
-    <string name="preset_obsanity">Obsanity</string>
-    <string name="preset_obsanity_ips">Obsanity IPS</string>
-    <string name="preset_sir_banger">Signore Banger</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Suono Dirac</string>
 
