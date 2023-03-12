@@ -81,9 +81,6 @@ vendor.mm.enable.qcom_parser=522911
 persist.sys.fuse.transcode_user_control=true
 persist.sys.fuse.transcode_enabled=false
 
-# Mwqem
-persist.vendor.mwqem.enable=1
-
 # Perf
 ro.vendor.qti.sys.fw.bservice_enable=true
 
