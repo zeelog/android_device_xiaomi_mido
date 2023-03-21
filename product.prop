@@ -6,6 +6,7 @@
 bluetooth.device.class_of_device=90,2,12
 bluetooth.device.default_name=Redmi Note 4
 bluetooth.hardware.power.operating_voltage_mv=3300
+bluetooth.le.disable_apcf_extended_features=1
 bluetooth.sco.disable_enhanced_connection=1
 
 # Bluetooth profiles
