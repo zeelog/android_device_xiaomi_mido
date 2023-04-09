@@ -1151,11 +1151,8 @@ vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so|f52f0cd5e19455eba97dea61542217d4aa5
 
 # Radio (IMS VT) - from LA.UM.9.6.3.r1-06200-89xx.0
 system_ext/lib64/lib-imscamera.so|49ead972646b09d700556d63676673b3e8af2036
-system_ext/lib64/lib-imsvideocodec.so|965107dc9dc04b53e6c21697237eb42fa3db8d20
 system_ext/lib64/lib-imsvt.so|0b2065c9b500a11d39aa49f32dd06267e083fabb
 system_ext/lib64/lib-imsvtextutils.so|1acf1de305e455a3a924483e5652b37133d10fd1
-system_ext/lib64/lib-imsvtutils.so|9d46eb9d65885fdd3d0ca74645238ca179a115de
-system_ext/lib64/libimscamera_jni.so|486abdb09a82ccee5e49307a17ba3dc9efdf5e9d
 system_ext/lib64/libimsmedia_jni.so|f8be2575f8eaef8bb89a4bc049381ebffe857831
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so|4cf9e97f526c6278c5e2136e00d1fb800fb941aa
 system_ext/priv-app/ims/ims.apk|bcb4343b282907a642ae888bfaede63e9159894e
@@ -1170,6 +1167,11 @@ vendor/lib64/lib-rtpsl.so|5b666bdb137ffb51fc39151858259879b59cccfc
 vendor/lib64/librcc.so|02c3c60d1bfec7f12a09f00a285964a49ffc5d01
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so|ca8afe08d6244cc9fdfcc38ca950fafa4b147625
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so|460e589128fce0b0e83bb3c75aa32f7e1a9494fd
+
+# Radio (IMS VT) - from missi_phonenonab_eea-user 13 TKQ1.221013.002 V14.0.2.0.TKFEUXM
+system_ext/lib64/lib-imsvideocodec.so|3fa5444a061dd5af35f924744dc6a73d535cedf6
+system_ext/lib64/lib-imsvtutils.so|6df6279955493da11860bb048db38f01ec05c2aa
+system_ext/lib64/libimscamera_jni.so|f6b7647cfe080baeed006c932b495ff94b5685a7
 
 # Sensors - from LA.UM.9.6.2.r1-04200-89xx.0
 system_ext/lib/vendor.qti.hardware.sensorscalibrate@1.0.so|81934fd454fd30282ef1a8a90b7374317f6c42de
