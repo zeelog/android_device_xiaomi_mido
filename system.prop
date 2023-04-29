@@ -106,10 +106,6 @@ vendor.display.disable_scaler=1
 # Shutdown
 ro.build.shutdown_timeout=2
 
-# Skia
-# (b/183612348): Enable skia reduceOpsTaskSplitting
-renderthread.skia.reduceopstasksplitting=true
-
 # SurfaceFlinger
 debug.sf.disable_client_composition_cache=1
 debug.sf.early_phase_offset_ns=1500000
