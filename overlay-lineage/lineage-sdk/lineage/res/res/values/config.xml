@@ -45,10 +45,6 @@
          pulsating and RGB control would set this config to 75. -->
     <integer name="config_deviceLightCapabilities">107</integer>
 
-    <!-- Whether device needs to wait for Qualcomm MPCTL service to start
-         before setting power profiles on boot. -->
-    <bool name="config_waitForMpctlOnBoot">true</bool>
-
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when
          user switches -->
     <bool name="config_cleanupUnusedFingerprints">false</bool>

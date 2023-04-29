@@ -133,7 +133,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0.vendor \
+    android.hardware.bluetooth@1.0.vendor:64 \
     vendor.qti.hardware.btconfigstore@1.0.vendor:64 \
     vendor.qti.hardware.btconfigstore@2.0.vendor:64
 
