@@ -100,6 +100,12 @@ void setVendorEnhanced(bool vendorEnhanced) {
     sVendorEnhanced = vendorEnhanced;
 }
 
+bool isXtraDaemonEnabled() {
+    bool enabled = property_get_bool("persist.sys.xtra-daemon.enabled", false);
+    LOC_LOGe("xtra-daemon enabled: %d\n", enabled);
+    return enabled;
+}
+
 /*===========================================================================
 FUNCTION loc_get_datum_type
 
@@ -818,6 +824,13 @@ int loc_read_process_conf(const char* conf_file_name, uint32_t * process_count_p
             LOC_LOGD("%s:%d]: Process %s is disabled via vendor enhanced process check",
                      __func__, __LINE__, conf.proc_name);
             child_proc[j].proc_status = DISABLED_VIA_VENDOR_ENHANCED_CHECK;
+            continue;
+        }
+
+        if (strcmp(conf.proc_name, "xtra-daemon") == 0 && !isXtraDaemonEnabled()) {
+            LOC_LOGE("%s:%d]: Process xtra-daemon is disabled via property",
+                     __func__, __LINE__);
+            child_proc[j].proc_status = DISABLED_FROM_CONF;
             continue;
         }
 
