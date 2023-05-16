@@ -73,25 +73,6 @@
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">Odaberi unaprijed postavljeno</string>
-    <string name="advanced_settings_kcal">Kalibracija boja zaslona</string>
-    <string name="cat_colormanagement">Postavke boja</string>
-    <string name="cat_calibration">Kalibracija zaslona</string>
-    <string name="kcal_enabled">Uključeno</string>
-    <string name="kcal_disabled">Isključeno</string>
-    <string name="set_on_boot">Postavi pri pokretanju</string>
-    <string name="color_red">Crveno</string>
-    <string name="color_green">Zelena</string>
-    <string name="color_blue">Plava</string>
-    <string name="color_minimum">Minimalno</string>
-    <string name="saturation">Zasićenost</string>
-    <string name="value">Vrijednost</string>
-    <string name="contrast">Kontrast</string>
-    <string name="hue">Nijansa</string>
-    <string name="grayscale">Zaslon u sivim tonovima</string>
-    <string name="kcal_reset">Poništi</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Dirac zvuk</string>
 

@@ -2,6 +2,8 @@
  * Copyright (c) 2013-2017, 2019, The Linux Foundation. All rights reserved.
  * Not a Contribution.
  *
+ * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+ *
  * Copyright (C) 2013 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -847,7 +849,8 @@ int effect_command(effect_handle_t self, uint32_t cmdCode, uint32_t cmdSize,
             pReplyData == NULL ||
             *replySize < (int)(sizeof(effect_param_t) + sizeof(uint32_t) + sizeof(uint16_t)) ||
             // constrain memcpy below
-            ((effect_param_t *)pCmdData)->psize > *replySize - sizeof(effect_param_t)) {
+            ((effect_param_t *)pCmdData)->psize > *replySize - sizeof(effect_param_t) ||
+            ((effect_param_t *)pCmdData)->psize > cmdSize - sizeof(effect_param_t)) {
             status = -EINVAL;
             ALOGW("EFFECT_CMD_GET_PARAM invalid command cmdSize %d *replySize %d",
                   cmdSize, *replySize);

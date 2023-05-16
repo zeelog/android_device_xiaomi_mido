@@ -42,7 +42,6 @@ dalvik.vm.dex2oat64.enabled=true
 # Display
 debug.egl.hw=0
 debug.enable.sglscale=1
-debug.gralloc.enable_fb_ubwc=1
 debug.hwui.skia_atrace_enabled=false
 debug.mdpcomp.logs=0
 debug.renderengine.backend=skiaglthreaded
@@ -52,7 +51,6 @@ debug.sf.recomputecrop=0
 dev.pm.dyn_samplingrate=1
 persist.demo.hdmirotationlock=false
 persist.hwc.mdpcomp.enable=true
-ro.qualcomm.cabl=2
 vendor.display.enable_default_color_mode=1
 
 # Fingerprint
@@ -75,11 +73,12 @@ vendor.vidc.enc.disable_bframes=1
 vendor.vidc.enc.disable.pq=true
 vendor.video.disable.ubwc=1
 
-#codecs:(PARSER_)AAC AC3 AMR_NB AMR_WB ASF DTS FLV 3GP 3G2 MP2PS MP2TS MP3 OGG QCP WAV FLAC AIFF
-vendor.mm.enable.qcom_parser=523231
+#codecs:(PARSER_)AAC AC3 AMR_NB AMR_WB ASF FLV 3G2 MP2PS MP2TS MP3 OGG QCP WAV FLAC AIFF
+vendor.mm.enable.qcom_parser=522911
 
-# Mwqem
-persist.vendor.mwqem.enable=1
+# Disable media transcoding
+persist.sys.fuse.transcode_user_control=true
+persist.sys.fuse.transcode_enabled=false
 
 # Perf
 ro.vendor.qti.sys.fw.bservice_enable=true
@@ -107,10 +106,6 @@ vendor.display.disable_scaler=1
 # Shutdown
 ro.build.shutdown_timeout=2
 
-# Skia
-# (b/183612348): Enable skia reduceOpsTaskSplitting
-renderthread.skia.reduceopstasksplitting=true
-
 # SurfaceFlinger
 debug.sf.disable_client_composition_cache=1
 debug.sf.early_phase_offset_ns=1500000
@@ -119,6 +114,7 @@ debug.sf.early_gl_phase_offset_ns=3000000
 debug.sf.early_gl_app_phase_offset_ns=15000000
 debug.sf.enable_transaction_tracing=false
 debug.sf.predict_hwc_composition_strategy=0
+ro.surface_flinger.enable_layer_caching=true
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.surface_flinger.max_virtual_display_dimension=4096

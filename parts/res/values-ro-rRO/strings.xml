@@ -56,22 +56,4 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
-    <!-- kcal -->
-    <string name="presets_dialog_title">Selectați presetarea</string>
-    <string name="advanced_settings_kcal">Calibrarea culorii afișajului</string>
-    <string name="cat_colormanagement">Setări de culoare</string>
-    <string name="cat_calibration">Calibrarea afișajului</string>
-    <string name="kcal_enabled">Activat</string>
-    <string name="kcal_disabled">Dezactivat</string>
-    <string name="set_on_boot">Set On Boot</string>
-    <string name="color_red">Roșu</string>
-    <string name="color_green">Verde</string>
-    <string name="color_blue">Albastru</string>
-    <string name="color_minimum">Minim</string>
-    <string name="saturation">Saturație</string>
-    <string name="value">Valoare</string>
-    <string name="contrast">Contrast</string>
-    <string name="hue">Nuanță</string>
-    <string name="grayscale">Afișare în tonuri de gri</string>
-    <string name="kcal_reset">Resetați</string>
 </resources>

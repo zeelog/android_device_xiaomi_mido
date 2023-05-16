@@ -80,58 +80,6 @@
     <string name="dirac_preset_soft_bass">Мек бас</string>
     <string name="dirac_preset_soft_treble">Меки високи тонови</string>
 
-    <!-- kcal -->
-    <string name="advanced_settings_kcal">Прикажи калибрација на боја</string>
-    <string name="cat_colormanagement">Поставки за боја</string>
-    <string name="cat_calibration">Калибрација на приказ</string>
-
-    <string name="kcal_enabled">Вклучено</string>
-    <string name="kcal_disabled">Исклучено</string>
-    <string name="set_on_boot">Постави при подигање</string>
-    <string name="color_red">Црвено</string>
-    <string name="color_green">Зелено</string>
-    <string name="color_blue">Сино</string>
-    <string name="color_minimum">Минимум</string>
-    <string name="saturation">Заситеност</string>
-    <string name="value">Вредност</string>
-    <string name="contrast">Контраст</string>
-    <string name="hue">Нијанса</string>
-    <string name="grayscale">Приказ на сиви тонови</string>
-
-    <!-- kcal menu -->
-    <string name="kcal_presets">@string/presets_dialog_title</string>
-    <string name="kcal_reset">Ресетирање</string>
-
-    <!-- kcal presets-->
-    <string name="presets_dialog_title">Изберете претходно поставено</string>
-    <string name="preset_default">Стандардно</string>
-    <string name="preset_version_1">Верзија 1</string>
-    <string name="preset_version_2">Верзија 2</string>
-    <string name="preset_version_3">Верзија 3</string>
-    <string name="preset_triluminous">Трилуминозна</string>
-    <string name="preset_deep_black_white">Длабоко црно-бело</string>
-    <string name="preset_deep_natural">Длабоко природно</string>
-    <string name="preset_cool_amoled">Кул Амолед</string>
-    <string name="preset_extreme_amoled">Екстремно амолед</string>
-    <string name="preset_warm_amoled">Топол амолед</string>
-    <string name="preset_hybrid_mamba">Хибридна мамба</string>
-    <string name="preset_burn_in">Согорување</string>
-    <string name="preset_retention">Поправка на задржување</string>
-    <string name="preset_gerard_extrem_cool">Жерард екстремно кул</string>
-    <string name="preset_yoyoz808">Yoyoz808</string>
-    <string name="preset_purian">пуријански</string>
-    <string name="preset_deep_black_colorful">Длабоко црно шарено</string>
-    <string name="preset_vomer_deep_rich">Длабоко богат глас</string>
-    <string name="preset_franco">Франко</string>
-    <string name="preset_wrinklefree_cool">Олади без брчки</string>
-    <string name="preset_harley_tech">Harley-Tech</string>
-    <string name="preset_perfection">Совршенство</string>
-    <string name="preset_banged_up">Бангирана</string>
-    <string name="preset_sim_cooler">SimCooler</string>
-    <string name="preset_obsanity">Непослушност</string>
-    <string name="preset_obsanity_ips">ИПС на нерамномерност</string>
-    <string name="preset_sir_banger">Сер Бангер</string>
-
      <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Звук на Дирак</string>
 

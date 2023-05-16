@@ -239,7 +239,7 @@
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">1.0</item>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">true</bool>
@@ -371,21 +371,6 @@
          Doze dreams will run whenever the power manager is in a dozing state. -->
     <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.systemui.doze.DozeService</string>
 
-    <!-- Power Management: Specifies whether to decouple the interactive state of the
-         device from the display on/off state.
-         When false, setInteractive(..., true) will be called before the display is turned on
-         and setInteractive(..., false) will be called after the display is turned off.
-         This mode provides best compatibility for devices that expect the interactive
-         state to be tied to the display state.
-         When true, setInteractive(...) will be called independently of whether the display
-         is being turned on or off.  This mode enables the power manager to reduce
-         clocks and disable the touch controller while the display is on.
-         This resource should be set to "true" when a doze component has been specified
-         to maximize power savings but not all devices support it.
-         Refer to power.h for details.
-    -->
-    <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
-
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
          that can be set by the user. -->
@@ -461,7 +446,6 @@
         <item>"/vendor/lib/libOpenCL.so"</item>
         <item>"/vendor/lib/libadreno_app_profiles.so"</item>
         <item>"/vendor/lib/libadreno_utils.so"</item>
-        <item>"/vendor/lib/libgpudataproducer.so"</item>
         <item>"/vendor/lib/libgsl.so"</item>
         <item>"/vendor/lib/libllvm-glnext.so"</item>
         <item>"/vendor/lib64/egl/eglSubDriverAndroid.so"</item>
@@ -473,7 +457,6 @@
         <item>"/vendor/lib64/libOpenCL.so"</item>
         <item>"/vendor/lib64/libadreno_app_profiles.so"</item>
         <item>"/vendor/lib64/libadreno_utils.so"</item>
-        <item>"/vendor/lib64/libgpudataproducer.so"</item>
         <item>"/vendor/lib64/libgsl.so"</item>
         <item>"/vendor/lib64/libllvm-glnext.so"</item>
     </string-array>
@@ -519,4 +502,8 @@
 
     <!-- Display low battery warning when battery level dips to this value -->
     <integer name="config_lowBatteryWarningLevel">15</integer>
+ 
+     <!-- Display low battery warning when battery level dips to this value.
+         Also, the battery stats are flushed to disk when we hit this level.  -->
+    <integer name="config_criticalBatteryWarningLevel">8</integer>
 </resources>

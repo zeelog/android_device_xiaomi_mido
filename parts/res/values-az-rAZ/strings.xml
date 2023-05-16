@@ -56,23 +56,4 @@
     <string name="dirac_preset_country">Kantri</string>
     <string name="dirac_preset_dance">Rəqs</string>
     <string name="dirac_preset_metal">Metal</string>
-
-    <!-- kcal -->
-    <string name="presets_dialog_title">Ön təyinat seçin</string>
-    <string name="advanced_settings_kcal">Ekran Rəng Kalibrasiyası</string>
-    <string name="cat_colormanagement">Rəng Parametrləri</string>
-    <string name="cat_calibration">Ekran Kalibrasiyası</string>
-    <string name="kcal_enabled">Aktiv</string>
-    <string name="kcal_disabled">Deaktiv</string>
-    <string name="set_on_boot">Yükləmədə Quraşdır</string>
-    <string name="color_red">Qırmızı</string>
-    <string name="color_green">Yaşıl</string>
-    <string name="color_blue">Mavi</string>
-    <string name="color_minimum">Minimum</string>
-    <string name="saturation">Doyma</string>
-    <string name="value">Dəyər</string>
-    <string name="contrast">Kontrast</string>
-    <string name="hue">Rəng</string>
-    <string name="grayscale">Bozölçülü Ekran</string>
-    <string name="kcal_reset">Sıfırla</string>
 </resources>

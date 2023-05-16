@@ -80,25 +80,6 @@
     <string name="dirac_preset_soft_bass">Basses douces</string>
     <string name="dirac_preset_soft_treble">Aigus doux</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">Sélectionner le préréglage</string>
-    <string name="advanced_settings_kcal">Étalonnage des couleurs d\'affichage</string>
-    <string name="cat_colormanagement">Paramètres de couleur</string>
-    <string name="cat_calibration">Étalonnage de l\'affichage</string>
-    <string name="kcal_enabled">Activé</string>
-    <string name="kcal_disabled">Désactivé</string>
-    <string name="set_on_boot">Définir au démarrage</string>
-    <string name="color_red">Rouge</string>
-    <string name="color_green">Vert</string>
-    <string name="color_blue">Bleu</string>
-    <string name="color_minimum">Minimum</string>
-    <string name="saturation">Saturation</string>
-    <string name="value">Valeur</string>
-    <string name="contrast">Contraste</string>
-    <string name="hue">Teinte</string>
-    <string name="grayscale">Affichage en niveaux de gris</string>
-    <string name="kcal_reset">Réinitialiser</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Son Dirac</string>
 

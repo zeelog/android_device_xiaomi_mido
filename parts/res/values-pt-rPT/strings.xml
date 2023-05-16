@@ -80,25 +80,6 @@
     <string name="dirac_preset_soft_bass">Graves suaves</string>
     <string name="dirac_preset_soft_treble">Agudos suaves</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">Selecionar predefinição</string>
-    <string name="advanced_settings_kcal">Calibração de cores da tela</string>
-    <string name="cat_colormanagement">Configurações de cores</string>
-    <string name="cat_calibration">Calibração da tela</string>
-    <string name="kcal_enabled">Ativado</string>
-    <string name="kcal_disabled">Desativado</string>
-    <string name="set_on_boot">Definir na inicialização</string>
-    <string name="color_red">Vermelho</string>
-    <string name="color_green">Verde</string>
-    <string name="color_blue">Azul</string>
-    <string name="color_minimum">Mínimo</string>
-    <string name="saturation">Saturação</string>
-    <string name="value">Valor</string>
-    <string name="contrast">Contraste</string>
-    <string name="hue">Matiz</string>
-    <string name="grayscale">Exibição em tons de cinza</string>
-    <string name="kcal_reset">Redefinir</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Som Dirac</string>
 

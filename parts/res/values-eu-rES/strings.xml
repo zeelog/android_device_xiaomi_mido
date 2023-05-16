@@ -80,23 +80,6 @@
     <string name="dirac_preset_soft_bass">Soft Bass</string>
     <string name="dirac_preset_soft_treble">Soft Treble</string>
 
-    <!-- kcal -->
-    <string name="advanced_settings_kcal">Bistaratzeko koloreen kalibratzea</string>
-    <string name="cat_colormanagement">Kolore ezarpenak</string>
-    <string name="cat_calibration">Bistaratzeko kalibratzea</string>
-    <string name="kcal_enabled">Aktibatuta</string>
-    <string name="kcal_disabled">Desaktibatuta</string>
-    <string name="set_on_boot">Ezarri abioan</string>
-    <string name="color_red">gorria</string>
-    <string name="color_green">Berdea</string>
-    <string name="color_blue">Urdina</string>
-    <string name="color_minimum">Gutxienekoa</string>
-    <string name="saturation">Saturazioa</string>
-    <string name="value">Balioa</string>
-    <string name="contrast">Kontrastea</string>
-    <string name="hue">Tinta</string>
-    <string name="grayscale">Grayscale Display</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Dirac soinua</string>
 

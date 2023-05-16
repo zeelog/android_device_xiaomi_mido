@@ -80,25 +80,6 @@
     <string name="dirac_preset_soft_bass">Jemné basy</string>
     <string name="dirac_preset_soft_treble">Jemné výšky</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">Vyberte předvolbu</string>
-    <string name="advanced_settings_kcal">Kalibrace barev displeje</string>
-    <string name="cat_colormanagement">Nastavení barev</string>
-    <string name="cat_calibration">Kalibrace displeje</string>
-    <string name="kcal_enabled">Zapnuto</string>
-    <string name="kcal_disabled">Vypnuto</string>
-    <string name="set_on_boot">Nastavit při spuštění</string>
-    <string name="color_red">Červená</string>
-    <string name="color_green">Zelená</string>
-    <string name="color_blue">Modrá</string>
-    <string name="color_minimum">Minimum</string>
-    <string name="saturation">Sytost</string>
-    <string name="value">Hodnota</string>
-    <string name="contrast">Kontrast</string>
-    <string name="hue">Odstín</string>
-    <string name="grayscale">Zobrazení ve stupních šedi</string>
-    <string name="kcal_reset">Resetovat</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Zvuk Dirac</string>
 

@@ -61,22 +61,4 @@
     <string name="dirac_preset_country">Country</string>
     <string name="dirac_preset_dance">Dance</string>
     <string name="dirac_preset_metal">Metal</string>
-    <!-- kcal -->
-    <string name="presets_dialog_title">Vyberte predvoľbu</string>
-    <string name="advanced_settings_kcal">Kalibrácia farieb displeja</string>
-    <string name="cat_colormanagement">Nastavenia farieb</string>
-    <string name="cat_calibration">Kalibrácia displeja</string>
-    <string name="kcal_enabled">Zapnuté</string>
-    <string name="kcal_disabled">Vypnuté</string>
-    <string name="set_on_boot">Nastaviť pri spustení</string>
-    <string name="color_red">Červená</string>
-    <string name="color_green">Zelená</string>
-    <string name="color_blue">Modrá</string>
-    <string name="color_minimum">Minimum</string>
-    <string name="saturation">Sýtosť</string>
-    <string name="value">Hodnota</string>
-    <string name="contrast">Kontrast</string>
-    <string name="hue">Odtieň</string>
-    <string name="grayscale">Zobrazenie v odtieňoch sivej</string>
-    <string name="kcal_reset">Obnoviť</string>
 </resources>

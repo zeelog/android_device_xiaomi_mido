@@ -80,25 +80,6 @@
     <string name="dirac_preset_soft_bass">Απαλό μπάσο</string>
     <string name="dirac_preset_soft_treble">Απαλό πρίμα</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">Επιλέξτε προεπιλογή</string>
-    <string name="advanced_settings_kcal">Βαθμονόμηση χρώματος οθόνης</string>
-    <string name="cat_colormanagement">Ρυθμίσεις χρώματος</string>
-    <string name="cat_calibration">Βαθμονόμηση οθόνης</string>
-    <string name="kcal_enabled">Ενεργό</string>
-    <string name="kcal_disabled">Απενεργοποιημένο</string>
-    <string name="set_on_boot">Ρύθμιση κατά την εκκίνηση</string>
-    <string name="color_red">Κόκκινο</string>
-    <string name="color_green">Πράσινο</string>
-    <string name="color_blue">Μπλε</string>
-    <string name="color_minimum">Ελάχιστο</string>
-    <string name="saturation">Κορεσμός</string>
-    <string name="value">Τιμή</string>
-    <string name="contrast">Αντίθεση</string>
-    <string name="hue">Απόχρωση</string>
-    <string name="grayscale">Οθόνη σε κλίμακα του γκρι</string>
-    <string name="kcal_reset">Επαναφορά</string>
-
     <!-- QS Tile -->
     <string name="dirac_qs_tile_title">Ήχος Dirac</string>
 

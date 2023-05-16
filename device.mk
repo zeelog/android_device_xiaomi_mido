@@ -76,6 +76,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.hardware.wifi.passpoint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.passpoint.xml \
+    frameworks/native/data/etc/android.software.app_widgets.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.app_widgets.xml \
     frameworks/native/data/etc/android.software.freeform_window_management.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.freeform_window_management.xml \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
@@ -99,12 +100,11 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     libaacwrapper \
-    libaudio-resampler \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libqcompostprocbundle \
+    libaudio-resampler:32 \
+    libqcomvisualizer:32 \
+    libqcomvoiceprocessing:32 \
+    libqcompostprocbundle:32 \
     sound_trigger.primary.msm8953:32
-
 
 # Audio features
 PRODUCT_PACKAGES += \
@@ -133,9 +133,12 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0.vendor \
+    android.hardware.bluetooth@1.0.vendor:64 \
     vendor.qti.hardware.btconfigstore@1.0.vendor:64 \
     vendor.qti.hardware.btconfigstore@2.0.vendor:64
+
+ # Boot animation
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -191,8 +194,8 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.4.vendor \
-    android.hardware.drm-service.clearkey
+    android.hardware.drm@1.4-service.clearkey \
+    android.hardware.drm@1.4.vendor:64
 
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/configs/gpfspath_oem_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/gpfspath_oem_config.xml
@@ -226,10 +229,10 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.1.vendor \
-    android.hardware.gnss.measurement_corrections@1.1.vendor \
-    android.hardware.gnss.visibility_control@1.0.vendor \
-    libcurl
+    android.hardware.gnss@2.1.vendor:64 \
+    android.hardware.gnss.measurement_corrections@1.1.vendor:64 \
+    android.hardware.gnss.visibility_control@1.0.vendor:64 \
+    libcurl:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
@@ -260,8 +263,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
     ims-ext-common \
-    ims_ext_common.xml \
-    libgui_shim
+    ims_ext_common.xml
 
 # Inherit several Android Go Configurations(Beneficial for everyone, even on non-Go devices)
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
@@ -317,16 +319,16 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libmm-omxcore \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxG711Enc \
-    libOmxQcelp13Enc \
-    libOmxVdec \
-    libOmxVenc \
+    libc2dcolorconvert:32 \
+    libmm-omxcore:32 \
+    libOmxAacEnc:32 \
+    libOmxAmrEnc:32 \
+    libOmxCore:32 \
+    libOmxEvrcEnc:32 \
+    libOmxG711Enc:32 \
+    libOmxQcelp13Enc:32 \
+    libOmxVdec:32 \
+    libOmxVenc:32 \
     libstagefrighthw \
     libstagefright_enc_common
 
@@ -369,11 +371,11 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.5.vendor \
-    android.hardware.radio.config@1.2.vendor \
-    android.hardware.radio.deprecated@1.0.vendor \
-    android.hardware.secure_element@1.2.vendor \
-    librmnetctl \
+    android.hardware.radio@1.5.vendor:64 \
+    android.hardware.radio.config@1.2.vendor:64 \
+    android.hardware.radio.deprecated@1.0.vendor:64 \
+    android.hardware.secure_element@1.2.vendor:64 \
+    librmnetctl:64 \
     qti-telephony-hidl-wrapper \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \
@@ -383,7 +385,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
     android.hardware.sensors@1.0-service \
-    libsensorndkbridge
+    libsensorndkbridge:64
     
 # Speed profile services and wifi-service to reduce RAM and storage
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
@@ -399,7 +401,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl:64 \
     android.hardware.thermal@1.0-service \
-    thermal.msm8953
+    thermal.msm8953:64
 
 # Touch features
 PRODUCT_PACKAGES += \
@@ -430,12 +432,12 @@ PRODUCT_PACKAGES += \
 
 # Wifi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service-lazy \
-    android.system.net.netd@1.1.vendor \
-    libcld80211 \
-    libwpa_client \
+    android.hardware.wifi@1.0-service \
+    android.system.net.netd@1.1.vendor:64 \
+    libcld80211:64 \
+    libwpa_client:64 \
     hostapd \
-    libwifi-hal-qcom \
+    libwifi-hal-qcom:64 \
     TetheringConfigOverlay \
     WifiOverlay \
     wpa_supplicant \

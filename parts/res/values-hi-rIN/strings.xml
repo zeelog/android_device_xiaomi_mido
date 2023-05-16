@@ -73,25 +73,6 @@
     <string name="dirac_preset_dance">डांस</string>
     <string name="dirac_preset_metal">मेटल</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">प्रीसेट चुनें</string>
-    <string name="advanced_settings_kcal">रंग कैलिब्रेशन प्रदर्शित करें</string>
-    <string name="cat_colormanagement">रंग सेटिंग</string>
-    <string name="cat_calibration">डिस्प्ले कैलिब्रेशन</string>
-    <string name="kcal_enabled">चालू</string>
-    <string name="kcal_disabled">बंद</string>
-    <string name="set_on_boot">बूट पर सेट करें</string>
-    <string name="color_red">लाल</string>
-    <string name="color_green">हरा</string>
-    <string name="color_blue">नीला</string>
-    <string name="color_minimum">न्यूनतम</string>
-    <string name="saturation">संतृप्ति</string>
-    <string name="value"> मान</string>
-    <string name="contrast">कंट्रास्ट</string>
-    <string name="hue">ह्यू</string>
-    <string name="grayscale">ग्रेस्केल डिस्प्ले</string>
-    <string name="kcal_reset">रीसेट करें</string>
-
     <!-- QS Tile-->
     <string name="dirac_qs_tile_title">डिराक ध्वनि</string>
 

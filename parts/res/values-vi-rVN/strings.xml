@@ -80,25 +80,6 @@
     <string name="dirac_preset_soft_bass">Bass nhẹ</string>
     <string name="dirac_preset_soft_treble">Treble nhẹ</string>
 
-    <!-- kcal -->
-    <string name="presets_dialog_title">Chọn Cài đặt sẵn</string>
-    <string name="advanced_settings_kcal">Hiệu chỉnh màu hiển thị</string>
-    <string name="cat_colormanagement">Cài đặt Màu</string>
-    <string name="cat_calibration">Hiệu chỉnh Hiển thị</string>
-    <string name="kcal_enabled">Bật</string>
-    <string name="kcal_disabled">Tắt</string>
-    <string name="set_on_boot">Đặt khi khởi động</string>
-    <string name="color_red">Đỏ</string>
-    <string name="color_green">Màu xanh lá cây</string>
-    <string name="color_blue">Xanh lam</string>
-    <string name="color_minimum">Tối thiểu</string>
-    <string name="saturation">Độ bão hòa</string>
-    <string name="value">Giá trị</string>
-    <string name="contrast">Độ tương phản</string>
-    <string name="hue">Huế</string>
-    <string name="grayscale">Hiển thị thang độ xám</string>
-    <string name="kcal_reset">Đặt lại</string>
-
     <!-- QS tile title -->
     <string name="dirac_qs_tile_title">Âm thanh Dirac</string>
 
