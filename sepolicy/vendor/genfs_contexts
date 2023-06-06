@@ -1,3 +1,6 @@
+# Extcon
+genfscon sysfs   /devices/platform/soc/soc:qcom,mdss_wb_panel/extcon/extcon0/cable.0/name                                                    u:object_r:sysfs_graphics:s0
+
 # Power
 genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00                                                                     u:object_r:sysfs_battery_supply:s0
 genfscon sysfs   /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-01                                                                     u:object_r:sysfs_battery_supply:s0
