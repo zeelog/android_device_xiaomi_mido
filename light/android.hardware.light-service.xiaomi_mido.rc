@@ -13,6 +13,8 @@ on early-boot
     chown system system /sys/class/leds/blue/max_brightness
 
     # Backlight
+    chmod 0666 /sys/class/leds/lcd-backlight/brightness
+    chmod 0666 /sys/class/leds/lcd-backlight/max_brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/max_brightness
 
