@@ -80,12 +80,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
                 SoundControlSettings.PREF_SPEAKER_GAIN, 0));
 
         // Dirac
-        int millis = 1 * 60 * 1000;  // 1min
-        try {
-            Thread.sleep(millis);
-            new DiracUtils(context).onBootCompleted();
-        } catch( Exception e) {
-            e.printStackTrace();
-        }
+        new DiracUtils(context).onBootCompleted();
     }
 }
