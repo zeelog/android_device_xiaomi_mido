@@ -1,31 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt">
-    <background android:drawable="@color/launcher_background_color"/>
-    <foreground>
-        <aapt:attr name="android:drawable">
-            <vector
-                android:width="108dp"
-                android:height="108dp"
-                android:viewportWidth="108"
-                android:viewportHeight="108">
-                <path
-                    android:fillColor="@color/launcher_foreground_color"
-                    android:pathData="M55.8 36.07v3l-6.2 0.03-6.23 0.07-0.07 2.1-0.04 2.1h11.25v1.87c0 1.1 0.07 1.85 0.21 1.85 0.08 0 1.33-0.95 2.73-2.1l4.3-3.5 4.27-3.48a38.94 38.94 0 0 1 2.52-1.97c-3.3 3.25-6.65 6.44-10.06 9.57l-2.64 2.52-1.2 1.09H43.29v8.98h-6.65V33.02h19.15v3.05Zm5.66 21.9c0.76 1.26 0.88 1.39 1.05 1.07l2.9-4.88 2.62-4.54H75v25.36h-6.67l-0.03-7.13-0.07-7.11-2.93 4.78c-0.98 1.63-2 3.23-3.08 4.79-0.07 0-1.43-2.17-3.03-4.77l-2.93-4.79-0.07 7.14-0.04 7.1h-6.63l-0.05-8-0.04-8.02-6.91 5.5c-8.72 6.9-9.73 7.68-9.5 7.43l11.9-11.23L56.6 49.66l2.02 3.44 2.85 4.87Z"/>
-            </vector>
-        </aapt:attr>
-    </foreground>
-    <monochrome>
-        <aapt:attr name="android:drawable">
-            <vector
-                android:width="108dp"
-                android:height="108dp"
-                android:viewportWidth="108"
-                android:viewportHeight="108">
-                <path
-                    android:fillColor="@android:color/black"
-                    android:pathData="M55.8 36.07v3l-6.2 0.03-6.23 0.07-0.07 2.1-0.04 2.1h11.25v1.87c0 1.1 0.07 1.85 0.21 1.85 0.08 0 1.33-0.95 2.73-2.1l4.3-3.5 4.27-3.48a38.94 38.94 0 0 1 2.52-1.97c-3.3 3.25-6.65 6.44-10.06 9.57l-2.64 2.52-1.2 1.09H43.29v8.98h-6.65V33.02h19.15v3.05Zm5.66 21.9c0.76 1.26 0.88 1.39 1.05 1.07l2.9-4.88 2.62-4.54H75v25.36h-6.67l-0.03-7.13-0.07-7.11-2.93 4.78c-0.98 1.63-2 3.23-3.08 4.79-0.07 0-1.43-2.17-3.03-4.77l-2.93-4.79-0.07 7.14-0.04 7.1h-6.63l-0.05-8-0.04-8.02-6.91 5.5c-8.72 6.9-9.73 7.68-9.5 7.43l11.9-11.23L56.6 49.66l2.02 3.44 2.85 4.87Z"/>
-            </vector>
-        </aapt:attr>
-    </monochrome>
+<!--
+     SPDX-FileCopyrightText: 2022 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_background"/>
+    <foreground android:drawable="@drawable/ic_launcher_foreground"/>
+    <monochrome android:drawable="@drawable/ic_launcher_monochrome"/>
 </adaptive-icon>
