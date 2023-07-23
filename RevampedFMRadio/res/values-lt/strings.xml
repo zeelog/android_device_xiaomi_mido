@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM radijas</string>
+    <string name="toast_station_searched">Surasta pasiekiamų stočių:</string>
+    <string name="toast_cannot_search">Nerasta pasiekiamų stočių.</string>
+    <string name="optmenu_speaker">Garsiakalbis</string>
+    <string name="optmenu_earphone">Ausinės</string>
+    <string name="save">Išsaugoti</string>
+    <string name="toast_sdcard_missing">Trūksta SD kortelės!</string>
+    <string name="toast_sdcard_insufficient_space">Nepakanka vietos SD kortelėje!</string>
+    <string name="toast_recorder_internal_error">Įvyko įrašymo priemonės vidinė klaida!</string>
+    <string name="btn_save_recording">Išsaugoti</string>
+    <string name="btn_discard_recording">Išmesti</string>
+    <string name="edit_recording_name_hint">Čia įveskite failo pavadinimą</string>
+    <string name="already_exists">jau yra</string>
+    <string name="not_available">Šiuo metu nepasiekiama</string>
+    <string name="talk_prev_station">Ankstesnė stotis</string>
+    <string name="talk_decrease">Sumažinti dažnį</string>
+    <string name="talk_increase">Padidinti dažnį</string>
+    <string name="talk_next_station">Kita stotis</string>
+    <string name="talk_add_favorite">Pridėti prie mėgstamiausių</string>
+    <string name="talk_start_recording">Pradėti įrašymą</string>
+    <string name="more">"Daugiau"</string>
+    <string name="recording_tips">Įrašoma...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Paleisti ar stabdyti FM radiją</string>
+    <string name="fm_over_start_record">Pradėti įrašymą</string>
+    <string name="fm_over_record_list">Išsaugoti įrašai</string>
+    <string name="fm_station_list_menu_refresh">Atnaujinti</string>
+    <string name="fm_no_headset_text">Jei norite pradėti klausyti, prijunkite ausines (naudojamos kaip antena).</string>
+    <string name="station_title">Radijo stotys</string>
+    <string name="station_searching_tips">Gaunamos stotys</string>
+    <string name="station_empty_text">Nerasta jokių stočių</string>
+    <string name="minutes_label">min.</string>
+    <string name="seconds_label">s</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Įrašoma</string>
+    <string name="record_notification_message">Vyksta įrašymas</string>
+    <string name="stop_record">SUSTABDYTI ĮRAŠYMĄ</string>
+    <string name="save_dialog_title">Išsaugoti įrašą?</string>
+    <string name="save_dialog_caption">Jei norite klausyti įrašų, atidarykite „Google Play“ muzikos programą.</string>
+    <string name="favorites">Mėgstamiausi</string>
+    <string name="rename">Pervardyti</string>
+    <string name="station_rename_hint">Įveskite stoties pavadinimą</string>
+    <string name="remove_favorite">Pašalinti iš mėgstamiausių</string>
+    <string name="toast_record_saved">Įrašas išsaugotas</string>
+    <string name="toast_record_not_saved">Įrašas neišsaugotas</string>
+    <string name="toast_listen">KLAUSYTI</string>
+    <string name="toast_station_renamed">Stotis pervardyta</string>
+    <string name="accessibility_play">Paleisti</string>
+    <string name="accessibility_pause">Sustabdyti</string>
+    <string name="accessibility_next">Kitas</string>
+    <string name="accessibility_prev">Ankstesnis</string>
+</resources>

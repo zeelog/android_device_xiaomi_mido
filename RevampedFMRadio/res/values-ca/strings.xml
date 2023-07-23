@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Ràdio FM</string>
+    <string name="toast_station_searched">S\'han trobat les emissores disponibles següents:</string>
+    <string name="toast_cannot_search">No es poden cercar les emissores disponibles.</string>
+    <string name="optmenu_speaker">Altaveu</string>
+    <string name="optmenu_earphone">Auricular</string>
+    <string name="save">Desa</string>
+    <string name="toast_sdcard_missing">No s\'ha detectat cap targeta SD.</string>
+    <string name="toast_sdcard_insufficient_space">No hi ha prou espai a la targeta SD.</string>
+    <string name="toast_recorder_internal_error">S\'ha produït un error intern a l\'enregistrador.</string>
+    <string name="btn_save_recording">Desa</string>
+    <string name="btn_discard_recording">Descarta</string>
+    <string name="edit_recording_name_hint">Escriu el nom del fitxer aquí.</string>
+    <string name="already_exists">ja existeix</string>
+    <string name="not_available">Actualment no està disponible.</string>
+    <string name="talk_prev_station">Emissora anterior</string>
+    <string name="talk_decrease">Redueix la freqüència</string>
+    <string name="talk_increase">Augmenta la freqüència</string>
+    <string name="talk_next_station">Emissora següent</string>
+    <string name="talk_add_favorite">Afegeix als preferits</string>
+    <string name="talk_start_recording">Inicia l\'enregistrament</string>
+    <string name="more">"Més"</string>
+    <string name="recording_tips">S\'està enregistrant...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Reprodueix o atura la ràdio FM</string>
+    <string name="fm_over_start_record">Inicia l\'enregistrament</string>
+    <string name="fm_over_record_list">Enregistraments desats</string>
+    <string name="fm_station_list_menu_refresh">Actualitza</string>
+    <string name="fm_no_headset_text">Per començar a escoltar-la, connecta els auriculars (fan la funció d\'antena).</string>
+    <string name="station_title">Emissores de ràdio</string>
+    <string name="station_searching_tips">S\'estan obtenint les emissores.</string>
+    <string name="station_empty_text">No s\'ha trobat cap emissora.</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label">s</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">S\'està enregistrant</string>
+    <string name="record_notification_message">Enregistrament en curs</string>
+    <string name="stop_record">ATURA ENREGISTRAMENT</string>
+    <string name="save_dialog_title">Vols desar l\'enregistrament?</string>
+    <string name="save_dialog_caption">Per escoltar els enregistraments, obre l\'aplicació Play Music.</string>
+    <string name="favorites">Preferits</string>
+    <string name="rename">Canvia el nom</string>
+    <string name="station_rename_hint">Introdueix el nom de l\'emissora.</string>
+    <string name="remove_favorite">Treu dels preferits</string>
+    <string name="toast_record_saved">L\'enregistrament s\'ha desat.</string>
+    <string name="toast_record_not_saved">L\'enregistrament no s\'ha desat.</string>
+    <string name="toast_listen">ESCOLTA</string>
+    <string name="toast_station_renamed">S\'ha canviat el nom de l\'emissora.</string>
+    <string name="audio_db_artist_name">Les meves gravacions FM</string>
+    <string name="audio_db_album_name">Gravacions FM</string>
+    <string name="audio_db_playlist_name">Gravacions FM</string>
+    <string name="audio_save_dir_name">Gravacions FM</string>
+    <string name="accessibility_play">Reprodueix</string>
+    <string name="accessibility_pause">Pausa</string>
+    <string name="accessibility_next">Següent</string>
+    <string name="accessibility_prev">Anterior</string>
+</resources>

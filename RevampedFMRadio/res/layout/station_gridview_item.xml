@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014,2022 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="wrap_content"
+    android:layout_height="88dip"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="28dp"
+    android:foreground="@drawable/cardview_ripple"
+    android:elevation="0dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:paddingTop="8dp"
+        android:paddingRight="6dp"
+        android:paddingLeft="0dp">
+        <ImageView
+            android:id="@+id/lv_station_add_favorite"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="8dp"
+            android:background="@drawable/favorite_circle_button"
+            android:contentDescription="@string/talk_add_favorite" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="88dip"
+        android:paddingStart="16dip"
+        android:paddingEnd="16dip"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/lv_fm_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:singleLine="true"
+            android:text="@string/fm_symbol"
+            android:textColor="@color/header_fm_label_color"
+            android:textSize="@dimen/text_fm_size" />
+
+        <TextView
+            android:id="@+id/lv_station_freq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lv_fm_label"
+            android:alpha="0.8"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:singleLine="true"
+            android:textColor="@color/favorite_station_freq_color"
+            android:textSize="18dip" />
+
+        <TextView
+            android:id="@+id/lv_station_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lv_station_freq"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif"
+            android:visibility="gone"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:textColor="@color/favorite_station_name_color"
+            android:textSize="14dip" />
+
+        <TextView
+            android:id="@+id/lv_station_rt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lv_station_name"
+            android:alpha="0.8"
+            android:fontFamily="sans-serif"
+            android:visibility="gone"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:textColor="@color/favorite_station_name_color"
+            android:textSize="14dip" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

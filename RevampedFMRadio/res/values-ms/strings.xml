@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM</string>
+    <string name="toast_station_searched">Telah mencari daripada stesen yang tersedia:</string>
+    <string name="toast_cannot_search">Tidak dapat mencari stesen yang tersedia.</string>
+    <string name="optmenu_speaker">Pembesar suara</string>
+    <string name="optmenu_earphone">Fon telinga</string>
+    <string name="save">Simpan</string>
+    <string name="toast_sdcard_missing">Kad SD anda tiada!</string>
+    <string name="toast_sdcard_insufficient_space">Ruang kad SD tidak mencukupi!</string>
+    <string name="toast_recorder_internal_error">Ralat dalaman berlaku di dalam perakam!</string>
+    <string name="btn_save_recording">Simpan</string>
+    <string name="btn_discard_recording">Buang</string>
+    <string name="edit_recording_name_hint">Taipkan nama fail di sini</string>
+    <string name="already_exists">telah sedia ada</string>
+    <string name="not_available">Pada masa ini tidak tersedia</string>
+    <string name="talk_prev_station">Stesen sebelumnya</string>
+    <string name="talk_decrease">Kekerapan pengurangan</string>
+    <string name="talk_increase">Kekerapan peningkatan</string>
+    <string name="talk_next_station">Stesen seterusnya</string>
+    <string name="talk_add_favorite">Tambah pada kegemaran</string>
+    <string name="talk_start_recording">Mulakan rakaman</string>
+    <string name="more">"Lagi"</string>
+    <string name="recording_tips">Sedang merakam...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Mainkan atau hentikan radio FM</string>
+    <string name="fm_over_start_record">Mulakan rakaman</string>
+    <string name="fm_over_record_list">Rakaman yang disimpan</string>
+    <string name="fm_station_list_menu_refresh">Muat semula</string>
+    <string name="fm_no_headset_text">Untuk mula mendengar, pasangkan fon kepala (digunakan sebagai antena).</string>
+    <string name="station_title">Stesen Radio</string>
+    <string name="station_searching_tips">Mendapatkan stesen</string>
+    <string name="station_empty_text">Tiada stesen ditemui</string>
+    <string name="minutes_label">I</string>
+    <string name="seconds_label">Sa</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Rakaman</string>
+    <string name="record_notification_message">Rakaman sedang berjalan</string>
+    <string name="stop_record">HENTIKAN RAKAMAN</string>
+    <string name="save_dialog_title">Simpan rakaman?</string>
+    <string name="save_dialog_caption">Untuk mendengar rakaman, buka apl Play Music.</string>
+    <string name="favorites">Kegemaran</string>
+    <string name="rename">Namakan semula</string>
+    <string name="station_rename_hint">Masukkan nama stesen</string>
+    <string name="remove_favorite">Alih keluarkan kegemaran</string>
+    <string name="toast_record_saved">Rakaman telah disimpan</string>
+    <string name="toast_record_not_saved">Rakaman tidak disimpan</string>
+    <string name="toast_listen">DENGARKAN</string>
+    <string name="toast_station_renamed">Stesen ini telah ditukar namanya</string>
+</resources>

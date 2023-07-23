@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM-radio</string>
+    <string name="toast_station_searched">Gevonden beschikbare zenders:</string>
+    <string name="toast_cannot_search">Kan beschikbare zenders niet vinden.</string>
+    <string name="optmenu_speaker">Luidspreker</string>
+    <string name="optmenu_earphone">Oortelefoon</string>
+    <string name="save">Opslaan</string>
+    <string name="toast_sdcard_missing">Er is geen SD-kaart geplaatst.</string>
+    <string name="toast_sdcard_insufficient_space">Onvoldoende ruimte op SD-kaart.</string>
+    <string name="toast_recorder_internal_error">Er is een interne fout opgetreden in de recorder.</string>
+    <string name="btn_save_recording">Opslaan</string>
+    <string name="btn_discard_recording">Verwijderen</string>
+    <string name="edit_recording_name_hint">Typ hier de bestandsnaam</string>
+    <string name="already_exists">bestaat al</string>
+    <string name="not_available">Momenteel niet beschikbaar</string>
+    <string name="talk_prev_station">Vorige zender</string>
+    <string name="talk_decrease">Frequentie verlagen</string>
+    <string name="talk_increase">Frequentie verhogen</string>
+    <string name="talk_next_station">Volgende zender</string>
+    <string name="talk_add_favorite">Toevoegen aan favorieten</string>
+    <string name="talk_start_recording">Opname starten</string>
+    <string name="more">"Meer"</string>
+    <string name="recording_tips">Opnemen…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM-radio afspelen of stoppen</string>
+    <string name="fm_over_start_record">Opname starten</string>
+    <string name="fm_over_record_list">Opgeslagen opnamen</string>
+    <string name="fm_station_list_menu_refresh">Vernieuwen</string>
+    <string name="fm_no_headset_text">Als je wilt luisteren, sluit je een hoofdtelefoon aan (wordt gebruikt als antenne).</string>
+    <string name="station_title">Radiozenders</string>
+    <string name="station_searching_tips">Zenders ophalen</string>
+    <string name="station_empty_text">Geen zenders gevonden</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Opnemen</string>
+    <string name="record_notification_message">Opname bezig</string>
+    <string name="stop_record">OPNAME STOPPEN</string>
+    <string name="save_dialog_title">Opname opslaan?</string>
+    <string name="save_dialog_caption">Als je opnamen wilt beluisteren, open je de Play Music-app.</string>
+    <string name="favorites">Favorieten</string>
+    <string name="rename">Naam wijzigen</string>
+    <string name="station_rename_hint">Zendernaam opgeven</string>
+    <string name="remove_favorite">Favoriet verwijderen</string>
+    <string name="toast_record_saved">Opname opgeslagen</string>
+    <string name="toast_record_not_saved">Opname niet opgeslagen</string>
+    <string name="toast_listen">LUISTEREN</string>
+    <string name="toast_station_renamed">De naam van de zender is gewijzigd</string>
+    <string name="audio_db_artist_name">Mijn FM-opnamen</string>
+    <string name="audio_db_album_name">FM-opnamen</string>
+    <string name="audio_db_playlist_name">FM-opnamen</string>
+    <string name="audio_save_dir_name">FM-opnamen</string>
+    <string name="accessibility_play">Afspelen</string>
+    <string name="accessibility_pause">Pauzeren</string>
+    <string name="accessibility_next">Volgende</string>
+    <string name="accessibility_prev">Vorige</string>
+</resources>

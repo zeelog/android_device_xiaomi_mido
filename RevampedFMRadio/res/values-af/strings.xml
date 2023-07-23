@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM-radio</string>
+    <string name="toast_station_searched">Beskikbare stasies uitgesoek:</string>
+    <string name="toast_cannot_search">Kan nie beskikbare stasie uitsoek nie.</string>
+    <string name="optmenu_speaker">Luidspreker</string>
+    <string name="optmenu_earphone">Oorfone</string>
+    <string name="save">Stoor</string>
+    <string name="toast_sdcard_missing">Jou SD-kaart ontbreek!</string>
+    <string name="toast_sdcard_insufficient_space">Onvoldoende SD-kaarspasie!</string>
+    <string name="toast_recorder_internal_error">\'n Interne fout het in die opnemer voorgekom!</string>
+    <string name="btn_save_recording">Stoor</string>
+    <string name="btn_discard_recording">Gooi weg</string>
+    <string name="edit_recording_name_hint">Voer lêernaam hier in</string>
+    <string name="already_exists">bestaan reeds</string>
+    <string name="not_available">Tans nie beskikbaar nie</string>
+    <string name="talk_prev_station">Vorige stasie</string>
+    <string name="talk_decrease">Verlaag frekwensie</string>
+    <string name="talk_increase">Verhoog frekwensie</string>
+    <string name="talk_next_station">Volgende stasie</string>
+    <string name="talk_add_favorite">Voeg by gunstelinge</string>
+    <string name="talk_start_recording">Begin opneem</string>
+    <string name="more">"Meer"</string>
+    <string name="recording_tips">Neem tans op …</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Speel of stop FM-radio</string>
+    <string name="fm_over_start_record">Begin opneem</string>
+    <string name="fm_over_record_list">Gestoorde opnames</string>
+    <string name="fm_station_list_menu_refresh">Herlaai</string>
+    <string name="fm_no_headset_text">Prop oorfone (wat as antenna gebruik word) in om te begin luister.</string>
+    <string name="station_title">Radiostasies</string>
+    <string name="station_searching_tips">Kry tans stasies</string>
+    <string name="station_empty_text">Geen stasies gevind nie</string>
+    <string name="minutes_label">m.</string>
+    <string name="seconds_label">s.</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Opname</string>
+    <string name="record_notification_message">Besig met opname</string>
+    <string name="stop_record">STOP OPNAME</string>
+    <string name="save_dialog_title">Stoor opname?</string>
+    <string name="save_dialog_caption">Maak die Play Musiek-program oop om na opnames te luister.</string>
+    <string name="favorites">Gunstelinge</string>
+    <string name="rename">Hernoem</string>
+    <string name="station_rename_hint">Voer stasienaam in</string>
+    <string name="remove_favorite">Verwyder gunsteling</string>
+    <string name="toast_record_saved">Opname gestoor</string>
+    <string name="toast_record_not_saved">Opname nie gestoor nie</string>
+    <string name="toast_listen">LUISTER</string>
+    <string name="toast_station_renamed">Die stasie is hernoem</string>
+    <string name="audio_db_artist_name">My FM opnames</string>
+    <string name="audio_db_album_name">FM opnames</string>
+    <string name="audio_db_playlist_name">FM opnames</string>
+    <string name="audio_save_dir_name">FM opnames</string>
+    <string name="accessibility_play">Speel</string>
+    <string name="accessibility_pause">Pouseer</string>
+    <string name="accessibility_next">Volgende</string>
+    <string name="accessibility_prev">Vorige</string>
+</resources>

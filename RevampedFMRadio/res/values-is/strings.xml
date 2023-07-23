@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Útvarp</string>
+    <string name="toast_station_searched">Leitað að útvarpsstöðvum í boði:</string>
+    <string name="toast_cannot_search">Ekki er hægt að leita að stöðvum í boði.</string>
+    <string name="optmenu_speaker">Hátalari</string>
+    <string name="optmenu_earphone">Heyrnartól</string>
+    <string name="save">Vista</string>
+    <string name="toast_sdcard_missing">SD-kortið vantar!</string>
+    <string name="toast_sdcard_insufficient_space">Ekki nægt pláss á SD-korti!</string>
+    <string name="toast_recorder_internal_error">Innri villa kom upp í upptökutæki!</string>
+    <string name="btn_save_recording">Vista</string>
+    <string name="btn_discard_recording">Fleygja</string>
+    <string name="edit_recording_name_hint">Sláðu inn skráarheiti hér</string>
+    <string name="already_exists">er þegar til</string>
+    <string name="not_available">Ekki í boði sem stendur</string>
+    <string name="talk_prev_station">Fyrri stöð</string>
+    <string name="talk_decrease">Lækka tíðni</string>
+    <string name="talk_increase">Hækka tíðni</string>
+    <string name="talk_next_station">Næsta stöð</string>
+    <string name="talk_add_favorite">Bæta við uppáhald</string>
+    <string name="talk_start_recording">Hefja upptöku</string>
+    <string name="more">"Meira"</string>
+    <string name="recording_tips">Upptaka í gangi…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Hlusta á útvarp eða slökkva</string>
+    <string name="fm_over_start_record">Hefja upptöku</string>
+    <string name="fm_over_record_list">Vistaðar upptökur</string>
+    <string name="fm_station_list_menu_refresh">Endurnýja</string>
+    <string name="fm_no_headset_text">Tengdu heyrnartól til að hlusta (þau eru notuð sem loftnet).</string>
+    <string name="station_title">Útvarpsstöðvar</string>
+    <string name="station_searching_tips">Sækir stöðvar</string>
+    <string name="station_empty_text">Engar stöðvar fundust</string>
+    <string name="minutes_label">m.</string>
+    <string name="seconds_label">s.</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Upptaka í gangi</string>
+    <string name="record_notification_message">Upptaka í gangi</string>
+    <string name="stop_record">STÖÐVA UPPTÖKU</string>
+    <string name="save_dialog_title">Vista upptöku?</string>
+    <string name="save_dialog_caption">Opnaðu forritið Play Music til að hlusta á upptökur.</string>
+    <string name="favorites">Uppáhald</string>
+    <string name="rename">Endurnefna</string>
+    <string name="station_rename_hint">Sláðu inn stöðvarheiti</string>
+    <string name="remove_favorite">Fjarlægja uppáhald</string>
+    <string name="toast_record_saved">Upptaka vistuð</string>
+    <string name="toast_record_not_saved">Upptaka ekki vistuð</string>
+    <string name="toast_listen">HLUSTA</string>
+    <string name="toast_station_renamed">Heiti stöðvarinnar var breytt</string>
+</resources>

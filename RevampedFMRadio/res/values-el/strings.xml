@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Ραδιόφωνο FM</string>
+    <string name="toast_station_searched">Αναζήτηση διαθέσιμων σταθμών:</string>
+    <string name="toast_cannot_search">Δεν είναι δυνατή η αναζήτηση διαθέσιμου σταθμού.</string>
+    <string name="optmenu_speaker">Ηχείο</string>
+    <string name="optmenu_earphone">Ακουστικά</string>
+    <string name="save">Aποθήκευση</string>
+    <string name="toast_sdcard_missing">Η κάρτα SD λείπει!</string>
+    <string name="toast_sdcard_insufficient_space">Ανεπαρκής χώρος στην κάρτα SD!</string>
+    <string name="toast_recorder_internal_error">Παρουσιάστηκε εσωτερικό σφάλμα στη συσκευή εγγραφής!</string>
+    <string name="btn_save_recording">Aποθήκευση</string>
+    <string name="btn_discard_recording">Απόρριψη</string>
+    <string name="edit_recording_name_hint">Πληκτρολογήστε εδώ το όνομα του αρχείου</string>
+    <string name="already_exists">υπάρχει ήδη</string>
+    <string name="not_available">Μη διαθέσιμο προς το παρόν</string>
+    <string name="talk_prev_station">Προηγούμενος σταθμός</string>
+    <string name="talk_decrease">Μείωση συχνότητας</string>
+    <string name="talk_increase">Αύξηση συχνότητας</string>
+    <string name="talk_next_station">Επόμενος σταθμός</string>
+    <string name="talk_add_favorite">Προσθήκη στα αγαπημένα</string>
+    <string name="talk_start_recording">Έναρξη εγγραφής</string>
+    <string name="more">"Περισσότερα"</string>
+    <string name="recording_tips">Εγγραφή…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Αναπαραγωγή ή διακοπή FM</string>
+    <string name="fm_over_start_record">Έναρξη εγγραφής</string>
+    <string name="fm_over_record_list">Αποθηκευμένες εγγραφές</string>
+    <string name="fm_station_list_menu_refresh">Ανανέωση</string>
+    <string name="fm_no_headset_text">Για να ξεκινήσετε να ακούτε μουσική, συνδέστε τα ακουστικά (που λειτουργούν ως κεραία).</string>
+    <string name="station_title">Ραδιοφωνικοί σταθμοί</string>
+    <string name="station_searching_tips">Λήψη σταθμών</string>
+    <string name="station_empty_text">Δεν βρέθηκαν σταθμοί</string>
+    <string name="minutes_label">Λ</string>
+    <string name="seconds_label">Δ</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Εγγραφή</string>
+    <string name="record_notification_message">Εγγραφή σε εξέλιξη</string>
+    <string name="stop_record">ΔΙΑΚΟΠΗ ΕΓΓΡΑΦΗΣ</string>
+    <string name="save_dialog_title">Αποθήκευση εγγραφής;</string>
+    <string name="save_dialog_caption">Για να ακούσετε ηχογραφήσεις, ανοίξτε την εφαρμογή Μουσική Play.</string>
+    <string name="favorites">Αγαπημένα</string>
+    <string name="rename">Μετονομασία</string>
+    <string name="station_rename_hint">Εισαγάγετε όνομα σταθμού</string>
+    <string name="remove_favorite">Κατάργηση αγαπημένου</string>
+    <string name="toast_record_saved">Η εγγραφή αποθηκεύτηκε</string>
+    <string name="toast_record_not_saved">Η εγγραφή δεν αποθηκεύτηκε</string>
+    <string name="toast_listen">ΑΚΡΟΑΣΗ</string>
+    <string name="toast_station_renamed">Ο σταθμός μετονομάστηκε</string>
+    <string name="audio_db_artist_name">Οι ηχογραφήσεις FM μου</string>
+    <string name="audio_db_album_name">Ηχογραφήσεις FM</string>
+    <string name="audio_db_playlist_name">Ηχογραφήσεις FM</string>
+    <string name="audio_save_dir_name">Ηχογραφήσεις FM</string>
+    <string name="accessibility_play">Αναπαραγωγή</string>
+    <string name="accessibility_pause">Παύση</string>
+    <string name="accessibility_next">Επόμενο</string>
+    <string name="accessibility_prev">Προηγούμενο</string>
+</resources>

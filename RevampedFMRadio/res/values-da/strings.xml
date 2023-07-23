@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM Radio</string>
+    <string name="toast_station_searched">Tilgængelige stationer, der blev fundet:</string>
+    <string name="toast_cannot_search">Den tilgængelige station kan ikke findes.</string>
+    <string name="optmenu_speaker">Højttaler</string>
+    <string name="optmenu_earphone">Høretelefoner</string>
+    <string name="save">Gem</string>
+    <string name="toast_sdcard_missing">Dit SD-kort mangler.</string>
+    <string name="toast_sdcard_insufficient_space">Der er ikke nok plads på SD-kortet.</string>
+    <string name="toast_recorder_internal_error">Optageren stødte på en intern fejl.</string>
+    <string name="btn_save_recording">Gem</string>
+    <string name="btn_discard_recording">Kassér</string>
+    <string name="edit_recording_name_hint">Indtast filnavnet her</string>
+    <string name="already_exists">findes allerede</string>
+    <string name="not_available">Ikke tilgængelig i øjeblikket</string>
+    <string name="talk_prev_station">Forrige station</string>
+    <string name="talk_decrease">Formindsk frekvens</string>
+    <string name="talk_increase">Forøg frekvens</string>
+    <string name="talk_next_station">Næste station</string>
+    <string name="talk_add_favorite">Føj til favorit</string>
+    <string name="talk_start_recording">Start optagelse</string>
+    <string name="more">"Mere"</string>
+    <string name="recording_tips">Optager…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Afspil eller stop FM-radio</string>
+    <string name="fm_over_start_record">Start optagelse</string>
+    <string name="fm_over_record_list">Gemte optagelser</string>
+    <string name="fm_station_list_menu_refresh">Opdater</string>
+    <string name="fm_no_headset_text">For at begynde at lytte skal du tilslutte hovedtelefoner (bruges som en antenne).</string>
+    <string name="station_title">Radiostationer</string>
+    <string name="station_searching_tips">Stationer hentes</string>
+    <string name="station_empty_text">Ingen stationer blev fundet</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Optager</string>
+    <string name="record_notification_message">Optagelse i gang</string>
+    <string name="stop_record">STOP OPTAGELSE</string>
+    <string name="save_dialog_title">Vil du gemme optagelsen?</string>
+    <string name="save_dialog_caption">Hvis du vil lytte til optagelser skal åbne appen Play Musik.</string>
+    <string name="favorites">Foretrukne</string>
+    <string name="rename">Omdøb</string>
+    <string name="station_rename_hint">Indtast stationens navn</string>
+    <string name="remove_favorite">Fjern favorit</string>
+    <string name="toast_record_saved">Optagelse gemt</string>
+    <string name="toast_record_not_saved">Optagelse ikke gemt</string>
+    <string name="toast_listen">LYT</string>
+    <string name="toast_station_renamed">Stationen er blevet omdøbt</string>
+    <string name="audio_db_artist_name">Mine FM-optagelser</string>
+    <string name="audio_db_album_name">FM-optagelser</string>
+    <string name="audio_db_playlist_name">FM-optagelser</string>
+    <string name="audio_save_dir_name">FM-optagelser</string>
+    <string name="accessibility_play">Afspil</string>
+    <string name="accessibility_pause">Pause</string>
+    <string name="accessibility_next">Næste</string>
+    <string name="accessibility_prev">Forrige</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM Radio</string>
+    <string name="toast_station_searched">Aniqlangan radiostansiyalar:</string>
+    <string name="toast_cannot_search">Mavjud radiostansiyalarni qidirib bo‘lmadi.</string>
+    <string name="optmenu_speaker">Karnay</string>
+    <string name="optmenu_earphone">Quloqchin</string>
+    <string name="save">Saqlash</string>
+    <string name="toast_sdcard_missing">SD karta yo‘q.</string>
+    <string name="toast_sdcard_insufficient_space">SD kartada joy yetarli emas.</string>
+    <string name="toast_recorder_internal_error">Yozib olishda ichki xatolik yuz berdi.</string>
+    <string name="btn_save_recording">Saqlash</string>
+    <string name="btn_discard_recording">Bekor qilish</string>
+    <string name="edit_recording_name_hint">Fayl nomini kiriting</string>
+    <string name="already_exists">allaqachon mavjud</string>
+    <string name="not_available">Hozirda mavjud emas</string>
+    <string name="talk_prev_station">Avvalgi radiokanal</string>
+    <string name="talk_decrease">Chastotani kamaytirish</string>
+    <string name="talk_increase">Chastotani ko‘paytirish</string>
+    <string name="talk_next_station">Keyingi radiokanal</string>
+    <string name="talk_add_favorite">Sevimlilarga qo‘shish</string>
+    <string name="talk_start_recording">Yozib olishni boshlash</string>
+    <string name="more">"Ko‘proq"</string>
+    <string name="recording_tips">Yozib olinmoqda…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Radio tinglash yoki to‘xtatish</string>
+    <string name="fm_over_start_record">Yozib olishni boshlash</string>
+    <string name="fm_over_record_list">Saqlab olingan yozuvlar</string>
+    <string name="fm_station_list_menu_refresh">Yangilash</string>
+    <string name="fm_no_headset_text">Radio tinglashni boshlash uchun quloqchinlarni suqing (antenna sifatida ishlatiladi).</string>
+    <string name="station_title">Radiostansiyalar</string>
+    <string name="station_searching_tips">Radiostansiyalarni aniqlash</string>
+    <string name="station_empty_text">Hech qanday radiokanal topilmadi</string>
+    <string name="minutes_label">D</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Yozib olish</string>
+    <string name="record_notification_message">Yozib olish ketmoqda</string>
+    <string name="stop_record">YOZISHNI TO‘XTATISH</string>
+    <string name="save_dialog_title">Yozuv saqlab olinsinmi?</string>
+    <string name="save_dialog_caption">Saqlab olingan yozuvlarni eshitish uchun “Play Musiqa” ilovasini oching.</string>
+    <string name="favorites">Sevimlilar</string>
+    <string name="rename">Qayta nomlash</string>
+    <string name="station_rename_hint">Radiokanal nomini kiriting</string>
+    <string name="remove_favorite">Sevimlilardan olib tashlash</string>
+    <string name="toast_record_saved">Yozuv saqlandi</string>
+    <string name="toast_record_not_saved">Yozuv saqlanmadi</string>
+    <string name="toast_listen">TINGLASH</string>
+    <string name="toast_station_renamed">Radiokanal qayta nomlandi</string>
+</resources>

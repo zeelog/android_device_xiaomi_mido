@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">‏راديو FM</string>
+    <string name="toast_station_searched">تم البحث عن المحطات المتاحة:</string>
+    <string name="toast_cannot_search">لا يمكن البحث عن المحطات المتاحة.</string>
+    <string name="optmenu_speaker">السماعة</string>
+    <string name="optmenu_earphone">سماعة الرأس</string>
+    <string name="save">حفظ</string>
+    <string name="toast_sdcard_missing">‏بطاقة SD غير متاحة!</string>
+    <string name="toast_sdcard_insufficient_space">‏المساحة على بطاقة SD غير كافية!</string>
+    <string name="toast_recorder_internal_error">حدث خطأ داخلي في المسجّل!</string>
+    <string name="btn_save_recording">حفظ</string>
+    <string name="btn_discard_recording">تجاهل</string>
+    <string name="edit_recording_name_hint">اكتب اسم الملف هنا</string>
+    <string name="already_exists">موجود فعلاً</string>
+    <string name="not_available">غير متاح حاليًا</string>
+    <string name="talk_prev_station">المحطة السابقة</string>
+    <string name="talk_decrease">خفض التردد</string>
+    <string name="talk_increase">زيادة التردد</string>
+    <string name="talk_next_station">المحطة التالية</string>
+    <string name="talk_add_favorite">إضافة إلى المفضلة</string>
+    <string name="talk_start_recording">بدء التسجيل</string>
+    <string name="more">"المزيد"</string>
+    <string name="recording_tips">جارٍ التسجيل…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">‏تشغيل راديو FM أو إيقافه</string>
+    <string name="fm_over_start_record">بدء التسجيل</string>
+    <string name="fm_over_record_list">تم حفظ التسجيلات</string>
+    <string name="fm_station_list_menu_refresh">تحديث</string>
+    <string name="fm_no_headset_text">لبدء الاستماع، عليك توصيل سماعات الرأس (تستخدم كهوائي).</string>
+    <string name="station_title">محطات الراديو</string>
+    <string name="station_searching_tips">جارٍ الحصول على المحطات</string>
+    <string name="station_empty_text">لم يتم العثور على أية محطات</string>
+    <string name="minutes_label">د</string>
+    <string name="seconds_label">ث</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">جارٍ التسجيل</string>
+    <string name="record_notification_message">التسجيل قيد التقدم</string>
+    <string name="stop_record">إيقاف التسجيل</string>
+    <string name="save_dialog_title">هل تريد حفظ التسجيل؟</string>
+    <string name="save_dialog_caption">‏للاستماع إلى التسجيلات، افتح تطبيق موسيقى Play.</string>
+    <string name="favorites">المفضلة</string>
+    <string name="rename">إعادة تسمية</string>
+    <string name="station_rename_hint">أدخل اسم المحطة</string>
+    <string name="remove_favorite">إزالة من المفضلة</string>
+    <string name="toast_record_saved">تم حفظ التسجيل</string>
+    <string name="toast_record_not_saved">لم يتم حفظ التسجيل</string>
+    <string name="toast_listen">استماع</string>
+    <string name="toast_station_renamed">تمت إعادة تسمية المحطة</string>
+    <string name="audio_db_artist_name">تسجيلات FM الخاصة بي</string>
+    <string name="audio_db_album_name">تسجيلات FM</string>
+    <string name="audio_db_playlist_name">تسجيلات FM</string>
+    <string name="audio_save_dir_name">تسجيلات FM</string>
+    <string name="accessibility_play">تشغيل</string>
+    <string name="accessibility_pause">إيقاف مؤقت</string>
+    <string name="accessibility_next">التالي</string>
+    <string name="accessibility_prev">السابق</string>
+</resources>

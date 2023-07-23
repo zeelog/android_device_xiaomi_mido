@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM ಆಕಾಶವಾಣಿ</string>
+    <string name="toast_station_searched">ಲಭ್ಯವಿರುವ ಸ್ಟೇಷನ್‌ಗಳ ಹುಡುಕಾಟ ನಡೆಸಲಾಗಿದೆ:</string>
+    <string name="toast_cannot_search">ಲಭ್ಯವಿರುವ ಕೇಂದ್ರ ಹುಡುಕಲಾಗಲಿಲ್ಲ.</string>
+    <string name="optmenu_speaker">ಧ್ವನಿವರ್ಧಕ</string>
+    <string name="optmenu_earphone">ಕರ್ಣವಾಣಿ</string>
+    <string name="save">ಉಳಿಸು</string>
+    <string name="toast_sdcard_missing">ನಿಮ್ಮ SD ಕಾರ್ಡ್ ಕಾಣೆಯಾಗಿದೆ!</string>
+    <string name="toast_sdcard_insufficient_space">SD ಬಿಲ್ಲೆಯಲ್ಲಿ ಜಾಗ ಸಾಕಷ್ಟಿಲ್ಲ!</string>
+    <string name="toast_recorder_internal_error">ದಾಖಲೆದಾರನಲ್ಲಿ ಆಂತರಿಕ ದೋಷ ಸಂಭವಿಸಿದೆ!</string>
+    <string name="btn_save_recording">ಉಳಿಸು</string>
+    <string name="btn_discard_recording">ತ್ಯಜಿಸು</string>
+    <string name="edit_recording_name_hint">ಫೈಲ್ ಹೆಸರನ್ನು ಇಲ್ಲಿ ಟೈಪ್ ಮಾಡಿ</string>
+    <string name="already_exists">ಆಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ</string>
+    <string name="not_available">ಪ್ರಸ್ತುತ ಲಭ್ಯವಿಲ್ಲ</string>
+    <string name="talk_prev_station">ಹಿಂದಿನ ಕೇಂದ್ರ</string>
+    <string name="talk_decrease">ತರಂಗಾಂತರ ತಗ್ಗಿಸು</string>
+    <string name="talk_increase">ತರಂಗಾಂತರ ಹೆಚ್ಚಿಸು</string>
+    <string name="talk_next_station">ಮುಂದಿನ ಕೇಂದ್ರ</string>
+    <string name="talk_add_favorite">ಮೆಚ್ಚಿನದಕ್ಕೆ ಸೇರಿಸು</string>
+    <string name="talk_start_recording">ಧ್ವನಿಮುದ್ರಣವನ್ನು ಪ್ರಾರಂಭಿಸು</string>
+    <string name="more">"ಇನ್ನಷ್ಟು"</string>
+    <string name="recording_tips">ಮುದ್ರಣವಾಗುತ್ತಿದೆ…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM ಆಕಾಶವಾಣಿ ಆಡಿಸು ಅಥವಾ ನಿಲ್ಲಿಸು</string>
+    <string name="fm_over_start_record">ಧ್ವನಿಮುದ್ರಣವನ್ನು ಪ್ರಾರಂಭಿಸು</string>
+    <string name="fm_over_record_list">ಧ್ವನಿಮುದ್ರಣಗಳನ್ನು ಉಳಿಸಲಾಗಿದೆ</string>
+    <string name="fm_station_list_menu_refresh">ಪುನಶ್ಚೇತನ</string>
+    <string name="fm_no_headset_text">ಆಲಿಸಲು, ಹೆಡ್‌ಫೋನ್‌ಗಳನ್ನು ಪ್ಲಗ್ ಇನ್ ಮಾಡಿ (ಆಂಟೆನಾ ರೀತಿಯಲ್ಲಿ ಬಳಸಲಾಗುತ್ತದೆ).</string>
+    <string name="station_title">ಆಕಾಶವಾಣಿ ಕೇಂದ್ರಗಳು</string>
+    <string name="station_searching_tips">ಕೇಂದ್ರಗಳನ್ನು ಪಡೆಯಲಾಗುತ್ತಿದೆ</string>
+    <string name="station_empty_text">ಯಾವುದೇ ಕೇಂದ್ರಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ</string>
+    <string name="minutes_label">ನಿ</string>
+    <string name="seconds_label">ಕ್ಷ</string>
+    <string name="timer_default">೦೦</string>
+    <string name="record_title">ಧ್ವನಿಮುದ್ರಣವಾಗುತ್ತಿದೆ</string>
+    <string name="record_notification_message">ಮುದ್ರಣ ಪ್ರಗತಿಯಲ್ಲಿದೆ</string>
+    <string name="stop_record">ಧ್ವನಿಮುದ್ರಣವನ್ನು ನಿಲ್ಲಿಸು</string>
+    <string name="save_dialog_title">ರೆಕಾರ್ಡಿಂಗ್ ಉಳಿಸುವುದೇ?</string>
+    <string name="save_dialog_caption">ರೆಕಾರ್ಡಿಂಗ್‌ಗಳನ್ನು ಆಲಿಸಲು, Play Music ಅಪ್ಲಿಕೇಶನ್ ತೆರೆಯಿರಿ.</string>
+    <string name="favorites">ಮೆಚ್ಚಿನವುಗಳು</string>
+    <string name="rename">ಮರುನಾಮ</string>
+    <string name="station_rename_hint">ಕೇಂದ್ರದ ಹೆಸರು ನಮೂದಿಸಿ</string>
+    <string name="remove_favorite">ಮೆಚ್ಚಿನದನ್ನು ತೆಗೆದುಹಾಕಿ</string>
+    <string name="toast_record_saved">ಮುದ್ರಣ ಉಳಿಸಲಾಗಿದೆ</string>
+    <string name="toast_record_not_saved">ಮುದ್ರಣ ಉಳಿಸಲಾಗಿಲ್ಲ</string>
+    <string name="toast_listen">ಆಲಿಸು</string>
+    <string name="toast_station_renamed">ಕೇಂದ್ರ ಮರುನಾಮಕರಣವಾಗಿದೆ</string>
+    <string name="accessibility_play">ಪ್ಲೇ</string>
+    <string name="accessibility_pause">ವಿರಾಮ</string>
+    <string name="accessibility_next">ಮುಂದಿನ</string>
+    <string name="accessibility_prev">ಹಿಂದಿನ</string>
+</resources>

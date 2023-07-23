@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM ရေဒီယို</string>
+    <string name="toast_station_searched">နားထောင်နိုင်သော အသံလွှင့်ရုံများ ရှာတွေ့၏−</string>
+    <string name="toast_cannot_search">နားထောင်နိုင်သော အသံလွှင့်ရုံ ရှာမတွေ့ပါ။</string>
+    <string name="optmenu_speaker">စပီကာ</string>
+    <string name="optmenu_earphone">နားကြပ်</string>
+    <string name="save">သိမ်းဆည်းရန်</string>
+    <string name="toast_sdcard_missing">သင့် SD ကဒ် ရှာမတွေ့ပါ!</string>
+    <string name="toast_sdcard_insufficient_space">SD ကဒ် နေရာ မလုံလောက်ပါ!</string>
+    <string name="toast_recorder_internal_error">အသံဖမ်းစက်တွင်း တစ်ခုခု မှားနေသည်!</string>
+    <string name="btn_save_recording">သိမ်းဆည်းရန်</string>
+    <string name="btn_discard_recording">ဖျက်သိမ်းရန်</string>
+    <string name="edit_recording_name_hint">ဤတွင် ဖိုင်အမည် ရိုက်ပါ။</string>
+    <string name="already_exists">ရှိပြီးဖြစ်၏</string>
+    <string name="not_available">လောလောဆယ် မရနိုင်ပါ။</string>
+    <string name="talk_prev_station">ယခင် အသံလွှင့်ရုံ</string>
+    <string name="talk_decrease">ရေဒီယိုလှိုင်း လျှော့ရန်</string>
+    <string name="talk_increase">ရေဒီယိုလှိုင်း တိုးရန်</string>
+    <string name="talk_next_station">အသံလွှင့်ရုံ နောက်တစ်ခု</string>
+    <string name="talk_add_favorite">စိတ်ကြိုက်များသို့ ထည့်ရန်</string>
+    <string name="talk_start_recording">အသံ စ ဖမ်းရန်</string>
+    <string name="more">"နောက်ထပ်"</string>
+    <string name="recording_tips">အသံဖမ်းနေခြင်း…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM ရေဒီယို ဖွင့် သို့ ပိတ်ရန်</string>
+    <string name="fm_over_start_record">စတင် အသံသွင်းရန်</string>
+    <string name="fm_over_record_list">အသံသွင်းပြီး သိမ်းထားခြင်းများ</string>
+    <string name="fm_station_list_menu_refresh">ပြန်လည်ဆန်းသစ်ရန်</string>
+    <string name="fm_no_headset_text">စတင်နားထောင်ရန်၊ နားကြပ်အား ပလပ်တပ်ပါ (အင်တာနာအဖြစ် သုံးရန်)။</string>
+    <string name="station_title">ရေဒီယို အသံလွှင့်ရုံ</string>
+    <string name="station_searching_tips">အသံလွှင့်ရုံများ ရယူနေခြင်း</string>
+    <string name="station_empty_text">အသံလွှင့်ရုံများ မတွေ့ပါ။</string>
+    <string name="minutes_label">သန်း</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">၀၀</string>
+    <string name="record_title">အသံဖမ်းနေခြင်း</string>
+    <string name="record_notification_message">အသံဖမ်းနေစဉ်</string>
+    <string name="stop_record">အသံဖမ်းခြင်း ရပ်ရန်</string>
+    <string name="save_dialog_title">အသံသွင်းထားခြင်းအား သိမ်းမည်လား?</string>
+    <string name="save_dialog_caption">အသံသွင်းထားသည်များ နားထောင်ရန်၊ Play Music app အား ဖွင့်ပါ။</string>
+    <string name="favorites">အကြိုက်ဆုံး</string>
+    <string name="rename">အမည်ပြောင်းရန်</string>
+    <string name="station_rename_hint">အသံလွှင့်ရုံအမည် ရိုက်ထည့်ရန်</string>
+    <string name="remove_favorite">စိတ်ကြိုက်များမှ ဖယ်ရန်</string>
+    <string name="toast_record_saved">အသံဖမ်းခြင်းအား သိမ်းထား၏။</string>
+    <string name="toast_record_not_saved">အသံဖမ်းခြင်းအား သိမ်းမထားပါ။</string>
+    <string name="toast_listen">နားထောင်ရန်</string>
+    <string name="toast_station_renamed">အသံလွှင့်ရုံအား နာမည်ပြောင်းထား၏။</string>
+</resources>

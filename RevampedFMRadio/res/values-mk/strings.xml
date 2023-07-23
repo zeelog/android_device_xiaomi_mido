@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM Radio</string>
+    <string name="toast_station_searched">Се пребараа достапни станици:</string>
+    <string name="toast_cannot_search">Не може да се бара достапна станица.</string>
+    <string name="optmenu_speaker">Звучник</string>
+    <string name="optmenu_earphone">Слушалка</string>
+    <string name="save">Зачувај</string>
+    <string name="toast_sdcard_missing">СД-картичката недостасува!</string>
+    <string name="toast_sdcard_insufficient_space">Недоволно простор на СД-картичката!</string>
+    <string name="toast_recorder_internal_error">Се појави внатрешна грешка во снимачот!</string>
+    <string name="btn_save_recording">Зачувај</string>
+    <string name="btn_discard_recording">Отфрли</string>
+    <string name="edit_recording_name_hint">Напишете го името на датотеката тука</string>
+    <string name="already_exists">веќе постои</string>
+    <string name="not_available">Во моментов не е достапно</string>
+    <string name="talk_prev_station">Претходна станица</string>
+    <string name="talk_decrease">Намали ја фреквенцијата</string>
+    <string name="talk_increase">Зголеми ја фреквенцијата</string>
+    <string name="talk_next_station">Следна станица</string>
+    <string name="talk_add_favorite">Додај во омилени</string>
+    <string name="talk_start_recording">Започнете со снимање</string>
+    <string name="more">"Повеќе"</string>
+    <string name="recording_tips">Се снима…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Пуштете или запрете FM radio</string>
+    <string name="fm_over_start_record">Започнете со снимање</string>
+    <string name="fm_over_record_list">Зачувани снимки</string>
+    <string name="fm_station_list_menu_refresh">Освежи</string>
+    <string name="fm_no_headset_text">За да почнете да слушате, приклучете слушалки (се користат како антена).</string>
+    <string name="station_title">Радиостаници</string>
+    <string name="station_searching_tips">Се добиваат станици</string>
+    <string name="station_empty_text">Не се најдени станици</string>
+    <string name="minutes_label">М</string>
+    <string name="seconds_label">С</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Се снима</string>
+    <string name="record_notification_message">Снимање во тек</string>
+    <string name="stop_record">ПРЕКИНИ СО СНИМАЊЕ</string>
+    <string name="save_dialog_title">Зачувај ја снимката?</string>
+    <string name="save_dialog_caption">За да ги слушате снимките, отворете ја апликацијата Play Music.</string>
+    <string name="favorites">Омилени</string>
+    <string name="rename">Преименувај</string>
+    <string name="station_rename_hint">Внесете име на станица</string>
+    <string name="remove_favorite">Отстрани омилени</string>
+    <string name="toast_record_saved">Снимката е зачувана</string>
+    <string name="toast_record_not_saved">Снимката не е зачувана</string>
+    <string name="toast_listen">СЛУШАЈ</string>
+    <string name="toast_station_renamed">Станицата е преименувана</string>
+</resources>

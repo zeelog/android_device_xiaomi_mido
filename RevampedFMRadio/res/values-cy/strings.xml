@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM</string>
+    <string name="toast_station_searched">Wedi canfod gorsafoedd ar gael:</string>
+    <string name="toast_cannot_search">Methu â chwilio am orsafoedd ar gael.</string>
+    <string name="optmenu_speaker">Seinydd</string>
+    <string name="optmenu_earphone">Clustffôn</string>
+    <string name="save">Cadw</string>
+    <string name="toast_sdcard_missing">Mae dy gerdyn SD ar goll!</string>
+    <string name="toast_sdcard_insufficient_space">Dim digon o le ar y cerdyn SD!</string>
+    <string name="toast_recorder_internal_error">Bu gwall mewnol yn y recordir!</string>
+    <string name="btn_save_recording">Cadw</string>
+    <string name="btn_discard_recording">Gwaredu</string>
+    <string name="edit_recording_name_hint">Rho enw\'r ffeil yma</string>
+    <string name="already_exists">eisoes yn bodoli</string>
+    <string name="not_available">Dim ar gael ar hyn o bryd</string>
+    <string name="talk_prev_station">Gorsaf blaenorol</string>
+    <string name="talk_decrease">Lleihau amledd</string>
+    <string name="talk_increase">Cynyddu amledd</string>
+    <string name="talk_next_station">Gorsaf nesaf</string>
+    <string name="talk_add_favorite">Ychwanegu fel ffefryn</string>
+    <string name="talk_start_recording">Dechrau recordio</string>
+    <string name="more">"Mwy"</string>
+    <string name="recording_tips">Yn recordio…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Chwarae neu stopio radio FM</string>
+    <string name="fm_over_start_record">Dechrau recordio</string>
+    <string name="fm_over_record_list">Recordiadau wedi\'u cadw</string>
+    <string name="fm_station_list_menu_refresh">Ail-lwytho</string>
+    <string name="fm_no_headset_text">I ddechrau gwrando, cysyllta clustffonau (defnyddir fel erial).</string>
+    <string name="station_title">Gorsafoedd Radio</string>
+    <string name="station_searching_tips">Yn canfod gorsafoedd</string>
+    <string name="station_empty_text">Ni chanfuwyd unrhyw orsafoedd</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">E</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Recordio</string>
+    <string name="record_notification_message">Recordio ar y gweill</string>
+    <string name="stop_record">STOPIO RECORDIO</string>
+    <string name="save_dialog_title">Cadw\'r recordiad?</string>
+    <string name="save_dialog_caption">I wrando ar recordiadau, agora ap chwarae cerddoriaeth.</string>
+    <string name="favorites">Ffefrynnau</string>
+    <string name="rename">Ailenwi</string>
+    <string name="station_rename_hint">Rho enw orsaf</string>
+    <string name="remove_favorite">Tynnu\'r ffefryn</string>
+    <string name="toast_record_saved">Cadwyd y recordiad</string>
+    <string name="toast_record_not_saved">Ni chadwyd y recordiad</string>
+    <string name="toast_listen">GWRANDO</string>
+    <string name="toast_station_renamed">Mae\'r orsaf wedi ei hailenwi</string>
+    <string name="audio_db_artist_name">Fy recordiadau FM</string>
+    <string name="audio_db_album_name">Recordiadau FM</string>
+    <string name="audio_db_playlist_name">Recordiadau FM</string>
+    <string name="audio_save_dir_name">Recordiadau FM</string>
+    <string name="accessibility_play">Chwarae</string>
+    <string name="accessibility_pause">Seibio</string>
+    <string name="accessibility_next">Nesaf</string>
+    <string name="accessibility_prev">Blaenorol</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM-radio</string>
+    <string name="toast_station_searched">Seuraavat käytettävissä olevat kanavat löytyivät:</string>
+    <string name="toast_cannot_search">Käytettävissä olevia kanavia ei voi etsiä.</string>
+    <string name="optmenu_speaker">Kaiutin</string>
+    <string name="optmenu_earphone">Kuuloke</string>
+    <string name="save">Tallenna</string>
+    <string name="toast_sdcard_missing">SD-kortti puuttuu.</string>
+    <string name="toast_sdcard_insufficient_space">SD-kortilla ei ole tarpeeksi tilaa.</string>
+    <string name="toast_recorder_internal_error">Tallennettaessa tapahtui sisäinen virhe.</string>
+    <string name="btn_save_recording">Tallenna</string>
+    <string name="btn_discard_recording">Hylkää</string>
+    <string name="edit_recording_name_hint">Kirjoita tiedoston nimi tähän</string>
+    <string name="already_exists">on jo olemassa</string>
+    <string name="not_available">Ei saatavilla tällä hetkellä</string>
+    <string name="talk_prev_station">Edellinen kanava</string>
+    <string name="talk_decrease">Vähennä taajuutta</string>
+    <string name="talk_increase">Lisää taajuutta</string>
+    <string name="talk_next_station">Seuraava kanava</string>
+    <string name="talk_add_favorite">Lisää suosikiksi</string>
+    <string name="talk_start_recording">Aloita tallennus</string>
+    <string name="more">"Lisää"</string>
+    <string name="recording_tips">Tallennetaan…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Kuuntele tai pysäytä FM-radio</string>
+    <string name="fm_over_start_record">Aloita tallennus</string>
+    <string name="fm_over_record_list">Tallenteet</string>
+    <string name="fm_station_list_menu_refresh">Päivitä</string>
+    <string name="fm_no_headset_text">Aloita kuunteleminen liittämällä kuulokkeet (joita käytetään antennina).</string>
+    <string name="station_title">Radiokanavat</string>
+    <string name="station_searching_tips">Haetaan kanavia</string>
+    <string name="station_empty_text">Kanavia ei löytynyt</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Tallennetaan</string>
+    <string name="record_notification_message">Tallennus käynnissä</string>
+    <string name="stop_record">LOPETA TALLENNUS</string>
+    <string name="save_dialog_title">Tallennetaanko äänitys?</string>
+    <string name="save_dialog_caption">Kuuntele tallenteita avaamalla Play Musiikki -sovellus.</string>
+    <string name="favorites">Suosikit</string>
+    <string name="rename">Nimeä uudelleen</string>
+    <string name="station_rename_hint">Kirjoita kanavan nimi</string>
+    <string name="remove_favorite">Poista suosikeista</string>
+    <string name="toast_record_saved">Äänitys tallennettu</string>
+    <string name="toast_record_not_saved">Äänitystä ei tallennettu</string>
+    <string name="toast_listen">KUUNTELE</string>
+    <string name="toast_station_renamed">Kanava on nimetty uudelleen</string>
+    <string name="audio_db_artist_name">Omat FM-tallennukset</string>
+    <string name="audio_db_album_name">FM-tallennukset</string>
+    <string name="audio_db_playlist_name">FM-tallennukset</string>
+    <string name="audio_save_dir_name">FM-tallennukset</string>
+    <string name="accessibility_play">Toista</string>
+    <string name="accessibility_pause">Pysäytä</string>
+    <string name="accessibility_next">Seuraava</string>
+    <string name="accessibility_prev">Edellinen</string>
+</resources>

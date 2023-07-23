@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM rádió</string>
+    <string name="toast_station_searched">Fogható állomások:</string>
+    <string name="toast_cannot_search">Nincs fogható állomás.</string>
+    <string name="optmenu_speaker">Hangszóró</string>
+    <string name="optmenu_earphone">Fülhallgató</string>
+    <string name="save">Mentés</string>
+    <string name="toast_sdcard_missing">Az SD-kártya hiányzik!</string>
+    <string name="toast_sdcard_insufficient_space">Nincs elegendő hely az SD-kártyán!</string>
+    <string name="toast_recorder_internal_error">Belső hiba történt a felvevőben!</string>
+    <string name="btn_save_recording">Mentés</string>
+    <string name="btn_discard_recording">Elvetés</string>
+    <string name="edit_recording_name_hint">Gépelje be ide a fájl nevét</string>
+    <string name="already_exists">már létezik</string>
+    <string name="not_available">Jelenleg nem áll rendelkezésre</string>
+    <string name="talk_prev_station">Előző állomás</string>
+    <string name="talk_decrease">Frekvencia csökkentése</string>
+    <string name="talk_increase">Frekvencia növelése</string>
+    <string name="talk_next_station">Következő állomás</string>
+    <string name="talk_add_favorite">Hozzáadás a kedvencekhez</string>
+    <string name="talk_start_recording">Felvétel indítása</string>
+    <string name="more">"Továbbiak"</string>
+    <string name="recording_tips">Felvétel…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM rádió indítása/leállítása</string>
+    <string name="fm_over_start_record">Felvétel indítása</string>
+    <string name="fm_over_record_list">Mentett felvételek</string>
+    <string name="fm_station_list_menu_refresh">Frissítés</string>
+    <string name="fm_no_headset_text">A rádiózáshoz dugja be a fejhallgatót (amely antennaként funkcionál).</string>
+    <string name="station_title">Rádióállomások</string>
+    <string name="station_searching_tips">Állomások keresése</string>
+    <string name="station_empty_text">Nem található állomás</string>
+    <string name="minutes_label">p</string>
+    <string name="seconds_label">mp</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Felvétel</string>
+    <string name="record_notification_message">Felvétel folyamatban</string>
+    <string name="stop_record">FELVÉTEL LEÁLLÍTÁSA</string>
+    <string name="save_dialog_title">Menti a felvételt?</string>
+    <string name="save_dialog_caption">A felvételek meghallgatásához nyissa meg a Play Zene alkalmazást.</string>
+    <string name="favorites">Kedvencek</string>
+    <string name="rename">Átnevezés</string>
+    <string name="station_rename_hint">Adja meg az állomás nevét</string>
+    <string name="remove_favorite">Eltávolítás a kedvencekből</string>
+    <string name="toast_record_saved">Felvétel mentve</string>
+    <string name="toast_record_not_saved">A felvétel nincs mentve</string>
+    <string name="toast_listen">HALLGATÁS</string>
+    <string name="toast_station_renamed">Az állomást átnevezte</string>
+    <string name="audio_db_artist_name">Saját FM felvételek</string>
+    <string name="audio_db_album_name">FM felvételek</string>
+    <string name="audio_db_playlist_name">FM felvételek</string>
+    <string name="audio_save_dir_name">FM felvételek</string>
+    <string name="accessibility_play">Lejátszás</string>
+    <string name="accessibility_pause">Szünet</string>
+    <string name="accessibility_next">Következő</string>
+    <string name="accessibility_prev">Előző</string>
+</resources>

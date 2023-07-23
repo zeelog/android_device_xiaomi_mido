@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">ວິທະຍຸ FM</string>
+    <string name="toast_station_searched">ຊອກ​ຫາ​ສະ​ຖາ​ນີ​ທີ່​ມີ​ຢູ່​ແລ້ວ:</string>
+    <string name="toast_cannot_search">ບໍ່​ສາ​ມາດ​ຊອກ​ຫາ​ສະ​ຖາ​ນີ​ທີ່​ມີ​ຢູ່​ໄດ້.</string>
+    <string name="optmenu_speaker">ລຳໂພງ</string>
+    <string name="optmenu_earphone">ຊຸດ​ຟັງ​ຫູ</string>
+    <string name="save">ບັນທຶກ</string>
+    <string name="toast_sdcard_missing">ແຜ່ນ SD ຂອງ​ທ່ານ​ຂາດ​ໄປ!</string>
+    <string name="toast_sdcard_insufficient_space">ເນື້ອ​ທີ່​ແຜ່ນ SD ບໍ່​ພຽງ​ພໍ!</string>
+    <string name="toast_recorder_internal_error">ເກີດ​ຄວາມ​ຜິດ​ພາດ​ພາຍ​ໃນ​ຂຶ້ນ​ຢູ່​ໃນ​ການ​ບັນ​ທຶກ!</string>
+    <string name="btn_save_recording">ບັນທຶກ</string>
+    <string name="btn_discard_recording">ລຶບ​ຖິ້​ມ</string>
+    <string name="edit_recording_name_hint">ພິມ​ຊື່​ໄຟ​ລ໌​ທີ່​ນີ້</string>
+    <string name="already_exists">ມີ​ຢູ່​ແລ້ວ</string>
+    <string name="not_available">ບໍ່​ມີ​ຢູ່​ໃນ​ປະ​ຈຸ​ບັນ</string>
+    <string name="talk_prev_station">ສະ​ຖາ​ນີ​ຜ່ານ​ມາ</string>
+    <string name="talk_decrease">ຫຼຸດ​ຄວາມ​ຖີ່</string>
+    <string name="talk_increase">ເພີ່ມ​ຄວາມ​ຖີ່</string>
+    <string name="talk_next_station">ສະ​ຖາ​ນີ​ຕໍ່​ໄປ</string>
+    <string name="talk_add_favorite">ເພີ່ມ​ໃສ່​ລາຍ​ການ​ທີ່​ມັກ</string>
+    <string name="talk_start_recording">ເລີ່ມ​ການ​ບັນ​ທຶກ</string>
+    <string name="more">"ເພີ່ມເຕີມ"</string>
+    <string name="recording_tips">ກຳ​ລັງ​ບັນ​ທຶກ…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">ຫຼິ້ນ ຫຼື​ຢຸດ​ວິ​ທະ​ຍຸ FM</string>
+    <string name="fm_over_start_record">ເລີ່ມ​ການ​ບັນ​ທຶກ</string>
+    <string name="fm_over_record_list">ການ​ບັນ​ທຶກ​ທີ່​ບັນ​ທຶກ​ໄວ້</string>
+    <string name="fm_station_list_menu_refresh">ຣີ​ເຟ​ຣ​ຊ</string>
+    <string name="fm_no_headset_text">ເພື່ອ​ເລີ່ມ​ຟັງ, ສຽບ​ສາຍ​ຟັງ​ຫູ​ໃສ່ (ໃຊ້​ເປັນ​ອັງ​ແຕ່ນ).</string>
+    <string name="station_title">ສະ​ຖາ​ນີ​ວິ​ທະ​ຍຸ</string>
+    <string name="station_searching_tips">ກຳ​ລັງ​ເອົາ​ສະ​ຖາ​ນີ</string>
+    <string name="station_empty_text">ບໍ່​ພົບ​ສະ​ຖາ​ນີ</string>
+    <string name="minutes_label">​ຈ</string>
+    <string name="seconds_label">​ສ</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">ກຳ​ລັງ​ບັນ​ທຶກ</string>
+    <string name="record_notification_message">ການ​ບັນ​ທຶກ​ຄືບ​ໜ້າ​ຢູ່</string>
+    <string name="stop_record">ຢຸດ​ການ​ບັນ​ທຶກ</string>
+    <string name="save_dialog_title">ບັນ​ທຶກ​ເອົາ​ການ​ບັນ​ທຶກ​ບໍ?</string>
+    <string name="save_dialog_caption">ເພື່ອ​ຟັງ​ການ​ບັນ​ທຶກ, ເປີດ​ແອັບຯ Play Music.</string>
+    <string name="favorites">​ລາຍ​ການ​ທີ່​ມັກ</string>
+    <string name="rename">ປ່ຽນຊື່</string>
+    <string name="station_rename_hint">ປ້ອນ​ຊື່​ສະ​ຖາ​ນີ​ເຂົ້າ​ໄປ</string>
+    <string name="remove_favorite">ເອົາ​ລາຍ​ການ​ທີ່​ມັກ​ອອກ</string>
+    <string name="toast_record_saved">ບັນ​ທຶກ​ເອົາ​ການ​ບັນ​ທຶກ​ແລ້ວ</string>
+    <string name="toast_record_not_saved">ການ​ບັນ​ທຶກ​ບໍ່​ຖືກ​ບັນ​ທຶກ​ໄວ້</string>
+    <string name="toast_listen">ຟັງ</string>
+    <string name="toast_station_renamed">ປ່ຽນ​ຊື່​ສະ​ຖາ​ນີ​ແລ້ວ</string>
+</resources>

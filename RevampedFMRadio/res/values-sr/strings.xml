@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM радио</string>
+    <string name="toast_station_searched">Пронађене доступне станице:</string>
+    <string name="toast_cannot_search">Није могуће пронаћи доступну станицу.</string>
+    <string name="optmenu_speaker">Звучник</string>
+    <string name="optmenu_earphone">Слушалице</string>
+    <string name="save">Сачувај</string>
+    <string name="toast_sdcard_missing">Недостаје SD картица!</string>
+    <string name="toast_sdcard_insufficient_space">Нема довољно простора на SD картици!</string>
+    <string name="toast_recorder_internal_error">Дошло је до интерне грешке у снимачу!</string>
+    <string name="btn_save_recording">Сачувај</string>
+    <string name="btn_discard_recording">Одбаци</string>
+    <string name="edit_recording_name_hint">Овде унесите назив датотеке</string>
+    <string name="already_exists">већ постоји</string>
+    <string name="not_available">Тренутно је недоступно</string>
+    <string name="talk_prev_station">Претходна станица</string>
+    <string name="talk_decrease">Нижа фреквенција</string>
+    <string name="talk_increase">Виша фреквенција</string>
+    <string name="talk_next_station">Следећа станица</string>
+    <string name="talk_add_favorite">Додај у омиљене</string>
+    <string name="talk_start_recording">Започни снимање</string>
+    <string name="more">"Још"</string>
+    <string name="recording_tips">Снима се...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Пусти или заустави FM радио</string>
+    <string name="fm_over_start_record">Започни снимање</string>
+    <string name="fm_over_record_list">Сачувани снимци</string>
+    <string name="fm_station_list_menu_refresh">Освежи</string>
+    <string name="fm_no_headset_text">Да бисте почели да слушате, прикључите слушалице (користе се као антена).</string>
+    <string name="station_title">Радио станице</string>
+    <string name="station_searching_tips">Траже се станице</string>
+    <string name="station_empty_text">Није пронађена ниједна станица</string>
+    <string name="minutes_label">М</string>
+    <string name="seconds_label">С</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Снимање</string>
+    <string name="record_notification_message">Снимање је у току</string>
+    <string name="stop_record">ЗАУСТАВИ СНИМАЊЕ</string>
+    <string name="save_dialog_title">Желите ли да сачувате снимак?</string>
+    <string name="save_dialog_caption">Да бисте слушали снимке, отворите апликацију Play музика.</string>
+    <string name="favorites">Омиљене</string>
+    <string name="rename">Преименуј</string>
+    <string name="station_rename_hint">Унесите назив станице</string>
+    <string name="remove_favorite">Уклони омиљену</string>
+    <string name="toast_record_saved">Снимак је сачуван</string>
+    <string name="toast_record_not_saved">Снимак није сачуван</string>
+    <string name="toast_listen">ПУСТИ</string>
+    <string name="toast_station_renamed">Назив станице је промењен</string>
+    <string name="audio_db_artist_name">Моји радио-снимци</string>
+    <string name="audio_db_album_name">Радио-снимци</string>
+    <string name="audio_db_playlist_name">Радио-снимци</string>
+    <string name="audio_save_dir_name">Радио-снимци</string>
+    <string name="accessibility_play">Пусти</string>
+    <string name="accessibility_pause">Пауза</string>
+    <string name="accessibility_next">Следеће</string>
+    <string name="accessibility_prev">Претходно</string>
+</resources>

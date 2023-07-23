@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM radio</string>
+    <string name="toast_station_searched">Pronađene su dostupne postaje:</string>
+    <string name="toast_cannot_search">Nije pronađena dostupna postaja.</string>
+    <string name="optmenu_speaker">Zvučnik</string>
+    <string name="optmenu_earphone">Slušalica</string>
+    <string name="save">Spremi</string>
+    <string name="toast_sdcard_missing">Nema SD kartice.</string>
+    <string name="toast_sdcard_insufficient_space">Nema dovoljno prostora na SD kartici.</string>
+    <string name="toast_recorder_internal_error">Došlo je do interne pogreške na snimaču.</string>
+    <string name="btn_save_recording">Spremi</string>
+    <string name="btn_discard_recording">Odbaci</string>
+    <string name="edit_recording_name_hint">Ovdje upišite naziv datoteke</string>
+    <string name="already_exists">već postoji</string>
+    <string name="not_available">Trenutačno nije dostupno</string>
+    <string name="talk_prev_station">Prethodna postaja</string>
+    <string name="talk_decrease">Smanjivanje frekvencije</string>
+    <string name="talk_increase">Povećavanje frekvencije</string>
+    <string name="talk_next_station">Sljedeća postaja</string>
+    <string name="talk_add_favorite">Dodavanje u omiljene postaje</string>
+    <string name="talk_start_recording">Početak snimanja</string>
+    <string name="more">"Više"</string>
+    <string name="recording_tips">Snimanje...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Pokreni ili zaustavi FM radio</string>
+    <string name="fm_over_start_record">Započni snimanje</string>
+    <string name="fm_over_record_list">Spremljene snimke</string>
+    <string name="fm_station_list_menu_refresh">Osvježi</string>
+    <string name="fm_no_headset_text">Da biste počeli slušati, priključite slušalice (služe kao antena).</string>
+    <string name="station_title">Radijske postaje</string>
+    <string name="station_searching_tips">Dohvaćanje postaja</string>
+    <string name="station_empty_text">Postaje nisu pronađene</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label">s</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Snimanje</string>
+    <string name="record_notification_message">Snimanje u tijeku</string>
+    <string name="stop_record">ZAUSTAVI SNIMANJE</string>
+    <string name="save_dialog_title">Spremiti snimku?</string>
+    <string name="save_dialog_caption">Da biste slušali snimke, otvorite aplikaciju Play glazba.</string>
+    <string name="favorites">Omiljene postaje</string>
+    <string name="rename">Preimenuj</string>
+    <string name="station_rename_hint">Unesite naziv postaje</string>
+    <string name="remove_favorite">Ukloni omiljenu postaju</string>
+    <string name="toast_record_saved">Snimka je spremljena</string>
+    <string name="toast_record_not_saved">Snimka nije spremljena</string>
+    <string name="toast_listen">POSLUŠAJTE</string>
+    <string name="toast_station_renamed">Postaja je preimenovana</string>
+    <string name="audio_db_artist_name">Moje FM snimke</string>
+    <string name="audio_db_album_name">FM snimke</string>
+    <string name="audio_db_playlist_name">FM snimke</string>
+    <string name="audio_save_dir_name">FM snimke</string>
+    <string name="accessibility_play">Sviraj</string>
+    <string name="accessibility_pause">Pauziraj</string>
+    <string name="accessibility_next">Sljedeći</string>
+    <string name="accessibility_prev">Prethodni</string>
+</resources>

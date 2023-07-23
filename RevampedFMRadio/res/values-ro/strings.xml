@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM</string>
+    <string name="toast_station_searched">S-au căutat posturile disponibile:</string>
+    <string name="toast_cannot_search">Nu se pot căuta posturile disponibile.</string>
+    <string name="optmenu_speaker">Difuzor</string>
+    <string name="optmenu_earphone">Cască</string>
+    <string name="save">Salvați</string>
+    <string name="toast_sdcard_missing">Lipsește cardul SD!</string>
+    <string name="toast_sdcard_insufficient_space">Spațiul de pe cardul SD este insuficient!</string>
+    <string name="toast_recorder_internal_error">Instrumentul de înregistrare a întâmpinat o eroare internă!</string>
+    <string name="btn_save_recording">Salvați</string>
+    <string name="btn_discard_recording">Ștergeți</string>
+    <string name="edit_recording_name_hint">Introduceți numele fișierului aici</string>
+    <string name="already_exists">există deja</string>
+    <string name="not_available">Momentan indisponibil</string>
+    <string name="talk_prev_station">Postul anterior</string>
+    <string name="talk_decrease">Scădeți frecvența</string>
+    <string name="talk_increase">Creșteți frecvența</string>
+    <string name="talk_next_station">Postul următor</string>
+    <string name="talk_add_favorite">Adăugați la preferate</string>
+    <string name="talk_start_recording">Începeți înregistrarea</string>
+    <string name="more">"Mai multe"</string>
+    <string name="recording_tips">Se înregistrează...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Redați sau opriți radioul FM</string>
+    <string name="fm_over_start_record">Începeți înregistrarea</string>
+    <string name="fm_over_record_list">Înregistrări salvate</string>
+    <string name="fm_station_list_menu_refresh">Actualizați</string>
+    <string name="fm_no_headset_text">Pentru a începe să ascultați, conectați căștile (au rol de antenă).</string>
+    <string name="station_title">Posturi de radio</string>
+    <string name="station_searching_tips">Se preiau posturi</string>
+    <string name="station_empty_text">Nu s-au găsit posturi</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label">s</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Se înregistrează</string>
+    <string name="record_notification_message">Înregistrare în curs</string>
+    <string name="stop_record">OPRIȚI ÎNREGISTRAREA</string>
+    <string name="save_dialog_title">Salvați înregistrarea?</string>
+    <string name="save_dialog_caption">Pentru a asculta înregistrări, deschideți aplicația Muzică Play.</string>
+    <string name="favorites">Preferate</string>
+    <string name="rename">Redenumiți</string>
+    <string name="station_rename_hint">Introduceți numele postului</string>
+    <string name="remove_favorite">Eliminați din preferate</string>
+    <string name="toast_record_saved">Înregistrare a fost salvată</string>
+    <string name="toast_record_not_saved">Înregistrarea nu a fost salvată</string>
+    <string name="toast_listen">ASCULTAȚI</string>
+    <string name="toast_station_renamed">Postul a fost redenumit</string>
+    <string name="audio_db_artist_name">Înregistrările mele FM</string>
+    <string name="audio_db_album_name">Înregistrări FM</string>
+    <string name="audio_db_playlist_name">Înregistrări FM</string>
+    <string name="audio_save_dir_name">Înregistrări FM</string>
+    <string name="accessibility_play">Redare</string>
+    <string name="accessibility_pause">Pauză</string>
+    <string name="accessibility_next">Înainte</string>
+    <string name="accessibility_prev">Înapoi</string>
+</resources>

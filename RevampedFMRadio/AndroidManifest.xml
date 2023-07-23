@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014,2022 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.fmradio"
+    android:sharedUserId="android.uid.system"
+    android:versionCode="3"
+    android:versionName="3.0-qcom" >
+
+    <uses-sdk
+        android:minSdkVersion="31"
+        android:targetSdkVersion="23"
+        android:usesCleartextTraffic="false" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FM_RADIO" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_ROUTING" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name" >
+
+        <activity
+            android:name=".FmMainActivity"
+            android:label="@string/app_name"
+            android:launchMode="standard"
+            android:theme="@style/AppThemeMain"
+            android:usesCleartextTraffic="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".FmFavoriteActivity"
+            android:configChanges="screenSize"
+            android:label="@string/station_title"
+            android:launchMode="singleTask"
+            android:theme="@style/AppThemeMain.WithTitle"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+
+        <service
+            android:name=".FmService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.android.fmradio.IFmRadioService" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name=".FmProvider"
+            android:authorities="com.android.fmradio"
+            android:exported="false" >
+        </provider>
+
+        <activity
+            android:name=".FmRecordActivity"
+            android:label="@string/record_title"
+            android:theme="@style/AppThemeMain.WithTitle"
+            android:launchMode="singleTask" >
+        </activity>
+    </application>
+
+</manifest>

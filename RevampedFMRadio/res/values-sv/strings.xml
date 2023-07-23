@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM-radio</string>
+    <string name="toast_station_searched">Tillgängliga kanaler som har hittats:</string>
+    <string name="toast_cannot_search">Det går inte att söka efter tillgängliga kanaler.</string>
+    <string name="optmenu_speaker">Högtalare</string>
+    <string name="optmenu_earphone">Hörlurar</string>
+    <string name="save">Spara</string>
+    <string name="toast_sdcard_missing">SD-kortet saknas.</string>
+    <string name="toast_sdcard_insufficient_space">Otillräckligt utrymme på SD-kortet.</string>
+    <string name="toast_recorder_internal_error">Ett internt fel uppstod i inspelningsenheten.</string>
+    <string name="btn_save_recording">Spara</string>
+    <string name="btn_discard_recording">Släng</string>
+    <string name="edit_recording_name_hint">Skriv filnamnet här</string>
+    <string name="already_exists">finns redan</string>
+    <string name="not_available">Inte tillgänglig för närvarande</string>
+    <string name="talk_prev_station">Föregående kanal</string>
+    <string name="talk_decrease">Minska frekvensen</string>
+    <string name="talk_increase">Öka frekvensen</string>
+    <string name="talk_next_station">Nästa kanal</string>
+    <string name="talk_add_favorite">Lägg till i favoriter</string>
+    <string name="talk_start_recording">Starta inspelning</string>
+    <string name="more">"Fler"</string>
+    <string name="recording_tips">Spelar in ...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Spela upp eller stoppa FM-radio</string>
+    <string name="fm_over_start_record">Starta inspelning</string>
+    <string name="fm_over_record_list">Sparade inspelningar</string>
+    <string name="fm_station_list_menu_refresh">Uppdatera</string>
+    <string name="fm_no_headset_text">Koppla in hörlurarna om du vill börja lyssna (de används som antenn).</string>
+    <string name="station_title">Radiokanaler</string>
+    <string name="station_searching_tips">Hämtar kanaler</string>
+    <string name="station_empty_text">Inga kanaler hittades</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Spelar in</string>
+    <string name="record_notification_message">Inspelning pågår</string>
+    <string name="stop_record">SLUTA SPELA IN</string>
+    <string name="save_dialog_title">Vill du spara inspelningen?</string>
+    <string name="save_dialog_caption">Öppna appen Play Musik om du vill lyssna på inspelningarna.</string>
+    <string name="favorites">Favoriter</string>
+    <string name="rename">Byt namn</string>
+    <string name="station_rename_hint">Ange kanalens namn</string>
+    <string name="remove_favorite">Ta bort från favoriter</string>
+    <string name="toast_record_saved">Inspelningen har sparats</string>
+    <string name="toast_record_not_saved">Inspelningen har inte sparats</string>
+    <string name="toast_listen">LYSSNA</string>
+    <string name="toast_station_renamed">Kanalen har döpts om</string>
+    <string name="audio_db_artist_name">Mina FM-inspelningar</string>
+    <string name="audio_db_album_name">FM-inspelningar</string>
+    <string name="audio_db_playlist_name">FM-inspelningar</string>
+    <string name="audio_save_dir_name">FM-inspelningar</string>
+    <string name="accessibility_play">Spela</string>
+    <string name="accessibility_pause">Pausa</string>
+    <string name="accessibility_next">Nästa</string>
+    <string name="accessibility_prev">Föregående</string>
+</resources>

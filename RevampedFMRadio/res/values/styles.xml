@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014,2022 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <style name="AppThemeMain" parent="@android:style/Theme.Material.Light">
+        <item name="android:colorPrimaryDark">@color/actionbar_untitled_statusbar_bg_color</item>
+        <item name="android:colorPrimary">@color/actionbar_untitled_bg_color</item>
+        <item name="android:textColor">@drawable/actionbar_popup_item</item>
+        <item name="android:windowBackground">@color/header_bg_color</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:actionOverflowButtonStyle">@style/FmOverflowButtonStyle</item>
+        <item name="android:statusBarColor">@color/actionbar_untitled_statusbar_bg_color</item>
+        <item name="android:windowLightStatusBar">@bool/light_navigation_bar</item>
+        <item name="android:actionBarPopupTheme">@style/AppThemeMain.ActionBarPopupNoTitle</item>
+        <item name="android:popupTheme">@style/AppThemeMain.ActionBarPopupNoTitle</item>
+        <item name="android:colorBackgroundFloating">@color/main_background_lighter</item>
+        <item name="android:textColorHint">@color/text_input_hint_color</item>
+        <item name="android:colorControlNormal">@color/text_selection_color</item>
+        <item name="android:colorControlActivated">@color/text_selection_color</item>
+        <item name="android:textColorHighlight">@color/text_selection_highlight_color</item>
+        <item name="android:colorControlHighlight">@color/ripple_color</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+    </style>
+
+    <style name="AppThemeMain.WithTitle">
+        <item name="android:windowNoTitle">false</item>
+        <item name="android:windowBackground">@color/fav_container_bg_color</item>
+        <item name="android:statusBarColor">@color/actionbar_statusbar_bg_color</item>
+        <item name="android:actionBarStyle">@style/Widget.ActionBar</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_ab_back_material</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+    </style>
+
+    <style name="AppThemeMain.ActionBarPopupNoTitle" parent="@android:style/Widget.Material.Light">
+        <item name="android:colorBackground">@color/actionbar_untitled_popup_bg_color</item>
+        <item name="android:textColorPrimary">@color/actionbar_untitled_popup_text_color</item>
+    </style>
+
+    <style name="AppThemeMain.FavoriteTilePopupStyle" parent="@android:style/Widget.Material.Light">
+        <item name="android:colorBackground">@color/favorite_popup_bg_color</item>
+        <item name="android:textColorPrimary">@color/favorite_popup_text_color</item>
+    </style>
+
+    <style name="Widget.ActionBar" parent="@android:style/Widget.Material.Light.ActionBar.Solid">
+        <item name="android:elevation">0dp</item>
+        <item name="android:background">@color/actionbar_bg_color</item>
+        <item name="android:titleTextStyle">@style/TextAppearance.ActionBar.Title</item>
+    </style>
+
+    <style name="TextAppearance.ActionBar.Title" parent="@android:style/TextAppearance.Material.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/actionbar_title_color</item>
+    </style>
+
+    <!-- The more menu icon in Light theme is black, change it to white -->
+    <style name="FmOverflowButtonStyle" parent="@android:style/Widget.Material.ActionButton.Overflow">
+        <item name="android:tint">@color/toolbar_more_dots_color</item>
+    </style>
+
+</resources>

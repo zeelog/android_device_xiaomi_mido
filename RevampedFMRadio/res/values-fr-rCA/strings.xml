@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM</string>
+    <string name="toast_station_searched">Recherche des stations disponibles :</string>
+    <string name="toast_cannot_search">Impossible de rechercher les stations disponibles.</string>
+    <string name="optmenu_speaker">Haut-parleur</string>
+    <string name="optmenu_earphone">Écouteurs</string>
+    <string name="save">Enregistrer</string>
+    <string name="toast_sdcard_missing">Votre carte SD est manquante.</string>
+    <string name="toast_sdcard_insufficient_space">Espace insuffisant sur la carte SD.</string>
+    <string name="toast_recorder_internal_error">Une erreur interne s\'est produite avec l\'enregistreur.</string>
+    <string name="btn_save_recording">Enregistrer</string>
+    <string name="btn_discard_recording">Supprimer</string>
+    <string name="edit_recording_name_hint">Entrez le nom du fichier ici</string>
+    <string name="already_exists">existe déjà</string>
+    <string name="not_available">Inaccessible pour le moment</string>
+    <string name="talk_prev_station">Station précédente</string>
+    <string name="talk_decrease">Diminuer la fréquence</string>
+    <string name="talk_increase">Augmenter la fréquence</string>
+    <string name="talk_next_station">Station suivante</string>
+    <string name="talk_add_favorite">Ajouter aux favoris</string>
+    <string name="talk_start_recording">Commencer l\'enregistrement</string>
+    <string name="more">"Plus"</string>
+    <string name="recording_tips">Enregistrement en cours...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Lire ou arrêter la radio FM</string>
+    <string name="fm_over_start_record">Commencer l\'enregistrement</string>
+    <string name="fm_over_record_list">Enregistrements sauvegardés</string>
+    <string name="fm_station_list_menu_refresh">Actualiser</string>
+    <string name="fm_no_headset_text">Pour écouter la radio, branchez des écouteurs (ils serviront d\'antenne).</string>
+    <string name="station_title">Stations de radio</string>
+    <string name="station_searching_tips">Récupération de la liste de stations...</string>
+    <string name="station_empty_text">Aucune station trouvée</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Enregistrer</string>
+    <string name="record_notification_message">Enregistrement en cours...</string>
+    <string name="stop_record">ARRÊTER L\'ENREGISTR.</string>
+    <string name="save_dialog_title">Sauvegarder l\'enregistrement?</string>
+    <string name="save_dialog_caption">Pour écouter des enregistrements, ouvrez l\'application Google Play Musique.</string>
+    <string name="favorites">Favoris</string>
+    <string name="rename">Renommer</string>
+    <string name="station_rename_hint">Entrez le nom de la station</string>
+    <string name="remove_favorite">Supprimer le favori</string>
+    <string name="toast_record_saved">L\'enregistrement a été sauvegardé</string>
+    <string name="toast_record_not_saved">L\'enregistrement n\'a pas été sauvegardé</string>
+    <string name="toast_listen">ÉCOUTER</string>
+    <string name="toast_station_renamed">La station a été renommée</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM irratia</string>
+    <string name="toast_station_searched">Erabilgarri dauden irrati-kateak aurkitu dira:</string>
+    <string name="toast_cannot_search">Ezin dira bilatu erabilgarri dauden irrati-kateak.</string>
+    <string name="optmenu_speaker">Bozgorailua</string>
+    <string name="optmenu_earphone">Entzungailua</string>
+    <string name="save">Gorde</string>
+    <string name="toast_sdcard_missing">SD txartela ez dago gailuan sartuta!</string>
+    <string name="toast_sdcard_insufficient_space">Ez dago behar adina toki SD txartelean!</string>
+    <string name="toast_recorder_internal_error">Grabagailuaren barneko errore bat gertatu da.</string>
+    <string name="btn_save_recording">Gorde</string>
+    <string name="btn_discard_recording">Baztertu</string>
+    <string name="edit_recording_name_hint">Idatzi hemen fitxategiaren izena</string>
+    <string name="already_exists">lehendik dago</string>
+    <string name="not_available">Ez dago erabilgarri</string>
+    <string name="talk_prev_station">Aurreko irrati-katea</string>
+    <string name="talk_decrease">Txikitu irrati-maiztasuna</string>
+    <string name="talk_increase">Handitu irrati-maiztasuna</string>
+    <string name="talk_next_station">Hurrengo irrati-katea</string>
+    <string name="talk_add_favorite">Gehitu gogokoetan</string>
+    <string name="talk_start_recording">Hasi grabatzen</string>
+    <string name="more">"Gehiago"</string>
+    <string name="recording_tips">Grabatzen…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Piztu edo itzali FM irratia</string>
+    <string name="fm_over_start_record">Hasi grabatzen</string>
+    <string name="fm_over_record_list">Gorde grabaketak</string>
+    <string name="fm_station_list_menu_refresh">Freskatu</string>
+    <string name="fm_no_headset_text">Entzuten hasteko, konektatu entzungailua (antena gisa funtzionatzen du).</string>
+    <string name="station_title">Irrati-kateak</string>
+    <string name="station_searching_tips">Irrati-kateak eskuratzen</string>
+    <string name="station_empty_text">Ez da aurkitu irrati-katerik</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Grabaketa</string>
+    <string name="record_notification_message">Grabatzen ari da</string>
+    <string name="stop_record">GELDITU GRABAKETA</string>
+    <string name="save_dialog_title">Grabaketa gorde nahi duzu?</string>
+    <string name="save_dialog_caption">Grabaketak entzuteko, ireki Play Music aplikazioa.</string>
+    <string name="favorites">Gogokoak</string>
+    <string name="rename">Aldatu izena</string>
+    <string name="station_rename_hint">Idatzi irrati-katearen izena</string>
+    <string name="remove_favorite">Kendu gogokoa</string>
+    <string name="toast_record_saved">Grabaketa gorde da</string>
+    <string name="toast_record_not_saved">Ez da gorde grabaketa</string>
+    <string name="toast_listen">ENTZUN</string>
+    <string name="toast_station_renamed">Irrati-katearen izena aldatu da</string>
+    <string name="audio_db_artist_name">Nire FM grabazioak</string>
+    <string name="audio_db_album_name">FM grabazioak</string>
+    <string name="audio_db_playlist_name">FM grabazioak</string>
+    <string name="audio_save_dir_name">FM grabazioak</string>
+    <string name="accessibility_play">Erreproduzitu</string>
+    <string name="accessibility_pause">Pausatu</string>
+    <string name="accessibility_next">Hurrengoa</string>
+    <string name="accessibility_prev">Aurrekoa</string>
+</resources>

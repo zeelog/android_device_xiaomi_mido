@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM </string>
+    <string name="toast_station_searched">Kërko statcionet e kapura:</string>
+    <string name="toast_cannot_search">Nuk mund të kërkojë për statcione.</string>
+    <string name="optmenu_speaker">Altoparlant</string>
+    <string name="optmenu_earphone">Kufje</string>
+    <string name="save">Ruaj</string>
+    <string name="toast_sdcard_missing">Mungon karta SD!</string>
+    <string name="toast_sdcard_insufficient_space">Hapësirë e pa mjaftueshme në kartë!</string>
+    <string name="toast_recorder_internal_error">Ndodhi një problem i brëndshëm në regjistrues!</string>
+    <string name="btn_save_recording">Ruaj</string>
+    <string name="btn_discard_recording">Injoro</string>
+    <string name="edit_recording_name_hint">Vendos emrin e skedarit</string>
+    <string name="already_exists">tashmë ekziston</string>
+    <string name="not_available">Aktualisht nuk është në dispozicion</string>
+    <string name="talk_prev_station">Statcioni i mëparshëm</string>
+    <string name="talk_decrease">Ul frekuencën</string>
+    <string name="talk_increase">Rit frekuencën</string>
+    <string name="talk_next_station">Statcioni tjetër</string>
+    <string name="talk_add_favorite">Shto tek të preferuarat</string>
+    <string name="talk_start_recording">Fillo inçizimin</string>
+    <string name="more">"Më tepër"</string>
+    <string name="recording_tips">Në inxhizim…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Fillo ose ndalo Radion</string>
+    <string name="fm_over_start_record">Fillo inçizimin</string>
+    <string name="fm_over_record_list">Inçizimet e ruajtura</string>
+    <string name="fm_station_list_menu_refresh">Rifresko</string>
+    <string name="fm_no_headset_text">Për të dëgjuar vendosni kufjet (përdoren si antene).</string>
+    <string name="station_title">Statcionet e Radios</string>
+    <string name="station_searching_tips">Duke marë statcionet</string>
+    <string name="station_empty_text">Nuk u gjet asnjë statcion</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Duke inçizuar</string>
+    <string name="record_notification_message">Regjistrimi në proces</string>
+    <string name="stop_record">NDALO INÇIZIMIN</string>
+    <string name="save_dialog_title">Ruaj inçizimin?</string>
+    <string name="save_dialog_caption">Për të dëgjuar inçizimet hap app Play Music.</string>
+    <string name="favorites">Të preferuarat</string>
+    <string name="rename">Riemërto</string>
+    <string name="station_rename_hint">Vendosni emrin e statcionit</string>
+    <string name="remove_favorite">Hiq preferencën</string>
+    <string name="toast_record_saved">Regjistrimi u ruajt</string>
+    <string name="toast_record_not_saved">Regjistrimi nuk u ruajt</string>
+    <string name="toast_listen">DËGJO</string>
+    <string name="toast_station_renamed">Statcioni është ri emërtuar</string>
+    <string name="audio_db_artist_name">Regjistrimet e mia FM</string>
+    <string name="audio_db_album_name">Regjistrimet FM</string>
+    <string name="audio_db_playlist_name">Regjistrimet FM</string>
+    <string name="audio_save_dir_name">Regjistrimet FM</string>
+    <string name="accessibility_play">Luaj</string>
+    <string name="accessibility_pause">Vë në pauzë</string>
+    <string name="accessibility_next">Tjetra</string>
+    <string name="accessibility_prev">E mëparshmja</string>
+</resources>

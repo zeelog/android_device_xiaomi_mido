@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM ரேடியோ</string>
+    <string name="toast_station_searched">கிடைக்கும் நிலையங்கள்:</string>
+    <string name="toast_cannot_search">கிடைக்கும் நிலையத்தைத் தேட முடியவில்லை.</string>
+    <string name="optmenu_speaker">ஸ்பீக்கர்</string>
+    <string name="optmenu_earphone">இயர்ஃபோன்</string>
+    <string name="save">சேமி</string>
+    <string name="toast_sdcard_missing">SD கார்டு இல்லை!</string>
+    <string name="toast_sdcard_insufficient_space">போதுமான SD கார்டு சேமிப்பிடம் இல்லை!</string>
+    <string name="toast_recorder_internal_error">ரெக்கார்டரில் அகப் பிழை ஏற்பட்டது!</string>
+    <string name="btn_save_recording">சேமி</string>
+    <string name="btn_discard_recording">நிராகரி</string>
+    <string name="edit_recording_name_hint">இங்கு கோப்புப் பெயரை உள்ளிடுக</string>
+    <string name="already_exists">ஏற்கனவே உள்ளது</string>
+    <string name="not_available">தற்சமயம் இல்லை</string>
+    <string name="talk_prev_station">முந்தைய நிலையம்</string>
+    <string name="talk_decrease">அலைவரிசையைக் குறை</string>
+    <string name="talk_increase">அலைவரிசையை அதிகரி</string>
+    <string name="talk_next_station">அடுத்த நிலையம்</string>
+    <string name="talk_add_favorite">பிடித்தவையில் சேர்</string>
+    <string name="talk_start_recording">பதிவுசெய்தலைத் தொடங்கு</string>
+    <string name="more">"மேலும்"</string>
+    <string name="recording_tips">பதிவுசெய்கிறது…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM ரேடியோவை இயக்கு அல்லது நிறுத்து</string>
+    <string name="fm_over_start_record">பதிவுசெய்தலைத் தொடங்கு</string>
+    <string name="fm_over_record_list">சேமித்த பதிவுகள்</string>
+    <string name="fm_station_list_menu_refresh">புதுப்பி</string>
+    <string name="fm_no_headset_text">கேட்பதற்கு, ஹெட்ஃபோனைச் (ஆன்டெனாவாகப் பயன்படுவது) செருகவும்.</string>
+    <string name="station_title">வானொலி நிலையங்கள்</string>
+    <string name="station_searching_tips">நிலையங்களைப் பெறுகிறது</string>
+    <string name="station_empty_text">நிலையங்கள் எதுவுமில்லை</string>
+    <string name="minutes_label">நி</string>
+    <string name="seconds_label">வி</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">பதிவுசெய்கிறது</string>
+    <string name="record_notification_message">பதிவுசெய்கிறது</string>
+    <string name="stop_record">பதிவுசெய்வதை நிறுத்து</string>
+    <string name="save_dialog_title">பதிவுசெய்ததைச் சேமிக்கவா?</string>
+    <string name="save_dialog_caption">பதிவுசெய்தவற்றைக் கேட்க, Play Music பயன்பாட்டைத் திறக்கவும்.</string>
+    <string name="favorites">பிடித்தவை</string>
+    <string name="rename">மறுபெயரிடு</string>
+    <string name="station_rename_hint">நிலையப் பெயரை உள்ளிடுக</string>
+    <string name="remove_favorite">பிடித்தவையிலிருந்து அகற்று</string>
+    <string name="toast_record_saved">பதிவு சேமிக்கப்பட்டது</string>
+    <string name="toast_record_not_saved">பதிவு சேமிக்கப்படவில்லை</string>
+    <string name="toast_listen">கேள்</string>
+    <string name="toast_station_renamed">நிலையத்திற்கு மறுபெயரிடப்பட்டது</string>
+    <string name="accessibility_play">இயக்கு</string>
+    <string name="accessibility_pause">இடைநிறுத்து</string>
+    <string name="accessibility_next">அடுத்து</string>
+    <string name="accessibility_prev">முந்தையது</string>
+</resources>

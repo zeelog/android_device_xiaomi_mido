@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">‏רדיו FM</string>
+    <string name="toast_station_searched">תחנות זמינות שנמצאו:</string>
+    <string name="toast_cannot_search">לא ניתן למצוא תחנה זמינה.</string>
+    <string name="optmenu_speaker">רמקול</string>
+    <string name="optmenu_earphone">אוזנייה</string>
+    <string name="save">שמור</string>
+    <string name="toast_sdcard_missing">‏כרטיס ה-SD אינו מחובר.</string>
+    <string name="toast_sdcard_insufficient_space">‏אין מספיק מקום בכרטיס ה-SD.</string>
+    <string name="toast_recorder_internal_error">אירעה שגיאה פנימית במקליט.</string>
+    <string name="btn_save_recording">שמור</string>
+    <string name="btn_discard_recording">מחק</string>
+    <string name="edit_recording_name_hint">הקלד כאן את שם הקובץ</string>
+    <string name="already_exists">כבר קיים</string>
+    <string name="not_available">לא זמין כעת</string>
+    <string name="talk_prev_station">התחנה הקודמת</string>
+    <string name="talk_decrease">הפחת תדירות</string>
+    <string name="talk_increase">העלה תדירות</string>
+    <string name="talk_next_station">התחנה הבאה</string>
+    <string name="talk_add_favorite">הוסף למועדפים</string>
+    <string name="talk_start_recording">התחל הקלטה</string>
+    <string name="more">"עוד"</string>
+    <string name="recording_tips">הקלטה…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">‏הפעל או הפסק רדיו FM</string>
+    <string name="fm_over_start_record">התחל הקלטה</string>
+    <string name="fm_over_record_list">הקלטות שמורות</string>
+    <string name="fm_station_list_menu_refresh">רענן</string>
+    <string name="fm_no_headset_text">כדי להתחיל להאזין, חבר את האוזניות (משמשות כאנטנה).</string>
+    <string name="station_title">תחנות רדיו</string>
+    <string name="station_searching_tips">מאתר תחנות</string>
+    <string name="station_empty_text">לא נמצאו תחנות</string>
+    <string name="minutes_label">ד\'</string>
+    <string name="seconds_label">ש\'</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">הקלטה</string>
+    <string name="record_notification_message">הקלטה מתבצעת</string>
+    <string name="stop_record">הפסק הקלטה</string>
+    <string name="save_dialog_title">האם לשמור את ההקלטה?</string>
+    <string name="save_dialog_caption">‏כדי להאזין להקלטות, פתח את האפליקציה Play מוזיקה.</string>
+    <string name="favorites">מועדפים</string>
+    <string name="rename">שנה שם</string>
+    <string name="station_rename_hint">הזן שם תחנה</string>
+    <string name="remove_favorite">הסר מהמועדפים</string>
+    <string name="toast_record_saved">ההקלטה נשמרה</string>
+    <string name="toast_record_not_saved">ההקלטה לא נשמרה</string>
+    <string name="toast_listen">האזן</string>
+    <string name="toast_station_renamed">שם התחנה השתנה</string>
+    <string name="audio_db_artist_name">הקלטות ה- FM שלי</string>
+    <string name="audio_db_album_name">הקלטות FM</string>
+    <string name="audio_db_playlist_name">הקלטות FM</string>
+    <string name="audio_save_dir_name">הקלטות FM</string>
+    <string name="accessibility_play">נגן</string>
+    <string name="accessibility_pause">השהה</string>
+    <string name="accessibility_next">הבא</string>
+    <string name="accessibility_prev">הקודם</string>
+</resources>

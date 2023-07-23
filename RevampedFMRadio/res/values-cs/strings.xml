@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Rádio FM</string>
+    <string name="toast_station_searched">Vyhledané dostupné stanice:</string>
+    <string name="toast_cannot_search">Dostupná stanice nebyla nalezena.</string>
+    <string name="optmenu_speaker">Reproduktor</string>
+    <string name="optmenu_earphone">Sluchátko</string>
+    <string name="save">Uložit</string>
+    <string name="toast_sdcard_missing">Není vložena SD karta.</string>
+    <string name="toast_sdcard_insufficient_space">Na SD kartě není dostatek místa.</string>
+    <string name="toast_recorder_internal_error">V záznamu došlo k interní chybě.</string>
+    <string name="btn_save_recording">Uložit</string>
+    <string name="btn_discard_recording">Zahodit</string>
+    <string name="edit_recording_name_hint">Sem zadejte název souboru</string>
+    <string name="already_exists">název již existuje</string>
+    <string name="not_available">Aktuálně nedostupné</string>
+    <string name="talk_prev_station">Předchozí stanice</string>
+    <string name="talk_decrease">Snížit frekvenci</string>
+    <string name="talk_increase">Zvýšit frekvenci</string>
+    <string name="talk_next_station">Další stanice</string>
+    <string name="talk_add_favorite">Přidat do oblíbených</string>
+    <string name="talk_start_recording">Zahájit nahrávání</string>
+    <string name="more">"Další"</string>
+    <string name="recording_tips">Nahrávání…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Spustit nebo zastavit rádio FM</string>
+    <string name="fm_over_start_record">Zahájit nahrávání</string>
+    <string name="fm_over_record_list">Uložené nahrávky</string>
+    <string name="fm_station_list_menu_refresh">Obnovit</string>
+    <string name="fm_no_headset_text">Chcete-li začít poslouchat, připojte sluchátka (slouží jako anténa).</string>
+    <string name="station_title">Rádiové stanice</string>
+    <string name="station_searching_tips">Načítání stanic</string>
+    <string name="station_empty_text">Nebyly nalezeny žádné stanice</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Nahrávání</string>
+    <string name="record_notification_message">Probíhá nahrávání</string>
+    <string name="stop_record">ZASTAVIT NAHRÁVÁNÍ</string>
+    <string name="save_dialog_title">Chcete nahrávku uložit?</string>
+    <string name="save_dialog_caption">Chcete-li poslouchat nahrávky, spusťte aplikaci Hudba Play.</string>
+    <string name="favorites">Oblíbené</string>
+    <string name="rename">Přejmenovat</string>
+    <string name="station_rename_hint">Zadejte název stanice</string>
+    <string name="remove_favorite">Odstranit z oblíbených</string>
+    <string name="toast_record_saved">Nahrávka byla uložena</string>
+    <string name="toast_record_not_saved">Nahrávka nebyla uložena</string>
+    <string name="toast_listen">POSLOUCHAT</string>
+    <string name="toast_station_renamed">Název stanice byl změněn</string>
+    <string name="audio_db_artist_name">Mé nahrávky FM</string>
+    <string name="audio_db_album_name">Nahrávky FM</string>
+    <string name="audio_db_playlist_name">Nahrávky FM</string>
+    <string name="audio_save_dir_name">Nahrávky FM</string>
+    <string name="accessibility_play">Přehrát</string>
+    <string name="accessibility_pause">Pozastavit</string>
+    <string name="accessibility_next">Další</string>
+    <string name="accessibility_prev">Předchozí</string>
+</resources>

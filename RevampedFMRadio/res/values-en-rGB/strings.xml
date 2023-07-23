@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM Radio</string>
+    <string name="toast_station_searched">Available stations found:</string>
+    <string name="toast_cannot_search">Cannot find available station.</string>
+    <string name="optmenu_speaker">Speaker</string>
+    <string name="optmenu_earphone">Earphone</string>
+    <string name="save">Save</string>
+    <string name="toast_sdcard_missing">Your SD card is missing!</string>
+    <string name="toast_sdcard_insufficient_space">Insufficient SD card space!</string>
+    <string name="toast_recorder_internal_error">An internal error occurred in recorder!</string>
+    <string name="btn_save_recording">Save</string>
+    <string name="btn_discard_recording">Discard</string>
+    <string name="edit_recording_name_hint">Type file name here</string>
+    <string name="already_exists">already exists</string>
+    <string name="not_available">Currently not available</string>
+    <string name="talk_prev_station">Previous station</string>
+    <string name="talk_decrease">Decrease frequency</string>
+    <string name="talk_increase">Increase frequency</string>
+    <string name="talk_next_station">Next station</string>
+    <string name="talk_add_favorite">Add to favourite</string>
+    <string name="talk_start_recording">Start recording</string>
+    <string name="more">"More"</string>
+    <string name="recording_tips">Recording…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Play or stop FM radio</string>
+    <string name="fm_over_start_record">Start recording</string>
+    <string name="fm_over_record_list">Saved recordings</string>
+    <string name="fm_station_list_menu_refresh">Refresh</string>
+    <string name="fm_no_headset_text">To start listening, plug in headphones (used as an antenna).</string>
+    <string name="station_title">Radio Stations</string>
+    <string name="station_searching_tips">Getting stations</string>
+    <string name="station_empty_text">No stations found</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Recording</string>
+    <string name="record_notification_message">Recording in progress</string>
+    <string name="stop_record">STOP RECORDING</string>
+    <string name="save_dialog_title">Save recording?</string>
+    <string name="save_dialog_caption">To listen to recordings, open the Play Music app.</string>
+    <string name="favorites">Favourites</string>
+    <string name="rename">Rename</string>
+    <string name="station_rename_hint">Enter station name</string>
+    <string name="remove_favorite">Remove favourite</string>
+    <string name="toast_record_saved">Recording saved</string>
+    <string name="toast_record_not_saved">Recording not saved</string>
+    <string name="toast_listen">LISTEN</string>
+    <string name="toast_station_renamed">The station has been renamed</string>
+    <string name="audio_db_artist_name">My FM recordings</string>
+    <string name="audio_db_album_name">FM recordings</string>
+    <string name="audio_db_playlist_name">FM recordings</string>
+    <string name="audio_save_dir_name">FM recordings</string>
+    <string name="accessibility_play">Play</string>
+    <string name="accessibility_pause">Pause</string>
+    <string name="accessibility_next">Next</string>
+    <string name="accessibility_prev">Previous</string>
+</resources>

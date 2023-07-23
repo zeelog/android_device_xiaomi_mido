@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM රේඩියෝව</string>
+    <string name="toast_station_searched">තිබෙන ස්ථන සොයාගන්නා ලදි:</string>
+    <string name="toast_cannot_search">තිබෙන ස්ථාන සෙවීම කළ නොහැක.</string>
+    <string name="optmenu_speaker">නාදකය</string>
+    <string name="optmenu_earphone">ඉයර්ෆෝන්</string>
+    <string name="save">සුරකින්න</string>
+    <string name="toast_sdcard_missing">ඔබගේ SD කාඩ්පත නැතිවී තිබේ!</string>
+    <string name="toast_sdcard_insufficient_space">ප්‍රමාණවත් නොවන කාඩ් පතක්!</string>
+    <string name="toast_recorder_internal_error">පටිගත කිරීමේ අභ්‍යන්තර දෝෂයක් හට ගන්නා ලදි!</string>
+    <string name="btn_save_recording">සුරකින්න</string>
+    <string name="btn_discard_recording">ඉවත ලන්න</string>
+    <string name="edit_recording_name_hint">ගොනුවේ නම මෙතැන ටයිප් කරන්න</string>
+    <string name="already_exists">දැනටමත් පවතීද</string>
+    <string name="not_available">දැනට නොතිබේ</string>
+    <string name="talk_prev_station">පෙර ස්ථානය</string>
+    <string name="talk_decrease">සංඛ්‍යාතය අඩුවෙමින්</string>
+    <string name="talk_increase">සංඛ්‍යාතය වැඩිවෙමින්</string>
+    <string name="talk_next_station">ඊළඟ ස්ථානය</string>
+    <string name="talk_add_favorite">ප්‍රියතමය වෙත එකතු කරන්න</string>
+    <string name="talk_start_recording">පටිගත කිරීම ආරම්භ කරමින්</string>
+    <string name="more">"තවත්"</string>
+    <string name="recording_tips">පටිගත කිරීම…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM රේඩියෝව  ධාවනය කරන්න හෝ නැවත් වන්න</string>
+    <string name="fm_over_start_record">පටිගත කිරීම ආරම්භ කරමින්</string>
+    <string name="fm_over_record_list">පටිගත කිරීම සුරකින ලදි</string>
+    <string name="fm_station_list_menu_refresh">නැවුම් කරන්න</string>
+    <string name="fm_no_headset_text">අසා සිටීම ආරම්භ කිරීමට, හෙඩ්ෆෝනය තුළ පේනුව කරන්න (ඇන්ටනාවක් ලෙස භාවිතා කළ).</string>
+    <string name="station_title">රේඩියෝ ස්ථාන</string>
+    <string name="station_searching_tips">ස්ථාන ලබාගනිමින්</string>
+    <string name="station_empty_text">ස්ථාන හමු වූයේ නැත</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">පටිගත කිරීම</string>
+    <string name="record_notification_message">පටිගත කිරීම වෙමින් පවතී</string>
+    <string name="stop_record">පටිගත කිරීම නැවත්වමින්</string>
+    <string name="save_dialog_title">පටිගත කිරීම සුරැකි න්නද?</string>
+    <string name="save_dialog_caption">පටිගත කිරීමට සවන්දීමට, සංගීත ධාවනය කරන යෙදුම විවෘත කරන්න.</string>
+    <string name="favorites">ප්‍රියතම</string>
+    <string name="rename">යළි නම් කරන්න</string>
+    <string name="station_rename_hint">ස්ථානයේ නම ඇතුළු කරන්න</string>
+    <string name="remove_favorite">ප්‍රියතමය ඉවත් කරන්න</string>
+    <string name="toast_record_saved">පටිගත කිරීම සුරකින ලදි</string>
+    <string name="toast_record_not_saved">පටිගත කිරීම සුරැකුවේ නැත</string>
+    <string name="toast_listen">අහන්න</string>
+    <string name="toast_station_renamed">ස්ථනය නැවත නම් කරන ලදි</string>
+</resources>

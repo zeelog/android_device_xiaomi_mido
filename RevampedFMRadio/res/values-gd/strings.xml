@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Rèidio FM</string>
+    <string name="toast_station_searched">Chaidh na stèiseanan ri am faighinn a lorg:</string>
+    <string name="toast_cannot_search">Cha b’ urrainn dhuinn stèisean ri fhaighinn a lorg.</string>
+    <string name="optmenu_speaker">Glaodhaire</string>
+    <string name="optmenu_earphone">Fòn-cluaise</string>
+    <string name="save">Sàbhail</string>
+    <string name="toast_sdcard_missing">Tha a’ chairt SD agad a dhìth!</string>
+    <string name="toast_sdcard_insufficient_space">Chan eil àite gu leòr air a’ chairt SD!</string>
+    <string name="toast_recorder_internal_error">Thachair mearachd inntearnail san inneal-chlàraidh!</string>
+    <string name="btn_save_recording">Sàbhail</string>
+    <string name="btn_discard_recording">Tilg air falbh</string>
+    <string name="edit_recording_name_hint">Sgrìobh ainm faidhle an-seo</string>
+    <string name="already_exists">tha e ann mu thràth</string>
+    <string name="not_available">Chan eil e ri làimh an-dràsta</string>
+    <string name="talk_prev_station">An stèisean roimhe</string>
+    <string name="talk_decrease">Lùghdaich an tricead</string>
+    <string name="talk_increase">Meudaich an tricead</string>
+    <string name="talk_next_station">An ath-stèisean</string>
+    <string name="talk_add_favorite">Cuir ris na h-annsachdan</string>
+    <string name="talk_start_recording">Tòisich air clàradh</string>
+    <string name="more">"Barrachd"</string>
+    <string name="recording_tips">’Ga chlàradh…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Cluich rèidio FM no cuir stad air</string>
+    <string name="fm_over_start_record">Tòisich air clàradh</string>
+    <string name="fm_over_record_list">Clàraidhean air an sàbhaladh</string>
+    <string name="fm_station_list_menu_refresh">Ath-nuadhaich</string>
+    <string name="fm_no_headset_text">Airson èisteachd, ceangail cluais-fhònaichean ris (’gan cleachdadh mar iadhaire).</string>
+    <string name="station_title">Stèiseanan rèidio</string>
+    <string name="station_searching_tips">A’ faighinn nan stèiseanan</string>
+    <string name="station_empty_text">Cha deach stèisean a lorg</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">D</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">’Ga chlàradh</string>
+    <string name="record_notification_message">Tha rud ’ga chlàradh</string>
+    <string name="stop_record">CUIR STAD AIR A’ CHLÀRADH</string>
+    <string name="save_dialog_title">A bheil thu airson an clàradh a shàbhaladh?</string>
+    <string name="save_dialog_caption">Airson èisteachd ri clàraidhean, fosgail aplacaid a’ chiùil.</string>
+    <string name="favorites">Annsachdan</string>
+    <string name="rename">Thoir ainm ùr air</string>
+    <string name="station_rename_hint">Cuir a-steach ainm an stèisein</string>
+    <string name="remove_favorite">Thoir air falbh o na h-annsachdan</string>
+    <string name="toast_record_saved">Chaidh an clàradh a shàbhaladh</string>
+    <string name="toast_record_not_saved">Cha deach an clàradh a shàbhaladh</string>
+    <string name="toast_listen">ÈIST</string>
+    <string name="toast_station_renamed">Chaidh ainm ùr a chur air an stèisean</string>
+    <string name="audio_db_artist_name">Na clàraidhean FM agam</string>
+    <string name="audio_db_album_name">Clàraidhean FM</string>
+    <string name="audio_db_playlist_name">Clàraidhean FM</string>
+    <string name="audio_save_dir_name">Clàraidhean FM</string>
+    <string name="accessibility_play">Cluich</string>
+    <string name="accessibility_pause">Cuir ’na stad</string>
+    <string name="accessibility_next">Air adhart</string>
+    <string name="accessibility_prev">Air ais</string>
+</resources>

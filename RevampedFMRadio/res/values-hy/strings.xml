@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM ռադիո</string>
+    <string name="toast_station_searched">Գտնված հասանելի կայանները՝</string>
+    <string name="toast_cannot_search">Հասանելի կայանների որոնումը ձախողվեց:</string>
+    <string name="optmenu_speaker">Բարձրախոս</string>
+    <string name="optmenu_earphone">Ականջակալ</string>
+    <string name="save">Պահել</string>
+    <string name="toast_sdcard_missing">SD քարտը բացակայում է:</string>
+    <string name="toast_sdcard_insufficient_space">SD քարտում բավականաչափ ազատ տարածք չկա:</string>
+    <string name="toast_recorder_internal_error">Ձայնագրիչում առաջացել է ներքին սխալ:</string>
+    <string name="btn_save_recording">Պահել</string>
+    <string name="btn_discard_recording">Անտեսել</string>
+    <string name="edit_recording_name_hint">Մուտքագրեք ֆայլի անունն այստեղ</string>
+    <string name="already_exists">արդեն գոյություն ունի</string>
+    <string name="not_available">Ներկայումս հասանելի չէ</string>
+    <string name="talk_prev_station">Նախորդ կայանը</string>
+    <string name="talk_decrease">Նվազեցնել հաճախականությունը</string>
+    <string name="talk_increase">Բարձրացնել հաճախականությունը</string>
+    <string name="talk_next_station">Հաջորդ կայանը</string>
+    <string name="talk_add_favorite">Ավելացնել նախընտրելիներին</string>
+    <string name="talk_start_recording">Սկսել ձայնագրումը</string>
+    <string name="more">"Ավելին"</string>
+    <string name="recording_tips">Ձայնագրում…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Նվագարկել կամ դադարեցնել FM ռադիոն</string>
+    <string name="fm_over_start_record">Սկսել ձայնագրումը</string>
+    <string name="fm_over_record_list">Պահված ձայնագրություններ</string>
+    <string name="fm_station_list_menu_refresh">Թարմացնել</string>
+    <string name="fm_no_headset_text">Ունկնդրելու համար միացրեք ականջակալը (օգտագործվում է որպես ալեհավաք):</string>
+    <string name="station_title">Ռադիոկայաններ</string>
+    <string name="station_searching_tips">Ստացվում է կայանների ցանկը</string>
+    <string name="station_empty_text">Կայաններ չեն գտնվել</string>
+    <string name="minutes_label">Ր</string>
+    <string name="seconds_label">Վ</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Ձայնագրում</string>
+    <string name="record_notification_message">Ձայնագրումն ընթացքում է</string>
+    <string name="stop_record">ԴԱԴԱՐԵՑՆԵԼ ՁԱՅՆԱԳՐՈՒՄԸ</string>
+    <string name="save_dialog_title">Պահե՞լ ձայնագրությունը:</string>
+    <string name="save_dialog_caption">Ձայնագրություններն ունկնդրելու համար, բացեք «Նվագարկել երաժշտություն» հավելվածը:</string>
+    <string name="favorites">Ընտրանի</string>
+    <string name="rename">Վերանվանել</string>
+    <string name="station_rename_hint">Մուտքագրեք կայանի անունը</string>
+    <string name="remove_favorite">Հեռացնել նախընտրելին</string>
+    <string name="toast_record_saved">Ձայնագրությունը պահվեց</string>
+    <string name="toast_record_not_saved">Ձայնագրությունը չպահվեց</string>
+    <string name="toast_listen">ՈՒՆԿՆԴՐԵԼ</string>
+    <string name="toast_station_renamed">Կայանը վերանվանվել է</string>
+</resources>

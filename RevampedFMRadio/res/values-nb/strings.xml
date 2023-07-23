@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM-radio</string>
+    <string name="toast_station_searched">Fant følgende stasjoner:</string>
+    <string name="toast_cannot_search">Finner ingen tilgjengelige stasjoner.</string>
+    <string name="optmenu_speaker">Høyttaler</string>
+    <string name="optmenu_earphone">Øretelefon</string>
+    <string name="save">Lagre</string>
+    <string name="toast_sdcard_missing">SD-kortet ditt mangler.</string>
+    <string name="toast_sdcard_insufficient_space">Utilstrekkelig ledig plass på SD-kortet.</string>
+    <string name="toast_recorder_internal_error">Det oppsto en intern feil med opptakeren.</string>
+    <string name="btn_save_recording">Lagre</string>
+    <string name="btn_discard_recording">Forkast</string>
+    <string name="edit_recording_name_hint">Skriv filnavnet her</string>
+    <string name="already_exists">finnes allerede</string>
+    <string name="not_available">Foreløpig ikke tilgjengelig</string>
+    <string name="talk_prev_station">Forrige stasjon</string>
+    <string name="talk_decrease">Reduser frekvensen</string>
+    <string name="talk_increase">Øk frekvensen</string>
+    <string name="talk_next_station">Neste stasjon</string>
+    <string name="talk_add_favorite">Legg til i favoritter</string>
+    <string name="talk_start_recording">Start opptak</string>
+    <string name="more">"Mer"</string>
+    <string name="recording_tips">Tar opp …</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Spill av og stopp FM-radio</string>
+    <string name="fm_over_start_record">Start opptak</string>
+    <string name="fm_over_record_list">Lagrede opptak</string>
+    <string name="fm_station_list_menu_refresh">Last inn på nytt</string>
+    <string name="fm_no_headset_text">For å begynne å lytte plugger du i hodetelefoner (brukes som antenne).</string>
+    <string name="station_title">Radiostasjoner</string>
+    <string name="station_searching_tips">Henter stasjoner</string>
+    <string name="station_empty_text">Ingen stasjoner ble funnet</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Tar opp</string>
+    <string name="record_notification_message">Opptak pågår</string>
+    <string name="stop_record">STOPP OPPTAK</string>
+    <string name="save_dialog_title">Vil du lagre opptaket?</string>
+    <string name="save_dialog_caption">Hvis du vil lytte til opptak, åpner du Play Musikk-appen</string>
+    <string name="favorites">Favoritter</string>
+    <string name="rename">Gi nytt navn</string>
+    <string name="station_rename_hint">Skriv inn stasjonsnavn</string>
+    <string name="remove_favorite">Fjern favoritt</string>
+    <string name="toast_record_saved">Opptaket er lagret</string>
+    <string name="toast_record_not_saved">Opptaket er ikke lagret</string>
+    <string name="toast_listen">LYTT</string>
+    <string name="toast_station_renamed">Stasjonen har fått nytt navn.</string>
+    <string name="audio_db_artist_name">Mine FM opptak</string>
+    <string name="audio_db_album_name">FM opptak</string>
+    <string name="audio_db_playlist_name">FM opptak</string>
+    <string name="audio_save_dir_name">FM opptak</string>
+    <string name="accessibility_play">Spill av</string>
+    <string name="accessibility_pause">Pause</string>
+    <string name="accessibility_next">Neste</string>
+    <string name="accessibility_prev">Forrige</string>
+</resources>

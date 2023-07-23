@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Đài FM</string>
+    <string name="toast_station_searched">Các đài hiện có đã tìm kiếm:</string>
+    <string name="toast_cannot_search">Không thể tìm kiếm đài có sẵn.</string>
+    <string name="optmenu_speaker">Loa</string>
+    <string name="optmenu_earphone">Tai nghe</string>
+    <string name="save">Lưu</string>
+    <string name="toast_sdcard_missing">Thẻ SD của bạn bị thiếu!</string>
+    <string name="toast_sdcard_insufficient_space">Dung lượng thẻ SD không đủ!</string>
+    <string name="toast_recorder_internal_error">Đã xảy ra lỗi trong chính máy ghi âm!</string>
+    <string name="btn_save_recording">Lưu</string>
+    <string name="btn_discard_recording">Loại bỏ</string>
+    <string name="edit_recording_name_hint">Nhập tên tệp ở đây</string>
+    <string name="already_exists">đã tồn tại</string>
+    <string name="not_available">Hiện không khả dụng</string>
+    <string name="talk_prev_station">Đài trước</string>
+    <string name="talk_decrease">Giảm tần số</string>
+    <string name="talk_increase">Tăng tần số</string>
+    <string name="talk_next_station">Đài tiếp theo</string>
+    <string name="talk_add_favorite">Thêm vào đài yêu thích</string>
+    <string name="talk_start_recording">Bắt đầu ghi</string>
+    <string name="more">"Khác"</string>
+    <string name="recording_tips">Đang ghi...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Phát hoặc dừng đài FM</string>
+    <string name="fm_over_start_record">Bắt đầu ghi</string>
+    <string name="fm_over_record_list">Bản ghi đã lưu</string>
+    <string name="fm_station_list_menu_refresh">Làm mới</string>
+    <string name="fm_no_headset_text">Để bắt đầu nghe, hãy cắm tai nghe (được dùng làm ăng-ten).</string>
+    <string name="station_title">Đài phát thanh</string>
+    <string name="station_searching_tips">Làm mới danh sách đài</string>
+    <string name="station_empty_text">Không tìm thấy đài nào</string>
+    <string name="minutes_label">P</string>
+    <string name="seconds_label">G</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Đang ghi</string>
+    <string name="record_notification_message">Đang ghi</string>
+    <string name="stop_record">DỪNG GHI</string>
+    <string name="save_dialog_title">Lưu bản ghi?</string>
+    <string name="save_dialog_caption">Để nghe bản ghi, hãy mở ứng dụng Play Âm nhạc.</string>
+    <string name="favorites">Đài yêu thích</string>
+    <string name="rename">Đổi tên</string>
+    <string name="station_rename_hint">Nhập tên đài</string>
+    <string name="remove_favorite">Xóa khỏi đài yêu thích</string>
+    <string name="toast_record_saved">Bản ghi đã được lưu</string>
+    <string name="toast_record_not_saved">Bản ghi chưa được lưu</string>
+    <string name="toast_listen">NGHE</string>
+    <string name="toast_station_renamed">Đài đã được đổi tên</string>
+    <string name="audio_db_artist_name">Bản ghi âm FM của tôi</string>
+    <string name="audio_db_album_name">Bản ghi âm FM</string>
+    <string name="audio_db_playlist_name">Bản ghi âm FM</string>
+    <string name="audio_save_dir_name">Bản ghi âm FM</string>
+    <string name="accessibility_play">Phát</string>
+    <string name="accessibility_pause">Tạm dừng</string>
+    <string name="accessibility_next">Bài tiếp theo</string>
+    <string name="accessibility_prev">Bài trước đó</string>
+</resources>

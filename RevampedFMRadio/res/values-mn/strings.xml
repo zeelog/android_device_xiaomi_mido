@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">ФМ Радио</string>
+    <string name="toast_station_searched">Боломжтой станцуудыг хайж чадлаа:</string>
+    <string name="toast_cannot_search">Боломжтой станцуудыг хайж чадахгүй байна.</string>
+    <string name="optmenu_speaker">Чанга яригч</string>
+    <string name="optmenu_earphone">Чихэвч</string>
+    <string name="save">Хадгалах</string>
+    <string name="toast_sdcard_missing">Таны SD карт алга байна!</string>
+    <string name="toast_sdcard_insufficient_space">SD картанд хангалттай орон зай байхгүй байна!</string>
+    <string name="toast_recorder_internal_error">Бичлэг хийж байхад дотоод алдаа гарлаа!</string>
+    <string name="btn_save_recording">Хадгалах</string>
+    <string name="btn_discard_recording">Устгах</string>
+    <string name="edit_recording_name_hint">Файлын нэрийг энд бичнэ үү</string>
+    <string name="already_exists">аль хэдийнээ байна</string>
+    <string name="not_available">Одоохондоо байхгүй байна</string>
+    <string name="talk_prev_station">Өмнөх станц</string>
+    <string name="talk_decrease">Давтамжийг бууруулах</string>
+    <string name="talk_increase">Давтамжийг нэмэгдүүлэх</string>
+    <string name="talk_next_station">Дараагийн станц</string>
+    <string name="talk_add_favorite">Дуртайд нэмэх</string>
+    <string name="talk_start_recording">Бичлэг хийж эхлэх</string>
+    <string name="more">"Илүү"</string>
+    <string name="recording_tips">Бичлэг хийж байна...</string>
+    <string name="fm_symbol">ФМ</string>
+    <string name="fm_turn_on">ФМ радиог тоглуул эсвэл зогсоо</string>
+    <string name="fm_over_start_record">Бичлэг хийж эхлэх</string>
+    <string name="fm_over_record_list">Хадгалсан бичлэгүүд</string>
+    <string name="fm_station_list_menu_refresh">Дахин ачаалах</string>
+    <string name="fm_no_headset_text">Сонсож эхлэхийн тулд чихэвчээ залгана уу (антен болгон ашиглагддаг)</string>
+    <string name="station_title">Радио Станцууд</string>
+    <string name="station_searching_tips">Станцуудыг хайж байна</string>
+    <string name="station_empty_text">Ямар ч станц олдсонгүй</string>
+    <string name="minutes_label">Мин</string>
+    <string name="seconds_label">сек</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Бичлэг хийж байна</string>
+    <string name="record_notification_message">Бичлэг хийгдэж байна</string>
+    <string name="stop_record">БИЧЛЭГИЙГ ЗОГСООХ</string>
+    <string name="save_dialog_title">Бичлэгийг хадгалах уу?</string>
+    <string name="save_dialog_caption">Бичлэгүүдийг сонсохыг хүсвэл Play Music апликейшнийг нээнэ үү.</string>
+    <string name="favorites">Дуртай</string>
+    <string name="rename">Нэр өөрчлөх</string>
+    <string name="station_rename_hint">Станцын нэрийг оруулна уу</string>
+    <string name="remove_favorite">Дуртайгаас хасах</string>
+    <string name="toast_record_saved">Бичлэгийг хадгалсан</string>
+    <string name="toast_record_not_saved">Бичлэгийг хадгалсангүй</string>
+    <string name="toast_listen">СОНС</string>
+    <string name="toast_station_renamed">Станцын нэрийг өөрчилсөн байна</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM რადიო</string>
+    <string name="toast_station_searched">გამოიკვლევა არსებული სადგურების:</string>
+    <string name="toast_cannot_search">ვერ მოძიებაში ხელმისაწვდომი სადგური.</string>
+    <string name="optmenu_speaker">მიკროფონი</string>
+    <string name="optmenu_earphone">ყურსასმენების</string>
+    <string name="save">შენახვა</string>
+    <string name="toast_sdcard_missing">თქვენი SD ბარათი არ არის!</string>
+    <string name="toast_sdcard_insufficient_space">არასაკმარისი SD ბარათი სივრცეში!</string>
+    <string name="toast_recorder_internal_error">შიდა შეცდომა ჩამწერი!</string>
+    <string name="btn_save_recording">შენახვა</string>
+    <string name="btn_discard_recording">გაუქმება</string>
+    <string name="edit_recording_name_hint">სახელი აკრიფეთ აქ</string>
+    <string name="already_exists">უკვე არსებობს</string>
+    <string name="not_available">ამჟამად არ არის ხელმისაწვდომი</string>
+    <string name="talk_prev_station">წინა სადგური</string>
+    <string name="talk_decrease">შემცირება სიხშირე</string>
+    <string name="talk_increase">ზრდა სიხშირე</string>
+    <string name="talk_next_station">შემდეგი სადგური</string>
+    <string name="talk_add_favorite">დაამატე საყვარელ</string>
+    <string name="talk_start_recording">ჩაწერის დაწყება</string>
+    <string name="more">"მეტი"</string>
+    <string name="recording_tips">ჩაწერა ...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">ითამაშოთ ან შეწყვიტოს FM რადიო</string>
+    <string name="fm_over_start_record">ჩაწერის დაწყება</string>
+    <string name="fm_over_record_list">შენახული ჩანაწერები</string>
+    <string name="fm_station_list_menu_refresh">განახლება</string>
+    <string name="fm_no_headset_text">უნდა დაიწყოს მოსმენის, დანამატის ყურსასმენები (გამოიყენება როგორც ანტენის).</string>
+    <string name="station_title">რადიო სადგურები</string>
+    <string name="station_searching_tips">მიღების სადგურები</string>
+    <string name="station_empty_text">არ სადგურები გამოჩენას</string>
+    <string name="minutes_label">ო</string>
+    <string name="seconds_label">სამხრ.</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">ჩანაწერი</string>
+    <string name="record_notification_message">ჩაწერა მიმდინარეობს</string>
+    <string name="stop_record">STOP ჩაწერა</string>
+    <string name="save_dialog_title">განთავსებულია ჩაწერა?</string>
+    <string name="save_dialog_caption">უნდა მოუსმინოს ჩანაწერები, გახსნა Play მუსიკა app.</string>
+    <string name="favorites">რჩეულები</string>
+    <string name="rename">გადარქმევა</string>
+    <string name="station_rename_hint">შეიყვანეთ არხის სახელი</string>
+    <string name="remove_favorite">წაშლა საყვარელი</string>
+    <string name="toast_record_saved">ჩაწერა შენახული</string>
+    <string name="toast_record_not_saved">ჩანაწერი არ გადაარჩინა</string>
+    <string name="toast_listen">მოუსმინეთ</string>
+    <string name="toast_station_renamed">სადგური ეწოდა</string>
+    <string name="audio_db_artist_name">ჩემი FM-ჩანაწერები</string>
+    <string name="audio_db_album_name">FM-ჩანაწერები</string>
+    <string name="audio_db_playlist_name">FM-ჩანაწერები</string>
+    <string name="audio_save_dir_name">FM-ჩანაწერები</string>
+    <string name="accessibility_play">გაშვება</string>
+    <string name="accessibility_pause">შეჩერება</string>
+    <string name="accessibility_next">შემდეგი</string>
+    <string name="accessibility_prev">წინა</string>
+</resources>

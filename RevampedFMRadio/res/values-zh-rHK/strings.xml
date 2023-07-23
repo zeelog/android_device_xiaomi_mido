@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM 收音機</string>
+    <string name="toast_station_searched">已找到的可用電台：</string>
+    <string name="toast_cannot_search">找不到可用的電台。</string>
+    <string name="optmenu_speaker">喇叭</string>
+    <string name="optmenu_earphone">耳機</string>
+    <string name="save">儲存</string>
+    <string name="toast_sdcard_missing">找不到 SD 卡！</string>
+    <string name="toast_sdcard_insufficient_space">SD 卡儲存空間不足！</string>
+    <string name="toast_recorder_internal_error">錄音機發生內部錯誤！</string>
+    <string name="btn_save_recording">儲存</string>
+    <string name="btn_discard_recording">捨棄</string>
+    <string name="edit_recording_name_hint">請在這裡輸入檔案名稱</string>
+    <string name="already_exists">已存在</string>
+    <string name="not_available">目前無法使用</string>
+    <string name="talk_prev_station">上一個電台</string>
+    <string name="talk_decrease">調低頻率</string>
+    <string name="talk_increase">調高頻率</string>
+    <string name="talk_next_station">下一個電台</string>
+    <string name="talk_add_favorite">加入我的最愛</string>
+    <string name="talk_start_recording">開始錄音</string>
+    <string name="more">"更多"</string>
+    <string name="recording_tips">正在錄音…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">播放或停止 FM 收音機</string>
+    <string name="fm_over_start_record">開始錄音</string>
+    <string name="fm_over_record_list">已儲存的錄音</string>
+    <string name="fm_station_list_menu_refresh">重新整理</string>
+    <string name="fm_no_headset_text">如要開始收聽，請插上耳機 (用作天線)。</string>
+    <string name="station_title">電台</string>
+    <string name="station_searching_tips">正在取得電台</string>
+    <string name="station_empty_text">未找到任何電台</string>
+    <string name="minutes_label">分鐘</string>
+    <string name="seconds_label">秒</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">正在錄音</string>
+    <string name="record_notification_message">正在錄音</string>
+    <string name="stop_record">停止錄音</string>
+    <string name="save_dialog_title">要儲存錄音嗎？</string>
+    <string name="save_dialog_caption">如要收聽錄音，請開啟「Play 音樂」應用程式。</string>
+    <string name="favorites">我的最愛</string>
+    <string name="rename">重新命名</string>
+    <string name="station_rename_hint">請輸入電台名稱</string>
+    <string name="remove_favorite">移除我的最愛</string>
+    <string name="toast_record_saved">已儲存錄音</string>
+    <string name="toast_record_not_saved">未儲存錄音</string>
+    <string name="toast_listen">收聽</string>
+    <string name="toast_station_renamed">電台已重新命名</string>
+    <string name="accessibility_play">播放</string>
+    <string name="accessibility_pause">暫停</string>
+    <string name="accessibility_next">下一首</string>
+    <string name="accessibility_prev">上一首</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Rádio FM</string>
+    <string name="toast_station_searched">Vyhľadané dostupné stanice:</string>
+    <string name="toast_cannot_search">Dostupné stanice sa nedajú vyhľadať.</string>
+    <string name="optmenu_speaker">Reproduktor</string>
+    <string name="optmenu_earphone">Slúchadlo</string>
+    <string name="save">Uložiť</string>
+    <string name="toast_sdcard_missing">Chýba SD karta</string>
+    <string name="toast_sdcard_insufficient_space">Nedostatok voľného miesta na SD karte</string>
+    <string name="toast_recorder_internal_error">V zaznamenávacom zariadení sa vyskytla vnútorná chyba</string>
+    <string name="btn_save_recording">Uložiť</string>
+    <string name="btn_discard_recording">Zahodiť</string>
+    <string name="edit_recording_name_hint">Tu zadajte názov súboru</string>
+    <string name="already_exists">už existuje</string>
+    <string name="not_available">Momentálne nedostupné</string>
+    <string name="talk_prev_station">Predchádzajúca stanica</string>
+    <string name="talk_decrease">Znížiť frekvenciu</string>
+    <string name="talk_increase">Zvýšiť frekvenciu</string>
+    <string name="talk_next_station">Ďalšia stanica</string>
+    <string name="talk_add_favorite">Pridať do obľúbených staníc</string>
+    <string name="talk_start_recording">Spustiť zaznamenávanie</string>
+    <string name="more">"Viac"</string>
+    <string name="recording_tips">Zaznamenáva sa...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Spustiť alebo zastaviť rádio FM</string>
+    <string name="fm_over_start_record">Spustiť zaznamenávanie</string>
+    <string name="fm_over_record_list">Uložené hudobné záznamy</string>
+    <string name="fm_station_list_menu_refresh">Obnoviť</string>
+    <string name="fm_no_headset_text">Ak chcete začať počúvať, pripojte slúchadlá (použijú sa ako anténa).</string>
+    <string name="station_title">Rádiové stanice</string>
+    <string name="station_searching_tips">Načítavajú sa stanice</string>
+    <string name="station_empty_text">Nenašli sa žiadne stanice</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Zaznamenávanie</string>
+    <string name="record_notification_message">Prebieha zaznamenávanie</string>
+    <string name="stop_record">ZASTAVIŤ ZÁZNAM</string>
+    <string name="save_dialog_title">Uložiť záznam?</string>
+    <string name="save_dialog_caption">Ak chcete počúvať záznamy, otvorte aplikáciu Hudba Play.</string>
+    <string name="favorites">Obľúbené stanice</string>
+    <string name="rename">Premenovať</string>
+    <string name="station_rename_hint">Zadajte názov stanice</string>
+    <string name="remove_favorite">Odstrániť obľúbenú stanicu</string>
+    <string name="toast_record_saved">Záznam bola uložený</string>
+    <string name="toast_record_not_saved">Záznam sa neuložil</string>
+    <string name="toast_listen">POČÚVAŤ</string>
+    <string name="toast_station_renamed">Stanica bola premenovaná</string>
+    <string name="audio_db_artist_name">Moje nahrávky FM</string>
+    <string name="audio_db_album_name">Nahrávky FM</string>
+    <string name="audio_db_playlist_name">Nahrávky FM</string>
+    <string name="audio_save_dir_name">Nahrávky FM</string>
+    <string name="accessibility_play">Prehrať</string>
+    <string name="accessibility_pause">Pozastaviť</string>
+    <string name="accessibility_next">Ďalšia</string>
+    <string name="accessibility_prev">Predchádzajúca</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">វិទ្យុ FM</string>
+    <string name="toast_station_searched">ស្វែងរកស្ថានីយ៍ដែលមានផ្តល់ជូន</string>
+    <string name="toast_cannot_search">មិនអាចស្វែងរកស្ថានីយដែលមានផ្តល់ជូនទេ</string>
+    <string name="optmenu_speaker">ឧបករណ៍បំពងសម្លេង</string>
+    <string name="optmenu_earphone">កាសស្តាប់</string>
+    <string name="save">រក្សាទុក</string>
+    <string name="toast_sdcard_missing">កាត SD  របស់អ្នកបាត់បង់ហើយ!</string>
+    <string name="toast_sdcard_insufficient_space">មិនមានចន្លោះទិន្នន័យកាត SD គ្រប់គ្រាន់ទេ!</string>
+    <string name="toast_recorder_internal_error">កំហុសខាងក្នុងបានកើតឡើងនៅក្នុងឧបករណ៍ថត!</string>
+    <string name="btn_save_recording">រក្សាទុក</string>
+    <string name="btn_discard_recording">បោះបង់</string>
+    <string name="edit_recording_name_hint">វាយបញ្ចូលឈ្មោះឯកសារនៅទីនេះ</string>
+    <string name="already_exists">មានរួចទៅហើយ</string>
+    <string name="not_available">មិនមានទេបច្ចុប្បន្ននេះ</string>
+    <string name="talk_prev_station">ស្ថានីយពីមុន</string>
+    <string name="talk_decrease">បន្ថយប្រេកង់</string>
+    <string name="talk_increase">បង្កើនប្រេកង់</string>
+    <string name="talk_next_station">ស្ថានីយបន្ទាប់</string>
+    <string name="talk_add_favorite">បន្ថែមទៅការចូលចិត្ត</string>
+    <string name="talk_start_recording">ចាប់ផ្តើមថត</string>
+    <string name="more">"ច្រើនទៀត"</string>
+    <string name="recording_tips">កំពុងថត…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">លេង ឬបិទវិទ្យុ FM</string>
+    <string name="fm_over_start_record">ចាប់ផ្តើមថត</string>
+    <string name="fm_over_record_list">ការថតដែលបានរក្សាទុក</string>
+    <string name="fm_station_list_menu_refresh">ផ្ទុកឡើងវិញ</string>
+    <string name="fm_no_headset_text">ដើម្បី​ស្តាប់ សូម​ដោត​កាស​ចូល (ប្រើ​ជា​អង់តែន)។</string>
+    <string name="station_title">ស្ថានីយវិទ្យុ</string>
+    <string name="station_searching_tips">ចាប់យកស្ថានីយ៍</string>
+    <string name="station_empty_text">មិនមានស្ថានីយ៍ត្រូវបានរកឃើញទេ</string>
+    <string name="minutes_label">ម</string>
+    <string name="seconds_label">វ</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">ការថត</string>
+    <string name="record_notification_message">ការថតនៅក្នុងដំណើរការ</string>
+    <string name="stop_record">ឈប់ថត</string>
+    <string name="save_dialog_title">រក្សាទុកការថត?</string>
+    <string name="save_dialog_caption">ដើម្បីស្តាប់ការថត បើកកម្មវិធី ចាក់តន្ត្រី។</string>
+    <string name="favorites">ការចូលចិត្ត</string>
+    <string name="rename">ប្ដូរ​ឈ្មោះ</string>
+    <string name="station_rename_hint">បញ្ចូលឈ្មោះស្ថានីយ៍</string>
+    <string name="remove_favorite">យកការចូលចិត្តចេញ</string>
+    <string name="toast_record_saved">ការថតបានរក្សាទុក</string>
+    <string name="toast_record_not_saved">ការថតមិនបានរក្សាទុកទេ</string>
+    <string name="toast_listen">ស្តាប់</string>
+    <string name="toast_station_renamed">ស្ថានីយ៍នេះត្រូវបានប្តូរឈ្មោះ</string>
+</resources>

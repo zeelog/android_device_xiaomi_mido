@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM Radio</string>
+    <string name="toast_station_searched">Mövcud stansiyalar axtarıldı</string>
+    <string name="toast_cannot_search">Mövcud stansiyasını axtarmaq mümkün deyil.</string>
+    <string name="optmenu_speaker">Dinamik</string>
+    <string name="optmenu_earphone">Qulaqlıq</string>
+    <string name="save">Saxla</string>
+    <string name="toast_sdcard_missing">SD kartınız çatışmır!</string>
+    <string name="toast_sdcard_insufficient_space">SD kartda kifayət qədər yer yoxdur!</string>
+    <string name="toast_recorder_internal_error">Yazan zaman daxili səhv baş verdi.</string>
+    <string name="btn_save_recording">Saxla</string>
+    <string name="btn_discard_recording">Ləğv edin</string>
+    <string name="edit_recording_name_hint">Faylın adını bura yazın</string>
+    <string name="already_exists">artıq mövcuddur</string>
+    <string name="not_available">Hal-hazırda mövcud deyil</string>
+    <string name="talk_prev_station">Əvvəlki stansiya</string>
+    <string name="talk_decrease">Tezliyi azalt</string>
+    <string name="talk_increase">Tezliyi artır</string>
+    <string name="talk_next_station">Növbəti stansiya</string>
+    <string name="talk_add_favorite">Sevimliyə əlavə et</string>
+    <string name="talk_start_recording">Yazmağı başlat</string>
+    <string name="more">"Daha çox"</string>
+    <string name="recording_tips">Yazır...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM radiosunu səsləndir və ya dayandır</string>
+    <string name="fm_over_start_record">Yazmağı başlat</string>
+    <string name="fm_over_record_list">Saxlanan yazılar</string>
+    <string name="fm_station_list_menu_refresh">Təzələ</string>
+    <string name="fm_no_headset_text">Dinləməyə başlamaq üçün qulaqlıqları qoşun (antena kimi istifadə olunur).</string>
+    <string name="station_title">Radio stansiyalar</string>
+    <string name="station_searching_tips">Stansiyalar əldə olunur</string>
+    <string name="station_empty_text">Stansiya tapılmadı</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Yazır</string>
+    <string name="record_notification_message">Yazma icra olunur</string>
+    <string name="stop_record">YAZINI DAYANDIR</string>
+    <string name="save_dialog_title">Yazı saxlansın?</string>
+    <string name="save_dialog_caption">Yazılara qulaq asmaq üçün Play Music proqramını açın.</string>
+    <string name="favorites">Sevimlilər</string>
+    <string name="rename">Adını dəyişdir</string>
+    <string name="station_rename_hint">Stansiyanın adını daxil et</string>
+    <string name="remove_favorite">Sevimlini sil</string>
+    <string name="toast_record_saved">Yazı saxlandı</string>
+    <string name="toast_record_not_saved">Yazı saxlanmadı</string>
+    <string name="toast_listen">QULAQ AS</string>
+    <string name="toast_station_renamed">Stansiyanın adı dəyişdirilib</string>
+    <string name="audio_db_artist_name">FM səsyazmalarım</string>
+    <string name="audio_db_album_name">FM səsyazmaları</string>
+    <string name="audio_db_playlist_name">FM səsyazmaları</string>
+    <string name="audio_save_dir_name">FM səsyazmaları</string>
+    <string name="accessibility_play">Oynat</string>
+    <string name="accessibility_pause">Fasilə</string>
+    <string name="accessibility_next">Sonrakı</string>
+    <string name="accessibility_prev">Əvvəlki</string>
+</resources>

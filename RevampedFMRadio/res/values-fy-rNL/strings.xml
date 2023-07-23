@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM Radio</string>
+    <string name="toast_station_searched">Fûne beskikbere stjoerders:</string>
+    <string name="toast_cannot_search">Kin beskikbere stjoerders net fine.</string>
+    <string name="optmenu_speaker">Lûdsprekker</string>
+    <string name="optmenu_earphone">Eartelefoan</string>
+    <string name="save">Bewarje</string>
+    <string name="toast_sdcard_missing">Der is gjin SD-kaart pleatst.</string>
+    <string name="toast_sdcard_insufficient_space">Net genôch romte op SD-kaart.</string>
+    <string name="toast_recorder_internal_error">Der is in ynterne flater bard yn de recorder.</string>
+    <string name="btn_save_recording">Bewarje</string>
+    <string name="btn_discard_recording">Fuortsmite</string>
+    <string name="edit_recording_name_hint">Typ hjir de bestânsnamme</string>
+    <string name="already_exists">bestiet al</string>
+    <string name="not_available">Op dit stuit net beskikber</string>
+    <string name="talk_prev_station">Foarige stjoerder</string>
+    <string name="talk_decrease">Frekwinsje ferleegje</string>
+    <string name="talk_increase">Frekwinsje ferheegje</string>
+    <string name="talk_next_station">Folgjende stjoerder</string>
+    <string name="talk_add_favorite">Tafoegje oan favoriten</string>
+    <string name="talk_start_recording">Opname starte</string>
+    <string name="more">"Mear"</string>
+    <string name="recording_tips">Opnimme…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM-radio ôfspylje of stopje</string>
+    <string name="fm_over_start_record">Opname starte</string>
+    <string name="fm_over_record_list">Bewarre opnamen</string>
+    <string name="fm_station_list_menu_refresh">Fernije</string>
+    <string name="fm_no_headset_text">As jo lústerje wolle, slute jo in koptelefoan oan (wurdt brûkt as antenne).</string>
+    <string name="station_title">Radiostjoerders</string>
+    <string name="station_searching_tips">Stjoerders ophelje</string>
+    <string name="station_empty_text">Gjin stjoerders fûn</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Opnimme</string>
+    <string name="record_notification_message">Opname dwaande</string>
+    <string name="stop_record">OPNAME STOPJE</string>
+    <string name="save_dialog_title">Opname bewarje?</string>
+    <string name="save_dialog_caption">As jo opnamen belústerje wolle, iepenje jo de Play Music-app.</string>
+    <string name="favorites">Favoriten</string>
+    <string name="rename">Namme wizigje</string>
+    <string name="station_rename_hint">Stjoerdernamme opjaan</string>
+    <string name="remove_favorite">Favoryt fuortsmite</string>
+    <string name="toast_record_saved">Opname bewarre</string>
+    <string name="toast_record_not_saved">Opname net bewarre</string>
+    <string name="toast_listen">LÚSTERJE</string>
+    <string name="toast_station_renamed">De namme fan de stjoerder is wizige</string>
+    <string name="audio_db_artist_name">Myn FM-opnamen</string>
+    <string name="audio_db_album_name">FM-opnamen</string>
+    <string name="audio_db_playlist_name">FM-opnamen</string>
+    <string name="audio_save_dir_name">FM-opnamen</string>
+    <string name="accessibility_play">Ofspylje</string>
+    <string name="accessibility_pause">Pausearje</string>
+    <string name="accessibility_next">Folgjende</string>
+    <string name="accessibility_prev">Foarige</string>
+</resources>

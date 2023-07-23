@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM Радио</string>
+    <string name="toast_station_searched">Жеткиликтүү станцияларды издеп табуу:</string>
+    <string name="toast_cannot_search">Жеткиликтүү станция изделип табылбай жатат.</string>
+    <string name="optmenu_speaker">Катуу сүйлөткүч</string>
+    <string name="optmenu_earphone">Кулакчын</string>
+    <string name="save">Сактоо</string>
+    <string name="toast_sdcard_missing">SD-картаңыз жок!</string>
+    <string name="toast_sdcard_insufficient_space">SD-картада орун жетишсиз!</string>
+    <string name="toast_recorder_internal_error">Жаздыргычта ички ката кетти!</string>
+    <string name="btn_save_recording">Сактоо</string>
+    <string name="btn_discard_recording">Жарактан чыгаруу</string>
+    <string name="edit_recording_name_hint">Файлдын аталышын бул жерге териңиз</string>
+    <string name="already_exists">мурунтан эле бар</string>
+    <string name="not_available">Учурда жеткиликтүү эмес</string>
+    <string name="talk_prev_station">Мурунку станция</string>
+    <string name="talk_decrease">Жыштыгын азайтуу</string>
+    <string name="talk_increase">Жыштыгын көбөйтүү</string>
+    <string name="talk_next_station">Кийинки станция</string>
+    <string name="talk_add_favorite">Сүйүктүүгө кошуу</string>
+    <string name="talk_start_recording">Жаздырып баштоо</string>
+    <string name="more">"Дагы"</string>
+    <string name="recording_tips">Жаздырылууда…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM радиону ойнотуу же токтотуу</string>
+    <string name="fm_over_start_record">Жаздырып баштоо</string>
+    <string name="fm_over_record_list">Сакталган жаздыруулар</string>
+    <string name="fm_station_list_menu_refresh">Жаңылоо</string>
+    <string name="fm_no_headset_text">Угуп баштоо үчүн, кулакчындарды тагыңыз (антенна катары колдонулат).</string>
+    <string name="station_title">Радио станциялары</string>
+    <string name="station_searching_tips">Станциялар алынууда</string>
+    <string name="station_empty_text">Станциялар табылган жок</string>
+    <string name="minutes_label">М</string>
+    <string name="seconds_label">ск</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Жаздыруу</string>
+    <string name="record_notification_message">Жаздыруу аткарылып жатат</string>
+    <string name="stop_record">ЖАЗДЫРУУНУ ТОКТОТУУ</string>
+    <string name="save_dialog_title">Жаздыруу сакталсынбы?</string>
+    <string name="save_dialog_caption">Жаздырууларды угуу үчүн, Play Музыка колдонмосун ачыңыз.</string>
+    <string name="favorites">Сүйүктүүлөр</string>
+    <string name="rename">Атын өзгөртүү</string>
+    <string name="station_rename_hint">Станциянын аталышын киргизиңиз</string>
+    <string name="remove_favorite">Сүйүктүүнү алып салуу</string>
+    <string name="toast_record_saved">Жаздыруу сакталды</string>
+    <string name="toast_record_not_saved">Жаздыруу сакталган жок</string>
+    <string name="toast_listen">УГУУ</string>
+    <string name="toast_station_renamed">Станциянын аталышы өзгөртүлдү</string>
+</resources>

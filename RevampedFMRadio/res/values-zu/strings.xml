@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Irediyo ye-FM</string>
+    <string name="toast_station_searched">Kuseshwe iziteshi ezitholakalayo:</string>
+    <string name="toast_cannot_search">Awukwazi ukusesha isiteshi esitholakalayo.</string>
+    <string name="optmenu_speaker">Isipikha</string>
+    <string name="optmenu_earphone">I-Earphone</string>
+    <string name="save">Londoloza</string>
+    <string name="toast_sdcard_missing">Ikhadi lakho le-SD alikho!</string>
+    <string name="toast_sdcard_insufficient_space">Isikhala esinganele sekhadi le-SD!</string>
+    <string name="toast_recorder_internal_error">Okokurekhoda kube nephutha langaphakathi!</string>
+    <string name="btn_save_recording">Londoloza</string>
+    <string name="btn_discard_recording">Lahla</string>
+    <string name="edit_recording_name_hint">Thayipha lapha igama lefayela</string>
+    <string name="already_exists">selikhona kakade</string>
+    <string name="not_available">Ayitholakali okwamanje</string>
+    <string name="talk_prev_station">Isiteshi sangaphambilini</string>
+    <string name="talk_decrease">Nciphisa ifrikhwensi</string>
+    <string name="talk_increase">Khulisa ifrikhwensi</string>
+    <string name="talk_next_station">Isiteshi esilandelayo</string>
+    <string name="talk_add_favorite">Engeza kwintandokazi</string>
+    <string name="talk_start_recording">Qala ukurekhoda</string>
+    <string name="more">"Okuningi"</string>
+    <string name="recording_tips">Iyarekhoda…</string>
+    <string name="fm_symbol">I-FM</string>
+    <string name="fm_turn_on">Dlala noma misa irediyo ye-FM</string>
+    <string name="fm_over_start_record">Qala ukurekhoda</string>
+    <string name="fm_over_record_list">Okurekhodiwe okulondoloziwe</string>
+    <string name="fm_station_list_menu_refresh">Vuselela</string>
+    <string name="fm_no_headset_text">Ukuze uqale ukulalela, xhuma amahedfoni (kusetshenziswa njenge-antenna).</string>
+    <string name="station_title">Iziteshi zerediyo</string>
+    <string name="station_searching_tips">Ukuthola iziteshi</string>
+    <string name="station_empty_text">Azikho iziteshi ezitholakele</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Ukurekhoda</string>
+    <string name="record_notification_message">Ukurekhoda kuyaqhubeka</string>
+    <string name="stop_record">MISA UKUREKHODA</string>
+    <string name="save_dialog_title">Londoloza okurekhodiwe?</string>
+    <string name="save_dialog_caption">Ukuze ulalele okurekhodiwe, vula uhlelo lokusebenza le-Play Umculo.</string>
+    <string name="favorites">Izintandokazi</string>
+    <string name="rename">Qamba kabusha</string>
+    <string name="station_rename_hint">Faka igama lesiteshi</string>
+    <string name="remove_favorite">Susa intandokazi</string>
+    <string name="toast_record_saved">Okurekhodiwe kulondoloziwe</string>
+    <string name="toast_record_not_saved">Okurekhodiwe akulondolozwanga</string>
+    <string name="toast_listen">LALELA</string>
+    <string name="toast_station_renamed">Isiteshi siqanjwe kabusha</string>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM-Radio</string>
+    <string name="toast_station_searched">Disponibel Sendere fonnt:</string>
+    <string name="toast_cannot_search">Disponibel Sendere konnten net fonnt ginn.</string>
+    <string name="optmenu_speaker">Lautsprecher</string>
+    <string name="optmenu_earphone">Kopfhörer</string>
+    <string name="save">Späicheren</string>
+    <string name="toast_sdcard_missing">Deng SD-Kaart feelt!</string>
+    <string name="toast_sdcard_insufficient_space">Net genuch Späicherplaz op der SD-Kaart!</string>
+    <string name="toast_recorder_internal_error">Am Rekorder ass en interne Feeler opgetrueden!</string>
+    <string name="btn_save_recording">Späicheren</string>
+    <string name="btn_discard_recording">Verwerfen</string>
+    <string name="edit_recording_name_hint">Fichiersstyp hei aginn</string>
+    <string name="already_exists">existéiert schonn</string>
+    <string name="not_available">Momentan net disponibel</string>
+    <string name="talk_prev_station">Virege Sender</string>
+    <string name="talk_decrease">Frequenz erofsetzen</string>
+    <string name="talk_increase">Frequenz erhéijen</string>
+    <string name="talk_next_station">Nächste Sender</string>
+    <string name="talk_add_favorite">Bei d\'Favoritten dobäisetzen</string>
+    <string name="talk_start_recording">Opnam starten</string>
+    <string name="more">"Méi"</string>
+    <string name="recording_tips">Gëtt opgeholl…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM-Radio ofspillen oder stoppen</string>
+    <string name="fm_over_start_record">Opnam starten</string>
+    <string name="fm_over_record_list">Gespäichert Opnamen</string>
+    <string name="fm_station_list_menu_refresh">Opfrëschen</string>
+    <string name="fm_no_headset_text">Fir Radio ze lauschteren, stiech d\'Kopfhörer (déi als Antenn benotzt ginn) an.</string>
+    <string name="station_title">Radiossenderen</string>
+    <string name="station_searching_tips">Sendere gi gesicht</string>
+    <string name="station_empty_text">Keng Sendere fonnt</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label">s</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Gëtt opgeholl</string>
+    <string name="record_notification_message">Opnam leeft</string>
+    <string name="stop_record">OPNAM STOPPEN</string>
+    <string name="save_dialog_title">Opnam späicheren?</string>
+    <string name="save_dialog_caption">Fir d\'Opnamen ze lauschteren, maach d\'App Play Music op.</string>
+    <string name="favorites">Favoritten</string>
+    <string name="rename">Ëmbenennen</string>
+    <string name="station_rename_hint">Sendernumm aginn</string>
+    <string name="remove_favorite">Favorit ewechhuelen</string>
+    <string name="toast_record_saved">Opnam gespäichert</string>
+    <string name="toast_record_not_saved">Opnam net gespäichert</string>
+    <string name="toast_listen">LAUSCHTEREN</string>
+    <string name="toast_station_renamed">De Sender gouf ëmbenannt</string>
+    <string name="accessibility_play">Ofspillen</string>
+    <string name="accessibility_pause">Paus</string>
+    <string name="accessibility_next">Weider</string>
+    <string name="accessibility_prev">Zréck</string>
+</resources>

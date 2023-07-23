@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Redio ya FM</string>
+    <string name="toast_station_searched">Imetafuta stesheni zinazopatikana:</string>
+    <string name="toast_cannot_search">Haiwezi kutafuta stesheni inayopatikana.</string>
+    <string name="optmenu_speaker">Spika</string>
+    <string name="optmenu_earphone">Kifaa cha sauti</string>
+    <string name="save">Hifadhi</string>
+    <string name="toast_sdcard_missing">Kadi yako ya SD haipo!</string>
+    <string name="toast_sdcard_insufficient_space">Nafasi ya kadi ya SD haitoshi!</string>
+    <string name="toast_recorder_internal_error">Hitilafu ya ndani imetokea kwenye kifaa cha kurekodi!</string>
+    <string name="btn_save_recording">Hifadhi</string>
+    <string name="btn_discard_recording">Tupa</string>
+    <string name="edit_recording_name_hint">Andika jina la faili hapa</string>
+    <string name="already_exists">jina hilo tayari lipo</string>
+    <string name="not_available">Haipatikani kwa sasa</string>
+    <string name="talk_prev_station">Stesheni iliyotangulia</string>
+    <string name="talk_decrease">Punguza mawimbi</string>
+    <string name="talk_increase">Ongeza mawimbi</string>
+    <string name="talk_next_station">Stesheni inayofuata</string>
+    <string name="talk_add_favorite">Ongeza kwenye vipendwa</string>
+    <string name="talk_start_recording">Anza kurekodi</string>
+    <string name="more">"Zaidi"</string>
+    <string name="recording_tips">Inarekodi...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Cheza au usitishe redio ya FM</string>
+    <string name="fm_over_start_record">Anza kurekodi</string>
+    <string name="fm_over_record_list">Rekodi zilizohifadhiwa</string>
+    <string name="fm_station_list_menu_refresh">Onyesha upya</string>
+    <string name="fm_no_headset_text">Ili uanze kusikiliza, weka vifaa vya sauti (hutumika kama antena).</string>
+    <string name="station_title">Stesheni za Redio</string>
+    <string name="station_searching_tips">Inaleta stesheni</string>
+    <string name="station_empty_text">Hakuna stesheni zilizopatikana</string>
+    <string name="minutes_label">Dak</string>
+    <string name="seconds_label">Sek</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Inarekodi</string>
+    <string name="record_notification_message">Inaendelea kurekodi</string>
+    <string name="stop_record">ACHA KUREKODI</string>
+    <string name="save_dialog_title">Ungependa kuhifadhi rekodi?</string>
+    <string name="save_dialog_caption">Ili usikilize rekodi, fungua programu ya Muziki wa Google Play.</string>
+    <string name="favorites">Vipendwa</string>
+    <string name="rename">Badili jina</string>
+    <string name="station_rename_hint">Weka jina la stesheni</string>
+    <string name="remove_favorite">Ondoa miongoni mwa vipendwa</string>
+    <string name="toast_record_saved">Rekodi imehifadhiwa</string>
+    <string name="toast_record_not_saved">Rekodi haijahifadhiwa</string>
+    <string name="toast_listen">SIKILIZA</string>
+    <string name="toast_station_renamed">Umebadilisha jina la stesheni</string>
+</resources>

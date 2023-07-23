@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <!-- text size -->
+    <dimen name="fm_description_text_size">14dp</dimen>
+    <dimen name="fm_station_rds_text_size">14dp</dimen>
+    <!-- start text size and margin -->
+    <dimen name="fm_frequency_text_size_start">56dp</dimen>
+    <dimen name="fm_station_name_text_size_start">24dp</dimen>
+    <dimen name="fm_description_margin_top_start">8dp</dimen>
+    <dimen name="fm_frequency_margin_top_start">0dp</dimen>
+    <dimen name="fm_station_name_margin_top_start">24dp</dimen>
+    <dimen name="fm_station_rds_margin_top_start">12dp</dimen>
+    <dimen name="fm_control_buttons_margin_top_start">44dp</dimen>
+    <!-- first region target text size and margin -->
+    <dimen name="fm_frequency_text_size_first_target">20dp</dimen>
+    <dimen name="fm_station_name_text_size_first_target">14dp</dimen>
+    <dimen name="fm_description_margin_top_first_target">10dp</dimen>
+    <dimen name="fm_frequency_margin_top_first_target">10dp</dimen>
+    <dimen name="fm_station_name_margin_top_first_target">8dp</dimen>
+    <dimen name="fm_station_rds_margin_top_first_target">-14dp</dimen>
+    <dimen name="fm_control_buttons_margin_top_first_target">8dp</dimen>
+
+    <dimen name="fm_main_header_small">128dp</dimen>
+    <dimen name="fm_main_header_big">128dp</dimen>
+
+    <!-- recording page -->
+    <dimen name="fm_recording_station_detail_margin_bottom">16dp</dimen>
+</resources>

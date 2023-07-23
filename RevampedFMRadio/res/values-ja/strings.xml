@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FMラジオ</string>
+    <string name="toast_station_searched">利用可能な放送局が見つかりました:</string>
+    <string name="toast_cannot_search">利用可能な放送局が見つかりません。</string>
+    <string name="optmenu_speaker">スピーカー</string>
+    <string name="optmenu_earphone">イヤホン</string>
+    <string name="save">保存</string>
+    <string name="toast_sdcard_missing">SDカードがありません。</string>
+    <string name="toast_sdcard_insufficient_space">SDカードの空き容量が不足しています。</string>
+    <string name="toast_recorder_internal_error">レコーダーで内部エラーが発生しました。</string>
+    <string name="btn_save_recording">保存</string>
+    <string name="btn_discard_recording">破棄</string>
+    <string name="edit_recording_name_hint">ここにファイル名を入力します</string>
+    <string name="already_exists">既に存在しています</string>
+    <string name="not_available">現在利用できません</string>
+    <string name="talk_prev_station">前の放送局</string>
+    <string name="talk_decrease">周波数を下げる</string>
+    <string name="talk_increase">周波数を上げる</string>
+    <string name="talk_next_station">次の放送局</string>
+    <string name="talk_add_favorite">お気に入りに追加</string>
+    <string name="talk_start_recording">録音開始</string>
+    <string name="more">"その他"</string>
+    <string name="recording_tips">録音しています…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FMラジオを再生または停止します</string>
+    <string name="fm_over_start_record">録音開始</string>
+    <string name="fm_over_record_list">保存済みの録音</string>
+    <string name="fm_station_list_menu_refresh">更新</string>
+    <string name="fm_no_headset_text">FMラジオを聴くには、ヘッドフォンをご利用ください（アンテナの役割を果たします）。</string>
+    <string name="station_title">ラジオ放送局</string>
+    <string name="station_searching_tips">放送局を取得しています</string>
+    <string name="station_empty_text">放送局が見つかりません</string>
+    <string name="minutes_label">分</string>
+    <string name="seconds_label">秒</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">録音中</string>
+    <string name="record_notification_message">録音中です</string>
+    <string name="stop_record">録音を停止</string>
+    <string name="save_dialog_title">録音を保存しますか？</string>
+    <string name="save_dialog_caption">録音を再生するには、Playミュージックアプリを開きます。</string>
+    <string name="favorites">お気に入り</string>
+    <string name="rename">名前を変更</string>
+    <string name="station_rename_hint">放送局名を入力します</string>
+    <string name="remove_favorite">お気に入りを削除</string>
+    <string name="toast_record_saved">録音は保存されました</string>
+    <string name="toast_record_not_saved">録音は保存されていません</string>
+    <string name="toast_listen">再生</string>
+    <string name="toast_station_renamed">放送局の名前が変更されました</string>
+    <string name="audio_db_artist_name">FM録音</string>
+    <string name="audio_db_album_name">FM録音</string>
+    <string name="audio_db_playlist_name">FM録音</string>
+    <string name="audio_save_dir_name">FM録音</string>
+    <string name="accessibility_play">再生</string>
+    <string name="accessibility_pause">一時停止</string>
+    <string name="accessibility_next">次へ</string>
+    <string name="accessibility_prev">前へ</string>
+</resources>

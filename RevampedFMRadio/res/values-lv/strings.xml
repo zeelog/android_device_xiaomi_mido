@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM radio</string>
+    <string name="toast_station_searched">Tika sameklētas pieejamās radiostacijas:</string>
+    <string name="toast_cannot_search">Nevar sameklēt pieejamu radiostaciju.</string>
+    <string name="optmenu_speaker">Skaļrunis</string>
+    <string name="optmenu_earphone">Austiņa</string>
+    <string name="save">Saglabāt</string>
+    <string name="toast_sdcard_missing">Nav SD kartes.</string>
+    <string name="toast_sdcard_insufficient_space">SD kartē nepietiek vietas.</string>
+    <string name="toast_recorder_internal_error">Radās ierakstītāja kļūda.</string>
+    <string name="btn_save_recording">Saglabāt</string>
+    <string name="btn_discard_recording">Atmest</string>
+    <string name="edit_recording_name_hint">Šeit ierakstiet faila nosaukumu</string>
+    <string name="already_exists">jau pastāv</string>
+    <string name="not_available">Pašlaik nav pieejams</string>
+    <string name="talk_prev_station">Iepriekšējā radiostacija</string>
+    <string name="talk_decrease">Samazināt frekvenci</string>
+    <string name="talk_increase">Palielināt frekvenci</string>
+    <string name="talk_next_station">Nākamā radiostacija</string>
+    <string name="talk_add_favorite">Pievienot izlasei</string>
+    <string name="talk_start_recording">Sākt ierakstīšanu</string>
+    <string name="more">"Vairāk"</string>
+    <string name="recording_tips">Ierakstīšana...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Klausīties/apturēt FM radio</string>
+    <string name="fm_over_start_record">Sākt ierakstīšanu</string>
+    <string name="fm_over_record_list">Saglabātie ieraksti</string>
+    <string name="fm_station_list_menu_refresh">Atsvaidzināt</string>
+    <string name="fm_no_headset_text">Lai sāktu klausīšanos, pievienojiet austiņas (tiek izmantotas kā antena).</string>
+    <string name="station_title">Radiostacijas</string>
+    <string name="station_searching_tips">Notiek radiostaciju iegūšana</string>
+    <string name="station_empty_text">Nav atrasta neviena radiostacija</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label">s</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Ierakstīšana</string>
+    <string name="record_notification_message">Notiek ierakstīšana</string>
+    <string name="stop_record">APTURĒT IERAKSTĪŠANU</string>
+    <string name="save_dialog_title">Vai saglabāt ierakstu?</string>
+    <string name="save_dialog_caption">Lai klausītos ierakstus, atveriet lietotni Play mūzika.</string>
+    <string name="favorites">Izlase</string>
+    <string name="rename">Pārdēvēt</string>
+    <string name="station_rename_hint">Ievadiet radiostacijas nosaukumu</string>
+    <string name="remove_favorite">Noņemt no izlases</string>
+    <string name="toast_record_saved">Ieraksts saglabāts</string>
+    <string name="toast_record_not_saved">Ieraksts nav saglabāts</string>
+    <string name="toast_listen">KLAUSĪTIES</string>
+    <string name="toast_station_renamed">Radiostacija ir pārdēvēta</string>
+    <string name="accessibility_play">Atskaņot</string>
+    <string name="accessibility_pause">Apturēt</string>
+    <string name="accessibility_next">Nākamais</string>
+    <string name="accessibility_prev">Iepriekšējais</string>
+</resources>

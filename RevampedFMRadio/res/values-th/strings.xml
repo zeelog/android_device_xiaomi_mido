@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">วิทยุ FM</string>
+    <string name="toast_station_searched">สถานีวิทยุที่พบ:</string>
+    <string name="toast_cannot_search">ไม่พบสถานีที่พร้อมใช้งาน</string>
+    <string name="optmenu_speaker">ลำโพง</string>
+    <string name="optmenu_earphone">หูฟัง</string>
+    <string name="save">บันทึก</string>
+    <string name="toast_sdcard_missing">ไม่มีการ์ด SD!</string>
+    <string name="toast_sdcard_insufficient_space">พื้นที่ในการ์ด SD ไม่เพียงพอ!</string>
+    <string name="toast_recorder_internal_error">เกิดข้อผิดพลาดภายในตัวบันทึก!</string>
+    <string name="btn_save_recording">บันทึก</string>
+    <string name="btn_discard_recording">ยกเลิก</string>
+    <string name="edit_recording_name_hint">พิมพ์ชื่อไฟล์ที่นี่</string>
+    <string name="already_exists">มีอยู่แล้ว</string>
+    <string name="not_available">ใช้ไม่ได้ในขณะนี้</string>
+    <string name="talk_prev_station">สถานีก่อนหน้า</string>
+    <string name="talk_decrease">ลดความถี่</string>
+    <string name="talk_increase">เพิ่มความถี่</string>
+    <string name="talk_next_station">สถานีถัดไป</string>
+    <string name="talk_add_favorite">เพิ่มไปยังรายการโปรด</string>
+    <string name="talk_start_recording">เริ่มการบันทึก</string>
+    <string name="more">"เพิ่มเติม"</string>
+    <string name="recording_tips">กำลังบันทึก…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">เล่นหรือหยุดวิทยุ FM</string>
+    <string name="fm_over_start_record">เริ่มการบันทึก</string>
+    <string name="fm_over_record_list">รายการที่บันทึกไว้</string>
+    <string name="fm_station_list_menu_refresh">รีเฟรช</string>
+    <string name="fm_no_headset_text">เริ่มฟังวิทยุโดยเสียบหูฟัง (ที่ใช้เป็นสายอากาศ)</string>
+    <string name="station_title">สถานีวิทยุ</string>
+    <string name="station_searching_tips">กำลังสแกนสถานีวิทยุ</string>
+    <string name="station_empty_text">ไม่พบสถานี</string>
+    <string name="minutes_label">น.</string>
+    <string name="seconds_label">ว.</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">กำลังบันทึก</string>
+    <string name="record_notification_message">อยู่ระหว่างบันทึก</string>
+    <string name="stop_record">หยุดการบันทึก</string>
+    <string name="save_dialog_title">บันทึกรายการไหม</string>
+    <string name="save_dialog_caption">หากต้องการฟังรายการที่บันทึกไว้ ให้เปิดฟังด้วยแอป Play เพลง</string>
+    <string name="favorites">รายการโปรด</string>
+    <string name="rename">เปลี่ยนชื่อ</string>
+    <string name="station_rename_hint">ป้อนชื่อสถานี</string>
+    <string name="remove_favorite">นำรายการโปรดออก</string>
+    <string name="toast_record_saved">บันทึกรายการแล้ว</string>
+    <string name="toast_record_not_saved">ไม่ได้บันทึกรายการ</string>
+    <string name="toast_listen">ฟัง</string>
+    <string name="toast_station_renamed">เปลี่ยนชื่อสถานีแล้ว</string>
+    <string name="audio_db_artist_name">การบันทึก FM ของฉัน</string>
+    <string name="audio_db_album_name">การบันทึก FM</string>
+    <string name="audio_db_playlist_name">การบันทึก FM</string>
+    <string name="audio_save_dir_name">การบันทึก FM</string>
+    <string name="accessibility_play">เล่น</string>
+    <string name="accessibility_pause">พักชั่วคราว</string>
+    <string name="accessibility_next">ถัดไป</string>
+    <string name="accessibility_prev">ก่อนหน้า</string>
+</resources>

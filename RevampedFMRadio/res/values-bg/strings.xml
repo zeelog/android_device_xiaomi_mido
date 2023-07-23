@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM радио</string>
+    <string name="toast_station_searched">Открити налични станции:</string>
+    <string name="toast_cannot_search">Не може да се намери налична станция.</string>
+    <string name="optmenu_speaker">Високоговорител</string>
+    <string name="optmenu_earphone">Слушалки</string>
+    <string name="save">Запазване</string>
+    <string name="toast_sdcard_missing">SD картата ви липсва!</string>
+    <string name="toast_sdcard_insufficient_space">Недостатъчно място в SD картата!</string>
+    <string name="toast_recorder_internal_error">В инструмента за запис възникна вътрешна грешка!</string>
+    <string name="btn_save_recording">Запазване</string>
+    <string name="btn_discard_recording">Отхвърляне</string>
+    <string name="edit_recording_name_hint">Въведете името на файла тук</string>
+    <string name="already_exists">вече съществува</string>
+    <string name="not_available">Понастоящем не е налице</string>
+    <string name="talk_prev_station">Предишна станция</string>
+    <string name="talk_decrease">Намаляване на честотата</string>
+    <string name="talk_increase">Увеличаване на честотата</string>
+    <string name="talk_next_station">Следваща станция</string>
+    <string name="talk_add_favorite">Добавяне към любимите</string>
+    <string name="talk_start_recording">Стартиране на записa</string>
+    <string name="more">"Още"</string>
+    <string name="recording_tips">Записва се…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Пускане/спиране на FM радиото</string>
+    <string name="fm_over_start_record">Стартиране на записa</string>
+    <string name="fm_over_record_list">Запазени записи</string>
+    <string name="fm_station_list_menu_refresh">Опресняване</string>
+    <string name="fm_no_headset_text">За да започнете да слушате, включете слушалките (използват се като антена).</string>
+    <string name="station_title">Радиостанции</string>
+    <string name="station_searching_tips">Станциите се извличат</string>
+    <string name="station_empty_text">Няма намерени станции</string>
+    <string name="minutes_label">М</string>
+    <string name="seconds_label">С</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Записва се</string>
+    <string name="record_notification_message">Извършва се запис</string>
+    <string name="stop_record">СПИРАНЕ НА ЗАПИСА</string>
+    <string name="save_dialog_title">Да се запази ли записът?</string>
+    <string name="save_dialog_caption">За да слушате записи, отворете приложението Google Play Музика.</string>
+    <string name="favorites">Любими</string>
+    <string name="rename">Преименуване</string>
+    <string name="station_rename_hint">Въведете име на станцията</string>
+    <string name="remove_favorite">Премахване от любимите</string>
+    <string name="toast_record_saved">Записът бе запазен</string>
+    <string name="toast_record_not_saved">Записът не бе запазен</string>
+    <string name="toast_listen">СЛУШАНЕ</string>
+    <string name="toast_station_renamed">Станцията е преименувана</string>
+    <string name="audio_db_artist_name">Моите радиозаписи</string>
+    <string name="audio_db_album_name">Радиозаписи</string>
+    <string name="audio_db_playlist_name">Радиозаписи</string>
+    <string name="audio_save_dir_name">Радиозаписи</string>
+    <string name="accessibility_play">Изпълни</string>
+    <string name="accessibility_pause">Пауза</string>
+    <string name="accessibility_next">Следваща</string>
+    <string name="accessibility_prev">Предишна</string>
+</resources>

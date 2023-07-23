@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">‏FM ریڈیو</string>
+    <string name="toast_station_searched">تلاش کردہ دستیاب اسٹیشنز:</string>
+    <string name="toast_cannot_search">دستیاب اسٹیشن تلاش نہیں کر سکتے۔</string>
+    <string name="optmenu_speaker">اسپیکر</string>
+    <string name="optmenu_earphone">ایئرفون</string>
+    <string name="save">محفوظ کریں</string>
+    <string name="toast_sdcard_missing">‏آپ کا SD کارڈ غائب ہے!</string>
+    <string name="toast_sdcard_insufficient_space">‏SD کارڈ میں ناکافی جگہ!</string>
+    <string name="toast_recorder_internal_error">ریکارڈر میں ایک داخلی خرابی پیش آگئی!</string>
+    <string name="btn_save_recording">محفوظ کریں</string>
+    <string name="btn_discard_recording">مسترد کریں</string>
+    <string name="edit_recording_name_hint">فائل کا نام یہاں ٹائپ کریں</string>
+    <string name="already_exists">پہلے سے موجود ہے</string>
+    <string name="not_available">فی الحال دستیاب نہیں ہے</string>
+    <string name="talk_prev_station">پچھلا اسٹیشن</string>
+    <string name="talk_decrease">فریکوئنسی کم کریں</string>
+    <string name="talk_increase">فریکوئنسی زیادہ کریں</string>
+    <string name="talk_next_station">اگلا اسٹیشن</string>
+    <string name="talk_add_favorite">پسندیدہ میں شامل کریں</string>
+    <string name="talk_start_recording">ریکارڈنگ شروع کریں</string>
+    <string name="more">"مزید"</string>
+    <string name="recording_tips">ریکارڈ کیا جا رہا ہے…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">‏FM ریڈیو چلائیں یا روکیں</string>
+    <string name="fm_over_start_record">ریکارڈنگ شروع کریں</string>
+    <string name="fm_over_record_list">محفوظ کردہ ریکارڈنگز</string>
+    <string name="fm_station_list_menu_refresh">ریفریش کریں</string>
+    <string name="fm_no_headset_text">سننا شروع کرنے کیلئے، ہیڈ فونز پلگ ان کریں (جو اینٹینا کے بطور استعمال ہوتے ہیں)۔</string>
+    <string name="station_title">ریڈیو اسٹیشنز</string>
+    <string name="station_searching_tips">اسٹیشنز موصول ہو رہے ہیں</string>
+    <string name="station_empty_text">کوئی اسٹیشنز نہیں ملے</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">ریکارڈنگ</string>
+    <string name="record_notification_message">ریکارڈنگ ہو رہی ہے</string>
+    <string name="stop_record">ریکارڈنگ روکیں</string>
+    <string name="save_dialog_title">ریکارڈنگ محفوظ کریں؟</string>
+    <string name="save_dialog_caption">‏ریکارڈنگز سننے کیلئے، Play Music ایپ کھولیں۔</string>
+    <string name="favorites">پسندیدہ</string>
+    <string name="rename">نام بدلیں</string>
+    <string name="station_rename_hint">اسٹیشن کا نام درج کریں</string>
+    <string name="remove_favorite">پسندیدہ سے ہٹائیں</string>
+    <string name="toast_record_saved">ریکارڈنگ محفوظ ہوگئی</string>
+    <string name="toast_record_not_saved">ریکارڈنگ محفوظ نہیں ہوئی</string>
+    <string name="toast_listen">سنیں</string>
+    <string name="toast_station_renamed">اسٹیشن کا نام تبدیل کر دیا گیا ہے</string>
+</resources>

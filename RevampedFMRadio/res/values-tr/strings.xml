@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM Radyo</string>
+    <string name="toast_station_searched">Kullanılabilir istasyonlar arandı:</string>
+    <string name="toast_cannot_search">Kullanılabilir istasyonlar aranamıyor.</string>
+    <string name="optmenu_speaker">Hoparlör</string>
+    <string name="optmenu_earphone">Kulaklık</string>
+    <string name="save">Kaydet</string>
+    <string name="toast_sdcard_missing">SD kartınız takılı değil!</string>
+    <string name="toast_sdcard_insufficient_space">SD kartta yeterli yer yok!</string>
+    <string name="toast_recorder_internal_error">Kaydedicide dahili bir hata oluştu!</string>
+    <string name="btn_save_recording">Kaydet</string>
+    <string name="btn_discard_recording">SİL</string>
+    <string name="edit_recording_name_hint">Dosya adını buraya yazın</string>
+    <string name="already_exists">zaten var</string>
+    <string name="not_available">Şu anda kullanılamıyor</string>
+    <string name="talk_prev_station">Önceki istasyon</string>
+    <string name="talk_decrease">Frekansı düşür</string>
+    <string name="talk_increase">Frekansı artır</string>
+    <string name="talk_next_station">Sonraki istasyon</string>
+    <string name="talk_add_favorite">Favorilere ekle</string>
+    <string name="talk_start_recording">Kaydı başlat</string>
+    <string name="more">"Diğer"</string>
+    <string name="recording_tips">Kaydediliyor…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">FM radyoyu çal veya durdur</string>
+    <string name="fm_over_start_record">Kaydı başlat</string>
+    <string name="fm_over_record_list">Kayıtlar</string>
+    <string name="fm_station_list_menu_refresh">Yenile</string>
+    <string name="fm_no_headset_text">Dinlemeye başlamak için kulaklıkları girişe takın (anten olarak kullanılır).</string>
+    <string name="station_title">Radyo İstasyonları</string>
+    <string name="station_searching_tips">İstasyonlar alınıyor</string>
+    <string name="station_empty_text">İstasyon bulunamadı</string>
+    <string name="minutes_label">Dk</string>
+    <string name="seconds_label">Sn</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Kaydediliyor</string>
+    <string name="record_notification_message">Kayıt devam ediyor</string>
+    <string name="stop_record">KAYDI DURDUR</string>
+    <string name="save_dialog_title">Kaydedilsin mi?</string>
+    <string name="save_dialog_caption">Kayıtları dinlemek için Play Müzik uygulamasını açın.</string>
+    <string name="favorites">Favoriler</string>
+    <string name="rename">Yeniden adlandır</string>
+    <string name="station_rename_hint">İstasyonun adını girin</string>
+    <string name="remove_favorite">Favori listesinden kaldır</string>
+    <string name="toast_record_saved">Kaydedildi</string>
+    <string name="toast_record_not_saved">Kaydedilmedi</string>
+    <string name="toast_listen">DİNLE</string>
+    <string name="toast_station_renamed">İstasyonun adı değiştirildi</string>
+    <string name="audio_db_artist_name">FM kayıtlarım</string>
+    <string name="audio_db_album_name">FM kayıtları</string>
+    <string name="audio_db_playlist_name">FM kayıtları</string>
+    <string name="audio_save_dir_name">FM kayıtları</string>
+    <string name="accessibility_play">Çal</string>
+    <string name="accessibility_pause">Duraklat</string>
+    <string name="accessibility_next">Sonraki</string>
+    <string name="accessibility_prev">Önceki</string>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">ఎఫ్ఎమ్ రేడియో</string>
+    <string name="toast_station_searched">అందుబాటులో ఉన్నట్లు గుర్తించిన స్టేషన్‌లు:</string>
+    <string name="toast_cannot_search">అందుబాటులో ఉన్న స్టేషన్‌ను గుర్తించలేదు.</string>
+    <string name="optmenu_speaker">స్పీకర్</string>
+    <string name="optmenu_earphone">ఇయర్‌ఫోన్</string>
+    <string name="save">సేవ్ చేయి</string>
+    <string name="toast_sdcard_missing">మీ SD కార్డ్ లేదు!</string>
+    <string name="toast_sdcard_insufficient_space">SD కార్డ్‌లో తగినంత ఖాళీ లేదు!</string>
+    <string name="toast_recorder_internal_error">రికార్డర్‌లో అంతర్గత లోపం సంభవించింది!</string>
+    <string name="btn_save_recording">సేవ్ చేయి</string>
+    <string name="btn_discard_recording">విస్మరించు</string>
+    <string name="edit_recording_name_hint">ఫైల్ పేరుని ఇక్కడ టైప్ చేయండి</string>
+    <string name="already_exists">ఇప్పటికే ఉంది</string>
+    <string name="not_available">ప్రస్తుతం అందుబాటులో లేదు</string>
+    <string name="talk_prev_station">మునుపటి స్టేషన్</string>
+    <string name="talk_decrease">పౌనఃపున్యాన్ని తగ్గించు</string>
+    <string name="talk_increase">పౌనఃపున్యాన్ని పెంచు</string>
+    <string name="talk_next_station">తదుపరి స్టేషన్</string>
+    <string name="talk_add_favorite">ఇష్టమైనదిగా జోడించు</string>
+    <string name="talk_start_recording">రికార్డింగ్ ప్రారంభించు</string>
+    <string name="more">"మరిన్ని"</string>
+    <string name="recording_tips">రికార్డ్ చేస్తోంది...</string>
+    <string name="fm_symbol">ఎఫ్ఎమ్</string>
+    <string name="fm_turn_on">ఎఫ్ఎమ్ రేడియో ప్లే చేయి/ఆపు</string>
+    <string name="fm_over_start_record">రికార్డింగ్ ప్రారంభించు</string>
+    <string name="fm_over_record_list">సేవ్ చేసిన రికార్డింగ్‌లు</string>
+    <string name="fm_station_list_menu_refresh">రీఫ్రెష్ చేయి</string>
+    <string name="fm_no_headset_text">వినేందుకు హెడ్‌ఫోన్స్‌ను ప్లగ్ ఇన్ చేయండి (ఇది యాంటెన్నాగా ఉపయోగించబడుతుంది).</string>
+    <string name="station_title">రేడియో స్టేషన్‌లు</string>
+    <string name="station_searching_tips">స్టేషన్‌లను పొందుతోంది</string>
+    <string name="station_empty_text">స్టేషన్‌లు ఏవీ కనుగొనబడలేదు</string>
+    <string name="minutes_label">ని</string>
+    <string name="seconds_label">సె</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">రికార్డింగ్</string>
+    <string name="record_notification_message">రికార్డింగ్ ప్రోగ్రెస్‌లో ఉంది</string>
+    <string name="stop_record">రికార్డింగ్ ఆపివేయి</string>
+    <string name="save_dialog_title">రికార్డింగ్‌ను సేవ్ చేయాలా?</string>
+    <string name="save_dialog_caption">రికార్డింగ్‌లను వినడానికి, Play సంగీతం అనువర్తనాన్ని తెరవండి.</string>
+    <string name="favorites">ఇష్టమైనవి</string>
+    <string name="rename">పేరు మార్చు</string>
+    <string name="station_rename_hint">స్టేషన్ పేరుని నమోదు చేయండి</string>
+    <string name="remove_favorite">ఇష్టమైనది నుండి తీసివేయి</string>
+    <string name="toast_record_saved">రికార్డింగ్ సేవ్ చేయబడింది</string>
+    <string name="toast_record_not_saved">రికార్డింగ్ సేవ్ చేయబడలేదు</string>
+    <string name="toast_listen">వినండి</string>
+    <string name="toast_station_renamed">స్టేషన్ పేరు మార్చబడింది</string>
+    <string name="accessibility_play">ప్లే చేయి</string>
+    <string name="accessibility_pause">పాజ్ చేయి</string>
+    <string name="accessibility_next">తదుపరి</string>
+    <string name="accessibility_prev">మునుపటి</string>
+</resources>

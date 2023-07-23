@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM</string>
+    <string name="toast_station_searched">Wyszukane dostępne stacje:</string>
+    <string name="toast_cannot_search">Nie można wyszukać dostępnych stacji.</string>
+    <string name="optmenu_speaker">Głośnik</string>
+    <string name="optmenu_earphone">Słuchawki</string>
+    <string name="save">Zapisz</string>
+    <string name="toast_sdcard_missing">Brak karty SD.</string>
+    <string name="toast_sdcard_insufficient_space">Zbyt mało pamięci na karcie SD.</string>
+    <string name="toast_recorder_internal_error">Wystąpił błąd wewnętrzny w nagrywarce.</string>
+    <string name="btn_save_recording">Zapisz</string>
+    <string name="btn_discard_recording">Odrzuć</string>
+    <string name="edit_recording_name_hint">Tu wpisz nazwę pliku</string>
+    <string name="already_exists">już istnieje</string>
+    <string name="not_available">Obecnie niedostępne</string>
+    <string name="talk_prev_station">Poprzednia stacja</string>
+    <string name="talk_decrease">Zmniejsz częstotliwość</string>
+    <string name="talk_increase">Zwiększ częstotliwość</string>
+    <string name="talk_next_station">Następna stacja</string>
+    <string name="talk_add_favorite">Dodaj do ulubionych</string>
+    <string name="talk_start_recording">Rozpocznij nagrywanie</string>
+    <string name="more">"Więcej"</string>
+    <string name="recording_tips">Nagrywam…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Uruchom lub zatrzymaj radio FM</string>
+    <string name="fm_over_start_record">Rozpocznij nagrywanie</string>
+    <string name="fm_over_record_list">Zapisane nagrania</string>
+    <string name="fm_station_list_menu_refresh">Odśwież</string>
+    <string name="fm_no_headset_text">Aby rozpocząć odtwarzanie, podłącz słuchawki (służą jako antena).</string>
+    <string name="station_title">Stacje radiowe</string>
+    <string name="station_searching_tips">Pobieram stacje</string>
+    <string name="station_empty_text">Nie znaleziono stacji</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Nagrywanie</string>
+    <string name="record_notification_message">Nagrywanie w toku</string>
+    <string name="stop_record">ZATRZYMAJ NAGRYWANIE</string>
+    <string name="save_dialog_title">Zapisać nagranie?</string>
+    <string name="save_dialog_caption">Aby posłuchać nagrań, otwórz aplikację Muzyka Play.</string>
+    <string name="favorites">Ulubione</string>
+    <string name="rename">Zmień nazwę</string>
+    <string name="station_rename_hint">Wpisz nazwę stacji</string>
+    <string name="remove_favorite">Usuń z ulubionych</string>
+    <string name="toast_record_saved">Nagranie zostało zapisane</string>
+    <string name="toast_record_not_saved">Nagranie nie zostało zapisane</string>
+    <string name="toast_listen">POSŁUCHAJ</string>
+    <string name="toast_station_renamed">Nazwa stacji została zmieniona</string>
+    <string name="audio_db_artist_name">Moje nagrania FM</string>
+    <string name="audio_db_album_name">Nagrania FM</string>
+    <string name="audio_db_playlist_name">Nagrania FM</string>
+    <string name="audio_save_dir_name">Nagrania FM</string>
+    <string name="accessibility_play">Odtwórz</string>
+    <string name="accessibility_pause">Pauza</string>
+    <string name="accessibility_next">Następny</string>
+    <string name="accessibility_prev">Poprzedni</string>
+</resources>

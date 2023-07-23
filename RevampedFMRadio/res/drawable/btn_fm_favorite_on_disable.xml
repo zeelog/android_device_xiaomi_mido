@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24"
+        android:viewportHeight="24"
+        android:alpha="0.25">
+  <path
+      android:fillColor="@color/addstation_on_button_color"
+      android:pathData="M12,4.435c-1.989,-5.399 -12,-4.597 -12,3.568 0,4.068 3.06,9.481 12,14.997 8.94,-5.516 12,-10.929 12,-14.997 0,-8.118 -10,-8.999 -12,-3.568z"/>
+</vector>

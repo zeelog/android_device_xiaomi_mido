@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">FM-радіо</string>
+    <string name="toast_station_searched">Знайдено такі доступні радіостанції:</string>
+    <string name="toast_cannot_search">Не вдалося знайти доступну радіостанцію.</string>
+    <string name="optmenu_speaker">Динамік</string>
+    <string name="optmenu_earphone">Навушник</string>
+    <string name="save">Зберегти</string>
+    <string name="toast_sdcard_missing">Немає корти SD</string>
+    <string name="toast_sdcard_insufficient_space">Недостатньо місця на карті SD</string>
+    <string name="toast_recorder_internal_error">Сталася внутрішня помилка під час запису</string>
+    <string name="btn_save_recording">Зберегти</string>
+    <string name="btn_discard_recording">Відхилити</string>
+    <string name="edit_recording_name_hint">Введіть тут назву файлу</string>
+    <string name="already_exists">уже існує</string>
+    <string name="not_available">Зараз недоступно</string>
+    <string name="talk_prev_station">Попередня радіостанція</string>
+    <string name="talk_decrease">Зменшити частоту</string>
+    <string name="talk_increase">Збільшити частоту</string>
+    <string name="talk_next_station">Наступна радіостанція</string>
+    <string name="talk_add_favorite">Додати у вибране</string>
+    <string name="talk_start_recording">Почати запис</string>
+    <string name="more">"Більше"</string>
+    <string name="recording_tips">Запис…</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Слухати або вимкнути FM-радіо</string>
+    <string name="fm_over_start_record">Почати запис</string>
+    <string name="fm_over_record_list">Збережені записи</string>
+    <string name="fm_station_list_menu_refresh">Оновити</string>
+    <string name="fm_no_headset_text">Щоб слухати, підключіть навушники (використовуються як антена).</string>
+    <string name="station_title">Радіостанції</string>
+    <string name="station_searching_tips">Оновлення списку радіостанцій</string>
+    <string name="station_empty_text">Радіостанцій не знайдено</string>
+    <string name="minutes_label">хв</string>
+    <string name="seconds_label">с</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Запис</string>
+    <string name="record_notification_message">Триває запис</string>
+    <string name="stop_record">ЗУПИНИТИ ЗАПИС</string>
+    <string name="save_dialog_title">Зберегти запис?</string>
+    <string name="save_dialog_caption">Щоб слухати записи, відкрийте додаток Google Play Музика.</string>
+    <string name="favorites">Вибране</string>
+    <string name="rename">Перейменувати</string>
+    <string name="station_rename_hint">Введіть назву радіостанції</string>
+    <string name="remove_favorite">Видалити з вибраного</string>
+    <string name="toast_record_saved">Запис збережено</string>
+    <string name="toast_record_not_saved">Запис не збережено</string>
+    <string name="toast_listen">СЛУХАТИ</string>
+    <string name="toast_station_renamed">Станцію перейменовано</string>
+    <string name="audio_db_artist_name">Мої записи з FM</string>
+    <string name="audio_db_album_name">Записи з FM</string>
+    <string name="audio_db_playlist_name">Записи з FM</string>
+    <string name="audio_save_dir_name">Записи з FM</string>
+    <string name="accessibility_play">Грати</string>
+    <string name="accessibility_pause">Пауза</string>
+    <string name="accessibility_next">Наступна</string>
+    <string name="accessibility_prev">Попередня</string>
+</resources>

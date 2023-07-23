@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">एफएम रेडियो</string>
+    <string name="toast_station_searched">उपलब्ध स्टेशनहरू खोजी गरियो:</string>
+    <string name="toast_cannot_search">उपलब्ध स्टेशन खोजी गर्न सकिएन।</string>
+    <string name="optmenu_speaker">स्पिकर</string>
+    <string name="optmenu_earphone">इयरफोन</string>
+    <string name="save">सुरक्षित गर्नुहोस्</string>
+    <string name="toast_sdcard_missing">तपाईंको एसडी कार्ड छैन!</string>
+    <string name="toast_sdcard_insufficient_space">एसडि कार्डमा अपर्याप्त खाली ठाँउ!</string>
+    <string name="toast_recorder_internal_error">रेकर्डरमा आन्तरिक त्रुटि फेला पर्‌‍यो!</string>
+    <string name="btn_save_recording">सुरक्षित गर्नुहोस्</string>
+    <string name="btn_discard_recording">वेवास्ता गर्नुहोस्</string>
+    <string name="edit_recording_name_hint">यहाँ फाइलको नाम टाइप गर्नुहोस्</string>
+    <string name="already_exists">पहिले नै अवस्थित छ</string>
+    <string name="not_available">हाल उपलब्ध छैन</string>
+    <string name="talk_prev_station">अघिल्लो स्टेशन</string>
+    <string name="talk_decrease">फ्रीक्वेन्सी घटाउनुहोस्</string>
+    <string name="talk_increase">फ्रीक्वेन्सी बढाउनुहोस्</string>
+    <string name="talk_next_station">अर्को स्टेशन</string>
+    <string name="talk_add_favorite">मनपर्नेमा थप्नुहोस्</string>
+    <string name="talk_start_recording">रेकर्डिङ सुरू गर्नुहोस्</string>
+    <string name="more">"थप"</string>
+    <string name="recording_tips">रेकर्डिङ हुँदै...</string>
+    <string name="fm_symbol">एफएम</string>
+    <string name="fm_turn_on">एफएम रेडियो प्ले वा बन्द गर्नुहोस्</string>
+    <string name="fm_over_start_record">रेकर्डिङ सुरू गर्नुहोस्</string>
+    <string name="fm_over_record_list">सुरक्षित गरिएका रेकर्डिङहरू</string>
+    <string name="fm_station_list_menu_refresh">नवीकरण गर्नुहोस्</string>
+    <string name="fm_no_headset_text">सुन्न सुरू गर्न, हेडफोन (एन्टिनाको रूपमा प्रयोग गरिएको) प्लग इन गर्नुहोस्।</string>
+    <string name="station_title">रेडियो स्टेशनहरू</string>
+    <string name="station_searching_tips">स्टेशनहरू प्राप्त गर्दै</string>
+    <string name="station_empty_text">कुनै स्टेशनहरू फेला परेन</string>
+    <string name="minutes_label">M</string>
+    <string name="seconds_label">S</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">रेकर्डिङ</string>
+    <string name="record_notification_message">रेकर्डिङ चलिरहेको छ</string>
+    <string name="stop_record">रेकर्डिंङ रोक्नुहोस्</string>
+    <string name="save_dialog_title">रेकर्डिङ सुरक्षित गर्ने हो?</string>
+    <string name="save_dialog_caption">रेकर्डिङहरू सुन्न, संगीत बजाउनुहोस् अनुप्रयोग खोल्नुहोस्।</string>
+    <string name="favorites">मनपर्नेहरू</string>
+    <string name="rename">पुन:नामाकरण गर्नुहोस्</string>
+    <string name="station_rename_hint">स्टेशनको नाम प्रविष्ट गर्नुहोस्</string>
+    <string name="remove_favorite">मनपर्ने हटाउनुहोस्</string>
+    <string name="toast_record_saved">रेकर्डिङ सुरक्षित गरियो</string>
+    <string name="toast_record_not_saved">रेकर्डिङ सुरक्षित गरिएन</string>
+    <string name="toast_listen">सुन्नुहोस्</string>
+    <string name="toast_station_renamed">स्टेशन पुन: नामाकरण गरिएको छ</string>
+</resources>

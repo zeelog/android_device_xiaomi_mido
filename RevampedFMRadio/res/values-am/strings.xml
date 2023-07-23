@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">ኤፍኤም ሬዲዮ</string>
+    <string name="toast_station_searched">ተፈልገው የተገኙ ጣቢያዎች፦</string>
+    <string name="toast_cannot_search">ሊገኝ የሚችል ጣቢያን ፈልጎ ማውጣት አይቻልም።</string>
+    <string name="optmenu_speaker">ድምጽ ማጉያ</string>
+    <string name="optmenu_earphone">የጆሮ ማዳመጫ</string>
+    <string name="save">አስቀምጥ</string>
+    <string name="toast_sdcard_missing">የእርስዎ SD ካርድ ይጎድላል!</string>
+    <string name="toast_sdcard_insufficient_space">በቂ ያልሆነ የSD ካርድ ባዶ ቦታ!</string>
+    <string name="toast_recorder_internal_error">በቀራጺው ላይ ውስጣዊ ስህተት አጋጥሟል!</string>
+    <string name="btn_save_recording">አስቀምጥ</string>
+    <string name="btn_discard_recording">አስወግድ</string>
+    <string name="edit_recording_name_hint">የፋይል ስም እዚህ ላይ ይተይቡ</string>
+    <string name="already_exists">ቀደም ሲል ነበረ</string>
+    <string name="not_available">አሁን ላይ አይገኝም</string>
+    <string name="talk_prev_station">ቀዳሚው ጣቢያ</string>
+    <string name="talk_decrease">ፊሪክዌንሲ ቀንስ</string>
+    <string name="talk_increase">ፊሪክዌንሲ ጨምር</string>
+    <string name="talk_next_station">ቀጣይ ጣቢያ</string>
+    <string name="talk_add_favorite">ወደ ተወዳጆች አክል</string>
+    <string name="talk_start_recording">መቅረጽ ጀምር</string>
+    <string name="more">"ተጨማሪ"</string>
+    <string name="recording_tips">በመቅረጽ ላይ</string>
+    <string name="fm_symbol">ኤፍኤም</string>
+    <string name="fm_turn_on">ኤፍኤም ሬዲዮ አጫውት ወይም አስቁም</string>
+    <string name="fm_over_start_record">መቅረጽ ጀምር</string>
+    <string name="fm_over_record_list">የተቀመጡ ቀረጻዎች</string>
+    <string name="fm_station_list_menu_refresh">አድስ</string>
+    <string name="fm_no_headset_text">ማዳመጥ ለመጀመር፣ የጆሮ ማዳመጫዎችን ይሰኩ (እንደ አንቴና ጥቅም ላይ ይውላሉ)።</string>
+    <string name="station_title">የሬዲዮ ጣቢያዎች</string>
+    <string name="station_searching_tips">ጣቢያዎችን በማግኘት ላይ</string>
+    <string name="station_empty_text">ምንም ጣቢያዎች አልተገኙም</string>
+    <string name="minutes_label">ደቂቃ</string>
+    <string name="seconds_label">ሰከንድ</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">በመቅረጽ ላይ</string>
+    <string name="record_notification_message">መቅረጽ በሂደት ላይ</string>
+    <string name="stop_record">መቅረጽ አቁም</string>
+    <string name="save_dialog_title">ቀረጻ ይቀመጥ?</string>
+    <string name="save_dialog_caption">ቅጂዎችን ለማዳመጥ፣ የPlay Music መተግበሪያን ይክፈቱ።</string>
+    <string name="favorites">ተወዳጆች</string>
+    <string name="rename">እንደገና ሰይም</string>
+    <string name="station_rename_hint">የጣቢያ ስም ያስገቡ</string>
+    <string name="remove_favorite">ተወዳጅ አስወግድ</string>
+    <string name="toast_record_saved">ቀረጻው ተቀምጧል</string>
+    <string name="toast_record_not_saved">ቀረጻው አልተቀመጠም</string>
+    <string name="toast_listen">ያዳምጡ</string>
+    <string name="toast_station_renamed">ጣቢያው ዳግም ተሰይሟል</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The Android Open Source Project
+     Copyright (C) 2017-2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="app_name">Radio FM</string>
+    <string name="toast_station_searched">Stasiun radio yang saat ini tersedia:</string>
+    <string name="toast_cannot_search">Gagal mencari stasiun radio yang tersedia.</string>
+    <string name="optmenu_speaker">Speaker</string>
+    <string name="optmenu_earphone">Earphone</string>
+    <string name="save">Simpan</string>
+    <string name="toast_sdcard_missing">Kartu SD tidak ada!</string>
+    <string name="toast_sdcard_insufficient_space">Memori kartu SD tidak cukup!</string>
+    <string name="toast_recorder_internal_error">Terjadi kesalahan internal pada perekam!</string>
+    <string name="btn_save_recording">Simpan</string>
+    <string name="btn_discard_recording">Buang</string>
+    <string name="edit_recording_name_hint">Ketikkan nama file di sini</string>
+    <string name="already_exists">sudah ada</string>
+    <string name="not_available">Saat ini tidak tersedia</string>
+    <string name="talk_prev_station">Stasiun radio sebelumnya</string>
+    <string name="talk_decrease">Turunkan frekuensi</string>
+    <string name="talk_increase">Naikkan frekuensi</string>
+    <string name="talk_next_station">Stasiun radio berikutnya</string>
+    <string name="talk_add_favorite">Tambahkan ke favorit</string>
+    <string name="talk_start_recording">Mulai merekam</string>
+    <string name="more">"Lainnya"</string>
+    <string name="recording_tips">Merekam...</string>
+    <string name="fm_symbol">FM</string>
+    <string name="fm_turn_on">Putar atau stop radio FM</string>
+    <string name="fm_over_start_record">Mulai merekam</string>
+    <string name="fm_over_record_list">Rekaman tersimpan</string>
+    <string name="fm_station_list_menu_refresh">Segarkan</string>
+    <string name="fm_no_headset_text">Untuk mulai mendengarkan, colokkan headphone (berfungsi sebagai antena).</string>
+    <string name="station_title">Stasiun Radio</string>
+    <string name="station_searching_tips">Mendapatkan stasiun radio</string>
+    <string name="station_empty_text">Stasiun radio tidak ditemukan</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label">d</string>
+    <string name="timer_default">00</string>
+    <string name="record_title">Merekam</string>
+    <string name="record_notification_message">Sedang merekam</string>
+    <string name="stop_record">BERHENTI MEREKAM</string>
+    <string name="save_dialog_title">Simpan rekaman?</string>
+    <string name="save_dialog_caption">Untuk mendengarkan rekaman, buka aplikasi Play Musik.</string>
+    <string name="favorites">Favorit</string>
+    <string name="rename">Ganti nama</string>
+    <string name="station_rename_hint">Masukkan nama stasiun radio</string>
+    <string name="remove_favorite">Hapus favorit</string>
+    <string name="toast_record_saved">Rekaman disimpan</string>
+    <string name="toast_record_not_saved">Rekaman tidak disimpan</string>
+    <string name="toast_listen">DENGARKAN</string>
+    <string name="toast_station_renamed">Stasiun radio ini telah berganti nama</string>
+    <string name="audio_db_artist_name">Rekaman FM saya</string>
+    <string name="audio_db_album_name">Rekaman FM</string>
+    <string name="audio_db_playlist_name">Rekaman FM</string>
+    <string name="audio_save_dir_name">Rekaman FM</string>
+    <string name="accessibility_play">Putar</string>
+    <string name="accessibility_pause">Jeda</string>
+    <string name="accessibility_next">Berikutnya</string>
+    <string name="accessibility_prev">Sebelumnya</string>
+</resources>
