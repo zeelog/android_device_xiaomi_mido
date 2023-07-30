@@ -51,8 +51,6 @@ vendor.audio.feature.multi_voice_session.enable=true
 vendor.audio.feature.snd_mon.enable=true
 vendor.audio.feature.spkr_prot.enable=true
 vendor.audio.feature.src_trkn.enable=true
-vendor.audio.feature.vbat.enable=true
-vendor.audio.feature.wsa.enable=true
 
 # Bluetooth
 persist.vendor.qcom.bluetooth.soc=pronto
