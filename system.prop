@@ -141,10 +141,8 @@ ro.telephony.call_ring.multiple=false
 service.qti.ims.enabled=1
 telephony.lteOnCdmaDevice=1
 vendor.service.qti.ims.enabled=1
-#
 # Set network mode to (T/L/G/W/1X/EVDO, T/L/G/W/1X/EVDO) for 7+7 mode device on DSDS mode
-#
-ro.telephony.default_network=22,22
+ro.telephony.default_network=20,20
 
 # Watchdog
 ro.hw_timeout_multiplier=3

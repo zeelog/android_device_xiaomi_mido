@@ -234,8 +234,8 @@ on property:vendor.radio.atfwd.start=false
 
 # DSDS - Restart qcrild on data switch
 on property:persist.sys.radio.mobile_data_swap=1
+    exec /bin/sleep 3s
     restart vendor.qcrild
-    exec /bin/sleep 2
     restart vendor.qcrild2
 
 # FM
