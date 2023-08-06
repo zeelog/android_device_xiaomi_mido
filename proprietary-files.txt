@@ -1099,6 +1099,9 @@ vendor/radio/qcril_database/upgrade/9_version_update_ecc_table.sql|4701219a79190
 vendor/radio/qcril_database/upgrade/10_version_update_ecc_table.sql|1ca05b047116cbc776f71d3bdba4952b18b04229
 vendor/radio/qcril_database/qcril.db|f51df17ac3bf25a225e3ba15c830b1d0d2bf4e85
 
+# Radio - from Redmi/sweet_eea2/sweet:12/RKQ1.210614.002/V14.0.1.0.SHGEUXM:user/release-keys
+vendor/lib64/deviceInfoServiceModule.so|d9c829e17f043facc78d142c20a644a37261f777
+
 # QC RIL - from Fairphone/FP3/FP3:13/6.A.018.0/gms-1f4b2a90:user/release-keys
 vendor/bin/hw/qcrild|9ebae4b7b4bc8fb31371f3926634206737d73bb2
 vendor/etc/init/qcrild.rc|17cf4934bf443cf6469d8b3ff622eeb0e4a0aac6
