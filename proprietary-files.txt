@@ -788,7 +788,7 @@ vendor/bin/xtra-daemon|0d15669c226784e4033ddee6cf396c39ff3d2bdf
 vendor/bin/xtwifi-client|7e5cb0670b20c12fbc5cbf4fb642efdd72e92f46
 vendor/bin/xtwifi-inet-agent|73eb9393ba634d805055eea3fbea64785063be4b
 vendor/etc/apdr.conf|52c9b4265e55c87ddf07c9b60817b3c09420712a
-vendor/etc/izat.conf|2ac768473abee2bf6af0bbc59233d30562e9fb22
+vendor/etc/izat.conf|a795b79b68e3705c0334432dded0c0d246f47cb3
 vendor/etc/lowi.conf|2045e83483849a124e5fef052b59190f1b784df0
 vendor/etc/sap.conf|b5ea86d9d9ee36dc13194474d343dae36f6fa032
 vendor/etc/xtwifi.conf|ac2189707c0016c31846ccec73e8857d7f566605
