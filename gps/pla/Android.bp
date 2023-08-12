@@ -1,0 +1,7 @@
+
+cc_library_headers {
+
+    name: "libloc_pla_headers",
+    export_include_dirs: ["android"],
+    vendor: true,
+}

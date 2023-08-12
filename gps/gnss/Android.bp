@@ -1,0 +1,35 @@
+
+
+cc_library_shared {
+
+    name: "libgnss",
+    vendor: true,
+
+
+
+    shared_libs: [
+        "libutils",
+        "libcutils",
+        "libdl",
+        "liblog",
+        "libloc_core",
+        "libgps.utils",
+    ],
+
+    srcs: [
+        "location_gnss.cpp",
+        "GnssAdapter.cpp",
+        "Agps.cpp",
+        "XtraSystemStatusObserver.cpp",
+        "NativeAgpsHandler.cpp",
+    ],
+
+    cflags: ["-fno-short-enums"] + GNSS_CFLAGS,
+    header_libs: [
+        "libgps.utils_headers",
+        "libloc_core_headers",
+        "libloc_pla_headers",
+        "liblocation_api_headers",
+    ],
+
+}

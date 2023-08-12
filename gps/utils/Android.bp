@@ -1,0 +1,54 @@
+
+cc_library_shared {
+
+    name: "libgps.utils",
+    vendor: true,
+
+
+
+    //# Libs
+    shared_libs: [
+        "libdl",
+        "libutils",
+        "libcutils",
+        "liblog",
+        "libprocessgroup",
+    ],
+
+    srcs: [
+        "loc_log.cpp",
+        "loc_cfg.cpp",
+        "msg_q.c",
+        "linked_list.c",
+        "loc_target.cpp",
+        "LocHeap.cpp",
+        "LocTimer.cpp",
+        "LocThread.cpp",
+        "MsgTask.cpp",
+        "loc_misc_utils.cpp",
+        "loc_nmea.cpp",
+        "LocIpc.cpp",
+        "LogBuffer.cpp",
+    ],
+
+    cflags: [
+        "-fno-short-enums",
+        "-D_ANDROID_",
+    ] + GNSS_CFLAGS,
+
+    //# Includes
+    ldflags: ["-Wl,--export-dynamic"],
+
+    header_libs: [
+        "libutils_headers",
+        "libloc_pla_headers",
+        "liblocation_api_headers",
+    ],
+}
+
+cc_library_headers {
+
+    name: "libgps.utils_headers",
+    export_include_dirs: ["."],
+    vendor: true,
+}
