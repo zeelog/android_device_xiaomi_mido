@@ -208,10 +208,6 @@ PRODUCT_PACKAGES += \
     fakelogprint \
     libshims_gxfpd
 
-# FlipFlap
-PRODUCT_PACKAGES += \
-    FlipFlap
-
 # FM
 PRODUCT_PACKAGES += \
     RevampedFMRadio \
@@ -263,10 +259,6 @@ PRODUCT_PACKAGES += \
     libhidltransport.vendor \
     libhwbinder \
     libhwbinder.vendor
-
-# Folio
-PRODUCT_PACKAGES += \
-    folio_daemon
 
 # IMS
 PRODUCT_PACKAGES += \
