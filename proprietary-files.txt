@@ -1133,27 +1133,29 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so|b2faf304adadcdd84b0dafeda6d4d568215
 vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so|aa98e9afc4cac9fa5be51bbba359a74973f9cf27
 vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so|62cd64dbb25d082cfdc742fb03931ba0f9abe434
 
-# Radio (IMS VT) - from Fairphone/FP3/FP3:13/6.A.018.0/gms-1f4b2a90:user/release-keys
-system_ext/lib64/libimscamera_jni.so|114876ec8ba85965a69694a7edc0e555fe099061
-system_ext/lib64/lib-imscamera.so|8170256dbf9120ff05f193ba937c718d9c580881
-system_ext/lib64/libimsmedia_jni.so|b90664b4ce069358f36801da5ceac10baf4ebcc6
-system_ext/lib64/lib-imsvideocodec.so|3e364441c9dce63d74fbc78c4781a84080513d8a
+# Radio (IMS VT) - from LA.UM.9.6.3.r1-06200-89xx.0
+system_ext/lib64/lib-imscamera.so|0688c8e66ad376dd528fbbc0038529c26fdb38ea
+system_ext/lib64/libimsmedia_jni.so|9351850c0b1499e1539303b8b177456a6ab83fd9
 system_ext/lib64/lib-imsvtextutils.so|1acf1de305e455a3a924483e5652b37133d10fd1
-system_ext/lib64/lib-imsvt.so|4f96cc5f27551d0b6cb11ad6447d9ce8829dde47
-system_ext/lib64/lib-imsvtutils.so|dfc5cf0854fe38c191a53ec3bd2a322d05d85567
+system_ext/lib64/lib-imsvt.so|0b2065c9b500a11d39aa49f32dd06267e083fabb
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so|4cf9e97f526c6278c5e2136e00d1fb800fb941aa
-system_ext/priv-app/ims/ims.apk|55d0eaaee2e4ae2c5f80fc282e7f42c77ddf0f34
-vendor/bin/ims_rtp_daemon|32a3ce381b0f85f53a2e9afd7215b3585afef0d6
+system_ext/priv-app/ims/ims.apk|d4d9a0e9aa59a94d0eeb70a2d448107031015018
+vendor/bin/ims_rtp_daemon|98cc873938607bc9c29df69b6c856f60694fa7bb
 vendor/etc/init/ims_rtp_daemon_legacy.rc|104b2a879db4d3dd44e74a3d7f6e69f6972c9129
-vendor/etc/seccomp_policy/imsrtp.policy|7ea8b4012da7bde98fc91bd882185b32784793cc
-vendor/lib64/lib-imsdpl.so|18c2071b74fc8dfefeabf0c2e075720ebaa81ab2
-vendor/lib64/lib-imsvtcore.so|c3354efe3909f2971a0a4f847c4dddca02bdb81b
-vendor/lib64/librcc.so|e35056f3b5c0790d65ded14ed48dd1ed1296ecc7
-vendor/lib64/lib-rtpcommon.so|8c1c8d87c1686bf972035460c588cc75b26e82c6
-vendor/lib64/lib-rtpcore.so|94e6989c19b2f7813fa8996822430a6813cdaf1d
-vendor/lib64/lib-rtpsl.so|44c91df047d3ae8dfc8b747e7fdd1c48d4e48dc0
-vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so|fa120eaa7807ff43f3974a8e0146a8c00c78f623
+vendor/etc/seccomp_policy/imsrtp.policy|fb5f1f63dbc3a002ac0f203cce3b8d3434752fa2
+vendor/lib64/lib-imsdpl.so|0e57a240e3bcba76df4d21f09d0a37bf2d52bdcc
+vendor/lib64/lib-imsvtcore.so|ddd12517ab4194ac36d786ce3f163b46fe97c761
+vendor/lib64/librcc.so|02c3c60d1bfec7f12a09f00a285964a49ffc5d01
+vendor/lib64/lib-rtpcommon.so|d84cf2d25ca820bceeddb1466fddc6498033269c
+vendor/lib64/lib-rtpcore.so|885ccb4c6019232d62862be8e312423586ec904a
+vendor/lib64/lib-rtpsl.so|5b666bdb137ffb51fc39151858259879b59cccfc
+vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so|ca8afe08d6244cc9fdfcc38ca950fafa4b147625
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so|460e589128fce0b0e83bb3c75aa32f7e1a9494fd
+
+# IMS (VT) - from Redmi/sweet_global/sweet:12/SKQ1.210908.001/V13.0.3.0.SKFMIXM:user/release-keys
+system_ext/lib64/lib-imsvideocodec.so|b7001bb1008106ccb9ef92dd2560e2052b40c325
+system_ext/lib64/lib-imsvtutils.so|875748249b9269e964f467311c72e123878c0de9
+system_ext/lib64/libimscamera_jni.so|ff3d65093f5bf19fba95798b0a121ee510b0f72e
 
 # Sensors - from Fairphone/FP3/FP3:13/6.A.018.0/gms-1f4b2a90:user/release-keys
 vendor/bin/sensors.qti|8b888059a03fdc6a21d456dc8bf60264584e5507
