@@ -1,3 +1,5 @@
+allow hal_power_default sysfs_graphics:file r_file_perms;
+
 # Allow writing to files in /proc/touchpanel
 allow hal_power_default proc_touchpanel:dir search;
 allow hal_power_default proc_touchpanel:file rw_file_perms;
