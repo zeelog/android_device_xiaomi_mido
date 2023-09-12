@@ -9,22 +9,26 @@
         <value>8</value>
     </array>
     <array name="cpu.core_speeds.cluster0">
-        <value>652800</value>
-        <value>1036800</value>
-        <value>1401600</value>
-        <value>1689600</value>
-        <value>1804800</value>
-        <value>1958400</value>
-        <value>2016000</value>
+        <value>652800</value> <!-- 653 MHz CPU speed -->
+        <value>1036800</value> <!-- 1036 MHz CPU speed -->
+        <value>1401600</value> <!-- 1401 MHz CPU speed -->
+        <value>1689600</value> <!-- 1689 MHz CPU speed -->
+        <value>1804800</value> <!-- 1804 MHz CPU speed -->
+        <value>1958400</value> <!-- 1958 MHz CPU speed -->
+        <value>2016000</value> <!-- 2016 MHz CPU speed -->
+        <value>2150400</value> <!-- 2150 MHz CPU speed -->
+        <value>2208000</value> <!-- 2208 MHz CPU speed -->
     </array>
     <array name="cpu.core_power.cluster0">
-        <value>151</value>
-        <value>169</value>
-        <value>177</value>
-        <value>195</value>
-        <value>259</value>
-        <value>307</value>
-        <value>353</value>
+        <value>8.24</value> <!-- 653 MHz CPU speed -->
+        <value>20.2</value> <!-- 1036 MHz CPU speed -->
+        <value>28.57</value> <!-- 1401 MHz CPU speed -->
+        <value>51.23</value> <!-- 1689 MHz CPU speed -->
+        <value>62.6</value> <!-- 1804 MHz CPU speed -->
+        <value>70.2</value> <!-- 1958 MHz CPU speed -->
+        <value>73.6</value> <!-- 2016 MHz CPU speed -->
+        <value>78.1</value> <!-- 2150 MHz CPU speed -->
+        <value>82.2</value> <!-- 2208 MHz CPU speed -->
     </array>
     <item name="cpu.suspend">1.6</item>
     <item name="cpu.idle">1.6</item>
