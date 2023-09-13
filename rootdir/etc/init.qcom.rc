@@ -31,8 +31,6 @@ import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.parts.rc
 
 on early-init
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
 
@@ -50,9 +48,6 @@ on init
     write /sys/bus/msm_subsys/devices/subsys2/restart_level RELATED
     write /sys/bus/msm_subsys/devices/subsys3/restart_level RELATED
     write /sys/bus/msm_subsys/devices/subsys4/restart_level RELATED
-
-on post-fs
-    chmod 0755 /sys/kernel/debug/tracing
 
 on early-boot
     # Allow subsystem (modem etc) debugging
