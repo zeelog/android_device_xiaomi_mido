@@ -570,7 +570,7 @@ function configure_zram_parameters() {
     fi
 
     # Setup zram options
-    echo zstd > /sys/block/zram0/comp_algorithm
+    echo lz4 > /sys/block/zram0/comp_algorithm
     echo 0   > /proc/sys/vm/page-cluster
 
     if [ -f /sys/block/zram0/disksize ]; then
