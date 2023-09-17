@@ -38,6 +38,7 @@ arm64.memtag.process.system_server=off
 
 # Dexopt
 dalvik.vm.dex2oat64.enabled=true
+pm.dexopt.shared=quicken
 
 # Display
 debug.egl.hw=0
