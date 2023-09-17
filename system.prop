@@ -42,6 +42,7 @@ dalvik.vm.dex2oat64.enabled=true
 # Display
 debug.egl.hw=0
 debug.enable.sglscale=1
+debug.hwui.renderer=vulkan
 debug.hwui.skia_atrace_enabled=false
 debug.mdpcomp.logs=0
 debug.renderengine.backend=skiaglthreaded
