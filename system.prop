@@ -62,14 +62,15 @@ persist.qfp=false
 ro.fm.transmitter=false
 vendor.hw.fm.init=0
 
-# LMK
-ro.lmk.filecache_min_kb=153600
-ro.lmk.kill_timeout_ms=50
-ro.lmk.stall_limit_critical=40
-ro.lmk.use_psi=false
+# LMKD/PSI
+ro.lmk.use_psi=true
+ro.lmk.low=1001
+ro.lmk.medium=800
+ro.lmk.critical=0
 ro.lmk.critical_upgrade=true
-ro.lmk.upgrade_pressure=50
-ro.lmk.downgrade_pressure=50
+ro.lmk.upgrade_pressure=40
+ro.lmk.downgrade_pressure=60
+ro.lmk.kill_heaviest_task=false
 
 # Media
 av.debug.disable.pers.cache=1
