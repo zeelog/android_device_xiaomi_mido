@@ -31,6 +31,8 @@ import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.parts.rc
 
 on early-init
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
     chown root system /dev/kmsg
     chmod 0620 /dev/kmsg
 
