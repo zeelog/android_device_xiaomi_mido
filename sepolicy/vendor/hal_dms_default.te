@@ -1,0 +1,14 @@
+# Dolby
+type hal_dms_default, domain;
+hal_server_domain(hal_dms_default, hal_dms)
+
+type hal_dms_default_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(hal_dms_default)
+
+allow hal_dms_default hal_audio_default:binder call;
+allow hal_dms_default platform_app:binder call;
+allow hal_dms_default vendor_data_file:file { rw_file_perms create };
+allow hal_dms_default vendor_data_file:dir { rw_file_perms add_name };
+
+allow hal_dms_default vendor_media_data_file:dir { add_name remove_name read write search open getattr };
+allow hal_dms_default vendor_media_data_file:file { read write open create ioctl getattr lock unlink };

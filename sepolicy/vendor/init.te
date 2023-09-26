@@ -6,6 +6,10 @@ allow init system_file:file mounton;
 # adsprpcd
 allow init adsprpcd_file:filesystem { getattr mount relabelfrom relabelto };
 
+# Dolby
+allow init vendor_data_file:file lock;
+allow init hal_audio_default:binder call;
+
 # Firmware
 allow init firmware_file:filesystem getattr;
 
