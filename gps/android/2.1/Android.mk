@@ -43,6 +43,7 @@ LOCAL_HEADER_LIBRARIES := \
     liblocbatterylistener_headers
 
 LOCAL_SHARED_LIBRARIES := \
+    libbinder_ndk \
     liblog \
     libhidlbase \
     libcutils \
@@ -57,6 +58,7 @@ LOCAL_SHARED_LIBRARIES := \
     android.hardware.health@1.0 \
     android.hardware.health@2.0 \
     android.hardware.health@2.1 \
+    android.hardware.health-V1-ndk \
     android.hardware.power@1.2 \
     libbase
 
