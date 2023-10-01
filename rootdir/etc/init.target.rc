@@ -111,13 +111,16 @@ service vendor.qseecomd /vendor/bin/qseecomd
    task_profiles ServiceCapacityLow
 
 service thermal-engine /vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   socket thermal-send-rule stream 0660 system system
-   group root
+    class main
+    user root
+    group root
+    socket thermal-send-client stream 0660 system oem_2907
+    socket thermal-recv-client stream 0660 system oem_2907
+    socket thermal-recv-passive-client stream 0660 system oem_2907
+    socket thermal-send-rule stream 0660 system oem_2907
+
+on property:sys.boot_completed=1
+    restart thermal-engine
 
 service vendor.wcnss-service /vendor/bin/wcnss_service
     class main
