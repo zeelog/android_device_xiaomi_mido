@@ -26,7 +26,7 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-service android.thermal-hal /vendor/bin/hw/android.hardware.thermal@2.0-service.qti
+service android.thermal-hal /vendor/bin/hw/android.hardware.thermal@2.0-service.qti.xiaomi_mido
 	interface android.hardware.thermal@1.0::IThermal default
 	interface android.hardware.thermal@2.0::IThermal default
 	class hal

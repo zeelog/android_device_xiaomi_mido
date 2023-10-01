@@ -1,12 +1,12 @@
 cc_binary {
-	name: "android.hardware.thermal@2.0-service.qti",
+	name: "android.hardware.thermal@2.0-service.qti.xiaomi_mido",
 	defaults: [
 		"hidl_defaults",
 	],
 	vendor: true,
 	relative_install_path: "hw",
-	init_rc: ["android.hardware.thermal@2.0-service.qti.rc"],
-	vintf_fragments: ["android.hardware.thermal@2.0-service.qti.xml"],
+	init_rc: ["android.hardware.thermal@2.0-service.qti.xiaomi_mido.rc"],
+	vintf_fragments: ["android.hardware.thermal@2.0-service.qti.xiaomi_mido.xml"],
 	srcs: [
 		"service.cpp",
 		"thermal.cpp",
@@ -36,14 +36,14 @@ cc_binary {
 }
 
 cc_binary {
-	name: "android.hardware.thermal@2.0-service.qti-v2",
+	name: "android.hardware.thermal@2.0-service.qti-v2.xiaomi_mido",
 	defaults: [
 		"hidl_defaults",
 	],
 	vendor: true,
 	relative_install_path: "hw",
-	init_rc: ["android.hardware.thermal@2.0-service.qti-v2.rc"],
-	vintf_fragments: ["android.hardware.thermal@2.0-service.qti.xml"],
+	init_rc: ["android.hardware.thermal@2.0-service.qti-v2.xiaomi_mido.rc"],
+	vintf_fragments: ["android.hardware.thermal@2.0-service.qti.xiaomi_mido.xml"],
 	srcs: [
 		"service.cpp",
 		"thermal.cpp",
