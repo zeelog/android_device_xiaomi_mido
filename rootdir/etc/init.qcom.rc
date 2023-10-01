@@ -284,13 +284,6 @@ on property:sys.boot_completed=1
     start vendor.qcom-post-boot
     start vendor.camera-provider-2-4
 
-service vendor.charger /system/bin/chargeonlymode
-    class charger
-    user system
-    group system graphics input
-    capabilities SYS_BOOT
-    seclabel u:r:charger:s0
-
 service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
     class core
     user root
