@@ -1,0 +1,76 @@
+cc_binary {
+	name: "android.hardware.thermal@2.0-service.qti",
+	defaults: [
+		"hidl_defaults",
+	],
+	vendor: true,
+	relative_install_path: "hw",
+	init_rc: ["android.hardware.thermal@2.0-service.qti.rc"],
+	vintf_fragments: ["android.hardware.thermal@2.0-service.qti.xml"],
+	srcs: [
+		"service.cpp",
+		"thermal.cpp",
+		"thermalConfig.cpp",
+		"thermalCommon.cpp",
+		"thermalUtils.cpp",
+		"thermalMonitor.cpp",
+	],
+	shared_libs: [
+		"libbase",
+		"libcutils",
+		"libhidlbase",
+		"libutils",
+		"liblog",
+		"android.hardware.thermal@1.0",
+		"android.hardware.thermal@2.0",
+	],
+	header_libs: [
+		"liblog_headers",
+		"libcutils_headers"
+	],
+	cflags: [
+		"-Wno-unused-parameter",
+		"-Wno-unused-variable",
+		"-fexceptions",
+	],
+}
+
+cc_binary {
+	name: "android.hardware.thermal@2.0-service.qti-v2",
+	defaults: [
+		"hidl_defaults",
+	],
+	vendor: true,
+	relative_install_path: "hw",
+	init_rc: ["android.hardware.thermal@2.0-service.qti-v2.rc"],
+	vintf_fragments: ["android.hardware.thermal@2.0-service.qti.xml"],
+	srcs: [
+		"service.cpp",
+		"thermal.cpp",
+		"thermalConfig.cpp",
+		"thermalCommon.cpp",
+		"thermalUtilsNetlink.cpp",
+		"thermalMonitorNetlink.cpp",
+	],
+	shared_libs: [
+		"libbase",
+		"libcutils",
+		"libhidlbase",
+		"libutils",
+		"liblog",
+		"libnl",
+		"android.hardware.thermal@1.0",
+		"android.hardware.thermal@2.0",
+	],
+	header_libs: [
+		"liblog_headers",
+		"libcutils_headers",
+		"qti_kernel_headers"
+	],
+	cflags: [
+		"-Wno-unused-parameter",
+		"-Wno-unused-variable",
+		"-DENABLE_THERMAL_NETLINK",
+		"-fexceptions",
+	],
+}
