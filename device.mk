@@ -436,7 +436,7 @@ PRODUCT_COPY_FILES += \
     
 # VNDK
 PRODUCT_PACKAGES += \
-    libstdc++.vendor
+    libstdc++_vendor
 
 # Wifi
 PRODUCT_PACKAGES += \
