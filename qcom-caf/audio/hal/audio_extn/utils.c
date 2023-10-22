@@ -2821,7 +2821,7 @@ int audio_extn_utils_pcm_get_dsp_presentation_pos(struct stream_out *out __unuse
 #define PLATFORM_INFO_XML_PATH          "audio_platform_info.xml"
 #define PLATFORM_INFO_XML_BASE_STRING   "audio_platform_info"
 
-bool audio_extn_utils_resolve_config_file(char file_name[MIXER_PATH_MAX_LENGTH])
+bool audio_extn_utils_resolve_config_file(char file_name[])
 {
     char full_config_path[MIXER_PATH_MAX_LENGTH];
     char vendor_config_path[VENDOR_CONFIG_PATH_MAX_LENGTH];
