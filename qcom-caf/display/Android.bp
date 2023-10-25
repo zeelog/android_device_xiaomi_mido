@@ -12,7 +12,6 @@ cc_defaults {
         "libutils",
     ],
     header_libs: ["display_headers"],
-    clang: true,
 }
 
 cc_library_headers {
