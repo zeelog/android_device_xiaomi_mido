@@ -2,7 +2,6 @@ allow system_app proc_pagetypeinfo:file r_file_perms;
 
 binder_call(system_app, hal_power_default)
 binder_call(system_app, hal_vibrator_default)
-binder_call(system_app, iorapd)
 binder_call(system_app, wificond)
 binder_call(system_app vold)
 
@@ -11,7 +10,6 @@ allow system_app fm_radio_device:chr_file { ioctl open read };
 
 # XiaomiParts
 allow system_app {
-    kcal_dev
     sysfs_hgain
     sysfs_mgain
     sysfs_sgain
@@ -20,7 +18,6 @@ allow system_app {
 }:file rw_file_perms;
 
 allow system_app {
-    kcal_dev
     sysfs_leds
 }:dir search;
 
