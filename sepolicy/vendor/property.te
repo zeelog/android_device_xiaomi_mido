@@ -1,9 +1,6 @@
 # Dirac
 vendor_restricted_prop(vendor_dirac_prop);
 
-# Dolby
-vendor_internal_prop(vendor_dolby_loglevel_prop);
-
 # Fingerprint
 vendor_public_prop(vendor_fp_prop);
 

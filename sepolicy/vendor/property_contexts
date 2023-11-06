@@ -22,9 +22,6 @@ persist.partial.skip            u:object_r:camera_prop:s0
 persist.vendor.camera.  u:object_r:camera_prop:s0
 ro.camera.         u:object_r:camera_prop:s0
 
-# Dolby
-persist.vendor.dolby.loglevel   u:object_r:vendor_dolby_loglevel_prop:s0
-
 # Fingerprint
 fpc.fp.miui.token               u:object_r:vendor_fp_prop:s0
 goodix.fp.                      u:object_r:vendor_fp_prop:s0

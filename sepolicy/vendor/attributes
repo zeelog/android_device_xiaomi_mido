@@ -1,3 +1,0 @@
-attribute hal_dms;
-attribute hal_dms_client;
-attribute hal_dms_server;
