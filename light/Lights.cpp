@@ -56,11 +56,11 @@ Lights::Lights() {
 
     mLights.push_back(AutoHwLight(LightType::BATTERY));
     mLights.push_back(AutoHwLight(LightType::NOTIFICATIONS));
+    mLights.push_back(AutoHwLight(LightType::ATTENTION));
 }
 
 ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) {
     rgb color(state.color);
-    rgb batteryStateColor;
 
     LightType type = static_cast<LightType>(id);
     switch (type) {
@@ -72,14 +72,20 @@ ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) 
             break;
         case LightType::BATTERY:
         case LightType::NOTIFICATIONS:
+        case LightType::ATTENTION:
             mLEDMutex.lock();
+
             if (type == LightType::BATTERY)
                 mLastBatteryState = state;
-            else
+            else if (type == LightType::NOTIFICATIONS)
                 mLastNotificationState = state;
-            batteryStateColor = rgb(mLastBatteryState.color);
-            setLED(batteryStateColor.isLit() ? mLastBatteryState : mLastNotificationState);
+            else if (type == LightType::ATTENTION)
+                mLastAttentionState = state;
+
+            setLED();
+
             mLEDMutex.unlock();
+
             break;
         default:
             return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -95,8 +101,16 @@ ndk::ScopedAStatus Lights::getLights(std::vector<HwLight>* _aidl_return) {
     return ndk::ScopedAStatus::ok();
 }
 
-void Lights::setLED(const HwLightState& state) {
+void Lights::setLED() {
     bool rc = true;
+
+    bool isBatteryLit = rgb(mLastBatteryState.color).isLit();
+    bool isAttentionLit = rgb(mLastAttentionState.color).isLit();
+
+    const HwLightState state = isBatteryLit     ? mLastBatteryState
+                               : isAttentionLit ? mLastAttentionState
+                                                : mLastNotificationState;
+
     rgb color(state.color);
     uint8_t blink = (state.flashOnMs != 0 && state.flashOffMs != 0);
 

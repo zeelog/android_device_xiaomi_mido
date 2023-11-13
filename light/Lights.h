@@ -26,7 +26,7 @@ class Lights : public BnLights {
     ndk::ScopedAStatus getLights(std::vector<HwLight>* _aidl_return) override;
 
   private:
-    void setLED(const HwLightState& state);
+    void setLED();
 
     std::vector<HwLight> mLights;
 
@@ -35,8 +35,10 @@ class Lights : public BnLights {
     bool mWhiteLED;
 
     std::mutex mLEDMutex;
+
     HwLightState mLastBatteryState;
     HwLightState mLastNotificationState;
+    HwLightState mLastAttentionState;
 };
 
 }  // namespace light
