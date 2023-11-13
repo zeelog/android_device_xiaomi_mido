@@ -13,7 +13,7 @@ namespace android {
 namespace hardware {
 namespace light {
 
-typedef struct rgb {
+struct rgb {
     rgb(uint8_t r, uint8_t g, uint8_t b) : red(r), green(g), blue(b){};
     rgb(uint32_t color);
     rgb() : red(0), green(0), blue(0){};
@@ -24,7 +24,7 @@ typedef struct rgb {
 
     bool isLit();
     uint8_t toBrightness();
-} rgb_t;
+};
 
 bool fileWriteable(const std::string& file);
 bool readFromFile(const std::string& file, std::string* content);

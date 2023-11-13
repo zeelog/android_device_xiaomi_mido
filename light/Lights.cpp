@@ -59,8 +59,8 @@ Lights::Lights() {
 }
 
 ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) {
-    rgb_t color(state.color);
-    rgb_t batteryStateColor;
+    rgb color(state.color);
+    rgb batteryStateColor;
 
     LightType type = static_cast<LightType>(id);
     switch (type) {
@@ -77,7 +77,7 @@ ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) 
                 mLastBatteryState = state;
             else
                 mLastNotificationState = state;
-            batteryStateColor = rgb_t(mLastBatteryState.color);
+            batteryStateColor = rgb(mLastBatteryState.color);
             setLED(batteryStateColor.isLit() ? mLastBatteryState : mLastNotificationState);
             mLEDMutex.unlock();
             break;
@@ -97,7 +97,7 @@ ndk::ScopedAStatus Lights::getLights(std::vector<HwLight>* _aidl_return) {
 
 void Lights::setLED(const HwLightState& state) {
     bool rc = true;
-    rgb_t color(state.color);
+    rgb color(state.color);
     uint8_t blink = (state.flashOnMs != 0 && state.flashOffMs != 0);
 
     switch (state.flashMode) {
