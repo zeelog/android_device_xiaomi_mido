@@ -33,7 +33,7 @@ bool LED::setBrightness(uint8_t value) {
     return writeToFile(mBasePath + "brightness", value * mMaxBrightness / 0xFF);
 }
 
-} // namespace light
-} // namespace hardware
-} // namespace android
-} // namespace aidl
+}  // namespace light
+}  // namespace hardware
+}  // namespace android
+}  // namespace aidl

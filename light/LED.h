@@ -14,19 +14,20 @@ namespace hardware {
 namespace light {
 
 class LED {
-public:
+  public:
     LED(std::string type);
 
     bool exists();
     bool setBreath(uint8_t value);
     bool setBrightness(uint8_t value);
-private:
+
+  private:
     std::string mBasePath;
     uint32_t mMaxBrightness;
     bool mBreath;
 };
 
-} // namespace light
-} // namespace hardware
-} // namespace android
-} // namespace aidl
+}  // namespace light
+}  // namespace hardware
+}  // namespace android
+}  // namespace aidl

@@ -14,7 +14,7 @@ namespace hardware {
 namespace light {
 
 class BacklightBrightness : public BacklightDevice {
-public:
+  public:
     BacklightBrightness(std::string name) : mBasePath(mkBacklightBasePath + name + "/") {
         if (!readFromFile(mBasePath + "max_brightness", &mMaxBrightness)) {
             mMaxBrightness = kDefaultMaxBrightness;
@@ -25,10 +25,9 @@ public:
         writeToFile(mBasePath + "brightness", value * mMaxBrightness / 0xFF);
     }
 
-    bool exists() {
-        return fileWriteable(mBasePath + "brightness");
-    }
-private:
+    bool exists() { return fileWriteable(mBasePath + "brightness"); }
+
+  private:
     std::string mBasePath;
     uint32_t mMaxBrightness;
 
@@ -37,31 +36,28 @@ private:
 };
 
 class LEDBacklight : public BacklightDevice {
-public:
-    LEDBacklight(std::string type) : mLED(type) {};
+  public:
+    LEDBacklight(std::string type) : mLED(type){};
 
-    void setBacklight(uint8_t value) {
-        mLED.setBrightness(value);
-    }
+    void setBacklight(uint8_t value) { mLED.setBrightness(value); }
 
-    bool exists() {
-        return mLED.exists();
-    }
-private:
+    bool exists() { return mLED.exists(); }
+
+  private:
     LED mLED;
 };
 
 static const std::string kBacklightDevices[] = {
-    "backlight",
-    "panel0-backlight",
+        "backlight",
+        "panel0-backlight",
 };
 
 static const std::string kLedDevices[] = {
-    "lcd-backlight",
+        "lcd-backlight",
 };
 
-BacklightDevice *getBacklightDevice() {
-    for (auto &device : kBacklightDevices) {
+BacklightDevice* getBacklightDevice() {
+    for (auto& device : kBacklightDevices) {
         auto backlight = new BacklightBrightness(device);
         if (backlight->exists()) {
             return backlight;
@@ -80,7 +76,7 @@ BacklightDevice *getBacklightDevice() {
     return nullptr;
 }
 
-} // namespace light
-} // namespace hardware
-} // namespace android
-} // namespace aidl
+}  // namespace light
+}  // namespace hardware
+}  // namespace android
+}  // namespace aidl

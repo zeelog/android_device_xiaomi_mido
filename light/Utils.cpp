@@ -24,11 +24,11 @@ bool fileWriteable(const std::string& file) {
     return !access(file.c_str(), W_OK);
 }
 
-bool readFromFile(const std::string& file, std::string *content) {
+bool readFromFile(const std::string& file, std::string* content) {
     return ReadFileToString(file, content, true);
 }
 
-bool readFromFile(const std::string& file, uint32_t *content) {
+bool readFromFile(const std::string& file, uint32_t* content) {
     std::string content_str;
     if (readFromFile(file, &content_str))
         *content = std::stoi(content_str);
@@ -70,7 +70,7 @@ uint8_t rgb::toBrightness() {
     return (77 * red + 150 * green + 29 * blue) >> 8;
 }
 
-} // namespace light
-} // namespace hardware
-} // namespace android
-} // namespace aidl
+}  // namespace light
+}  // namespace hardware
+}  // namespace android
+}  // namespace aidl

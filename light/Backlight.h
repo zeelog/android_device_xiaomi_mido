@@ -12,16 +12,16 @@ namespace hardware {
 namespace light {
 
 class BacklightDevice {
-public:
+  public:
     virtual ~BacklightDevice() = default;
 
     virtual void setBacklight(uint8_t value) = 0;
     virtual bool exists() = 0;
 };
 
-BacklightDevice *getBacklightDevice();
+BacklightDevice* getBacklightDevice();
 
-} // namespace light
-} // namespace hardware
-} // namespace android
-} // namespace aidl
+}  // namespace light
+}  // namespace hardware
+}  // namespace android
+}  // namespace aidl
