@@ -98,7 +98,7 @@ ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) 
 }
 
 ndk::ScopedAStatus Lights::getLights(std::vector<HwLight> *_aidl_return) {
-    for (auto& light : mLights)
+    for (const auto& light : mLights)
         _aidl_return->push_back(light);
 
     return ndk::ScopedAStatus::ok();
