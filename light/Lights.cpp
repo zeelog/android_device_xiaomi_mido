@@ -37,15 +37,10 @@ static LED kLEDs[MAX_LEDS] = {
 
 #define AutoHwLight(light) {.id = (int32_t)light, .type = light, .ordinal = 0}
 
-static const HwLight kBacklightHwLight = AutoHwLight(LightType::BACKLIGHT);
-static const HwLight kBatteryHwLight = AutoHwLight(LightType::BATTERY);
-static const HwLight kButtonsHwLight = AutoHwLight(LightType::BUTTONS);
-static const HwLight kNotificationHwLight = AutoHwLight(LightType::NOTIFICATIONS);
-
 Lights::Lights() {
     mBacklightDevice = getBacklightDevice();
     if (mBacklightDevice) {
-        mLights.push_back(kBacklightHwLight);
+        mLights.push_back(AutoHwLight(LightType::BACKLIGHT));
     }
 
     for (auto& buttons : kAllButtonsPaths) {
@@ -56,12 +51,12 @@ Lights::Lights() {
     }
 
     if (!mButtonsPaths.empty())
-        mLights.push_back(kButtonsHwLight);
+        mLights.push_back(AutoHwLight(LightType::BUTTONS));
 
     mWhiteLED = kLEDs[WHITE].exists();
 
-    mLights.push_back(kBatteryHwLight);
-    mLights.push_back(kNotificationHwLight);
+    mLights.push_back(AutoHwLight(LightType::BATTERY));
+    mLights.push_back(AutoHwLight(LightType::NOTIFICATIONS));
 }
 
 ndk::ScopedAStatus Lights::setLightState(int32_t id, const HwLightState& state) {
