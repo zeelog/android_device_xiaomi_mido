@@ -163,8 +163,6 @@ on charger
     restart thermal-engine
 
 on boot
-    chown system system /sys/kernel/hbtp/display_pwr
-
 # access permission for wlan
     chown system system /mnt/vendor/persist/WCNSS_qcom_wlan_nv.bin
 
