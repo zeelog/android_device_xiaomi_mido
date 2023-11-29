@@ -6,6 +6,9 @@
 ro.config.media_vol_steps=25
 vendor.fastrpc.disable.adsprpcd_sensorspd.daemon=1
 
+# Bluetooth
+bluetooth.sco.disable_enhanced_connection=true
+
 # Camera
 persist.camera.gyro.android=0
 persist.camera.gyro.disable=1
