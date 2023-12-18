@@ -491,7 +491,7 @@
  
      <!-- Display low battery warning when battery level dips to this value.
          Also, the battery stats are flushed to disk when we hit this level.  -->
-    <integer name="config_criticalBatteryWarningLevel">8</integer>
+    <integer name="config_criticalBatteryWarningLevel">5</integer>
 
     <!-- If this is true, the message that USB is only being used for charging will be shown. -->
     <bool name="config_usbChargingMessage">false</bool>
