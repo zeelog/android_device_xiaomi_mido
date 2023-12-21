@@ -67,10 +67,6 @@ ro.fm.transmitter=false
 vendor.hw.fm.init=0
 
 # LMKD/PSI
-ro.lmk.use_psi=true
-ro.lmk.low=1001
-ro.lmk.medium=800
-ro.lmk.critical=0
 ro.lmk.critical_upgrade=true
 ro.lmk.upgrade_pressure=40
 ro.lmk.downgrade_pressure=60
